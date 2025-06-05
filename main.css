@@ -375,6 +375,10 @@ header{
       background-color: transparent;
     }
 
+  #header{
+    display: none;
+  }
+
   article {
     font-size: 12pt;
     padding: 0px;
