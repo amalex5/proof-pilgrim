@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Melting Down Matryoshka Dolls</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="/main.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <script src="../highlight-toc.js" type="text/javascript"></script>
+</head>
+<body>
+<script>document.addEventListener('DOMContentLoaded', function(e) {
+  Scroller.init();
+})</script>
+<aside>
+<div class="tocLinks" >
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#what-happened">What happened?!?</a>
+<ul>
+<li><a href="#take-one-rectangular">Take one (rectangular)</a></li>
+<li><a href="#take-two-polar-take-one">Take two (polar, take one)</a></li>
+<li><a href="#take-three-polar-take-two">Take three (polar, take two)</a></li>
+<li><a href="#the-wreckage">The wreckage</a></li>
+</ul></li>
+<li><a href="#zachs-stripped-down-version-of-this-paradox">Zach’s stripped-down version of this paradox</a></li>
+<li><a href="#glimpses-of-truth">Glimpses of truth</a></li>
+<li><a href="#the-way-up">The way up</a></li>
+<li><a href="#paradoxes-resolved">Paradoxes resolved</a></li>
+<li><a href="#higher-integrals-even-more-generally">Higher integrals, even more generally</a></li>
+<li><a href="#integrating-these-ideas">Integrating these ideas</a></li>
+</ul>
+</nav>
+</div>
+</aside>
+<main>
+<header id="title-block-header">
+<h1 class="title">Melting Down Matryoshka Dolls</h1>
+</header>
+<p>Here’s Ivan, arguing with Alyosha, in the <em>Brothers Karamazov</em>:</p>
+<blockquote>
+<p>“If God exists, and if he indeed created the earth, then, as we know perfectly well, he created it in accordance with Euclidean geometry, and he created human reason with a conception of only three dimensions of space. At the same time there were and even now geometers and philosophers, even some of the most outstanding among them, who doubt that the whole universe, or, even more broadly, the whole of being, was created purely in accordance with Euclidean geometry; they even dare to dream that two parallel lines, which according to Euclid cannot possibly meet on earth, may perhaps meet somewhere in infinity. I, my dear, have come to the conclusion that if I cannot understand even that, then it is not for me to understand about God. I humbly confess that I do not have any ability to resolve such questions, I have a Euclidean mind, an earthly mind, and therefore it is not for us to resolve things that are not of this world. And I advise you never to think about it, Alyosha my friend … all such questions are completely unsuitable to a mind created with a concept of only three dimensions.”<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+</blockquote>
+<p>Back in 1VC, we wanted to measure the area of curvy shapes. We realized that we could do so by using antiderivatives. We called that strategy an <strong>integral</strong>, and we used integrals to calculate 2D areas. Now, in MVC, we’ve realized that we can nest one integral inside another and find a <em>volume</em>! One integral gives us a way of finding a curvy 2D shape; two integrals gives us a way of finding a curvy 3D volume. In more detail, our reasoning has been:</p>
+<ul>
+<li>we can use an integral to find the 2D area of a cross-section of some shape</li>
+<li>then, we can use a second integral to add up the infinite-number of “infinitely-narrow” cross-sections to get the total 3D volume of that shape.</li>
+</ul>
+<p>One integral in one direction to find an area; another integral in an orthogonal direction to find a volume. We’ve gone further: we’ve used <em>three</em> integrals, matryoshka doll’d inside each other, to find 4D hypervolumes (which we’ve euphemistically called “total energy” or “total mass” or some concrete, physical, less-scary moniker).</p>
+<p>Many of you have observed, thus, that integrals have a clean, simple, easy generalization to arbitrary numbers of dimensions: just nest <span class="math inline">\(n\)</span> integrals inside each other to find an <span class="math inline">\(n+1\)</span> hypervolume! As Huxley Marvit ’23 put it on a problem set, “Thinking about these things as lists means we can more easily generalize them to higher dimensions and have loops through and stuff.” So higher-dimensional integrals are just iterated/recursive/nested functions! They’re just nested <code>for</code>-loops!</p>
+<p>This is a fine way to <em>start</em> thinking about integrals in higher dimensions. But it’s not a great way to <em>continue</em> thinking about integrals in higher dimensions. That’s what we’ve now seen, having tried to do integrals using polar coordinates, and having gotten disastrous results.</p>
+<h2 id="what-happened">What happened?!?</h2>
+<p>Let’s recap our pernicious paradox. We had, as a model organism for these problems, a pipe-organ-style shape, consisting of a sawed-off cylinder:</p>
+<p><span class="math display">\[\text{the pipe-organ-pipe} \quad=\quad \substack{\text{the volume underneath $f(x,y)\,=\,5+x+y$}\\\text{inside a cylinder of radius $3$ centered at the origin}}\]</span></p>
+<p><img src="organ-pipe-overview.svg" style="width:25.0%" /></p>
+<p>We tried to find its volume in three different ways. One was rectangular; two were polar/circular. You did all these problems yourself, we discussed them in detail in class, and I wrote about them in even more detail in various solution sets. But, just so we’re definitively on the same page, I’ll outline all of those three ways, and the resulting paradox, below.</p>
+<h3 id="take-one-rectangular">Take one (rectangular)</h3>
+<p>We found the organ-pipe volume first rectangularly. We found the areas of a bunch of cross-sections parallel to the <span class="math inline">\(x\)</span> (or <span class="math inline">\(y\)</span>) axis, and then added them up along the <span class="math inline">\(y\)</span> (or <span class="math inline">\(x\)</span>) axis. We found the cross-sectional areas with one integral; we added up the infinite number of them using a second integral. Visually, the cross-sections whose area we calculated looked something like this:</p>
+<p><img src="organ-pipe-rectangular-slices.svg" style="width:50.0%" /></p>
+<p>That’s a top-down view, too, in addition to the <strong>isometric</strong><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>/from-an angle view. Our calculation, in its outline, looked like:</p>
+<p><span class="math display">\[\begin{align*}
+\substack{\text{the volume of}\\\text{the pipe-organ-pipe}} &amp;= \int \!\substack{\text{the area of}\\\text{its cross-sections}\\\text{parallel to $x$}} \\ \\
+&amp;= \int_{y=-3}^{y=+3} \int_{x=-\sqrt{3^2-y^2}}^{x=+\sqrt{3^2-y^2}} 5+x+y\,dx\,dy \\ \\
+&amp;\quad\quad\quad\vdots \\ \\
+&amp;= 45\pi
+\end{align*}\]</span></p>
+<p>Great! But there were a few problems with this approach.</p>
+<ul>
+<li><p>First of all, this shape is fundamentally circular. Slicing it rectangularly seemed to be disrespectful. It’s ignoring what the shape <em>actually is</em>, and instead imposing our own values onto it. We’ve discussed how it’s weird to take circular shapes and slice them up in non-circular ways. No one cuts a pizza into little square/rectangular slices. That’s “psychotic,” to use Avery Chen ’21’s word.</p></li>
+<li><p>Second, the integral we got by doing so was <em>hideous</em>. So hideous we couldn’t solve it by hand, at least not without knowing a bunch of fancy trig integration techniques. Yet the answer we got was only <span class="math inline">\(45\pi\)</span>. Sometimes hideous integrals are unavoidable. Sometimes beauty comes out of ugliness. But the answer being so simple seems to strongly suggest that there is (or at least <em>should</em> be) a method to find it that’s comparably simple.</p></li>
+</ul>
+<p>So then we tried to calculate it in a more elegant way. We tried to find the volume in a way more respectful of the actual shape. We decided to somehow use polar or circular coordinates, and had two specific ideas for how to do that. Instead of finding cross-sections parallel to an axis, we tried to:</p>
+<ol type="1">
+<li>find cross-sections that are <strong>radial</strong> (like pizza slices), and then add them up as we spin around the shape from <span class="math inline">\(0\)</span> to <span class="math inline">\(2\pi\)</span>, and</li>
+<li>find cross-sections that are circular (<strong>crustial</strong>, if you will), and add them up as we move along a radial line from the center of the shape to the outside of the shape.</li>
+</ol>
+<p>(<strong>Crustial</strong> is a word I made up, to evoke the idea of a bunch of concentric pizza crusts; Charlotte Rosario ’25 points out that the obvious imagery to use is that of an onion, and its concentric shells and circles.)</p>
+<h3 id="take-two-polar-take-one">Take two (polar, take one)</h3>
+<p>In our first method, the radial/pizza slice cross-sections looked something like:</p>
+<p><img src="organ-pipe-radial-slices.svg" style="width:50.0%" /></p>
+<p>So we wanted to find the area of an arbitrary pizza slice, as a function of its angle <span class="math inline">\(\theta\)</span>, and then add them up as we spin a full circle around the shape. To find the area of one of these radial pizza slices, we had to convert our function for the top of the shape, <span class="math inline">\(f(x,y)=7+x+y\)</span> into polar coordinates. With nostalgia for Math 3, we pulled out our beloved conversion formulas:</p>
+<p><span class="math display">\[x=r\cos\theta\]</span></p>
+<p><span class="math display">\[y=r\sin\theta\]</span></p>
+<p>Giving us:</p>
+<p><span class="math display">\[f(r,\theta)= 5+r\cos\theta+r\sin\theta\]</span></p>
+<p>Then we were able to just integrate that from <span class="math inline">\(r=0\)</span> out to <span class="math inline">\(r=3\)</span> to find the area of a pizza slice, and then integrate <em>that</em> from <span class="math inline">\(\theta=0\)</span> to <span class="math inline">\(\theta=2\pi\)</span> to find the volume.</p>
+<p>The full outline of our calculation looked like:</p>
+<p><span class="math display">\[\begin{align*}
+\substack{\text{total volume}\\\text{of this shape}} &amp;= \substack{\text{add up all the volumes}\\\text{of all the radial pizza slices}} \\ \\
+&amp;= \int_{\theta = 0}^{\theta = 2\pi} \left(\substack{\text{the area/infinitely-tiny volume}\\\text{of a radial pizza slice}}\right) \, d\theta \\ \\
+&amp;= \int_{\theta = 0}^{\theta = 2\pi} \left(  \int_{r=0}^{r=3} 5 + r\cos\theta + r\sin\theta \, dr \right) \, d\theta \\ \\
+&amp;\quad \vdots \\ \\
+&amp;\quad\quad \text{etc.} \\
+&amp;\quad\quad \text{(this was a much cleaner pair of integrals we were able to work out by hand)} \\
+&amp;\quad \vdots \\ \\
+&amp;= 30\pi
+\end{align*}\]</span></p>
+<p>CALAMITY!!!! The answer’s different!!!! We should be able to find the volume however we want, and we should get the same answer!!!!</p>
+<p><span class="math display">\[\substack{\text{the volume of this shape}\\\text{found by adding up retcangular slices}} \quad=\quad \substack{\text{the volume of this shape}\\\text{found by adding up polar pizza slices}} \]</span></p>
+<p>And yet:</p>
+<p><span class="math display">\[30\pi \quad\neq\quad 45\pi\]</span></p>
+<h3 id="take-three-polar-take-two">Take three (polar, take two)</h3>
+<p>So that was upsetting. Then we tried our other polarly-inspired method, that of making circular/crustial/onion-ring slices, finding their area (as a function of <span class="math inline">\(r\)</span>, their distance from the center), and adding them up as we slide in and out on a radial line, as the radius goes from <span class="math inline">\(0\)</span> out to <span class="math inline">\(3\)</span>.</p>
+<p><img src="organ-pipe-crustial-slices.svg" style="width:50.0%" /></p>
+<p>There were a couple of details to work out here. Each of the crustial cross-sections were curvy (unlike the radial cross-sections), which meant we had to do a full-fledged line integral. So to find the area of a crustial cross-section, we had to take a line integral under the top surface, along a concentric/crustial path. So we parameterized the function along that concentric/crustial path, and then we find the line element/differential arc length/curviness-correction-factor/infinitely-narrow-width. And, actually, we’ve already seen(/proven) that for circles, the curviness correction factor works out to be just their radius. In this case, that’s <span class="math inline">\(5\)</span>. Or rather, <span class="math inline">\(r\)</span>, since we’re finding the area of a crust-concentric slice at a distance <span class="math inline">\(r\)</span> from the center (not just the outermost crust slice at <span class="math inline">\(r=5\)</span>). Anyway, so, in the outline, our calculation looked like:</p>
+<p><span class="math display">\[\begin{align*}
+\substack{\text{the volume of}\\\text{the pipe-organ-pipe}} &amp;= \,\,\substack{\text{add up the areas}\\\text{of all the ``crust&#39;&#39; cross-sections}} \\ \\
+&amp;= \int_{r=0}^{r=3} \left( \substack{\text{area of a ``crust&#39;&#39; cross-section}\\\text{at distance $r$ from the center}} \right)\, dr \\ \\
+&amp;= \int_{r=0}^{r=3} \left( \substack{\text{the line integral}\\\text{along a crustial path}} \right)\, dr \\ \\
+&amp;= \int_{r=0}^{r=3} \left( \int_{\theta=0}^{\theta=2\pi} (5 + r\cos\theta + r\sin\theta)\cdot r  d\theta \right) \, dr \\ \\
+&amp;\quad \vdots \\ \\
+&amp;\quad\quad \text{etc.} \\
+&amp;\quad\quad \text{(this was also fine to do by hand)} \\
+&amp;\quad \vdots \\ \\
+&amp;= 45\pi
+\end{align*}\]</span></p>
+<p>OK, so this worked? Or, at least, gave us the same answer as the rectangular method??</p>
+<h3 id="the-wreckage">The wreckage</h3>
+<p>Still, we should be distressed. We should have:</p>
+<p><span class="math display">\[\substack{\text{the volume of this shape}\\\text{found by adding up}\\\text{rectangular slices}} \quad=\quad \substack{\text{the volume of this shape}\\\text{found by adding up}\\\text{crustially-concentric slices}} \quad=\quad \substack{\text{the volume of this shape}\\\text{found by adding up}\\\text{polar pizza slices}} \]</span></p>
+<p>But in fact we found:</p>
+<p><span class="math display">\[\underbrace{\substack{\text{the volume of this shape}\\\text{found by adding up}\\\text{rectangular slices}}}_{=45\pi} \quad=\quad \underbrace{\substack{\text{the volume of this shape}\\\text{found by adding up}\\\text{crustially-concentric slices}}}_{=45\pi} \quad\neq\quad \underbrace{\substack{\text{the volume of this shape}\\\text{found by adding up}\\\text{polar pizza slices}}}_{=30\pi} \]</span></p>
+<p>What’s going on here???</p>
+<p>Computer systems for aerospace applications—the avionics on the space shuttle, or even on the 737 you took to visit Grandma—typically have <strong><a href="https://en.wikipedia.org/wiki/Triple_modular_redundancy">triple modular redundancy</a></strong>. There are actually <em>three</em> separate, independent computers doing all the calculations. So if one messes up for some reason, there are still two backups! Effectively, avionics calculations and decisions thus get made by a “best two out of three” style of voting. You don’t want a flipped bit to make your flight fall out of the sky!</p>
+<p>But good enough for NASA isn’t good enough for us. We need <strong>infinite modular redundancy</strong>. No errors. No contradictions.</p>
+<p>A few people in class were joking that in the radial/polar pizza slice version, we need a “get the right answer” correction factor of <span class="math inline">\(1.5\)</span>. In other contexts, the name people use for that is “fraud.”</p>
+<p>If we examine the two polar versions closely, we can see that we get the exact same integrals via either argument/method—<em>except</em> that the crustial method has an extra <span class="math inline">\(r\)</span> in the integral. And the crustial method is the one that appears to be correct, or rather, is the method whose answer agrees with the rectangular method. So it seems we need an extra <span class="math inline">\(r\)</span>? But why? What’s going on?</p>
+<h2 id="zachs-stripped-down-version-of-this-paradox">Zach’s stripped-down version of this paradox</h2>
+<p>Zach Sayyah ’23 came up with an even simpler, stripped-down, lower-dimensional version of this paradox.</p>
+<p>Suppose we’re trying to find the (two-dimensional) area of a (two-dimensional) rectangle, of width <span class="math inline">\(w\)</span> and height <span class="math inline">\(h\)</span>:</p>
+<p><img src="rectangle-cross-sections-1.svg" style="width:50.0%" /></p>
+<p>Of course the area is <span class="math inline">\(w\cdot h\)</span>. But why? One way to think about why this is is that, to find the area of a rectangle, we add up the infinite number of infinitely-thin cross sectional lines:</p>
+<p><img src="rectangle-cross-sections-2.svg" style="width:50.0%" /></p>
+<p>Each of these cross-sectional lines has length <span class="math inline">\(l\)</span>, or some infinitely-tiny area <span class="math inline">\(l dh\)</span>, and so we add up all infinity of them, using an integral, and we get <span class="math inline">\(l \cdot h\)</span>:</p>
+<p><img src="rectangle-cross-sections-3.svg" style="width:50.0%" /></p>
+<p>Great. What about a circle? What if we want to find the area of a circle? We know the area is <span class="math inline">\(\pi r^2\)</span>, but why? Here’s a similar argument. We have an infinite number of infinitely-thin cross-sectional (or rather, radial) lines, all of length <span class="math inline">\(r\)</span>, and we add them up! Our radial lines are of length <span class="math inline">\(r\)</span>, and look like:</p>
+<p><img src="circle-radial-slices-1.svg" style="width:50.0%" /></p>
+<p>Let’s say these radial cross-sections have an infinitely-narrow width <span class="math inline">\(dt\)</span>:</p>
+<p><img src="circle-radial-slices-2.svg" style="width:50.0%" /></p>
+<p>So each radial cross-section has an infinitely-tiny area of <span class="math inline">\(r\cdot dt\)</span>. We add up all infinity of them by integrating and spinning them around the full <span class="math inline">\(2\pi \cdot r\)</span> of the circumference of the entire circle:</p>
+<p><span class="math display">\[\begin{align*}
+\text{total area of the circle}\,\, &amp;=  \int_{0}^{2\pi r} r \, dt \\ \\
+&amp;= \Big[\, rt \,\Big]_{0}^{2\pi r} \\ \\
+&amp;= r\cdot 2\pi r\, \\ \\
+&amp;= 2\pi r^2
+\end{align*}\]</span></p>
+<p>Which is effectively the same as multiplying the cross-sectional length, <span class="math inline">\(r\)</span>, by the circumference, <span class="math inline">\(2\pi r\)</span>:</p>
+<p><img src="circle-radial-slices-3.svg" style="width:50.0%" /></p>
+<p>But this… is obviously not true.</p>
+<p>Aaaaaaghhhh!!!!</p>
+<h2 id="glimpses-of-truth">Glimpses of truth</h2>
+<p>Sam Mazlish ’24 was a prophet. We should have listened to him.</p>
+<p>(Or rather, the prophets were speaking to Sam. We should have encouraged him to listen to them.)</p>
+<p>Remember one of the first days in class when we were trying to use double integrals to compute volumes? I had brought those band-sawed-and-bolted reams of paper, as an example of how we can think of 3D shapes as being composed of an infinite number of infinitely-thin cross-sections.</p>
+<p><img src="IMG_1676.JPG" style="width:50.0%" /></p>
+<p>Lale Erbay ’25 noticed that one of the shapes whose volume we were trying to compute was vaguely circular, and so was trying to convert it to polar coordinates to make it easier. Great idea! Great insight! Great strategy! In particular, she was trying to find the area of a radial cross-section and then add them up by spinning them around in a circle, much like we later tried to do with the organ-pipe shape.</p>
+<p>Sam, however, was uncertain. “If you have a finite number of sheets of paper and revolve them around, the density is higher at the center,” he said. “They’re less dense at the outside.”</p>
+<p>(Later, Sam asked: “Is that different if you have an infinite number of sheets of paper?” This was also a great observation! Infinite sets sometimes behave in ways that are very counterintuitive and different from how finite sets behave…)</p>
+<h2 id="the-way-up">The way up</h2>
+<p>We had a beautiful world in which higher-dimensional integrals were just nested single integrals. That world is now gone. It’s collapsed. We’re standing in the ruins. Rubble everywhere. Postwar. How do we rebuild?</p>
+<p>Here’s my proposal. Rather than think of multiple integrals as iterated/nested single integrals, let’s think of them as creatures in their own right. To actually <em>compute</em> them, we might want to translate them into iterated/nested single integrals. But that doesn’t mean that’s what they actually <em>are</em>, ontologically.</p>
+<p>Let’s take double integrals as an example. The better way to think about a double integral is <em>not</em> to think of it as being two repeated/nested/iterated single integrals. Rather, the better way to think about it is as this <em>craaaaazy</em> machine that adds up an infinite-number of infinitely-small 3D boxes, all at once!<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> If we want to actually compute it, well, we can translate it into two repeated/nested/iterated 1D integrals. But that’s distinct from the way we’re <em>fundamentally thinking</em> about what a double integral <em>is</em>. Computation is just an implementation detail.</p>
+<p>In other words, higher integrals aren’t matryoshka dolls of iterated single integrals. We want to take our family heirloom matryoshka doll, move it to the kiln, and <em>melt it down</em>. We want all those layers to fuse into one!!! Nice matryoshka dolls, of the sort one might have as a family heirloom, are carved wood, so they won’t melt, but so I’m imagining mid-century Soviet matryoshka doll made out of some early plastic, back when plastics were new and fancy and all the rage… anyway, from the haze of carcinogenic sublimed synthetic hydrocarbons, a truer, more singular, vision of integration will emerge.</p>
+<p>So, let’s think about higher-dimensional integrals as machines that magically add up infinite numbers of infinitely-small <span class="math inline">\(n\)</span>-dimensional boxes. For example:</p>
+<ul>
+<li><strong>A single integral</strong>: a machine that adds up an infinite number of infinitely-small 2D boxes (to get a 2D area)</li>
+<li><strong>A double integral</strong>: a machine that adds up an infinite number of infinitely-small 3D boxes (to get a 3D volume)</li>
+<li><strong>A triple integral</strong>: a machine that adds up an infinite number of infinitely-small 4D boxes (to get a 4D “volume”)</li>
+</ul>
+<p>In more detail, here’s how we can think about them:</p>
+<ul>
+<li>
+<strong>A single integral</strong>:
+<ul>
+<li>
+<p>each 2D box has height <span class="math inline">\(f(x)\)</span> and infinitely-narrow (1D) width <span class="math inline">\(dx\)</span>:</p>
+<p><img src="2d-integral-1.svg" style="width:75.0%" /></p>
+</li>
+</li>
+so then each infinitely-small 2D box has area: <span class="math display">\[f(x)\,dx\]</span> <img src="2d-integral-2.svg" style="width:75.0%" />
+</li>
+<li>
+and when we add them up to get the total 2D area, we have: <span class="math display">\[\int f(x)\,dx\]</span>
+</li>
+</ul>
+</li>
+<li>
+<strong>A double integral</strong>:
+<ul>
+<li>
+<p>each 3D box has height <span class="math inline">\(f(x,y)\)</span> and an infinitely-small 2D base area <span class="math inline">\(dA\)</span></p>
+<img src="3d-integral-1-1.svg" style="width:75.0%" />
+</li>
+<li>
+<p>so then each infinitely-small 3D box has volume: <span class="math display">\[f(x,y)\,\cdot\, dA\]</span></p>
+<img src="3d-integral-1-2.svg" style="width:75.0%" />
+</li>
+<li>
+and when we add them up to get the total 3D volume, we have: <span class="math display">\[\int f(x,y)\,dA\]</span>
+</li>
+<li>
+<p>and to actually compute it, we might translate it into two nested single integrals, like so:</p>
+<span class="math display">\[\iint f(x,y) \, dx\, dy\]</span>
+</li>
+</ul>
+</li>
+<li>
+<strong>A triple integral</strong>:
+<ul>
+<li>
+each 4D box has “height” <span class="math inline">\(f(x,y,z)\)</span> and an infinitely-small 3D volume <span class="math inline">\(dV\)</span>
+</li>
+<li>
+so then each infinitely-small 4D box has an infinitely-small “4D volume:” <span class="math display">\[f(x,y,z)\,\cdot \, dV\]</span>
+</li>
+<li>
+and when we add them up to get the total “4D volume,” we have: <span class="math display">\[\int f(x,y,z)\,dV\]</span>
+</li>
+<li>
+<p>and to actually compute it, we might translate it into three nested single integrals, like so:</p>
+<span class="math display">\[\iiint f(x,y,z)\, dx\, dy\, dz\]</span>
+</li>
+</ul>
+</li>
+</ul>
+<p>The notation with higher-dimensional integrals can get misleading. Above, I’ve tried to use only a single <span class="math inline">\(\int\)</span> symbol for each integral, regardless of whether it’s a single, double, or triple integral. But often people will use <span class="math inline">\(\iint\)</span> for all their double integrals, and <span class="math inline">\(\iiint\)</span> for all their triple integrals. I’m not a huge fan of that. It seems to imply that a triple integral (e.g.) is three things. After all, it’s three <span class="math inline">\(\int\)</span>’s. It’s easy to think of <span class="math inline">\(dx\)</span>, <span class="math inline">\(dA\)</span>, and <span class="math inline">\(dV\)</span> as each being “one” thing (’cause they’re each one symbol), but <span class="math inline">\(\iint\)</span> is two symbols! <span class="math inline">\(\iiint\)</span> is three symbols! Plus we use the words “double” and “triple,” which also imply that we’re <em>repeating</em> something. The word “multiple integrals” implies that there are multiple things—not just one thing! Maybe we should just call them <strong>2D integrals</strong> and <strong>3D integrals</strong> or something instead. The point is, <em>fundamentally</em> a “multiple integral” is a single integral. It’s just a single integral in some higher-dimensional space.</p>
+<p>But we haven’t yet resolved the paradox of what’s going on when we try to do an integral in polar coordinates, and why thints break. Plus, I can hear your rejoinder: “Andrew! You’re making a distinction without a difference! So we write a <span class="math inline">\(dA\)</span>, and then we simplify it to <span class="math inline">\(dx\cdot dy\)</span>. That’s obvious. So what? Sure, it’s ‘one integral,’ but really, it automatically becomes two.”</p>
+<p>Here’s the issue. All of the integrals we’ve done so far have been using functions in rectangular/Cartesian coordinates. We’ve <a href="https://en.wikipedia.org/wiki/Orthonormal_basis">coordinate systems constructed from nice, orthogonal axes</a>. <span class="math inline">\(90^\circ\)</span> angles everywhere. Safe, square, linear. A world made of graph paper, paregoric in its predictability.</p>
+<p>Now, though, we’re trying to take integrals that involve describing shapes in <em>circular</em> ways. Not straight ways. <em>Curvy</em> ways. Calculus gives us a way to talk about curvy things. That’s the entire point, and that’s what we’ve done for a long time: we take a curvy object; we zoom in infinitely-far; it becomes straight; we use our tried-and-true tools of Euclidean geometry. Everything works out.</p>
+<p>But what if the way we’re describing these objects is <em>itself</em> curvy? Not whether the objects are curvy, but whether our <em>language</em> is curvy? This is the situation we find ourselves in now. Not only are we trying to calculate properties of a curvy shape—the volume of the pipe-organ-pipe—we’re trying to do so when we’re describing it curvily, using curvy language. Curvy syntax. Curvy words. Block letters are out; beautiful cursive is in. We have an inkwell and a quill, when what we really need is a drafting pencil and a T-square. So what do we do?</p>
+<p>We need to account for that curviness. We need some sort of correction factor.</p>
+<p>In principle, this isn’t new. At the beginning of the year, we came up with our “curvy line correction factor” (alternatively called the differential arc length, line element, or things like that) which let us use integrals to measure the lengths of curvy lines. We used that again at the beginning of this semester when we came up with the idea of a line integral—a normal 1D integral to find a normal 2D area, <em>but</em> over a potentially-curvy base, for which we we need to account using this correction factor.</p>
+<p>Likewise here. How do we account for the fact that the way we’re describing the objects we’re trying to integrate is potentially curvy?!?</p>
+<p>Let’s back up and think even more deeply about what it means to take a double integral in rectangular coordinates. In our rectangular world, the fabric of reality (or at least the language we use to describe reality) is a rectangular lattice—graph paper turned into the universe; a land surveyor’s deepest dream; the <a href="https://en.wikipedia.org/wiki/Public_Land_Survey_System">Public Lands Survey System</a> repurposed for all reality:</p>
+<p><img src="rectangular-world-1.svg" style="width:75.0%" /></p>
+<p>Zoom in infinitely far, and the world is still just made of tiny rectangular boxes:</p>
+<p><img src="rectangular-world-2.svg" style="width:75.0%" /></p>
+<p>To do a “2D integral”/double integral in rectangular, we need to find the area of an infinitely-tiny little rectangle (an infinitesimal <a href="https://en.wikipedia.org/wiki/Planck_units">Planck area</a> of our coordinate system):</p>
+<p><img src="rectangular-world-3.svg" style="width:75.0%" /></p>
+<p>But how do we do that? Well, we know that one of these infinitely-tiny boxes that make up the fabric of our rectangular reality has an infinitely-tiny width, <span class="math inline">\(dx\)</span>, and an infinitely-tiny height, <span class="math inline">\(dy\)</span>:</p>
+<p><img src="rectangular-world-4.svg" style="width:75.0%" /></p>
+<p>So then, because this is a rectangle, the area is just width times height, or <span class="math inline">\(dA = dx\cdot dy\)</span>:</p>
+<p><img src="rectangular-world-5.svg" style="width:75.0%" /></p>
+<p>Great!</p>
+<p>But what about in our polar world??? In our polar world, the fabric of reality looks like:</p>
+<p><img src="polar-world-1.svg" style="width:75.0%" /></p>
+<p>(I showed this to Jana. “Look at what happens at the center!,” she remarked.) If we zoom in infinitely far in our polar world, an infinitely-tiny 2D region of space doesn’t look like a rectangle. It looks like a <em>wedge</em>. A wedge chopped out of a circle, curvy and semicircular on two sides, straight and radial on the others:</p>
+<p><img src="polar-world-2.svg" style="width:75.0%" /></p>
+<p>So to do a 2D integral/double integral in polar, we’ll need to find the area of that infinitely-tiny region:</p>
+<p><img src="polar-world-3.svg" style="width:75.0%" /></p>
+<p>But… how?</p>
+<p>Let’s suppose we have some infinitely-tiny wedge, with infinitely-tiny area <span class="math inline">\(dA\)</span>, created by an infinitely-tiny angle of <span class="math inline">\(d\theta\)</span> (<strong>subtended</strong> by an angle is the fancy math word), with a width (in the radial direction) of an infinitely-tiny length <span class="math inline">\(dr\)</span>:</p>
+<p><img src="polar-differential-derivation-1.svg" style="width:75.0%" /></p>
+<p>Because of how circles and wedges work, the further away from the origin it is, the bigger it’ll be; the closer to the origin it is, the smaller it’ll be. (… even though it’s infinitely small in either case?!?) So let’s say that its center is a distance <span class="math inline">\(r\)</span> from the origin:</p>
+<p><img src="polar-differential-derivation-2.svg" style="width:75.0%" /></p>
+<p>So then, the inner edge of the wedge is at <span class="math inline">\(r-\frac{dr}{2}\)</span> (that’s how far away it is from the origin, radially); the outer edge of the wedge is at <span class="math inline">\(r+ \frac{dr}{2}\)</span>:</p>
+<p><img src="polar-differential-derivation-3.svg" style="width:75.0%" /></p>
+<p>So… what’s the area of that wedge??? We worked this out in class, but I’ll run through the calculation here. We can conceptualize this as being <em>two</em> wedges, both starting at the origin; a smaller one going out to the inner edge of the wedge and a bigger one going all the way out to the outer edge. So if we take the area of the bigger wedge and subtract the area of the smaller wedge, we’ll have the area of the wedge we care about: So we have:</p>
+<p><span class="math display">\[\begin{align*}
+dA \quad=\quad \substack{\text{the area}\\\text{of the wedge}} \quad&amp;= (\text{area of big wedge}) - (\text{area of small wedge})
+\end{align*}\]</span></p>
+<p>Each wedge will have an area that’s a percentage of the total circle it’s cut out of:</p>
+<p><span class="math display">\[\begin{align*}
+&amp;= (\substack{\text{percentage of area}\\\text{of big circle}}) - (\substack{\text{percentage of area}\\\text{of little circle}})
+\end{align*}\]</span></p>
+<p>The total angle of a full circle is <span class="math inline">\(2\pi\)</span>, but here we have a wedge that’s carving out just <span class="math inline">\(d\theta\)</span> of a full <span class="math inline">\(2\pi\)</span> circle, so we have:</p>
+<p><span class="math display">\[\begin{align*}
+&amp;= \%\cdot\left(\substack{\text{total area of }\\\text{big circle}}\right) - \%\cdot\left(\substack{\text{total area of }\\\text{little circle}}\right) \\ \\
+&amp;= \frac{d\theta}{2\pi}\cdot\left(\substack{\text{total area of }\\\text{big circle}}\right) - \frac{d\theta}{2\pi}\cdot\left(\substack{\text{total area of }\\\text{little circle}}\right) \\
+\end{align*}\]</span></p>
+<p>The area of a circle is <span class="math inline">\(\pi(\text{its radius})^2\)</span>, and here the radii of the two corresponding circles are <span class="math inline">\(r-\frac{dr}{2}\)</span> and <span class="math inline">\(r+\frac{dr}{2}\)</span>, so we have:</p>
+<p><span class="math display">\[\begin{align*}
+&amp;= \frac{d\theta}{2\pi}\cdot \pi\left(r+\frac{dr}{2}\right)^2 \,\,-\,\, \frac{d\theta}{2\pi}\cdot\pi\left(r-\frac{dr}{2}\right)^2 \\
+\end{align*}\]</span></p>
+<p>Working this out takes a bunch of tedious algebra (not <em>that</em> much, tbh) but given that we’re in multivariable calculus, I’m going to assume that you can work it out yourself. Or make you work it out yourself. Anyway, so, the outline of the full calculation, and its conclusion, is something like:</p>
+<p><span class="math display">\[\begin{align*}
+dA \quad=\quad \substack{\text{the area}\\\text{of the wedge}} \quad&amp;= (\text{area of big wedge}) - (\text{area of small wedge}) \\ \\
+&amp;= \frac{d\theta}{2\pi}\cdot \pi\left(r+\frac{dr}{2}\right)^2 \,\,-\,\, \frac{d\theta}{2\pi}\cdot\pi\left(r-\frac{dr}{2}\right)^2 \\ \\
+&amp;\quad\quad\vdots \\ \\
+&amp;\text{algebraaaaaa} \\ \\
+&amp;\quad\quad\vdots \\ \\
+&amp;= r\, dr \, d\theta
+\end{align*}\]</span></p>
+<p>Yay! So our correction factor, as we’ve intuited or otherwise figured out, is <span class="math inline">\(r\)</span>. We throw in an extra <span class="math inline">\(r\)</span>, we integrate not over <span class="math inline">\(dr\,d\theta\)</span> but over <span class="math inline">\(r\, dr\, d\theta\)</span>, and then VOILA, we can do <em>integrals in polar coordinates</em> to our hearts’ contents.</p>
+<p><img src="polar-world-4.svg" style="width:75.0%" /></p>
+<p>Of course… polar and rectangular aren’t the only coordinate systems that we can use to model two-dimensional reality. We could have some weird hipster DIY coordinate system, in which the fabric of reality looks like:</p>
+<p><img src="skewed-rectangular-world.svg" style="width:75.0%" /></p>
+<p>(It’s like those <a href="https://en.wikipedia.org/wiki/Soft_story_building">soft-story buildings</a> in SF after the <a href="https://en.wikipedia.org/wiki/1989_Loma_Prieta_earthquake">1989 Loma Prieta earthquake</a>!) Or we could have a world in which the coordinate system/fabric of reality looks like:</p>
+<p><img src="hipster-diy-coordinates-2.svg" style="width:75.0%" /></p>
+<p>Seems terrifying! If we want to do integrals in either of those worlds, we’d need to work out the corresponding correction factors. And all this is just for two dimensions! We haven’t even spoken about different coordinate systems and different correction factors for higher dimensions!</p>
+<h2 id="paradoxes-resolved">Paradoxes resolved</h2>
+<p>Having deepened our understanding of integrals, can we now figure out what we did wrong in trying to find the volume of the organ-pipe shape? Let’s go back to our erroneous integral, the one that supposedly involved radial pizza-slice cross-sections: <span class="math display">\[\substack{\text{total volume of this shape}\\\text{calculated by adding up radial pizza slices}} \quad \overset{\text{not actually!}}{=}\quad \int_{\theta = 0}^{\theta = 2\pi} \int_{r=0}^{r=3} 7+r\cos\theta+r\sin\theta \, dr d\theta\]</span> In fact what the above integral is doing is finding the total volume of all these infinitely-thin radial cross-sections, but when they’re arranged in a <em>rectangle</em>, not a circle: <img src="organ-pipe-fallacious-integral.svg" style="width:75.0%" /> It finds us the volume of something that’s kind of like our original organ-pipe shape, but cut and stretched so that its base is a rectangle with sides of length <span class="math inline">\(3\)</span> and <span class="math inline">\(2\pi\)</span>.</p>
+<p>So, to actually compute the volume of all these radial cross-sections, arranged in a circle like our organ-pipe shape, we need to use this polar coordinates double integral correction factor, <span class="math inline">\(r\, dr\, d\theta\)</span>. The full calculation (and I’m going to show the details now!) looks like: <span class="math display">\[\begin{align*}
+\substack{\text{total volume}\\\text{of the organ pipe}} \quad&amp;=\quad \substack{\text{add up the infinite number}\\\text{of infinitely-tiny}\\\text{radial pizza slices}} \\ \\
+&amp;= \int\limits_{\substack{\text{this}\\\text{shape}}} \substack{\text{the volume of}\\\text{an infinitely-tiny}\\\text{radial pizza slice}} \\ \\
+&amp;= \int\limits_{\substack{\text{this}\\\text{shape}}} \left(\substack{\text{the height of an}\\\text{infinitely-tiny radial pizza slice}}\right)\cdot\left(\substack{\text{the infinitely-tiny base area}\\\text{of a radial pizza slice}}\right) \\ \\
+&amp;= \int\limits_{\substack{\text{this}\\\text{shape}}} \underbrace{\left(\substack{\text{the height of an}\\\text{infinitely-tiny radial pizza slice}}\right)}_{=7+r\cos\theta + r\sin\theta}\cdot\underbrace{\left(\substack{\text{the infinitely-tiny base area}\\\text{of a radial pizza slice}}\right)}_{=dA}\end{align*}\]</span> Plugging in our function, this is: <span class="math display">\[\begin{align*}&amp;= \int\limits_{\substack{\text{this}\\\text{shape}}} \big(\, 7+r\cos\theta + r\sin\theta \,\big) \cdot dA\end{align*}\]</span> In polar coordinates, <span class="math inline">\(dA=r\,dr\,d\theta\)</span>, so this becomes: <span class="math display">\[\begin{align*}&amp;= \int\limits_{\substack{\text{this}\\\text{shape}}} \big(\, 7+r\cos\theta + r\sin\theta \,\big) \cdot r\,dr\,d\theta \\ \\
+&amp;= \int_{\theta = 0}^{\theta = 2\pi}\int_{r=0}^{r=3} \big(\, 7+r\cos\theta + r\sin\theta \,\big) \cdot r\,dr\,d\theta \\ \\
+&amp;= \int_{\theta = 0}^{\theta = 2\pi}\int_{r=0}^{r=3} 7r+r^2\cos\theta + r^2\sin\theta \,\,  dr\,d\theta\end{align*}\]</span> OK, and now we this is two single integrals, one inside the other!!! Working out the innermost integral, the one with respect to <span class="math inline">\(r\)</span>, we have: <span class="math display">\[\begin{align*}&amp;= \int_{\theta = 0}^{\theta = 2\pi}\left(\int_{r=0}^{r=3}  7r+r^2\cos\theta + r^2\sin\theta \,dr\right) \,d\theta \\ \\
+&amp;= \int_{\theta = 0}^{\theta = 2\pi}\left[\,\frac72r^2+\frac13r^3\cos\theta + \frac13r^3\sin\theta \,\right]_{r=0}^{r=3} \,d\theta \\ \\
+&amp;= \int_{\theta = 0}^{\theta = 2\pi}\left(\,\frac723^2+\frac133^3\cos\theta + \frac133^3\sin\theta \,\right) \quad-\quad \left( \frac720^2+\frac130^3\cos\theta + \frac130^3\sin\theta \right) \,d\theta \\ \\
+&amp;= \int_{\theta = 0}^{\theta = 2\pi}\left(\,\frac{63}{2}+9\cos\theta + 9\sin\theta \,\right) \quad-\quad \left(0 \right) \,d\theta\end{align*}\]</span> And now we can do the outer integral, the one w/r/t <span class="math inline">\(\theta\)</span>: <span class="math display">\[\begin{align*}&amp;= \int_{\theta = 0}^{\theta = 2\pi} \frac{63}{2}+9\cos\theta + 9\sin\theta  \,d\theta \\ \\
+&amp;= \left[\, \frac{63}{2}\theta +9\sin\theta - 9\cos\theta \,\right]_{\theta = 0}^{\theta = 2\pi} \\ \\
+&amp;= \left(\, \frac{63}{2}\cdot 2\pi  +9\sin(2\pi) - 9\cos(2\pi) \,\right) \quad-\quad \left(\, \frac{63}{2}\cdot 0 +9\sin(0) - 9\cos(0) \,\right) \\ \\
+&amp;= \left(\, \frac{63}{2}\cdot 2\pi  +9\cdot 0 - 9\cdot 1 \,\right) \quad-\quad \left(\, \frac{63}{2}\cdot 0 +9\cdot 0 - 9\cdot 1 \,\right) \\ \\
+&amp;= \left(\, \frac{63}{2}\cdot 2\pi   - 9\,\right) \quad-\quad \left(\, - 9 \,\right) \\ \\
+&amp;= \frac{63}{2}\cdot 2\pi \\ \\
+&amp;= 63\pi
+\end{align*}\]</span> Yay! <span class="math inline">\(63\pi\)</span>! The (apparently) right answer!</p>
+<h2 id="higher-integrals-even-more-generally">Higher integrals, even more generally</h2>
+<p>Earlier, when we talked about how multiple integrals are their own creatures, we used a specific coordinate system. For example, we said that double integrals are made of infinitely-small boxes with an infinitely-small base area <span class="math inline">\(dA\)</span> and a finite height <span class="math inline">\(f(x,y)\)</span>. But <span class="math inline">\((x,y)\)</span> describes some point in <span class="math inline">\(\mathbb{R}^2\)</span> specifically in <em>rectangular</em>. Why restrict ourselves? Writing a 2D point using rectangular/Cartesian/Euclidean coordinates is overly particular. It’s just a way of <em>describing</em> a point. We’re trying to think of things more generally now. We’re trying to generalize to other coordinate systems (like polar). We’ve done that partially. <span class="math inline">\(dA\)</span> is an infinitely-small 2D base area; it’s more general than the specific, rectangularly-described 2D base area <span class="math inline">\(dx\, dy\)</span>.</p>
+<p>Let’s keep going! Instead of writing <span class="math inline">\((x,y)\)</span>, let’s write “some point in <span class="math inline">\(\mathbb{R}^2\)</span>” instead, and leave it unresolved precisely <em>how</em> we describe/articulate that point. We could describe it in rectangular, in polar, in some hipster DIY coordinate system, whatever. That’s just an implementation detail!</p>
+<p>So then, with more nuance, we can conceptualize double integrals as:</p>
+<ul>
+<li>
+<strong>A double integral:</strong>
+<ul>
+<li>
+<p>each 3D box has a height <span class="math inline">\(f\left(\substack{\text{some point}\\\text{in }\mathbb{R}^2}\right)\)</span> and an infinitely-small 2D base area <span class="math inline">\(dA\)</span>:</p>
+<img src="3d-integral-2-1.svg" style="width:75.0%" />
+</li>
+<li>
+<p>so then each infinitely-small 3D box has volume:</p>
+<p><span class="math display">\[ f\left(\substack{\text{some point}\\\text{in }\mathbb{R}^2}\right)\,dA \]</span></p>
+<img src="3d-integral-2-2.svg" style="width:75.0%" />
+</li>
+<li>
+<p>and when we add them up to get the total 3D volume, we have: <span class="math display">\[ \int f\left(\substack{\text{some point}\\\text{in }\mathbb{R}^2}\right)\,dA \]</span></p>
+(Note that here in my pictures, I’ve now drawn <span class="math inline">\(dA\)</span> as an arbitrary 2D blob, rather than the rectangle that I drew it as in the earlier picture. And I’ve just written “<span class="math inline">\(f\)</span>” to denote the value of the function, at some arbitrary-but-unknown point in some arbitrary-but-unknown coordinate system!)
+</li>
+<li>
+If we actually want to <em>compute</em> one of these guys, we can translate them into a bunch of nested/iterated single integrals!
+<ul>
+<li>
+<p>Translating a double integral into two single integrals in rectangular is easy:</p>
+<p><span class="math display">\[\begin{align*}
+&amp;= \int f\left(\substack{\text{some point}\\\text{in }\mathbb{R}^2}\right)\,dA \\
+&amp;= \int f\left(x,y\right)\,dA \\
+&amp;= \int \int f\left(x,y\right)\,\underbrace{dx\, dy}_\mathclap{\substack{\text{rectangular coordinates}\\\text{``correction factor&#39;&#39;}}}
+\end{align*}\]</span></p>
+</li>
+<li>
+<p>Translating a double integral in polar coordinates into two single integrals involves adding (well, <em>multiplying</em>) a correction factor:</p>
+<span class="math display">\[\begin{align*}
+&amp;= \int f\left(\substack{\text{some point}\\\text{in }\mathbb{R}^2}\right)\,dA \\
+&amp;= \int f\left(r,\theta\right)\,dA \\
+&amp;= \int \int f\left(r,\theta\right)\,\underbrace{r\, dr\, d\theta}_\mathclap{\substack{\text{polar coordinates}\\\text{correction factor}}}
+\end{align*}\]</span>
+</li>
+<li>
+<p>And translating a double integral in your own hipster DIY coordinate system involves figuring out the correction factor for your hipster DIY coordinate system!!!</p>
+<p><span class="math display">\[\begin{align*}
+&amp;= \int f\left(\substack{\text{some point}\\\text{in }\mathbb{R}^2}\right)\,dA \\
+&amp;= \int f\left(\bigstar, \blacklozenge \right)\,dA \\
+&amp;= \int \int f\left(\bigstar, \blacklozenge \right)\,\underbrace{??? \, d\bigstar\, d\blacklozenge}_\mathclap{\substack{\text{hipster DIY coordinates}\\\text{correction factor}}} \\
+\end{align*}\]</span></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="integrating-these-ideas">Integrating these ideas</h2>
+<p>There are two bigger ideas here.</p>
+<p>First, as we’ve now seen this year, integrals are much more than just the area of a curvy 2D shape. Rather, integrals are a way for us to add up an infinite number of infinitely-small things. We can use integrals to find the area of curvy 2D shapes—but we can also use them to find <em>so much more</em>. The lengths of curvy lines! The volumes of curvy 3D shapes! There’s even more stuff that we haven’t even begun to think about. If we want to calculate something, and we can find a way to phrase it as an integral, then we have a method with which to compute it (i.e., antidifferentiate and subtract). With integrals, we become <em>puppet masters of infinity</em>.</p>
+<p>And second, maybe coordinate systems aren’t as fundamental as we once thought they were. We learned about rectangular coordinates and the coordinate plane years and years ago, and for years we’ve thought of them as being the way—<em>the</em> way—to describe objects and functions. In Math 3, when we played with complex numbers in detail, we came up with this idea of polar coordinates, which helped us describe and play with complex numbers in a fashion that seemed more natural. But that idea extends. Functions (and mathematical objects) exist beneath the ways that we describe them. Coordinate systems aren’t what these things <em>are</em>—they’re just one way of <em>describing</em> them. It’s like how <span class="math inline">\(25\)</span>, <span class="math inline">\(5^2\)</span>, <span class="math inline">\(82-57\)</span>, <span class="math inline">\(\sqrt{625},\)</span> <span class="math inline">\(\int_0^5 5 dt\)</span>, <span class="math inline">\(\log_{2}(33554432)\)</span>, etc., are all describing the same number. It’s not like “<span class="math inline">\(25\)</span>” is the “right” or “true” representation, either. Rather, all of these (even “<span class="math inline">\(25\)</span>”) are just <em>representations</em> of the deeper reality.</p>
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>p235 of my copy of the Pevear &amp; Volokhonsky translation.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p>Fun CAD word!<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3" role="doc-endnote"><p>I’m imagining the sort of 3D light installation where a bunch of random lights are blinking on and off in rapid succession inside a fixed 3D space—space-filling fireflies, illuminating every voxel integrated over time.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+</main>
+</body>
+</html>

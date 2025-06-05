@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Hilariously Hideous Complex Fractions</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="/main.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <script src="../highlight-toc.js" type="text/javascript"></script>
+</head>
+<body>
+<main>
+<header id="title-block-header">
+<h1 class="title">Hilariously Hideous Complex Fractions</h1>
+</header>
+<p>Our problem sets so far have included two hilariously hideous complex fractions (both problems I stole from <em>The Art of Problem Solving</em>):</p>
+<p><span class="math display">\[\left(i-i^{-1}\right)^{-1}\quad\text{aka}\quad \frac{1}{\,\, i-\frac1i \,\,}\]</span></p>
+<p>and</p>
+<p><span class="math display">\[\frac{1}{\,\,1+\frac{1}{\,\,1-\frac{1}{1+i}\,\,}\,\,}\]</span></p>
+<p>These, at least to me, have begotten the question: <strong>what if we keep going?</strong> What if we nest these sorts of fractions inside fractions inside fractions inside fractions, on and on, <em>ad infinitum</em>? I’m curious because sometimes when we do things an infinite number of times, we get just a finite number. Maybe you’ve seen the cool thing that happens when we add together <span class="math inline">\(\frac12\)</span>, <span class="math inline">\(\frac14\)</span>, <span class="math inline">\(\frac18\)</span>, and all the successive powers of <span class="math inline">\(2\)</span>: we get just <span class="math inline">\(2\)</span>!</p>
+<p><span class="math display">\[1 + \frac12 + \frac14 + \frac18 + \frac{1}{16} + \quad\cdots \quad = 2\]</span></p>
+<p>Sometimes when we do things an infinite number of times, we get cool patterns, like if we raise <span class="math inline">\(-1\)</span> or <span class="math inline">\(i\)</span> to powers:</p>
+<p><span class="math display">\[(-1)^n = +1, -1, +1, -1, +1, -1, \cdots\]</span></p>
+<p><span class="math display">\[i^n = +1, +i, -1, -i, +1, +i, \cdots\]</span></p>
+<p>So cool stuff can happen when we do things an infinite number of times. What about here? Like, for example, let’s take this second complex fraction. There’s an innermost “<span class="math inline">\(1+i\)</span>”, and outside of that, we’re just alternatingly adding and subtracting it from <span class="math inline">\(1\)</span> and reciprocating. So what if we do that yet <em>another</em> time?</p>
+<p><span class="math display">\[\frac{1} { 1 - {\color{blue} \frac{1}{\,\,1+\frac{1}{\,\,1-\frac{1}{1+i}\,\,}\,\,}}\,\,}\]</span></p>
+<p>(I put the previous fraction in blue there.) What if we do that <em>again</em>?</p>
+<p><span class="math display">\[\frac{1}{1 + {\color{red}\frac{1} {  1 - {\color{blue} \frac{1}{\,\,1+\frac{1}{\,\,1-\frac{1}{1+i}\,\,}\,\,}}\,\,}}\,\,}\]</span></p>
+<p>Et cetera! What happens? What do we get? If we keep fractioning forever and ever, is there a pattern? Does this converge on a single number? (<strong>Converge</strong> is the fancy math word!) Is it just chaos?</p>
+<p>I genuinely don’t know! I’m going to try to figure it out this weekend, too. I hope it’s something cool (and that it’s something that I can figure out!) But if it’s not, that’s OK, too…</p>
+<p>(If you want to try something else cool that’s similar—like, e.g., see what happens with the first fraction problem if we keep nesting it in similar fractions—please feel free to! We’re just asking questions and <em>playing</em> with the math…)</p>
+</main>
+</body>
+</html>

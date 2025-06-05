@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Sequences and Series: Some Basic Vocab ‘n’ Notation!</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="/main.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <script src="../highlight-toc.js" type="text/javascript"></script>
+</head>
+<body>
+<script>document.addEventListener('DOMContentLoaded', function(e) {
+  Scroller.init();
+})</script>
+<aside>
+<div class="tocLinks" >
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#sequences">Sequences</a></li>
+<li><a href="#whither-a-sequence">Whither a sequence???</a></li>
+<li><a href="#recursive-sequences">Recursive Sequences</a></li>
+<li><a href="#series">Series</a></li>
+<li><a href="#sequences-are-not-series">Sequences are not series!</a></li>
+<li><a href="#problems">Problems</a></li>
+</ul>
+</nav>
+</div>
+</aside>
+<main>
+<header id="title-block-header">
+<h1 class="title">Sequences and Series: Some Basic Vocab ‘n’ Notation!</h1>
+</header>
+<p>We’re trying to begin our investigation into the <em>infinite</em>. We’re trying to unravel and unwrap the <em>mysteries of infinity</em>. But to do so, we need some tools. So here, we’ll define a few basic concepts and a few basic bits of notation, so that we can then</p>
+<h2 id="sequences">Sequences</h2>
+<p>We’ve spent a lot of time in talking about functions. But the functions we’ve been talking about have been a very specific type: they’ve been functions that we can think about as being nice, smooth curves in the plane. They’ve been things that we can easily draw and think of as pretty curves. (<strong>Analytic</strong> is the fancy word for this sort of function. It means, basically, they’re things that are kinda like polynomials, or at least that they’re things we could write as infinitely-long polynomials!)</p>
+<p>But the mathematical concept of a <em>function</em> is actually pretty primitive. It just requires that we take elements of one set and turn them into members of another set. Most functions are not smooth, pretty curves! Most functions are weird and unpredictable. We’re not going to talk about those weird unpredictable functions, at least not right now, but we are right now going to talk about a slightly different type of function: a function for which the input is not “all real numbers,” but for which the input is “only the natural numbers, i.e., <span class="math inline">\(1, 2, 3,\)</span> etc.”</p>
+<p>We call those functions <strong>sequences</strong>. The name is self-explanatory: they’re just an ordered list of numbers. Here are some examples:</p>
+<ul>
+<li><span class="math inline">\(1,2,3,4,5,6,\cdots \quad\)</span> (the natural numbers)</li>
+<li><span class="math inline">\(\displaystyle 1, \frac{1}{2}, \frac{1}{3}, \frac{1}{4}, \cdots\quad\)</span> (fractions!)</li>
+<li><span class="math inline">\(-1,+1,-1,+1,\cdots \quad\)</span> (it’s flipping back and forth!)</li>
+<li><span class="math inline">\(3,3,3,3,3,\cdots \quad\)</span>( kind of boring)</li>
+<li><span class="math inline">\(1,4,9,16,25,\cdots \quad\)</span> (squares!)</li>
+<li><span class="math inline">\(2,4,6,8,\cdots \quad\)</span> (even numbers!)</li>
+<li><span class="math inline">\(x,x^2,x^3,x^4,\cdots \quad\)</span> (a sequence of functions, rather than numbers!)</li>
+<li><span class="math inline">\(15, 23, 8, 14, 4, 9, \cdots \quad\)</span> (no idea what’s going on here)</li>
+</ul>
+<p>These are all examples of <strong>infinite sequences</strong>, i.e., sequences that could go on forever. We could have finite sequences, too.</p>
+<p>Here’s a question: above, we listed a bunch of terms of the sequence—the first term, the second term, the third term, etc., etc.—but what will the <span class="math inline">\(n\)</span>th term look like?</p>
+<ul>
+<li><span class="math inline">\(1,2,3,4,5,6,\cdots,n,\cdots\)</span></li>
+<li><span class="math inline">\(\displaystyle 1, \frac{1}{2}, \frac{1}{3}, \frac{1}{4}, \cdots,\frac{1}{n},\cdots\)</span></li>
+<li><span class="math inline">\(-1,1,-1,1,-1,\cdots,(-1)^n,\cdots\)</span></li>
+<li><span class="math inline">\(3,3,3,3,3,\cdots,3,\cdots\)</span></li>
+<li><span class="math inline">\(1,4,9,16,25,\cdots,n^2,\cdots\)</span></li>
+<li><span class="math inline">\(2,4,6,8,\cdots,2n,\cdots\)</span></li>
+<li><span class="math inline">\(x,x^2,x^3,x^4,\cdots,x^n,\cdots\)</span><br />
+</li>
+<li><span class="math inline">\(15, 23, 8, 14, 4, 9, \cdots, ???, \cdots\quad\)</span> (I literally made this up by using a random number generator, so we can’t say too much about it. It’s still a sequence, though!)</li>
+</ul>
+<p>To come up with those formulas for the <span class="math inline">\(n\)</span>’th term of a sequence, I implicitly assumed that we start counting at <span class="math inline">\(n=1\)</span>. But that’s not carved in stone! We could also start counting at zero. That’s popular. (Lots of programming languages, including Python, start counting at <span class="math inline">\(0\)</span>!) Or we could start counting from a different first number. Whatver you do, just make it clear where you begin.</p>
+<p>If you really like drawing pictures of functions, then I hope you like pointillism, because that’s the only way to draw sequences. The output of a sequence can be any real number, but the input is just the natural numbers, so it’s just a series of dots. Here’s a sketch of what the sequence <span class="math inline">\(f(n) = 1/n\)</span> looks like:</p>
+<p><img src="sequence1overn.png" style="width:50.0%" /></p>
+<p>If we want to fully describe a sequence, then rather than list terms, it’s probably a better idea to just give the formula for the <span class="math inline">\(n\)</span>th term. Sometimes people do this using normal function notation, like <span class="math inline">\(S(n)\)</span> or <span class="math inline">\(f(n)\)</span>; sometimes people do this by putting the variable as a subscript, like <span class="math inline">\(S_n\)</span>, rather than in parentheses like normal function notation.</p>
+<ul>
+<li><span class="math inline">\(S_n = n \text{ or } f(n) = n \text{ is the sequence } 1,2,3,4,5,6,\cdots,n,\cdots\)</span></li>
+<li><span class="math inline">\(\displaystyle S_n = \frac{1}{n} \text{ or } f(n) = \frac{1}{n} \text{ is the sequence } 1, \frac{1}{2}, \frac{1}{3}, \frac{1}{4}, \cdots,\frac{1}{n},\cdots\)</span></li>
+<li><span class="math inline">\(S_n = (-1)^n \text{ or } f(n) = (-1)^n \text{ is the sequence } -1, 1,-1,1,-1,1,\cdots,(-1)^n,\cdots\)</span></li>
+<li><span class="math inline">\(S_n = 3 \text{ or } f(n) = 3 \text{ is the sequence } 3,3,3,3,3,\cdots,3,\cdots\)</span></li>
+<li><span class="math inline">\(S_n = n^2 \text{ or } f(n) = n^2 \text{ is the sequence } 1,4,9,16,25,\cdots,n^2,\cdots\)</span></li>
+<li><span class="math inline">\(S_n = 2n \text{ or } f(n) = 2n \text{ is the sequence } 2,4,6,8,\cdots,2n,\cdots\)</span></li>
+<li><span class="math inline">\(S_n = x^n \text{ or } f(n) = x^n \text{ is the sequence } x,x^2,x^3,x^4,\cdots,x^n,\cdots\)</span></li>
+</ul>
+<p>I’m using the letter <span class="math inline">\(n\)</span> there rather than <span class="math inline">\(x\)</span>, because, by convention, we tend to use <span class="math inline">\(n\)</span> to represent integers (or natural numbers). That’s not a hard-and-fast rule; it’s just a typical practice, like how when we’re talking about complex numbers we tend to use <span class="math inline">\(z\)</span> rather than <span class="math inline">\(x\)</span>. Other letters that tend to represent integers or natural numbers include <span class="math inline">\(i\)</span> (no, not <em>that</em> <span class="math inline">\(i\)</span>), <span class="math inline">\(j\)</span>, <span class="math inline">\(k\)</span>, <span class="math inline">\(m\)</span>, and <span class="math inline">\(n\)</span>. (I don’t see <span class="math inline">\(l\)</span> used very often? I guess lowercase <span class="math inline">\(l\)</span> looks too much like <span class="math inline">\(1\)</span>.) Context helps, too, to show whether a variable ranges over all possible real numbers (like the <span class="math inline">\(x\)</span> in <span class="math inline">\(f(x)=x^2\)</span>) or just over the natural numbers (like the <span class="math inline">\(n\)</span> in <span class="math inline">\(S_n = 2n\)</span>).</p>
+<p>Some more related vocab reminders:</p>
+<ul>
+<li><span class="math inline">\(\mathbb{N}\)</span> is the symbol for the <strong>natural numbers</strong>, i.e. <span class="math inline">\(1,2,3,4,\cdots\)</span>. (People argue over whether <span class="math inline">\(0\)</span> should be included.)</li>
+<li><span class="math inline">\(\mathbb{Z}\)</span> is the symbol for the <strong>integers</strong>, i.e., the natural numbers but with the negatives, i.e. <span class="math inline">\(\cdots -3,-2,-1,0,+1,+2,+3\cdots\)</span>.</li>
+<li><span class="math inline">\(\mathbb{R}\)</span> are the real numbers</li>
+<li><span class="math inline">\(\mathbb{C}\)</span> are our beloved complex numbers, which sadly we won’t be playing with much anymore</li>
+<li><span class="math inline">\(\mathbb{H}\)</span> are the Hamiltonians (wait, what are those?)</li>
+<li>and <span class="math inline">\(\in\)</span> is the fancy set-theory suymbol for “is an element/member of,” so, e.g., if we write “<span class="math inline">\(n\in\mathbb{N}\)</span>” means “the variable <span class="math inline">\(n\)</span> is a member of the set of natural numbers,” or just “<span class="math inline">\(n\)</span> is a natural number.” So if there’s any ambiguity over what possible numbers you intend your variable to represent, toss in a qualifier like this!</li>
+</ul>
+<p>Oh! And if you want to waste your time on a mathematical equivalent of Wikipedia, go check out the <strong><a href="https://oeis.org/">The On-Line Encyclopedia of Integer Sequences (OEIS)</a></strong> (<code>oeis.org</code>), which is… exactly what it sounds like!!!!</p>
+<h2 id="whither-a-sequence">Whither a sequence???</h2>
+<p>One of the main questions we can ask about a sequence is: does it <strong>converge</strong> or <strong>diverge</strong>? Meaning:</p>
+<div class="callout-box" style="width:50%">
+<p>as <span class="math inline">\(n \rightarrow \infty\)</span>, does the sequence either:</p>
+<p>approach some single, finite number (<strong>converge</strong>), or</p>
+<p>not? (<strong>diverge</strong>)</p>
+</div>
+<p>As a secondary question, we can ask:</p>
+<div class="callout-box" style="width:50%">
+<p>if it does converge,</p>
+<p><strong>what does it converge to</strong>?</p>
+</div>
+<p>For example:</p>
+<ul>
+<li>The sequence <span class="math inline">\(S_n = n\)</span>, i.e., the sequence <span class="math inline">\(1,2,3,4,\cdots\)</span> diverges, because as <span class="math inline">\(n \rightarrow \infty\)</span>, the sequence just keeps getting bigger and bigger, i.e., <span class="math inline">\(S_n \rightarrow \infty\)</span>.</li>
+<li>The sequence <span class="math inline">\(S_n = 1/n\)</span> (i.e., <span class="math inline">\(1, \frac{1}{2}, \frac{1}{3}, \frac{1}{4}, \cdots\)</span>) converges, because as <span class="math inline">\(n\rightarrow \infty\)</span>, <span class="math inline">\(S_n \rightarrow 0\)</span>. So it converges, and moreover, it converges to <span class="math inline">\(0\)</span>.</li>
+<li>The sequence <span class="math inline">\(S_n = \frac{(-1)^n}{n}\)</span>, i.e., the sequence <span class="math inline">\(-1, \frac{1}{2}, \frac{-1}{3}, \frac{1}{4}, \frac{-1}{5}, \cdots\)</span> converges, because as <span class="math inline">\(n \rightarrow \infty\)</span>, <span class="math inline">\(S_n \rightarrow 0\)</span>, just as in the last example. Note that, because of the <span class="math inline">\((-1)^n\)</span>, it bounces around—it keeps alternating between being positive and negative. But it still approaches <span class="math inline">\(0\)</span>.</li>
+<li>The sequence <span class="math inline">\(S_n = (-1)^n\)</span>, i.e., the sequence <span class="math inline">\(-1,1,-1,1,-1,\cdots\)</span> diverges, because as <span class="math inline">\(n\rightarrow \infty\)</span>, the sequence keeps alternating between <span class="math inline">\(+1\)</span> and <span class="math inline">\(-1\)</span>. It doesn’t reach <span class="math inline">\(\pm \infty\)</span>, but nor does it settle down.</li>
+<li>The sequence of functions <span class="math inline">\(S_n = x^{1/n}\)</span>, i.e., the sequence <span class="math inline">\(1,x,x^{1/2}, x^{1/3}, x^{1/4}, \cdots\)</span> converges to <span class="math inline">\(x^0\)</span>, or just <span class="math inline">\(1\)</span>.</li>
+</ul>
+<p>Note that so far we’ve just been talking about <strong>infinite sequences</strong>, but we could have <strong>finite sequences</strong> as well. Here are some examples:</p>
+<ul>
+<li><span class="math inline">\(2, 4, 6, 8, 10\)</span> (the first five even numbers)</li>
+<li><span class="math inline">\(20, 21, 22, 23, 24, 25, 26, 27\)</span> (the eight numbers between <span class="math inline">\(20\)</span> and <span class="math inline">\(27\)</span>)</li>
+<li><span class="math inline">\(-\frac58, -\frac78, -\frac98, -\frac{10}{8}\)</span> (numbers of the form <span class="math inline">\(-\frac{n}{8}\)</span>, for <span class="math inline">\(n\in \{ 5,7,9,10\}\)</span>)</li>
+</ul>
+<p>Usually we’re more interested in infinite sequences and series, so if we’re not explicit about whether a sequence is finite or infinite, you can assume that it’s infinite.</p>
+<p>The word we often use for describing what happens to a sequence as we get more and more terms is a <strong>limit</strong>. For example, if we think about the sequence:</p>
+<p><span class="math display">\[S_n = \frac{1}{n} = 1,\, \frac{1}{2},\, \frac{1}{3},\, \frac{1}{4},\, \frac{1}{5},\, \cdots\]</span></p>
+<p>The <strong>limit</strong> of this sequence as <span class="math inline">\(n\)</span> goes to infinity is <span class="math inline">\(0\)</span>, since that’s what all the terms approach. Here’s one way of notating that, with an arrow:</p>
+<p><span class="math display">\[ S_n \xrightarrow[\quad \infty \quad]{ n } 0 \]</span></p>
+<p>And here’s another way of notating that:</p>
+<p><span class="math display">\[\lim_{n\rightarrow\infty}S_n = 0\]</span></p>
+<h2 id="recursive-sequences">Recursive Sequences</h2>
+<p>Another fun way to define sequences is <strong>recursively</strong>! In other words, rather than giving an explicit formula for the <span class="math inline">\(n\)</span>th term of a sequence, we can just give a formula for how to get from one term to the next. Or, in mathier terms, we have a formula for the <span class="math inline">\((n+1)\)</span>th (st?) term of the sequence, in terms of the <span class="math inline">\(n\)</span>th term. Usually if we do this, to define a sequence uniquely, we also have to define what number(s) it starts with (the <strong>base case</strong>).</p>
+<p>Here’s a simple example: consider the sequence whose first term is <span class="math inline">\(2\)</span>, and for which, if we know the <span class="math inline">\(n\)</span>th term, we can get the <span class="math inline">\((n+1)\)</span>nd term by adding <span class="math inline">\(2\)</span> to the <span class="math inline">\(n\)</span>th term: <span class="math display">\[S(0) = 2; \quad S(n+1) = n+2\]</span> Of course this is just another way of defining the even numbers: <span class="math display">\[2, 4, 6, 8, \cdots\]</span> Let’s see something slightly more interesting. You’re probably familiar with the <strong>Fibonacci sequence</strong>, given by two starting numbers: <span class="math display">\[F_0 = 0; \quad F_1 = 1\]</span> And the recursive formula: <span class="math display">\[\displaystyle F_n =F_{n-1}+F_{n-2}\]</span> (I’m using an <span class="math inline">\(F\)</span> for the label rather than an <span class="math inline">\(S\)</span> or some other letter, because <span class="math inline">\(F\)</span> stands for Fibonacci.) So in other words, we find the <span class="math inline">\(n\)</span>th term by adding together the previous two terms: <span class="math display">\[0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, \cdots\]</span> Having a recursive formula is cool, because recursion is a cool concept (and very cool and useful when it comes to programming!). There are some situations where having a formula written recursively is more convenient (or easier to find) than an <strong>explicit formula</strong> or <strong>closed-form solution</strong>, i.e., a formula that actually tells us how to find the <span class="math inline">\(n\)</span>th term for any <span class="math inline">\(n\)</span>. On the other hand, the thing that’s more useful about having an explicit formula for the sequence is that it gives us a way of finding the one zillionth term directly without having to find all the one zillion terms that go before it.</p>
+<p>It takes a lot of work to derive, but as it so happens there’s also a way to write the Fibonacci numbers explicitly, i.e., find a closed-form solution for the sequence: <span class="math display">\[F_n={\cfrac {1}{\sqrt {5}}}\left({\cfrac {1+{\sqrt {5}}}{2}}\right)^{n}-{\cfrac {1}{\sqrt {5}}}\left({\cfrac {1-{\sqrt {5}}}{2}}\right)^{n}\]</span> This formula, if you just look at it, is totally nuts—somehow, for any value of <span class="math inline">\(n\)</span> we plug on (or at least, any positive integer <span class="math inline">\(n\)</span>), we get out another positive integer! There are all those fractions, and the square roots of five, and the powers—if you just looked at it, you’d expect it to <strong>not</strong> be an integer!!! And yet it always works out to be an integer. Crazy.</p>
+<h2 id="series">Series</h2>
+<p>So, those are sequences. They’re kind of cool, but not <em>that</em> cool, because they’re easy to deal with. If we want to find whether a sequence converges, we just take a limit!<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> Not too difficult. (At least, not if you know limits.) But what if we add all the terms in a sequence together? For instance: <span class="math display">\[\text{rather than having the sequence: } 1,\frac{1}{2},\frac{1}{3},\frac{1}{4},\cdots\]</span> <span class="math display">\[\text{what if we have the series: } 1+\frac{1}{2}+\frac{1}{3}+\frac{1}{4}+\cdots\]</span> This is a different creature. We know that the sequence converges, but we don’t know whether the series (in which we add everything together) converges. The sequence converges to <span class="math inline">\(0\)</span>, because that’s where all the terms go, but what if we add up all the terms? Does it still converge? (If so, to what?)</p>
+<p>More formally, a <strong>series</strong>, or a <strong>sum</strong>, is when we add the terms of a sequence together, rather than simply listing them. They could be <strong>finite</strong> (we add together a finite number of terms) or <strong>infinite</strong> (we add together an infinite number of terms).</p>
+<p>Here’s an example of a finite series:</p>
+<p><span class="math display">\[5+10+15+20\]</span></p>
+<p>Here’s an example of an infinite series:</p>
+<p><span class="math display">\[5 + 10 + 15 + 20 + 25 + \cdots\]</span></p>
+<p>That second infinite series isn’t very interesting. It’s just <span class="math inline">\(\infty\)</span>. But what we’ll see, soon, is that we can have some serieses, with an infinite number of things added together, <em>that actually aren’t infinite</em>. We add together <em>an infinite number of things</em>, and yet rather than getting infinity, <em>we get a finite number</em>.</p>
+<p>But more mechanics first. There are three different ways (at least?) that we can write series:</p>
+<ul>
+<li>We could show each term explicitly: <span class="math inline">\(5+10+15+20\)</span></li>
+<li>We could write it as a single number: <span class="math inline">\(50\)</span></li>
+<li>or we could write it using <span class="math inline">\(\Sigma\)</span>-notation for sums: <span class="math inline">\(\displaystyle \sum_{k=1}^{k=4} 5k\)</span></li>
+</ul>
+<p>You may or may not have seen <span class="math inline">\(\sum\)</span>-notation before. It works something like this:</p>
+<p><span class="math display">\[\begin{align*}
+\displaystyle \sum_{k=1}^{k=4} 5k \,&amp;=\, \underbrace{5\!\cdot \!1}_{\mathclap{\text{the }k=1\text{ term}}} \,+\, \overbrace{5\!\cdot \!2}^{\mathclap{\text{the }k=2\text{ term}}} \,+\,\underbrace{5\!\cdot \!3}_{\mathclap{\text{the }k=3\text{ term}}} \,+\,\overbrace{5\!\cdot \!4}^{\mathclap{\text{the }k=4\text{ term}}} \\ \\
+&amp;= 5+10+15+20 \\ \\
+&amp;= 50
+\end{align*}\]</span></p>
+<p><span class="math inline">\(\Sigma\)</span> is the Greek letter analagous to our “S” (capital S), hence its use to represent a <em>s</em>um. (Lowercase sigma, which you might have seen if you’ve done any statistics, is this cute little curlicue: <span class="math inline">\(\sigma\)</span>).</p>
+<p>If you’ve done any coding, you can think of <span class="math inline">\(\Sigma\)</span>-notation as a <code>for</code>-loop. We have some dummy variable (in the above case, <span class="math inline">\(k\)</span>), and we iterate over it, first setting <span class="math inline">\(k\)</span> equal to <span class="math inline">\(1\)</span>, then <span class="math inline">\(k\)</span> equal to <span class="math inline">\(2\)</span>, and so forth, until we finally get to <span class="math inline">\(k=4\)</span>, substituting that into the expression, and then add together all the results. The bounds are <strong>inclusive</strong>, meaning we include both the starting and the ending numbers (as opposed to those being the last ones not included).</p>
+<p>More generally, we could define this notation by writing something like:</p>
+<p><span class="math display">\[\begin{align*}
+\sum_{k=a}^{k=b} f(k) \,&amp;=\, f(a) + f(a+1) + f(a+2) + \cdots + f(b-2) + f(b-1) + f(b)
+\end{align*}\]</span></p>
+<p>Most people tend to write <span class="math inline">\(\sum\)</span>-notation with the dummy variable/counter only on the bottom, like this:</p>
+<p><span class="math display">\[\text{more mainstream:}\quad \sum_{k=a}^{b} \text{(blah blah)}\]</span></p>
+<p>But I find it more clear to repeat it on top and bottom:</p>
+<p><span class="math display">\[\text{Andrew&#39;s slight variation: } \quad \sum_{k=a}^{k=b} \text{(blah blah)}\]</span></p>
+<p>When I first learned it, I found it hard to keep track of which variable represented the counter, which represented the starting index, and which represented the ending index. So repeating the counter on top and on bottom was a way for me of making that easier to see. It’s redundant, and more writing, but that’s fine! More clarity and more understanding is (by definition) worth sacrificing minimalism for (although there’s lots of nuance I could add there). The broader lesson here is that <em>notation is meant to serve us</em>, the humans. We humans don’t serve the notation. If you find a particular piece of mathematical notation confusing, or if you find yourself</p>
+<p>Sometimes people don’t like my version, because if we have an infinite series, then it implies that something is <em>equal</em> to infinity, which some people object to:</p>
+<p><span class="math display">\[\text{ontologically suspect implications: } \quad \sum_{k=a}^{k=\infty} \text{(blah blah)}\]</span></p>
+<p>But, you know, we’ll save that discussion for a later date.</p>
+<p>If you like drawing pictures of things (which you should!), you don’t have to like pointillism to like drawing series, but you do have to like staircases (rather than ramps). Here’s an example of a way you might draw the series <span class="math inline">\(1/n\)</span> (starting at <span class="math inline">\(n=1\)</span>):</p>
+<p><img src="series1overn.png" style="width:50.0%" /></p>
+<p>In this picture, the top of each stair corresponds to the value of each term; the width of each stair is <span class="math inline">\(1\)</span>, so the total area underneath that blocky staircase corresponds to the value of the series itself.</p>
+<p>If we have an infinite series, we can’t write every term explicitly. There are an infinite number of them! But we can ask the same question we ask of sequences: given a series, <strong>does it converge or diverge?</strong> Meaning:</p>
+<ul>
+<li>is the infinite sum finite (does it <strong>converge</strong>?)</li>
+<li>or is it infinite? (does it <strong>diverge</strong>?)</li>
+<li>or does it maybe bounce around between finite numbers, not zooming off to infinity, but also not approaching some single finite number (a different type of <strong>divergence</strong>)</li>
+</ul>
+<p>For series, this is a much harder question to answer<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. With sequences, we can just take a limit; with series, we have a smattering of <em>ad hoc</em> methods, some of which might or might not work for a given series. That can be frustrating! There’s no, like, master equation we can plug a series in to to figure out whether it converges. But this, too, is meaningful. It’s deeply reflective of how we have to approach reality as human beings. There are two fallacies we can fall into:</p>
+<ul>
+<li>we can know nothing</li>
+<li>we can know everything</li>
+</ul>
+<p>Neither of these are true. Our reality, as humans, is somewhere in between. We can know things, and we should strive to know things, while also accepting and acknowledging that we’ll never know things perfectly and completely. Here’s an excerpt from something I was reading recently to that effect:</p>
+<blockquote>
+<p>I’m convinced we need a fundamental shift in human psychology from arrogance and hubris to humility. My years at [this college] have helped me refect very differently on education and its purpose. And it has made me value what I think a liberal arts education is supposed to inculcate, differently. I deeply believe that the major outcome of a liberal arts education should be humility.</p>
+<p>We know we can have glimmers of understanding. We also know that what we don’t know dwarfs what we do know. We don’t know why we’re on this planet. We don’t know what our lives were intended to be or what our species is intended to be. One of the best things [this college] does for students is help them understand how important it is to increase our knowledge, and how limited it is even at its peak.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
+</blockquote>
+<p>Perhaps we should think of our knowledge as being like a sequence or a limit or an asymptote. It can get better and better but it can never actually <em>be</em> perfect, just like how the series:</p>
+<p><span class="math display">\[1 + \frac{1}{4} + \frac{1}{8} + \frac{1}{16} + \frac{1}{32} + \cdots\]</span></p>
+<p>gets closer and closer to <span class="math inline">\(2\)</span> but (depending on your philosophical beliefs) never actually <em>is</em> 2.</p>
+<p>Lacking perfection, and lacking the God’s-eye-view of a formula, instead we can try to come up with a plethora of particular methods and techniques and make a toolbox. One method might be useful for telling us something about one series, but useless in telling us anything about a different series. (Once we know calculus, we’ll have even <em>more</em> tools which which to analyze series!)</p>
+<p>So, next time, let’s start poking at series, and see if we can come up with some simple rules and observations.</p>
+<h2 id="sequences-are-not-series">Sequences are not series!</h2>
+<p>One last thing: don’t get the terms <strong>sequence</strong> and <strong>series</strong> confused. I do it all the time. Don’t follow my example:</p>
+<p><span class="math display">\[\begin{align*}
+\text{\bf This is a sequence: }\,\,&amp; 1,2,3,4,5,6,\cdots,n,\cdots \\ \\
+\text{\bf This is a series: } \,\,&amp;1+2+3+4+5+6+\cdots +n+\cdots
+\end{align*}\]</span></p>
+<p>The mnemonic I use to remember which is which is that <strong>series</strong> and <strong>sum</strong> both start with “<strong>s</strong>.”</p>
+<h2 id="problems">Problems</h2>
+<p>Find a formula for the <span class="math inline">\(n\)</span>th term of the sequence. (You can have <span class="math inline">\(n\)</span> start at <span class="math inline">\(0\)</span> or at <span class="math inline">\(1\)</span> or at wherever you want; just be clear what your choice is and where it starts.)</p>
+<ol class="problems">
+<li>
+<span class="math inline">\(1,3,5,7,9, \cdots\)</span>
+</li>
+<li>
+<span class="math inline">\(2,4,6,8,10,\cdots\)</span>
+</li>
+<li>
+<span class="math inline">\(1,-1,1,-1,1, \cdots\)</span>
+</li>
+<li>
+<span class="math inline">\(-1,1,-1,1,-1,\cdots\)</span>
+</li>
+<li>
+<span class="math inline">\(1,-4,9,-16,25, \cdots\)</span>
+</li>
+<li>
+<span class="math inline">\(1,-\frac{1}{4},\frac{1}{9},-\frac{1}{16},\frac{1}{25},\cdots\)</span>
+</li>
+<li>
+<span class="math inline">\(0,3,8,15,24,\cdots\)</span>
+</li>
+<li>
+<span class="math inline">\(-3,-1,-1,0,1,\cdots\)</span>
+</li>
+<li>
+<span class="math inline">\(1,5,9,13,17, \cdots\)</span>
+</li>
+<li>
+<span class="math inline">\(2,6,10,14,18,\cdots\)</span>
+</li>
+<li>
+<span class="math inline">\(2,3,5,7,11,13,17,19,23,29, \cdots\)</span>
+</li>
+</ol>
+<div style="height:3em">
+
+</div>
+<p>Here are a bunch of series written in <span class="math inline">\(\Sigma\)</span>-notation! Write them out explicitly, without the giant <span class="math inline">\(\Sigma\)</span>.</p>
+<ol class="problems">
+<li>
+<span class="math inline">\(\displaystyle \sum_{k=0}^{k=3}(3k+1)\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \sum_{k=0}^{k=4}\left(2^k\right)\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \sum_{k=3}^{k=6}\left(\frac{(-1)^k}{k!}\right)\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \sum_{k=2}^{k=5}\frac{1}{3^{k-1}}\)</span>
+</li>
+</ol>
+<div style="height:3em">
+
+</div>
+<p>Here are a bunch of sums written out explicitly! Write them more compactly in <span class="math inline">\(\Sigma\)</span>-notation.</p>
+<ol class="problems">
+<li>
+<span class="math inline">\(1+3+5+7+\cdots+21\)</span>
+</li>
+<li>
+<span class="math inline">\(1-3+5-7+\cdots - 19\)</span>
+</li>
+<li>
+<span class="math inline">\(1\cdot2 + 2\cdot3 + 3\cdot4 + \cdots + 35\cdot36\)</span>
+</li>
+<li>
+<span class="math inline">\(f(x_1)\Delta x_1 + f(x_2)\Delta x_2 + \cdots + f(x_n)\Delta x_n\)</span>
+</li>
+<li>
+<span class="math inline">\(1 + \frac{1}{10} + \frac{1}{100} + \frac{1}{1000} + \cdots\)</span>
+</li>
+<li>
+<span class="math inline">\(\cos(3\theta) + \cos(4\theta) + \cos(5\theta) + \cdots\)</span>
+</li>
+</ol>
+<div style="height:10em;">
+
+</div>
+<p>For each of the following sequences, write out the first few terms, and then determine whether it converges or diverges. If it converges, what does it converge to?</p>
+<div style="column-width: 10em;  column-gap: 2em;">
+<ol class="problems">
+<li>
+<span class="math inline">\(\displaystyle S_n = \frac{1-n}{n^2}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle f(n) = \frac{1}{n!}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle f(n) = \frac{1}{n} + 7\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle f(n) = \frac{1}{2^n}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle f(n) = \frac{1}{\ln(n)}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle f(n) = \frac{n!}{2^n}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle f(n) = \frac{2^n}{n!}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle f(n) = \frac{n^2}{n!}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle f(n) = \frac{n^2}{n!} + 2\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle f(n) = \frac{n!}{n^2}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle f(n) = \frac{\ln(n)}{n^2}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle f(n) = \frac{n^2}{\ln(n)}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle f(n) = \frac{\sqrt{n}}{\ln(n)}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle f(n) = \frac{\ln(n)}{\sqrt{n}}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle f(n) = \frac{(-1)^{n+1}}{2n-1}\)</span>
+</li>
+<li>
+<span class="math inline">\(S_n = 2 + (-1)^n\)</span>
+</li>
+<li>
+<span class="math inline">\(S_n = 2 + (0.1)^n\)</span>
+</li>
+<li>
+<span class="math inline">\(S_n = 2 + (-0.1)^n\)</span>
+</li>
+<li>
+<span class="math inline">\(S_n = 2 + (1)^n\)</span>
+</li>
+<li>
+<span class="math inline">\(S_n = (-1)^n\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle f(n) = \frac{1}{(-1)^n}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle S_n = \frac{n + (-1)^n}{n}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle S_n = 4 - \frac{3}{n^2}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle S_n = \frac{1-2n}{1+2n}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle f(n) = \frac{2n+1}{1-3\sqrt{n}}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle S_n = \frac{1-5n^4}{n^4 + 8n^3}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle f(n) = \frac{n+3}{n^2 + 5n + 6}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle f(n) = \frac{n^2 - 2n + 1}{n-1}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle f(n) = \frac{5n^3+1}{10n^3-3n^2+7}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle S_n = \frac{1-n^3}{70-4n^2}\)</span>
+</li>
+<li>
+<span class="math inline">\(S_n = 1 + (-1)^n\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle f(n) = (-1)^n \left( 1-\frac{1}{n} \right)\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle S_n = \left( \frac{n+1}{2n} \right) \left( 1- \frac{1}{n} \right)\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle S_n = \left( 2 - \frac{1}{2^n} \right) \left( 3+\frac{1}{2^n} \right)\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle f(n) = \frac{(-1)^{n+1}}{2n-1}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle S_n = \left(-\frac{1}{2} \right)^n\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle f(n) = \frac{\sin(n)}{n}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle f(n) = \frac{\sin^2(n)}{2^n}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle S_n = \sqrt{\frac{2n}{n+1}}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle f(n) = \sin\left(\frac{\pi}{2} + \frac{1}{n}\right)\)</span>
+</li>
+<li>
+<span class="math inline">\(f(n) = \ln(n) - \ln(n+1)\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle f(n) = \frac{n}{2^n}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle f(n) = \frac{3^n}{n^3}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle f(n) = \frac{\ln(n+1)}{\sqrt{n}}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle f(n) = \frac{\ln(n)}{\ln(2n)}\)</span>
+</li>
+<li>
+<span class="math inline">\(f(n) = 8^{1/n}\)</span>
+</li>
+<li>
+<span class="math inline">\(f(n) = (0.03)^{1/n}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle f(n) =\frac{(n+1)!}{n}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle f(n) =\frac{(3n-1)!}{(3n+1)!}\)</span>
+</li>
+</ol>
+</div>
+<div style="height:10em;">
+
+</div>
+<p>Which of the following series converge, and which diverge? Why? For those that converge, can you determine what they converge to? Don’t just give an answer—write out an actual <em>argument</em>, with your thinking and reasoning!</p>
+<div style="column-width: 10em;  column-gap: 2em;">
+<ol class="problems">
+<li>
+<span class="math inline">\(\displaystyle\sum_{n=0}^{n=\infty} \left(\frac{1}{5}\right)^n\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle\sum_{n=2}^{n=\infty} \left(\frac{1}{5}\right)^n\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle\sum_{n=0}^{n=\infty} \frac{1}{5^n}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle\sum_{n=0}^{n=\infty} \frac{1}{2^{n+3}}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle\sum_{n=0}^{n=\infty} \frac{2^{n+3}}{3^n}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle\sum_{n=0}^{n=\infty} \frac{3^{n-1}}{4^{3n+1}}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle\sum_{n=0}^{n=\infty} (-1)^n\left(\frac{1}{5}\right)^n\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle\sum_{n=0}^{n=\infty} \left(\frac{1}{\sqrt{2}}\right)^n\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle\sum_{n=1}^{n=\infty} \ln(n)\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle\sum_{n=1}^{n=\infty} \frac{1}{n}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle\sum_{n=20}^{n=\infty} \frac{1}{n}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle\sum_{n=1}^{n=\infty} \frac{1}{n\cdot2^n}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle\sum_{n=1}^{n=\infty} \ln(1/n)\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle\sum_{n=1}^{n=\infty} (-1)^{n+1}\frac{3}{2^n}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle\sum_{n=1}^{n=\infty} \left(\sqrt{2}\right)^n\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle\sum_{n=0}^{n=\infty} \cos(n\pi)\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle\sum_{n=0}^{n=\infty}\frac{\cos(n\pi)}{5^n}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle\sum_{n=0}^{n=\infty} e^{-n}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle\sum_{n=0}^{n=\infty} e^{-2n}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle\sum_{k=0}^{k=\infty} \left( \frac{5}{2} \right)^{-k}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle\sum_{k=0}^{k=\infty} \frac{1}{k^2}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle\sum_{k=1}^{k=\infty} \frac{1}{k^2}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle\sum_{k=1}^{k=\infty} \frac{2}{k^4}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle\sum_{k=1}^{k=\infty} \frac{\ln k}{k^2}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle\sum_{n=1}^{n=\infty}\frac{n^2+1}{n}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle\sum_{n=1}^{n=\infty}(-1)^{n+1}n\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle\sum_{n=1}^{n=\infty} \frac{2}{10^n}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle\sum_{n=0}^{n=\infty} \frac{2^n-1}{3^n}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle\sum_{n=1}^{n=\infty} \frac{n!}{1000^n}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle\sum_{n=0}^{n=\infty} x^n\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle\sum_{n=0}^{n=\infty} (-1)^nx^n\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle\sum_{n=0}^{n=\infty} (-1)^nx^{2n}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle\sum_{k=1}^{k=\infty} \frac{\ln \left(\sqrt{k}\right)}{k^2}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle\sum_{k=0}^{k=\infty} \frac{1}{2+3^{-k}}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle\sum_{k=0}^{k=\infty} \frac{1}{2+3^{k}}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle\sum_{n=1}^{n=\infty} \ln\left(\frac{n}{n+1}\right)\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle\sum_{n=1}^{n=\infty} \left(\frac{1}{\sqrt{n}} + \frac{1}{\sqrt{n+1}} \right)\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle\sum_{n=1}^{n=\infty} \left(\frac{1}{2^{1/n}} - \frac{1}{2^{1/(n+1)}} \right)\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle\sum_{n=1}^{n=\infty} \left( \frac{1}{\ln(n+2)} - \frac{1}{\ln(n+1)} \right)\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle\sum_{n=1}^{n=\infty} \left( \frac{1}{n^2+n} \right)\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle\sum_{n=1}^{n=\infty} \left( \frac{1}{n} - \frac{1}{n+1} \right)\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle\sum_{k=0}^{k=\infty} \frac{k}{k^2+1}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle\sum_{k=0}^{k=\infty} \frac{1}{3k+2}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle\sum_{n=0}^{n=\infty} e^n\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle\sum_{k=0}^{k=\infty}ke^{-k^2}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle\sum_{k=0}^{k=\infty} k^2 2^{-k^3}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle\sum_{n=0}^{n=\infty} \left(\frac{1}{\sqrt{2}}\right)^n\)</span>
+</li>
+</ol>
+</div>
+<div style="height:10em;">
+
+</div>
+<ol class='problems'>
+<li>
+<p>The formula we came up with for a geometric series requires that the series starts at <span class="math inline">\(n=0\)</span>:</p>
+<p><span class="math display">\[\sum_{n=0}^{n=\infty}a^n = \text{(whatever the formula was)}\]</span></p>
+<ol type="a">
+<li><p>But what if we have a geometric series that starts not at <span class="math inline">\(n=0\)</span>, but <span class="math inline">\(n=1\)</span>, like <span class="math inline">\(\displaystyle\sum_{n=1}^{n=\infty}a^n\)</span>? Can you come up with a formula for it?</p></li>
+<li><p>What about <span class="math inline">\(\displaystyle\sum_{n=-2}^{n=\infty}a^n\)</span>? Can you come up with a formula?</p>
+</li></li>
+</ol>
+<li>
+<p>We’ve made up this cool <span class="math inline">\(\sum\)</span> notation for iterated (and possibly even infinite) sums! When we make up new notations, it’s helpful to figure out what algebraic properties they have, so we can, like, do algebra and simplify and transform and manupulate stuff.</p>
+<p>We’ve figured out that we can pull constants out of sums: <span class="math display">\[\sum_{n} c \cdot f(n) \, =\, c \cdot \sum_{n} f(n)\]</span></p>
+<ol>
+<li>
+Can we also split up sums along addition? <span class="math display">\[\sum_{n} f(n) + g(n) \,\stackrel{???}{=}\, \sum_{n} f(n) + \sum_{n}  g(n)\]</span>
+</li>
+<li>
+What about along multiplication? <span class="math display">\[\sum_{n} f(n) \cdot g(n) \,\stackrel{???}{=}\, \sum_{n} f(n) \cdot \sum_{n}  g(n)\]</span>
+</li>
+<li>
+What about division?
+</li>
+<li>
+Subtraction?
+</li>
+</ol>
+For all of these questions, give some examples to show that we either can or can’t, and then prove it. (To prove that we <em>can’t</em> do this, a single counter-example is enough.) (Is there a difference in how these theorems hold or don’t hold if the sum is finite or infinite?)
+</li>
+<li>
+Remind yourself, or go look up, how to do a “partial fraction decomposition” (a fancy method for turning <em>one</em> fraction into <em>two</em> fractions). Then use it to help determine whether this series converges: <span class="math display">\[\displaystyle\sum_{n=1}^{n=\infty} \frac{3+2n}{n^2+3n+2}\]</span>
+</li>
+<li>
+Do the same for this series: <span class="math display">\[\displaystyle\sum_{n=2}^{n=\infty} \frac{1}{n^3-n}\]</span>
+</li>
+<li>
+And this: <span class="math display">\[\displaystyle\sum_{n=2}^{n=\infty} \frac{1}{n^2-n}\]</span>
+</li>
+<li>
+For what values of <span class="math inline">\(p\)</span> does the series <span class="math inline">\(\displaystyle\sum_{k=1}^{k=\infty} k^p\)</span> converge? for what values of <span class="math inline">\(p\)</span> does it diverge?
+</li>
+<li>
+Decide how to properly pluralize “series.”
+</li>
+<li>
+<p>Here’s a fun series:</p>
+<p><span class="math display">\[\sum_{n=0}^{n=\infty} \frac{(-1)^n}{2n+1} \]</span></p>
+<p>Does it converge? Does it diverge? Can you figure out what it converges to? (If you can’t figure out analytically (i.e., symbolically) what it converges to, can you try to estimate it using a computer?)</p>
+<li>
+You want to measure how tall a particular skyscraper in downtown San Francisco is, and for some reason you lack conventional measuring instruments, but you do have a giant bouncy rubber ball, equipped with some fancy sensors. You know that the ball rebounds <span class="math inline">\(75\%\)</span> after each bounce. So you drop it off the very top of the skyscraper, and it bounces a bunch, and eventually settles down, and the sensors tell you that the total vertical distance the ball travelled is <span class="math inline">\(3,412\)</span> feet. (Why the sensors can tell you this, and not how long the initial drop was, I have no idea.) How tall is the skyscraper? Which skyscraper are you atop?
+</li>
+<li>
+<p>The following is a sketch of a fractal, constructed by taking a square, drawing a square inside of it using the midpoints as corners, drawing a square inside of that using the midpoints as corners, and so forth, <em>ad infinitum</em>. Find a) the total area enclosed by all the squares, and b) the total perimeter of all the squares.</p>
+<p><img src="rotated-square-fractal.svg" style="width:50.0%" /></p>
+</li>
+<li>
+<p>Here are the first six iterations of a beautiful fractal I laser-cut in the i-Lab:</p>
+<p><img src="koch-snowflakes-IMG_2213.jpg" style="width:75.0%" /></p>
+<p>This fractal is Helge von Koch’s snowflake curve, known generally as the <strong>Koch curve</strong> or <strong>Koch snowflake</strong>. It is drawn by taking an equilateral triangle, then pasting on three equilateral triangles in the center-third of each side, then pasting on equilateral triangles into the center-third of the sides of the triangles constructed in the previous step, and so forth.</p>
+<ol>
+<li>
+When I cut these out on the laser-cutter, the first iteration had a side length of seven inches. The sixth and final iteration, with tiny triangle nubs just a few hundredths of an inch wide, took about <span class="math inline">\(20\)</span> minutes for the laser cutter to completely cut out. How fast was the laser cutter moving during that final iteration?
+</li>
+<li>
+What’s the total area enclosed by a Koch snowflake? (By this I mean in the limiting case; the snowflake as the numer of iterations becomes infinite.)
+</li>
+<li>
+What’s the perimeter of a Koch snowflake?
+</li>
+<li>
+Here’s a better way to phrase the previous two questions: suppose you go to the i-Lab and laser-cut the actual, infinite version of the Koch snowflake. How long would it take to cut it out? How much material would it take?
+</ol>
+</li>
+<li>
+Just like we can make iterated and infinite sums with a giant <span class="math inline">\(\Sigma\)</span>, we can also make iterated and infinite products! In other words, rather than <em>adding</em> a whole bunch of things together, we can <em>multiply</em> a whole bunch of things! The notation we use for it is a giant <span class="math inline">\(\Pi\)</span>—it’s a giant <strong>p</strong>i for <strong>p</strong>roduct, contra the giant <strong>s</strong>igma for <strong>s</strong>um.
+<ol>
+<li>
+Write out all the terms—well, I guess we should say, <em>factors</em>—of <span class="math inline">\(\displaystyle \prod_{k=0}^{k=3}\left(2^k + 3\right)\)</span>
+</li>
+<li>
+Consider the iterated product <span class="math inline">\(\displaystyle \prod_{k=1}^{k=n}(k)\)</span>. Do we have another name for this function?
+</li>
+<li>
+Consider the infinite product <span class="math inline">\(\displaystyle \prod_{k=1}^{k=\infty}\frac{1}{k}\)</span>. Does it converge or diverge? If the former, to what does it converge? How about <span class="math inline">\(\displaystyle \prod_{k=1}^{k=\infty}\frac{2}{5k+70}\)</span>?
+</li>
+<li>
+What algebraic properties can we learn about iterated products (like the properties of iterated sums in problem 116)? Can we pull constants out? Can we split them up along addition? Can we split them up along multiplication?
+</li>
+</ol>
+</li>
+<li>
+<p>Here’s another infinite product:</p>
+<p><span class="math display">\[2 \cdot \left[ \left( \frac {2}{1}\cdot \frac {2}{3} \right) \cdot \left( \frac {4}{3}\cdot \frac {4}{5} \right) \cdot \left( \frac {6}{5}\cdot \frac {6}{7} \right) \cdot \left( \frac {8}{7}\cdot \frac {8}{9} \right) \cdots \right]\]</span></p>
+<p>So there’s a <span class="math inline">\(2\)</span> on the outside, but then the entire interior is this long infinite product. I’m using the square brackets instead of (round ones) just for clarity.</p>
+<ol>
+<li>
+Write this product in <span class="math inline">\(\Pi\)</span> notation.
+</li>
+<li>
+Calculate the first few products. In other words, see what happens when you calculate this product from <span class="math inline">\(n=1\)</span> to <span class="math inline">\(n=2\)</span>, then from <span class="math inline">\(n=1\)</span> to <span class="math inline">\(n=3\)</span>, then from <span class="math inline">\(n=1\)</span> to <span class="math inline">\(n=4\)</span>, then from <span class="math inline">\(n=1\)</span> to <span class="math inline">\(n=5\)</span>, etc., multiplying on a new factor each time. Does it look like the product is converging, or diverging? If it looks like it’s converging, what does it look like it’s converging to? Using a spreadsheet or writing a short computer program is helpful here, since it takes a long time to converge, slash for it to become apparent what it converges to. Note that you can solve this part even if you didn’t figure out how to write this product in <span class="math inline">\(\Pi\)</span> notation, as long as you can figure out in a more general sense what the pattern’s doing.)
+</li>
+</ol>
+</li>
+<li>
+Iterated sums, iterated products—what about <em>iterated exponents</em>?!?
+</li>
+<li>
+Look up another test for series convergence/divergence (on the internet or in a textbook or wherever, different from the ones we’ve discussed in these notes), figure out how and why it works, and explain it, both in writing and (potentially) to the class.
+<li>
+<p><strong>Percentages are nonlinear.</strong> Suppose it takes you six hours to drive from SF to LA going 60mph. If you increase your speed by <span class="math inline">\(100\%\)</span>—i.e., double it—then the time it takes to get to LA doesn’t go down by <span class="math inline">\(100\%\)</span>. You don’t get to LA in zero hours by driving 120mph. (Among other things, this would violate conservation of energy.) Even if you increase your speed by only <span class="math inline">\(50\%\)</span>, you don’t decrease the amount of time it takes to get to LA by <span class="math inline">\(50\%\)</span>.</p>
+<ol type="a">
+<li>Why not? How long would it take? Figure it out.</li>
+</ol>
+<p>On the other hand, if you’re dealing only with <em>small</em> differences in speed, increasing your speed by <span class="math inline">\(x\%\)</span> <em>will</em> decrease your travel time by <span class="math inline">\(x\%\)</span> (roughly, approximately).</p>
+<ol start="2" type="a">
+<li><p>Verify that this is true in this specific example. For instance, if you increase your speed by <span class="math inline">\(2\%\)</span>, how long will it take to get to LA? How does that compare to <span class="math inline">\(98\%\)</span> of six hours? (You can use a small percentage other than <span class="math inline">\(2\%\)</span> if you like!)</p></li>
+<li><p>Most importantly, <em>why</em> is this true? Make an argument for why, as long as <span class="math inline">\(x\)</span> is reasonably small, if you increase your speed by <span class="math inline">\(x\%\)</span>, your travel time will decrease by about <span class="math inline">\(x\%\)</span>.</p></li>
+</ol>
+<em>(Inspired by a conversation on this topic, as reported to me, between Scott Kovach and Aamnah Khalid while driving from SF to Death Valley; the conversation apparently involved them trying to compute a particular Taylor series out loud, without pen or paper, while driving… which is sort of a hint, but then again, I originally wrote this as a calc problem, and Lachlan Chu pointed out that it could be solved only using Math 3 tools.)</em>
+</li>
+<li>
+Here’s a cool sequence: <span class="math display">\[ \sqrt{2}, \quad \sqrt{2+\sqrt{2}}, \quad \sqrt{2+\sqrt{2+\sqrt{2}}}, \quad \cdots\]</span>
+<ol>
+<li>
+Can you come up with a recursive definition for this sequence? That is, can you write a formula for the <span class="math inline">\((n+1)\)</span>st term, in terms of the <span class="math inline">\(n\)</span>th term?
+</li>
+<li>
+Compute the first few terms of this sequence. Does it seem to be converging, or diverging? If it seems to be converging, what does it seem to be converging to? Why?
+</li>
+<li>
+Call this sequence <span class="math inline">\(S\)</span>, i.e., let <span class="math display">\[S = \sqrt{2+ \sqrt{2+\sqrt{2 + \cdots}}}\]</span> Can you rewrite the right side of this equation so that it also has an <span class="math inline">\(S\)</span> in it? Having done that (and thus having <span class="math inline">\(S\)</span> on both sides of this equation), can you solve this equation for <span class="math inline">\(S\)</span>? What do you conclude?
+</li>
+<li>
+<strong>Liam Percer’s problem</strong>: what if we ask these same questions, but with <em>cube</em> roots? I.e.: <span class="math display">\[\sqrt[3]{2},\quad \sqrt[3]{2 + \sqrt[3]{2},\,\, },\quad \sqrt[3]{ 2+ \sqrt[3]{2 + \sqrt[3]{2},\,\, }}, \quad \cdots\]</span>
+</li>
+</ol>
+</li>
+<li>
+<p>Suppose you want to balance a laptop on the edge of the table so that it’s partially hanging off the edge (or, to use a fancy word, so that it’s <em>cantilevered</em> off the edge). How far over the edge can you push it? It’s not that hard to figure out, either in practice or in theory, that you need to have at least half the laptop on the table:</p>
+<p>(<em>Imagine a picture here of a laptop balancing precariously half-off the edge of a table!</em>)</p>
+<p>The physics explanation is that then the torques balance out and whatnot. But what if you want to balance <em>two</em> laptops on top of each other, cantilevering over the edge?</p>
+<p>(<em>Imagine a picture here of</em> two <em>laptops balancing precariously on the edge of a table!</em>)</p>
+<p>Now we need to have at least half of their <em>combined</em> center of mass over the table. Which means that the top laptop we can push out further! So, how far? How far out can you get the stack of two laptops to go?</p>
+<p>What if we have three laptops? Four laptops? <span class="math inline">\(n\)</span> laptops? Is it possible to stack so many laptops so that the top laptop is, in fact, <em>not at all</em> over the table??? What if we want the edge of the top laptop to be, say, <span class="math inline">\(10\)</span> feet away from the edge of the table? How many laptops would we need to stack? (Probably it would help to define/instantiate some variables in here.) What if we want to have a giant stack of laptops, the topmost of which ends <span class="math inline">\(100\)</span> feet away from the edge of the table? Is it possible? How many laptops would it take?!?! Try to work this all out both theoretically (i.e., with math), and experimentally (i.e., with actual laptops or similarly-shaped objects).</p>
+<p>Here’s an photo of me attempting this demo in May 2024 in Block 4:</p>
+<p><img src="2024-05-16-block-stacking-demo-with-laptops-IMG_7573.jpg" style="width:100.0%" /></p>
+</li>
+<li>
+Pick an arbitrary positive integer. <span class="math inline">\(5\)</span>, <span class="math inline">\(37\)</span>, <span class="math inline">\(98543\)</span>, whatever. Then use it to create a sequence by doing the following: generate the next number in the sequence by either:
+<ul>
+<li>
+dividing the number by <span class="math inline">\(2\)</span>, if the initial number is even, or
+</li>
+<li>
+multiplying the number by <span class="math inline">\(3\)</span>, and then adding <span class="math inline">\(1\)</span>, if the initial number is odd
+</li>
+</ul>
+<p>and then repeat the process. In other words, if your first number is <span class="math inline">\(S(n)\)</span>, then: <span class="math display">\[S(n+1) = \begin{cases} S(n)/2 &amp;\text{if } n \text{ is even} \\ 3S(n)+1 &amp; \text{if } n \text{ is odd} \end{cases}\]</span> So, for instance, if your first number is <span class="math inline">\(7\)</span>, the sequence might start like: <span class="math display">\[7, \quad (3\cdot 7 + 1) = 22, \quad (22/2) = 11, \quad (11\cdot 3 + 1) = 34, \quad (34/2) = 17, \quad \cdots\]</span> or, without showing the work: <span class="math display">\[7, 22, 11, 34, 17, \cdots\]</span> So, pick some random number, and generate a bunch of terms of the sequence. Keep generating terms until something very boring starts happening. It might take a while. You might need to use a calculator; even better, write a short computer program or a spreadsheet, to save yourself the trouble of doing all that repetitive arithmetic. Try it starting with different numbers. What happens? Does the sequence converge, or diverge? If it converges, what does it converge to? Make a conjecture. Can you prove it?</p>
+<p>If you can prove that the sequence converges (for any initial starting number), I’ll buy you a box of donuts every single day for the rest of the time we’re both at Nueva together.</p>
+</li>
+</ol>
+<p>MORE STUFF</p>
+<p>Come up with a formula for <span class="math inline">\(\displaystyle \sum_{n=k}^{n=\infty}a^n\)</span>, for any integer <span class="math inline">\(k\)</span>.</p>
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>You may not have seen that word yet, but it’s the same basic idea as when we’re finding the end behavior of a polynomial or rational function. As a function gets bigger and bigger, what happens to it?<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p>Also note that it’s really only an interesting question to ask about <em>infinite</em> series, since finite series obviously converge to whatever they add up to.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3" role="doc-endnote"><p><em>A Presidential Conversation on the State of the College</em> (2024 St. John’s College annual report), https://www.sjc.edu/application/files/7317/1053/2012/2024-State-of-the-College-Report-St-Johns-College.pdf<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+</main>
+</body>
+</html>

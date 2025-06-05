@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Exponential Improvements</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="/main.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <script src="../highlight-toc.js" type="text/javascript"></script>
+</head>
+<body>
+<script>document.addEventListener('DOMContentLoaded', function(e) {
+  Scroller.init();
+})</script>
+<aside>
+<div class="tocLinks" >
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#trig-functions-really-are-just-exponential-functions">Trig functions really are just exponential functions!</a></li>
+<li><a href="#zooming-out">zooming out</a></li>
+<li><a href="#the-most-important-thing-in-these-notes">The Most Important Thing In These Notes</a></li>
+<li><a href="#problems">Problems</a></li>
+</ul>
+</nav>
+</div>
+</aside>
+<main>
+<header id="title-block-header">
+<h1 class="title">Exponential Improvements</h1>
+</header>
+<p>Let’s digress for a bit and talk about something cool that <em>definitely doesn’t have anything to do with complex numbers</em>. If you were in my section in the fall, you probably remember that we talked in passing a few times about <em>infinitely-long polynomials</em>, and how if we could make polynomials with an infinite number of terms, then all of a sudden <em>everything would be a polynomial</em>, including things like trig functions and exponential functions!</p>
+<p>In class, we played around in Desmos—polluting pure reason with evil empiricism!—and eventually figured out how to write sine, cosine, and <span class="math inline">\(e^x\)</span> (the <strong>exponential function</strong>) as infinitely-long polynomials:</p>
+<p><span class="math display">\[\begin{align*}
+\sin x &amp;= x - \frac{x^3}{3!} + \frac{x^5}{5!} - \frac{x^7}{7!} + \frac{x^9}{9!} -  \frac{x^{11}}{11!} + \cdots\\ \\
+\cos x &amp;= 1 - \frac{x^2}{2!} + \frac{x^4}{4!} - \frac{x^6}{6!} + \frac{x^8}{8!} - \frac{x^{10}}{10!}  + \cdots\\ \\
+e^x &amp;= 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \frac{x^4}{4!} +\frac{x^5}{5!} +\cdots
+\end{align*}\]</span></p>
+<p>The infinitely-long-polynomial versions of sine and cosine sure look a lot like the infinitely-long-polynomial version of <span class="math inline">\(e^x\)</span>! Sine has all the odd terms; cosine has all the even terms; <span class="math inline">\(e^x\)</span> has both. What if we combine them? If we combine sine and cosine, will we get <span class="math inline">\(e^x\)</span>??</p>
+<p><span class="math display">\[{\color{blue}\cos x} + {\color{red}\sin x} = {\color{blue}  1} {\color{red}  +x   }  {\color{blue} - \frac{x^2}{2!} } {\color{red}   - \frac{x^3}{3!}   }    {\color{blue}+ \frac{x^4}{4!}  } {\color{red}    + \frac{x^5}{5!}   }    {\color{blue} - \frac{x^6}{6!}  } {\color{red} - \frac{x^7}{7!}     }  +    \cdots\]</span></p>
+<p>Well, not quite, because we’ve got those negatives. <span class="math inline">\(e^x\)</span> has all positive terms; sine and cosine alternate positive and negative terms. But is there some way we could manipulate them, so that we somehow add together cosine and sine, and maybe some other stuff, and get <span class="math inline">\(e^x\)</span>?? In class I asked you to play around with this, and see if you could do it, and see what you could figure out.</p>
+<p><span class="math display">\[\begin{array}{r c c c c c c c c c}
+{\color{blue}\cos x} + {\color{red}\sin x} =&amp; {\color{blue}  1} &amp;{\color{red}  +x   }  &amp;{\color{blue} - \displaystyle\frac{x^2}{2!} } &amp;{\color{red}   - \displaystyle\frac{x^3}{3!}   }    &amp;{\color{blue}+ \displaystyle\frac{x^4}{4!}  } &amp;{\color{red}    + \displaystyle\frac{x^5}{5!}   }    &amp;{\color{blue} - \displaystyle\frac{x^6}{6!}  } &amp;{\color{red} - \displaystyle\frac{x^7}{7!}     }  &amp; +    \cdots\\ \\
+\text{whence each term: } &amp;{\color{blue} \substack{\text{from}\\\text{cosine}}} &amp;{\color{red} \substack{\text{from}\\\text{sine}}}  &amp;{\color{blue} \substack{\text{from}\\\text{cosine}}} &amp;{\color{red} \substack{\text{from}\\\text{sine}}}  &amp;{\color{blue} \substack{\text{from}\\\text{cosine}}} &amp;{\color{red} \substack{\text{from}\\\text{sine}}} &amp;{\color{blue} \substack{\text{from}\\\text{cosine}}} &amp;{\color{red} \substack{\text{from}\\\text{sine}}}  \\ \\
+\text{the signs: }  &amp;{\color{blue} +} &amp;{\color{red} +} &amp;{\color{blue} -} &amp;{\color{red} -} &amp;{\color{blue} +} &amp;{\color{red} +} &amp;{\color{blue} -} &amp;{\color{red} -}
+\end{array}\]</span></p>
+<p>Many of you noticed something interesting: the signs are cycling every four terms. What else do we know that repeats every four cycles? Plus plus, minus minus, plus plus, minus minus? How about <em>the powers of <span class="math inline">\(i\)</span></em>?!?!?!</p>
+<p><span class="math display">\[\begin{array}{r c c c c c c c c c}
+i^n =&amp; i^0, &amp;i^1, &amp;i^2, &amp;i^3, &amp;i^4, &amp;i^5, &amp;i^6, &amp;i^7, &amp;\cdots \\
+=&amp; 1, &amp;i, &amp;-1, &amp;-i,  &amp;1, &amp;i, &amp;-1, &amp;-i,  &amp;\cdots\\
+=&amp; +, &amp;+, &amp;-, &amp;-,  &amp;+, &amp;+, &amp;-, &amp;-, &amp;\cdots \\ \\
+\left|i^n\right| =&amp; 1, &amp;i, &amp;1, &amp;i,  &amp;1, &amp;i, &amp;1, &amp;i,  &amp;\cdots
+\end{array}
+\]</span></p>
+<p>So, does <span class="math inline">\(i\)</span> somehow come up here?!? It’s already pretty crazy that there seems to be some sort of possible potential connection between trig functions and exponential functions. How does <span class="math inline">\(i\)</span> get involved?!? Three separate suspects, with little or no relation to each other, all caught on surveillance camera footage at the site of the crime! (Maybe extend or improve this metaphor!)</p>
+<p>I hope some of you were able to figure it out by yourselves in class! I have no idea yet whether you were able to. There <em>is</em> a connection, but it’s algebraically easier to work out if we already know what it is (as always). Let’s take <span class="math inline">\(e^x\)</span>, but instead of using <span class="math inline">\(x\)</span> as the variable, let’s use <span class="math inline">\(ix\)</span>. Then we have:</p>
+<p><span class="math display">\[\begin{align*}
+e^{ix} &amp;= 1 + ix + \frac{(ix)^2}{2!} + \frac{(ix)^3}{3!} + \frac{(ix)^4}{4!} +\frac{(ix)^5}{5!} +\frac{(ix)^6}{6!} +\cdots\\\\
+&amp;= 1 + ix + \frac{i^2x^2}{2!} + \frac{i^3x^3}{3!} + \frac{i^4x^4}{4!} +\frac{i^5x^5}{5!} +\frac{i^6x^6}{6!} +\cdots\\\\
+ &amp;= 1 + ix - \frac{x^2}{2!} - i\frac{x^3}{3!} + \frac{x^4}{4!} +i\frac{x^5}{5!} -\frac{x^6}{6!} +\cdots\\
+ \text{separating the terms with an $i$:}\\
+  &amp;= \left(1 - \frac{x^2}{2!}  + \frac{x^4}{4!} -\frac{x^6}{6!} +\cdots \right) \, +\, \left(ix  - i\frac{x^3}{3!}  +i\frac{x^5}{5!} +\cdots \right)\\
+   \text{factoring out the $i$:}\\
+  &amp;=\underbrace{\left(1 - \frac{x^2}{2!}  + \frac{x^4}{4!} -\frac{x^6}{6!} +\cdots \right)}_{\text{but this is cosine!}} \, +\, i\underbrace{\left(x  - \frac{x^3}{3!}  +\frac{x^5}{5!} +\cdots \right)}_{\text{and this is sine!}} \\ \\
+&amp;= \cos(x) + i\sin(x)
+\end{align*}\]</span></p>
+<p>So then we have that:</p>
+<p><span class="math display">\[e^{ix} = \cos(x)+i\sin(x)\]</span></p>
+<p>So that’s the connection! If we have an <span class="math inline">\(i\)</span> in the exponent of <span class="math inline">\(e^x\)</span>, and also multiply sine by <span class="math inline">\(i\)</span>, things work out. We can write exponential functions as trig functions! Or, put more strongly: <strong>exponential functions are just trig functions. Trig functions are just exponential functions.</strong> This equation, by the way, usually gets known as <strong>Euler’s Formula</strong>:</p>
+<div class="callout-box" style="width:50%">
+<p><strong>Euler’s Formula:</strong></p>
+<p><span class="math display">\[e^{ix} = \cos(x)+i\sin(x)\]</span></p>
+</div>
+<p>We’ll get back to that idea in a moment. But for now, let’s see what the connection to complex numbers and polar coordinates is. The right side of that equation above is just a complex number in polar form, with radius <span class="math inline">\(1\)</span> and angle <span class="math inline">\(x\)</span>! So if we swap out <span class="math inline">\(x\)</span> for <span class="math inline">\(\theta\)</span>, and multiply everything by some generic radius <span class="math inline">\(r\)</span>, we have:</p>
+<p><span class="math display">\[re^{i\theta} = r\left(\cos\theta + i\sin\theta\right)\]</span></p>
+<p>So then we have <em>yet another</em> way of writing complex numbers! We can write any complex number in polar form, not just in its coordinate pair, <span class="math inline">\(r\angle\theta\)</span>, and not as some lengthy sum of trig functions, <span class="math inline">\(r\left(\cos\theta + i\sin\theta\right)\)</span>, but also as the nice, lovely, concise <span class="math inline">\(re^{i\theta}\)</span>.</p>
+<div class="callout-box" style="width:50%">
+<p><strong>we can write any complex number with radius <span class="math inline">\(r\)</span> and angle <span class="math inline">\(\theta\)</span> as</strong>:</p>
+<p><span class="math display">\[re^{i\theta}\]</span></p>
+</div>
+<p>This is my favorite way to write complex numbers, because the angle is in the exponent, and that makes so so so much of what we’re doing so clear. It often gets called <strong>exponential form</strong> or <strong>Euler form</strong> (we’ll see where that last name comes from in a bit). <em>Everything just becomes exponent laws.</em> For example, we know that if we multiply two complex numbers together, their angles add. And this is <em>so easy to see</em>, algebraically, if we use exponential form. Say we have two complex numbers <span class="math inline">\(r_1\angle \theta_1\)</span> and <span class="math inline">\(r_2\angle\theta_2\)</span>. In exponential form, these are <span class="math inline">\(r_1e^{i\theta_1}\)</span> and <span class="math inline">\(r_2e^{i\theta_2}\)</span>. If we multiply them together:</p>
+<p><span class="math display">\[\begin{align*}
+\left(r_1e^{i\theta_1}\right)\cdot\left(r_2e^{i\theta_2}\right) &amp;= r_1r_2 e^{i\theta_1}e^{i\theta_2}\\
+\text{by exponent laws, this just becomes:}\\
+&amp;= r_1r_2\cdot e^{i\theta_1+i\theta_2}\\
+&amp;= r_1r_2\cdot e^{i(\theta_1+\theta_2)}
+\end{align*}\]</span></p>
+<p>So that’s another explanation of why the angles of complex numbers add when we multiply them—the angles are just exponents!!! Likewise, the radii multiply, because the radii are just coefficients. In a sense, that’s the fundamental <em>reason</em> angles add. We figured out that the angles add <em>empirically</em>, i.e., by multiplying together a whole bunch of complex numbers and noticing the pattern. But we didn’t actually figure out what <em>causes</em> that pattern. We didn’t use logical deduction to prove that the angles add when we multiply complex numbers. But now, we have.</p>
+<p>We’ve learned a <em>lot</em> of different ways to write complex numbers. Let’s summarize.</p>
+<ul>
+<li>We can write complex numbers in <strong>rectangular form</strong>, describing them as how far right and how far up from the origin they are:
+<ul>
+<li>We can write then as a coordinate pair: <span class="math display">\[(a,b)\]</span></li>
+<li>We can write them as a single expression: <span class="math display">\[a+bi\]</span></li>
+</ul></li>
+<li>We can write complex numbers in <strong>polar form</strong>, describing how far away from the origin they are and at what angle:
+<ul>
+<li>We can write them as a coordinate pair: <span class="math display">\[r\angle\theta\]</span></li>
+<li>We can write them as a single expression, as a power of <span class="math inline">\(i\)</span>: <span class="math display">\[ri^{\frac{\theta}{\pi/2}}\quad(\theta\text{ in radians})\]</span></li>
+<li>We can write them as a single expression, using an exponential function:<span class="math display">\[re^{i\theta}\]</span></li>
+</ul></li>
+<li>We can write them in the hybrid polar/rectangular form with cosine and sine (<em>technically</em> rectangular but a way that makes the radius and angle clear), termed by Gracie Fisher-Owens either <strong>rectolar</strong> or <strong>polangular</strong> (class vote strongly preferred the latter): <span class="math display">\[r\left(\cos\theta + i\sin\theta\right)\]</span></li>
+</ul>
+<p>Here’s a <span class="math inline">\(\LaTeX\)</span> diagram of all this that I’m going to include not because it’s particularly clear or pretty, but because it took forever to make. A hand-drawn version of that would be better. Make your own!!!</p>
+<p><span class="math display">\[\overbrace{(a,b) = \underbrace{a}_{\substack{\text{real}\\\substack{\text{component}}}}+\underbrace{b}_{\substack{\text{imaginary}\\\substack{\text{component}}}}\cdot i }^{\text{rectangular/Cartesian forms}}= \overbrace{r\angle\theta =ri^{\frac{\theta}{\pi/2}}  = \overbrace{r}^{\text{radius}}\cdot\left( \underbrace{\cos\overbrace{\theta}^{\text{angle}}}_{\substack{\text{real}\\\substack{\text{component}}}}+i\cdot\underbrace{\sin\overbrace{\theta}^{\text{angle}}}_{\substack{\text{imaginary}\\\substack{\text{component}}}}\right) = \underbrace{\overbrace{r}^{\text{radius}}e^{i\cdot\overbrace{\theta}^{\text{angle}}}}_{\substack{\text{exponential/}\\\substack{\text{Euler form}}}} }^{\text{polar/mod-arg forms}}\]</span></p>
+<h2 id="trig-functions-really-are-just-exponential-functions">Trig functions really are just exponential functions!</h2>
+<p>The cool thing we saw at the beginning was that trig functions have this very close relationship to exponential functions! If we add together sine and cosine, and do some finagling, we get an exponential function! Let’s make that connection a little bit more clear. Ultimately, we’ll come up with <em>an equation for sine and cosine</em>, one that isn’t infinitely-long, and doesn’t involve triangles or unit circles. And that’ll be pretty cool.</p>
+<p>You may recall that in one of our earlier problem sets, we came up with a formula for the real part of an imaginary number:</p>
+<p><span class="math display">\[\begin{align*}
+\frac{z+\overline{z}}{2} &amp;= \frac{(a+bi)+\overline{(a+bi)}}{2} \\
+&amp;= \frac{(a+bi)+(a-bi)}{2} \\
+&amp;= \frac{2a+\cancel{bi}-\cancel{bi}}{2} \\
+&amp;=\frac{2a}{a}\\
+&amp;= a \\
+&amp;= Re(z) \\
+&amp;=\text{the real part of }z
+\end{align*}\]</span></p>
+<p>We also came up with a formula for the imaginary part:</p>
+<p><span class="math display">\[\begin{align*}
+\frac{z-\overline{z}}{2i} &amp;= \frac{(a+bi)-\overline{(a+bi)}}{2i} \\
+&amp;= \frac{(a+bi)-(a-bi)}{2i} \\
+&amp;= \frac{\cancel{a} + bi -\cancel{a} + bi}{2i} \\
+&amp;=\frac{2bi}{2i}\\
+&amp;= b \\
+&amp;= Im(z) \\
+&amp;=\text{the imaginary part of }z
+\end{align*}\]</span></p>
+<p>Many of you objected, quite reasonably, that the formulas seem useless and overly complicated, since if we have a complex number written in <span class="math inline">\(a+bi\)</span> form, we know its real and imaginary parts are just <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>—we don’t need a fancy formula. Indeed! But, since then, we’ve seen different ways of writing and describing complex numbers, that might not be so explicit about what the real and imaginary parts are. For example, consider this complex number:</p>
+<p><span class="math display">\[z= 5e^{2i\pi/3}\]</span></p>
+<p>It’s a lovely complex number, with radius <span class="math inline">\(5\)</span> and angle <span class="math inline">\(2\pi/3\)</span>. But what if we want to know its real and imaginary parts (i.e., its <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> components)? One way to figure them out would be to use trig functions:</p>
+<p><span class="math display">\[Re(z) = 5\cos(2\pi/3) = 5\cdot \frac{-1}{2}\]</span></p>
+<p><span class="math display">\[Im(z) = 5\sin(2\pi/3) = 5\cdot\frac{1}{\sqrt3}\]</span></p>
+<p>Another way would be to use these formulas! We have:</p>
+<p><span class="math display">\[\begin{align*}
+Re(z) &amp;= \frac{z+\overline{z}}{2} \\
+&amp;= \frac{5e^{2i\pi/3}+\overline{5e^{2i\pi/3}}}{2}\\
+\text{but a conjugate is just a horizontal reflection, so this is: }\\
+&amp;= \frac{5e^{2i\pi/3}+5e^{-2i\pi/3}}{2}
+\end{align*}\]</span></p>
+<p>Um, okay, I guess that’s actually a way less helpful form. Anyway! Here’s the cool thing I really want to show you. Remember that equation we came up with:</p>
+<p><span class="math display">\[e^{i\theta} = \cos\theta + i\sin\theta\]</span></p>
+<p>We can take the real parts of both sides:</p>
+<p><span class="math display">\[Re\left(e^{i\theta} \right)= Re\left(\cos\theta + i\sin\theta\right)\]</span></p>
+<p>On the right, the real part is clearly just <span class="math inline">\(\cos\theta\)</span>—we can just look at it and see it. <span class="math display">\[Re\left(e^{i\theta} \right)=\cos\theta\]</span></p>
+<p>But on the left? We can’t easily dissect <span class="math inline">\(e^{i\theta}\)</span> into its real and imaginary parts! They’re all tied together! What we can do instead, though, is use our formula for the real part:</p>
+<p><span class="math display">\[\frac{e^{i\theta} +\overline{e^{i\theta}}}{2}=\cos\theta \]</span></p>
+<p>Complex conjugates are just vertical reflections, so to take the complex conjugate of something in polar form, we just add a negative to the angle:</p>
+<p><span class="math display">\[\frac{e^{i\theta} +e^{-i\theta}}{2}= \cos\theta \]</span></p>
+<p>And look! We’ve got this lovely formula for cosine. It’s not an infinitely-long polynomial, and it’s not some hokey algorithm about rotating things around a unit circle—it’s a single, closed form for cosine. That’s actually pretty cool!</p>
+<p>We can do the same for sine. We have:</p>
+<p><span class="math display">\[\cos\theta + i\sin\theta = e^{i\theta}\]</span></p>
+<p>To find sine, we’ll take the <em>imaginary</em> part, since sine corresponds to the imaginary/vertical axis: <span class="math display">\[Im\left(\cos\theta + i\sin\theta\right) = Im\left(e^{i\theta} \right)\]</span></p>
+<p>On the left, the imaginary part is just <span class="math inline">\(\sin\theta\)</span>:</p>
+<p><span class="math display">\[\sin\theta = Im\left(e^{i\theta} \right)\]</span></p>
+<p>But on the right? Like above, we’ll apply our formula for the imaginary part:</p>
+<p><span class="math display">\[\begin{align*}
+\sin\theta &amp;=\frac{e^{i\theta}-\overline{e^{i\theta}}}{2i}  \\
+\text{working out the conjugate, this is: }\\
+&amp;= \frac{e^{i\theta}-e^{-i\theta}}{2i} 
+\end{align*}\]</span></p>
+<p>Woweee! So we have:</p>
+<p><span class="math display">\[\sin\theta= \frac{e^{i\theta}-e^{-i\theta}}{2i}\]</span></p>
+<p>So then, if we want to write sine and cosine <em>as single equations</em>, without having to describe them as ratios of sides of a triangle, or components of a unit circle, and without having to write them as infinitely-long polynomials, we can just use <span class="math inline">\(i\)</span> and an exponential function to write them in nice, compact, closed forms: <span class="math display">\[\sin\theta= \frac{e^{i\theta}-e^{-i\theta}}{2i} \quad\text{and}\quad \cos\theta = \frac{e^{i\theta} +e^{-i\theta}}{2}\]</span></p>
+<h2 id="zooming-out">zooming out</h2>
+<p>There’s a point here that we haven’t made explicitly enough, about our deepening understanding of trig functions.</p>
+<p>When you’re a child, you learn that trig functions are ratios of the sides of right triangles. This is a delightful way to understand trig functions, and it lets you take the sine/cosine/whatever of any angle you can fit into a right triangle:</p>
+<p><img src="trig-definitions-containment-1.svg" /></p>
+<p>But it doesn’t let you take the sine/cosine/whatever of angles that can’t fit into a right triangle. Using this definition, you can’t take the sine of a negative angle, or the tangent of an angle greater than <span class="math inline">\(\pi/2\)</span>. So you zoom out. You come up with a broader, deeper, more fundamental conception of what trig functions are. You realize that trig functions are fundamentally not about triangles, but about <em>circles.</em> And with this definition, you can take the sine/cosine/whatever of angles that are <em>any real number</em>:</p>
+<p><img src="trig-definitions-containment-2.svg" /></p>
+<p>But now our conception of numbers themselves has broadened. The real numbers aren’t enough for us. We’ve learned there’s more to reality than what’s real. The world’s more complex. Now we believe in imaginary numbers, and so now, we’ve extended our understanding of trig functions to fit:</p>
+<p><span class="math display">\[\begin{align*}
+\sin(x) \quad&amp;=\quad  \frac{e^{ix}-e^{-ix}}{2i}  \quad&amp;=\quad x - \frac{x^3}{3!} + \frac{x^5}{5!} - \frac{x^7}{7!} + \frac{x^9}{9!} -  \frac{x^{11}}{11!} + \cdots \\ \\
+\cos(x) \quad&amp;=\quad \frac{e^{ix} +e^{-ix}}{2} \quad&amp;=\quad 1 - \frac{x^2}{2!} + \frac{x^4}{4!} - \frac{x^6}{6!} + \frac{x^8}{8!} - \frac{x^{10}}{10!}  + \cdots
+\end{align*}\]</span></p>
+<p>Once again, we’ve peeled away one more layer of the onion from the inside—what a topologically-tortuous image—OK, we’re peeling away layers of an onion from the outside, but it’s infinitely large, or perhaps the layers are proportional to density and it’s like an infinite black hole—turtles all the way down, except no, they’re all different turtles—anyway, our understanding of what trig functions really are—“really” “are”—has broadened yet further:</p>
+<p><img src="trig-definitions-containment-3.svg" /></p>
+<h2 id="the-most-important-thing-in-these-notes">The Most Important Thing In These Notes</h2>
+<p>Maybe you weren’t impressed by that. Here is something we all must genuflect before. Let’s go back to this equation:</p>
+<p><span class="math display">\[e^{i\theta} = \cos\theta + i\sin\theta\]</span></p>
+<p>What if <span class="math inline">\(\theta=\pi\)</span>? Then this just becomes:</p>
+<p><span class="math display">\[e^{i\pi} = \cos\pi + i\sin\pi\]</span></p>
+<p><span class="math display">\[e^{i\pi}  = -1 + 0\]</span></p>
+<p>Rearranging this slightly, we have:</p>
+<p><span class="math display">\[e^{i\pi} + 1 = 0\]</span></p>
+<p><strong>This is amazing.</strong> We have here, in a single equation, a relationship between the five most important numbers in math—<span class="math inline">\(e\)</span>, <span class="math inline">\(i\)</span>, <span class="math inline">\(\pi\)</span>, <span class="math inline">\(0\)</span>, and <span class="math inline">\(1\)</span>—the three most important operations—addition, multiplication, exponentiation—and the most important relationship—equality. This is wonderous and beautiful.</p>
+<div class="callout-box" style="border-width: 3pt; width:50%; font-size:150%">
+<p><strong>Euler’s Identity:</strong> <span class="math display">\[e^{i\pi} + 1 = 0\]</span></p>
+</div>
+<div style='height:10em;'>
+<p></em></p>
+<h2 id="problems">Problems</h2>
+<p>Write the following complex numbers in all six of the forms we now know, simplifying as far as reasonably possible without a calculator. (Draw them, if that’s useful in this task.)</p>
+<div style="column-width: 14em;  column-gap: 2em;  column-rule: 1px solid #ccc;">
+<ol class='problems'>
+<li>
+<span class="math inline">\(9\cdot i^{7/6}\)</span>
+<li>
+<span class="math inline">\(1 \angle (\pi/4)\)</span>
+<li>
+<span class="math inline">\(\displaystyle e^{\frac{i\pi}{6}}\)</span>
+<li>
+<span class="math inline">\(e^{2\pi i}\)</span>
+<li>
+<span class="math inline">\(\frac{1}{\sqrt{2}} + \frac{1}{\sqrt{2}}\cdot i\)</span>
+<li>
+<span class="math inline">\(\displaystyle \frac{\sqrt{3}+1}{\sqrt{2}} + \frac{\sqrt{3}-1}{\sqrt{2}}\cdot i\)</span>
+<li>
+<span class="math inline">\(\displaystyle 200e^{\frac{i\pi}{4}}\)</span>
+<li>
+<span class="math inline">\(4 \angle (5\pi/4)\)</span>
+<li>
+<span class="math inline">\(i^{5/7}\)</span>
+<li>
+<span class="math inline">\(\displaystyle e^{\frac{7i\pi}{6}}\)</span>
+<li>
+<span class="math inline">\(4 + 2i\)</span>
+<li>
+<span class="math inline">\(0.4 \angle (\pi/3 )\)</span>
+<li>
+<span class="math inline">\(\displaystyle\left(-\frac{1}{\sqrt{2}},\frac{1}{\sqrt{2}}\right)\)</span>
+<li>
+<span class="math inline">\(1 \angle (\pi/2)\)</span>
+<li>
+<span class="math inline">\(17 i^{373}\)</span>
+<li>
+<span class="math inline">\(1 \angle 17^\circ\)</span>
+<li>
+<span class="math inline">\(1 + \sqrt{2}i\)</span>
+<li>
+<span class="math inline">\(3 \angle 135^\circ\)</span>
+<li>
+<span class="math inline">\(5\sqrt{3} + 2i\)</span>
+<li>
+<span class="math inline">\(e^{i\pi/2}\)</span> (huh…)
+<li>
+<span class="math inline">\(5 \angle 75^\circ\)</span>
+<li>
+<span class="math inline">\(\displaystyle e^{i\cdot\pi/4}\)</span>
+<li>
+<span class="math inline">\(9\cdot\left(\cos(5\pi/12) + i\sin(5\pi/12)\right)\)</span>
+<li>
+<span class="math inline">\(\cos(\pi/12) + i\sin(\pi/12)\)</span>
+<li>
+<span class="math inline">\(9 \angle 32^\circ\)</span>
+<li>
+<span class="math inline">\(1 \angle (-4\pi/3 )\)</span>
+<li>
+<span class="math inline">\(2 \angle 285^\circ\)</span>
+<li>
+<span class="math inline">\(-22+3i\)</span>
+<li>
+<span class="math inline">\(0.1\cdot\left(\cos(7\pi/6) + i\sin(7\pi/6)\right)\)</span>
+<li>
+<span class="math inline">\(2 i^{4}\)</span>
+<li>
+<span class="math inline">\(1 \angle 75^\circ\)</span>
+<li>
+<span class="math inline">\(e^{i\cdot0}\)</span>
+<li>
+<span class="math inline">\(i^{-281}\)</span>
+<li>
+<span class="math inline">\(\left(\frac{\sqrt{3}+1}{2\sqrt{2}},\frac{\sqrt{3}-1}{2\sqrt{2}}\right)\)</span>
+<li>
+<span class="math inline">\(e^{2i\pi}\)</span>
+<li>
+<span class="math inline">\(60 \angle 45^\circ\)</span>
+<li>
+<span class="math inline">\(4\cdot i^{135/90}\)</span>
+<li>
+<span class="math inline">\(1 \angle (\pi/3)\)</span>
+</ol>
+</div>
+<p><br><br></p>
+<ol class="problems">
+<li>
+Write <span class="math inline">\(\left(1+\cos\theta+i\sin\theta\right)^2\)</span> in exponential/Euler (i.e., <span class="math inline">\(re^{i\theta}\)</span>) form.
+</li>
+<li>
+Write <span class="math inline">\(\displaystyle \left(\frac{1+\cos\theta+i\sin\theta}{1+\cos\theta-i\sin\theta}\right)^n\)</span> in exponential/Euler (i.e., <span class="math inline">\(re^{i\theta}\)</span>) form.
+</li>
+<li>
+Write <span class="math inline">\(e^{i\alpha}\cdot e^{i\beta}\)</span> in terms of <span class="math inline">\(\cos\alpha\)</span>, <span class="math inline">\(\cos\beta\)</span>, <span class="math inline">\(\sin\alpha\)</span>, and <span class="math inline">\(\sin\beta\)</span>. (Does this relate to anything we did in December?)
+</li>
+<li>
+What’s the sine of <span class="math inline">\(i\)</span>??
+</li>
+<li>
+What’s the cosine of <span class="math inline">\(i\)</span>?
+</li>
+<li>
+<p>placeholder for unwritten problems with hyperbolic sine, cosine, tan</p>
+<p><span class="math display">\[\sinh \theta = \frac{e^\theta - e^{-\theta}}{2}\]</span> <span class="math display">\[\cosh \theta = \frac{e^\theta + e^{-\theta}}{2}\]</span> <span class="math display">\[\tanh \theta = \frac{e^\theta - e^{-\theta}}{e^\theta + e^{-\theta}}\]</span></p>
+<p>the pythagorean identity equivalent for hyberbolic trig functions: <span class="math inline">\(\cosh^2\theta-\sinh^2\theta=1\)</span></p>
+how hyberbolic trig fxns split up under additiojn <span class="math inline">\(\sinh(\alpha+\beta) = \sinh\alpha\cosh\beta + \cosh\alpha\sinh\beta\)</span> <span class="math inline">\(\cosh(\alpha+\beta)\)</span>
+</li>
+<li>
+<span class="math inline">\(\overline{e^z} = e^{\overline{z}}\)</span>
+</li>
+</ol>
+</main>
+</body>
+</html>

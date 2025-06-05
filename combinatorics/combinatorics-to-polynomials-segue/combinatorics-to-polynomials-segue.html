@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>the choices we make when we decide to multiply</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="/main.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <script src="../highlight-toc.js" type="text/javascript"></script>
+</head>
+<body>
+<script>document.addEventListener('DOMContentLoaded', function(e) {
+  Scroller.init();
+})</script>
+<aside>
+<div class="tocLinks" >
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#foil-revisited">FOIL revisited</a></li>
+<li><a href="#why-does-any-of-this-work">why does any of this work?</a></li>
+<li><a href="#cubics-getting-serious">cubics: getting serious</a></li>
+<li><a href="#lets-do-a-serious-multiplication">Let’s do a SERIOUS multiplication</a></li>
+</ul>
+</nav>
+</div>
+</aside>
+<main>
+<header id="title-block-header">
+<h1 class="title">the choices we make when we decide to multiply</h1>
+</header>
+<p>Life is about making choices.</p>
+<div style="height:3em">
+
+</div>
+<p>Multiplication, too, is about making choices.</p>
+<div style="height:3em">
+
+</div>
+<p>We’ve spent so much time this semester learning how to count. Let’s stay in elementary school, and learn how to <em>multiply</em>.</p>
+<h2 id="foil-revisited">FOIL revisited</h2>
+<p>You’ve got a quadratic. It’s factored: <span class="math display">\[(x+3)(x+7)\]</span> If this were a function: <span class="math display">\[f(x) = (x+3)(x+7)\]</span> … then it’d be easy to graph! Factoring lets us <em>see</em> polynomials. It looks like: <img src="x%5E2-10x-21.svg" style="width:50.0%" /> If we want to multiply it out, how do we do that? We all know the FOIL algorithm:</p>
+<ul>
+<li>multiply together the <strong>first</strong> terms of each factor (the <span class="math inline">\(x\)</span> and the <span class="math inline">\(x\)</span>)</li>
+<li>multiply together the <strong>outer</strong> terms (the <span class="math inline">\(x\)</span> and the <span class="math inline">\(7\)</span>)</li>
+<li>multiply together the <strong>inner</strong> terms (the <span class="math inline">\(3\)</span> and the <span class="math inline">\(x\)</span>)</li>
+<li>multiply together the <strong>last</strong> terms (the <span class="math inline">\(3\)</span> and the <span class="math inline">\(7\)</span>)</li>
+<li>add ’em all up</li>
+</ul>
+<p><img src="foil.svg" style="width:50.0%" /></p>
+<p>So our multiplication looks like: <span class="math display">\[(x+3)(x+7) \quad=\quad \begin{matrix}\text{(the first terms)} \\ + \\
+\text{(the outer terms)} \\ + \\
+\text{(the inner terms)} \\ + \\
+\text{(the last terms)}  \end{matrix} \quad=\quad \begin{matrix} x\cdot x \\ + \\
+x \cdot 7\\ + \\
+3\cdot x \\+ \\
+3\cdot 7 \end{matrix} \quad=\quad \begin{matrix}x^2 \\+\\ 7x\\ +\\  3x \\+\\ 21\end{matrix} \quad=\quad x^2 + 10x + 21 \]</span> Or, put differently: <span class="math display">\[(x+3)(x+7) \,\,=\,\, \begin{matrix}\left(\substack{\text{the first term}\\\text{from the first factor}}\right)\left(\substack{\text{the first term}\\\text{from the second factor}}\right)\\ + \\
+\left(\substack{\text{the first term}\\\text{from the first factor}}\right)\left(\substack{\text{the second term}\\\text{from the second factor}}\right)\\ + \\
+\left(\substack{\text{the second term}\\\text{from the first factor}}\right)\left(\substack{\text{the first term}\\\text{from the second factor}}\right)\\ + \\
+\left(\substack{\text{the second term}\\\text{from the first factor}}\right)\left(\substack{\text{the second term}\\\text{from the second factor}}\right) \end{matrix} \,\,=\,\, \begin{matrix} x\cdot x \\ + \\
+x \cdot 7\\ + \\
+3\cdot x \\+ \\
+3\cdot 7 \end{matrix} \,\,=\,\, \begin{matrix}x^2 \\+\\ 7x\\ +\\  3x \\+\\ 21\end{matrix} \,\,=\,\, x^2 + 10x + 21 \]</span> Fair enough. But FOIL doesn’t generalize much beyond this case of two factors with two things added up. What if we have three factors? or four? <span class="math display">\[\text{how do we multiply out this: }\quad (x+3)(x+5)(x+7) \quad ???\]</span> What if there are not two things added up in each factor, but <em>three</em> things? Or four?? <span class="math display">\[\text{how do we multiply out this: }\quad (x+3 + y)(x+5)(x+7) \quad ???\]</span> FOIL is nice, but it doesn’t help us out in those more complicated situations.</p>
+<p>Maybe some of you like using boxes! We want to multiply out a factored quadratic; we draw a <span class="math inline">\(2\times 2\)</span> grid/box; we arrange the two terms from one of the factors on the top and the others on the side: <span class="math display">\[
+\begin{array}{ccc}
+&amp;x &amp; 3 \\[2pt]
+\hline
+x &amp;  &amp;  \\[8pt]
+7 &amp; &amp;  \\
+\end{array}
+\]</span> And then we multiply together the corresponding rows and columns: <span class="math display">\[
+\begin{array}{ccc}
+&amp; {\color{gray} x} &amp; {\color{gray} 3} \\[2pt]
+\hline
+{\color{gray} x} &amp;  x^2 &amp;  3   \\[8pt]
+{\color{gray} 7} &amp;  7x &amp; 21  \\
+\end{array}
+\]</span> And then we just add up all four of the terms in the boxes!</p>
+<p>The cool thing with this method is that it can let us deal with situations in which we have more than just two terms in a factor! For instance, if we have: <span class="math display">\[(x+3 + y)(x+5)\]</span> We can multiply it with this method by making a box like: <span class="math display">\[
+\begin{array}{ccc}
+&amp;x &amp; 3 &amp; y\\[2pt]
+\hline
+x &amp;  &amp;  \\[8pt]
+5 &amp;  &amp;  \\
+\end{array}
+\]</span> And filling it in: <span class="math display">\[
+\begin{array}{ccc}
+&amp; {\color{gray} x} &amp; {\color{gray} 3} &amp; {\color{gray} y} \\[2pt]
+\hline
+{\color{gray} x} &amp; x^2 &amp; 3x &amp; xy  \\[8pt]
+{\color{gray} 5} &amp; 5x &amp; 15 &amp; 5y  \\
+\end{array}
+\]</span> And adding the resulting terms up: <span class="math display">\[\begin{align*}
+(x+3 + y)(x+5) =&amp; \quad x^2 + 3x + xy \\
+&amp;+ 5x + 15 + 5y \\ \\
+=&amp;\,\, x^2 + xy + 8x + 5y + 15
+\end{align*}\]</span> AND, this method even generalizes to more than two factors!!! For instance, if we want to multiply together <span class="math display">\[(x+5)(x+3)(x+2)\]</span> We can do it, just by making a <em>three</em>-dimensional box, with each factor along each of the three dimensions! So it’s a <span class="math inline">\(2\times 2 \times 2\)</span> box, with <span class="math inline">\(8\)</span> total cells! Here’s the box: <img src="cubic-cube-1.svg" style="width:50.0%" /> And here it is, with all eight of the cells filled in!!! <img src="cubic-cube-2.svg" style="width:50.0%" /> So we have: <span class="math display">\[\begin{align*}
+(x+5)(x+3)(x+2) &amp; = x^3 + 3x^2 + 5x^2 + 2x^2 + 6x + 10x + 30 \\
+&amp;= x^3 + 10x^2 + 31x + 30
+\end{align*}\]</span> But… this is hard to do in practice, because paper has only two dimensions. Look at what a mess my illustration is! And if we have <em>four</em> factors, then we’d need a <em>four</em>-dimensional box! It’s a great strategy in theory; it’s less great in practice.</p>
+<h2 id="why-does-any-of-this-work">why does any of this work?</h2>
+<p>These are some cool strategies for how to multiply out quadratics. But <em>why</em> do these strategies work in the first place? Like, yeah, we’ve got these cool methods, but <em>why</em> do they work?</p>
+<p>When we’re scientists, trying to develop novel new drugs, sometimes we find drugs that seem to work (based on our essays, clinical trials, experimentation, etc.). But then we want to try to figure out <em>why</em> the drugs work. What’s the fundamental mechanism? What receptors are being activated? What ion channels are being blocked? <em>What’s actually happening</em>?</p>
+<p>When it comes to multiplying out binomials, it’s fundemantally about the <strong>distributive property</strong>. Remember that one? You might not; that’s fine. The distributive property is the arithmetic law that says that if we’re multiplying some number by two numbers added up, then what we need to do is multiply the number by each of the two numbers, seperately, and then add up the result: <span class="math display">\[a(b+c) = a\cdot b \,\,+\,\, a\cdot c\]</span> This one big term splits up into <em>two</em> terms added up. Maybe we could represent that by dooding some arrows: <span class="math display">\[a(b+c)\quad
+\begin{matrix}
+{\color{LightGray} \nearrow}  \\
+= \\ 
+{\color{LightGray} \searrow}  \\
+\end{matrix}
+\quad
+\begin{matrix}
+ab \\
+\\
++ \\ 
+\\
+bc \\
+\end{matrix}\]</span> So if we’re multiplying out a quadratic-style thing, with <em>two</em> factors consisting of two things added up each: <span class="math display">\[(a+b)(c+d)\]</span> then we do the distributive property TWICE! First, we distribute once, and we get: <span class="math display">\[(a+b)(c+d) \quad=\quad
+\begin{matrix}
+\\
+\\ 
+a\cdot(b+c) \\ 
+\\
++ \\
+\\
+b\cdot(c+d) \\
+\\ \\
+\end{matrix}
+\]</span> Then, we take each of the two things we get, and we distribute AGAIN, a second time: <span class="math display">\[(a+b)(c+d) \quad=\quad
+\begin{matrix}
+\\
+\\ 
+a\cdot(b+c) \\ 
+\\
++ \\
+\\
+b\cdot(c+d) \\
+\\ \\
+\end{matrix}\quad=\quad
+\begin{matrix}
+\\
+a\cdot c 
+\\ 
++ \\
+a \cdot d 
+\\
++ \\
+b\cdot c 
+\\
++ \\
+b\cdot d
+\\ \\
+\end{matrix}
+\]</span> Or just: <span class="math display">\[(a+b)(c+d) \quad=\quad
+\begin{matrix}
+\\
+\\ 
+a\cdot(b+c) \\ 
+\\
++ \\
+\\
+b\cdot(c+d) \\
+\\ \\
+\end{matrix}\quad=\quad
+\begin{matrix}
+\\
+a\cdot c 
+\\ 
++ \\
+a \cdot d 
+\\
++ \\
+b\cdot c 
+\\
++ \\
+b\cdot d
+\\ \\
+\end{matrix}
+\quad=\quad
+\begin{matrix}
+\\
+ac 
+\\ 
++ \\
+ad 
+\\
++ \\
+bc 
+\\
++ \\
+bd
+\\ \\
+\end{matrix}
+\]</span> I’m using vertical space in the equations above, to show how the distributive property makes things <em>branch</em>, like a tree. Written without all of the details, this looks like: <span class="math display">\[(a+b)(c+d) \quad=\quad ac+ad+bc+bd\]</span> Yay! So this gives us, basically a recursive algorithm for how to multiply out polynomials; it gives us a recursive algorithm for how to multiply things out when we have repeated chunks of stuff added up, multiplied out.</p>
+<p>Let’s re-do that same multiplication with <span class="math inline">\((x+3)(x+7)\)</span> again, but visualizing/displaying it as a tree, to make all the distributive property parts clear: <span class="math display">\[(x+3)(x+7) \quad=\quad
+\begin{matrix}
+\\
+\\ 
+x\cdot(x+7) \\ 
+\\
++ \\
+\\
+3\cdot(x+7) \\
+\\ \\
+\end{matrix}\quad=\quad
+\begin{matrix}
+\\
+x\cdot x 
+\\ 
++ \\
+x \cdot 7 
+\\
++ \\
+3\cdot x 
+\\
++ \\
+3\cdot 7
+\\ \\
+\end{matrix}
+\]</span> If we keep going and simplify things, this becomes: <span class="math display">\[(x+3)(x+7) \quad=\quad
+\begin{matrix}
+\\
+\\ 
+x\cdot(x+7) \\ 
+\\
++ \\
+\\
+3\cdot(x+7) \\
+\\ \\
+\end{matrix}\quad=\quad
+\begin{matrix}
+\\
+x\cdot x 
+\\ 
++ \\
+x \cdot 7 
+\\
++ \\
+3\cdot x 
+\\
++ \\
+3\cdot 7
+\\ \\
+\end{matrix} \quad=\quad
+\begin{matrix}
+\\
+x^2
+\\ 
++ \\
+7x
+\\
++ \\
+3x 
+\\
++ \\
+21
+\\ \\
+\end{matrix} \quad=\quad
+\begin{matrix}
+\\
+\\ 
+x^2 \\
++
+\\
+10x \\
++ \\
+21
+\\ \\ \\
+\end{matrix}
+\]</span> One thing that happens when we multiply out polynomials like this (which dosn’t happen if we’re multiplying out generic bundles like <span class="math inline">\((a+b)(c+d)\)</span>) is that we get a bunch of terms with the same number of <span class="math inline">\(x\)</span>’s. Then, to clean our answer up, we can add together like terms. So one way to organize all of our resulting multiplications is to group them by how many <span class="math inline">\(x\)</span>’s they have, e.g.: <span class="math display">\[\begin{matrix} 
+x \cdot x
+ \end{matrix} \quad+\quad \begin{matrix} 
+x \cdot 7 \\ + \\ 
+3 \cdot x\end{matrix}\quad+\quad  \begin{matrix} 3 \cdot 7\end{matrix}\]</span> Or just <span class="math display">\[\begin{matrix}x^{2}
+ \end{matrix} \quad+\quad \begin{matrix} 
+7 \, x \\ + \\ 
+3 \, x
+ \end{matrix} \quad+\quad \begin{matrix} 
+21\end{matrix}\]</span> That way, it’s easy to see how to add like terms—just add up the columns! Here perhaps it doesn’t matter that much, but with more complicated polynomials, this might be useful!</p>
+<p><span class="math display">\[\begin{matrix} x^{2} + 10 \, x + 21 \end{matrix}\]</span></p>
+<h2 id="cubics-getting-serious">cubics: getting serious</h2>
+<p>OK, let’s go back to the same cubic we saw earlier. Here it is, factored: <span class="math display">\[(x+5)(x+3)(x+2)\]</span> Visually, it looks like: <img src="cubic-polynomial-graph.svg" style="width:75.0%" /> What if we want to multiply it out? Using a 3D box seems annoying (and in any case, not easily generalizable beyond a a cubic). What if we try multiplying this out using this same idea of recursively applying the distributive property?</p>
+<p>Because of distributivity, this is going to result in eight total terms! At each factor, we have two choices for which of the two terms to pick and then multiply: <span class="math display">\[\underbrace{(x+5)}_{\mathclap{\text{choose one}}}\cdot\underbrace{(x+3)}_{\mathclap{\text{choose one}}}\cdot  \underbrace{(x+2)}_{\mathclap{\text{choose one}}} \]</span> So if we want to know how many total multiplications we end up with, it’s something like: <span class="math display">\[\begin{align*}
+\text{(two choices)}\text{(two choices)}\text{(two choices)} &amp;= 2^3 \\
+&amp;= 8\text{ total terms, before simplifying and combining things}
+\end{align*}\]</span> Let’s do the actual multiplication! Just like with our counting problems, we can visualize this as a tree. At every juncture we’re making one of two choices. So at every factor, we split into two branches, and ultimately, we end up with our <span class="math inline">\(2^3=8\)</span> different choices of multiplying one thing from each factor.</p>
+<p>So, first, we distribute/choose from the <span class="math inline">\((x+5)\)</span> term: <span class="math display">\[(x+5)(x+3)(x+2)\quad
+\begin{matrix}
+{\color{LightGray} \nearrow}  \\
+\\
+\\
+= \\ 
+\\
+\\
+{\color{LightGray} \searrow}  \\
+\end{matrix}
+\quad
+\begin{matrix}
+\\ 
+x\cdot (x+3)(x+2)
+\\
+\\
+\\
+\\
++\\ 
+\\
+\\
+\\
+5\cdot (x+3)(x+2)
+\\
+\end{matrix}
+\]</span> That gives us two terms. Let’s distribute the <span class="math inline">\((x+3)\)</span> next, which will give us two more terms for each term, so we’ll have a total of four terms: <span class="math display">\[(x+5)(x+3)(x+2)\quad
+\begin{matrix}
+\\ 
+\\
+\\
+\\
+\\
+\\
+{\color{LightGray} \nearrow}  \\
+\\
+\\
+= \\ 
+\\
+\\
+{\color{LightGray} \searrow}  \\
+\\
+\\
+\\
+\\
+\\
+\\
+\end{matrix}
+\quad
+\begin{matrix}
+\\ 
+\\
+\\
+\\
+\\
+\\
+x\cdot (x+3)(x+2)
+\\
+\\
+\\
+\\
++\\ 
+\\
+\\
+\\
+5\cdot (x+3)(x+2)
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\end{matrix}
+\quad\begin{matrix}
+\\ 
+\\
+\\
+\\
+\\
+{\color{LightGray} \nearrow} \\
+\\
+{\color{LightGray} \searrow}  \\
+\\
+\\
+= \\
+\\
+\\
+{\color{LightGray} \nearrow} \\
+\\
+{\color{LightGray} \searrow}  \\
+\\
+\\
+\\
+\\
+\\
+\end{matrix}
+\quad
+\begin{matrix}
+\\
+\\
+x\cdot x (x+2)
+\\
+\\
++\\ 
+\\
+x\cdot 3 (x+2)
+\\
+\\
++\\
+\\
+5\cdot x (x+2)
+\\
+\\
++\\
+\\
+5\cdot 3 (x+2)
+\\
+\\
+\\
+\end{matrix}
+\]</span> And finally, let’s distribute out the last factor: <span class="math display">\[(x+5)(x+3)(x+2)\quad
+\begin{matrix}
+\\ 
+\\
+\\
+\\
+\\
+\\
+{\color{LightGray} \nearrow}  \\
+\\
+\\
+= \\ 
+\\
+\\
+{\color{LightGray} \searrow}  \\
+\\
+\\
+\\
+\\
+\\
+\\
+\end{matrix}
+\quad
+\begin{matrix}
+\\ 
+\\
+\\
+\\
+\\
+\\
+x\cdot (x+3)(x+2)
+\\
+\\
+\\
+\\
++\\ 
+\\
+\\
+\\
+5\cdot (x+3)(x+2)
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\end{matrix}
+\quad\begin{matrix}
+\\ 
+\\
+\\
+\\
+\\
+{\color{LightGray} \nearrow} \\
+\\
+{\color{LightGray} \searrow}  \\
+\\
+\\
+= \\
+\\
+\\
+{\color{LightGray} \nearrow} \\
+\\
+{\color{LightGray} \searrow}  \\
+\\
+\\
+\\
+\\
+\\
+\end{matrix}
+\quad
+\begin{matrix}
+\\
+\\
+x\cdot x (x+2)
+\\
+\\
++\\ 
+\\
+x\cdot 3 (x+2)
+\\
+\\
++\\
+\\
+5\cdot x (x+2)
+\\
+\\
++\\
+\\
+5\cdot 3 (x+2)
+\\
+\\
+\\
+\end{matrix}
+\quad
+\begin{matrix}
+\\ \\
+{\color{LightGray} \nearrow} \\
+{\color{LightGray} \searrow} \\
+ \\ \\
+{\color{LightGray} \nearrow} \\
+{\color{LightGray} \searrow} \\
+\\
+= \\
+{\color{LightGray} \nearrow} \\
+{\color{LightGray} \searrow} \\
+ \\
+ \\
+{\color{LightGray} \nearrow} \\
+{\color{LightGray} \searrow} \\
+\\
+\end{matrix}
+\quad
+\begin{matrix}
+x\cdot x \cdot x  \\
++\\
+x\cdot x \cdot 2  \\
++\\
+x\cdot 3 \cdot x  \\
++\\
+x\cdot 3 \cdot 2  \\
++\\
+5\cdot x \cdot x  \\
++\\
+5\cdot x \cdot 2   \\
++\\
+5\cdot 3 \cdot x \\
++\\ 
+5\cdot 3 \cdot 2
+\end{matrix}
+\]</span> Cleaning this this up, we get: <span class="math display">\[(x+5)(x+3)(x+2)\quad
+\begin{matrix}
+\\ 
+\\
+\\
+\\
+\\
+\\
+{\color{LightGray} \nearrow}  \\
+\\
+\\
+= \\ 
+\\
+\\
+{\color{LightGray} \searrow}  \\
+\\
+\\
+\\
+\\
+\\
+\\
+\end{matrix}
+\quad
+\begin{matrix}
+\\ 
+\\
+\\
+\\
+\\
+\\
+x\cdot (x+3)(x+2)
+\\
+\\
+\\
+\\
++\\ 
+\\
+\\
+\\
+5\cdot (x+3)(x+2)
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\end{matrix}
+\quad\begin{matrix}
+\\ 
+\\
+\\
+\\
+\\
+{\color{LightGray} \nearrow} \\
+\\
+{\color{LightGray} \searrow}  \\
+\\
+\\
+= \\
+\\
+\\
+{\color{LightGray} \nearrow} \\
+\\
+{\color{LightGray} \searrow}  \\
+\\
+\\
+\\
+\\
+\\
+\end{matrix}
+\quad
+\begin{matrix}
+\\
+\\
+x\cdot x (x+2)
+\\
+\\
++\\ 
+\\
+x\cdot 3 (x+2)
+\\
+\\
++\\
+\\
+5\cdot x (x+2)
+\\
+\\
++\\
+\\
+5\cdot 3 (x+2)
+\\
+\\
+\\
+\end{matrix}
+\quad
+\begin{matrix}
+\\ \\
+{\color{LightGray} \nearrow} \\
+{\color{LightGray} \searrow} \\
+ \\ \\
+{\color{LightGray} \nearrow} \\
+{\color{LightGray} \searrow} \\
+\\
+= \\
+{\color{LightGray} \nearrow} \\
+{\color{LightGray} \searrow} \\
+ \\
+ \\
+{\color{LightGray} \nearrow} \\
+{\color{LightGray} \searrow} \\
+\\
+\end{matrix}
+\quad
+\begin{matrix}
+x\cdot x \cdot x  \\
++\\
+x\cdot x \cdot 2  \\
++\\
+x\cdot 3 \cdot x  \\
++\\
+x\cdot 3 \cdot 2  \\
++\\
+5\cdot x \cdot x  \\
++\\
+5\cdot x \cdot 2   \\
++\\
+5\cdot 3 \cdot x \\
++\\ 
+5\cdot 3 \cdot 2
+\end{matrix}
+\quad=\quad
+\begin{matrix}
+x^3 \\+\\
+2x^2  \\+\\
+3x^2 \\+\\
+6x \\+\\
+5x^2 \\+\\
+10x \\+\\
+15 x \\+\\
+30
+\end{matrix}
+\quad=\quad
+\begin{matrix}
+\\
+\\
+\\
+x^3 \\
++\\
+10x^2 \\
++ \\
+31x \\
++ \\ 
+30 \\
+\\
+\\
+\\
+\end{matrix}
+\]</span> So that’s a way of showing how we could come up with each of those terms, systemetically, so that we know we don’t leave any out (or accidentally do the same multiplication twice). If we already have all eight of those terms, one way we could organize them—different from the way we create them in the tree above—one way we could organize them is by the number of <span class="math inline">\(x\)</span>’s in each term. So, for example, we could list the term with all three <span class="math inline">\(x\)</span>’s in one column, the term with two <span class="math inline">\(x\)</span>’s in another column, and so forth: <span class="math display">\[\overbrace{\begin{matrix} 
+\\ \\ x \cdot x \cdot x \\ \\ \\
+ \end{matrix}}^{\text{three $x$&#39;s}} \quad+\quad \overbrace{\begin{matrix} 
+x \cdot x \cdot 5 \\ + \\ 
+x \cdot 3 \cdot x \\ + \\ 
+2 \cdot x \cdot x
+ \end{matrix}}^{\text{two $x$&#39;s}} \quad+\quad \overbrace{\begin{matrix} 
+x \cdot 3 \cdot 5 \\ + \\ 
+2 \cdot x \cdot 5 \\ + \\ 
+2 \cdot 3 \cdot x\end{matrix}}^{\text{one $x$}} \quad+\quad \overbrace{\begin{matrix}\\ \\ 2 \cdot 3 \cdot 5 \\ \\ \\\end{matrix}}^{\text{zero $x$&#39;s}}\]</span> Simplifying things a bit, this becomes: <span class="math display">\[\begin{matrix}x^{3}
+ \end{matrix} \quad+\quad \begin{matrix} 
+x^{2} \cdot 5 \\ + \\ 
+x^{2} \cdot 3 \\ + \\ 
+x^{2} \cdot 2
+ \end{matrix} \quad+\quad \begin{matrix} 
+x \cdot 3\cdot 5 \\ + \\ 
+x \cdot 2\cdot 5 \\ + \\ 
+x \cdot 2\cdot 3
+ \end{matrix} \quad+\quad \begin{matrix} 
+ 2\cdot 3\cdot 5\end{matrix}\]</span> Or just: <span class="math display">\[\begin{matrix}x^{3}
+ \end{matrix}\quad+\quad \begin{matrix} 
+5 \, x^{2} \\ + \\ 
+3 \, x^{2} \\ + \\ 
+2 \, x^{2}
+ \end{matrix} \quad+\quad \begin{matrix} 
+15 \, x \\ + \\ 
+10 \, x \\ + \\ 
+6 \, x
+ \end{matrix} \quad+\quad \begin{matrix} 
+30\end{matrix}\]</span> And so when we add everything together and combine like terms and simplify, we get: <span class="math display">\[\begin{matrix} x^{3} + 10 \, x^{2} + 31 \, x + 30 \end{matrix}\]</span> So, in much simpler form, we have: <span class="math display">\[(x+5)(x+3)(x+2) \quad=\quad x^3 + 10x^2 + 31x + 30\]</span></p>
+<h2 id="lets-do-a-serious-multiplication">Let’s do a SERIOUS multiplication</h2>
+<p>Here’s a polynomial: <span class="math display">\[(x+2)(x+5)(x+7)(x+11)(x+17)\]</span> If we think of this as a function, and we graph it, it looks like this: <span class="math display">\[f(x) = (x+2)(x+5)(x+7)(x+11)(x+17)\]</span> <img src="scary-quintic.svg" style="width:75.0%" /> Let’s try to multiply it out!!! Doing so is going to be … tedious … so first, let’s procrastinate by beating around the bush and delaying the inevitable.</p>
+<p>(Actually we could make our lives substantially easier by realizing that we just multiplied out the first three factors of this polynomial in the previous problem… but let’s pretend we didn’t! If we wanted our lives to be easy we wouldn’t be doing any of this in the first place!)</p>
+<p>To multiply this out, we’ll need multiply together one of the two terms from each of these five factors, and then add up all the results. So, needing to choose one of the terms from each of these five factors gives us <span class="math inline">\(2\cdot 2 \cdot 2 \cdot 2 \cdot 2 = 2^5 = 32\)</span> total multiplications. Ugh. (Or it gives us <span class="math inline">\(32\)</span> total terms, at least, before simplifying.)</p>
+<p>Perhaps one way we can start to attack this is to think of the most <em>extreme</em> choices we can make. One extreme choice is that we can choose all the first terms of each factor, i.e., all the <span class="math inline">\(x\)</span>’s. That’ll give us, as a resulting term: <span class="math display">\[\begin{align*}
+\substack{\text{the term we get}\\\text{if we choose only $x$&#39;s}}&amp;= \underbrace{(x+2)}_{\mathclap{\text{choose }x }}\cdot \underbrace{(x+5)}_{\mathclap{\text{choose }x }}\cdot \underbrace{(x+7)}_{\mathclap{\text{choose }x }}\cdot \underbrace{(x+11)}_{\mathclap{\text{choose }x }}\cdot \underbrace{(x+17)}_{\mathclap{\text{choose }x }} \\ \\
+&amp;= x\cdot x \cdot x \cdot x \cdot x \cdot x \\
+&amp;= x^5
+\end{align*}\]</span> Orginizationally, when we multiply out a big polynomial like this, we usually write the term with only <span class="math inline">\(x\)</span>’s first. It gets called the <strong>leading term</strong>. The exponent on it gets called the <strong>degree</strong> of the polynomial. So this polynomial is fifth-degree (a <strong>quintic</strong>, if you know your Latin).</p>
+<p>There’s another extreme choice we could make! We could choose <em>all the second terms</em> of each factor, i.e., choose only numbers: <span class="math display">\[\begin{align*}
+\substack{\text{the term we get}\\\text{if we choose only numberss}}&amp;=\underbrace{(x+2)}_{\mathclap{\text{choose }2 }}\cdot \underbrace{(x+5)}_{\mathclap{\text{choose }5 }}\cdot \underbrace{(x+7)}_{\mathclap{\text{choose }7 }}\cdot \underbrace{(x+11)}_{\mathclap{\text{choose }11 }}\cdot \underbrace{(x+17)}_{\mathclap{\text{choose }17 }} \\ \\
+&amp;= 2\cdot 5 \cdot 7 \cdot 11 \cdot 17 \\
+&amp;= 13090
+\end{align*}\]</span> Well, the <span class="math inline">\(x\)</span>’s are numbers, too, so perhaps I should say that this is the term we get if we choose only <strong>constants</strong>, i.e., <em>fixed</em> numbers. And, in the typical organizational strategy for when we write these things out, this term—the <strong>constant term</strong>—goes last. Putting it last doesn’t <em>matter</em>, note, mathematically—you can put the constant term wherever you want and it’s still the exact same thing. Addition is commutative: <span class="math inline">\(a+b\)</span> is the same as <span class="math inline">\(b+a\)</span>. It’s just that writing this constant term last is the standard practice; it makes polynomials easy to quickly inspect and compare, for us finite feeble humans.</p>
+<p>So, were we to actually multiply out this polynomial, our result might look something like this: <span class="math display">\[x^5 + \cdots \text{(other stuff)} \cdots + 13090\]</span> The terms in the middle we call the <strong>cross terms</strong>. They’re the ones that come from varying combinations of <em>some</em> of the <span class="math inline">\(x\)</span>’s and <em>some</em> of the numbers: <span class="math display">\[ x^5 + \,\,\cdots\,\, \substack{\text{varying combinations}\\\text{of $x$&#39;s and numbers}} \,\,\cdots\,\, + 13090\]</span> So, to put all these words in context, the <em>anatomy</em> of a multiplied-out/unfactored polynomial is: <span class="math display">\[ \underbrace{x^5}_{\mathclap{\text{``leading term&#39;&#39;}}} + \,\,\cdots \,\, \underbrace{\text{(other stuff)}}_{\mathclap{\text{``cross terms&#39;&#39;}}} \,\,\cdots\,\, + \underbrace{13090}_{\mathclap{\text{``constant term&#39;&#39;}}}\]</span> Or, described more generally: <span class="math display">\[ \text{(just the $x$&#39;s)} + \,\,\cdots\,\, \substack{\text{varying combinations}\\\text{of $x$&#39;s and numbers}} \,\,\cdots\,\, + \text{(just the numbers)}\]</span> Just for fun, let’s imagine what one of these cross-terms looks like! This polynomial has <span class="math inline">\(2^5=32\)</span> total terms, before we simplify it, so that means there are <span class="math inline">\(30\)</span> cross-terms. One of them might look like this: <span class="math display">\[\begin{align*}
+\text{one of the cross terms} &amp;= \underbrace{(x+2)}_{\mathclap{\text{choose }x }}\cdot \underbrace{(x+5)}_{\mathclap{\text{choose }5 }}\cdot \underbrace{(x+7)}_{\mathclap{\text{choose }7 }}\cdot \underbrace{(x+11)}_{\mathclap{\text{choose }x }}\cdot \underbrace{(x+17)}_{\mathclap{\text{choose }17 }}\\ \\ 
+&amp;= x\cdot 7 \cdot 5 \cdot x \cdot 17 \\ \\
+&amp;= 595x^2
+\end{align*}\]</span> So the fully-mutiplied-out thing might look like: <span class="math display">\[ x^5 + \cdots \text{(some cross terms)} \cdots +  595x^2 + \cdots \text{(more cross terms)}+ 13090\]</span> But actually, there will probably be some other <span class="math inline">\(x^2\)</span> terms that the <span class="math inline">\(595x^2\)</span> term gets combined with, so it might disappear from the final result.</p>
+<p>Actually, the final result will look simple, or at least <em>relatively</em> simple, in contrast to those <span class="math inline">\(32\)</span> multiplications we have to do. We’ll have a bunch of terms with four <span class="math inline">\(x\)</span>’s times some numbers, so we’ll be able to combine those, and get a term that’s just <span class="math inline">\(x^4\)</span> times some number. We’ll have a bunch of terms with three <span class="math inline">\(x\)</span>’s times some numbers, so we’ll be able to combine those into a term that’s just <span class="math inline">\(x^3\)</span> times some number. And so forth! In total, once we add like terms, we’ll end up with six terms—a bunch of powers of <span class="math inline">\(x\)</span>, plus a constant: <span class="math display">\[x^5 + \text{(some number)}x^4 + \text{(another number)}x^3 + \left(\substack{\text{yet another}\\\text{number}}\right)x^2 + \left(\substack{\text{guess}\\\text{what}}\right)x + 13090\]</span> Though, actually, there’s an <span class="math inline">\(x\)</span> next to the <span class="math inline">\(13090\)</span>, too. It’s just that there are <em>zero</em> <span class="math inline">\(x\)</span>’s! And remember how <span class="math inline">\(x^0=1\)</span>? So if you want to make this look more visually symmetric, you can tack on an <span class="math inline">\(x^0\)</span> next to the <span class="math inline">\(13090\)</span>: <span class="math display">\[x^5 + \text{(some number)}x^4 + \text{(another number)}x^3 + \left(\substack{\text{yet another}\\\text{number}}\right)x^2 + \left(\substack{\text{guess}\\\text{what}}\right)x + 13090x^0\]</span> If you’re <em>really</em> obsessive about symmetry, and you <em>really</em> want to see a number in front of <em>every</em> <span class="math inline">\(x\)</span> term, you could notice that there’s an invisible <span class="math inline">\(1\)</span> in front of the <span class="math inline">\(x^5\)</span>: <span class="math display">\[1\cdot x^5 + \text{(some number)}x^4 + \text{(another number)}x^3 + \left(\substack{\text{yet another}\\\text{number}}\right)x^2 + \left(\substack{\text{guess}\\\text{what}}\right)x + 13090x^0\]</span> The numbers in front of the <span class="math inline">\(x\)</span> terms we call <strong>coefficients</strong>. And the one in front of the highest term, the leading term, in this case the <span class="math inline">\(x^5\)</span> term, we call the <strong>leading coefficient</strong>. Here, it’s just <span class="math inline">\(1\)</span> (albeit an invisible <span class="math inline">\(1\)</span>). <span class="math display">\[\underbrace{1\cdot}_{\mathclap{\text{leading coefficient}}}x^5 + \underbrace{\text{(some number)}}_{\mathclap{\text{coefficient}}}x^4 + \underbrace{\text{(another number)}}_{\mathclap{\text{coefficient}}}x^3 + \left(\substack{\text{yet another}\\\text{number}}\right)x^2 + \left(\substack{\text{guess}\\\text{what}}\right)x + 13090x^0\]</span> OK, we’re beating around the bush here! It’s going to be tedious, but let’s actually do it: let’s acutally multiply out this big bad boy!!!!! I’m going to show all <span class="math inline">\(32\)</span> of the multiplications, and I’m going to organize them so that the choice with all five <span class="math inline">\(x\)</span>’s is in one column, the choices with four <span class="math inline">\(x\)</span>’s is in the next column, the choices with three <span class="math inline">\(x\)</span>’s in the next column, and so on. Here we go!!!</p>
+<p>I’m not going to write out the process of distributing each factor like I did in the previous examples, because (a) space reasons, and (this is the real-er reason) I did the previous examples by hand and I can’t get Claude to accurately write a script to automate it (well) and I gosh-darn sure don’t want to have to make that gorgeous but excruciating-to-code-by-hand diagram by hand!</p>
+<p>Anyway, assuming we do all the distributions and do all the multiplications and make sure we aren’t missing any, here’s what the multiplications all look like, grouped in columns by number of <span class="math inline">\(x\)</span>’s: <span class="math display">\[\begin{matrix} 
+x \cdot x \cdot x \cdot x \cdot x
+ \end{matrix} \,\,+\,\, \begin{matrix} 
+x \cdot x \cdot x \cdot x \cdot 17 \\ + \\ 
+x \cdot x \cdot x \cdot 11 \cdot x \\ + \\ 
+x \cdot x \cdot 7 \cdot x \cdot x \\ + \\ 
+x \cdot 5 \cdot x \cdot x \cdot x \\ + \\ 
+2 \cdot x \cdot x \cdot x \cdot x
+ \end{matrix} \,\,+\,\, \begin{matrix} 
+x \cdot x \cdot x \cdot 11 \cdot 17 \\ + \\ 
+x \cdot x \cdot 7 \cdot x \cdot 17 \\ + \\ 
+x \cdot x \cdot 7 \cdot 11 \cdot x \\ + \\ 
+x \cdot 5 \cdot x \cdot x \cdot 17 \\ + \\ 
+x \cdot 5 \cdot x \cdot 11 \cdot x \\ + \\ 
+x \cdot 5 \cdot 7 \cdot x \cdot x \\ + \\ 
+2 \cdot x \cdot x \cdot x \cdot 17 \\ + \\ 
+2 \cdot x \cdot x \cdot 11 \cdot x \\ + \\ 
+2 \cdot x \cdot 7 \cdot x \cdot x \\ + \\ 
+2 \cdot 5 \cdot x \cdot x \cdot x
+ \end{matrix} \,\,+\,\, \begin{matrix} 
+x \cdot x \cdot 7 \cdot 11 \cdot 17 \\ + \\ 
+x \cdot 5 \cdot x \cdot 11 \cdot 17 \\ + \\ 
+x \cdot 5 \cdot 7 \cdot x \cdot 17 \\ + \\ 
+x \cdot 5 \cdot 7 \cdot 11 \cdot x \\ + \\ 
+2 \cdot x \cdot x \cdot 11 \cdot 17 \\ + \\ 
+2 \cdot x \cdot 7 \cdot x \cdot 17 \\ + \\ 
+2 \cdot x \cdot 7 \cdot 11 \cdot x \\ + \\ 
+2 \cdot 5 \cdot x \cdot x \cdot 17 \\ + \\ 
+2 \cdot 5 \cdot x \cdot 11 \cdot x \\ + \\ 
+2 \cdot 5 \cdot 7 \cdot x \cdot x
+ \end{matrix} \,\,+\,\, \begin{matrix} 
+x \cdot 5 \cdot 7 \cdot 11 \cdot 17 \\ + \\ 
+2 \cdot x \cdot 7 \cdot 11 \cdot 17 \\ + \\ 
+2 \cdot 5 \cdot x \cdot 11 \cdot 17 \\ + \\ 
+2 \cdot 5 \cdot 7 \cdot x \cdot 17 \\ + \\ 
+2 \cdot 5 \cdot 7 \cdot 11 \cdot x\end{matrix} \,\,+\,\, \begin{matrix}
+2 \cdot 5 \cdot 7 \cdot 11 \cdot 17\end{matrix}\]</span> Look at that!!! It’s a <em>de facto</em> histogram, showing how there’s only one way to choose only <span class="math inline">\(x\)</span>’s, but so many different ways to choose (for example) exactly three <span class="math inline">\(x\)</span>’s! Entropy, man.</p>
+<p>If we group the <span class="math inline">\(x\)</span>’s together, this becomes: <span class="math display">\[\begin{matrix}x^{5}
+ \end{matrix} \,\,+\,\, \begin{matrix} 
+x^{4} \cdot 17 \\ + \\ 
+x^{4} \cdot 11 \\ + \\ 
+x^{4} \cdot 7 \\ + \\ 
+x^{4} \cdot 5 \\ + \\ 
+x^{4} \cdot 2
+ \end{matrix} \,\,+\,\, \begin{matrix} 
+x^{3} \cdot 11\cdot 17 \\ + \\ 
+x^{3} \cdot 7\cdot 17 \\ + \\ 
+x^{3} \cdot 7\cdot 11 \\ + \\ 
+x^{3} \cdot 5\cdot 17 \\ + \\ 
+x^{3} \cdot 5\cdot 11 \\ + \\ 
+x^{3} \cdot 5\cdot 7 \\ + \\ 
+x^{3} \cdot 2\cdot 17 \\ + \\ 
+x^{3} \cdot 2\cdot 11 \\ + \\ 
+x^{3} \cdot 2\cdot 7 \\ + \\ 
+x^{3} \cdot 2\cdot 5
+ \end{matrix} \,\,+\,\, \begin{matrix} 
+x^{2} \cdot 7\cdot 11\cdot 17 \\ + \\ 
+x^{2} \cdot 5\cdot 11\cdot 17 \\ + \\ 
+x^{2} \cdot 5\cdot 7\cdot 17 \\ + \\ 
+x^{2} \cdot 5\cdot 7\cdot 11 \\ + \\ 
+x^{2} \cdot 2\cdot 11\cdot 17 \\ + \\ 
+x^{2} \cdot 2\cdot 7\cdot 17 \\ + \\ 
+x^{2} \cdot 2\cdot 7\cdot 11 \\ + \\ 
+x^{2} \cdot 2\cdot 5\cdot 17 \\ + \\ 
+x^{2} \cdot 2\cdot 5\cdot 11 \\ + \\ 
+x^{2} \cdot 2\cdot 5\cdot 7
+ \end{matrix} \,\,+\,\, \begin{matrix} 
+x \cdot 5\cdot 7\cdot 11\cdot 17 \\ + \\ 
+x \cdot 2\cdot 7\cdot 11\cdot 17 \\ + \\ 
+x \cdot 2\cdot 5\cdot 11\cdot 17 \\ + \\ 
+x \cdot 2\cdot 5\cdot 7\cdot 17 \\ + \\ 
+x \cdot 2\cdot 5\cdot 7\cdot 11
+ \end{matrix} \,\,+\,\, \begin{matrix} 
+ 2\cdot 5\cdot 7\cdot 11\cdot 17\end{matrix}
+\]</span> And if we actually multiply the numbers together, this becomes: <span class="math display">\[\begin{matrix}x^{5}
+ \end{matrix} \,\,+\,\, \begin{matrix} 
+17 \, x^{4} \\ + \\ 
+11 \, x^{4} \\ + \\ 
+7 \, x^{4} \\ + \\ 
+5 \, x^{4} \\ + \\ 
+2 \, x^{4}
+ \end{matrix} \,\,+\,\, \begin{matrix} 
+187 \, x^{3} \\ + \\ 
+119 \, x^{3} \\ + \\ 
+77 \, x^{3} \\ + \\ 
+85 \, x^{3} \\ + \\ 
+55 \, x^{3} \\ + \\ 
+35 \, x^{3} \\ + \\ 
+34 \, x^{3} \\ + \\ 
+22 \, x^{3} \\ + \\ 
+14 \, x^{3} \\ + \\ 
+10 \, x^{3}
+ \end{matrix} \,\,+\,\, \begin{matrix} 
+1309 \, x^{2} \\ + \\ 
+935 \, x^{2} \\ + \\ 
+595 \, x^{2} \\ + \\ 
+385 \, x^{2} \\ + \\ 
+374 \, x^{2} \\ + \\ 
+238 \, x^{2} \\ + \\ 
+154 \, x^{2} \\ + \\ 
+170 \, x^{2} \\ + \\ 
+110 \, x^{2} \\ + \\ 
+70 \, x^{2}
+ \end{matrix} \,\,+\,\, \begin{matrix} 
+6545 \, x \\ + \\ 
+2618 \, x \\ + \\ 
+1870 \, x \\ + \\ 
+1190 \, x \\ + \\ 
+770 \, x
+ \end{matrix} \,\,+\,\, \begin{matrix} 
+13090\end{matrix}
+\]</span> Hey! There’s that <span class="math inline">\(595x^2\)</span>! The term we found as a random example of a cross term! There it is! But it’s going to disappear now. Tragic. If we combine like terms and add all the stuff up, we get: <span class="math display">\[x^5 + 42x^4 + 638x^3 + 4340x^2 + 12993x + 13090\]</span> Thirty-two multiplications, collapsing down to just six terms!</p>
+<p>I’m not a masochist—I didn’t actually do any of this by hand! I wrote some short scripts in Sage (a Python superset for symbolic mathematics and algebra) to do the math and the typesetting. (Claude did a lot of the work! It would have been really fun to have written the code entirely myself—I love coding—but it would have taken a lot longer, and I only have so much time. Sadface.)</p>
+</main>
+</body>
+</html>

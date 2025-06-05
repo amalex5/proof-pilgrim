@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Reversing the product rule</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="/main.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <script src="../highlight-toc.js" type="text/javascript"></script>
+</head>
+<body>
+<script>document.addEventListener('DOMContentLoaded', function(e) {
+  Scroller.init();
+})</script>
+<aside>
+<div class="tocLinks" >
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#problems">Problems</a></li>
+</ul>
+</nav>
+</div>
+</aside>
+<main>
+<header id="title-block-header">
+<h1 class="title">Reversing the product rule</h1>
+</header>
+<p>So far, in our exploration of antiderivatives, we’ve learned how to reverse many of our basic differentiation rules. Every statement about a derivative we can rephrase as a statement about an integral: <span class="math display">\[(\text{blargh})&#39; = \text{yargh} \quad\iff\quad \int\!\text{yargh} = \text{blargh}\]</span> So, for instance, we’ve learned how to reverse the chain rule: <span class="math display">\[\frac{d}{dx}\Big[ f\Big(\,g(x)\,\Big) \Big] = f&#39;\Big(\,g(x)\,\Big)\cdot g&#39;(x) \quad\iff\quad \int\! f&#39;\Big( \,g(x)\, \Big)  \cdot g&#39;(x) \, dx = f\Big(\,g(x)\,\Big)\]</span> What about the product rule? Can we reverse that? The product rule is: <span class="math display">\[\Big(\,f(x)\cdot g(x)\, \Big)&#39; = f&#39;(x)g(x) + f(x)g&#39;(x)\]</span> We can rephrase the product rule using an integral instead of a derivative: <span class="math display">\[f(x)\cdot g(x) = \int f&#39;(x)g(x) + f(x)g&#39;(x) \,dx\]</span> This doesn’t look all that useful. How often are we going to see an integral that looks like <span class="math inline">\(f&#39;(x)g(x)+f(x)g&#39;(x)\)</span>? Even if such integrals exist, there are <em>four</em> things we’d need to get perfectly lined up in order to apply this formula. Sounds tough!</p>
+<p>So, let’s fiddle with this a bit. Integrals split up along addition, so this is: <span class="math display">\[f(x)\cdot g(x) = \int f&#39;(x)g(x)\, dx  + \int f(x)g&#39;(x) \,dx\]</span> Let’s rearrange this a bit: <span class="math display">\[\boxed{\int\! f&#39;(x)g(x)\, dx \quad=\quad f(x)\cdot g(x) \,-\, \int\! f(x)g&#39;(x) \,dx}\]</span> Now, <em>this</em> is useful—even if it doesn’t appear at first glance to be. What is this? It’s a formula that tells us how to work out one integral in terms of some other stuff. It tells us how to rewrite the integral of <span class="math inline">\(f&#39;(x)g(x)\)</span> in terms of <span class="math inline">\(f(x)\)</span>, <span class="math inline">\(g(x)\)</span>, their derivatives, and another integral. It doesn’t immediately look all that useful or interesting—but potentially it could be! This gives us a way to turn one integral into another integral. And if the original integral is really hard, and if the new integral is easier—well, then it’d be a useful formula!</p>
+<p>Is this, in fact, a useful formula? Can it help us with hard integrals? Maybe! If we have some integral that looks like <span class="math inline">\(f&#39;(x)g(x)\)</span>—i.e., that looks like the derivative of one function, multiplied by another function—then this gives us a way to rewrite it. And if <span class="math inline">\(\int\! f(x)g&#39;(x) \,dx\)</span> is easier to evaluate than<span class="math inline">\(\int\! f&#39;(x)g(x)\, dx\)</span>, we’ll be in luck!</p>
+<p>So, potentially, this could give us a way of turning hard integrals into easier integrals! It could give us a way of making the impossible possible!</p>
+<p><br> But nothing is certain.</p>
+<p><br></p>
+<p>Suppose, for example, we have this integral: <span class="math display">\[\int 2x\cos x\, dx\]</span> We have no idea how to do it! Sad. Perhaps this formula would help. After all, we have two things multiplied together, <span class="math inline">\(2x\)</span> and <span class="math inline">\(\cos x\)</span>. So maybe we can plug it into the formula! But there are two different ways we could do so. We could say that <span class="math inline">\(2x\)</span> is the <span class="math inline">\(f&#39;(x)\)</span> part and <span class="math inline">\(\cos x\)</span> is the <span class="math inline">\(g(x)\)</span> part: <span class="math display">\[\int \underbrace{2x}_{f&#39;(x)}\cdot\underbrace{ \cos(x)}_{g(x)}\,dx\]</span> Or we could make the opposite choice: <span class="math display">\[\int \underbrace{2x}_{g(x)}\cdot\underbrace{ \cos(x)}_{f&#39;(x)}\,dx\]</span> Does it make a difference which choice we make? Let’s try both ways, and see what happens. If we try the first way, we have: <span class="math display">\[\int \underbrace{2x}_{f&#39;(x)}\cdot\underbrace{ \cos(x)}_{g(x)}\,dx\]</span> To apply this formula, we’ll need to figure out <span class="math inline">\(f(x)\)</span> and <span class="math inline">\(g&#39;(x)\)</span>. We know <span class="math inline">\(f&#39;(x)\)</span> and <span class="math inline">\(g(x)\)</span>: <span class="math display">\[\begin{align*}
+f(x) &amp;= \quad\quad&amp; g(x) &amp;= \cos(x)\\
+f&#39;(x) &amp;= 2x \quad\quad&amp; g&#39;(x) &amp;=
+\end{align*}\]</span> If <span class="math inline">\(f&#39;(x)\)</span> is <span class="math inline">\(2x\)</span>, then <span class="math inline">\(f(x)\)</span> is <span class="math inline">\(x^2\)</span>. (That’s an easy antiderivative!) And if <span class="math inline">\(g(x)\)</span> is <span class="math inline">\(\cos(x)\)</span>, then <span class="math inline">\(g&#39;(x)\)</span> is <span class="math inline">\(-\sin(x)\)</span> (an easy derivative). So we have: <span class="math display">\[\begin{align*}
+f(x) = x^2 \quad\quad&amp; g(x) = \cos x \\
+f&#39;(x) = 2x \quad\quad&amp; g&#39;(x) = -\sin(x)
+\end{align*}\]</span> So then, plugging things into this formula, we get: <span class="math display">\[\begin{align*}
+\int \underbrace{2x}_{f&#39;(x)}\cdot\underbrace{ \cos(x)}_{g(x)}\,dx &amp;= f(x)\cdot g(x) - \int f(x)g&#39;(x) \,dx \\
+&amp;= x^2\cdot \cos x - \int x^2(-\sin x) \,dx \\
+&amp;= x^2\cos x + \int x^2\sin x \, dx
+\end{align*}\]</span> This… does not seem any easier. We don’t know how to evaluate <span class="math inline">\(\int x^2\sin x \, dx\)</span>, either. And actually, it seems <em>worse</em> in a sense, because now the exponent is bigger! <span class="math inline">\(x\)</span> was linear; now it’s quadratic!</p>
+<p>Let’s try the other way. Let’s make the opposite choice of <span class="math inline">\(f&#39;(x)\)</span> and <span class="math inline">\(g(x)\)</span>. We have: <span class="math display">\[\int \underbrace{2x}_{g(x)}\cdot\underbrace{ \cos(x)}_{f&#39;(x)}\,dx\]</span> <span class="math display">\[\begin{align*}
+f(x) &amp;= &amp; g(x) &amp;= 2x\\
+f&#39;(x) &amp;= \cos(x) &amp; g&#39;(x) &amp;=
+\end{align*}\]</span> If <span class="math inline">\(f&#39;(x)\)</span> is <span class="math inline">\(\cos(x)\)</span>, then <span class="math inline">\(f(x)\)</span> must be <span class="math inline">\(\sin(x)\)</span> (the derivative of sine is cosine, so the antiderivative of cosine is sine). And if <span class="math inline">\(g(x)\)</span> is <span class="math inline">\(2x\)</span>, then <span class="math inline">\(g&#39;(x)\)</span> is just <span class="math inline">\(2\)</span>. So we get: <span class="math display">\[\begin{align*}
+f(x) &amp;= \sin(x) &amp; g(x) &amp;= 2x\\
+f&#39;(x) &amp;= \cos(x) &amp; g&#39;(x) &amp;=2
+\end{align*}\]</span> So then, applying the formula, we’ll have: <span class="math display">\[\begin{align*}
+ \int \underbrace{2x}_{g(x)}\cdot\underbrace{ \cos(x)}_{f&#39;(x)}\,dx &amp;= f(x)\cdot g(x) - \int f(x)g&#39;(x) \,dx \\
+&amp;= \sin(x)\cdot 2x - \int \sin(x) \cdot 2 \,dx \\
+&amp;= 2x\sin(x) - \int 2\sin x \, dx \\
+\text{And this is something we can do!!!}\\
+&amp;= 2x\sin(x) - \left(-2\cos(x)\right) \\
+&amp;= 2x\sin(x) + 2\cos(x)
+\end{align*}\]</span> So we’ve done it!!! We’ve worked out this hard integral that we didn’t know how to do!!!</p>
+<p>Just to make sure we haven’t made any errors, let’s check it. We’ll take a derivative: <span class="math display">\[\begin{align*}
+    \Big( 2x\sin(x) + 2\cos(x) \Big)&#39; &amp;= 2\cdot \sin x + 2x\cdot\cos(x) - 2\sin(x) \\
+    &amp;= \cancel{2\sin x} + 2x\cos(x) - \cancel{2\sin(x)} \\
+    &amp;= 2x\cos(x)
+\end{align*}\]</span> Yup! That’s what we wanted! This works!!!</p>
+<p><br></p>
+<p>This technique gets known as <strong>integration by parts</strong>, and it’s one of the most powerful integration techniques there is. It gives us a method to come up with some really beautiful antiderivatives—ones for which the “stare at it until you see the answer” method would almost certainly result in tears. Plus, it’s a great fallback strategy when nothing else seems viable. Have some hard scary integral that you don’t know how to do? Integrate it by parts!!! Maybe that’ll make it easier! Still stuck? Integrate it by parts again!</p>
+<h2 id="problems">Problems</h2>
+<p>Evaluate each of the following antiderivatives:</p>
+<div style="column-width: 14em;  column-gap: 2em;  column-rule: 1px solid #ccc;">
+<ol class='problems'>
+<li>
+<span class="math inline">\(\displaystyle \int\! x^2 \, dx = \displaystyle \int\! x\cdot x \, dx\)</span> (Of course you know what the answer is… but try running it through the integration-by-parts algorithm and show that you get exactly what you expect to get!)
+<li>
+<span class="math inline">\(\displaystyle \int\! xe^x \, dx\)</span>
+<li>
+<span class="math inline">\(\displaystyle \int\! x^2e^x \, dx\)</span>
+<li>
+<span class="math inline">\(\displaystyle \int\! x\sin(x) \, dx\)</span>
+<li>
+<span class="math inline">\(\displaystyle \int\! x^2\sin(x) \, dx\)</span>
+<li>
+<span class="math inline">\(\displaystyle \int\! x^3\sin(x) \, dx\)</span>
+<li>
+<span class="math inline">\(\displaystyle \int\! x^5\sin(x) \, dx\)</span>
+<li>
+<span class="math inline">\(\displaystyle \int\! x^{25}\sin(x) \, dx\)</span>
+<li>
+<span class="math inline">\(\displaystyle \int\! x^{n}\sin(x) \, dx\)</span> (where <span class="math inline">\(n\)</span> is some positive integer)
+<li>
+<span class="math inline">\(\displaystyle \int\! x^{n}\cos(x) \, dx\)</span> (same)
+<li>
+<span class="math inline">\(\displaystyle \int\! x\sqrt{x+4} \, dx\)</span>
+<li>
+<span class="math inline">\(\displaystyle \int\! x(x+3)^7 \, dx\)</span>
+<li>
+<span class="math inline">\(\displaystyle \int\! \frac{x^3}{\left(1+x^2\right)^{3}} \, dx\)</span>
+<li>
+<span class="math inline">\(\displaystyle \int\! \ln(x) \, dx\)</span>
+<li>
+<span class="math inline">\(\displaystyle \int 1\cdot\ln(x) \, dx\)</span>
+<li>
+<span class="math inline">\(\displaystyle \int\! x\ln(x) \, dx\)</span>
+<li>
+<span class="math inline">\(\displaystyle \int\! x^2\ln(x) \, dx\)</span>
+<li>
+<span class="math inline">\(\displaystyle \int e^x\cos(x) \, dx\)</span>
+<li>
+<span class="math inline">\(\displaystyle \int e^x\sin(x) \, dx\)</span>
+<li>
+<span class="math inline">\(\displaystyle \int\! p&#39;(x) \, dx\)</span>, where <span class="math inline">\(p(x)\)</span> is just some function (any function!) and <span class="math inline">\(p&#39;(x)\)</span> is its derivative.
+</ol>
+</div>
+<p><br></p>
+<ol class='problems'>
+<li>
+Suppose you want to take the integral/antiderivative of two functions divided: <span class="math display">\[\int \frac{f(x)}{g(x)}\,dx\]</span> Can you come up with a formula for this integral?
+</ol>
+</main>
+</body>
+</html>

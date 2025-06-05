@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Fraction Fission/Blowing Up Quotients</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="/main.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <script src="../highlight-toc.js" type="text/javascript"></script>
+</head>
+<body>
+<script>document.addEventListener('DOMContentLoaded', function(e) {
+  Scroller.init();
+})</script>
+<aside>
+<div class="tocLinks" >
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#splitting-atoms-splitting-fractions">Splitting atoms; splitting fractions</a></li>
+<li><a href="#lets-do-another-example">Let’s do another example!</a></li>
+<li><a href="#beauty-and-utility">Beauty and Utility</a></li>
+<li><a href="#trinity">Trinity</a></li>
+<li><a href="#problems">Problems</a></li>
+</ul>
+</nav>
+</div>
+</aside>
+<main>
+<header id="title-block-header">
+<h1 class="title">Fraction Fission/Blowing Up Quotients</h1>
+</header>
+<p>Here’s how Richard Rhodes starts <em>The Making of the Atomic Bomb</em>:</p>
+<blockquote>
+<p>In London, where Southampton Row passes Russell Square, across from the British Museum in Bloomsbury, Leo Szilard waited irritably one gray Depression morning for the stoplight to change. A trace of rain had fallen during the night; Tuesday, September 12, 1933, dawned cool, humid and dull. Drizzling rain would begin again in early afternoon. When Szilard told the story later he never mentioned his destination that morning. He may have had none; he often walked to think. In any case another destination intervened. The stoplight changed to green. Szilard stepped off the curb. As he crossed the street time cracked open before him and he saw a way to the future, death into the world and all our woe, the shape of things to come.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+</blockquote>
+<p>As a talented narrator, Rhodes waits until the end of the chapter to reveal exactly what it is that Szilard realized:</p>
+<blockquote>
+<p>“As the light changed to green and I crossed the street,” Szilard recalls, "it … suddenly occurred to me that if we could find an element which is split by neutrons and which would emit two neutrons when it absorbs one neutron, such an element, if assembled in sufficiently large mass, could sustain a nuclear chain reaction.</p>
+<p>“I didn’t see at the moment just how one would go about finding such an element, or what experiments would be needed, but the idea never left me. In certain circumstances it might be possible to set up a nuclear chain reaction, liberate energy on an industrial scale, and construct atomic bombs.”</p>
+<p>Leo Szilard stepped up onto the sidewalk. Behind him the light changed to red.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
+</blockquote>
+<p>The drama!!! Reading this, I can <em>see</em> Szilard stepping off the curb on that rainy London day. Rhodes’s writing is downright <em>cinematic</em><a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>. Szilard, in that moment, discovered the core idea behind atomic bombs and nuclear power: splitting atoms in a self-perpetuating, postive-feedback loop, releasing energy almost automatically. Behind his realization was the discovery, over the course of the previous half-century, that atoms were not solid indivisible objects, but could in fact be split into smaller objects (or at least their nuclei could), releasing energy in the process. <strong><a href="https://en.wikipedia.org/wiki/Nuclear_fission">Nuclear fission</a></strong> is the word for that.</p>
+<p>There’s a converse process, <strong><a href="https://en.wikipedia.org/wiki/Nuclear_fusion">nuclear fusion</a></strong>, in which rather than blowing up one atom into two, we melt two atoms into one (we <em>fuse</em> them). Perhaps counterintuitively, that <em>also</em> releases huge amounts of energy. Nuclear fusion is the process behind hydrogen bombs (<a href="https://en.wikipedia.org/wiki/Thermonuclear_weapon">“thermonuclear” bombs</a>, which is basically all modern nuclear weapons); it’s also <a href="https://en.wikipedia.org/wiki/Stellar_nucleosynthesis">the process that happens inside the Sun</a> and gives us all our heat and light. Achieving <a href="https://en.wikipedia.org/wiki/Fusion_power">controlled nuclear fusion</a>—the sort you could turn into a power plant, for example—has been a long-running challenge and goal for our civilization. Physicists at Lawrence Livermore National Laboratory, out in the East Bay suburbs, <a href="https://www.llnl.gov/news/ignition">claim to have achieved it on a tiny scale in 2022</a>, when their experimental fusion reactor briefly outputted a tiny bit more energy than the massive amount of energy being put into it. But, in general, we’re good at splitting atoms; we’re less good at fusing them.</p>
+<h2 id="splitting-atoms-splitting-fractions">Splitting atoms; splitting fractions</h2>
+<p>When it comes to fractions, we’re in the opposite situation. We know how to combine them. We know how to fuse them. We don’t know how to split them. We don’t know how to—what’s the verb for “fission”—we don’t know how to <em>fizz</em><a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> them.</p>
+<p>Meaning: we know how to add fractions. We’ve known how to for years. We do that annoying technique where we find a common denominator, cross-multiply, and put things together:</p>
+<p><span class="math display">\[\frac{2}{3}+\frac{4}{5}\quad \xrightarrow[\quad \frac{2\cdot 5 + 4\cdot 3}{3\cdot 5} \quad]{\quad\text{finding a common denominator!}\quad } \quad \frac{22}{15}\]</span></p>
+<p>Adding fractions isn’t as easy as multiplying fractions. But it’s not that hard. There’s just a simple algorithm.</p>
+<p>But… what if we want to do this <em>in reverse</em>??? What if we have ONE fraction, and we want to shoot a neutron at it and split it into TWO fractions?!?</p>
+<p><span class="math display">\[\frac{22}{15} \quad \xrightarrow{\quad\text{blow up into two fractions!}\quad} \quad \frac{2}{3}+\frac{4}{5}\]</span></p>
+<p>In the above example, it’s easy, because we already knew how we got <span class="math inline">\(22/15\)</span> in the first place. But what if we didn’t??? How would we do it? In other words, how to we figure out how to go in both directions—to take two fractions and melt them into one, and to take one fraction and blow it up into two?</p>
+<p><span class="math display">\[\text{two fractions} \quad \substack{   \xrightarrow{\quad\text{fraction fusion!}\quad }\\  \xleftarrow[\quad\text{fraction fission!}\quad ]{} } \quad  \text{one fraction}\]</span></p>
+<p>Like, say, concretely, what if we had this fraction:</p>
+<p><span class="math display">\[\frac{5}{21}\]</span></p>
+<p>And we wanted to blow it up into two fractions??</p>
+<p><span class="math display">\[\frac{5}{21} \quad \xrightarrow{\quad\text{blow up into two fractions!}\quad} \quad ???\]</span></p>
+<p>In other words, how do we run the adding-fractions algorithm backwards? When we add fractions, we find a common denominator. So how do we <em>un-find</em> a common demoninator??</p>
+<p><span class="math display">\[\text{two fractions} \quad \substack{   \xrightarrow{\quad\text{finding a common denominator}\quad }\\  \xleftarrow[\quad\text{UN-finding a common denominator}\quad ]{} } \quad  \text{one fraction}\]</span></p>
+<p>Maybe one way to think about it is to realize that a common denominator is (or at least can be) two things multiplied together. In the case of the fraction above, <span class="math inline">\(21\)</span> is <span class="math inline">\(3\cdot 7\)</span>. So, if <span class="math inline">\(21\)</span> is a common denominator in disguise, maybe it comes from being <span class="math inline">\(3\)</span> times <span class="math inline">\(7\)</span>?? And maybe the two fractions that added to give us <span class="math inline">\(\frac{5}{21}\)</span> have denominators of <span class="math inline">\(3\)</span> and <span class="math inline">\(7\)</span>?</p>
+<p><span class="math display">\[\frac{5}{21} \quad=\quad \frac{5}{3\cdot7} \quad=\quad \frac{\quad???\quad}{3} + \frac{\quad???\quad}{7}\]</span></p>
+<p>We don’t know what the tops of those fractions would be.</p>
+<p><span class="math display">\[\frac{5}{21} \quad=\quad \frac{\quad\text{something}\quad}{3} + \frac{\quad\text{something else}\quad}{7}\]</span></p>
+<p>But maybe we could figure it out! Because of the way the adding-fractions algorithm works, we have to have: <span class="math display">\[\frac{\text{something}}{3} + \frac{\text{something else}}{7} \quad=\quad \frac{(\text{something})\cdot 7 \,\,+\,\, (\text{something else})\cdot 3}{3\cdot 7} \quad=\quad \frac{5}{21}\]</span></p>
+<p>So in other words, just from comparing the tops of the fractions, we have to have:</p>
+<p><span class="math display">\[(\text{something})\cdot 7 \,\,+\,\, (\text{something else})\cdot 3 = 5\]</span></p>
+<p>And this is annoying, because we have an equation with two unknowns! Only one equation, but two unknowns. That’s not a problem—it just means we have more than one possible solution. It means we have an infinite number of solutions, actually. One possibility (I just got this from trial and error and some scribbled arithmetic) is: <span class="math display">\[\text{something} = 2\]</span> <span class="math display">\[\text{something else} = -3\]</span> Let’s check! We have:</p>
+<p><span class="math display">\[\begin{align*}
+\frac{2}{3} + \frac{\,\,-3\,\,}{7} &amp;= \frac{2\cdot 7 \quad+\quad (-3)\cdot 3}{3\cdot 7} \\ \\
+&amp;= \frac{14 - 9}{21} \\ \\
+&amp;= \frac{5}{21}
+\end{align*}\]</span></p>
+<p>Awesome! So we have:</p>
+<p><span class="math display">\[\frac{5}{21} = \frac{2}{3} + \frac{\,\,-3\,\,}{7}\]</span></p>
+<p>Or:</p>
+<p><span class="math display">\[\frac{2}{3} + \frac{\,\,-3\,\,}{7} \quad \substack{   \xrightarrow{\quad\text{finding a common denominator!}\quad }\\  \xleftarrow[\quad\text{blowing it up}\quad ]{} } \quad  \frac{5}{21} \]</span></p>
+<p>It’s not the <em>only</em> way to blow up this fraction, but it is <em>one</em> way.</p>
+<h2 id="lets-do-another-example">Let’s do another example!</h2>
+<p>OK, here’s another fraction. This time, it has a variable. It’s not so much a <em>number</em> as it is a <em>function</em>: <span class="math display">\[\frac{1}{x^2-x}\]</span> Can we BLOW THIS UP into two fractions??? Is it, in fact, already, secretly, privately, two fractions that have been added together?? <span class="math display">\[\frac{???}{???} +\frac{???}{???} \quad\overset{???}{=}\quad \frac{1}{x^2-x}\]</span></p>
+<p>There are some boring ways we could do this. Skye Calegari-Buster split it up into “two” fractions like this: <span class="math display">\[\begin{align*}
+\frac{1}{x^2-x} \quad&amp;= \underbrace{\frac{1}{x^2-x} \quad+\quad \frac{0}{1}}_{\text{&quot;two&quot; fractions}} \\ \\
+&amp;= \frac{1}{x^2-x} + 0\\ \\
+&amp;= \frac{1}{x^2-x}
+\end{align*}\]</span> Which is… really pushing the limits of what “two” means. Eli Wee simply divided it in half and then added the two halves together: <span class="math display">\[\begin{align*}
+\frac{1}{x^2-x} \quad&amp;= \frac{\quad\frac{1}{x^2-x}\quad}{2} + \frac{\quad\frac{1}{x^2-x}\quad}{2} \\ \\
+&amp;= \frac{1}{2\left(x^2-x\right)} + \frac{1}{2\left(x^2-x\right)}
+\end{align*}\]</span> Then, when I complained that that was boring, she divided it into fourths, and added the fourths together: <span class="math display">\[\begin{align*}
+\frac{1}{x^2-x} \quad&amp;= \frac{\quad\frac{1}{x^2-x}\quad}{4} + \frac{\quad\frac{1}{x^2-x}\quad}{4} + \frac{\quad\frac{1}{x^2-x}\quad}{4} + \frac{\quad\frac{1}{x^2-x}\quad}{4} \\ \\
+&amp;= \frac{1}{4\left(x^2-x\right)} + \frac{1}{4\left(x^2-x\right)} +\frac{1}{4\left(x^2-x\right)} +\frac{1}{4\left(x^2-x\right)}
+\end{align*}\]</span> OK, fine. But can we split up this fraction in a way that (to use an obnoxious math word) is non-trivial and non-obvious and kind of interesting and cool? For example, here’s a specific challenge: can we split it up into two fractions, neither of which have an <span class="math inline">\(x^2\)</span> in the denominator?? And which only have an <span class="math inline">\(x\)</span> in the denominator?</p>
+<p>Fundamentally, what are the possibilities for how we can split this fraction up? How can we take this fraction and run the adding-fraction algorithm in reverse? What happens? If this is two fractions that have been added together, that means that the denominator, <span class="math inline">\(x^2-x\)</span>, is really a common denominator in disguise: <span class="math display">\[\frac{???}{???} +\frac{???}{???} \quad\overset{???}{=}\quad \frac{1}{\underbrace{x^2-x}_{\substack{\text{is this a common}\\\text{denominator}\\\text{in disguise?}}}}\]</span> A common denominator is two things multiplied together. Is <span class="math inline">\(x^2-x\)</span> two things multiplied together? Yeah! Potentially <span class="math inline">\(x^2-x\)</span> could have come from <span class="math inline">\((x-1)\cdot x\)</span>: <span class="math display">\[\frac{???}{???} +\frac{???}{???} \quad\overset{???}{=}\quad \frac{1}{\underbrace{(x-1)x}_{\substack{\text{is this a common}\\\text{denominator}\\\text{in disguise?}}}}\]</span> So perhaps the original fractions we added to get <span class="math inline">\(\frac{1}{x^2-x}\)</span> looked like this: <span class="math display">\[\frac{???}{x-1} + \frac{???}{x} \quad\overset{???}{=}\quad  \frac{1}{x(x-1)}\]</span> OK, let’s proceed as if this were the case. If it is, we’ll need to figure out what the numerators over <span class="math inline">\(x-1\)</span> and <span class="math inline">\(x\)</span> could be. Rather than question marks or “something” and “something else,” let’s use some variables. We’ll use <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>: <span class="math display">\[\frac{1}{x(x-1)} \quad\overset{???}{=}\quad \frac{a}{x} + \frac{b}{x-1}\]</span> OK, so now we can just do some algebra to try to figure out what <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are! Note that there’s an <span class="math inline">\(x\)</span> in here, too, but the <span class="math inline">\(x\)</span> isn’t something we’re trying to find—our final answer is going to include <span class="math inline">\(x\)</span>’s. So for our purposes right now, <span class="math inline">\(x\)</span> isn’t a variable we’re trying to solve for. Anyway, if we can in fact blow up this fraction, then whatever <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are, they cross-multiply to become <span class="math inline">\(1\)</span>. So then we have to have: <span class="math display">\[\frac{a}{x} + \frac{b}{x-1} \quad\overset{???}{=}\quad \frac{a\cdot(x-1) \quad+\quad b\cdot x}{x(x-1)} \quad\overset{???}{=}\quad \frac{1}{x^2-x} \]</span> So how do we <em>un</em>cross-multiply??? Let’s try to find <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>, and let’s do that by pulling out that numerator equation so we can focus on it. We have: <span class="math display">\[a(x-1) + b(x) = 1\]</span> Simplifying: <span class="math display">\[ax - a + bx = 1\]</span> Simplifying further: <span class="math display">\[(a+b)x - a = 1\]</span> OK, this is annoying. We have two variables we want to find, <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>, but, like before, we only have one equation. We could try random things. We could just look at it and hope that an answer <em>appears</em> in our brain. As long as we <em>somehow</em> get <em>some</em> value for <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> that works, we’ll have done it.</p>
+<p>But also! COOL ALGEBRA SURPRISE!!!! WE ACTUALLY HAVE TWO EQUATIONS!!! We don’t actually have one equation here with two unknowns; we actually DO have two equations, with two unknowns!!! Namely: the <span class="math inline">\(x\)</span> here, as we’ve discussed, isn’t really a variable. It’s not something we’re solving for. We want our final answer to (probably, or at least potentially) have an <span class="math inline">\(x\)</span> in it. And… that means that since we have an <span class="math inline">\(x\)</span> on the left side of our equation, there should be an <span class="math inline">\(x\)</span> on the right side, too. The equation is some stuff times <span class="math inline">\(x\)</span>, plus some other stuff. So that’s what we need on both sides: <span class="math display">\[\underbrace{(a+b)x - a}_{\text{there&#39;s an $x$ on this side}} = \underbrace{1}_{\text{gotta be an $x$ on this side, too}}\]</span> But there’s no <span class="math inline">\(x\)</span> on the other side! Except, yes, there actually <em>is</em>; it’s just zero times <span class="math inline">\(x\)</span>: <span class="math display">\[(a+b)x - a = 0x + 1\]</span> And because the <span class="math inline">\(x\)</span> is just chilling, we have to have:</p>
+<ul>
+<li>the stuff times <span class="math inline">\(x\)</span> on the left has to be equal to the stuff times <span class="math inline">\(x\)</span> on the right</li>
+<li>the stuff not times <span class="math inline">\(x\)</span> on the left has to be equal to the stuff not times <span class="math inline">\(x\)</span> on the right</li>
+</ul>
+<p>Put visually, the red stuff has to be equal to the blue stuff: <span class="math display">\[{\color{red}(a+b)x} {\color{blue}\quad - a} \quad\quad=\quad\quad {\color{red} 0x} {\color{blue} \quad + 1}\]</span> So really we do have two equations here!!! We have: <span class="math display">\[\cases{ (a+b)x &amp;= 0x \\ -a &amp;= 1}\]</span> (I’m writing that with a curly brace just to indicate/emphasize that this is a connected system of two equations, not two different steps of the same equation.)</p>
+<p>We can solve this! For starters, we can zonk out the <span class="math inline">\(x\)</span>: <span class="math display">\[\cases{ a+b &amp;= 0 \\ -a &amp;= 1}\]</span> Meanwhile, <span class="math inline">\(-a=+1\)</span>, so <span class="math inline">\(a=-1\)</span>. And then we can plug that into <span class="math inline">\(a+b=0\)</span> to get: <span class="math display">\[-1 + b = 0\]</span> <span class="math display">\[b = 1\]</span> That’s it!!! We have: <span class="math display">\[(a=-1,\, b= 1)\]</span> So then our blown-up fraction is: <span class="math display">\[\frac{a}{x} + \frac{b}{x-1} = \frac{-1}{x} + \frac{1}{x-1}\]</span> Does all this voodoo actually work?!? We should check. We’ll just add these two fractions together and hopefully we should get what we started with. We have: <span class="math display">\[\begin{align*}
+\frac{-1}{x} \quad+\quad \frac{1}{x-1} \quad\quad&amp;= \frac{-1\cdot(x-1) \quad + \quad 1\cdot(x)}{x(x-1)} \\ \\
+&amp;= \frac{-x +1 \quad+\quad x}{x(x-1)} \\ \\
+&amp;= \frac{1}{x^2-x}
+\end{align*}\]</span> Yay!!! So we have: <span class="math display">\[\frac{1}{x-1} - \frac{1}{x} \quad \substack{   \xrightarrow{\quad\text{finding a common denominator!}\quad }\\  \xleftarrow[\quad\text{blowing it up}\quad ]{\Huge =} } \quad  \frac{1}{x^2-x} \]</span></p>
+<h2 id="beauty-and-utility">Beauty and Utility</h2>
+<p>This idea of BLOWING FRACTIONS UP is inherently cool and interesting, but it’s also got some utility. If we want to understand rational functions better, spitting them up into a bunch of seperate fractions can give us insights. It’s like how seeing a polynomial in factored form and in multiplied-out form both teach us different things about the polynomial. The analogy for rational functions is that we can see them in either in their “divided” form (two polynomials, divided), or we can see them in their as-undivided-as-possible form.</p>
+<p>For example, here’s a rational function, written as a single fraction:</p>
+<p><span class="math display">\[f(x) = \frac{x^2{\left(x + 5\right)}^{2} {\left(x - 1\right)} }{{\left(x + 1\right)} {\left(x - 3\right)}^{2}}\]</span> And if we blow it up into multiple fractions (not showing the work)(there’s also some polynomial long division going on here)<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>, it’s equal to: <span class="math display">\[f(x) =  x^{2} + 14 \, x  + 82 - \frac{2}{(x + 1)} + \frac{336}{(x - 3)} + \frac{288}{{\left(x - 3\right)}^{2}}\]</span> Notice what’s going on!!! It makes it really easy to see that the end behavior is like <span class="math inline">\(+x^2\)</span>, because that’s the term that dominates as <span class="math inline">\(x\)</span> gets really big. It makes it easy to see those vertical asymptotes, which here get split up into fractional terms. The vertical asymptote at <span class="math inline">\(x=-1\)</span> of multiplicity <span class="math inline">\(1\)</span> turns into this single fraction with <span class="math inline">\((x+1)^1\)</span> on the denominator; the vertical asymptote at <span class="math inline">\(x=+3\)</span> of multiplicity <span class="math inline">\(2\)</span> turns into <em>two</em> fractions, one with <span class="math inline">\((x-3)^1\)</span> in the denominator and one with <span class="math inline">\((x-3)^2\)</span> in the denominator. It’s like this whole thing turns into an ordinary quadratic parabola… but with these extra terms added on that create the vertical asymptotes!!! And whenever <span class="math inline">\(x\)</span> is far away from those vertical asymptotes, those fractions turn into zero. It’s only when <span class="math inline">\(x\)</span> is close to <span class="math inline">\(-1\)</span> or <span class="math inline">\(+3\)</span> that those fractions BLOW UP and overwhelm/dominate all the other terms. When <span class="math inline">\(x\)</span> is far away from <span class="math inline">\(-1\)</span> or <span class="math inline">\(+3\)</span>, those fractions disappear.</p>
+<p>Another way of thinking about it is that it’s like we’re now having polynomials with <em>negative powers</em>. Like, this is: <span class="math display">\[f(x) =  x^{2} + 14 \, x^1  + 82x^0 - 2(x+1)^{-1}+ 336(x-3)^{-1} + 288(x-3)^{-2}\]</span> (This sort of thinking comes up a lot in <strong>complex analysis</strong> (“calculus with imaginary numbers”), where we spend a lot of time thinking about rational functions of complex numbers.)</p>
+<h2 id="trinity">Trinity</h2>
+<p>So. To blow up fractions, we need to figure out how to run the adding-fractions algorithm in reverse. We need to un-find a common denominator to find the two denominators, and then un-cross-multiply to figure out the two numerators. Both of these steps might require some nasty algebra! Un-finding a common denominator might involve some tricky factoring; un-cross-multiplying might involve a bunch of algebra-bashing and maybe even systems of equations. But! The big idea is that we’re just trying to do what we do when we add fractions <em>but in reverse</em>.</p>
+<p>If you know <strong>linear algebra</strong>, that can make parts of this process easier, or at least more systematic. The short version is that, while it’s easy to describe this idea of “just find a common denominator and then figure out what the numerators need to be,” actually doing the algebra for that can get very nasty very fast. Sometimes we end up with big systems of linear equations. So it’s helpful to have the full machinery of linear algebra (which is about solving huge systems of linear equations; a zillion equations and a zillion unknowns). But you don’t really <em>need</em> to know it, specifically.</p>
+<p>Note the asymmetry of this process, which is something we see so often: it’s easy to add two fractions together; un-adding one fraction into two is harder. That’s kind of like how FOIL’ing binomials is easy, but factoring FOIL’d binomials is tough. Math, like many things, has a <em>directionality</em>. It’s hard to hike up to the top of Mt. Shasta—but once you’re on top, skiing down is (comparatively) easy! It’s hard to build things—but it’s easy to burn them down.</p>
+<p>People call this procedure <strong>partial fraction decomposition</strong>, but that’s such a bland and sterile and clinical and soulless name for an operation that’s so vivid! Don’t you want math to be <em>fun</em>? Don’t you want math to be <em>exciting</em>? Don’t you want math to have the drama of the Manhattan Project and not the doldrums of the DMV?!?</p>
+<h2 id="problems">Problems</h2>
+<p>BLOW UP the following fractions into two (or more!) fractions!<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a></p>
+<div style="column-width: 14em;  column-gap: 2em;  column-rule: 1px solid #ccc;">
+<ol class='problems'>
+<li>
+<span class="math inline">\(\displaystyle \frac{ 3}{x^2-3x }\)</span>
+<li>
+<span class="math inline">\(\displaystyle \frac{1 }{2x^2+x }\)</span> <!-- \displaystyle -\frac{2}{2 \, x + 1} + \frac{1}{x} -->
+<li>
+<span class="math inline">\(\displaystyle \frac{3 }{x^2+x-2 }\)</span>
+<li>
+<span class="math inline">\(\displaystyle \frac{5 }{x^2+x-6 }\)</span>
+<li>
+<span class="math inline">\(\displaystyle \frac{ x+1}{x^2-x-6 }\)</span>
+<li>
+<span class="math inline">\(\displaystyle \frac{1 }{x^2-1 }\)</span>
+<li>
+<span class="math inline">\(\displaystyle \frac{1 }{4x^2-9 }\)</span>
+<li>
+<span class="math inline">\(\displaystyle \frac{x^2+12x+12 }{x^3-4x }\)</span>
+<li>
+<span class="math inline">\(\displaystyle \frac{ x+2}{x\left(x^2-9\right) }\)</span>
+<li>
+<span class="math inline">\(\displaystyle \frac{ 3x}{ (x-3)^3 }\)</span>
+<li>
+<span class="math inline">\(\displaystyle \frac{2x-3 }{(x-1)^2 }\)</span>
+<li>
+<span class="math inline">\(\displaystyle \frac{ 4x^2+2x-1}{x^2(x+1) }\)</span>
+<li>
+<span class="math inline">\(\displaystyle \frac{ 6x^2+1}{x^2(x-1)^2 }\)</span>
+<li>
+<span class="math inline">\(\displaystyle \frac{x^2+2x+3 }{x^3+x }\)</span>
+<li>
+<span class="math inline">\(\displaystyle \frac{2x }{x^3-1 }\)</span>
+<li>
+<span class="math inline">\(\displaystyle \frac{x }{x^3-x^2-2x+1 }\)</span>
+<li>
+<span class="math inline">\(\displaystyle \frac{ x+6}{x^3-3x^2-4x+12 }\)</span>
+<li>
+<span class="math inline">\(\displaystyle \frac{2x^2+x+8 }{\left(x^2+4\right)^2 }\)</span>
+<li>
+<span class="math inline">\(\displaystyle \frac{x^2 }{x^4-2x^2-8 }\)</span>
+<li>
+<span class="math inline">\(\displaystyle \frac{x }{16x^4-1 }\)</span>
+<li>
+<span class="math inline">\(\displaystyle \frac{3 }{x^4+x }\)</span>
+<li>
+<span class="math inline">\(\displaystyle \frac{x^2+5 }{(x+1)\left(x^2-2x+3\right) }\)</span>
+<li>
+<span class="math inline">\(\displaystyle \frac{ x^2-4x+7}{(x+1)\left(x^2-2x+3\right) }\)</span>
+<li>
+<span class="math inline">\(\displaystyle \frac{8x-12 }{x^2\left(x^2+2\right)^2 }\)</span>
+<li>
+<span class="math inline">\(\displaystyle \frac{x+1 }{x^3\left(x^2+1\right)^2 }\)</span>
+<li>
+<span class="math inline">\(\displaystyle \frac{x^2-x }{x^2+x+1 }\)</span>
+<li>
+<span class="math inline">\(\displaystyle \frac{ x^2-4x}{x^2+x+6 }\)</span>
+<li>
+<span class="math inline">\(\displaystyle \frac{2x^3-x^2+x+5 }{x^2+3x+2 }\)</span>
+<li>
+<span class="math inline">\(\displaystyle \frac{x^3+2x^2-x+1 }{x^2+3x-4 }\)</span>
+<li>
+<span class="math inline">\(\displaystyle \frac{x^4 }{(x-1)^3 }\)</span>
+<li>
+<span class="math inline">\(\displaystyle \frac{16x^4 }{(2x-1)^3 }\)</span>
+<li>
+<span class="math inline">\(\displaystyle \frac{x^4+2x^3+4x^2+8x+2 }{x^3+2x^2+x }\)</span>
+<li>
+<span class="math inline">\(\displaystyle \frac{2x^4+8x^3+7x^2-7x-12 }{x^3+4x^2+4x }\)</span>
+<li>
+<span class="math inline">\(\displaystyle \frac{1 }{a^2-x^2 }\)</span> <!-- \displaystyle -\frac{1}{2 \, {\left(a + x\right)} x} + \frac{1}{2 \, {\left(a - x\right)} x} -->
+<li>
+<span class="math inline">\(\displaystyle \frac{1 }{x(x+a) }\)</span>
+<li>
+<span class="math inline">\(\displaystyle \frac{1 }{x(a-x) }\)</span>
+<li>
+<span class="math inline">\(\displaystyle \frac{-1}{x^2+x-ax-a }\)</span>
+<li>
+<span class="math inline">\(\displaystyle \frac{5x-1}{x^2-x-2}\)</span>
+</ol>
+</div>
+<ol class='problems'>
+<li>
+Here’s a rational function: <span class="math display">\[f(x) = \frac{2x^{2} + 5x + 2}{ x^3+2x^2+x}\]</span> Graph it, using our tried-and-true knowledge of how to graph rational functions. Then, split it up into two fractions: <span class="math display">\[f(x) = \frac{2x^{2} + 5x + 2}{ x^3+2x^2+x} \quad=\quad \frac{???}{???} \quad+\quad \frac{???}{???}\]</span> In three seperate colors but on the same axes, graph the entire function, and its two constituent fractions!!! (Like, graph both of the two fractions as functions in their own right.) Can you see how these two fractions add to create the entire rational function? Observations? Thoughts???
+</li>
+<li>
+Here’s a function: <span class="math display">\[f(x) =  x^{3} - x^{2} - 10x + 26 - \frac{153}{4 \, {\left(x + 1\right)}} + \frac{5}{4 \, {\left(x - 1\right)}} + \frac{27}{2 \, {\left(x + 1\right)}^{2}}\]</span> Graph it!!! (No technology… <em>obviously</em>.)
+</ol>
+<!--
+
+
+## other example
+
+Actually, let's do another example relatign the the beauty and utility
+
+
+and only 1 example
+
+
+OK, here's a fraction:
+$$\displaystyle \frac{2x^{2} + 5 \, x + 2}{ x^3+2x^2+x}$$
+If we think of this as a rational function, can we graph it?
+$$f(x) = \displaystyle \frac{2x^{2} + 5 \, x + 2}{ x^3+2x^2+x}$$
+We know:
+<ul>
+<li> **Roots:** Where does this have roots? We need to figure out where the numerator is zero, i.e., where:
+$$0 = 2x^{2} + 5 \, x + 2$$
+This factors as:
+$$0 = (2x+1)(x+2)$$
+So for the roots, we get:
+$$x = -\frac{1}{2} \quad \text{ (multiplicity $1$)}$$
+$$x = -2 \quad\text{ (multiplicity $1$)}$$
+</li>
+<li> **Vertical asymptotes:** Where does this have vertical asymptotes? We need to figure out where the denominator is zero, i.e., where:
+$$0 = x^3+2x^2+x$$
+Not showing the work, this factors as:
+$$0 = x(x+1)^2$$
+So for the vertical asymptotes, we get
+$$x = 0 \quad \text{ (multiplicity $1$)}$$
+$$x=-1 \quad \text{ (multiplicity $2$)}$$
+</li>
+<li> **End asymptote:** Where's the end asymptote? We'll look at the ratio of the leading terms:
+$$y = \frac{2x^2}{x^3} = \frac{2}{x} \sim \frac{1}{x} \sim 0$$
+So it's looking like $2/x$ on the sides, which looks basically like $1/x$, which goes to zero. </li>
+<li> **$y$-intercept:** We'll plug in $0$ for $x$, or, equivalently, look at the ration of the constants... but, yeah, we get like $1/0$, because there's a vertical asymptote at the $y$-axis! So it doesn't have a $y$-intercept.
+<li> **Holes:** Nope!</li>
+</ul>
+So it looks like:
+
+PICTURE
+
+OK. So that's ONE way of drawing and thinking about this function. 
+
+
+
+
+
+Meanwhile! Can we break this rational function up into two (or more) seperate fractions?? Then can we graph each of the fractions seperately, and see how they combine to produce the entire rational function?
+
+$$f(x) = \frac{2x^{2} + 5 \, x + 2}{ x^3+2x^2+x} \quad\overset{???}{=}\quad \frac{???}{???} + \frac{???}{???}$$
+We already factored the bottom to find the roots, so the function is really:
+$$f(x) = \frac{2x^{2} + 5 \, x + 2}{ x(x+1)^2}$$
+So maybe 
+
+
+$$\frac{2x^{2} + 5 \, x + 2}{ x^3+2x^2+x} \quad\overset{???}{=}\quad \frac{???}{x} + \frac{???}{(x+1)^2}$$
+
+
+
+$$f(x) = \frac{1}{x} + \frac{2}{(x+1)^2}$$
+
+
+
+
+Meanwhile, can we break it up into two 
+
+-->
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>p13 in my 2012 paperback edition<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p>ibid., p28<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3" role="doc-endnote"><p>Also notice the reference to <em>Paradise Lost</em>: “death into the world and all our woe” is from the fourth line of Milton’s epic poem. “The Shape of Things to Come,” meanwhile, is the title of an H.G. Wells dystopian sci-fi novel published a few years before Szilard’s fateful day. Rhodes discusses Wells’s novel later in <em>The Making of the Atomic Bomb</em>, using it to give context for the intellectual climate of the 1930s.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4" role="doc-endnote"><p>Barak and I have discussed controversies relating to how one pronounces “fission.”<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5" role="doc-endnote"><p>Full disclosure, I wrote this in factored/divided form myself, but because I’m lazy, I had Sage do the division/blowing up<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6" role="doc-endnote"><p>For purposes of honesty I should acknowledge that I stole all these problems from a textbook, but, it’s a textbook I otherwise despise, so, despite the mild hypocrisy in doing so, I’m not going to cite it by name.<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+</main>
+</body>
+</html>

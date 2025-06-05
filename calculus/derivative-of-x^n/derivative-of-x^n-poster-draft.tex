@@ -1,0 +1,77 @@
+\documentclass{article}
+\usepackage{blindtext}
+\usepackage[paperheight=8.5in,paperwidth=22in,margin=1in,heightrounded]{geometry}
+
+\usepackage{graphicx}
+\usepackage{multicol}
+   \usepackage{amsmath}
+   \usepackage{hyperref}
+   	
+
+\oddsidemargin=-.3in
+\evensidemargin=-.5in
+\textwidth=20in
+\topmargin=-.9in
+\textheight=8.5in
+
+\parindent=0in
+\pagestyle{empty}
+
+
+\usepackage{graphicx}
+\usepackage{graphbox}
+\usepackage{multicol}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{pgfplots}
+\usepackage{cancel}
+
+\oddsidemargin=0in
+\evensidemargin=-.5in
+\textwidth= 15in
+\topmargin=-1in
+\textheight=7.5in
+
+\parindent=.3in
+\pagestyle{plain}
+
+
+\everymath{\displaystyle}
+
+\newenvironment{problems}
+{
+\begin{enumerate}
+\renewcommand{\labelenumi}{ {\bf \arabic{enumi}}.}
+\setlength{\itemsep}{1pt}
+}
+{
+\end{enumerate}
+}
+
+
+\begin{document}
+
+
+\begin{centering}
+{\Huge \bf\boldmath $\displaystyle \frac{d}{dx}\left(x^n\right) \,=\,   nx^{n-1}$ \unboldmath} \smallskip
+
+%{\Large \em Nueva Math 3}
+
+\end{centering}
+
+\vspace{3pc}
+
+\noindent
+$$\begin{array}{r c c c c c c c c c c}
+\text{the derivative of $x^2$: }\quad & \frac{\left(x+h\right)^2 - x^2}{h} &=& \frac{\left( x^2 + {\color{blue}2xh} {\color{red} + h^2}\right) - x^2}{h} &=& \frac{ {\color{blue}2xh} {\color{red} + h^2} }{h} &=&  {\color{blue}2x} {\color{red} + h} & \xrightarrow[\text{reeeally small}]{\text{as h gets}} & {\color{blue}2x} \\ \\
+\text{the derivative of $x^3$: }\quad &  \frac{\left(  x+h\right)^3 - x^3}{h} &=& \frac{\left(  x^3 + {\color{blue}3x^2h} {\color{red}+ 3xh^2 + h^3}\right) - x^3}{h} &=& \frac{ {\color{blue}3x^2h} {\color{red}+ 3xh^2 + h^3} }{h}  &=&   {\color{blue}3x^2} {\color{red}+ 3xh + h^2} & \xrightarrow[\text{reeeally small}]{\text{as h gets}} & {\color{blue}3x^2} \\ \\
+\text{the derivative of $x^4$: }\quad &\frac{\left(x+h\right)^4 - x^4}{h} &=& \frac{\left( x^4 + {\color{blue}4x^3h }{\color{red}+ 6x^2h^2 + 4xh^3 + h^4}\right) - x^4}{h} &=& \frac{ {\color{blue}4x^3h }{\color{red}+ 6x^2h^2 + 4xh^3 + h^4} }{h}  &=&  {\color{blue}4x^3 }{\color{red}+ 6x^2h + 4xh^2 + h^3} & \xrightarrow[\text{reeeally small}]{\text{as h gets}} & {\color{blue}4x^3} \\ \\
+\text{the derivative of $x^5$: }\quad &\frac{\left( x+h\right)^5 - x^5}{h} &=&\displaystyle\frac{\left( x^5 + {\color{blue}5x^4h }{\color{red}+ 10x^3h^2 + 10x^2h^3 + 5xh^4 + h^5}\right) - x^5}{h} &=&\displaystyle\frac{ {\color{blue}5x^4h }{\color{red}+ 10x^3h^2 + 10x^2h^3 + 5xh^4  +h^5 } }{h} &=&  {\color{blue}5x^4 }{\color{red}+ 10x^3h + 10x^2h^2 + 5xh^3  + h^4}  & \xrightarrow[\text{reeeally small}]{\text{as h gets}} & {\color{blue}5x^4} \\ \\  \\ \\
+\vdots &\vdots && \vdots && \vdots && \vdots & &\vdots \\ \\ \\ \\
+\text{the derivative of $x^n$: }\quad & \frac{(x+h)^n-x^n}{h} &=& \frac{\left(x^n \,+\, {\color{blue}nx^{n-1}h} \,+\, {\color{red}  \left({\color{red}\substack{\text{a bunch of cross terms}\\\text{with $x$'s and $h$'s}} }\right)} \,\right) -x^n}{h}  &=& \frac{ {\color{blue}nx^{n-1}h} +    {\color{red}  \left({\color{red}\substack{\text{a bunch of cross terms}\\\text{with $x$'s and $h$'s}} }\right)} \,    }{h} &=& {\color{blue}nx^{n-1}} + {\color{red} \left(\substack{\text{a bunch of cross terms}\\\text{with $x$'s and $h$'s, but}\\\text{with the $h$ power}\\\text{down by $1$}} \right)  } & \xrightarrow[\text{reeeally small}]{\text{as h gets}} & {\color{blue}nx^{n-1}} \\ \\ \\ \\
+ & &=& \frac{\left(x^n \,+\, {\color{blue}nx^{n-1}h} \,+\, {\color{red} {n\choose n-2} x^{n-2}h^2 + {n\choose n-3} x^{n-3}h^3 + \cdots + {n\choose 2} + nxh^{n-1} + h^n }\right)  \, -x^n}{h}  &=& \frac{ {\color{blue}nx^{n-1}h} +    {\color{red} {n\choose n-2} x^{n-2}h^2 + {n\choose n-3} x^{n-3}h^3 + \cdots + {n\choose 2} + nxh^{n-1} + h^n } \,    }{h} &=& {\color{blue}nx^{n-1}} + {\color{red} {n\choose n-2} x^{n-2}h + {n\choose n-3} x^{n-3}h^2 + \cdots + {n\choose 2} + nxh^{n-2} + h^{n-1}  } & \xrightarrow[\text{reeeally small}]{\text{as h gets}} & {\color{blue}nx^{n-1}} \\ \\ \\ \\
+ &= \frac{  \overbrace{\left(\sum\limits_{k=0}^{k=n}{n\choose {n-k}}x^{n-k}h^{k} \right) }^{\text{the binomial theorem!!!}}  - x^n}{h} &=& \displaystyle \frac{ \left( x^{n} + {\color{blue} {n\choose {n-1}}x^{n-1}h^{1}} \,\,+ {\color{red} \sum\limits_{k=2}^{k=n}{n\choose {n-k}}x^{n-k}h^{k} } \right) \quad-\quad x^n}{h}   &=& \displaystyle\frac{ {\color{blue} nx^{n-1}h} \,\,+{\color{red} \sum\limits_{k=2}^{k=n}{n\choose {n-k}}x^{n-k}h^{k} } } {h}  &=& {\color{blue} nx^{n-1} } \,\,+{\color{red} \sum\limits_{k=2}^{k=n}{n\choose {n-k}}x^{n-k}h^{k-1} }    & \xrightarrow[\text{reeeally small}]{\text{as h gets}} & {\color{blue}nx^{n-1}}
+\end{array}$$
+
+
+\end{document}

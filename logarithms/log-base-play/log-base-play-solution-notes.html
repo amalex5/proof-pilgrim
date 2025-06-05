@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>log base play notes</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="/main.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <script src="../highlight-toc.js" type="text/javascript"></script>
+</head>
+<body>
+<main>
+<header id="title-block-header">
+<h1 class="title">log base play notes</h1>
+</header>
+<blockquote>
+<p><em>Andrew note: these are my notes to myself on these fun log base problems! Ordinarily when I write math for you guys, I try to write things really thoroughly and explicitly. That’s not what this is! These are just my own unvarnished stream-of-consciousness from when I worked through these problems for the first time. But I think perhaps it might be good for you to see them even in this raw state, as an example of a different way to write about and explain mathematics.</em></p>
+</blockquote>
+<div style="height:3em;">
+
+</div>
+<p><strong>ANDREW NOTES NOT 4 KIDS</strong></p>
+<p>this is all deliberately unscaffolded, because I want to throw it at the kids and see what happens! here are some of my notes, written off the cuff, on the theorems that it seems one can easily find and prove (or not).</p>
+<hr />
+<p><span class="math display">\[\boxed{ \text{\bf THM: } \log_{a^b}(c) = \frac1b \log_a(c)}\]</span></p>
+<p>I’m going to call this <strong>Coltrane’s Theorem</strong>, because he emailed me about how to prove it at some point during springtime remote learning.</p>
+<p><strong>PF #1: from first principles:</strong></p>
+<p>i mean, this is basically the same as the proof of the change-of-base formula in my notes. we can rewrite <span class="math inline">\(c\)</span> as: <span class="math display">\[c = \left(a^b\right)^{ \log_{a^b}(c)}\]</span> which is: <span class="math display">\[c = a^{b\cdot \log_{a^b}(c)}\]</span> taking the <span class="math inline">\(\log_a\)</span> of both sides: <span class="math display">\[\log_a(c) = \log_a\left(a^{b\cdot \log_{a^b}(c)}\right)\]</span> <span class="math display">\[\log_a(c) =b\cdot \log_{a^b}(c)\]</span> <span class="math display">\[\frac{\log_a(c)}{b} = \log_{a^b}(c)\]</span> <span class="math display">\[\log_{a^b}(c) = \frac1b \log_a(c)\]</span> <span class="math display">\[\includegraphics[width=1em]{andrewproof.png}\]</span></p>
+<p><strong>PF #2: via change-of-base formula:</strong> <span class="math display">\[\begin{align*}
+\log_{a^b}(c) &amp;= \frac{\log_{d}(c)}{\log_d\left(a^b\right)} \quad(\text{for some }d)\\
+&amp;= \frac{\log_{d}(c)}{b\log_d\left(a\right)}\\
+&amp;= \frac{1}{b}\cdot\frac{\log_{d}(c)}{\log_d\left(a\right)} \\
+\text{now RE-applying change-of-base formula, in reverse:} \\
+&amp;= \frac{1}{b}\cdot\log_{a}(c)\\
+&amp;\quad\includegraphics[width=1em]{andrewproof.png}
+\end{align*}\]</span></p>
+<p><strong>And now we can solve Coltrane’s problem!</strong></p>
+<p>We start with: <span class="math display">\[\log_5(x)+\log_{\sqrt{5}}(x) + \log_{\frac15}(x) = 6 \]</span> I.e.: <span class="math display">\[\log_5(x)+\log_{5^{0.5}}(x) + \log_{5^{-1}}(x) = 6 \]</span> Using this theorem about <span class="math inline">\(\log_{a^b}(c) = \frac1b\log_ac\)</span>, this becomes: <span class="math display">\[\log_5(x)+\frac{1}{0.5}\log_{5}(x) + \frac{1}{-1}\log_{5}(x) = 6\]</span> <span class="math display">\[\log_5(x)+2\log_{5}(x) - \log_{5}(x) = 6\]</span> Which is: <span class="math display">\[2\log_{5}(x)= 6\]</span> <span class="math display">\[\log_{5}(x)= 3\]</span> So, raising both sides by <span class="math inline">\(5\)</span>, we get: <span class="math display">\[5^{\log_{5}(x)}= 5^3\]</span> I.e.: <span class="math display">\[x= 5^3\]</span> <span class="math display">\[x= 125\]</span></p>
+<hr />
+<p><span class="math display">\[\boxed{ \text{\bf THM: } \log_{1/a}(b) =  - \log_{a}(b) }\]</span></p>
+<p><strong>PF: via the above theorem:</strong> <span class="math display">\[\begin{align*} 
+ \log_{1/a}(b) &amp;=  \log_{a^{-1}}(b) \\
+ &amp;= \frac{1}{-1}\log_{a}(b) \quad \text{(applying $\log_{a^b}(c)$ thm)}\\
+ &amp;= - \log_{a}(b)\\
+ &amp;\quad\includegraphics[width=1em]{andrewproof.png}
+\end{align*}\]</span></p>
+<hr />
+<p><span class="math display">\[\boxed{ \text{\bf THM: } \log_{a\cdot b}(c) = \, ??? }\]</span></p>
+<p><strong>PF: via change-of-base formula:</strong> <span class="math display">\[\begin{align*}
+ \log_{a\cdot b}(c) &amp;= \frac{\log_d(c)}{\log_d(a\cdot b)} \\
+ &amp;=  \frac{\log_d(c)}{\log_d(a)+\log_d(b)} \\
+&amp; \text{yeah i think not a whole lot more we can do from here :(}\\
+&amp;\text{I &#39;spose we could set $d=c$, and then we&#39;d get:}\\
+ &amp;=  \frac{\log_c(c)}{\log_c(a)+\log_c(b)} \\
+  &amp;=  \frac{1}{\log_c(a)+\log_c(b)} \\
+ &amp;\text{that&#39;s kinda cool! I guess we coulda set $d=a$ or $d=b$, too, and gotten:}\\
+  &amp;=  \frac{\log_a(c)}{1+\log_d(b)} \quad\text{(with $d=a$)}\\
+ &amp;=  \frac{\log_b(c)}{\log_b(a)+1}  \quad\text{(with $d=b$)}\\
+ \end{align*}\]</span> I’ve just figured this out by playing with this directly. I kinda like the cool reciprocal theorem; I wonder what examples might be motivatingly useful?? What about, like: <span class="math display">\[\log_{2\cdot3}(12) =\]</span> OH WAIT GOLLY THIS IS ACTUALLY REALLY EFFING COOL. THINK ABOUT THIS FORMULA—okay, not creating the formula here, but applying it—we get: <span class="math display">\[\begin{align*}
+\log_{2\cdot3}(12) &amp;= \log_{6}(12) \\
+&amp;= \frac{1}{\log_{12}(2)+\log_{12}(3)}
+\end{align*}\]</span> what’s <span class="math inline">\(\log_{12}(2)\)</span>? it must be the <span class="math inline">\(k\)</span> such that: <span class="math display">\[12^k = 2\]</span> or: <span class="math display">\[\left(2\cdot2\cdot3\right)^k = 2\]</span> <span class="math display">\[\left(2^2\cdot3\right)^k = 2\]</span> <span class="math display">\[2^{2k}\cdot3^k = 2\]</span> <span class="math display">\[3^k = 2^{1-2k}\]</span> yeah, never mind, I don’t think this is going anywhere. transcendental equations, man. can’t trust them! anyway, cool moral of the story is that: <span class="math display">\[\boxed{ \log_{a\cdot b}(c)  = \frac{1}{\log_c(a)+\log_c(b)} \ }\]</span></p>
+<hr />
+<p><span class="math display">\[\boxed{ \text{\bf THM: } \log_{a/b}(c) = \text{ ????} }\]</span></p>
+<p>okay, this is clearly the same deal as above, but with subtraction rather than addition. we have: <span class="math display">\[\begin{align*}
+ \log_{a/ b}(c) &amp;= \frac{\log_d(c)}{\log_d(a/ b)}\\
+ &amp;=  \frac{\log_d(c)}{\log_d(a)-\log_d(b)} \\
+  &amp;=  \frac{1}{\log_c(a)-\log_c(b)} \quad\text{(with $d=c$)} \\
+  &amp;=  \frac{\log_a(c)}{1-\log_d(b)} \quad\text{(with $d=a$)}\\
+ &amp;=  \frac{\log_b(c)}{\log_b(a)-1}  \quad\text{(with $d=b$)}
+\end{align*}\]</span></p>
+<hr />
+<p><span class="math display">\[\boxed{ \text{\bf THM: } \log_{a+b}(c) = \text{ ????} }\]</span> yeah don’t think this is anything interesting or tractable?!?!?</p>
+<hr />
+<p><span class="math display">\[\boxed{ \text{\bf THM: } \log_{\log_a(b)}(c) = \text{ ??!?! } }\]</span> YEAH BUDDY JUST KEEP GOING!!!!</p>
+</main>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>LOGPOCALYPSE REDUX!!!</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="/main.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <script src="../highlight-toc.js" type="text/javascript"></script>
+</head>
+<body>
+<script>document.addEventListener('DOMContentLoaded', function(e) {
+  Scroller.init();
+})</script>
+<aside>
+<div class="tocLinks" >
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#another-way-to-find-this-base">Another way to find this base!</a></li>
+</ul>
+</nav>
+</div>
+</aside>
+<main>
+<header id="title-block-header">
+<h1 class="title">LOGPOCALYPSE REDUX!!!</h1>
+</header>
+<p>In the ruins of a post-apocalyptic America, we found a charred scrap of paper, containing the decimal approximations of a few logarithms of some unknown base:</p>
+<div style="callout-box">
+<ul>
+<li><span class="math inline">\(\log_\blacksquare(2) = 0.3011\)</span></li>
+<li><span class="math inline">\(\log_\blacksquare(3) = 0.4771\)</span></li>
+<li><span class="math inline">\(\log_\blacksquare(7) = 0.8451\)</span></li>
+<li><span class="math inline">\(\log_\blacksquare(300) = 2.4771\)</span></li>
+</ul>
+</div>
+<p>Using just this information, we had to a) figure out what the base of these logarithms were, and b) compute the decimal approximations of a bunch more logarithms of this same base.</p>
+<p>Most of you correctly managed to figure out that the log base in question was base 10. We can see this by noticing that two of the logs have suspiciously similar decimals: <span class="math display">\[\log_\blacksquare(300) = 2.\boxed{4771} \quad\quad\quad \log_\blacksquare(3) = 0.\boxed{4771} \]</span> Gosh! So similar! Can it just be a coincidence?!? It’s like we have: <span class="math display">\[\begin{align*}
+\log_\blacksquare(300) &amp;= 2 + \log_\blacksquare(3) \\ \\
+2.4771 &amp;= 2 + 0.4771
+\end{align*}\]</span> And meanwhile, <span class="math inline">\(300\)</span> and <span class="math inline">\(3\)</span> have got some similarities! After all, <span class="math inline">\(300\)</span> is <span class="math inline">\(3\)</span> times <span class="math inline">\(100\)</span>. Soooooooo it’s like we have: <span class="math display">\[\begin{align*}
+\log_\blacksquare(300) &amp;=  \log_\blacksquare(100 \cdot 3) \\ \\
+&amp;\text{but log rules mean that this is: } \\ \\
+&amp;=  \log_\blacksquare(100) + \log_\blacksquare(3) \\ \\
+&amp;\text{buuuuuut this also has to equal:} \\ \\
+&amp;= \,\, 2 \quad\quad + \quad\quad .4771
+\end{align*}\]</span> Sooooooo we gotta have: <span class="math display">\[\log_\blacksquare(100) = 2\]</span> But that means: <span class="math display">\[\blacksquare = 10\]</span> So these are actually all log base ten!!!! And then we can start figuring out more stuff. For instance, we can figure out <span class="math inline">\(\log{10}(5)\)</span> by knowing <span class="math inline">\(\log_{10}(10)\)</span> and <span class="math inline">\(\log_{10}(2)\)</span>, because: <span class="math display">\[\begin{align*}
+\log_{10}(5) &amp;= \log_{10}\left(\frac{10}{2}\right) \\ \\
+&amp;= \log_{10}(10) - \log_{10}(2) \\
+&amp;= 1 - 0.3011 \\
+&amp;=  0.6989
+\end{align*}\]</span> Then we know the log base ten of a whole bunch of nice primes—two, three, five, and seven! So any number that we can rewrite as a bunch of those primes multiplied together (maybe with an exponent), we can use log rules to split up and figure out! For instance: <span class="math display">\[\begin{align*}
+\log_{10}(9) &amp;= \log_{10}\left( 3^2\right) \\ \\
+&amp;= 2\log_{10}(3) \\
+&amp;= 2\cdot 0.4771 \\
+&amp;=  0.9542
+\end{align*}\]</span> Or: <span class="math display">\[\begin{align*}
+\log_{10}(210) &amp;= \log_{10}\left( 2\cdot 3 \cdot 5 \cdot 7 \right) \\
+&amp;= \log_{10}(2)  + \log_{10}(3)  + \log_{10}(5)  + \log_{10}(7) \\
+&amp;= 0.3011 + 0.4771 +  0.6989 + 0.8451 \\
+&amp;=  2.3222
+\end{align*}\]</span> Of course, if we’re adding and multiplying lots of decimals here, we might have rounding errors pile up, but it’s the end of the world, so it’s not the end of the world.</p>
+<p>What about the logs we wanted to figure out that included prime factors that we didn’t know?? For instance, we had to figure out <span class="math inline">\(\log_{10}(57)\)</span>. But <span class="math inline">\(57\)</span> is <span class="math inline">\(3\cdot 19\)</span>, so if we try this method, we get: <span class="math display">\[\begin{align*}
+\log_{10}(57) &amp;= \log_{10}(3\cdot 19) \\ 
+&amp;= \log_{10}(3) + \log_{10}(19) \\
+&amp;= 0.4771 \,+ \,???? \\
+&amp;= \text{ sad!}
+\end{align*}\]</span> Darn. That sucks. But we still need to figure out all these logs so that we can rebuild society. So, for all those logs that we couldn’t easily compute by breaking them up into sums/products of the small number of logs we already knew, what’s your best estimate for them? Without a calculator, without anything other than these scraps of information, what’s your best estimate for those logs, like <span class="math inline">\(\log_{10}(57)\)</span> and the others that aren’t prime powers of <span class="math inline">\(2\)</span>, <span class="math inline">\(3\)</span>, <span class="math inline">\(5\)</span>, and <span class="math inline">\(7\)</span>? (And yes, you have to figure out which logs those are! I’m not going to tell you.) What’s a bad estimate? What’s an OK estimate? What’s a better estimate? What’s an even better estimate? How good of an estimate can you make? Can you make an initial estimate, and then make it better???</p>
+<h2 id="another-way-to-find-this-base">Another way to find this base!</h2>
+<p>An addendum! In class, a lot (most?) of you figured out that these logs are base <span class="math inline">\(10\)</span> in a totally different way than what I did. Instead of using log properties, you used exponent properties! You rewrote two of these ambiguous logs as exponents: <span class="math display">\[ \log_\blacksquare(3) = 0.4771 \quad\implies \blacksquare^{0.4771} = 3\]</span> <span class="math display">\[ \log_\blacksquare(300) = 2.4771 \quad\implies  \blacksquare^{2.4771} = 300\]</span> And then you did some algebra! You had: <span class="math display">\[\begin{align*}
+\blacksquare^{2.4771}  &amp;= 300 \\ \\
+\text{by properties of exponents, this is:} \\
+\blacksquare^{2 + 0.4771}  &amp;= 300 \\
+\blacksquare^{2}\blacksquare^{0.4771}  &amp;= 300 \\ \\
+\text{but we know $\blacksquare^{0.4771}$ is $3$, so this becomes:} \\
+\blacksquare^{2}\cdot 3  &amp;= 300 \\
+\blacksquare^{2} &amp;= 100 \\
+\blacksquare &amp;= 10
+\end{align*}\]</span> Wahoo!!!</p>
+</main>
+</body>
+</html>

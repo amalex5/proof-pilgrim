@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Circumpolar Navigation</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="/main.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <script src="../highlight-toc.js" type="text/javascript"></script>
+</head>
+<body>
+<script>document.addEventListener('DOMContentLoaded', function(e) {
+  Scroller.init();
+})</script>
+<aside>
+<div class="tocLinks" >
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#polar-coordinates-arent-just-cool-theyre-useful">Polar coordinates aren’t just cool: they’re useful</a></li>
+<li><a href="#in-summary">In <span class="math inline">\(\sum\)</span>mary</a></li>
+<li><a href="#problems">Problems</a></li>
+</ul>
+</nav>
+</div>
+</aside>
+<main>
+<header id="title-block-header">
+<h1 class="title">Circumpolar Navigation</h1>
+</header>
+<p><strong>The problems with complex numbers we’ve done have involved increasingly tedious amounts of algebra</strong>. Many of you have noticed that in a lot of the problems, the answers (and even the ingredients) have been somewhere on the unit circle. For example, we found that (one of) the square root(s) of <span class="math inline">\(i\)</span> is:</p>
+<p><span class="math display">\[\sqrt{i} = \frac{1}{\sqrt{2}} + \frac{1}{\sqrt{2}}i\]</span></p>
+<p>In other words, it’s at:</p>
+<p><span class="math display">\[ \left(\frac{1}{\sqrt{2}} , \frac{1}{\sqrt{2}}\right)\]</span></p>
+<p>And that’s the same as where the tip of a <span class="math inline">\(\pi/4-\pi/4-\pi/2\)</span> special right triangle is on the unit circle:</p>
+<p><img src="square-root-of-i-unit-circle.svg" style="width:50.0%" /></p>
+<p>If so many of the complex numbers we talk about sit on the unit circle, maybe it makes sense to talk about them <em>not in terms of their <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> coordinates</em>, but rather <em>in terms of their angle</em>. After all, those fractions with square roots are ugly. Instead of saying:</p>
+<p><span class="math display">\[\text{the square root of $i$ is at} \left(\frac{1}{\sqrt{2}} , \frac{1}{\sqrt{2}}\right)\]</span></p>
+<p>how about we just say:</p>
+<p><span class="math display">\[\text{the square root of $i$ is at } \pi/4 \quad\text{(or $45^\circ$ if you&#39;re a heathen)}\]</span></p>
+<p>In fact, let’s generalize a bit further. What if we have a point on the complex plane that’s <em>not</em> on the unit circle? For example, <span class="math inline">\(3+3\sqrt{3}i\)</span>:</p>
+<p><img src="3-plus-3sqrti-1.svg" style="width:50.0%" /></p>
+<p>What’s its angle and distance from the origin? One way of finding out would be to recognize that this is just a blown-up version of a <span class="math inline">\(\pi/3-\pi/6-\pi/2\)</span> special right triangle. Another way would be to use a tangent (for the angle) and the Pythagorean theorem (for the radius).</p>
+<p><img src="3-plus-3sqrti-2.svg" style="width:50.0%" /></p>
+<p>For the radius, we have:</p>
+<p><span class="math display">\[\begin{align*}
+r^2 &amp;= 3^2 + \left(3\sqrt{3}\right)^2\\
+r &amp;= \sqrt{3^2 + \left(3\sqrt{3}\right)^2} \\
+&amp;= \sqrt{9 + 27}\\
+&amp;= \sqrt{36}\\
+&amp;= 6
+\end{align*}\]</span></p>
+<p>So its radius is <span class="math inline">\(6\)</span>. What about its angle? We can use a tangent, or rather, an <em>inverse</em> tangent, because we know:</p>
+<p><span class="math display">\[\tan\theta = \frac{\text{opp}}{\text{adj}} = \frac{3\sqrt{3}}{3} = \sqrt{3}\]</span></p>
+<p>So:</p>
+<p><span class="math display">\[\theta = \tan^\text{inv}\left(\sqrt{3}\right) = \pi/3\]</span></p>
+<p>So then we know how to describe this point in terms of its angle and radius!</p>
+<p>Let’s draw it:</p>
+<p><img src="3-plus-3sqrti-3.svg" style="width:50.0%" /></p>
+<p>This is the key insight and generalization. <strong>We can describe <em>any</em> point on the complex plane in terms of its distance from the origin and its angle</strong>. We can describe it in terms of either:</p>
+<ul>
+<li>how far it is to the right of the origin and how far it is up from the origin (normal <span class="math inline">\((x,y)\)</span> coordinates),</li>
+</ul>
+<p>OR</p>
+<ul>
+<li>how far away it is from the origin (on a straight line), and what its angle from the origin is.</li>
+</ul>
+<p>Two totally different ways to describe the same number!</p>
+<p>Our traditional way of describing numbers we normally call <strong>rectangular</strong> or <strong>Cartesian<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> coordinates</strong>. This new way of describing numbers we call <strong>polar coordinates</strong>, because if we make a graph on which the lines represent not constant left-right and up-down distance from the origin, but constant angle and radius from the origin, we get something that looks like a top-down or bottom-up view of the earth from one of the poles (looking at the lines of latitude and longitude). If you’ve played around with the settings in Desmos, you may have stumbled across it:</p>
+<p><img src="desmos-polar-coordinates.png" style="width:75.0%" /></p>
+<p>New York City, like many cities, is organized on a rectangular/Cartesian grid system:</p>
+<p><img src="nyc-grid-1811-crop.png" style="width:75.0%" /><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
+<p>But if you’ve spent time in Santa Cruz, or at Burning Man, you know what it’s like to live on a polar grid:</p>
+<p><img src="santa-cruz-polar.png" style="width:75.0%" /><a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
+<p><img src="BlackRockCity-158209283.png" style="width:75.0%" /><a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></p>
+<p>(What other coordinate systems could we make up? Suppose we can describe any point on a two-dimensional plane with two numbers—what are other systems of coordinates that we could use? I am very fond of <strong>loxodromic coordinates</strong>, partly because they’re cool and partly because it’s a cool word, from the Greek <em>loxodromos</em>. But there are so many more cool coordinate systems we could make up!)</p>
+<p>Often people use the notation <strong><span class="math inline">\(\text{radius}\angle\text{angle}\)</span></strong> for polar coordinates, with the radius coming first, then a little angle symbol, and then the angle. Contrast this with the <span class="math inline">\((x,y)\)</span> notation for rectangular coordinates, where we separate the two coordinates with a comma, and surround them with parentheses.</p>
+<p>What if we want to write a point in polar coordinates as a single number? We do that in rectangular coordinates:</p>
+<p><span class="math display">\[\text{we can write } (a,b) \text{ as } z=a+bi\]</span></p>
+<p>What about with polar? All we need is some trig! If we think about our number as being the tip of a right triangle, with hypotenuse <span class="math inline">\(r\)</span> and angle <span class="math inline">\(\theta\)</span>, we can find the real and imaginary components (i.e., <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>) just by using sine and cosine:</p>
+<p><img src="polar-to-rectangular.svg" style="width:75.0%" /></p>
+<p>So we can write any point in polar as:</p>
+<p><span class="math display">\[\begin{align*}
+\text{we can write } r\angle\theta \text{ as } z&amp;= r\cos\theta + i\cdot r\sin\theta \\
+&amp;= r\left(\cos\theta+i\sin\theta\right)
+\end{align*}\]</span></p>
+<p>Likewise, if we have a number in rectangular form—if we know its real and imaginary components—we can use trig to find its radius and angle, and convert to polar form:</p>
+<p><img src="rectangular-to-polar.svg" style="width:75.0%" /></p>
+<p>So for example, we can write the number <span class="math inline">\(z=3+3\sqrt{3}i\)</span> either in rectangular/Cartesian form, or we can write it in <span class="math inline">\(r\angle \theta\)</span> form:</p>
+<p><span class="math display">\[\begin{align*}
+\text{in rectangular/Cartesian form: }(x,y) &amp;= \left(3,3\sqrt{3}\right)\\
+\text{in polar form: }r\angle\theta &amp;=6\angle{\frac{\pi}{3}}
+\end{align*}\]</span></p>
+<p>Writing it out as a single number, we have:</p>
+<p><span class="math display">\[\begin{align*}
+z &amp;= 3+3\sqrt{3}i \quad\text{(rectangular)} \\
+ &amp;= 6\big(\, \cos(\pi/3) + i\cdot\sin(\pi/3)\, \big)\quad\text{(polar)}
+\end{align*}\]</span></p>
+<p>Here’s another example. Let’s get back to <span class="math inline">\(\left(\frac{1}{\sqrt{2}},\frac{1}{\sqrt{2}}\right)=1\angle(\pi/4)\)</span>. It’s ugly! But it’s way prettier if we think of it as being a point on a unit circle, <span class="math inline">\(45^\circ = \pi/4\)</span> up from the axis. Here are three ways we can write it:</p>
+<p><span class="math display">\[\begin{align*}
+\text{in rectangular:}&amp; \quad \left(\frac{1}{\sqrt{2}} , \frac{1}{\sqrt{2}}\right)\\
+\text{in polar:}&amp; \quad 1\angle \frac{\pi}{4}\\
+\text{in polar, if you&#39;re a heathen who likes degrees:}&amp; \quad 1\angle45^\circ\\
+\end{align*}\]</span></p>
+<p>If we actually write out the coordinate pairs as a single number, we have:</p>
+<p><span class="math display">\[\begin{align*}
+\sqrt{i} &amp;=  \frac{1}{\sqrt{2}} + \frac{1}{\sqrt{2}}i \quad\quad\text{(in rectangular)} \\
+ &amp;= \cos(\pi/4) + i\cdot\sin(\pi/4) \quad\quad\text{(in polar)}
+\end{align*}\]</span></p>
+<p>This is the same number! Just written two different ways:</p>
+<p>There’s some more terminology. In polar form, the distance from the origin is sometimes called the <strong>modulus</strong> (I usually call it the <strong>radius</strong>, though), and the angle is sometimes called the <strong>argument</strong> (I usually just call it the <strong>angle</strong>).</p>
+<p><span class="math display">\[\text{(modulus)}\angle\text{(argument)}\]</span></p>
+<p><span class="math display">\[\text{(radius)}\angle\text{(angle)}\]</span></p>
+<p>Sometimes polar form gets called <strong>mod-arg form</strong>, as an abbreviation of those two terms for the components.</p>
+<p>Sometimes people use the abbreviation/notation <strong><span class="math inline">\(\text{cis}(\theta)\)</span></strong> to mean <span class="math inline">\(\cos(\theta)+i\sin(\theta)\)</span>. I don’t really use it, but it can be helpful, and save us from having to write <span class="math inline">\(\cos(\text{blah blah}) + i\sin(\text{blah blah})\)</span> over and over again:</p>
+<p><span class="math display">\[\text{cis}(\theta) \equiv \cos(\theta) + i\cdot\sin(\theta)\]</span></p>
+<p>(That triple equals sign I’m using to mean a definition, i.e. the left side is <em>defined</em> as the right side, rather than being equal through some subsequent deduction. If you code, you can think of it as being like an <strong>assignment operator</strong> in various programming languages.)</p>
+<h2 id="polar-coordinates-arent-just-cool-theyre-useful">Polar coordinates aren’t just cool: they’re useful</h2>
+<p>There are lots of questions we can ask about complex numbers that are way easier to answer in polar coordinates than rectangular coordinates. Conversely, there are lots of questions about complex numbers that are way easier to answer in rectangular coordinates than polar coordinates. One of the things we’re trying to learn is not just <em>how</em> to convert back and forth between polar and rectangular coordinates, but <em>when</em> to do so.</p>
+<p>It’s kind of like asking your parents for permission. Say you want to buy a new book. Your mom is all in favor of learning and reading and buying books, whereas your dad is a penny-pincher. So you ask your mom! Conversely, maybe you want to go to some cool party, and your dad is usually in favor of you socializing with your friends, whereas your mom thinks you need to spend more time doing math homework. So you ask your dad! Likewise with complex numbers. Sometimes it’s easier to do things if they’re written in rectangular form; other times it’s easier to do things if they’re written in polar form.</p>
+<p>For example, suppose we have the complex number <span class="math inline">\(z=3+3\sqrt{3}i\)</span>, and we want to add 5. If we have <span class="math inline">\(z\)</span> written in rectangular form, this is easy:</p>
+<p><span class="math display">\[\begin{align*}
+z+5 &amp;= \left(3+3\sqrt{3}i\right)+5 \\
+&amp;= 8+3\sqrt{3}i
+\end{align*}\]</span></p>
+<p>We add <span class="math inline">\(5\)</span>, and it’s easy to see that now the real component of <span class="math inline">\(z\)</span> is <span class="math inline">\(8\)</span>, and the imaginary component is unchanged at <span class="math inline">\(3\sqrt{3}\)</span>.</p>
+<p>But what if we try adding <span class="math inline">\(5\)</span> if the number is in polar form? As we found in the last section, <span class="math inline">\(3+3\sqrt{3}i\)</span> in polar form is <span class="math inline">\(6\angle\pi/3\)</span>, so it is:</p>
+<p><span class="math display">\[z = 3+3\sqrt{3}i= 6\left(\cos\frac{\pi}{3}+i\sin\frac{\pi}{3}\right)\]</span></p>
+<p>So if we want to add <span class="math inline">\(5\)</span>, we get:</p>
+<p><span class="math display">\[z+5 =6\left(\cos\frac{\pi}{3}+i\sin\frac{\pi}{3}\right) + 5\]</span></p>
+<p>And while that’s, like, <em>fine</em>, it’s kind of useless. Does it tell us what the new radius and angle are? No, not unless we somehow figure out how to mash it together. Does it tell us what the new real and imaginary components are? Definitely not. It’s this Frankenstein number—neither in fully polar form, nor in fully rectangular form—a useless chimera. I guess if we wanted to, we could do some nasty algebra to convert it to a single form. But that seems hard. The moral of the story: <strong>it’s easier to add numbers if they’re in rectangular form</strong>.</p>
+<p>What about multiplication? If we’re multiplying a complex number by just a real number, both representations work about equally well. Suppose we multiply our number by <span class="math inline">\(5\)</span>. In rectangular coordinates, this looks like this:</p>
+<p><span class="math display">\[\begin{align*}
+5\cdot z &amp;= 5\cdot\left(3+3\sqrt{3}i\right) \\
+&amp;= 15 + 15\sqrt{3}i
+\end{align*}\]</span></p>
+<p>So we can easily see that now both the real and imaginary components get multiplied by <span class="math inline">\(5\)</span>.</p>
+<p>Meanwhile, in polar form this looks like:</p>
+<p><span class="math display">\[\begin{align*}
+5\cdot z &amp;= 5\cdot6\left(\cos\frac{\pi}{3}+i\sin\frac{\pi}{3}\right) \\
+&amp;= 30\left(\cos\frac{\pi}{3}+i\sin\frac{\pi}{3}\right)
+\end{align*}\]</span></p>
+<p>So we can easily see that the angle has remained the same, whereas the radius has gone up by a factor of <span class="math inline">\(5\)</span>, to <span class="math inline">\(30\)</span>.</p>
+<p>What if we’re multiplying a complex number by another complex number? This is where things get slightly trickier. We’ve seen a few examples. For instance, we know that if we multiply <span class="math inline">\(\sqrt{i}\)</span> by itself, we get just <span class="math inline">\(i\)</span> back:</p>
+<p><span class="math display">\[\left( \frac{1}{\sqrt{2}} + \frac{1}{\sqrt{2}}i \right) \cdot \left( \frac{1}{\sqrt{2}} + \frac{1}{\sqrt{2}}i \right) = i\]</span></p>
+<p>This is the same as just adding the angles together!</p>
+<p><span class="math display">\[\underbrace{\left( \frac{1}{\sqrt{2}} + \frac{1}{\sqrt{2}}i \right)}_{=45^\circ} \cdot \underbrace{\left( \frac{1}{\sqrt{2}} + \frac{1}{\sqrt{2}}i \right)}_{=45^\circ} = \underbrace{i}_{=90^\circ}\]</span></p>
+<p>If we add the other form of <span class="math inline">\(\sqrt{i}\)</span>, the one with the negatives, we also end up at <span class="math inline">\(i\)</span>. We can also do this by adding the angles together—it’s just that we go around the unit circle a full turn, and then an additional <span class="math inline">\(90^\circ\)</span>, to end up at <span class="math inline">\(i\)</span>.</p>
+<p><span class="math display">\[\underbrace{\left( \frac{-1}{\sqrt{2}} + \frac{-1}{\sqrt{2}}i \right)}_{=225^\circ} \cdot \underbrace{\left( \frac{-1}{\sqrt{2}} + \frac{-1}{\sqrt{2}}i \right)}_{=225^\circ} = \underbrace{i^5}_{=450^\circ} = \underbrace{i}_{=90^\circ}\]</span></p>
+<p>I gave you that really hard problem involving multiplying together a whole bunch of complex numbers:</p>
+<p><span class="math display">\[\left( \frac{1}{\sqrt{2}} - \frac{1}{\sqrt{2}}i \right)\cdot \left(\frac{1}{2} + \frac{\sqrt{3}}{2}i \right)\cdot \left( -i \right)\cdot \left( -\frac{1}{\sqrt{2}} + \frac{1}{\sqrt{2}}i \right)\cdot \left( \frac{\sqrt{3}+1}{2\sqrt{2}} + \frac{\sqrt{3}-1}{2\sqrt{2}} i \right)\]</span></p>
+<p>And many of you figured out that we can do this way way way easier, just by noticing that all the factors are points on the unit circle, and we can just add up the angles:</p>
+<p><span class="math display">\[\underbrace{\left( \frac{1}{\sqrt{2}} - \frac{1}{\sqrt{2}}i \right)}_{=-45^\circ}\cdot \underbrace{\left(\frac{1}{2} + \frac{\sqrt{3}}{2}i \right)}_{=60^\circ}\cdot \underbrace{\left( -i \right)}_{=270^\circ}\cdot \underbrace{\left( -\frac{1}{\sqrt{2}} + \frac{1}{\sqrt{2}}i \right)}_{=135^\circ}\cdot \underbrace{\left( \frac{\sqrt{3}+1}{2\sqrt{2}} + \frac{\sqrt{3}-1}{2\sqrt{2}} i \right)}_{=15^\circ}\]</span></p>
+<p>So then the total angle of the resulting number will be:</p>
+<p><span class="math display">\[\begin{align*}
+-45^\circ + 60^\circ + 270^\circ + 135^\circ + 15^\circ &amp;= 435^\circ \\
+&amp;= 360^\circ + 75^\circ \\
+&amp;\cong 75^\circ
+\end{align*}\]</span></p>
+<p>So we just need a point on the unit circle with an angle of <span class="math inline">\(75^\circ\)</span>, a/k/a <span class="math inline">\(5\pi/12\)</span>. So we have just: <span class="math display">\[= \frac{\sqrt{3}-1}{2\sqrt{2}} + \frac{\sqrt{3}+1}{2\sqrt{2}} i \]</span></p>
+<p>If we want to write this just as a power of <span class="math inline">\(i\)</span>, it’s:</p>
+<p><span class="math display">\[=i^{5/6}\]</span></p>
+<p>We know that because <span class="math inline">\(i^1\)</span> would be at <span class="math inline">\(90^\circ\)</span>, and <span class="math inline">\(75^\circ\)</span> is <span class="math inline">\(5/6\)</span> of the way from <span class="math inline">\(0^\circ\)</span> to <span class="math inline">\(90^\circ\)</span>. Hence <span class="math inline">\(i^{5/6}\)</span>!<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a></p>
+<p>What did we learn from all that? The amazing trick, and awesome insight, is: if we’re multiplying complex numbers, <strong>we just add the angles together</strong>! If we’re dividing, we subtract the angles, since division is the opposite of multiplication.</p>
+<p>But, actually, that only works if we’re on the unit circle. What if we have a point that’s <em>not</em> on the unit circle? What happens then?</p>
+<p>On that worksheet I gave you, the last problem involved complex numbers off the unit circle. You took one of the sixth roots of <span class="math inline">\(64\)</span>, <span class="math inline">\(1+i\sqrt{3}\)</span>, which you had calculated in that problem set last week, and repeatedly multiplied it by itself. What you found (I hope) was something like this:</p>
+<p><img src="root-of-64-powered.svg" style="width:75.0%" /></p>
+<p>You found is that the angles do indeed add—but also, the distance from the origin changes! We can summarize it in a table:</p>
+<table>
+<colgroup>
+<col style="width: 34%" />
+<col style="width: 6%" />
+<col style="width: 13%" />
+<col style="width: 20%" />
+<col style="width: 24%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;"></th>
+<th style="text-align: left;"></th>
+<th style="text-align: left;">radius</th>
+<th style="text-align: center;">angle</th>
+<th style="text-align: center;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;"><span class="math inline">\(\left(\sqrt[6]{64}\right)^0\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(=+1+0i\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0^\circ\)</span></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><span class="math inline">\(\sqrt[6]{64} = \left(\sqrt[6]{64}\right)^1\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(=+1+\sqrt3i\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(2\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(60^\circ\)</span></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><span class="math inline">\(\sqrt[6]{64}\cdot\sqrt[6]{64} =\left(\sqrt[6]{64}\right)^2\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(=-2 + 2\sqrt3i\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(4\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(120^\circ\)</span></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><span class="math inline">\(\sqrt[6]{64}\cdot\sqrt[6]{64}\cdot\sqrt[6]{64}=\left(\sqrt[6]{64}\right)^3\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(=+8 + 0i\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(8\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(180^\circ\)</span></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><span class="math inline">\(\sqrt[6]{64}\cdot\sqrt[6]{64}\cdot\sqrt[6]{64}\cdot\sqrt[6]{64}=\left(\sqrt[6]{64}\right)^4\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(=-8-8\sqrt3i\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(16\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(240^\circ\)</span></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><span class="math inline">\(\sqrt[6]{64}\cdot\sqrt[6]{64}\cdot\sqrt[6]{64}\cdot\sqrt[6]{64}\cdot\sqrt[6]{64}=\left(\sqrt[6]{64}\right)^5\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(=-16+16\sqrt3i\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(32\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(300^\circ\)</span></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><span class="math inline">\(\sqrt[6]{64}\cdot\sqrt[6]{64}\cdot\sqrt[6]{64}\cdot\sqrt[6]{64}\cdot\sqrt[6]{64}\cdot\sqrt[6]{64}=\left(\sqrt[6]{64}\right)^6\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(=+64+0i\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(64\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(360^\circ\)</span></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<p>Here’s the animated version, with <em>all six</em> sixth roots being exponentiated continuously from <span class="math inline">\(0\)</span> all the way to <span class="math inline">\(6\)</span>:</p>
+<p><img src="roots-of-64-full.gif" style="width:75.0%" /></p>
+<p>Ultimately, we have something like:</p>
+<p><img src="roots-of-64-spiral.svg" style="width:75.0%" /></p>
+<p>So, what I hope you found from your exploration with this problem is that if we multiply complex numbers that aren’t on the unit circle, we still add the angles, but the distance from the origin changes.</p>
+<p>How does the distance from the origin change? The sixth root of <span class="math inline">\(64\)</span> is two units away from the origin. (It doesn’t matter which sixth root we choose—they’re <em>all</em> two units away from the origin.) Each time we multiply it by itself, our number gets two times further away from the origin. Each multiplication by <span class="math inline">\(\sqrt[6]{64}\)</span> adds <span class="math inline">\(60^\circ\,\)</span> to the angle,<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a> and multiplies the distance from the origin (the radius) by <span class="math inline">\(2\)</span>. So, the additional insight we have from this problem is that when we’re multiplying complex numbers together, in addition to adding the angles, <strong>we multiply the radii</strong>.</p>
+<div style="border: 1px solid black; text-align: center; width:100%; margin: auto; font-size: 100%">
+<p><strong>to multiply together two complex numbers in polar form,</strong></p>
+<p><strong>we multiply the radii and add the angles:</strong></p>
+<p><span class="math display">\[\left(r_1\angle \theta_1\right)\cdot\left(r_2\angle \theta_2\right) = \left(r_1r_2\right)\angle \left(\theta_1+\theta_2\right)\]</span></p>
+<p>put differently:</p>
+<p><span class="math display">\[\big(r_1\left(\cos\theta_1+i\sin\theta_2\right)\big)\cdot \big(r_1\left(\cos\theta_1+i\sin\theta_2\right)\big)\,=\, r_1r_2\big(\, \cos(\theta_1+\theta_2)+i\sin(\theta_1+\theta_2)\, \big)\]</span></p>
+</div>
+<p>Since the radius of a complex number in polar form often gets called the <strong>modulus</strong>, a mellifluous way you can remember this is to “multiply the moduli, and add the angles.” Or you could call it the <strong>magnitude</strong>—that’s another term that gets used.</p>
+<p>What if we’re multiplying a complex number by itself a whole bunch of times (also known as <strong>exponentiation</strong>)? For example, what if we have:</p>
+<p><span class="math display">\[\left(r\angle \theta\right)^3\]</span></p>
+<p>Well, then we just multiply the radii together three times, and add the angles together three times:</p>
+<p><span class="math display">\[\begin{align*}
+\left(r\angle \theta\right)^3 &amp;= \left(r\angle \theta\right)\cdot\left(r\angle \theta\right)\cdot\left(r\angle \theta\right)\\
+&amp;= \left(r\cdot r \cdot r\right)\angle \left(\theta+\theta+\theta\right)\\
+&amp;\text{Or just:}\\
+&amp;= \left(r^3\right)\angle \left(3\theta\right)
+\end{align*}\]</span></p>
+<p>I guess we can write this down as a more general observation:</p>
+<p><span class="math display">\[\left(r\angle \theta\right)^n= \left(r^n\right)\angle \left(n\theta\right)\]</span></p>
+<p>If we write this out on the <span class="math inline">\(\cos+i\sin\)</span> form, it gets known as <strong>De Moivre’s Theorem</strong>:</p>
+<p><span class="math display">\[\big(r\left(\cos\theta + i\sin\theta\right)\big)^n = r^n\left(\cos n\theta + i\sin n\theta\right)\]</span></p>
+<p>So, as such, <strong>if we want to exponentiate complex numbers, it’s way easier to do so in polar coordinates than rectangular coordinates</strong>. For example, what if we want to take <span class="math inline">\(3+3\sqrt{3}i\)</span> and raise it to the <span class="math inline">\(450\)</span>th? Here’s how we’d do that in rectangular coordinates:</p>
+<p><span class="math display">\[\begin{align*}
+z^{450} &amp;= \left(3+3\sqrt{3}i\right)^{450} \\
+&amp;= \underbrace{\left(3+3\sqrt{3}i\right)\left(3+3\sqrt{3}i\right)\left(3+3\sqrt{3}i\right)\cdots}_{450\text{ times}} \\
+&amp;= \text{AAAAAAAAAAGH}
+\end{align*}\]</span></p>
+<p>Okay, that’s definitely not something we’re going to work out by hand. But what if we do it in polar?? We just need to find the radius, raise it to the <span class="math inline">\(450\)</span>th, and multiply the angle by <span class="math inline">\(450\)</span>. We have:</p>
+<p><span class="math display">\[\begin{align*}
+\big(6\,\angle\,(\pi/3)\big)^{450} &amp;= \left(6\right)^{450}\,\angle\,\left(450\cdot \pi/3\right) \\
+&amp;= 6^{450}\,\angle\, 150\pi \\
+&amp;= 6^{450} \,\angle\, \pi \quad\text{(because $150\pi \cong 1\pi$)}
+\end{align*}\]</span></p>
+<p>Writing it out with trig functions, we have:</p>
+<p><span class="math display">\[\begin{align*}
+&amp;= 6^{450}\left(\cos\pi + i\sin\pi\right) \\
+\text{Simplifying that, we get:}\\
+&amp;= 6^{450}\left(-1 + i\cdot 0\right) \\
+&amp;= -6^{450}
+\end{align*}\]</span></p>
+<p>There! So much easier! We’ve worked out <span class="math inline">\(\left(3+3\sqrt{3}i\right)^{450}\)</span> without having to do <span class="math inline">\(450\)</span> horrible binomial multiplications! We just converted it to polar form, and then it was so much easier! Totally doable, by hand, in a way that multiplying a binomial by itself <span class="math inline">\(450\)</span> times wouldn’t be!</p>
+<p><span class="math display">\[\begin{align*}
+\left(3+3\sqrt{3}i\right)^{450} = -&amp;6^{450} \\
+=-&amp;147,252,498,583,517,385,317,586,164,069,238,\\
+&amp;032,896,112,058,351,438,757,983,014,769,693,\\
+&amp;372,565,232,993,881,469,948,991,217,709,137,\\
+&amp;019,461,037,145,294,592,020,173,701,375,168,\\
+&amp;912,282,334,484,871,403,174,767,655,880,386,\\
+&amp;045,910,084,758,703,074,415,025,299,415,269,\\
+&amp;171,925,628,511,937,032,731,984,012,897,986,\\
+&amp;591,707,883,502,506,548,247,671,311,183,326,\\
+&amp;452,554,217,858,802,386,703,514,003,611,399,\\
+&amp;224,036,192,306,226,210,075,368,787,167,671,\\
+&amp;873,479,497,761,345,765,376.
+\end{align*}\]</span></p>
+<h2 id="in-summary">In <span class="math inline">\(\sum\)</span>mary</h2>
+<p>Let’s summarize what we’ve learned so far. <strong>Sometimes things are easier in polar, and sometimes things are easier in rectangular.</strong> More specifically:</p>
+<ul>
+<li>It’s usually easier to add and subtract numbers when they’re in rectangular form.</li>
+<li>It’s usually easier to multiply and divide, and exponentiate and take roots, of numbers when they’re in polar form.</li>
+</ul>
+<table>
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 30%" />
+<col style="width: 38%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;"></th>
+<th style="text-align: center;"><strong>Rectangular/Cartesian</strong></th>
+<th style="text-align: center;"><strong>Polar/Mod-Arg</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;"><strong>description of points</strong></td>
+<td style="text-align: center;">(how far right, how far up)</td>
+<td style="text-align: center;">(how far away) <span class="math inline">\(\angle\)</span> (angle)</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"></td>
+<td style="text-align: center;">(real component, imaginary component)</td>
+<td style="text-align: center;">(radius)<span class="math inline">\(\angle\)</span>(angle)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">(modulus)<span class="math inline">\(\angle\)</span>(argument)</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>notation</strong></td>
+<td style="text-align: center;"><span class="math display">\[(x,y)\]</span></td>
+<td style="text-align: center;"><span class="math display">\[r\angle\theta\]</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><strong>as an equation</strong></td>
+<td style="text-align: center;"><span class="math display">\[z=x+iy\]</span></td>
+<td style="text-align: center;"><span class="math display">\[z=r\left(\cos\theta + i\sin\theta\right)\]</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span class="math display">\[z=r\text{cis}\theta\]</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><strong>converting from the other representation</strong></td>
+<td style="text-align: center;"><span class="math display">\[(r\cos\theta, r\sin\theta)\]</span></td>
+<td style="text-align: center;"><span class="math display">\[\displaystyle\left(\sqrt{x^2+y^2}\right)\,\angle\,\tan^\text{inv}\left(\frac{y}{x}\right)\]</span></td>
+</tr>
+</tbody>
+</table>
+<p><img src="polar-to-rectangular.svg" style="width:50.0%" /></p>
+<p><img src="rectangular-to-polar.svg" style="width:50.0%" /></p>
+<h2 id="problems">Problems</h2>
+<p>For each of the following pairs of complex numbers:</p>
+<ol class='lettered-list'>
+<li>
+Draw them on the two-dimensional complex plane
+<li>
+Write them out in both polar and rectangular coordinates (i.e., so you have both numbers in both representations).
+<li>
+Add them together, both in rectangular and polar. Draw the result on the graph.
+<li>
+Subtract them, both in rectangular and polar, and draw the result.
+<li>
+Multiply them both in rectangular and polar, and draw the result.
+<li>
+Divide them (the first by the second) in both rectangular and polar, and draw the result
+</ol>
+<div class='double-column-potentially'>
+<ol class='problems'>
+<li>
+<span class="math inline">\(z=1\)</span> and <span class="math inline">\(w=\frac{1}{\sqrt{2}}+\frac{1}{\sqrt{2}}i\)</span>
+<li>
+<span class="math inline">\(z=\cos(\pi/3)+i\sin(\pi/3)\)</span> and <span class="math inline">\(w=i\)</span>
+<li>
+<span class="math inline">\(z=-\frac{\sqrt{3}}{2}+\frac{1}{2}i\)</span> and <span class="math inline">\(w=\cos(-\pi/4)+i\sin(-\pi/4)\)</span>
+<li>
+<span class="math inline">\(z=32+32i\sqrt{3}\)</span> and <span class="math inline">\(w=-7+i\)</span>
+<li>
+<span class="math inline">\(z=\frac{1}{\sqrt{2}}-\frac{1}{\sqrt{2}}i\)</span> and <span class="math inline">\(w=5+4i\)</span>
+<li>
+<span class="math inline">\(z=\frac{\sqrt{3}}{2}+\frac{1}{2}i\)</span> and <span class="math inline">\(w=\frac{1}{2}+\frac{\sqrt{3}}{2}i\)</span>
+<li>
+<span class="math inline">\(z=500+500i\)</span> and <span class="math inline">\(w=-1\)</span>
+<li>
+<span class="math inline">\(z=12\cos(5\pi/6)+12i\sin(5\pi/6)\)</span> and <span class="math inline">\(w=3(\cos(\pi)+i\sin(\pi))\)</span>
+<li>
+<span class="math inline">\(z=k-ki\)</span> where <span class="math inline">\(k&lt;0\)</span>, and <span class="math inline">\(w\)</span> is the same.
+<li>
+<span class="math inline">\(z=\frac{-1}{2}-\frac{\sqrt{3}}{2}i\)</span> and <span class="math inline">\(w=42i\)</span>
+<li>
+<span class="math inline">\(z=\frac{1}{\sqrt{2}}+\frac{1}{\sqrt{2}}i\)</span> and <span class="math inline">\(w=\frac{\sqrt{3}}{2}-\frac{1}{2}i\)</span>
+<li>
+<span class="math inline">\(z=\frac{-1}{2}-\frac{\sqrt{3}}{2}i\)</span> and <span class="math inline">\(w=22-i\)</span>
+<li>
+<span class="math inline">\(z=5\sqrt{3}+i\)</span> and <span class="math inline">\(w=5\)</span>
+<li>
+<span class="math inline">\(z=\frac{+1}{2}-\frac{\sqrt{3}}{2}i\)</span> and <span class="math inline">\(w=\frac{\sqrt{3}}{2}+\frac{1}{2}i\)</span>
+<li>
+<span class="math inline">\(z=1\)</span> and <span class="math inline">\(w=5\sqrt{3}+i\)</span>
+<li>
+<span class="math inline">\(z=-\frac{\sqrt{3}}{2}-\frac{1}{2}i\)</span> and <span class="math inline">\(w=42i\)</span>
+<li>
+<span class="math inline">\(z=\frac{-1}{2}+\frac{\sqrt{3}}{2}i\)</span> and <span class="math inline">\(w=-i\)</span>
+<li>
+<span class="math inline">\(z=\frac{1}{\sqrt{2}}-\frac{1}{\sqrt{2}}i\)</span> and <span class="math inline">\(w=500+500i\)</span>
+<li>
+<span class="math inline">\(z=3+2i\)</span> and <span class="math inline">\(w=3+2i\)</span>
+<li>
+<span class="math inline">\(z=-7+i\)</span> and <span class="math inline">\(w=5\sqrt{3}+i\)</span>
+<li>
+<span class="math inline">\(z=-i\)</span> and <span class="math inline">\(w=\frac{+1}{2}-\frac{\sqrt{3}}{2}i\)</span>
+<li>
+<span class="math inline">\(z=5+4i\)</span> and <span class="math inline">\(w=3+2i\)</span>
+</ol>
+</div>
+<p><br><br></p>
+<p>Simplify:</p>
+<div class='double-column-potentially'>
+<ol class='problems'>
+<li>
+<span class="math inline">\((1+i)^{15}\)</span>
+<li>
+<span class="math inline">\(\left(1-i\sqrt{3}\right)^{11}\)</span>
+<li>
+<span class="math inline">\(\left(\sqrt{2}-i\sqrt{2}\right)^{-19}\)</span>
+<li>
+<span class="math inline">\((-1+i)^{-11}\)</span>
+<li>
+<span class="math inline">\(\left(\sqrt{3}-i\right)^{1/2}\)</span>
+<li>
+<span class="math inline">\(\left(2+2i\sqrt{3}\right)^{-5/2}\)</span>
+<li>
+<span class="math inline">\(\left(\sqrt{2}\left(\cos\frac{\pi}{5} + i\sin\frac{\pi}{5}\right)\right)^{10}\)</span>
+<li>
+<span class="math inline">\(\left(\cos\frac{\pi}{12} + i\sin\frac{\pi}{12}\right)^{36}\)</span>
+<li>
+<span class="math inline">\(\left(\sqrt{2}\left(\cos\frac{\pi}{8} + i\sin\frac{\pi}{8}\right)\right)^{12}\)</span>
+<li>
+<span class="math inline">\(\sqrt{8\cos\frac{\pi}{2} + 8i\sin\frac{\pi}{2}}\)</span>
+<li>
+<span class="math inline">\(\left(8\left(\cos\frac{\pi}{5} + i\sin\frac{\pi}{5}\right)\right)^{5/3}\)</span>
+<li>
+<span class="math inline">\(\left(\sqrt{2}\left(\cos\frac{\pi}{5} + i\sin\frac{\pi}{5}\right)\right)^{10}\)</span>
+</ol>
+</div>
+<p><br><br></p>
+<ol class='problems'>
+<li>
+Simplify: <span class="math inline">\((i+1)^{3200} - (i-1)^{3200}\)</span>
+<li>
+Find all the fifth roots of <span class="math inline">\(2+2i\)</span>, i.e., find <span class="math inline">\(\sqrt[5]{2+2i}\)</span>.
+<li>
+Suppose that <span class="math inline">\(z=(1+bi)^2\)</span>, where <span class="math inline">\(b\)</span> is real and positive, and also the angle/argument of <span class="math inline">\(z\)</span> is <span class="math inline">\(\pi/3\)</span>. Find <span class="math inline">\(b\)</span>.
+<li>
+Find the cube roots of <span class="math inline">\(-8i\)</span>. Give your answers in rectangular form.
+<li>
+Find the fifth roots of <span class="math inline">\(2+2i\)</span>.
+<li>
+When is <span class="math inline">\(\left(-1+i\sqrt{3}\right)^k\)</span> real (i,.e., for what values of <span class="math inline">\(k\)</span>)?
+<li>
+What are the cube roots of <span class="math inline">\(-27\)</span>?
+<li>
+<p>Simplify: <span class="math display">\[\displaystyle \frac{\left( \frac{\sqrt{3}}{2} - \frac{1}{2}i \right)^2}{\left( \cos\left(\frac{\pi}{10}\right) - i\sin\left(\frac{\pi}{10}\right) \right)^5\left( \cos\left(\frac{\pi}{30}\right) + i\sin\left(\frac{\pi}{30}\right) \right)^{25}}\]</span></p>
+Note that that’s a negative sign, not a positive sign, in the lower left, so I guess that factor <em>isn’t</em> written in standard polar form.
+<li>
+For what value(s) of <span class="math inline">\(n\)</span> is <span class="math inline">\(\left(2-2\sqrt{3}i\right)^n\)</span> real? For what values is it imaginary? For what values is it non-real non-imaginary complex?
+<li>
+For what value(s) of <span class="math inline">\(n\)</span> is <span class="math inline">\((-5)^n\)</span> real? For what values is it imaginary? For what values is it non-real non-imaginary complex?
+<li>
+We’ve seen that if we multiply complex numbers, the angles add. Is the converse true? In other words, if we <em>add</em> complex numbers, do the angles <em>multiply</em>? Test out a few examples and see what happens. You’ll have to come up with the examples yourself—I think you’re capable of coming up with a handful of random complex numbers, adding them, and seeing if the angles have multiplied! Then, either prove this (if you think it’s true) or disprove it (i.e., give a counterexample).
+<li>
+Consider the two points in polar coordinates: <span class="math display">\[2\angle\frac\pi6 \quad\quad\text{and}\quad\quad 2\angle\frac{-11\pi}{6}\]</span>
+<ol class='lettered-list'>
+<li>
+Are these two points actually different points?
+<li>
+Come up with <em>another</em> way of writing this point in polar coordinates!
+</ol>
+<li>
+You know the distance formula in rectangular coordinates. It’s great. (It’s just a modified version of the Pythagorean Theorem.) It’s great: <span class="math display">\[\begin{align*}
+\text{the distance between $\left(x_1, y_1\right)$ and $\left(x_2,y_2\right)$}\quad &amp;= \sqrt{\left(\substack{\text{the distance}\\\text{in the $x$-direction}} \right)^2 +  \left(\substack{\text{the distance}\\\text{in the $x$-direction}} \right)^2} \\
+&amp;=  \sqrt{\left(x_2-x_1\right)^2 +  \left(y_2-y_1 \right)^2}
+\end{align*}\]</span>
+<ol class='lettered-list'>
+<li>
+What if you have two points in polar coordinates, <span class="math inline">\(r_1\angle \theta_1\)</span> and <span class="math inline">\(r_2\theta_2\)</span>? Can you come up with a formula for the distance between these two points—a <em>polar</em> version of the distance formula??? That’d be super.
+<li>
+Using that formula, can you find the distance between the points <span class="math inline">\(3\angle\frac{3\pi}{4}\)</span> and <span class="math inline">\(1\angle\frac{7\pi}{6}\)</span>?
+<li>
+Convert the points in the above problem to rectangular coordinates, and then using the rectangular distance formula to find the distance between them. you get the same answer, right??
+</ol>
+<li>
+How can we write complex conjugates in polar form? Obviously one way is just to flip the sign on the imaginary component: <span class="math display">\[\overline{r\cos\theta + ir\sin\theta} = r\cos\theta - ir\sin\theta\]</span> But the unsatisfying thing with that way is that the negative sign destroys the symmetry—now we don’t have something in nice polar, cosine-plus-i-sine form. So, can you think of <em>another</em> way to write <span class="math inline">\(\overline{r\cos\theta + ir\sin\theta}\)</span>? (Think about the angle. How does <span class="math inline">\(\theta\)</span> change when we take a conjugate?)
+<li>
+We proved a bunch of theorems about complex conjugates. But we proved them using the rectangular form of a complex number! Can you prove them using the polar forms? In other words, if <span class="math inline">\(z=r_1(\cos\theta_1+i\sin\theta_1)\)</span> and <span class="math inline">\(w=r_2(\cos\theta_2+i\sin\theta_2)\)</span>, prove:
+<ol class='lettered-list'>
+<li>
+<span class="math inline">\(\overline{z+w} = \overline{z}+\overline{w}\)</span>
+<li>
+<span class="math inline">\(\overline{z-w} = \overline{z}-\overline{w}\)</span>
+<li>
+<span class="math inline">\(\overline{z\cdot w} = \overline{z}\cdot\overline{w}\)</span>
+<li>
+<span class="math inline">\(\overline{z/w} = \overline{z}/\overline{w}\)</span>
+</ol>
+<p>As before, the logical way to prove these theorems is <strong>not</strong> to start with the equation and simplify both sides until they match, <strong>but rather</strong> to start with one side of the equation and simplify until you get the other side.</p>
+<p>Also, these proofs may seem less straightforward in polar form. Hint: the previous problem.</p>
+<li>
+<p>OH NO!!!! You’ve been blinded by the beauty of complex numbers, and now you can no longer discern their angle. Two complex numbers with the same magnitude (but different angles) look exactly the same to you! <span class="math inline">\(+5\)</span> and <span class="math inline">\(-5\)</span>—they’re exactly the same! <span class="math inline">\(12i\)</span> and <span class="math inline">\(-12i\)</span>—the same! <span class="math inline">\(2\angle\frac{\pi}{4}\)</span> and <span class="math inline">\(2\angle\frac{\pi}{6}\)</span>—the same!</p>
+<p>Fumbling around in the metaphorical darkness, you come across your box full of the sixth roots of <span class="math inline">\(64\)</span>. The box has a whole bunch of copies of the sixth roots (multiple copies of each). So, for instance, there are a bunch of <span class="math inline">\((1 + \sqrt{3}i)\)</span>’s, a bunch of <span class="math inline">\((+2)\)</span>’s, a bunch of <span class="math inline">\((−1 − \sqrt{3}i)\)</span>’s, and so on. Can you tell them apart from each other? Why or why not?</p>
+<p>You start randomly pulling out sixth roots and multiplying them together. If you multiply six of them together, what do you see? You don’t know <em>which</em> sixth roots you’ve multiplied together; just that you multiplied six of them together. Maybe it was six copies of the same sixth root; maybe it was three copies of one sixth root and three copies of a different sixth root; maybe it was one copy of each sixth root; maybe it was some other combination. What happens??</p>
+<p><em>(Inspired by a conversation in the i-Lab with George Jemmott. Or, should I say, the <span class="math inline">\(\sqrt{-1}\cdot\)</span>Lab.)</em></p>
+<li>
+<p><strong>Lucas Tan’s observation</strong>. Lucas noticed that:</p>
+<p><span class="math display">\[\left(\cos 72^\circ + i\sin72^\circ\right)^5 = i\]</span> and <span class="math display">\[i^5 = i\]</span> but obviously: <span class="math display">\[\cos 72^\circ + i\sin72^\circ \neq i\]</span> What’s going on here? Verify Lucas’s observation (like, show that the first two lines there are true), and, more importantly… what??? is this a contradiction somehow?? Did Lucas just break all of complex numbers??</p>
+<li>
+<p><strong>Kaiyan’s Supposed Theorem</strong>: Kaiyan Nageswaran ’27 noticed that when we add two complex numbers with the same radius, their angles seem to <em>average</em>. In other words, the resulting complex number has an angle that’s halfway in between the angles of the two input complex numbers (with the exception of zero). Is he right? Wrong? Prove it!!!</p>
+<li>
+<p>Let’s talk about the radius/modulus/magnitude of a complex number a little bit! We didn’t introduce any special notation for it, but the notation that often gets used is the same as absolute value notation: <span class="math display">\[|z| \equiv \text{ the distance $z$ is away from the origin/its radius/magnitude/modulus}\]</span> In other words: <span class="math display">\[\text{if }z=a+bi\text{, then }|z| = \sqrt{a^2+b^2}\]</span> <span class="math display">\[\text{if }z=r(\cos\theta+i\sin\theta)\text{, then }|z| = r\]</span> This notation should make sense, because if <span class="math inline">\(z\)</span> is a real number, its distance from the origin is just the absolute value. We’re just generalizing it!</p>
+Here are some fun properties to prove! (Remember, to prove these equalities, start with one side of the equation, and simplify forwards until you get to the other side. It might be easier to start from the right side, or it might be easier to start from the left side!)
+<ol class='lettered-list'>
+<li>
+Show that for all complex numbers <span class="math inline">\(z\)</span>, <span class="math inline">\(|z| = |\overline{z}|\)</span>
+<li>
+Show that for all complex numbers <span class="math inline">\(z\)</span>, <span class="math inline">\(z\overline{z} = |z|^2\)</span>
+<li>
+Show that for all complex numbers <span class="math inline">\(z\)</span>, <span class="math inline">\(|z\cdot w| = |z|\cdot|w|\)</span>
+<li>
+True or false? <span class="math inline">\(|z|\ge|Re(z)|\)</span>. Why?
+<li>
+True or false? <span class="math inline">\(|z|\ge|Im(z)|\)</span>. Why?
+</ol>
+<li>
+Suppose <span class="math inline">\(z_1\)</span> and <span class="math inline">\(z_2\)</span> are both points on the unit circle. Show that <span class="math inline">\(\displaystyle \frac{z_1-z_2}{z_1+z_2}\)</span> is purely imaginary.
+<li>
+Another cool thing about polar coordinates is that they give us a new potential way of making pictures! Our traditional way of defining functions and equations and pictures has been to define them in terms of rectangular coordinates. So, for example, we have something like a parabola: <span class="math display">\[y=x^2\]</span> But what if we write an equation relating not <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>, but <span class="math inline">\(r\)</span> and <span class="math inline">\(\theta\)</span>? What, for example, does this look like: <span class="math display">\[r=\theta^2\]</span> So, go on Desmos or Geogebra or your favorite graphing utility, and play around with polar coordinates! I have some suggestions for things you can play with below. Can you think about what’s going on, and <em>why</em> the graphs look the way they do?
+<div class='double-column-potentially'>
+<ol class='lettered-list'>
+<li>
+<span class="math inline">\(r = 5\)</span>
+<li>
+<span class="math inline">\(r = \theta\)</span>
+<li>
+<span class="math inline">\(r=3\theta\)</span>
+<li>
+<span class="math inline">\(r=\theta^2\)</span>
+<li>
+<span class="math inline">\(r=\sqrt{\theta}\)</span>
+<li>
+<span class="math inline">\(r=1/\theta\)</span>
+<li>
+<span class="math inline">\(r=1/(\theta-1)\)</span>
+<li>
+<span class="math inline">\(r=\cos\theta\)</span>
+<li>
+<span class="math inline">\(r=5\cos\theta\)</span>
+<li>
+<span class="math inline">\(r=a\cos\theta\)</span>
+<li>
+<span class="math inline">\(r=\cos(2\theta)\)</span>
+<li>
+<span class="math inline">\(r=\cos(3\theta)\)</span>
+<li>
+<span class="math inline">\(r=\cos(5\theta)\)</span>
+<li>
+<span class="math inline">\(r=\cos(n\theta)\)</span>
+<li>
+<span class="math inline">\(r=\cos(2.5\theta)\)</span>
+<li>
+<span class="math inline">\(r=\cos(2.6\theta)\)</span>
+<li>
+<span class="math inline">\(r=\cos(2.9\theta)\)</span>
+<li>
+<span class="math inline">\(r=a+b\cos\theta\)</span>, where <span class="math inline">\(a&gt;b\)</span>, <span class="math inline">\(a=b\)</span>, <span class="math inline">\(a&lt;b\)</span>, and also where <span class="math inline">\(a=0\)</span>, and where <span class="math inline">\(b=0\)</span>
+</ol>
+</div>
+</ol>
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>after Descartes<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p>https://en.wikipedia.org/wiki/Commissioners%27_Plan_of_1811#/media/File:NYC-GRID-1811.png<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3" role="doc-endnote"><p>via Google Earth<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4" role="doc-endnote"><p>“What The Controlled Chaos of Burning Man Reveals About Cities,” <em>WIRED</em>, 27 August 2017, https://www.wired.com/story/burning-man-reveals-chaos-cities/<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5" role="doc-endnote"><p>Okay… there is some ambiguity here insofar as we’re taking a root of <span class="math inline">\(i\)</span>, and there are multiple roots; we can sort of resolve that by saying that by “<span class="math inline">\(i^{1/6}\)</span>” in this context we mean “the sixth root of <span class="math inline">\(i\)</span> with the smallest angle” (and the raise that to the <span class="math inline">\(5\)</span> to get <span class="math inline">\(i^{5/6}\)</span>. The fancy word people sometimes use for “the root with the smallest angle” is <strong>principal root</strong>.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6" role="doc-endnote"><p>Okay, <span class="math inline">\(\pi/3\)</span>; I’m a heathen, too. In my defense, the reason I’ve been slipping into degrees in these notes is because it’s so much easier to add things in degrees than it is in radians. <span class="math inline">\(\frac{\pi}{2}+\frac{\pi}{3}+\frac{\pi}{6}\)</span>??? Adding that is hard! You’ve got to combine fractions! Common denominatorizing? Who has time for <em>that</em>???<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+</main>
+</body>
+</html>

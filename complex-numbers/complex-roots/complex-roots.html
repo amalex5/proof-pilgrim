@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Numbers, Spinning And Unspinning</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="/main.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <script src="../highlight-toc.js" type="text/javascript"></script>
+</head>
+<body>
+<script>document.addEventListener('DOMContentLoaded', function(e) {
+  Scroller.init();
+})</script>
+<aside>
+<div class="tocLinks" >
+<nav id="TOC" role="doc-toc">
+<li id="toc-title" class='toc-title'><a href="#title-block-header">Numbers, Spinning And Unspinning</a></li>
+<ul>
+<li><a href="#complex-roots-revisited">Complex Roots, Revisited</a></li>
+<li><a href="#the-cube-roots-of-i-spin-too">The cube roots of <span class="math inline">\(i\)</span> spin, too!</a></li>
+<li><a href="#unspinning-a-new-number">Unspinning a <em>new</em> number</a></li>
+<li><a href="#the-fundamental-multiplicity-of-reality">The Fundamental Multiplicity of Reality</a></li>
+<li><a href="#every-root-of-every-number">Every Root of Every Number!!!!</a></li>
+<li><a href="#an-infinite-kaleidoscope">An Infinite Kaleidoscope</a></li>
+</ul>
+</nav>
+</div>
+</aside>
+<main>
+<header id="title-block-header">
+<h1 class="title">Numbers, Spinning And Unspinning</h1>
+</header>
+<blockquote>
+<p><em>Hi everyone! Andrew here, in a preamble. I’m giving you these notes as</em> my <em>take on how complex roots work. I’m almost reluctant to do so, because I don’t want to get in the way of</em> your own <em>understanding. I don’t want to imply that my understanding is dispositive—that you did all this exploration, but that was just for kicks and giggles, and now you can read the “right” answer. There</em> are <em>right answers and wrong answers—but there are also many many ways to</em> express <em>the right answer, and also many ways to</em> come to <em>and</em> think about <em>the right answer</em>.</p>
+<p><em>Remember the problem I gave us all a few weeks ago? That infinitely-iterated complex fraction? Where I just asked, “see if you can figure out anything cool about this”? I ended up not showing you the stuff I figured out about it (it was only my second time thinking about that problem), because the stuff you all came up with was so much cooler (and deeper) than my own meager findings. So I didn’t want to give you the impression that there was some “right” answer I was hiding.</em></p>
+<p><em>Here it’s a little different, because complex roots are something I’ve thought about deeply for a long time, and these notes are pretty good. So there probably is some wisdom you can gain from them. But do read them in the spirit of them being</em> Andrew’s <em>take on the question, rather than the definitive, revealed, final answer. I’m not writing</em> ex cathedra <em>here.</em></p>
+</blockquote>
+<p><strong>Angles are not the same as positions.</strong> Every skateboarder and figure-skater knows this. Spin <span class="math inline">\(1440^\circ\)</span> or spin <span class="math inline">\(0^\circ\)</span>: you end up in the same place. In one of those maneuvers, you win gold; in the other, you’re laughed at. <em>How many revolutions you make is not the same as where you end up</em>. (You might interpret this as an observation about politics.) We can ask two questions:</p>
+<ul>
+<li>If we spin a certain amount, where do we end up? (<em>There’s only one answer.</em>)</li>
+<li>If we end up at a certain place, how much did we spin to get there? (<em>There are lots of possible answers.</em>)</li>
+</ul>
+<p>As we’ve grown to understand complex numbers better, we’ve realized that <em>numbers spin</em>. We raise a number to an exponent, and it spins around the complex plane. But also, numbers can <em>un-spin</em>. We can <em>un-raise</em> a number to an exponent—better known as taking a root. And when we do that, we have lots of possible answers.</p>
+<h2 id="complex-roots-revisited">Complex Roots, Revisited</h2>
+<p>Let’s back up a bit. You spent a day in class working out problems from the worksheet titled <span class="math inline">\(\sqrt{\text{Complex!}}\)</span>. The problems all increased in difficulty and generality. At the end, you worked out a formula for all of the <span class="math inline">\(n\)</span>th roots of any complex number. Hopefully you found something like this:</p>
+<p><span class="math display">\[\sqrt[n]{r\angle\theta} = \left(r^{\frac1n}\right) \angle \left( \frac{\theta + 2k\pi}{n} \right)\quad\quad\text{for }k\in\{0,1,2,\dots,n-1\}\]</span></p>
+<p>You probably wrote it in a different form or with different variable and notational choices; that’s fine.</p>
+<p>In a sense, this is what our work this semester has been building to. We started the semester, on the very first day, by squaring these two expressions to prove that they’re both square roots of <span class="math inline">\(i\)</span>:</p>
+<p><span class="math display">\[\left(\pm\frac{1}{\sqrt{2}} \pm\frac{1}{\sqrt{2}}i \right)^2 = i\]</span></p>
+<p>But that was unsatisfying, since I had just pulled those expressions out of a hat and given them to you. Sure, if we square them, we get <span class="math inline">\(i\)</span>, proving that they’re both square roots of <span class="math inline">\(i\)</span>. But that doesn’t tell us <em>where they came from</em>. That doesn’t tell us <em>why</em> they’re square roots of <span class="math inline">\(i\)</span>.</p>
+<p>Then we learned how to find those two square roots algebraically, by setting up an equation and solving it:</p>
+<p><span class="math display">\[\sqrt{i} = a+bi\]</span></p>
+<p>That gave us a <em>procedure</em> for finding the square roots, which was better. At least we weren’t pulling things out of a hat. By using that procedure, we were able to also find the cube roots and quartic roots of <span class="math inline">\(i\)</span>:</p>
+<p><span class="math display">\[\text{to find the cube roots of $i$, we solved: } \sqrt[3]{i} = a+bi\]</span></p>
+<p><span class="math display">\[\text{to find the quartic roots of $i$, we solved: } \sqrt[4]{i} = a+bi\]</span></p>
+<p>But those procedures involved increasingly tedious and unsustainable amounts of algebra. Expanding things to the fourth power? Egads! Plus, we got all these weird, nasty answers. They didn’t make any intuitive sense.</p>
+<p>Then we realized that complex numbers have this amazing geometric behavior. We realized that if we multiply two complex numbers together, their radii multiply and their angles add. By extension, we realized that if we exponentiate a complex number, its radius gets exponentiated, and its angle gets multiplied by the exponent. We created polar coordinates as a way to take advantage of these observations. With polar coordinates, and our newfound geometric understanding of complex numbers, we were able to start understanding why complex numbers have the roots they do. That’s what you figured out (I hope) on that worksheet.</p>
+<p>For instance, one of the square roots of <span class="math inline">\(i\)</span>, in polar, is:</p>
+<p><span class="math display">\[\sqrt{i} = \frac{1}{\sqrt2} + \frac{1}{\sqrt2}i = 1\angle 45^\circ\]</span></p>
+<p>If we square it, what happens? Let’s think about this geometrically. In fact, let’s rewind a bit. What if we just raise it to the <span class="math inline">\(0\)</span>? Then we’ll get:</p>
+<p><span class="math display">\[\begin{align*}
+\left(1 \angle 0 \right)^0 &amp;= 1^0 \angle\, 45^\circ \cdot 0 \\
+&amp;= 1 \angle 0
+\end{align*}\]</span></p>
+<p>So we get just the real number <span class="math inline">\(1\)</span>. Then, if we raise it to the first, we can think of rotating out from <span class="math inline">\(1\angle0\)</span> by <span class="math inline">\(45^\circ\)</span> to <span class="math inline">\(1\angle 45^\circ\)</span>:</p>
+<p><img src="square-roots-of-i-rotating-1-1.svg" style="width:75.0%" /></p>
+<p>Then, if we raise that root to the <span class="math inline">\(2\)</span>nd, it rotates another <span class="math inline">\(45^\circ\)</span>, and ends up at <span class="math inline">\(45^\circ + 45^\circ = 90^\circ\)</span>. (The radius doesn’t change, because the radius is just <span class="math inline">\(1\)</span>, and <span class="math inline">\(1\)</span> raised to any power is still <span class="math inline">\(1\)</span>.)</p>
+<p><img src="square-roots-of-i-rotating-1-2.svg" style="width:75.0%" /></p>
+<p>Here’s the full algebra: <span class="math display">\[\begin{align*}
+\left(\sqrt i\right)^2 = \left(\frac{1}{\sqrt2} + \frac{1}{\sqrt2}i \right)^2 &amp;= \left(1\angle 45^\circ\right)^2 \\
+&amp;= 1\!\cdot\!1 \,\angle\, \left( {\color{red} 45^\circ } + {\color{green}45^\circ} \right)  \\
+&amp;= 1^2 \,\angle\, 2\!\cdot\!45^\circ \\
+&amp;= 1\angle 90^\circ \\
+&amp;= i
+\end{align*}\]</span></p>
+<p>But this isn’t the only square root of <span class="math inline">\(i\)</span>. There’s a second one:</p>
+<p><span class="math display">\[\sqrt{i} = -\frac{1}{\sqrt2} - \frac{1}{\sqrt2}i = 1\angle 225^\circ\]</span></p>
+<p>If we raise that root from the zeroth to the first, we rotate from <span class="math inline">\(1\angle 0\)</span> out to <span class="math inline">\(1\angle225^\circ\)</span>:</p>
+<p><img src="square-roots-of-i-rotating-2-1.svg" style="width:75.0%" /></p>
+<p>And then if we raise it from the first to the second (i.e., square it), we rotate another <span class="math inline">\(225^\circ\)</span> to end up at <span class="math inline">\(225^\circ + 225^\circ = 450^\circ\)</span>. But that’s the same as <span class="math inline">\(360^\circ+90^\circ\)</span>, i.e. the same as <span class="math inline">\(90^\circ\)</span>, i.e. just <span class="math inline">\(i\)</span>!</p>
+<p><img src="square-roots-of-i-rotating-2-2.svg" style="width:75.0%" /></p>
+<p>Here’s the algebra: <span class="math display">\[\begin{align*}
+\left(\sqrt i\right)^2 = \left(-\frac{1}{\sqrt2} - \frac{1}{\sqrt2}i \right)^2 &amp;= \left(1\angle 225^\circ\right)^2 \\
+&amp;= 1\!\cdot\! 1 \,\angle\, \left( {\color{red} 225^\circ} + {\color{green}225^\circ} \right)\\
+&amp;= 1^2 \,\angle\, 2\!\cdot\!225^\circ \\
+&amp;= 1 \,\angle\, 450^\circ \\
+&amp;= 1 \,\angle\, 360^\circ + 90^\circ \\
+&amp;\cong 1 \,\angle\, 90^\circ \\
+&amp;= i
+\end{align*}\]</span></p>
+<p>(I’m using this <span class="math inline">\(\cong\)</span> “congruence” symbol to mean something like “is in the same place as.”)</p>
+<h2 id="the-cube-roots-of-i-spin-too">The cube roots of <span class="math inline">\(i\)</span> spin, too!</h2>
+<p>Likewise, you spent all that time, and put all that work into, figuring out the three cube roots of <span class="math inline">\(i\)</span>:</p>
+<p><span class="math display">\[\begin{align*}
+\sqrt[3]{i} = &amp;+\frac{\sqrt3}{2} + \frac{1}{2}i,\\
+&amp;-\frac{\sqrt3}{2} + \frac{1}{2}i,\\
+&amp;-i.
+\end{align*}\]</span></p>
+<p>Written in all the various forms we know, they are:</p>
+<p><span class="math display">\[ \sqrt[3]{i} =  i^{1/3} = \begin{Bmatrix}
++\frac{\sqrt3}{2} + \frac{1}{2}i &amp;= 1\angle 30^\circ &amp;= \cos\left(30^\circ\right) + i\sin(30^\circ) &amp;= e^{i\pi/6}\\ \\
+-\frac{\sqrt3}{2} + \frac{1}{2}i &amp;= 1\angle 150^\circ &amp;= \cos\left(150^\circ\right) + i\sin(150^\circ) &amp;= e^{i\cdot5\pi/6}\\ \\
+-i &amp;= 1\angle 270^\circ &amp;= \cos\left(270^\circ\right) + i\sin(270^\circ) &amp;= e^{i\cdot7\pi/6}
+\end{Bmatrix}
+\]</span></p>
+<p><img src="cube-roots-of-i.svg" style="width:75.0%" /></p>
+<p>Just like with the square roots of <span class="math inline">\(i\)</span>, when each of the cube roots get cubed, they turn into <span class="math inline">\(i\)</span>. They each spin around the origin different amounts, but they all end up at <span class="math inline">\(i=90^\circ\)</span>. The first cube root looks like this:</p>
+<p><span class="math display">\[\begin{align*}
+\left(\sqrt[3]{i}\right)^3 &amp;= \left(1\angle 30^\circ\right)^3 \\
+&amp;= \left( 1\!\cdot\!1\!\cdot\!1 \, \right)\, \angle\, \left( {\color{red} 30^\circ}+{\color{green}30^\circ}+{\color{blue}30^\circ }  \right)\\
+&amp;= 1 \,\angle\, 90^\circ \\
+&amp;= i
+\end{align*}\]</span></p>
+<p><img src="cube-roots-of-i-rotating-1.svg" style="width:75.0%" /></p>
+<p>Each time we multiply <span class="math inline">\(1\angle 30^\circ\)</span> by itself, it rotates another <span class="math inline">\(30^\circ\)</span>! So we raise it to the <span class="math inline">\(3\)</span>, and it rotates <span class="math inline">\(3\cdot30^\circ\)</span> to get to <span class="math inline">\(1\angle 90^\circ\)</span>, also known as <span class="math inline">\(i\)</span>! That makes sense. But what about the others? Why are they also cube roots?</p>
+<p>As it turns out, they just spin <em>more</em>! Take the second cube root, for instance, <span class="math inline">\(1\angle 150^\circ\)</span>. Each time we multiply it by itself, it rotates another <span class="math inline">\(150^\circ\)</span>! So when we cube it, it rotates <span class="math inline">\(150^\circ+150^\circ+150^\circ = 450^\circ\)</span>. But that’s the same as <span class="math inline">\(90^\circ\)</span>, or just <span class="math inline">\(i\)</span>! So <span class="math inline">\(1\angle 150^\circ\)</span>, when raised to the <span class="math inline">\(3\)</span>, <em>also</em> winds up<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> at <span class="math inline">\(1\angle 90^\circ = i\)</span>. It’s just that it travels a lot further to get there. It makes one full revolution around the origin (plus an extra <span class="math inline">\(90^\circ\)</span>).</p>
+<p><span class="math display">\[\begin{align*}
+\left(\sqrt[3]{i}\right)^3 &amp;= \left(1\angle 150^\circ\right)^3 \\
+&amp;= \left( 1\!\cdot\!1\!\cdot\!1 \, \right)\, \angle\, \left( {\color{red} 150^\circ}+{\color{green} 150^\circ}+{\color{blue} 150^\circ } \right)\\
+&amp;= 1 \,\angle\, 450^\circ \\
+&amp;= 1 \,\angle\, 360^\circ + 90^\circ \\
+&amp;\cong 1 \,\angle\, 90^\circ \\
+&amp;= i
+\end{align*}\]</span></p>
+<p><img src="cube-roots-of-i-rotating-2.svg" style="width:75.0%" /></p>
+<p>And finally, the third cube root spins <em>twice</em> around the origin, making <em>two</em> full rotations:</p>
+<p><span class="math display">\[\begin{align*}
+\left(\sqrt[3]{i}\right)^3 &amp;= \left(1\angle 270^\circ\right)^3 \\
+&amp;= \left( 1\!\cdot\!1\!\cdot\!1 \, \right)\, \angle\, \left( {\color{red} 270^\circ}+{\color{green}270^\circ}+{\color{blue}270^\circ } \right)\\
+&amp;= 1 \,\angle\, 810^\circ \\
+&amp;= 1 \,\angle\, 360^\circ + 360^\circ +  90^\circ \\
+&amp;\cong 1 \,\angle\, 90^\circ \\
+&amp;= i
+\end{align*}\]</span></p>
+<p><img src="cube-roots-of-i-rotating-3.svg" style="width:75.0%" /></p>
+<p>Whee!!!!!!!</p>
+<h2 id="unspinning-a-new-number">Unspinning a <em>new</em> number</h2>
+<p>OK. So we’ve used polar coordinates, and complex exponentiation, to justify why the square and cube roots of <span class="math inline">\(i\)</span> are what they are. We’ve figured out some visual, geometric explanations. But can we use ideas like this to find roots of complex numbers that we don’t already know??? What if we want to figure out the roots of some number <em>ab initio</em> (from the beginning), instead of coming up with a <em>post hoc</em> (after-the-fact) justification?</p>
+<p>Here’s an example. Let’s think about the following complex number (written in so many different forms):</p>
+<p><span class="math display">\[1\angle 120^\circ \quad=\quad e^{(2\pi/3)i} \quad=\quad \cos\left(120^\circ\right) + i\sin\left(120^\circ\right) \quad=\quad -\frac{\sqrt3}{2} + \frac{1}{2}i \]</span></p>
+<p><img src="quartic-roots-of-120-0.svg" style="width:75.0%" /></p>
+<p>Can we find its quartic (fourth) roots??</p>
+<p><span class="math display">\[\sqrt[4]{1\angle 120^\circ \,} = \sqrt[4]{e^{(2\pi/3)i}\,\,} = \sqrt[4]{\cos\left(120^\circ\right) + i\sin\left(120^\circ\right) \,\,} = \sqrt[4]{ -\frac{\sqrt3}{2} + \frac{1}{2}i \,\,\, }=  \quad ???\]</span></p>
+<p>Presumably, there are four of them:</p>
+<p><span class="math display">\[\begin{align*}
+\sqrt[4]{1\angle 120^\circ \,\,}  =&amp; \,\rule{1cm}{0.5pt} \,, \\
+&amp; \,\rule{1cm}{0.5pt} \, , \\
+&amp; \,\rule{1cm}{0.5pt} \, , \\
+&amp; \,\rule{1cm}{0.5pt} \, .
+\end{align*}\]</span></p>
+<p>Doing this in rectangular would be unpleasant, because we’d have to solve:</p>
+<p><span class="math display">\[ \sqrt[4]{-\frac{\sqrt3}{2} + \frac{1}{2}i \quad} = a+bi\]</span></p>
+<p><span class="math display">\[-\frac{\sqrt3}{2} + \frac{1}{2}i = \left(a+bi\right)^4\]</span></p>
+<p><span class="math display">\[\text{aaaaaghhhh}\]</span></p>
+<p>But maybe we can do it in polar!!! When we raise things to an exponent in polar, we multiply the angle by the exponent. So if we want to un-raise something to an exponent—in other words, take a root—we just have to divide the angle by the exponent. In other words, we just have to ask:</p>
+<div style="text-align:center;">
+What angle, when we multiply it by <span class="math inline">\(4\)</span>, becomes <span class="math inline">\(120^\circ\)</span>?
+</div>
+<p>This is easy and silly. It’s just a fourth-grade division problem. So we divide <span class="math inline">\(120^\circ\)</span> by four, and get:</p>
+<p><span class="math display">\[\sqrt[4]{1\angle120^\circ \,\,} = 1\angle\frac{120^\circ}{4} = 1\angle30^\circ\]</span></p>
+<p>It’s easy to check that this works:</p>
+<p><span class="math display">\[\begin{align*} 
+\left(1\angle30^\circ\right)^4 &amp;= \left( 1\!\cdot\!1\!\cdot\!1\!\cdot\!1\right) \,\angle\, \left(30^\circ+30^\circ+30^\circ+30^\circ \right)\\
+&amp;= 1^4 \angle 30\!\cdot\!4 \\
+&amp;= 1 \angle 120^\circ
+\end{align*}\]</span></p>
+<p>Visually, we can think of this as starting at <span class="math inline">\(1\angle 0\)</span> on the complex plane, and then just rotating <span class="math inline">\(30^\circ\)</span> each time we multiply it by itself.</p>
+<p><img src="quartic-roots-of-120-1.svg" style="width:75.0%" /></p>
+<p>In fact, if we use the exponential/Euler form of this complex number, it’s even easier, because then finding the root consists of just doing some familiar exponent laws:</p>
+<p><span class="math display">\[\begin{align*}
+\sqrt[4]{1\angle120^\circ \,\,} = \sqrt[4]{e^{\frac{2\pi}{3}i}\,} &amp;= \left( e^{\frac{2\pi}{3}i} \right)^{1/4} \quad\text{(definition of a root)} \\
+&amp;= e^{\frac{2\pi}{3}i\cdot\frac14} \quad\text{(by exponent rules)} \\
+&amp;= e^{\frac{2\pi}{12}i} \\
+ &amp;= e^{\frac{\pi}{6}i} \\
+ &amp;= 1\angle30^\circ
+\end{align*}\]</span></p>
+<p>But what about the other three roots? Where do they come from?</p>
+<h2 id="the-fundamental-multiplicity-of-reality">The Fundamental Multiplicity of Reality</h2>
+<p><strong>Here’s the key insight</strong>: <span class="math inline">\(120^\circ\)</span> isn’t <span class="math inline">\(120^\circ\)</span>. Or rather, <span class="math inline">\(120^\circ\)</span> isn’t <em>just</em> <span class="math inline">\(120^\circ\)</span>. If we’re thinking about <em>where we actually are</em> on the complex plane, we can describe the point on the unit circle using a whole bunch of different angles. An infinitude of them, in fact. We can add or subtract any multiple of <span class="math inline">\(2\pi\)</span>, a/k/a <span class="math inline">\(360^\circ\)</span>, and we’ll be in the same place:</p>
+<p><span class="math display">\[\begin{align*}
+&amp;\hfill \quad\vdots \hfill\hfill &amp; &amp;\hfill \quad\vdots \hfill\hfill  \\
+&amp; 120 + 360\!\cdot\!4, &amp;&amp; +1560^\circ,\\
+&amp; 120 + 360\!\cdot\!3, &amp;&amp; +1200^\circ,\\
+&amp; 120 + 360\!\cdot\!2, &amp;&amp; +840^\circ,\\
+&amp; 120 + 360\!\cdot\!1, &amp;&amp; +480^\circ,\\
+120^\circ \cong\quad&amp; 120 + 360\!\cdot\!0, &amp; \quad\quad\quad \cong \quad &amp; +120^\circ, \\
+&amp; 120 + 360\!\cdot\!(-1), &amp;&amp; -240^\circ, \\
+&amp;  120 + 360\!\cdot\!(-2), &amp;&amp; -600^\circ,\\
+&amp; 120 + 360\!\cdot\!(-3), &amp;&amp; -960^\circ,\\
+&amp; \hfill \quad \vdots \hfill\hfill &amp;&amp; \hfill \quad\vdots \hfill\hfill
+\end{align*}\]</span></p>
+<p>In other words:</p>
+<p><span class="math display">\[\begin{align*}
+&amp;\hfill \quad\vdots \hfill\hfill  \\
+&amp; +1560^\circ,\\
+&amp; +1200^\circ,\\
+&amp; +840^\circ,\\
+&amp; +480^\circ,\\
+120^\circ \cong\quad&amp; +120^\circ, \\
+&amp; -240^\circ, \\
+&amp;  -600^\circ,\\
+&amp; -960^\circ,\\
+&amp; \hfill \quad\vdots \hfill\hfill
+\end{align*}\]</span></p>
+<p>So, if we want to find out what angles become <span class="math inline">\(120^\circ\)</span> when we multiply them by four, we need to divide <em>all</em> of these by four! In other words, we need to ask not:</p>
+<div style="text-align:center;">
+What angle, when we multiply it by <span class="math inline">\(4\)</span>, becomes <span class="math inline">\(120^\circ\)</span>?
+</div>
+<p>But rather:</p>
+<div style="text-align:center;">
+What angle<em>s</em>, when we multiply <em>them</em> by <span class="math inline">\(4\)</span>, become <span class="math inline">\(120^\circ\)</span>?
+</div>
+<p>So we actually have:</p>
+<p><span class="math display">\[\begin{align*}
+&amp;\quad\quad\vdots\\
+&amp; \frac{+1560^\circ}{4},\\
+&amp; \frac{+1200^\circ}{4},\\
+&amp; \frac{+840^\circ}{4},\\
+&amp; \frac{+480^\circ}{4},\\
+\frac{120^\circ}{4} \cong\quad &amp; \frac{+120^\circ}{4},\\
+&amp; \frac{-240^\circ}{4},\\
+&amp; \frac{-600^\circ}{4},\\
+&amp; \frac{-960^\circ}{4},\\
+&amp;\quad\quad\vdots
+\end{align*}\]</span></p>
+<p>Which, simplified, is just:</p>
+<p><span class="math display">\[\begin{align*}
+\vdots\quad \\
++390^\circ,\\
++300^\circ,\\
++210^\circ,\\
++120^\circ,\\
++30^\circ,\\
+-60^\circ,\\
+-150^\circ,\\
+-240^\circ,\\
+\vdots\quad
+\end{align*}\]</span></p>
+<p>If we simplify a bit more to just write these all as angles between <span class="math inline">\(0^\circ\)</span> and <span class="math inline">\(360^\circ\)</span>, this becomes:</p>
+<p><span class="math display">\[\begin{align*}
+\vdots \quad \\
++30^\circ,\\
++300^\circ,\\
++210^\circ,\\
++120^\circ,\\
++30^\circ,\\
++300^\circ,\\
++210^\circ,\\
++120^\circ,\\
+\vdots\quad
+\end{align*}\]</span></p>
+<p>So there are four distinct angles between <span class="math inline">\(0^\circ\)</span> and <span class="math inline">\(360^\circ\)</span> that, when multiplied by <span class="math inline">\(4\)</span>, end up in the same place as <span class="math inline">\(120^\circ\)</span>!!! So those are the four fourth roots of <span class="math inline">\(1\angle 120^\circ\)</span>!!! Let me outline all that a little bit more compactly:</p>
+<p><span class="math display">\[\begin{align*}
+&amp;\quad\quad\vdots\\
+&amp; 1\angle\frac{1560^\circ}{4} = 1\angle390^\circ = 1\angle30^\circ,\\
+&amp; 1\angle\frac{1200^\circ}{4} = 1\angle300^\circ,\\
+&amp; 1\angle\frac{840^\circ}{4} \,\,\, = 1\angle210^\circ,\\
+&amp; 1\angle\frac{480^\circ}{4} \,\,\, = 1\angle120^\circ,\\
+\sqrt[4]{1\angle120^\circ} \quad= \quad&amp; 1\angle\frac{120^\circ}{4} \,\,\, = 1\angle30^\circ,\\
+&amp; 1\angle\frac{-240^\circ}{4} = 1\angle-60^\circ = 1\angle300^\circ,\\
+&amp; 1\angle\frac{-600^\circ}{4} = 1\angle-150^\circ = 1\angle210^\circ,\\
+&amp; 1\angle\frac{-960^\circ}{4} = 1\angle-240^\circ = 1\angle120^\circ,\\
+&amp;\quad\quad\vdots
+\end{align*}\]</span></p>
+<p>Woweee!!!! It’s all the fourth roots of <span class="math inline">\(1\angle 120^\circ\)</span>!!! There aren’t just four of them—there are an <em>infinite</em> number of them!!! Though, if we’re thinking only about different positions on the unit circle, there are indeed only <em>four</em> distinct roots. Here’s how we could write them in radius<span class="math inline">\(\angle\)</span>angle notation:</p>
+<p><span class="math display">\[\begin{align*}
+\sqrt[4]{1\angle120^\circ \,\,} =\,&amp; 1\angle30^\circ, \\ 
+&amp; 1\angle120^\circ,\\
+&amp; 1\angle210^\circ,  \\
+&amp; 1\angle300^\circ.
+\end{align*}\]</span></p>
+<p>Or, in exponential/Euler form:</p>
+<p><span class="math display">\[\begin{align*}
+\sqrt[4]{e^{2i\pi/3}\,\, } =\,&amp; e^{i\pi/6}, \\ 
+&amp; e^{2i\pi/3}, \quad\\
+&amp; e^{7i\pi/6}, \quad \\
+&amp; e^{5i\pi/3}. \quad 
+\end{align*}\]</span></p>
+<p>Or, in rectangular form:</p>
+<p><span class="math display">\[\begin{align*}
+\sqrt[4]{ -\frac{\sqrt3}{2} + \frac{1}{2}i \quad} =\,&amp; +\frac{\sqrt3}{2} + \frac{1}{2}i,\\ 
+&amp; -\frac{\sqrt3}{2} + \frac{1}{2}i,\\
+&amp; -\frac{\sqrt3}{2} - \frac{1}{2}i,\\
+&amp; -\frac{\sqrt3}{2} - \frac{1}{2}i.
+\end{align*}\]</span></p>
+<p>(By the way, you may note the cool coincidence that <span class="math inline">\(1\angle120^\circ\)</span> is its own fourth root! Why is that?)</p>
+<p>If we want to summarize this, or write all the roots without needing a terrifying tower of an infinite number of angles, we could just write <span class="math inline">\(120^\circ\)</span> as being the same as <span class="math inline">\(120^\circ\)</span> plus any integer multiple of <span class="math inline">\(360^\circ\)</span>:</p>
+<p><span class="math display">\[120^\circ \cong 120^\circ + 360k ,\quad \text{for } k\in \mathbb{Z}\]</span></p>
+<p>So then, for our roots, we get:</p>
+<p><span class="math display">\[\begin{align*}
+\sqrt[4]{1\angle120^\circ} &amp;= \sqrt[4]{1\,\angle\, \left( 120^\circ + 360k \right)} ,\quad \text{for } k\in \mathbb{Z} \\ \\
+&amp;= 1\,\angle\, \frac{120^\circ + 360k}{4} \\ \\
+&amp;\text{If we wanted, we could simplify this fraction to:} \\ \\
+&amp;= 1\,\angle\, \left( 30^\circ + 90k\right)
+\end{align*}\]</span></p>
+<p>So the roots “start” at <span class="math inline">\(30^\circ\)</span>, and then are spread <span class="math inline">\(90^\circ\)</span> apart!</p>
+<p>If we want to write just the <em>finite</em> number of non-repeating roots—i.e. the four distinct ones—then I guess we could have <span class="math inline">\(k\)</span> be not just any integer, but just <span class="math inline">\(0\)</span>, <span class="math inline">\(1\)</span>, <span class="math inline">\(2\)</span>, or <span class="math inline">\(3\)</span>:</p>
+<p><span class="math display">\[\begin{align*}
+\sqrt[4]{1\angle120^\circ} &amp;=   1\,\angle\, \frac{120^\circ + 360k}{4},\quad \text{for } k\in \{0,1,2,3\} \\
+&amp;=1\,\angle\, \left( 30^\circ + 90k\right)
+\end{align*}\]</span></p>
+<p>If you want a fun word, <strong>degenerate</strong> is one that gets used in this sort of context. For instance, we could say that the numbers <span class="math inline">\(1\angle30^\circ\)</span>, <span class="math inline">\(1\angle 390^\circ\)</span>, <span class="math inline">\(1\angle 750^\circ\)</span>, i.e. <span class="math inline">\(1\angle 30+360k\)</span>, are all degenerate cases of each other. (I’m not trying to accuse them of moral turpitude; that’s just the word people use.)</p>
+<p>So, in summary, we can describe all the fourth roots of <span class="math inline">\(e^{2i\pi/3}\)</span> as:</p>
+<p><span class="math display">\[\begin{align*}
+\sqrt[4]{1\angle 120^\circ} &amp;\,=\,1 \angle \frac{120 + 360k}{4} = 1\angle (30+90k) \quad\quad\text{for $k\in\mathbb{Z}$ (but with repeats)}\\
+&amp;\,= \,1\angle \frac{120 + 360k}{4} = 1\angle (30+90k)  \quad\quad\text{for $k\in\{0,1,2,3\}$ (without repeats)
+}\end{align*}\]</span></p>
+<p>By the way, I’ve been a little casual with the formalism here—I’ve been slipping into different representations of complex numbers in these notes, as well as going back and forth between radians and degrees. I don’t think I’ve introduced any ambiguities (eep), but please do let me know if something is unclear, or if you think I’ve made a mistake.</p>
+<p>How about some pictures?!? Here’s what the first of the roots looks like, as it gets raised to the fourth and spins around the complex plane. Notice how it touches the <span class="math inline">\(+x\)</span> axis once, and crosses it zero times:</p>
+<p><img src="quartic-roots-of-120-1.svg" style="width:75.0%" /></p>
+<p>Here’s the next fourth root, <span class="math inline">\(1\angle120^\circ\)</span>. It touches the <span class="math inline">\(+x\)</span>-axis twice, and crosses it once:</p>
+<p><img src="quartic-roots-of-120-2.svg" style="width:75.0%" /></p>
+<p>The next root, <span class="math inline">\(1\angle210^\circ\)</span>, touches the <span class="math inline">\(+x\)</span>-axis three times, and crosses it twice:</p>
+<p><img src="quartic-roots-of-120-3.svg" style="width:75.0%" /></p>
+<p>And finally, the last (distinct) root, <span class="math inline">\(1\angle300^\circ\)</span>, touches the <span class="math inline">\(+x\)</span>-axis four times, and crosses it thrice:</p>
+<p><img src="quartic-roots-of-120-4.svg" style="width:75.0%" /></p>
+<p>Let’s plot all four of the roots together:</p>
+<p><img src="quartic-roots-of-120-5.svg" style="width:75.0%" /></p>
+<p>Look at how beautiful they are! They form a perfect little square, rotated <span class="math inline">\(30^\circ\)</span> off-axis!</p>
+<h2 id="every-root-of-every-number">Every Root of Every Number!!!!</h2>
+<p>So. What about our ultimate goal here: to come up with a formula describing <em>every</em> root of <em>every</em> complex number? (Or, if you want it to sound less intimidating, <em>any</em> root of <em>any</em> complex number.)</p>
+<p>Through these examples, we’ve gotten a good handle on how the angles of complex roots work. We’ve been able to see that if we take a root of a complex number, we get <span class="math inline">\(n\)</span> roots, each of which has an angle something like this:</p>
+<p><span class="math display">\[\left(\substack{\text{the $n$&#39;th root of}\\\text{some complex number}}\right) \quad\sim\text{has an angle of}\sim\quad \frac{\text{the original angle}}{n} +  \Big(\substack{\text{how much each root is }\\\text{rotated away from each other}}\,\Big)\]</span></p>
+<p>If we want to describe that “how much each root is rotated away from each other” part with a bit more formalism, we can note that the <span class="math inline">\(n\)</span> roots are spread evenly around a full circle, so they’re spaced <span class="math inline">\(360/n\)</span> (or <span class="math inline">\(2\pi/n\)</span>) apart:</p>
+<p><span class="math display">\[\left(\substack{\text{the $n$&#39;th root of}\\\text{some complex number}}\right) \quad\sim\text{has an angle of}\sim\quad \frac{\text{the original angle}}{n} +  \frac{360}{n}\]</span></p>
+<p>Although, then, to actually get <span class="math inline">\(n\)</span> different roots, I guess we’ll have to multiply <span class="math inline">\(360/n\)</span> by some factor that changes for each root:</p>
+<p><span class="math display">\[\left(\substack{\text{the $n$&#39;th root of}\\\text{some complex number}}\right) \quad\sim\text{has an angle of}\sim\quad \frac{\text{the original angle}}{n} +  \frac{360}{n}\cdot k\]</span></p>
+<p>So there <span class="math inline">\(k\)</span> is some counter, running from <span class="math inline">\(0\)</span> up to <span class="math inline">\(n-1\)</span>, i.e. <span class="math inline">\(k=\{0,1,2\dots\,n-1\}\)</span>. Actually, if <span class="math inline">\(k\)</span> is more than that (like if <span class="math inline">\(k\)</span> is any integer), this formula still works; it’s just that we’ll start getting repeats. So that’s how the angles of complex roots work.</p>
+<p>There’s one thing we haven’t talked about, though: the radius! If we take a root of a complex number, how does the radius change? I asked you a couple questions on the worksheet to try to get you to figure out the answer:</p>
+<blockquote>
+<ul>
+<li>Revisit our other favorite complex-numbers-model-organism: the sixth roots of <span class="math inline">\(64\)</span>! Find them in polar coordinates. Then find the sixth roots of <span class="math inline">\(729\)</span> in polar (note that <span class="math inline">\(729=3^6\)</span>). How do the answers differ?</li>
+<li>Find all the quartic roots of <span class="math inline">\(16\)</span>. Then find all the quartic roots of <span class="math inline">\(81\)</span>. Like in the previous problem, how are these two sets of roots similar and different from each other?</li>
+</ul>
+</blockquote>
+<p>Each of these pairs of numbers have the same angle (zero, ’cause they’re real numbers), but different radii. What you found is that their roots have the same angle—the only difference is that they’re shrunken into or stretched away from the origin, by the same amount that the original numbers were! The radius was just the normal, old-school, boring real-numbered root. In other words:</p>
+<p><span class="math display">\[\left(\substack{\text{the $n$&#39;th root of}\\\text{some complex number}}\right) \quad\sim\text{has a radius of}\sim\quad \left(\substack{\text{its ``normal&#39;&#39; real-}\\\text{-numbered $n$&#39;th root}}\right)\]</span></p>
+<p>Or, with slightly more detail:</p>
+<p><span class="math display">\[\left(\substack{\text{the $n$&#39;th root of}\\\text{some complex number}}\right) \quad\sim\text{has a radius of}\sim\quad \left(\substack{\text{the ``normal&#39;&#39; real-}\\\text{-numbered $n$&#39;th root}\\\text{of its radius}}\right)\]</span></p>
+<p>So, putting it all together, we have:</p>
+<p><span class="math display">\[\left(\substack{\text{the $n$&#39;th root of}\\\text{some complex number}}\right) \quad=\quad \left(\substack{\text{the ``normal&#39;&#39; real-}\\\text{-numbered $n$&#39;th root}}\right) \,\,\angle\,\, \Big( \, (\text{the starting angle}) \,\,+\,\, \left(\substack{\text{how much each root is }\\\text{rotated away from each other}}\right)\,\Big)\]</span></p>
+<p>Or in fancier math notation:</p>
+<p><span class="math display">\[\begin{align*}
+\sqrt[n]{r\angle\theta} &amp;= \left(r^{\frac1n}\right)\angle \left( \frac{\theta + k\cdot2\pi}{n} \right),\quad\quad k\in\mathbb{Z}  \quad\text{(with repeats)}\\
+&amp;= \left(r^{\frac1n}\right)\angle \left( \frac{\theta + k\cdot2\pi}{n} \right),\quad\quad k\in\{0,1,2,\cdots,n-1\}\quad\text{(without repeats)}
+\end{align*}\]</span></p>
+<p>(The notation here is a little wacky, because it looks recursive/self-referential: we’re trying to find the <span class="math inline">\(n\)</span>th root of <span class="math inline">\(r\angle \theta\)</span>, and our formula has an <span class="math inline">\(n\)</span>th root of <span class="math inline">\(r\)</span> in it! So by “<span class="math inline">\(r^{\frac1n}\)</span>” in that formula, I mean “the normal, ordinary, positive, real-numbered root.” Radii are always positive real numbers—there’s nothing messy about them.)</p>
+<p><br><br></p>
+<p>Of course, many of you already know this, since you managed to figure it out yourselves in class! Since there are so many ways to write this formula—so many ways to describe this/these numbers—I want to show some examples.</p>
+<p>Some of you wrote all the roots as a long list, like Landon X.:</p>
+<p><img src="roots-of-all-complex-numbers-s2022-landon-xu.png" style="width:75.0%" /></p>
+<p>Landon’s brother, like many of you, decided not to write a long list, and instead create a new variable to describe all the roots more succinctly:</p>
+<p><img src="roots-of-all-complex-numbers-s2022-logan-xu.png" style="width:50.0%" /></p>
+<p>Some of you made analogies to coding and the counters/indices in <code>for</code>-loops! That’s exactly what we need here—a counter to describe each of the <span class="math inline">\(n\)</span> <span class="math inline">\(n\)</span>’th roots as we rotate around the complex plane.</p>
+<p>In Block 4, a bunch of you decided to write it in terms of its rectangular form (i.e., in terms of its real and imaginary parts). Here’s a representative example, from Charlotte R.:</p>
+<p><img src="roots-of-all-complex-numbers-s2022-charlotte-rosario.png" style="width:50.0%" /></p>
+<p>Note how you’re all using different letters to represent different things in all these forms. For instance, in Landon’s version of the formula, <span class="math inline">\(x\)</span> is the number we’re taking the roots of; in Logan’s, <span class="math inline">\(x\)</span> is the counter. Logan used <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> to represent the radius and angle; Charlotte used them to represent the real and imaginary parts. All of those are perfectly valid choices, but they do make it harder to quickly read and scan.</p>
+<p>Here’s how a big group of you in Block 8 wrote it (credit for this particular version to Sam Z.):</p>
+<p><img src="roots-of-all-complex-numbers-s2022-sam-zukin.png" style="width:80.0%" /></p>
+<p>Kate K. was reminded of all the <strong><a href="https://www.google.com/search?q=modular+arithmetic">modular arithmetic</a></strong> she’s learned in Jana’s cryptology class this semester, and decided to write it using that language. Here’s how she wrote the roots of <span class="math inline">\(i\)</span> (as opposed to the roots of any complex number) using those ideas:</p>
+<p><img src="roots-of-all-complex-numbers-s2022-kate-kuan.png" style="width:50.0%" /></p>
+<p>Her fundamental idea, as she told me, was that the angles are all mod <span class="math inline">\(2\pi\)</span>. That’s an excellent insight—and exactly the way to think about the relationship between angles and positions.</p>
+<h2 id="an-infinite-kaleidoscope">An Infinite Kaleidoscope</h2>
+<p>There’s one thing that makes me nervous about showing you those pictures above of roots spinning around the complex plane. Those pictures imply there’s <em>continuous motion</em>, with a complex number being a point particle and exponentiation being like moving it along a trajectory. And that’s sort of true. But there’s also an important way in which things are even weirder than that.</p>
+<p>The distinction I made at the beginning of these notes, about spinning versus un-spinning a number, was in some sense false. Roots and exponents are, after all, the same thing. It’s just that “root” is the name we give when we want to think about exponents as fractions; “exponent” is the name we use when we want to think about them as non-fractions. That has some direct implications for the way we think about them geometrically. Suppose we raise the complex number <span class="math inline">\(z\)</span> from <span class="math inline">\(z^0\)</span> to <span class="math inline">\(z^1\)</span>. If we’re trying to think of this as “moving” <span class="math inline">\(z\)</span> along an arc or a spiral, as we gradually and continuously increase its exponent, <span class="math inline">\(z^{0\rightarrow 1}\)</span>, we can’t “move” <span class="math inline">\(z\)</span> from <span class="math inline">\(z^0\)</span> to <span class="math inline">\(z^1\)</span> without passing through <span class="math inline">\(z^{1/2}\)</span>. But we know there are two possibilities for that. Not one. Moreover, we can’t move <span class="math inline">\(z\)</span> from <span class="math inline">\(z^0\)</span> to <span class="math inline">\(z^1\)</span> without passing through <span class="math inline">\(z^{1/3}\)</span>, and we know there are three possibilities for that. To move <span class="math inline">\(z\)</span> from <span class="math inline">\(z^0\)</span> to <span class="math inline">\(z^1\)</span>, we have to pass through each rational number between <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span>. And… that’s going to get very messy, in terms of the number of possible roots/options/solutions we have. And it gets worse. If we think of moving <span class="math inline">\(z\)</span> from <span class="math inline">\(z^0\)</span> to <span class="math inline">\(z^1\)</span> by way of each <em>real</em> number in between, then… things are even messier.</p>
+<p>Remember the day we played around with polar graphs in Desmos in class, and we graphed things like <span class="math inline">\(r=\cos(\theta)\)</span>, <span class="math inline">\(r=\cos(2\theta)\)</span>, <span class="math inline">\(r=3\cos(\theta)\)</span>, and the like? And how they looked like beautiful flower petals? <span class="math inline">\(r=\cos(2\theta)\)</span> had four petals and <span class="math inline">\(r=3\cos(\theta)\)</span> had three petals? Remember how we then tried graphing fractions like <span class="math inline">\(r=\cos(2.5\theta)\)</span>, <span class="math inline">\(r=\cos(2.6\theta)\)</span>, and so forth? And how the number of flower petals exploded? <span class="math inline">\(r=\cos(2.5\theta)\)</span> had ten (overlapping) petals and <span class="math inline">\(r=\cos(2.6\theta)\)</span> had <span class="math inline">\(13\)</span>? The more “complicated” the number—the “further away” it got from being an integer—the bigger its denominator when written as a fraction—the more petals we got. Same thing here with the fractional roots. It’s not so much that things are moving as single point particles when we try to rotate them. Rather, they <em>explode like a kaleidoscope</em>.</p>
+<p>With a bit of care and precision we can define or restrict a root operation to only ever give a single output, and perceive these roots as point particles perambulating around the plane. This is basically what your middle school teachers hammered into you about square roots—all that nonsense about how <span class="math inline">\(\sqrt{x}\)</span> is only the <em>positive</em> square root of <span class="math inline">\(x\)</span>! But I prefer thinking of roots, and complex numbers, in terms of multiple-valued functions, often called <strong>multifunctions</strong>, i.e. functions that can return multiple (or even an infinitude of) outputs. That seems to be the natural way to think about them. (That seems to be how they <em>want us</em> to think about them.) And if we do that, things can get pretty weird. In this example here, we can think of what happens when we raise <span class="math inline">\(z\)</span> from <span class="math inline">\(z^0\)</span> to <span class="math inline">\(z^1\)</span> as <span class="math inline">\(z\)</span> starting at <span class="math inline">\(z^0\)</span>, splintering into a kaleidoscope of possibilities, sometimes finite, sometimes infinite, and then settling back down on a single value at <span class="math inline">\(z^1\)</span>.</p>
+<p>(None of this is really intended to make any sense to you, or, frankly, to me, not in this form of describing it; I’m just… trying to help you get a glimpse at some of the deeper beauties of complex numbers.)</p>
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>“Winds” up? Get it?!? Like “winding”???<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+</main>
+</body>
+</html>

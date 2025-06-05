@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Optimization</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="/main.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <script src="../highlight-toc.js" type="text/javascript"></script>
+</head>
+<body>
+<script>document.addEventListener('DOMContentLoaded', function(e) {
+  Scroller.init();
+})</script>
+<aside>
+<div class="tocLinks" >
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#a-video-not-a-photograph">A video, not a photograph</a></li>
+<li><a href="#did-we-actually-save-the-guy">Did we actually save the guy?!?</a></li>
+<li><a href="#optimization-more-globally">Optimization, more globally</a></li>
+<li><a href="#problems">Problems</a></li>
+</ul>
+</nav>
+</div>
+</aside>
+<main>
+<header id="title-block-header">
+<h1 class="title">Optimization</h1>
+</header>
+<blockquote>
+<p><em>Not the intense moment</em> <br> <em>Isolated, with no before and after,</em> <br> <em>But a lifetime burning in every moment</em> <br> <span style="text-align:right;">—T.S. Eliot, <em>East Coker</em>, 192-4</span></p>
+</blockquote>
+<div style="height:5em">
+
+</div>
+<p>Our entire exploration of calculus began back in December with a single question:</p>
+<blockquote>
+<p>You are a lifeguard at the municipal beach in Churchill, Manitoba. One day, as you are sitting on your lifeguard chair next to Hudson Bay, you see a swimmer being attacked by a polar bear. The swimmer appears to be roughly 120 metres out to sea (on a straight line between the swimmer and the shore), and the lifeguard station is roughly 300 metres down the beach from the nearest point on shore to the swimmer. You can run at 13 metres per second along the beach, and you can swim at 5 metres per second. Given that you want to reach the swimmer as quickly as possible, how far down the beach do you run, and how far do you swim?</p>
+</blockquote>
+<p>The problem is that we need to find the perfect balance between two competing desires. On one hand, we want to take the shortest possible route to the swimmer. But if we do that, we’d swim all the way, and we can’t swim very fast. So maybe we want to spend the least amount of time swimming. But if we do that—if we run all the way down the beach and then hop in the water when we’re only a short swim away—the total distance we travel will be quite long. That doesn’t seem like it’ll be the fastest route, either.</p>
+<p>What we really want to do is find the perfect median between these two extremes: <em>find the path that minimizes the amount of time it takes to reach the swimmer</em>.</p>
+<p>Back in December, when we faced this question, we were only able to get as far as coming up with a function for the amount of time it takes to reach the swimmer (as a function of how far down the beach we run and how far we swim). To find what choice takes the <em>minimum</em> amount of time, we would have had to somehow have found the minimum of this function—but how were we to do that?</p>
+<p>We’re finally in a position to be able to do that. Using our tools of calculus, we can finally find the minimum of that function—and, in doing so, save the swimmer. As we’ve discussed, the essential idea is that the minimum (or, for that matter, any extremum) is a point at which the function is neither increasing nor decreasing—a point at which the derivative of the function is zero. So all we need to do is come up with a function for the amount of time it takes to reach the swimmer, take a derivative, and then find what value(s) of <span class="math inline">\(x\)</span> make it equal to zero.</p>
+<p>Let’s first refresh our memory by coming up with the function for how long it takes to reach the swimmer. Our situation looks something like this:</p>
+<p><img src="polarbear1.png" /></p>
+<p>Let’s say that we run all but the last <span class="math inline">\(x\)</span> feet down the beach—i.e., we run <span class="math inline">\(300-x\)</span> feet down the beach—and then swim on a straight line out to the swimmer. If we abstract the relevant details, we get:</p>
+<p><img src="polarbear2.png" /></p>
+<p>So what we want to do here is come up with a function for the amount of time it takes to reach the swimmer: <span class="math display">\[\text{total time} \quad=\quad \text{time running} \quad+ \quad \text{time swimming}\]</span> We’re running at a constant rate of <span class="math inline">\(13\)</span> feet/second, and swimming at a constant rate of <span class="math inline">\(5\)</span> feet/second. And we know that if rate is constant, <span class="math inline">\(\text{distance} = \text{rate}\cdot\text{time}\)</span>, or <span class="math inline">\(\text{time} = \frac{\text{distance}}{\text{rate}}\)</span>. So the time it takes me to reach the swimmer will be: <span class="math display">\[\text{total time} \quad=\quad \frac{\text{distance running}}{\text{speed running}} \quad+\quad \frac{\text{distance swimming}}{\text{speed swimming}}\]</span> Or just: <span class="math display">\[\text{time}(x) = \frac{300-x}{\text{13}} + \frac{\text{distance swimming}}{\text{5}}\]</span> What’s the total distance we swim? We can figure it out! We have a right triangle, with sides <span class="math inline">\(x\)</span> and <span class="math inline">\(120\)</span>, so we can use the Pythagorean Theorem. So we have: <span class="math display">\[120^2 + x^2 = (\text{distance swimming})^2\]</span> So: <span class="math display">\[\begin{align*}
+x^2 &amp;=  (\text{distance swimming})^2 - 120^2 \\ \\
+x &amp;=  \sqrt{120^2 + x^2 \,\,}
+\end{align*}\]</span> So then, the total amount of time it takes to get to the swimmer, if we run <span class="math inline">\(300-x\)</span> yards down the beach, is: <span class="math display">\[\text{time}(x) = \frac{300-x}{\text{13}} + \frac{\sqrt{120^2 + x^2}}{\text{5}}\]</span> Were we to graph this—which we can’t, because all those years of saltwater lifeguarding has corroded our TI-83s beyond use—but were we to graph this, presumably we’d see something like:</p>
+<p><img src="polarbeartime.png" style="width:75.0%" /></p>
+<p>How can we find where time is minimal? We just need to find where the slope of this function is zero. In other words, we need to find where its derivative is zero. So if we take the derivative, we get: <span class="math display">\[\begin{align*}
+\text{time}&#39;(x) &amp;= \left(  \frac{300-x}{\text{13}} + \frac{\sqrt{120^2 + x^2}}{\text{5}} \right)&#39;  \\
+&amp;= \left(\,  \frac{300}{13} \,-\, \frac{1}{13}x \,+\, \frac{1}{5}\sqrt{120^2 + x^2} \,\right)&#39;  \\ \\
+&amp;= \left(\,  \frac{300}{13} \,-\, \frac{1}{13}x \,+\, \frac{1}{5}\left(120^2 + x^2\right)^{1/2} \,\right)&#39;  \\ \\
+ &amp;= 0 - \frac{1}{13} \,\,+\,\, \frac{1}{5}\cdot\frac{1}{2}\cdot\left( 120^2 + x^2\,\right)^{-1/2} \cdot  \left(120^2+x^2\right)&#39;\\ \\
+ &amp;= 0 - \frac{1}{13} \,\,+\,\, \frac{1}{5}\cdot\frac{1}{2}\cdot\frac{1}{\,\, \left(\,120^2 + x^2\,\right)^{1/2}\,\,}\cdot  2x\\ \\
+&amp;=  -\frac{1}{13} +\frac{x}{5\sqrt{120^2 + x^2\,}\,}
+\end{align*}\]</span> And if we want to find what value of <span class="math inline">\(x\)</span> makes this zero, we can set it equal to zero and do some algebra. This algebra is gross, but oh well: <span class="math display">\[\begin{align*}
+0 &amp;= -\frac{1}{13} +\frac{x}{5\sqrt{120^2 + x^2\,}\,} \\ \\
+\frac{1}{13} &amp;= \frac{x}{5\sqrt{120^2 + x^2\,}\,} \\ \\
+5\sqrt{120^2 + x^2} &amp;= 13x \\ \\
+5^2\left(120^2 + x^2\right) &amp;= 13^2x^2 \\ \\
+120^2 &amp;= \frac{13^2}{5^2}x^2 -x^2 \\ \\
+120^2 &amp;= \left(\frac{13^2}{5^2} -1\right)x^2 \\ \\
+\frac{120^2}{\,\,\frac{13^2}{5^2} -1\,\,} &amp;=x^2 \\ \\
+x &amp;= \sqrt{ \frac{120^2}{\,\,\frac{13^2}{5^2} -1\,\,} } \\ \\
+x&amp;= 50
+\end{align*}\]</span> So if we want to reach the swimmer in the least amount of time, we need to run all but the last <span class="math inline">\(50\)</span> yards down the beach, and swim from there! This means we’ll need to run: <span class="math display">\[\begin{align*}\text{distance running: } &amp;= 300-x \\
+&amp;= 250 \text{ feet}\end{align*}\]</span> and swim: <span class="math display">\[\begin{align*}\text{distance swimming: } &amp;=\sqrt{120^2 + x^2} \\
+&amp;=  \sqrt{120^2 + 50^2} \\
+&amp;= 130 \text{ feet}\end{align*}\]</span> Great. How long does it take us to get out to the swimmer? We know how to get there in the minimal amount of time, but <em>how minimal is this minimum</em>? Well, we already have a function for how long it takes us to reach the swimmer as a function of <span class="math inline">\(x\)</span>, and now we have an <span class="math inline">\(x\)</span> (i.e., <span class="math inline">\(50\)</span>), so we can just plug that in: <span class="math display">\[\begin{align*}\text{time}(50) &amp;= \frac{300-50}{\text{13}} + \frac{\sqrt{120^2 + 50^2}}{\text{5}}\\ \\
+&amp;\approx \underbrace{19.231}_\text{time running} + \underbrace{26}_{\text{time swimming}} \\ \\
+&amp; \approx 45.2 \text{ seconds}\end{align*}\]</span> So it will take us about <span class="math inline">\(45\)</span> seconds to reach the swimmer. Hopefully that’s zippy enough to save them from the polar bear!</p>
+<h2 id="a-video-not-a-photograph">A video, not a photograph</h2>
+<p>There’s a major flaw in the reasoning we just used. Namely: how do we know we didn’t <em>maximize</em> the amount of time it takes to rescue the guy? If all we’re doing is finding where the slope is zero, that could be a minimum. Or it could be a maximum. Or it could have been one of those weird cubicky indecisive points!</p>
+<p>That’s a big difference. If we’re trying to minimize the amount of time it takes to reach the guy, and we end up <em>maximizing</em> the amount of time it takes to reach the guy… then we’re no longer going to have a rescue situation; we’re going to have a recovery situation. If we’re a junior analyst at Goldman Sachs and we end up <em>minimizing</em> profit rather than <em>maximizing</em> profit… we’re going to also minimize our paycheck. If we’re trying to do such-and-such, and we end up not only not doing such-and-such, but <em>doing the exact opposite of such-and-such</em>, that’s pretty bad!</p>
+<p>So we need more nuance. Let’s think about how to find maxima and minima in more detail. Say we have a function, and it has a minimum:</p>
+<p><img src="optimization-master-diagram-min-1.svg" style="width:75.0%" /></p>
+<p>What’s the derivative of the function at that minimum? Zero! The function is flat. So its slope is zero! Let’s sketch the slope, too:</p>
+<p><img src="optimization-master-diagram-min-1-with-derivative.svg" style="width:75.0%" /></p>
+<p>Now let’s say that function continues, and we have a maximum:</p>
+<p><img src="optimization-master-diagram-max-1.svg" style="width:75.0%" /></p>
+<p>What’s the derivative at that maximum? Also zero! Let’s sketch that, too:</p>
+<p><img src="optimization-master-diagram-max-1-with-derivative.svg" style="width:75.0%" /></p>
+<p>Hmm. Both minima <em>and</em> maxima have derivatives that are zero.</p>
+<p>Let’s say the function continues some more and we have one of those weird cubicky indecisive points, where it flattens out and <em>almost</em> becomes a minimum, but then changes its mind at the last moment and returns to going down:</p>
+<p><img src="optimization-master-diagram-indecisive-point-1.svg" style="width:75.0%" /></p>
+<p>What’s the derivative at that point? Well, the function is basically always decreasing, so the derivative is always negative, except for that one moment where it’s flat, where the derivative is zero. So the derivative <em>bounces</em> off the axis at that point:</p>
+<p><img src="optimization-master-diagram-indecisive-point-1-with-derivative.svg" style="width:75.0%" /></p>
+<p>So the derivative is zero at that cubicky indecisive point, too.</p>
+<p>Eeek. All these points where the derivative is zero, corresponding to maxima and minima and neither!!! How do we tell the difference? How do we distinguish between maxima and minima and indecisive points!?! How do we figure that out, <em>algebraically</em> and <em>symbolically</em>, without needing a computer to graph things, only using <em>symbols on the page</em>? If we’re just looking at places where the derivative is zero, we’re lost in the fog of ambiguity. If the derivative is zero, we could have any of these three possibilities.</p>
+<p>Here’s the trick: we need to look at the <em>shape</em> of the derivative near where it’s zero. We need to think about what’s happening not <em>when</em> the derivative is zero—we know what’s happening; it’s zero; that’s a tautology—but what’s happening <em>near</em> when the derivative is zero. <em>We have a photograph, when what we need is a video</em>.</p>
+<p>Let’s look back at that drawing. The maximum and minimum happen where the derivative crosses the <span class="math inline">\(x\)</span>-axis. But the indecisive point happens where the derivative <em>bounces</em> off the axis. So for a function to have an extremum, the derivative has to <em>cross through</em> the axis. It has to go from being positive to being negative, or from being negative to being positive. The derivative has to have not just a root, but a root of odd multiplicity, to use the language we learned last fall. If it bounces off the axis—if the derivative has a root of even multiplicity, to use our fancy throwback word—then we won’t have an extremum. We’ll have an indecisive point.</p>
+<p>So, there’s some clarity.</p>
+<p>But how do we distinguish between a minimum and a maximum? It’s not just that the derivative crosses the axis. If we look closely at that drawing, we can see that the minimum happens when the function goes from decreasing to flat to increasing, i.e. when its derivative goes from negative to zero to positive. That means that the derivative itself has a positive slope! But the maximum, by contrast, happens when the function goes from increasing to flat to decreasing, i.e. when its derivative goes from positive to zero to negative, which is like saying that the derivative itself has a negative slope.</p>
+<p>Let’s argue this in more detail. Visually, if the function goes from decreasing to flat to increasing:</p>
+<p><img src="second-derivative-test-minimum-1.svg" style="width:75.0%" /></p>
+<p>I.e., if the derivative goes from negative to zero to positive:</p>
+<p><img src="second-derivative-test-minimum-2.svg" style="width:75.0%" /></p>
+<p>Then that point is a minimum!!!</p>
+<p><img src="second-derivative-test-minimum-3.svg" style="width:75.0%" /></p>
+<p>But hold up a second. This minimum happens when the function goes from decreasing to flat to increasing, i.e. when its derivative goes from negative to zero to positive… but if the derivative goes from negative to zero to positive, isn’t that the same as saying that the derivative <em>itself</em> has a positive slope??? Like, the derivative is increasing?</p>
+<p><img src="second-derivative-test-minimum-4.svg" style="width:75.0%" /></p>
+<p>But then we’re talking about the derivative of the derivative… so really, we’re just saying that the <em>second derivative</em> is positive!!! Let’s sketch the second derivative:</p>
+<p><img src="second-derivative-test-minimum-5.svg" style="width:75.0%" /></p>
+<p>So at this point that’s a minimum, the first derivative is zero, and the second derivative is positive!!! (It’s the <em>value</em> of the second derivative, note, that’s positive, not its own slope. Thought of as a function in its own right, the second derivative here has negative slope, but here we’re interested in the slope of the slope, i.e. the <em>value</em> of the second derivative.)</p>
+<p><img src="second-derivative-test-minimum-6.svg" style="width:75.0%" /></p>
+<p>So in other words, if we have a point where the derivative is zero, AND the second derivative is positive, then that point must be a minimum!!!</p>
+<p><span class="math display">\[\large \boxed{\quad \substack{\text{first derivative is zero}\\ \\ \text{AND}\\ \\ \text{second derivative is positive}} \implies \text{minimum} \quad}\]</span></p>
+<p>Meanwhile… what’s going on with our maximum? At the maximum, the function is going from increasing to flat to decreasing:</p>
+<p><img src="second-derivative-test-maximum-1.svg" style="width:75.0%" /></p>
+<p>I.e., its derivative/slope goes from positive to zero to negative:</p>
+<p><img src="second-derivative-test-maximum-2.svg" style="width:75.0%" /></p>
+<p>So, in other words, the derivative itself has negative slope:</p>
+<p><img src="second-derivative-test-maximum-3.svg" style="width:75.0%" /></p>
+<p>And that’s the same as saying that the second derivative (the <em>value</em> of the second derivative) is negative at that point!!!</p>
+<p><img src="second-derivative-test-maximum-4.svg" style="width:75.0%" /></p>
+<p>So then if we have a point where the derivative is zero, and the second derivative is negative, then we know we have a maximum!!!</p>
+<p><span class="math display">\[\large \boxed{\quad \substack{\text{first derivative is zero}\\ \\ \text{AND}\\ \\ \text{second derivative is negative}} \implies \text{maximum} \quad}\]</span></p>
+<p>What about this weird ambiguous cubicky indecisive point?</p>
+<p><img src="second-derivative-test-indecisive-point-1.svg" style="width:75.0%" /></p>
+<p>Well… what’s making it an indecisive point is the fact that, although the derivative has a root/zero/<span class="math inline">\(x\)</span>-intercept, it doesn’t actually cross the <span class="math inline">\(x\)</span>-axis. It <em>touches</em>, but doesn’t <em>cross</em>. It <em>bounces</em>. And so the derivative itself has an extremum there. So its own slope—the slope of the slope—is zero there.</p>
+<p><img src="second-derivative-test-indecisive-point-2.svg" style="width:75.0%" /></p>
+<p>Here’s the full final diagram:</p>
+<p><img src="optimization-master-diagram-full-more-or-less.svg" /></p>
+<p>Textbooks call this stuff the <strong>second derivative test</strong>, but as always, that’s not a word that’s important, nor is it an algorithm you should try to memorize. Rather, we want to <em>feel</em> how these functions work. We want to understand functions and their curviness so deeply and thoroughly that it feels <em>impossible</em> for any of this to be otherwise. We want it to feel <em>impossible</em> that we never once understood all this. That’s a big goal. It takes a while, and some work. But that’s what we’re aiming at.</p>
+<h2 id="did-we-actually-save-the-guy">Did we actually save the guy?!?</h2>
+<p>Now that we have more nuance in our understanding of how maxima and minima work… are we really sure that that minimum we found trying to save the guy from the polar bear actually was a minimum??? It was a point where the derivative was zero, sure, but how do we know it wasn’t a maximum???</p>
+<p>In the case of this particular problem, we could probably make various non-calculus arguments for why the point we found (i.e., running all but the last <span class="math inline">\(50\)</span> metres down the beach and swimming the rest of the way) was a minimum. But that’s not <em>always</em> going to be true, so let’s see how these fancy calculus tools work!</p>
+<p>In order to prove (or verify? or find out?) that the point we found actually is a minimum, we’ll need to not only know that the first derivative is zero (which we already did), but we’ll <em>also</em> need to prove that the second derivative is positive. So we’ll take a <em>second</em> derivative of our original time-to-reach-the-guy function, and then plug in the <span class="math inline">\(x\)</span>-value that makes the first derivative zero (i.e., <span class="math inline">\(x=50\)</span>, the <span class="math inline">\(50\)</span> yards we don’t run down the beach), and then see whether the resulting number is negative or positive. That’ll tell us whether we have a maximum or a minimum! (Hopefully the number will be positive, giving us a minimum.)</p>
+<p>So, just as a reminder, the function for how long it takes to reach the guy, as a function of how long we don’t run down the beach, is:</p>
+<p><span class="math display">\[\text{time}(x) = \frac{300-x}{13} + \frac{\sqrt{120^2 + x^2}\,}{5}\]</span></p>
+<p>And its derivative is:</p>
+<p><span class="math display">\[\text{time}&#39;(x) =  -\frac{1}{13} +\frac{x}{5\sqrt{120^2 + x^2\,}\,}\]</span></p>
+<p>So if we take a second derivative, we get:</p>
+<p><span class="math display">\[\begin{align*}
+\text{time}&#39;&#39;(x) &amp;= \Big(\, \text{time}&#39;(x) \, \Big)&#39;  \\ \\
+&amp;= \left( \, \frac{-1}{13} +\frac{x}{5\sqrt{120^2 + x^2} } \,\right)&#39; \\ \\
+&amp;=  \left( \, \frac{-1}{13} \,\right)&#39;  \,+\, \left(\, \frac{x}{5\sqrt{120^2 + x^2} } \,\right)&#39; \\ \\
+&amp;= 0 \quad+\quad \frac{ (x)&#39;\cdot  5\sqrt{120^2 + x^2} \,-\,  x\cdot \left(5\sqrt{120^2 + x^2}\right)&#39;  }{ \left(  5\sqrt{120^2 + x^2} \right)^2 } \\ \\
+&amp;= \frac{ 1 \cdot  5\sqrt{120^2 + x^2} \quad-\quad  x\cdot 5\cdot \frac{1}{ 2\sqrt{120^2 + x^2} }\cdot (2x) }{ \left(  5\sqrt{120^2 + x^2} \right)^2 } \\ \\
+&amp;= \frac{  5\sqrt{120^2 + x^2} \quad-\quad  \frac{5x^2}{ 2\sqrt{120^2 + x^2} } }{ \left(  5\sqrt{120^2 + x^2} \right)^2 } \\ \\
+&amp;= 1 - \frac{x^2}{2\left(  \sqrt{120^2 + x^2}\right)^2} \\ \\
+&amp;= 1 - \frac{x^2}{2\left( 120^2 + x^2\right) }
+\end{align*}\]</span> OK. So that’s the second derivative. What’s its value when <span class="math inline">\(x=50\)</span>? We have: <span class="math display">\[\begin{align*}
+\text{time}&#39;&#39;(50) &amp;= 1 - \frac{50^2}{2\left( 120^2 + 50^2\right) }
+\end{align*}\]</span></p>
+<p>Ugh, this is gross, and we don’t have a calculator. <em>But</em> we only need to find out whether this expression is positive or negative—we don’t actually need to know its precise value. So, without doing any gross arithmetic, and just by thinking about it, we can figure out that it’s positive. Here’s my argument: whatever <span class="math inline">\(50^2\)</span> is, it’s smaller than <span class="math inline">\(120^2+50^2\)</span> (and certainly smaller than twice that), which means that the whole fraction is less than <span class="math inline">\(1\)</span>:</p>
+<p><span class="math display">\[  \frac{50^2}{2\left( 120^2 + 50^2\right) } \quad = \quad \text{something less than $1$}\]</span></p>
+<p>Which means that when we subtract it from <span class="math inline">\(1\)</span>, we’ll still have a positive number:</p>
+<p><span class="math display">\[\begin{align*}
+\text{time}&#39;&#39;(50) &amp;= 1 - \frac{50^2}{2\left( 120^2 + 50^2\right) } \\ \\
+&amp;= 1 - (\text{something less than $1$}) \\
+&amp;= (\text{some positive number})
+\end{align*}\]</span></p>
+<p>Great. So at <span class="math inline">\(x=50\)</span>, the first derivative of this function is zero, and the second derivative is positive. That means that we do, indeed, have a minimum! And it means that in order to save the guy in the minimal amount of time, we do indeed need to run all but the last <span class="math inline">\(50\)</span> yards down the beach. Yay!</p>
+<h2 id="optimization-more-globally">Optimization, more globally</h2>
+<p>The stuff we’re doing here—finding maxima and minima—is known as <strong>optimization</strong>. This is, in general, a hard thing to do. As we’ve seen, it’s more complicated than simply finding where the derivative is zero. That itself is a hard problem. Finding where the derivative is zero is essentially a problem of algebra—the problem of finding where a certain equation is zero, i.e., the problem of finding roots of an equation, i.e., factoring. This is <em>hard</em>. Factoring is <em>not</em> easy, as we’ve discussed. (And what if our equation is <strong>transcendental</strong>, i.e., we can’t solve it even by factoring?) We’ve hardly saved the world. We’ve just reduced one problem that we don’t know how to solve (finding extrema) to another problem that we sometimes know how to solve (finding roots).</p>
+<blockquote>
+<p>A mathematician is tired of teaching and tired of research, so he decides to become a firefighter. He goes down to the New Haven Fire Department to interview, and the fire chief says, “Your record is excellent, and we’d love to hire you, but before we do, I have just two questions: you’re walking down the street one day, and you see a fire in a dumpster. What do you do?”</p>
+<p>The mathematician responds, “I put it out.”</p>
+<p>“Great!,” the fire chief says. “Now, what if you’re walking down the street and you see a dumpster that’s not on fire? What do you do?’’</p>
+<p>The mathematician responds, “Well, I light it on fire, and then I put it out.”</p>
+<p>The fire chief is flabbergasted. “You light it on fire—even though it’s not already on fire? Why would you do that??”</p>
+<p>“Well, because that way, I’ve reduced it to a problem I already know how to solve.”</p>
+</blockquote>
+<p>There’s a bigger problem. We’ve only figured out how to find extrema of nice, simple, smooth functions. Our strategy relies on taking derivatives. We can only take derivatives of things like polynomials and trig functions and exponentials and whatnot. The world isn’t always so smooth. There are plenty of functions (in math, in the world) that are <em>not</em> smooth and continuous like polynomials. The world is chaotic. The world is unpredictable. The world is full of randomness and jumpiness and disorder. When our functions have those features, the problem of finding maxima and minima can be incredibly difficult.</p>
+<p>Here’s an example. I spent four years at the University of Chicago working at the student cinema, Doc Films. Every quarter, the hundred-odd volunteers would have to sign up for shifts. We’d rank our top five shifts and positions, in order of preference, and send them in to the person in charge of scheduling. There were fourteen shows per week (average of two per night), and seven jobs per show, so that gave <span class="math inline">\(7\cdot 14 = 98\)</span> possible slots. So the question was: how do you schedule slots so that the largest number of people get the slots they want the most? how do you schedule such that you create the greatest benefit for the greatest number?</p>
+<p>This <em>doesn’t</em> reduce to an easy problem of “take the derivative!” We could make a function for the net happiness of the volunteers, but it wouldn’t be the sort of smooth curve that we could differentiate. It would be somewhat random and arbitrary, based on the whims of the volunteers. There would be no Platonic foundation. It wouldn’t be like how each of the infinite number of points on the function <span class="math inline">\(y=x^2\)</span> satisfies that equation. It wouldn’t have some beautiful, smooth, continuous, <em>pattern</em>.</p>
+<p>Of course, the advantage the scheduling-the-student-cinema-staff problem has over finding the extrema of <span class="math inline">\(x^2\)</span> is that there are only finite number of possibilities. With <span class="math inline">\(y=x^2\)</span>, one way to find the extrema would be to look at every point, and then look at the points immediately to the left and to the right. If both points are lower, we have a maximum; if both points are higher, we have a minimum. But there are an infinite number of points on <span class="math inline">\(y=x^2\)</span>. Any one of them <em>could</em> be an extremum. We’d have to look at an infinite number of points. And… take some random point on <span class="math inline">\(y=x^2\)</span>, like <span class="math inline">\((x=3,y=9)\)</span>. What’s the point immediately to the left of it? What’s the number immediately below <span class="math inline">\(3\)</span>? <span class="math inline">\(2.9\)</span>? <span class="math inline">\(2.99\)</span>? <span class="math inline">\(2.999\)</span>?</p>
+<p>In the scheduling problem, there are only a finite number of ways we can schedule our finite number of volunteers into a finite number of slots. So in principle, we could look at all the possible arrangements, calculate how optimal each arrangement is, and choose the best one. For example, we could say that a volunteer has a happiness-score of <span class="math inline">\(98\)</span> if they get the job they wanted most, a score of <span class="math inline">\(97\)</span> if they get their second-most-wanted job, and so forth, and then add up all the happiness-scores of all the volunteers. Then we’d just need to calculate this total-happiness-score for each possible arrangement of volunteers into slots, and choose the arrangement that gives us the highest total-happiness-score. With <span class="math inline">\(98\)</span> slots and <span class="math inline">\(98\)</span> volunteers, there are <span class="math inline">\(98!\)</span> possible ways to assign slots. So that’s <span class="math inline">\(98!\)</span> possible arrangements. <span class="math inline">\(98!\)</span> is about <span class="math inline">\(9.4\cdot10^{152}\)</span>.</p>
+<p>The number of atoms in the universe is about <span class="math inline">\(10^{80}\)</span>.</p>
+<p>Uh-oh.</p>
+<p>We can’t check every possible arrangement. If the number of possibilities is greater than the number of atoms in the universe, good luck getting your MacBook to go through each possibility and find the best one. Good luck getting <em>any</em> computer to do that. With a nice smooth curve like <span class="math inline">\(y=x^2\)</span>, we have an infinite number of points, yes, but we also have a <em>pattern</em>. We have <em>predictability</em>. With the scheduling-student-cinema-volunteers problem, we just have a bunch of discrete, randomly-ordered states.</p>
+<p>So we have to give up hope that we can ever find the optimal solution. Instead, we’ll have to find some procedure that gives us a pretty good solution—some algorithm that will <em>approximate</em> a solution, that will <em>estimate</em> the extremum—and hope that our approximation is be pretty close to the actual optimum.</p>
+<p>Here’s a cartoon about another movie-theater-related optimization problem (one that you may me more familiar with):</p>
+<p><img src="movie_seating.png" /><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<h2 id="problems">Problems</h2>
+<ol class='problems'>
+<li>
+<p>Consider the function <span class="math inline">\(f(x)=x^8\)</span>.</p>
+<ol class>
+<li>
+Draw it.
+</li>
+<li>
+Take its derivative! Draw that, too.
+</li>
+<li>
+Take its second derivative! Draw that, too.
+</li>
+<li>
+It (<span class="math inline">\(f(x)\)</span>, that is) has a minimum at <span class="math inline">\(x=0\)</span>, right? Which means that, via the logic we outlined above, its first derivative should be zero there, and its second derivative should be positive, right?
+</li>
+<li>
+Wait, it doesn’t? Why not? What’s going on? What happened? Was I lying to you in these notes?!?!?
+</li>
+</ol>
+<li>
+Same questions as above, but for <span class="math inline">\(f(x) = -x^6\)</span> (sub in “maximum” for minimum, etc.).
+</li>
+</ol>
+<div style="height:5em">
+
+</div>
+<p>Find where each of the following functions are increasing and where they are decreasing. Then find the extrema, and say whether each extremum is a maximum or a minimum. (And, for good measure, sketch the function.)</p>
+<div style="column-width: 10em;  column-gap: 2em;  column-rule: 1px solid #ccc;">
+<ol class="problems">
+<li>
+<span class="math inline">\(f(x) = x^2 - 3x + 2\)</span>
+</li>
+<li>
+<span class="math inline">\(f(x) = x^3 -3x^2 + 6\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle f(x) = x + \frac{1}{x}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle f(x) = x^2 + \frac{1}{x}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle f(x) = x + \frac{1}{x^2}\)</span>
+</li>
+<li>
+<span class="math inline">\(f(x) = (x-3)^3\)</span>
+</li>
+<li>
+<span class="math inline">\(f(x) = x^3(1+x)\)</span>
+</li>
+<li>
+<span class="math inline">\(f(x) = x(x+1)(x+2)\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle f(x) = (x+1)^4\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle f(x) = 2x - \frac{1}{x^2}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle f(x) = \frac{x}{1+x^2}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle f(x) = \frac{x^2+1}{x^2-1}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle f(x) = \frac{x^2}{x^2+1}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle f(x) = x^2(1+x)^2\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle f(x) =\frac{x-1}{x+1}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle f(x) = x^2+\frac{16}{x^2}\)</span>
+</li>
+<li>
+<span class="math inline">\(f(x) = x-\cos(x)\)</span>
+</li>
+<li>
+<span class="math inline">\(f(x) = x+\sin(x)\)</span>
+</li>
+<li>
+<span class="math inline">\(f(x) = \cos(2x)+2\cos(x)\)</span>
+</li>
+<li>
+<span class="math inline">\(f(x) = \cos^2(x)\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle f(x) = \left(\frac{x-2}{x+2} \right)^3\)</span>
+</li>
+<li>
+<span class="math inline">\(f(x) = \sqrt[3]{1-x}\)</span>
+</li>
+<li>
+<span class="math inline">\(f(x) = x\sqrt[3]{1-x}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle f(x) = \frac{1}{x+1} - \frac{1}{x-2}\)</span>
+</li>
+<li>
+<span class="math inline">\(f(x) = x^{7/3} -7x^{1/3}\)</span>
+</li>
+<li>
+<span class="math inline">\(f(x) = x^{2/3} +2x^{1/3}\)</span>
+</li>
+<li>
+<span class="math inline">\(f(x) = (x - \sqrt{x})^2\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle f(x) = (4x-1)^{1/3}(2x-1)^{2/3}\)</span>
+</li>
+<li>
+<span class="math inline">\(y= \sqrt{x}e^{-x}\)</span> (for <span class="math inline">\(x \ge 0\)</span>, obviously)
+</li>
+<li>
+<span class="math inline">\(y= x^2e^{-x}\)</span>
+</li>
+<li>
+<span class="math inline">\(f(x) = 2e^{\sin(x/2)}\)</span>
+</li>
+<li>
+<span class="math inline">\(f(x) = 1 - e^{1+\cos(\pi x)}\)</span>
+</li>
+<li>
+<span class="math inline">\(f(x) = e^{x/(x^2+1)}\)</span>
+</li>
+<li>
+<span class="math inline">\(g(x) = e^{x/\sqrt{x^4+1}}\)</span>
+</li>
+<li>
+<span class="math inline">\(h(t) = e^{t\sqrt{4-t^2}}\)</span>
+</li>
+<li>
+<span class="math inline">\(f(x) = x^2\ln(1/x)\)</span>
+</li>
+<li>
+<span class="math inline">\(y = \ln(\cos x)\)</span>
+</li>
+<li>
+<span class="math inline">\(y = \cos(\ln x)\)</span>
+</li>
+<li>
+<span class="math inline">\(y = x^2\ln(x)\)</span>
+</li>
+<li>
+<span class="math inline">\(y = x\ln(x)\)</span>
+</li>
+<li>
+<span class="math inline">\(f(x) = (1-x)e^x\)</span>
+</li>
+<li>
+<span class="math inline">\(f(x) = e^{1/x^2}\)</span>
+</li>
+<li>
+<span class="math inline">\(f(x) = e^{-x^2}\)</span>
+</li>
+<li>
+<span class="math inline">\(f(x) = x^2e^{-x}\)</span>
+</li>
+<li>
+<span class="math inline">\(f(x) = x^2\ln(x)\)</span>
+</li>
+<li>
+<span class="math inline">\(f(x) = (x-x^2)e^{-x}\)</span>
+</li>
+</ol>
+</div>
+<div style="height:5em">
+
+</div>
+<p>The following are derivatives of functions. Sketch both the derivatives and the original functions (i.e., both <span class="math inline">\(f\)</span> and <span class="math inline">\(f&#39;\)</span>). Where does <span class="math inline">\(f\)</span> have minima? where does <span class="math inline">\(f\)</span> have maxima?</p>
+<div style="column-width: 10em;  column-gap: 2em;  column-rule: 1px solid #ccc;">
+<ol class="problems">
+<li>
+<span class="math inline">\(f&#39;(x) = (x+1)(x-2)^2\)</span>
+</li>
+<li>
+<span class="math inline">\(f&#39;(x) = x^4(x-3)\)</span>
+</li>
+<li>
+<span class="math inline">\(f&#39;(x) = x^3(x-1)^2(x+1)(x-2)\)</span>
+</li>
+<li>
+<span class="math inline">\(f&#39;(x) = x^4(x-2)^3(x+3)(x-6)\)</span>
+</li>
+<li>
+<span class="math inline">\(f&#39;(x) = (x + 1)(x- 5)^2(x^2 + 3)\)</span>
+</li>
+<li>
+<span class="math inline">\(f&#39;(x) = (x - a)(x+b)^2(x+5b)\)</span>
+</li>
+</ol>
+</div>
+<div style="height:5em">
+
+</div>
+<ol class="problems">
+<li>
+Imagine you have the function <span class="math inline">\(f(x) = ax^2 + bx + c\)</span>. Where does <span class="math inline">\(f(x)\)</span> have an extremum? When (i.e., under what conditions of <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span>, and <span class="math inline">\(c\)</span>) is this extremum a maximum? when is it a minimum?
+</li>
+<li>
+Imagine you have <span class="math inline">\(f(x) = ax^3 + bx^2 + cx + d\)</span>. When will <span class="math inline">\(f(x)\)</span> have two extrema? one extrema? no extrema? where are they? (Give <span class="math inline">\((x,y)\)</span>-coordinates.)
+</li>
+<li>
+Consider the function <span class="math inline">\(\displaystyle f(x) = x^2 + \frac{a}{x}\)</span>. What value of <span class="math inline">\(a\)</span> makes it have
+</li>
+<li>
+Where does <span class="math inline">\(\displaystyle f(x) = x^2 + \frac{a}{x}\)</span> have a maximum?
+</li>
+<li>
+What values of <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> make <span class="math inline">\(f(x) = x^3 + ax^2 + bx\)</span> have
+<ol>
+<li>
+a maximum at <span class="math inline">\(x=1\)</span>?
+</li>
+<li>
+a minimum at <span class="math inline">\(x=1\)</span>?
+</li>
+<li>
+an inflection point at <span class="math inline">\(x=1\)</span>?
+</li>
+</ol>
+</li>
+<li>
+Imagine you have the equation <span class="math inline">\(f(x) = x^4 - 8x^3 + 22x^2 - 24x + 4\)</span>. If you wanted to find out where the roots of this equation are (and how many of them there are), you’d need to factor it—but good luck doing so. Without factoring it, though, can you figure out how many roots this equation has (and roughly where they are)? (Hint: find the extrema.)
+</li>
+<li>
+Is the function <span class="math inline">\(f(x) = x^2 - x + 1\)</span> ever negative?
+</li>
+<li>
+Is the function <span class="math inline">\(f(x) = 3+4\cos(x) + \cos(2x)\)</span> ever negative?
+</li>
+<li>
+Suppose the function <span class="math inline">\(f(x) = ax^2 + bx + c\)</span> has a minimum at <span class="math inline">\(x=2\)</span> and passes through the points <span class="math inline">\((-1,3)\)</span> and <span class="math inline">\((3,-1)\)</span>. Find <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span>, and <span class="math inline">\(c\)</span>.
+</li>
+<li>
+If you want the function <span class="math inline">\(\displaystyle f(x)=\frac{ax}{x^2+b^2}\)</span> to have a minimum at <span class="math inline">\(x=-2\)</span> and for the derivative at <span class="math inline">\(0\)</span> to be <span class="math inline">\(-1\)</span> (i.e., <span class="math inline">\(f&#39;(0)=-1\)</span>), what must <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> be?
+</li>
+<li>
+Imagine you have the function <span class="math inline">\(f(x) = x^p(1-x)^q\)</span>. Where might <span class="math inline">\(f\)</span> have extrema? Where does <span class="math inline">\(f\)</span> have a maximum? If <span class="math inline">\(p\)</span> is even, where does <span class="math inline">\(f\)</span> have a minimum? If <span class="math inline">\(q\)</span> is even, where does <span class="math inline">\(f\)</span> have a minimum?
+</li>
+<li>
+How many extrema can a polynomial of degree <span class="math inline">\(n\)</span> have, at most? Why?
+</li>
+<li>
+Imagine you have a function whose first derivative is never zero. What can you say about the function?
+</li>
+<li>
+Imagine you have a function whose second derivative is never zero. What can you say about the function?
+</li>
+<li>
+Imagine you have a point where the derivative is zero, and the second derivative is <em>also</em> zero. Does this mean that the point is not an extremum?
+</li>
+</ol>
+<div style="height:5em">
+
+</div>
+<ol class="problems">
+<li>
+Find the dimensions of the rectangle of perimeter <span class="math inline">\(24\)</span> that has largest area. (What is that area?) Prove that, of all the rectangles with a fixed perimeter, the one with largest area is a square.
+</li>
+<li>
+The sum of two positive numbers is <span class="math inline">\(20\)</span>. If you want the product of the numbers to be as large as possible, what must the numbers be? If you want the sum of the squares of the numbers to be as large as possible, what must the numbers be? If you want the sum of one number plus the square root of the other number to be as large as possible, what must the numbers be?
+</li>
+<li>
+<p>Imagine you have a rectangle inscribed in an isoceles right triangle whose hypotenuse is <span class="math inline">\(2\)</span> units long:</p>
+<p><img src="inscribedrectangle.png" /></p>
+<ol>
+<li>
+Express the <span class="math inline">\(y\)</span>-coordinate of point <span class="math inline">\(P\)</span> in terms of <span class="math inline">\(x\)</span>. (It might help to first come up with an equation for line <span class="math inline">\(AB\)</span>.)
+</li>
+<li>
+Express the area of the rectangle in terms of <span class="math inline">\(x\)</span>.
+</li>
+<li>
+What is the largest possible area the rectangle could have? What are its dimensions?
+</li>
+</ol>
+</li>
+<li>
+A rectangular garden <span class="math inline">\(200\)</span> square feet in area is to be fenced off against deer. Find the dimensions that will require the least amount of fencing if one side is already protected by a barn.
+</li>
+<li>
+Find the largest possible area for a rectangle whose base is on the <span class="math inline">\(x\)</span>-axis and whose vertices are on the curve <span class="math inline">\(y=4-x^2\)</span>.
+</li>
+<li>
+Find the largest possible area for a rectangle inscribed in a circle of radius <span class="math inline">\(4\)</span>.
+</li>
+<li>
+A rectangular warehouse will have <span class="math inline">\(5000\)</span> square feet of floor space and will be seperated into two rectangular rooms by an interior wall. The cost of the exterior walls is <span class="math inline">\(\$1500\)</span> per linear foot and the cost of the interior walls is <span class="math inline">\(\$1000\)</span> per linear foot. Find the dimensions that will minimize the cost of building the warehouse.
+</li>
+<li>
+<p>I once returned home to find that my cat had taken to sleeping in a box that was far too small for it, resulting in ripples of fat spilling out over the edges. (I thought I had photo of the cat in the box on my cell phone, but alas.) Why she found this comfortable, I have no idea. But imagine that you plan to build a similar catbox out of an eight-by-fifteen inch sheet of cardboard. You construct it by cutting squares out from the corners, and folding up the sides.</p>
+<p><img src="box1.png" /></p>
+<p><img src="box2.png" /></p>
+Assuming you want your cat to be comfortable, and thus to not spill out from the edges of the box, what size squares should you cut out if you want to maximize the volume of the box?
+</li>
+<li>
+More generally, what if you have a piece of material that is <span class="math inline">\(w\)</span> units wide and <span class="math inline">\(l\)</span> units long? What is the largest-volume open-topped box you can make with it?
+</li>
+<li>
+A rectangular box with square base and top is to be made to contain <span class="math inline">\(1250\)</span> cubic feet. The material for the base costs <span class="math inline">\(35\)</span> cents per square foot, for the top <span class="math inline">\(15\)</span> cents per square foot, and for the sides <span class="math inline">\(20\)</span> cents per square foot. Find the dimensions that will minimize the cost of the box.
+</li>
+<li>
+You want to break into a building. The building is surrounded by an eight-foot fence, exactly one foot away from the building. What is the shortest-length ladder that can go over the fence and reach the building?
+</li>
+<li>
+More generally, what if you have a fence <span class="math inline">\(h\)</span> feet tall that is <span class="math inline">\(w\)</span> feet away from a tall building? What is the length of the shortest ladder that will reach the building from outside the fence?
+</li>
+<li>
+Conical paper cups are usually made so that the depth is <span class="math inline">\(\sqrt{2}\)</span> times the radius of the rim. Show that this design requires the least amount of paper per unit volume.
+</li>
+<li>
+<p>You have to escape from Isle Royale and make it back to the Minnesotan mainland before the wolves eat you alive! Your rowboat is docked at a point that’s ten miles away from the closest point on shore. You can row at three miles per hour, and you can walk at four miles per hour. Where should you land the boat in order to make it to Grand Marais in the least amount of time? (Assume the shoreline of Lake Superior is straight, which it basically is at that point, and assume that Grand Marais is thirty miles away from the point on shore closest to your dock.) How long does it take you to get there?</p>
+<p><img src="isleroyale.png" /></p>
+</li>
+<li>
+You have enough pure germanium to coat one square meter of surface. You plan to coat a sphere and a cube. What dimensions should they be if you want the total volume of germanium-covered solids to be maximal? minimal?
+</li>
+<li>
+A rectangle has one side on the <span class="math inline">\(x\)</span>-axis, and the upper two corners on the graph of <span class="math inline">\(y=e^{-x^2}\)</span>. Where should the vertices be placed in order to maximize the area of the rectangle?
+</li>
+<li>
+A poster you are designing needs to contain fifty square inches of printed material, with two-inch margins at the top and bottom and one-inch margins on the sides. What dimensions for the poster minimize the amount of paper used?
+</li>
+<li>
+<p>As the deputy director for operations of the Central Arizona Project, you are trying to design a new canal from Tempe to Tucson. The canal will be above ground, for some reason, and built using prefabricated sheets of an advanced polymer composite imported from Norway. The polymer sheets are ten feet wide, and come in sections 39 feet long (to fit in standard shipping containers). Sensibly enough, you’ll assemble them into a quasi-U shape, with one section as the bottom of the canal, and two sections as sides. Since you want to maximize the volume of delicious, life-providing water that this canal carries, what should the angle between the two side pieces and the bottom piece be? (At some point in the answer, trig identities may be helpful.)</p>
+</li>
+<li>
+Imagine you want to fit <span class="math inline">\(12\)</span> ounces (about <span class="math inline">\(21.6\)</span> cubic inches) into a cylindrical can—like a soda can! You could have a really narrow and really long can, but that’d take a lot of aluminum and would be expensive; you could have a really short and really wide can, but that’d take a lot of aluminum and’d be expensive. Somewhere in between these two extremes is the perfect median that minimizes the amount of surface area in your can! Calculate it. What are the dimensions of this optimal soda can? Then go out, find a soda can, measure it, and compare it to your result.
+</li>
+<li>
+More generally, if you want to enclose <span class="math inline">\(k\)</span> ml of liquid into a cylindrical can, and you want the surface area of the can to be minimal, what should the dimensions of the can be? (Compare your result to whatever cans you find lying around the house!)
+</li>
+<li>
+You are designing a soda cans, and in your calculations for the most efficient design, you want to take waste into account. There is no waste in cutting the aluminum for the sides, but the tops and bottoms of radius <span class="math inline">\(r\)</span> must be cut from squares that measure <span class="math inline">\(2r\)</span> on a side. Thus, the total amount of aluminum used by each can will be:<span class="math display">\[A= 2\cdot (2r)^2 + 2\pi rh\]</span>What should <span class="math inline">\(r\)</span> and <span class="math inline">\(h\)</span> be to minimize the amount of aluminum used?
+</li>
+<li>
+What is the maximum possible area for a triangle inscribed in a circle of radius <span class="math inline">\(r\)</span>?
+</li>
+<li>
+A power line is needed to connect a power station on the shore of a river to an island <span class="math inline">\(4\)</span> kilometers downstream and <span class="math inline">\(1\)</span> kilometer offshore. Find the minimum cost for such a line, given that it costs <span class="math inline">\(\$50,000\)</span> per kilometer to lay wire under water and <span class="math inline">\(\$30,000\)</span> per kilometer to lay wire under ground.
+</li>
+<li>
+<p>The U.S. Postal Service will only accept a box for domestic shipment if the sum of its length and girth (distance around) does not exceed <span class="math inline">\(108\)</span> inches. What dimensions will give a box with a square end the largest possible volume?</p>
+<p><img src="package.png" /></p>
+</li>
+<li>
+How close does the semicircle <span class="math inline">\(y=\sqrt{16-x^2}\)</span> come to the point <span class="math inline">\((1,\sqrt{3})\)</span>? (Suggestion: what is it you want to minimize?)
+</li>
+<li>
+A tapestry <span class="math inline">\(7\)</span> feet high hangs on the wall of your castle. The lower edge is <span class="math inline">\(9\)</span> feet above your eye. If you’re really close, then when you want to observe it you’ll have to bend your head upwards and it’ll be really small (as a fraction of your visual field); if you’re really far away, the tapestry will look really small (and thus the angular space it takes up in your visual field will be really small). How far from the wall should the you stand to obtain the most favorable view? Namely, what distance from the wall maximizes the angle that the tapestry takes up in your visual field?
+</li>
+<li>
+Suppose that at some time <span class="math inline">\(t\)</span>, the position of an object moving back and forth along the <span class="math inline">\(x\)</span>-axis is given by <span class="math inline">\(x(t)=(t-1)(t-4)^4\)</span>.
+<ol>
+<li>
+When is the particle at rest? Where is it when it is at rest?
+</li>
+<li>
+When is the particle moving leftwards?
+</li>
+<li>
+When is the particle going the fastest?
+</li>
+<li>
+Graph <span class="math inline">\(x\)</span> as a function of <span class="math inline">\(t\)</span> between <span class="math inline">\(t=0\)</span> and <span class="math inline">\(t=6\)</span>.
+</li>
+</ol>
+</li>
+<li>
+An object of weight <span class="math inline">\(W\)</span> is dragged along a horizontal plane by means of a force <span class="math inline">\(P\)</span> whose line of action makes an angle of <span class="math inline">\(\theta\)</span> with the plane. The magnitude of the force is given by the equation: <span class="math display">\[P = \frac{\mu W}{\mu \sin(\theta)+\cos(\theta)}\]</span>where <span class="math inline">\(\mu\)</span> is the coefficient of friction. For what value of <span class="math inline">\(\theta\)</span> is it easiest to pull the object?
+</li>
+<li>
+<p>Light travels along the path that takes it the least amount of time to get from one place to another. Prove Fermat’s principle: that the angle of incidence of light on a planar, reflective surface, is equal to the angle of reflection:</p>
+<p><img src="fermatsprinciple.png" /></p>
+You can prove this geometrically or analytically (i.e., using calculus); do it using calculus. Suggestion: imagine that light travels from some point <span class="math inline">\(A\)</span> (the flashlight) to another point <span class="math inline">\(B\)</span> (the eye). Can you come up with a function for the total distance the light travels, and minimize that? I always do this one wrong, because I try to write a function for distance in terms of <span class="math inline">\(\theta_i\)</span> and <span class="math inline">\(\theta_r\)</span>—that doesn’t seem to get you anywhere. Instead, try appealing to Pythagoras.
+</li>
+<li>
+What if you have a curved mirror—i.e., a mirror whose surface is not given by a straight line (as in the above problem) but whose surface is given by some function <span class="math inline">\(f(x)\)</span>? Can you prove that Fermat’s principle still holds?
+</li>
+<li>
+Two sources of heat are placed <span class="math inline">\(s\)</span> meters apart—a source of intensity <span class="math inline">\(a\)</span> at <span class="math inline">\(A\)</span> and a source of intensity <span class="math inline">\(b\)</span> at <span class="math inline">\(B\)</span>. The intensity of heat at a point <span class="math inline">\(P\)</span> on the line between <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> is given by the formula: <span class="math display">\[I = \frac{a}{x^2}+\frac{b}{(s-x)^2}\]</span>If you plan on sticking your hand in between the two heat sources, where should you put it?
+</li>
+<li>
+Your bus company offers charter trips to the Adirondack Museum in Blue Mountain Lake at a fare of <span class="math inline">\(\$37\)</span> per person if <span class="math inline">\(16\)</span> to <span class="math inline">\(35\)</span> passengers sign up. You don’t charter trips for fewer than <span class="math inline">\(16\)</span> passengers. The bus has <span class="math inline">\(48\)</span> seats. If more than <span class="math inline">\(35\)</span> passengers sign up, the fare for every passenger is reduced by <span class="math inline">\(50\)</span> cents for each passanger in excess of <span class="math inline">\(35\)</span> who signs up. Determine the number of passengers that maximizes your revenue.
+</li>
+<li>
+You are driving a truck on a freeway at a constant speed of <span class="math inline">\(x\)</span> miles per hour. The maximum speed on the freeway is <span class="math inline">\(55\)</span> mph, and the minimum speed is <span class="math inline">\(35\)</span> mph. Assume that fuel costs <span class="math inline">\(\$1.35\)</span> per gallon (how old is this textbook!?!), and is consumed at a rate of <span class="math inline">\(2 + \frac{1}{600}x^2\)</span> gallons per hour. Given that the driver is paid <span class="math inline">\(\$13\)</span> per hour, at what speed should the truck be driven to minimize the truck owner’s expenses?
+</li>
+</ol>
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>http://xkcd.com/173/<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+</main>
+</body>
+</html>

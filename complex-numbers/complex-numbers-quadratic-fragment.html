@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>complex numbers eqn quadratic fragment</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="/main.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <script src="../highlight-toc.js" type="text/javascript"></script>
+</head>
+<body>
+<main>
+<header id="title-block-header">
+<h1 class="title">complex numbers eqn quadratic fragment</h1>
+</header>
+<p>Suppose we have an equation involving a complex number:</p>
+<p><span class="math display">\[4i = z^2 + z\]</span></p>
+<p>We’d like to be able to find what values of <span class="math inline">\(z\)</span> make this equation true. Maybe there’s one value, maybe there are multiple values, maybe there are no values. We’re pretty good at solving equations with real numbers! But what about with complex numbers? I guess we could factor the right-hand side:</p>
+<p><span class="math display">\[4i = z(z+1)\]</span></p>
+<p>But that’s not very helpful, since the left side is <span class="math inline">\(4i\)</span>, not <span class="math inline">\(0\)</span>, so it’s not as easy as just solving the factors individually.</p>
+<p>Here’s a better idea. There’s a useful trick for solving equations with complex numbers: every complex number is <em>made up of two real numbers</em>, so <strong>if we have one equation relating one complex number, we can turn it into two equations relating two real numbers</strong>. Let’s continue this example so that I can show you what I mean.</p>
+<p>We have this complex number <span class="math inline">\(z\)</span>, and we know that any complex number can be written in the form <span class="math inline">\(a+bi\)</span>, where <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are both real numbers. So then we can turn this equation about a complex number into an equation about some real numbers, <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>:</p>
+<p><span class="math display">\[4i = (a+bi)^2 + (a+bi)\]</span></p>
+<p>If we simplify that a bit, we get:</p>
+<p><span class="math display">\[
+\begin{align*}
+4i &amp;= a^2 + 2bi + b^2i^2 +a+bi \\
+4i&amp;= a^2 + 2bi - b^2 + a + bi &amp;\text{(because $i^2=-1$)}\\
+4i&amp;= a^2 - b^2 + a + 3bi
+\end{align*}
+\]</span></p>
+<p>Then we’ve got two complex numbers—one on the left side of the equation, and one on the right side:</p>
+<p><span class="math display">\[
+\begin{align*}
+0+4i &amp;= \left(a^2 - b^2 + a\right) + 3bi\\ \\
+\underbrace{0}_{\text{real part}} + \underbrace{4}_{\text{imaginary part}}\cdot i \quad&amp;=\quad (\underbrace{a^2 - b^2 + a}_{\text{real part}}) +\underbrace{3b}_{\text{imaginary part}}\cdot i
+\end{align*}
+\]</span></p>
+<p>This looks like one equation with two unknowns—but actually it’s <em>two</em> equations! Since these two complex numbers on the left and on the right are equal, <strong>their real and imaginary parts must also be equal</strong>. So then, we can set the imaginary parts equal to each other:</p>
+<p><span class="math display">\[4 = 3b\]</span></p>
+<p><span class="math display">\[b = 4/3\]</span></p>
+<p>And we’ve found <span class="math inline">\(b\)</span>! We’re halfway there to finding the complex number we’re looking for, <span class="math inline">\(z=a+bi\)</span>. Now we just need to find <span class="math inline">\(a\)</span>. So we can set the real parts equal:</p>
+<p><span class="math display">\[0 = a^2 - b^2 + a\]</span></p>
+<p>Since we’ve found out that <span class="math inline">\(b=4/3\)</span>, we can plug that in:</p>
+<p><span class="math display">\[0 = a^2 - \left(\frac{4}{3}\right)^2 - a\]</span></p>
+<p>Looks like we have a quadratic!</p>
+<p><span class="math display">\[0 = a^2 + a - \left(\frac{4}{3}\right)^2\]</span></p>
+<p>We can try to factor it, but it turns out to be a mess. Let’s use the quadratic equation:</p>
+<p><span class="math display">\[
+\begin{align*}
+a &amp;= \frac{-1 \pm \sqrt{1^2- 4\cdot1\cdot \left(\frac{4}{3}\right)^2 }}{2} \\
+&amp;\vdots \\
+&amp;\text{a whole bunch of arithmetic later...} \\
+&amp;\vdots \\
+&amp;= \frac{-1}{2} \pm\frac{\sqrt{13}}{4} \\
+\end{align*}
+\]</span></p>
+<p>So we’ve found what <span class="math inline">\(a\)</span> can be! There are two possibilities! So we have:</p>
+<p><span class="math display">\[a= \left\{\frac{-1}{2} +\frac{\sqrt{13}}{4} , \quad \frac{-1}{2} -\frac{\sqrt{13}}{4} \right\}\quad\text{and}\quad b=4/3\]</span></p>
+<p>So then there are two possible solutions for <span class="math inline">\(z\)</span>:</p>
+<p><span class="math display">\[
+\begin{align*}
+z =&amp; a+bi \\
+= &amp;\left(\frac{-1}{2} +\frac{\sqrt{13}}{4}\right)  \quad+\quad\frac43i ,\\
+&amp;\left(\frac{-1}{2} -\frac{\sqrt{13}}{4} \right) \quad+\quad\frac43i 
+\end{align*}
+\]</span></p>
+<p>Boy, that’s a lot of work! Maybe I should have made a simpler example. Oh well! If we want to verify that those are both solutions, we could plug them back into the original equation (but this seems like a lot of work).</p>
+</main>
+</body>
+</html>

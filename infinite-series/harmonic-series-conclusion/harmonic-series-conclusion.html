@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>When is \displaystyle \sum^{\infty} n^p finite? When is it infinite?!?</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="/main.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <script src="../highlight-toc.js" type="text/javascript"></script>
+</head>
+<body>
+<main>
+<header id="title-block-header">
+<h1 class="title">When is <span class="math inline">\(\displaystyle \sum^{\infty} n^p\)</span> finite? When is it infinite?!?</h1>
+</header>
+<p>Lots of the sums we’ve been talking about have been of the form <span class="math inline">\(\displaystyle \sum_{n=1}^{n=\infty}n^p\)</span>. Sometimes they converge (they’re finite), and sometimes they diverge (they’re infinite). Sometimes it’s been easy to figure this out; other times, it’s been harder. We can summarize what we’ve learned so far:</p>
+<table style="border-collapse: separate; border:0px;">
+<tr>
+<td>
+</td>
+<td>
+<span class="math display">\[\sum_{n=1}^{\infty} {n^3} =\]</span>
+</td>
+<td>
+<span class="math display">\[1 + 8 + 27 + 64 + \dots\]</span>
+</td>
+<td>
+<span class="math display">\[= \infty\]</span>
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td>
+<span class="math display">\[\sum_{n=1}^{\infty} {n^2} =\]</span>
+</td>
+<td>
+<span class="math display">\[1 + 4 + 9 + 16 + \dots\]</span>
+</td>
+<td>
+<span class="math display">\[= \infty\]</span>
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td>
+<span class="math display">\[\sum_{n=1}^{\infty} {n^1} =\]</span>
+</td>
+<td>
+<span class="math display">\[1 + 2 + 3 + 4 + \dots\]</span>
+</td>
+<td>
+<span class="math display">\[= \infty\]</span>
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td>
+<span class="math display">\[\sum_{n=1}^{\infty} {n^0} =\]</span>
+</td>
+<td>
+<span class="math display">\[1 + 1 + 1 + 1 + \dots\]</span>
+</td>
+<td>
+<span class="math display">\[= \infty\]</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math display">\[\sum_{n=1}^{\infty} \frac{1}{\sqrt{n}} =\]</span>
+</td>
+<td>
+<span class="math display">\[\sum_{n=1}^{\infty} {n^{-0.5}} =\]</span>
+</td>
+<td>
+<span class="math display">\[1 + \frac{1}{\sqrt2} + \frac{1}{\sqrt3} + \frac{1}{\sqrt4} + \dots\]</span>
+</td>
+<td>
+<span class="math display">\[= \infty\]</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math display">\[\sum_{n=1}^{\infty} \frac{1}{n} =\]</span>
+</td>
+<td>
+<span class="math display">\[\sum_{n=1}^{\infty} {n^{-1}} =\]</span>
+</td>
+<td>
+<span class="math display">\[1 + \frac{1}{2} + \frac13 + \frac14 + \dots\]</span>
+</td>
+<td>
+<span class="math display">\[= \infty\]</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math display">\[\sum_{n=1}^{\infty} \frac{1}{n^2} =\]</span>
+</td>
+<td>
+<span class="math display">\[\sum_{n=1}^{\infty} {n^{-2}} =\]</span>
+</td>
+<td>
+<span class="math display">\[1 + \frac{1}{4} + \frac{1}{9} + \frac{1}{16} + \dots\]</span>
+</td>
+<td>
+<span class="math display">\[= \text{finite!}\]</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math display">\[\sum_{n=1}^{\infty} \frac{1}{n^3} =\]</span>
+</td>
+<td>
+<span class="math display">\[\sum_{n=1}^{\infty} {n^{-3}} =\]</span>
+</td>
+<td>
+<span class="math display">\[1 + \frac{1}{8} +\frac{1}{27} + \frac{1}{64} + \dots\]</span>
+</td>
+<td>
+<span class="math display">\[= \text{finite!}\]</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math display">\[\sum_{n=1}^{\infty} \frac{1}{n^4} =\]</span>
+</td>
+<td>
+<span class="math display">\[\sum_{n=1}^{\infty} {n^{-4}} =\]</span>
+</td>
+<td>
+<span class="math display">\[1 + \frac{1}{16} +\frac{1}{81} + \frac{1}{256} + \dots\]</span>
+</td>
+<td>
+<span class="math display">\[= \text{finite!}\]</span>
+</td>
+</tr>
+</table>
+<p>But all of this induces a question: when do series like this magically flip over from being infinite to being finite?!?! <span class="math inline">\(\sum1/n\)</span> is infinite, but <span class="math inline">\(\sum 1/n^2\)</span> is finite. WHAT’S HAPPENING IN BETWEEN?!?!?!</p>
+<p>For example, what about <span class="math inline">\(\sum n^{-1.5} = \sum 1/n^{1.5}\)</span>? Does it converge, or diverge? Is it finite, or infinite??? <span class="math display">\[\sum_{n=1}^{n=\infty} n^{-1.5} \quad=\quad \sum_{n=1}^{n=\infty} \frac{1}{n^{1.5}} \quad=\quad \sum_{n=1}^{n=\infty} \frac{1}{n\sqrt{n}} \quad=\quad  \text{??!?!??}\]</span></p>
+<p>Put more formally, if we have <span class="math inline">\(\sum n^p\)</span>, then:</p>
+<ul>
+<li>if <span class="math inline">\(-1\le p\)</span>, then <span class="math inline">\(\sum n^p\)</span> will diverge and be infinite</li>
+<li>if <span class="math inline">\(-2 &lt; p &lt;-1\)</span>, then… ????</li>
+<li>if <span class="math inline">\(p \le -2\)</span>, then <span class="math inline">\(\sum n^p\)</span> will converge and be finite</li>
+</ul>
+<p>Somewhere in between <span class="math inline">\(p=-1\)</span> and <span class="math inline">\(p=-2\)</span>, this sum has to flip over from being finite to being infinite. But where??!?! When?!? When does it somehow—in a moment of metaphysical glory; in a flash of phosphorus; in a delta-function burst of electromagnetic energy—go from being finite to being infinite?</p>
+<p>More generally:</p>
+<table style="border-collapse: separate; border:0px;">
+<tr>
+<td>
+<span class="math display">\[\vdots\]</span>
+</td>
+<td>
+<span class="math display">\[\vdots\]</span>
+</td>
+<td>
+<span class="math display">\[\vdots\]</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math display">\[\vdots\]</span>
+</td>
+<td>
+<span class="math display">\[\vdots\]</span>
+</td>
+<td>
+<span class="math display">\[= \infty\]</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math display">\[\sum_{n=1}^{\infty} {n^0} =\]</span>
+</td>
+<td>
+<span class="math display">\[1 + 1 + 1 + 1 + \dots\]</span>
+</td>
+<td>
+<span class="math display">\[= \infty\]</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math display">\[\sum_{n=1}^{\infty} {n^{-0.5}} =\]</span>
+</td>
+<td>
+<span class="math display">\[1 + \frac{1}{\sqrt2} + \frac{1}{\sqrt3} + \frac{1}{\sqrt4} + \dots\]</span>
+</td>
+<td>
+<span class="math display">\[= \infty\]</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math display">\[\sum_{n=1}^{\infty} {n^{-1}} =\]</span>
+</td>
+<td>
+<span class="math display">\[1 + \frac{1}{2} + \frac13 + \frac14 + \dots\]</span>
+</td>
+<td>
+<span class="math display">\[= \infty\]</span>
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td>
+<span class="math display">\[???\]</span>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="3" style="text-align:center;">
+WHAT’S HAPPENING IN HERE?!?
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td>
+<span class="math display">\[???\]</span>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math display">\[\sum_{n=1}^{\infty} {n^{-2}} =\]</span>
+</td>
+<td>
+<span class="math display">\[1 + \frac{1}{4} + \frac{1}{9} + \frac{1}{16} + \dots\]</span>
+</td>
+<td>
+<span class="math display">\[= \text{finite!}\]</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math display">\[\sum_{n=1}^{\infty} {n^{-3}} =\]</span>
+</td>
+<td>
+<span class="math display">\[1 + \frac{1}{8} +\frac{1}{27} + \frac{1}{64} + \dots\]</span>
+</td>
+<td>
+<span class="math display">\[= \text{finite!}\]</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math display">\[\vdots\]</span>
+</td>
+<td>
+<span class="math display">\[\vdots\]</span>
+</td>
+<td>
+<span class="math display">\[= \text{finite!}\]</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math display">\[\vdots\]</span>
+</td>
+<td>
+<span class="math display">\[\vdots\]</span>
+</td>
+<td>
+<span class="math display">\[\vdots\]</span>
+</td>
+</tr>
+</table>
+<p>In Fall 2019, Block 4 wanted to have a betting pool on where it flips. “I bet it’s something weird, like <span class="math inline">\(-\pi/e\)</span>,” several people in Block 7 said. We took an anonymous survey:</p>
+<ul>
+<li><span class="math inline">\(-\ln(e)\)</span></li>
+<li>If it is less than <span class="math inline">\(-1\)</span>, it converges</li>
+<li><span class="math inline">\(-\pi/e\)</span></li>
+<li><span class="math inline">\(-e^{1/\pi}\)</span></li>
+<li><span class="math inline">\(e^{i\pi}\)</span></li>
+<li><span class="math inline">\(??????? -\pi/e ?????\)</span></li>
+<li><span class="math inline">\(-1.\overline{000}00000000\)</span></li>
+<li>anything over <span class="math inline">\(-1\)</span> is finite</li>
+<li><span class="math inline">\(-\ln{\pi}\)</span></li>
+<li><span class="math inline">\(-1.9\)</span></li>
+</ul>
+<p>But mathematics is not a democracy!!! We don’t get to <em>decide</em> where <span class="math inline">\(\sum n^p\)</span> flips from being finite to infinite. We don’t get to <em>vote</em>!!! You don’t get to choose, and I don’t get to choose, either—<em>mathematical reality is not an act of will</em>—yours, mine, or anyone else’s—all of us have to submit to the external truth. “Free to Choose”? Not when it comes to mathematics.</p>
+<p>If we knew calculus, all of this would have been much more straightforward. We could have done one very simple proof, using calculus techniques, and then figured out where <span class="math inline">\(\sum n^p\)</span> flips, and we could have avoided doing all of the algebraic proofs we’ve done, for <span class="math inline">\(\sum 1/n\)</span>, for <span class="math inline">\(\sum 1/n^2\)</span>, and also the one we’re about to do. But we don’t know calculus yet! Rats. So, instead, we’ll have to do an algebraic proof.</p>
+<p>Back in 2019, I couldn’t figure out how to do this myself without calculus, so I simultaneously <a href="https://math.stackexchange.com/questions/3423618/how-to-prove-that-sum-frac1nk-converges-for-1k2-without-calculus">posted about it on Math StackExchange</a>, and also emailed the Nueva math department. Several people quickly replied to my post, and Kathy Paur to my email, so this proof comes from them!</p>
+<p>What I like about this proof, as I reflect on it years later, is how it pulls together a lot of disparate ideas about infinite series. We’ve thought of series like <span class="math inline">\(\sum n^p\)</span> and series like <span class="math inline">\(\sum a^n\)</span> as being very different. They behave in different ways; they require different tools for us to understand them; they have different energies. But the cool thing here is that we’ll end up translating this not-a-geometric-series into a geometric series, and then using our geometric series knowledge to figure out what happens!</p>
+<p>More specifically, here’s what we’re going to do. We’re going to use our favorite strategy: comparison. (You shouldn’t compare yourself, as a person, to other people, but you can feel free to compare sums to other sums!) We’re going to compare <span class="math inline">\(\sum n^p\)</span> to another series. That other series will sometimes converge and sometimes diverge, and that’ll tell us when <span class="math inline">\(\sum n^p\)</span> converges and diverges.</p>
+<p>The series we’re going to compare <span class="math inline">\(\sum n^p\)</span> to we’re going to build in a way that’s similar to how we proved that <span class="math inline">\(\sum 1/n\)</span> diverged. When we proved that <span class="math inline">\(\sum 1/n\)</span> diverged, we did that by showing that we could group terms into bunches that were always more than <span class="math inline">\(1/2\)</span>, and thus we showed that <span class="math inline">\(\sum 1/n\)</span> is always greater than <span class="math inline">\(\sum 1/2\)</span>. That’s infinite, so then <span class="math inline">\(\sum 1/n\)</span> must be, too.</p>
+<p>The series we compare <span class="math inline">\(\sum n^p\)</span> is going to turn out to be a geometric series, so let’s quickly remind ourselves of the geometric series formula: <span class="math display">\[ \sum_{n=0}^{n = \infty} a^n = \frac{1}{1-a} \]</span> But remember, there’s an important caveat to this formula. Namely, <em>it only works when <span class="math inline">\(a\)</span> is less than <span class="math inline">\(1\)</span></em> (and greater than <span class="math inline">\(-1\)</span>). If <span class="math inline">\(a\)</span> is bigger than <span class="math inline">\(1\)</span> (or rather, if the absolute value of <span class="math inline">\(a\)</span> is bigger than <span class="math inline">\(1\)</span>), we get something that is explodingly-infinite. For example, if <span class="math inline">\(a=5\)</span>: <span class="math display">\[ \sum_{n=0}^{n = \infty} 5^n = 1 + 5 + 5^2 + 5^3 + 5^4 + \cdots = \infty \neq \frac{1}{1-5} \]</span></p>
+<p>So the truer version of our geometric series formula is:</p>
+<p><span class="math display">\[\sum_{n=0}^{n=\infty} a^n = 
+  \begin{cases}
+                                   \infty  &amp; \text{if $|a|&gt;1$ } \\ \\
+                                   \displaystyle\frac{1}{1-a}  &amp; \text{if $-1&lt;a&lt;+1$} \\
+  \end{cases}
+\]</span></p>
+<p>This is an important caveat. It’s going to be decisive in our proof.</p>
+<p>Enough with the preambulation! Let’s begin. Let’s try to figure out what happens when we have the series <span class="math inline">\(n^p\)</span>, and <span class="math inline">\(p\)</span> is some negative number: <span class="math display">\[ \sum_{n=1}^{n=\infty} n^p \quad\text{for }p&lt;0\]</span> But actually, just to make this more clear, let’s write this as a fraction. Let’s set <span class="math inline">\(q = -p\)</span>, so that: <span class="math display">\[ \sum_{n=1}^{n=\infty} n^p =  \sum_{n=1}^{n=\infty} \frac{1}{n^q}\]</span> Then we’ll do our proof with the <span class="math inline">\(\sum 1/n^q\)</span> version. It’ll just be a little easier to see it this way. Writing it as a fraction will remind us that we’re interested in the case when it’s a fraction. So, if we write out a bunch of terms, we get: <span class="math display">\[ \sum_{n=1}^{n=\infty} n^p = 1+\frac{1}{2^q}+\frac{1}{3^q}+\frac{1}{4^q}+\frac{1}{5^q}+\frac{1}{6^q}+\frac{1}{7^q}+\frac{1}{8^q}+\frac{1}{9^q}+\frac{1}{10^q}+\frac{1}{11^q}+\frac{1}{12^q}+\cdots\]</span> Anyway, let’s take a look at the second and third terms. We have: <span class="math display">\[\frac{1}{2^q}+\frac{1}{3^q}\]</span> These must be less than: <span class="math display">\[\frac{1}{2^q}+\frac{1}{2^q}\]</span> <span class="math inline">\(2^q &lt; 3^q\)</span>, since <span class="math inline">\(q\)</span> is some positive number, so then <span class="math inline">\(1/2^q &gt; 1/3^q\)</span>. So we have: <span class="math display">\[ \sum_{n=1}^{n=\infty} \frac{1}{n^q} = 1+\underbrace{\frac{1}{2^q}+\frac{1}{3^q}}_{\substack{\wedge \\ \frac{1}{2^q}+\frac{1}{2^q}\\ \\ 2\cdot\frac{1}{2^q}}}+\frac{1}{4^q}+\frac{1}{5^q}+\frac{1}{6^q}+\frac{1}{7^q}+\frac{1}{8^q}+\frac{1}{9^q}+\frac{1}{10^q}+\frac{1}{11^q}+\frac{1}{12^q}+\cdots\]</span> We can do the same thing with the next four terms. Each of those terms must be less than <span class="math inline">\(1/4^q\)</span>, so we have: <span class="math display">\[ \sum_{n=1}^{n=\infty} \frac{1}{n^q} = 1+\underbrace{\frac{1}{2^q}+\frac{1}{3^q}}_{\substack{\wedge \\ \frac{1}{2^q}+\frac{1}{2^q}\\ \\ 2\cdot\frac{1}{2^q}}}+\underbrace{\frac{1}{4^q}+\frac{1}{5^q}+\frac{1}{6^q}+\frac{1}{7^q}}_{\substack{\wedge \\ \frac{1}{4^q}+\frac{1}{4^q}+\frac{1}{4^q}+\frac{1}{4^q}\\ \\ 4\cdot\frac{1}{4^q}}}+\frac{1}{8^q}+\frac{1}{9^q}+\frac{1}{10^q}+\frac{1}{11^q}+\frac{1}{12^q}+\cdots\]</span> Let’s continue! We can do that with the next eight terms: <span class="math display">\[ \sum_{n=1}^{n=\infty} \frac{1}{n^q} = 1+\underbrace{\frac{1}{2^q}+\frac{1}{3^q}}_{\substack{\wedge \\ \frac{1}{2^q}+\frac{1}{2^q}\\ \\ 2\cdot\frac{1}{2^q}}}+\underbrace{\frac{1}{4^q}+\frac{1}{5^q}+\frac{1}{6^q}+\frac{1}{7^q}}_{\substack{\wedge \\ \frac{1}{4^q}+\frac{1}{4^q}+\frac{1}{4^q}+\frac{1}{4^q}\\ \\ 4\cdot\frac{1}{4^q}}}+\underbrace{\frac{1}{8^q}+\frac{1}{9^q}+\frac{1}{10^q}+\frac{1}{11^q}+\frac{1}{12^q}+\frac{1}{13^q}+\frac{1}{14^q}+\frac{1}{15^q}}_{\substack{\wedge \\ \frac{1}{8^q}+\frac{1}{8^q}+\frac{1}{8^q}+\frac{1}{8^q}+\frac{1}{8^q}+\frac{1}{8^q}+\frac{1}{8^q}+\frac{1}{8^q}\\ \\ 8\cdot\frac{1}{8^q}}}+\cdots\]</span> This is so much writing! Let’s simplify it a bit. We can use properties of exponents: <span class="math display">\[2\cdot\frac{1}{2^q} = \frac{2}{2^q} = \frac{2^1}{2^q} = 2^{1-q}\]</span></p>
+<p>So we have:</p>
+<p><span class="math display">\[ \sum_{n=1}^{n=\infty} \frac{1}{n^q} = 1+\underbrace{\frac{1}{2^q}+\frac{1}{3^q}}_{\substack{\wedge \\ \\ 2^{1-q}}}+\underbrace{\frac{1}{4^q}+\frac{1}{5^q}+\frac{1}{6^q}+\frac{1}{7^q}}_{\substack{\wedge \\ \\ 4^{1-q} }}+\underbrace{\frac{1}{8^q}+\frac{1}{9^q}+\frac{1}{10^q}+\frac{1}{11^q}+\frac{1}{12^q}+\frac{1}{13^q}+\frac{1}{14^q}+\frac{1}{15^q}}_{\substack{\wedge \\ \\  8^{1-q} }}+\cdots\]</span></p>
+<p>So then, the series we’re comparing <span class="math inline">\(\sum 1/n^q\)</span> to becomes: <span class="math display">\[ \sum_{n=1}^{n=\infty} \frac{1}{n^q} \quad&lt;\quad 1 + 2^{1-q} + 4^{1-q} + 8^{1-q} + \cdots\]</span> This is starting to have some geometric series energy! There’s a <span class="math inline">\(2\)</span>, a <span class="math inline">\(4\)</span>, an <span class="math inline">\(8\)</span>—a whole bunch of powers of <span class="math inline">\(2\)</span>! Let’s write the <span class="math inline">\(1\)</span> so that it matches up with the other terms. <span class="math inline">\(1\)</span> raised to anything is just <span class="math inline">\(1\)</span>, so we can write it as: <span class="math display">\[ \sum_{n=1}^{n=\infty} \frac{1}{n^q} \quad&lt;\quad 1^{1-q} + 2^{1-q} + 4^{1-q} + 8^{1-q} + \cdots\]</span> OK, what else is going on here? We’ve got these weird exponents. They’re the same for every term. But the bases are all different. Or are they??! After all, they’re all just powers of <span class="math inline">\(2\)</span>. So let’s rewrite them to make that more explicit: <span class="math display">\[ \sum_{n=1}^{n=\infty} \frac{1}{n^q} \quad&lt;\quad \left(2^0\right)^{1-q} + \left(2^1\right)^{1-q} + \left(2^2\right)^{1-q} + \left(2^3\right)^{1-q} + \cdots\]</span> OK, now it has even stronger geometric series energy! But the powers of <span class="math inline">\(2\)</span> are trapped inside these other exponents. Let’s see if we can free the geometric series within! Let’s see if we can bring out even more geometric series energy! We know, from properties of exponents, that we can swap the exponents on the outside and inside of these parentheses: <span class="math display">\[\left(a^b\right)^c = a^{b\cdot c} = a^{c\cdot b} = \left(a^c\right)^b\]</span> So if we do that here, we get: <span class="math display">\[ \sum_{n=1}^{n=\infty} \frac{1}{n^q} \quad&lt;\quad \left(2^{1-q}\right)^0 + \left(2^{1-q}\right)^1 + \left(2^{1-q}\right)^2 + \left(2^{1-q}\right)^3 + \cdots\]</span> Look at this pattern!!!! <span class="math inline">\(q\)</span> is just a constant here—it’s a number, like <span class="math inline">\(1\)</span> or <span class="math inline">\(2\)</span> or <span class="math inline">\(3\)</span>—so we’ve got <span class="math inline">\(2\)</span> raised to some constant, which is just some number, raised to a power that increases every term! This is just a geometric series! We can write it in <span class="math inline">\(\sum\)</span>-form as: <span class="math display">\[ \sum_{n=1}^{n=\infty} \frac{1}{n^q} \quad&lt;\quad \sum_{n=1}^{n=\infty}\left(2^{1-q}\right)^n\]</span> So, this is a geometric series on the right, so we can use our geometric series formula! At least we can use it <em>sometimes</em>. <span class="math display">\[ \sum_{n=1}^{n=\infty} \frac{1}{n^q} \quad&lt;\quad \sum_{n=1}^{n=\infty}\left(2^{1-q}\right)^n \quad \stackrel{\text{sometimes}}{=} \quad \frac{1}{1-2^{1-q}} - 1\]</span> Note that we had to subtract <span class="math inline">\(1\)</span> there, because the geometric series on the right starts at <span class="math inline">\(n=1\)</span>, not <span class="math inline">\(n=0\)</span>. Anyway, this geometric series will only converge when its base is less than <span class="math inline">\(1\)</span>! (Or, more precisely, when its <em>absolute value</em> is less than <span class="math inline">\(1\)</span>, since it can be between <span class="math inline">\(-1\)</span> and <span class="math inline">\(+1\)</span>.)</p>
+<p><span class="math display">\[ \sum_{n=1}^{n=\infty} \frac{1}{n^q} \quad&lt;\quad \sum_{n=1}^{n=\infty}\left(2^{1-q}\right)^n \quad =\quad \begin{cases} \infty \text{, if } \left| 2^{1-q} \right| \ge 1 \\ \\
+\text{finite, if } \left| 2^{1-q} \right| &lt; 1 \end{cases} \]</span></p>
+<p>So when is <span class="math inline">\(2^{1-q}\)</span> less than <span class="math inline">\(1\)</span>?? In order to make <span class="math inline">\(2^{1-q}\)</span> less than <span class="math inline">\(1\)</span>, the exponent needs to be less than <span class="math inline">\(0\)</span> (because then we have <span class="math inline">\(2^0=1\)</span>). But that means we need <span class="math inline">\(1-q\)</span> to be less than <span class="math inline">\(0\)</span>, so <span class="math inline">\(q\)</span> needs to be greater than <span class="math inline">\(1\)</span>.</p>
+<p>That’s a linguistic explanation, which might or might not have made sense. If it doesn’t, then we can argue it with some algebra. To figure out when this series converges, i.e., when this series is finite, we need to find what value of <span class="math inline">\(q\)</span> makes <span class="math inline">\(2^{1-q}\)</span> less than <span class="math inline">\(1\)</span>, Algebraically, this is:</p>
+<p><span class="math display">\[2^{1-q} &lt; 1\]</span></p>
+<p>So, can we solve this for <span class="math inline">\(q\)</span>? It’s trapped in an exponent, so let’s take the <span class="math inline">\(\log_2\)</span> of both sides:</p>
+<p><span class="math display">\[\log_2\left( 2^{1-q} \right) &lt; \log_2(1)\]</span></p>
+<p>Logarithms and exponentials with the same base cancel out (they’re inverses), so this becomes:</p>
+<p><span class="math display">\[1 - q &lt; 0\]</span></p>
+<p>Alternatively, you could take our original inequality, <span class="math inline">\(2^{1-q} &lt; 1\)</span>, rewrite <span class="math inline">\(1\)</span> as <span class="math inline">\(2^0\)</span>, and get:</p>
+<p><span class="math display">\[2^{1-q} &lt; 2^0\]</span></p>
+<p>Either way, we end up with:</p>
+<p><span class="math display">\[1 - q &lt; 0\]</span></p>
+<p>I.e.:</p>
+<p><span class="math display">\[1 &lt; q\]</span></p>
+<p>So if <span class="math inline">\(q&gt;1\)</span>, our geometric series will converge, and then so will <span class="math inline">\(\sum 1/n^q\)</span>! If <span class="math inline">\(q\le 1\)</span>, then we already know (by the proof we did a while ago) that <span class="math inline">\(\sum 1/n^q\)</span> diverges. So that’s the threshold!!!</p>
+<p><span class="math display">\[\boxed{
+ \sum_{n=1}^{n=\infty} \frac{1}{n^q} = 
+  \begin{cases}
+                                   \infty  &amp; \text{if $q\le1$} \\ \\
+                                   \text{finite} &amp; \text{if $q&gt; 1$} \\
+  \end{cases}
+  }
+\]</span> Or, in the different form: <span class="math display">\[ \boxed{
+ \sum_{n=1}^{n=\infty} n^p = 
+  \begin{cases}
+                                   \infty  &amp; \text{if $p\ge-1$} \\ \\
+                                   \text{finite} &amp; \text{if $p&lt;-1$} \\
+  \end{cases}
+  }
+\]</span> In other words—to give some concrete examples here—we have: <span class="math display">\[\begin{align*}
+\sum_{n=1}^{n=\infty} \frac{1}{n^{0.999999999998999997}} &amp;= \infty \\ \\
+\sum_{n=1}^{n=\infty} \frac{1}{n^{1.000000000000000000}} &amp;= \infty \\ \\
+\sum_{n=1}^{n=\infty} \frac{1}{n^{1.000000000000000001}} &amp;= \text{some finite number! it converges!!!}
+\end{align*}\]</span></p>
+<p>Here’s another way to put it:</p>
+<p><span class="math display">\[\sum_{n=1}^{n=\infty} \frac{1}{n^{\text{anything less than $1$}}} = \infty\]</span> <span class="math display">\[\sum_{n=1}^{n=\infty} \frac{1}{n^{\text{anything bigger than $1$}}} = \text{finite}\]</span></p>
+<p>We can update our helpful little chart, too:</p>
+<p><span class="math display">\[
+\begin{align*}
+\infty \quad &amp;\begin{cases} \quad \vdots \\ \\
+\displaystyle\sum n^3 \\ \\
+\displaystyle\sum n^2 \\ \\
+\displaystyle\sum n^1 \\ \\
+\displaystyle\sum n^0 \\ \\
+\displaystyle\sum \frac1n 
+\end{cases} \\
+\text{finite}\quad  &amp;\begin{cases}
+   \\ \\
+  \displaystyle\sum \frac{1}{n^2} \\ \\
+  \displaystyle\sum \frac{1}{n^3} \\ \\
+  \displaystyle\sum \frac{1}{n^4} \\ \\
+  \quad \vdots
+\end{cases}
+\end{align*}
+\]</span></p>
+<p>What if we plot the value of <span class="math inline">\(\sum n^p\)</span>, as <span class="math inline">\(p\)</span> changes? Like, if we plot <span class="math inline">\(p\)</span> on the horizontal, and the total value of the sum on the vertical (maybe infinite, maybe finite, depending on <span class="math inline">\(p\)</span>), we’ll have something like:</p>
+<p><img src="p-series-transition.svg" style="width:100.0%" /></p>
+<p>So the series is finite when <span class="math inline">\(p&lt;-1\)</span>, and then, as <span class="math inline">\(p\)</span> approaches <span class="math inline">\(-1\)</span>, it gets bigger and bigger and bigger and vertically asymptotes up, and then it’s just infinite after that, for any bigger value of <span class="math inline">\(p\)</span>!!!</p>
+<p>Why does this happen? What’s so special about <span class="math inline">\(-1\)</span> as the threshold??? I mean, we did this symbolic, formal, rigorous proof, but <em>why</em>??? I believe this proof, but I’m not sure that I feel, in my gut, <em>why</em> this is true. (<em>Maybe</em> if I think about the calculus-based reasoning, I can feel a deeper reasoning, but even then…)</p>
+</main>
+</body>
+</html>

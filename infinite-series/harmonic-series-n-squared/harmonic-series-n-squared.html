@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Does \displaystyle \sum^{\infty} \frac{1}{n^2} converge?</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="/main.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <script src="../highlight-toc.js" type="text/javascript"></script>
+</head>
+<body>
+<script>document.addEventListener('DOMContentLoaded', function(e) {
+  Scroller.init();
+})</script>
+<aside>
+<div class="tocLinks" >
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#initial-point">initial point</a></li>
+<li><a href="#try-1">try #1</a></li>
+<li><a href="#try-2">try #2</a></li>
+<li><a href="#try-3">try #3</a></li>
+<li><a href="#try-5">try #5</a></li>
+<li><a href="#try-6">try #6</a></li>
+<li><a href="#questions">Questions</a></li>
+</ul>
+</nav>
+</div>
+</aside>
+<main>
+<header id="title-block-header">
+<h1 class="title">Does <span class="math inline">\(\displaystyle \sum^{\infty} \frac{1}{n^2}\)</span> converge?</h1>
+</header>
+<p>We’ve figured out that <span class="math inline">\(1/n\)</span> diverges. But what about <span class="math inline">\(1/n^2\)</span>?</p>
+<p><span class="math display">\[\sum_{n=1}^{n=\infty} \frac{1}{n^2} = 1 + \frac{1}{4} + \frac{1}{9} + \frac{1}{16} + \frac{1}{25} + \frac{1}{36} + \cdots\]</span></p>
+<p>Its terms are going to <span class="math inline">\(0\)</span>. They’re going to <span class="math inline">\(0\)</span> much faster than the terms of <span class="math inline">\(1/n\)</span> do. (They’re squared!). But that doesn’t mean the series converges. <span class="math inline">\(1/n^2\)</span> is less than <span class="math inline">\(1/n\)</span>, but all that tells us is that <span class="math inline">\(1/n^2\)</span> is less than <span class="math inline">\(\infty\)</span>. It could be less than <span class="math inline">\(1/n\)</span>, and still be infinite. It could be less than <span class="math inline">\(1/n\)</span>, but be finite (it’d have to be waaaaay less).</p>
+<p>So what’s its deal?</p>
+<h2 id="initial-point">initial point</h2>
+<p>It’s worth pointing out, before we go too far, that this series <em>doesn’t</em> have the same energy as <span class="math inline">\(1/2^n\)</span> (to use Kayla Ling’s delightful and delightfully-Californian phrase). We’ve spent all this time with geometric series like <span class="math inline">\(1/2^n\)</span>, <span class="math inline">\(1/5^n\)</span>, <span class="math inline">\(\left(2^n-1\right)/2^n\)</span>, etc., but what they all have in common is that they’re a <em>constant</em> raised to the <em>variable</em>. Two raised to <span class="math inline">\(n\)</span>. But <span class="math inline">\(n^2\)</span> is the variable raised to a constant. That’s different!</p>
+<p><span class="math display">\[\underbrace{\sum_{n=0}^{n = \infty} (\text{constant})^\text{variable} \quad=\quad \frac{1}{1-(\text{constant})} }_{\text{the geometric series stuff}} \quad\neq\quad \underbrace{\sum (\text{variable})^\text{constant}}_{\text{totally different}}\]</span></p>
+<p>It’s not better, or worse; it doesn’t automatically mean that it does or doesn’t converge; it’s just… different.</p>
+<h2 id="try-1">try #1</h2>
+<p>Lacking any other immediate ideas, we could compare it to a series we already understand! For example, we could compare it to the series <span class="math inline">\(\sum \frac{1}{2^n}\)</span>, which we know converges. Let’s write out some terms:</p>
+<table>
+<thead>
+<td>
+</td>
+<td>
+<span class="math display">\[\sum_{n=1}^{n=\infty} \frac{1}{2^n}\]</span>
+</td>
+<td>
+</td>
+<td>
+<span class="math display">\[\sum_{n=1}^{n=\infty} \frac{1}{n^2}\]</span>
+</td>
+</thead>
+<tr>
+<td>
+<span class="math inline">\(n=1\)</span>
+</td>
+<td>
+<span class="math display">\[\frac12\]</span>
+</td>
+<td>
+<span class="math display">\[ &lt; \]</span>
+</td>
+<td>
+<span class="math display">\[1\]</span>
+<td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(n=2\)</span>
+</td>
+<td>
+<span class="math display">\[\frac14\]</span>
+</td>
+<td>
+<span class="math display">\[ = \]</span>
+</td>
+<td>
+<span class="math display">\[\frac{1}{4}\]</span>
+<td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(n=3\)</span>
+</td>
+<td>
+<span class="math display">\[\frac18\]</span>
+</td>
+<td>
+<span class="math display">\[ &gt; \]</span>
+</td>
+<td>
+<span class="math display">\[\frac{1}{9}\]</span>
+<td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(n=4\)</span>
+</td>
+<td>
+<span class="math display">\[\frac{1}{16}\]</span>
+</td>
+<td>
+<span class="math display">\[ = \]</span>
+</td>
+<td>
+<span class="math display">\[\frac{1}{16}\]</span>
+<td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(n=5\)</span>
+</td>
+<td>
+<span class="math display">\[\frac{1}{32}\]</span>
+</td>
+<td>
+<span class="math display">\[ &lt;\]</span>
+</td>
+<td>
+<span class="math display">\[\frac{1}{25}\]</span>
+<td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(n=6\)</span>
+</td>
+<td>
+<span class="math display">\[\frac{1}{64}\]</span>
+</td>
+<td>
+<span class="math display">\[ &lt; \]</span>
+</td>
+<td>
+<span class="math display">\[\frac{1}{36}\]</span>
+<td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(n=7\)</span>
+</td>
+<td>
+<span class="math display">\[\frac{1}{128}\]</span>
+</td>
+<td>
+<span class="math display">\[ &lt; \]</span>
+</td>
+<td>
+<span class="math display">\[\frac{1}{49}\]</span>
+<td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(n=8\)</span>
+</td>
+<td>
+<span class="math display">\[\frac{1}{256}\]</span>
+</td>
+<td>
+<span class="math display">\[ &lt; \]</span>
+</td>
+<td>
+<span class="math display">\[\frac{1}{64}\]</span>
+<td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(n=9\)</span>
+</td>
+<td>
+<span class="math display">\[\frac{1}{512}\]</span>
+</td>
+<td>
+<span class="math display">\[ &lt; \]</span>
+</td>
+<td>
+<span class="math display">\[\frac{1}{81}\]</span>
+<td>
+</tr>
+<tr>
+<td>
+<span class="math display">\[\vdots\]</span>
+</td>
+<td>
+etc.
+</td>
+<td>
+<span class="math display">\[ &lt; \]</span>
+</td>
+<td>
+etc.
+<td>
+</tr>
+</table>
+<p>This is kind of wacky! It takes a while for it to settle down into a consistent pecking order. At first <span class="math inline">\(1/n^2\)</span> is bigger, then they’re equal, then it’s smaller, then they’re equal again, then <span class="math inline">\(1/n^2\)</span> is bigger again. But after that—after the <span class="math inline">\(n=5\)</span> term—the <span class="math inline">\(1/n^2\)</span> series is always going to be bigger. <span class="math inline">\(2^n\)</span> just gets so big, so fast, that squaring isn’t going to be able to keep up. It’s slower to get started—but faster once it gets going.</p>
+<p>So, in other words, the <span class="math inline">\(1/n^2\)</span> series is going to be bigger than the <span class="math inline">\(1/2^n\)</span> series:</p>
+<p><span class="math display">\[\sum_{n=1}^{n=\infty} \frac{1}{2^n} \quad&lt;\quad \sum_{n=1}^{n=\infty} \frac{1}{n^2}\]</span></p>
+<p>And since the <span class="math inline">\(1/2^n\)</span> series is <span class="math inline">\(1\)</span> (when we start at <span class="math inline">\(n=1\)</span>), this means:</p>
+<p><span class="math display">\[1 \quad&lt;\quad \sum_{n=1}^{n=\infty} \frac{1}{n^2}\]</span></p>
+<p>But… saying that the <span class="math inline">\(1/n^2\)</span> series is bigger than <span class="math inline">\(1\)</span> doesn’t tell us very much. It could be a LOT bigger than <span class="math inline">\(1\)</span>, and thus diverge (to <span class="math inline">\(\infty\)</span>). It could be a little bit bigger than <span class="math inline">\(1\)</span>, and thus converge to some finite number. We don’t know. And using a geometric series other than <span class="math inline">\(1/2^n\)</span> won’t improve things. If we try this same strategy with <span class="math inline">\(1/3^n\)</span> or <span class="math inline">\(1/4^n\)</span> or <span class="math inline">\(1/\text{whatever}^n\)</span>, we’ll have the same problem. Eventually, the <span class="math inline">\(\text{(whatever)}^n\)</span> is always going to be bigger than <span class="math inline">\(n^2\)</span>. Exponentials grow so, so fast.</p>
+<p>So, not much insight.</p>
+<h2 id="try-2">try #2</h2>
+<p>If we knew calculus, we might be able to figure out what <span class="math inline">\(1/n^2\)</span>’s deal is!!!! We’d be able to do it visually, by comparing its blocky-staircaseness to a smooth-and-curvy ski slope.</p>
+<p>Let me sketch out in more detail what that argument might look like. We can think of <span class="math inline">\(\sum_{n=1}^{n=\infty}\frac{1}{n^2}\)</span> as being, visually, a blocky staircase. Each stair is <span class="math inline">\(1\)</span> unit wide and <span class="math inline">\(1/n^2\)</span> units tall, thus having an area of <span class="math inline">\(1/n^2\)</span>, and thus the area under the entire staircase has an area of <span class="math inline">\(\sum 1/n^2\)</span>. So the total value of the series is the area of this blue blocky staircase:</p>
+<p><img src="1-over-n-squared-visual-1.svg" style="width:75.0%" /></p>
+<p>Skiing is fun! But this wouldn’t be a very fun hill to ski on. What if we buy a snowmaker and fill in and groom the area above this staircase, giving us a great groomer green ski slope:</p>
+<p><img src="1-over-n-squared-visual-2.svg" style="width:75.0%" /></p>
+<p>If you remember from the fall semester, we could represent that smooth ski slope curve with the function <span class="math inline">\(1/(n-1)^2\)</span>. So it’s <span class="math inline">\(1/n^2\)</span>, but shifted one to the right:</p>
+<p><img src="1-over-n-squared-visual-3.svg" style="width:75.0%" /></p>
+<p>What’s the total area underneath that green groomer ski slope?</p>
+<p><img src="1-over-n-squared-visual-4.svg" style="width:75.0%" /></p>
+<p>If we could find the area of the green groomer ski slope, we might be able to figure out whether our blue blocky staircase <span class="math inline">\(1/n^2\)</span> converges! We know that the area of the green groomer ski slope is greater than the area of the blocky blue <span class="math inline">\(1/n^2\)</span> staircase:</p>
+<p><span class="math display">\[\substack{\text{area of the}\\\text{blocky blue staircase}} \quad&lt;\quad \substack{\text{area of the}\\ \text{green groomer ski slope}}\]</span></p>
+<p>So if the area of the smooth green ski slope is finite, then the area of the blocky staircase has to be finite as well! We don’t know how to calculate the area of the smooth green ski slope, but if we did, and if it turned out to be finite, then we’d learn that <span class="math inline">\(\sum 1/n^2\)</span> converges!</p>
+<p>On the other hand, if the area of the smooth green ski slope turns out to be infinite, we wouldn’t learn anything. <span class="math inline">\(\sum 1/n^2\)</span> is less than it, sure, but “less than infinity” could mean a <em>lot</em> less than infinity (and thus be finite and converge), or only <em>a little</em> less than infinity (and thus still be infinite and diverge). So then perhaps we could make a second ski slope, one slightly <em>smaller</em> than the blocky staircase—like, go about the problem from the other direction—and see if we can calculate its area, and perhaps that would resolve our quandry.</p>
+<p><img src="1-over-n-squared-visual-5.svg" style="width:75.0%" /></p>
+<p>The red ski slope is smaller than the blue blocky staircase, so if the red ski slope is infinite, then we’d know the blocky blue staircase also must be infinite! (But if the red ski slope is finite, then we wouldn’t learn anything.) Overall, I guess we have something like:</p>
+<p><span class="math display">\[\substack{\text{area of the}\\\text{radical red run}} \quad &lt; \quad \substack{\text{area of the}\\\text{blocky blue staircase}} \quad&lt;\quad \substack{\text{area of the}\\ \text{green groomer ski slope}}\]</span></p>
+<p>But, given that we don’t know how to find the areas of curvy shapes, we’re blocked from actually working out this line of argument. Rats!</p>
+<p>(Also, if you do happen to know calculus, you’ll note that there are a few more subtle details I gloss over here!)</p>
+<h2 id="try-3">try #3</h2>
+<p>Here’s another idea. When we worked out the fact that <span class="math inline">\(1/n\)</span> diverges, we did so by grouping its terms into buckets, all of which were greater than <span class="math inline">\(1/2\)</span>:</p>
+<p><span class="math display">\[\begin{align*}
+\sum_{n=1}^{n=\infty} \frac{1}{n} \quad&amp;= 1+\frac{1}{2}+\underbrace{\frac13+\frac14}_{\substack{\vee \\ \frac12}}+\underbrace{\frac15+\frac16+\frac17+\frac18}_{\substack{\vee \\ \frac12}}+\underbrace{\frac{1}{9}+\frac{1}{10}+\frac{1}{11}+\frac{1}{12}+\frac{1}{13}+\frac{1}{14}+\frac{1}{15}+\frac{1}{16}}_{\substack{\vee \\ \frac12}}+\cdots \\ \\
+&amp;&gt; 1 + \frac12 + \frac12 + \frac12 + \cdots
+\end{align*}\]</span></p>
+<p>Maybe we could do something similar here???</p>
+<p><span class="math display">\[\begin{align*}
+\sum_{n=1}^{n=\infty} \frac{1}{n^2} \quad&amp;= \underbrace{1 + \frac{1}{4} + \frac{1}{9} + \frac{1}{16} + \frac{1}{25} + \frac{1}{36} + \cdots}_{\substack{\text{collect into buckets,}\\\text{all of which are bigger than $1/2$ or some other number???}}}
+\end{align*}\]</span></p>
+<p>??? Idk.</p>
+<h2 id="try-5">try #5</h2>
+<p>OK, we’re still throwing things at the wall here. Lacking any better ideas, maybe we could use a computer or something to try to get some idea of what’s going on? Like, maybe it’d help us make a guess as to whether the series converges or diverges? It wouldn’t <em>prove</em> that, let alone tell us <em>why</em> the series converges or diverges, but it might at least help give us some directions to try.</p>
+<p>Back in my day, if you wanted to estimate an infinite series, you had to use a spreadsheet, or write a Python script! You kids all can just do it in Desmos. Lucky! So, if we sum this out to <span class="math inline">\(10\)</span> in Desmos, we get:</p>
+<p><span class="math display">\[\sum_{n=1}^{n=10} \frac{1}{n^2} \approx 1.54976773117\dots\]</span></p>
+<p>Let’s zonk it up by another order of magnitude. What if we sum to <span class="math inline">\(100\)</span>?</p>
+<p><span class="math display">\[\sum_{n=1}^{n=100} \frac{1}{n^2} \approx 1.63498390018\dots\]</span></p>
+<p>Compute is cheap! Let’s crank it up a few more orders of magnitude (no GPU required):</p>
+<p><span class="math display">\[\begin{align*}
+\sum_{n=1}^{n=1000} \frac{1}{n^2} &amp;\approx 1.64393456668\dots \\ \\
+\sum_{n=1}^{n=10,000} \frac{1}{n^2} &amp;\approx 1.64393456668\dots \\ \\
+\sum_{n=1}^{n=100,000} \frac{1}{n^2} &amp;\approx 1.64483407185\dots 
+\end{align*}\]</span></p>
+<p>OK, this sure <em>seems</em> like it’s converging. But we need a <em>proof</em>.</p>
+<h2 id="try-6">try #6</h2>
+<p>OK, let me finally show you an argument that’s actually going to work and that we’re actually going to be able to implement. (I’m cribbing this proof from <a href="https://www.youtube.com/watch?v=9euTxoCC8Hk">a surprisingly excellent YouTube video by some guy named Jim Fowler</a>)</p>
+<p>We’re going to compare <span class="math inline">\(\sum 1/n^2\)</span> to a series, and it’ll be one that we know converges. But, for the series we compare it to, we’re going to have to do a little bit of work to show that it converges. We’re going to have to do some fancy algebra to split it up into two fractions and then show that a lot of stuff cancels out.</p>
+<p>The series we’re going to compare <span class="math inline">\(\sum \frac{1}{n^2}\)</span> to is this one:</p>
+<p><span class="math display">\[\sum_n \frac{1}{n^2-n}\]</span></p>
+<p>I’m… just pulling that series out of a hat. Which is unsatisfying! How would you come up with this series if you didn’t already know to use it???</p>
+<p>I don’t have a good answer here.</p>
+<p>But, anyway, we know that <span class="math inline">\(1/n^2\)</span> will always be less than <span class="math inline">\(1/(n^2 - n)\)</span>. We know this because we know that <span class="math inline">\(n^2\)</span> is always greater than <span class="math inline">\(n^2-n\)</span> (at least for <span class="math inline">\(n&gt;0\)</span>, which is the domain we care about): <span class="math display">\[n^2 &gt; n^2 - n\]</span> So if we take a reciprocal, that flips the greater-than sign: <span class="math display">\[\frac{1}{n^2} &lt; \frac{1}{n^2-n}\]</span> Well, actually, I guess this only happens if <span class="math inline">\(n\ge2\)</span>, because if <span class="math inline">\(n=1\)</span>, then <span class="math inline">\(1/(n^2-n)\)</span> gives us a divide by zero error. So for <span class="math inline">\(n\ge 2\)</span> this is true. And then their sums must have the same relationship: <span class="math display">\[\sum_{n=2}^{n=\infty} \frac{1}{n^2} \quad&lt;\quad \sum_{n=2}^{n=\infty} \frac{1}{n^2-n}\]</span> So, if we can prove that the sum on the right is finite (converges), then we’ll know that the sum on the left is finite (converges). <em>If</em>! So that’s what we need to do: prove that the sum on the right converges. Then we’ll have shown that <span class="math inline">\(\sum 1/n^2\)</span> converges.</p>
+<p>(Of course, these two sums start at <span class="math inline">\(n=2\)</span>, and actually we want to prove that what converges is the sum starting at <span class="math inline">\(n=1\)</span>, but that’s a minor detail we’ll resolve at the end.)</p>
+<p>So, let’s try to prove that <span class="math inline">\(\sum 1/(n^2 - n)\)</span> converges. What do we know about <span class="math inline">\(1/(n^2 - n)\)</span>? Here’s the key step: we can do a <strong>partial fraction decomposition</strong>, which is a fancy way of saying we can turn a single fraction into two fractions. Once we do that, we’ll be able to re-write the sum, and see (very neatly, and very cleanly) that it converges.</p>
+<p>Now, partial fraction decomposition isn’t something I particularly like to do. It’s a lot of work, and it’s one of the many things I ignored during my own high school math classes. But the basic idea is very simple. We’re already very good at finding common denominators to go from two fractions added together to just one fraction:</p>
+<p><span class="math display">\[\frac{2}{3}+\frac{4}{5}\quad \xrightarrow[\quad \frac{2\cdot 5 + 4\cdot 3}{3\cdot 5} \quad]{\quad\text{finding a common denominator!}\quad } \quad \frac{22}{15}\]</span></p>
+<p>Partial fraction decomposition is doing that in reverse: taking one fraction, and splitting it up into two fractions!</p>
+<p><span class="math display">\[\frac{22}{15} \quad \xrightarrow{\quad\text{partial fraction decomposition!}\quad} \quad \frac{2}{3}+\frac{4}{5}\]</span></p>
+<p>So, a partial fraction decomposition is UN-finding common denominators!</p>
+<p><span class="math display">\[\text{two fractions} \quad \substack{   \xrightarrow{\quad\text{finding a common denominator!}\quad }\\  \xleftarrow[\quad\text{partial fraction decomposition!}\quad ]{} } \quad  \text{one fraction}\]</span></p>
+<p>So, we’re going to take <span class="math inline">\(1/(n^2 - n)\)</span> and un-find common denominators/do a partial fraction decomposition to split it up into two fractions. Don’t worry too much about <em>how</em> we do that, or about how you might take some random fraction and partial-fraction-decompose it. But do take a minute to stare at this line of algebra and convince yourself that you can indeed go from left to right (combining common denominators) and thus also go from right to left: <span class="math display">\[\frac{1}{n-1}-\frac{1}{n} = \frac{n}{(n)(n-1)} - \frac{(n-1)}{(n)(n-1)} = \frac{n-(n-1)}{(n)(n-1)} = \frac{1}{n^2-n}\]</span> The key step there, in going from the rightmost expression to the second-rightmost expression, is adding <span class="math inline">\(0\)</span> to the numerator in a magical, <em>deus ex machina</em> sort of way. Namely: <span class="math display">\[n - (n-1) = n - n + 1 = 1\]</span> So we’re just changing the <em>appearance</em> of the numerator, without changing its actual <em>substance</em>. Again, don’t worry about how you might actually come up with this on your own—just convince yourself that, however pulled-out-of-a-hat this might seem, that it is, in fact, true.</p>
+<p>So now we can write this single fraction as two fractions subtracted: <span class="math display">\[ \frac{1}{n^2-n} = \frac{1}{n-1}-\frac{1}{n}\]</span> And so we can rewrite our series: <span class="math display">\[\sum_{n=2}^{n=\infty} \frac{1}{n^2-n} = \sum_{n=2}^{n=\infty}\left( \frac{1}{n-1}-\frac{1}{n}\right)\]</span> What happens if we write out a few terms of this sum, when we express it in the form on the right? We get: <span class="math display">\[ \sum_{n=2}^{n=\infty} \left(\frac{1}{n-1}-\frac{1}{n} \right)= \left(\frac{1}{1} - \frac{1}{2}\right) + \left(\frac{1}{2} - \frac{1}{3}\right) + \left(\frac{1}{3} - \frac{1}{4}\right) + \left(\frac{1}{4} - \frac{1}{5}\right) + \cdots \]</span> So much stuff cancels! We’ve got a <span class="math inline">\(-1/2\)</span> in the <span class="math inline">\(n=2\)</span> term, and a <span class="math inline">\(+1/2\)</span> in the <span class="math inline">\(n=3\)</span> term, so those obliterate each other. We’ve got a <span class="math inline">\(-1/3\)</span> in the <span class="math inline">\(n=3\)</span> term, and a <span class="math inline">\(+1/3\)</span> in the <span class="math inline">\(n=4\)</span> term, so those obliterate each other. We’ve got a <span class="math inline">\(-1/4\)</span> in the <span class="math inline">\(n=4\)</span> term, and a <span class="math inline">\(+1/4\)</span> in the <span class="math inline">\(n=5\)</span> term, so those obliterate each other. And so on and so forth, <em>ad infinitum</em>! Writing it all out, we have:</p>
+<p><span class="math display">\[\begin{align*}
+\sum_{n=2}^{n=\infty} \frac{1}{n^2-n} &amp;= \sum_{n=2}^{n=\infty} \left(\frac{1}{n-1}-\frac{1}{n}\right) \\ \\
+&amp;=  \left(\frac{1}{1} - \frac{1}{2}\right) + \left(\frac{1}{2} - \frac{1}{3}\right) + \left(\frac{1}{3} - \frac{1}{4}\right) + \left(\frac{1}{4} - \frac{1}{5}\right) + \cdots \\ \\
+&amp;= \frac{1}{1} - \frac{1}{2} + \frac{1}{2} - \frac{1}{3} + \frac{1}{3} - \frac{1}{4} + \frac{1}{4} - \frac{1}{5} + \cdots \\ \\
+ &amp;= \frac{1}{1} - \cancel{\frac{1}{2}} + \cancel{\frac{1}{2}} - \cancel{\frac{1}{3}} + \cancel{\frac{1}{3}} - \cancel{\frac{1}{4}} + \cancel{\frac{1}{4}} - \frac{1}{5} + \cdots \\ \\
+ &amp;= 1
+\end{align*}\]</span> Everything but the very first term and the very last term cancel out! And as <span class="math inline">\(n\rightarrow \infty\)</span>, the very last term, <span class="math inline">\(1/n\)</span>, goes to <span class="math inline">\(0\)</span>. So we’re just left with: <span class="math display">\[\sum_{n=2}^{n=\infty} \left(\frac{1}{n-1}-\frac{1}{n} \right)= 1\]</span> The fancy name for this is that this is a <strong>telescoping series</strong>, because all of the terms (except a few) collapse in on each other, kind of like an old-timey pirate telescope that collapses down in on itself to become more compact.</p>
+<p>This is the crux of our argument. Now we have a series that we know converges, and we know it’s always greater than <span class="math inline">\(1/n\)</span>. So now we can finish our argument. We know that:</p>
+<p><span class="math display">\[ \sum_{n=2}^{n=\infty} \frac{1}{n^2} \quad&lt;\quad \sum_{n=2}^{n=\infty} \frac{1}{n^2-n}\]</span></p>
+<p>Which is:</p>
+<p><span class="math display">\[ \sum_{n=2}^{n=\infty} \frac{1}{n^2} \quad&lt;\quad \underbrace{\sum_{n=2}^{n=\infty} \left( \frac{1}{n-1}-\frac{1}{n} \right) }_{=1}\]</span></p>
+<p>So we have:</p>
+<p><span class="math display">\[ \sum_{n=2}^{n=\infty} \frac{1}{n^2} \quad&lt;\quad 1\]</span></p>
+<p>So the sum is less than <span class="math inline">\(1\)</span> (and it’s never negative), so we know it converges! We don’t know where it converges to—somewhere less than <span class="math inline">\(1\)</span> and greater than <span class="math inline">\(0\)</span>, I guess—but we know <em>that</em> it converges, and that’s pretty cool.</p>
+<p>There’s one final detail. The sum we were originally wondering about was the series <span class="math inline">\(1/n^2\)</span> starting <em>not</em> at <span class="math inline">\(n=2\)</span>, <em>but instead</em> at <span class="math inline">\(n=1\)</span>. But all the stuff we just did was for the sum starting at <span class="math inline">\(n=2\)</span>. That’s not a big deal, because we can just do some surgery. The sum starting at <span class="math inline">\(n=1\)</span> will just have one more term:</p>
+<p><span class="math display">\[\begin{align*}
+\sum_{n=1}^{n=\infty} \frac{1}{n^2} &amp;= \underbrace{\frac{1}{1^2}}_{\text{the }n=1\text{ term}} + \underbrace{\sum_{n=2}^{n=\infty} \frac{1}{n^2}}_{\text{the }n\ge 2\text{ terms}}\\ \\
+&amp;= 1 + \left(\text{something that&#39;s less than } 1\right) \\ \\
+&amp;= \text{ something between }1\text{ and }2\\ \\
+&amp;= \text{ so it converges!}
+\end{align*}\]</span> The first term is just <span class="math inline">\(1\)</span>, and we can’t add a finite number to another finite number and get infinity. Adding <span class="math inline">\(1\)</span> won’t make our series diverge! So, it converges. Now have one more series we know about, which we can add to our arsenal of things to compare other series to: <span class="math display">\[\boxed{ \quad \sum_{n=1}^{n=\infty} \frac{1}{n^2} \quad \text{converges}\quad}\]</span></p>
+<p>What does it converge to? Who knows! Well, we estimated it with a computer already; we saw that it works out to be roughly: <span class="math display">\[ \sum_{n=1}^{n=\infty} \frac{1}{n^2}  \approx 1.6449\dots\]</span></p>
+<p>Actually, here’s something that’s totally nuts, originally proven by Euler, which Theo Rode reminded me of back in 2019. Where’s that number <span class="math inline">\(1.6449\dots\)</span> coming from? What’s the <em>actual number</em> this series converges to (not just its dastardly decimal approximation)? It is, stunningly, just <span class="math inline">\(\pi^2/6\)</span>:</p>
+<p><span class="math display">\[ \sum_{n=1}^{n=\infty} \frac{1}{n^2}  = \frac{\pi^2}{6}\]</span></p>
+<p>It’s already crazy enough that we can add up an infinite number of numbers and get some finite number—but <span class="math inline">\(\pi\)</span>!?! Where’s THAT coming from?!? Doesn’t <span class="math inline">\(\pi\)</span> normally relate to circles? If you don’t believe this, try punching <span class="math inline">\(\pi^2/6\)</span> into a calculator, and you’ll see that it’s basically <span class="math inline">\(1.6449\)</span>. It’s called, famously, the <strong><a href="https://en.wikipedia.org/wiki/Basel_problem">Basel problem</a></strong>. There’s a really beautiful proof/derivation of it that involves writing sine as a Taylor series and then doing some factoring!</p>
+<h2 id="questions">Questions</h2>
+<ul>
+<li><p>We’ve shown that <span class="math inline">\(\sum 1/n\)</span> diverges, when we sum it from <span class="math inline">\(n=1\)</span> to <span class="math inline">\(n=\infty\)</span>, but what if we sum fewer numbers? What if we start our sum from <span class="math inline">\(n=10\)</span>, or <span class="math inline">\(n=100\)</span>, or <span class="math inline">\(n=\text{ten billion}\)</span>? Can we make it converge? If we start it from a big enough <span class="math inline">\(n\)</span>, can we make <span class="math inline">\(\sum 1/n\)</span> finite? If we’re ending (“ending”) at <span class="math inline">\(n=\infty\)</span>, does it matter where we start?</p></li>
+<li><p>We now know about <span class="math inline">\(1/n\)</span> and <span class="math inline">\(1/n^2\)</span>, but what about <span class="math inline">\(1/n^3\)</span>? Does that converge, or diverge? Why? What about <span class="math inline">\(1/n^4\)</span>? What about <span class="math inline">\(1/n^{2.3853}\)</span>? Can you use a calculator or write a short computer program to try to make a hypothesis about the answer? Can you prove it?</p></li>
+<li><p>What about <span class="math inline">\(\sum n^p\)</span>? For what values of <span class="math inline">\(p\)</span> does it converge? For what values does it diverge? When does it flip over from converging to diverging? When does it somehow—in a moment of metaphysical glory; in a flash of phosphorus; in a delta-function burst of electromagnetic energy—go from being finite to being infinite?</p></li>
+</ul>
+</main>
+</body>
+</html>

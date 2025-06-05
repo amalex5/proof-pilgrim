@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Can you find all the possible solutions to this equation?</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="/main.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <script src="../highlight-toc.js" type="text/javascript"></script>
+</head>
+<body>
+<main>
+<header id="title-block-header">
+<h1 class="title">Can you find all the possible solutions to this equation?</h1>
+</header>
+<p><span class="math display">\[\Huge a^{1+\log_{10}(a)} = 100\]</span></p>
+<div style="height:3em">
+
+</div>
+<p>When I ran this as a test question in Fall 2019, perhaps a third to half of the 50ish kids managed to figure out one of the solutions. Of those who did, nearly all of them found it by some variant on guess-and-check. Only one (two?) people found <em>both</em> solutions. These are my notes on the problem!</p>
+<p>So. If we stare at this equation for long enough, and test random numbers, or semi-random numbers, we might realize that <span class="math inline">\(a=10\)</span> works as a solution. We can verify it works by plugging it in: <span class="math display">\[\begin{align*}
+&amp;a^{1+\log_{10}(a)} \\
+&amp;=10^{1+\log_{10}(10)} \\
+&amp;=10^{1+1} \\
+&amp;=10^{2} \\
+&amp;=100
+\end{align*}\]</span> So, indeed, <span class="math inline">\(a=10\)</span> is one solution to this equation. But there are two problems here. <strong>First of all</strong>, the “stare at it” method is not a great one. I mean, sometimes it works, and apparently it worked for a lot of people in this case. If you don’t have any better ideas, then by all means, stare at it and test random numbers. Guess and check all you want! Appeal to the mathematical muses—to their benevolence, and to their charity! Sometimes the gods of mathematics are generous, and will bequeath us with an answer. And for many of the kids, that worked in this case.</p>
+<p>HOWEVER, we DON’T want to have to rely on the benevolence and charity of the gods. They are fickle. Sometimes they give, and sometimes they take away. We want to be Nietzscheans here—we want to make an end-run around the gods! We’d like to have some sort of <em>procedure</em> and <em>system</em> and <em>algorithm</em> for solving problems. We’d like to have a <em>set of rules</em> that <em>always works</em>.</p>
+<p>It’s sort of like how when we factor quadratic equations, sometimes it’s fine to just, like, look at it and come up with a factorization: <span class="math display">\[\begin{align*}
+x^2 + 9x + 14 &amp;= (x \,+\, ???)(x \,+\,???) \\
+&amp;=\text{ hmmm hmmm hmmm}\\
+&amp;=\text{ A BLINDING INSIGHT FROM THE GODS!!!!}\\
+&amp;= (x+2)(x+7)
+\end{align*}\]</span> But if the gods are ever parsimonious, we know that we have a MACHINE that will answer our prayers. We have a FORMULA that ALWAYS WORKS—the quadratic formula! <span class="math display">\[\begin{align*}
+x^2 + 9x + 14 &amp;= \left(x - \frac{-9 + \sqrt{9^2-4\cdot1\cdot14}}{2\cdot1}\right)\left(x- \frac{-9 - \sqrt{9^2-4\cdot1\cdot14}}{2\cdot1}\right) \\
+&amp;= \left(x - \frac{-9 + \sqrt{81-56}}{2}\right)\left(x- \frac{-9 - \sqrt{81-56}}{2}\right) \\
+&amp;= \left(x - \frac{-9 + \sqrt{25}}{2}\right)\left(x- \frac{-9 - \sqrt{25}}{2}\right) \\
+&amp;= \left(x - \frac{-9 + 5}{2}\right)\left(x- \frac{-9 -5}{2}\right) \\
+&amp;= \left(x - \frac{-4}{2}\right)\left(x- \frac{-14}{2}\right) \\
+&amp;= (x+2)(x+7)
+\end{align*}\]</span> Thanks to the mightiness of the quadratic formula, we no longer have to rely on the benevolence and charity of the mathematical gods when trying to factor quadratics!!! We can factor them—ANY of them—with CERTAINTY—with CONFIDENCE—just using this machine. No need to hope that the gods are generous. <strong>The gods are dead. We killed them.</strong></p>
+<div style="height:3em">
+
+</div>
+<p>Back to the problem at hand: <span class="math display">\[a^{1+\log_{10}(a)} = 100\]</span> We want to solve this problem in a <em>systematic</em> way. We’d prefer not to solve it via guess-and-check, or via the “stare at it really hard” method. We don’t want to have to rely on the whims of the gods. We don’t want to hope that the muse sings to us.</p>
+<blockquote>
+<p><em>I have heard the mermaids singing, each to each.</em></p>
+<p><em>I do not think they will sing to me.</em></p>
+</blockquote>
+<p>Relatedly, there’s a <strong>second problem</strong> here. Namely: this equation actually has two solutions!!! The mathematical gods may have been kind enough to give us (or to give some of you) ONE of them—but only two of you found both solutions.</p>
+<p>So, is there a way we can solve this equation, that’s systematic and procedural and algebraic, that doesn’t require us to appeal to the mathematical gods, and which will beget both solutions? Can we use algebra and our knowledge of logarithms to solve this?</p>
+<p>A lot of you <em>did</em> try to do this in an algebraic/systematic way, and that was great. Most of you who took such an approach started by taking the <span class="math inline">\(\log_a\)</span> of both sides. That was a great idea! It’s systematic and algebraic. So, let’s see what happens when we do that. We have: <span class="math display">\[a^{1+\log_{10}(a)} = 100\]</span> Taking the <span class="math inline">\(\log_a\)</span> of both sides, we get: <span class="math display">\[\log_a\left(a^{1+\log_{10}(a)}\right) = \log_a(100)\]</span> On the left side, the <span class="math inline">\(\log_a\)</span> and <span class="math inline">\(a^\text{stuff}\)</span> cancel out, so this becomes: <span class="math display">\[1+\log_{10}(a) = \log_a(100)\]</span> Hooray! The <span class="math inline">\(a^\text{stuff}\)</span> is gone. That’s an accomplishment. It’s why I assume most of you chose to take the <span class="math inline">\(\log_a\)</span>. But we’re not done—we want to solve this for <span class="math inline">\(a\)</span>. As our next step, I guess we could move the <span class="math inline">\(1\)</span> over: <span class="math display">\[\log_{10}(a) = \log_a(100) - 1\]</span> And then raise both sides by <span class="math inline">\(10\)</span> to get rid of the <span class="math inline">\(\log_{10}\)</span>: <span class="math display">\[10^{\log_{10}(a) }= 10^{\log_a(100) - 1}\]</span> <span class="math display">\[a= 10^{\log_a(100) - 1}\]</span> So we have an equation for <span class="math inline">\(a\)</span>… but <span class="math inline">\(a\)</span> is also on the right side. We haven’t really solved for <span class="math inline">\(a\)</span>. Aaaagh. How do we get rid of that <span class="math inline">\(\log_a\)</span> on the right side?!?? No clue.</p>
+<p>We wanted to make an end run around the gods. Instead we made an Enron around the gods<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<div style="height:3em">
+
+</div>
+<p>This method was a good attempt, but it doesn’t lead us to the solution (to either solution). However, a lot of the thinking was right—we want to somehow solve this algebraically and systematically. Let’s try it again. What if, instead of taking the <span class="math inline">\(\log_a\)</span>, we take a DIFFERENT log? This is just stabbing in the dark here, but notice that this equation also involves a <span class="math inline">\(\log_{10}\)</span>, so what if we use that? We start with: <span class="math display">\[a^{1+\log_{10}(a)} = 100\]</span> And then taking the <span class="math inline">\(\log_{10}\)</span> of both sides, we get: <span class="math display">\[\log_{10}\left(a^{1+\log_{10}(a)}\right) = \log_{10}(100)\]</span> On the right side, <span class="math inline">\(\log_{10}(100)\)</span> just becomes <span class="math inline">\(2\)</span>: <span class="math display">\[\log_{10}\left(a^{1+\log_{10}(a)}\right) =2\]</span> On the left side, <span class="math inline">\(\log_{10}\)</span> and <span class="math inline">\(a^\text{stuff}\)</span> won’t cancel out—the bases are different (<span class="math inline">\(10\)</span> and <span class="math inline">\(a\)</span>), so they’re not inverses. BUT!!! We have <span class="math inline">\(a\)</span> raised to a bunch of stuff. We can use that law about how an exponent inside ANY logarithm can move to the outside, as a coefficient!!! <span class="math display">\[\text{this law: }\log_a\left(b^c\right) = c\log_a(b)\]</span> Applying that, and pulling out the exponent on the <span class="math inline">\(a\)</span>, we get:</p>
+<p><span class="math display">\[\big(1+\log_{10}(a)\big) \cdot \log_{10}\left(a\right) =2\]</span> This doesn’t seem THAT promising, but at least the <span class="math inline">\(\log_{10}\)</span>’s are gone! Let’s multiply this out:</p>
+<p><span class="math display">\[ \log_{10}\left(a\right)  + \big(\log_{10}(a)\big)^2 =2\]</span> Re-arranging: <span class="math display">\[  \big(\log_{10}(a)\big)^2 +\log_{10}\left(a\right)  - 2 =0\]</span> What do we do with this? It looks complicated. So many details!</p>
+<p>Hmm. I have bad vision. I squint a lot. If I’m not wearing glasses, that line is all blurry, and just looks like: <span class="math display">\[(\text{SOMETHING})^2 + (\text{SOMETHING}) - 2 = 0\]</span> But… that’s a quadratic! Beneath all the specific details, this is really just a quadratic! It’s just: <span class="math display">\[x^2 + x - 2 = 0\]</span> The “<span class="math inline">\(x\)</span>” in a quadratic can be anything. It can be a single variable/number, or it can be something more complicated! In this case, “<span class="math inline">\(x\)</span>” is <span class="math inline">\(\log_{10}(a)\)</span>.</p>
+<p>Here’s part of the moral of the story here: <em>sometimes blurriness brings clarity.</em> Sometimes we need to step back and squint and see <em>fewer</em> details. Sometimes we miss the forest for the trees. If we’re too obsessed with the details, we miss the big picture.</p>
+<p>Anyway, can we solve this using the quadratic equation?!?!?!? Or, even easier, maybe we can just factor it by hand??!? It looks a lot like: <span class="math display">\[x^2 + x - 2 = 0\]</span> and we can factor that as: <span class="math display">\[(x-1)(x+2) = 0\]</span> But in this case, our “variable” isn’t <span class="math inline">\(x\)</span>; it’s <span class="math inline">\(\log_{10}(a)\)</span>. So really, we have: <span class="math display">\[\big( \log_{10}(a) - 1\big)\big( \log_{10}(a) +2\big) = 0\]</span> So we get two equations out of this: <span class="math display">\[\underbrace{\big( \log_{10}(a) -1\big)}_{ \log_{10}(a) -1 \,= \,0} \underbrace{\big( \log_{10}(a) +2\big)}_{\log_{10}(a) +2 \,=\, 0} = 0\]</span> Let’s solve them! Let’s do the left one first. We have: <span class="math display">\[\underbrace{\big( \log_{10}(a) -1\big)}_{ \substack{ \log_{10}(a) -1 \,= \,0 \\ \log_{10}(a) \,= \, 1 \\\\  10^{\log_{10}(a)} \,= \, 10^1 \\\\ a \,=\, 10^1 \\\\ a\,=\,10 }} \big( \log_{10}(a) +2\big) = 0\]</span> So we get that <span class="math inline">\(a\)</span> can be <span class="math inline">\(10\)</span>! That’s great—that’s what we already found. It’s some nice confirmation that this procedure works. We found that <span class="math inline">\(a\)</span> can be <span class="math inline">\(10\)</span>, without having to rely on the benevolence of the gods! What about the other factor? Let’s find out what that tells us. <span class="math display">\[\big( \log_{10}(a) - 1\big) \underbrace{\big( \log_{10}(a) + 2\big)}_{\substack{\log_{10}(a) + 2 \,=\, 0 \\\\ \log_{10}(a) \,=\, -2 \\\\  10^{\log_{10}(a)} \,=\, 10^{-2} \\\\ a \,=\, 10^{-2}\\\\ a \,=\, \frac{1}{100} }} = 0\]</span> So <span class="math inline">\(a\)</span> can be <span class="math inline">\(1/100\)</span>!!! That’s the other, missing solution!!!</p>
+<p>Let’s check just to make sure it works. We’ll plug <span class="math inline">\(a=1/100=10^{-2}\)</span> back into the original equation. We’ll plug it back into the left side of the equation, and after some simplification, we should get the right side (i.e., <span class="math inline">\(100\)</span>): <span class="math display">\[\begin{align*}
+&amp;a^{1+\log_{10}(a)} \\
+&amp;=\left(10^{-2}\right)^{1+\log_{10}\left(10^{-2}\right)} \\
+&amp;=\left(10^{-2}\right)^{1+(-2)} \\
+&amp;=\left(10^{-2}\right)^{-1} \\
+&amp;=10^{(-2)(-1)} \\
+&amp;=10^{2} \\
+&amp;=100
+\end{align*}\]</span> We get <span class="math inline">\(100\)</span>, which is the right side of the equation, which is what we wanted. So <span class="math inline">\(a=\frac{1}{100}\)</span> does indeed work as another solution!</p>
+<div class="callout-box">
+<p><span class="math display">\[ a^{1+\log_{10}(a)} = 100\]</span> <span class="math display">\[\text{begets}\]</span> <span class="math display">\[a = \Bigg\{10, \, \frac{1}{100}\Bigg\}\]</span></p>
+</div>
+<div style="height:3em">
+
+</div>
+<p>There are <strong>two big ideas</strong> here:</p>
+<ul>
+<li>
+<p><strong>First</strong>, we can have <strong>logarithms trapped inside quadratics</strong>!!! All the equations we’ve seen with logs so far have been <strong>linear</strong>, meaning there’s been no exponent on the logarithm term (or, put more precisely, the exponent has been an invisible <span class="math inline">\(1\)</span>). But, as my friend Veronica says, the <span class="math inline">\(x\)</span> in a quadratic can be anything—even a logarithm!</p>
+<p>Here’s another fun quadratic equation with logs. Can you solve it??? <span class="math display">\[1+\log_2\left(x^3\right) = \frac{20}{\log_2\left(x^2\right)}\]</span> Why stop at a quadratic??? Could you make up a cubic equation with logs??? A quartic? A quintic? Or even, like, this bad boy, which I just wrote<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> <a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>, and which I’m very pleased with:</p>
+<span class="math display">\[ \log_5(x) = \frac{ \quad\frac{28}{\log_5(x)} + 4\quad}{\log_5(x)} - 7\]</span>
+</li>
+<li>
+<strong>Second</strong>, following David Hilbert (a contemporary of Nietzsche, more-or-less), we must <strong>kill the mathematical gods</strong>. We cannot rely on them. We must replace them with machines—machines we create and we control. Only then will we achieve our goal—to have total power over mathematics.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>
+</li>
+</ol>
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>I thank Zach Moss for inspiring this wordplay.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p>AN ANDREW ALEXANDER ORIGINAL!!!<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3" role="doc-endnote"><p>I should probably acknowledge here that the original problem that these notes are about I found by doing a Google image search for “hard logs problems” as I was writing that test.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4" role="doc-endnote"><p>In case the irony is not overwhelmingly clear, I am very much a Platonist, and not a Nietzschean.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+</main>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>what’s the derivative of inverse tangent?</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="/main.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <script src="../highlight-toc.js" type="text/javascript"></script>
+</head>
+<body>
+<script>document.addEventListener('DOMContentLoaded', function(e) {
+  Scroller.init();
+})</script>
+<aside>
+<div class="tocLinks" >
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#visually">visually</a></li>
+<li><a href="#algebraically">algebraically</a></li>
+<li><a href="#lets-generalize">let’s generalize!</a></li>
+<li><a href="#okay-cool-example">okay cool example?</a></li>
+</ul>
+</nav>
+</div>
+</aside>
+<main>
+<header id="title-block-header">
+<h1 class="title">what’s the derivative of inverse tangent?</h1>
+</header>
+<p>what’s the derivative of inverse tangent?</p>
+<h2 id="visually">visually</h2>
+<p>sketch tanbgent</p>
+<p>sketch its inverse</p>
+<p>sketch its dericative</p>
+<p>sketch its derivative inverse</p>
+<h2 id="algebraically">algebraically</h2>
+<p><span class="math display">\[\tan^\text{inv}\big( \tan\theta) = \theta\]</span></p>
+<p><span class="math display">\[\frac{d}{d\theta} \left[\, \tan^\text{inv}\big( \tan\theta) \,\right] = \frac{d}{d\theta} \left[\, \theta \,\right]\]</span></p>
+<p><span class="math display">\[\frac{d}{d\theta} \left[\, \tan^\text{inv}\big( \tan\theta) \,\right] = 1 \]</span></p>
+<p><span class="math display">\[\, \tan^{\text{inv}&#39;}\big( \tan\theta) \cdot \frac{d}{d\theta}\left[ \tan\theta \right] = 1 \]</span></p>
+<p><span class="math display">\[\, \tan^{\text{inv}&#39;}\big( \tan\theta) \cdot \frac{1}{\cos^2(\theta)} = 1 \]</span></p>
+<p><span class="math display">\[\, \tan^{\text{inv}&#39;}\big( \tan\theta) = \cos^2\theta \]</span></p>
+<p><span class="math display">\[\, \tan^{\text{inv}&#39;}\big( \tan\theta) = \frac{1}{\tan^2(\theta) + 1}\]</span></p>
+<p><span class="math display">\[\, \tan^{\text{inv}&#39;}\big( \tan\theta) = \frac{1}{\left(\tan\theta\right)^2 + 1}\]</span></p>
+<p><span class="math display">\[\, \tan^{\text{inv}&#39;}( x) = \frac{1}{x^2 + 1}\]</span></p>
+<p>does this look basically like what we sketched? yeah!</p>
+<h2 id="lets-generalize">let’s generalize!</h2>
+<p>the ideas weren’t specific to tangent. well, the pytha</p>
+<p>we started out with just a general property of an inverse fxn</p>
+<p><span class="math display">\[f^\text{inv}\big(\, f(x) \, \big) = x\]</span></p>
+<p><span class="math display">\[\frac{d}{dx} \left[\, f^\text{inv}\big(\, f(x) \, \big) \,\right] = \frac{d}{dx} \left[\, x \,\right]\]</span></p>
+<p><span class="math display">\[\frac{d}{dx} \left[\, f^\text{inv}\big(\, f(x) \, \big) \,\right] = 1\]</span></p>
+<p><span class="math display">\[f^{\text{inv}&#39;}\big(\, f(x) \, \big) \cdot \frac{d}{dx}\Big[\, f(x) \,\Big] = 1\]</span></p>
+<p><span class="math display">\[f^{\text{inv}&#39;}\big(\, f(x) \, \big) \cdot f&#39;(x) = 1\]</span></p>
+<p><span class="math display">\[f^{\text{inv}&#39;}\big(\, f(x) \, \big) = \frac{1}{f&#39;(x)}\]</span></p>
+<p>not a heklpful form yet</p>
+<p>we want <span class="math inline">\(f^{\text{inv}&#39;}(x)\)</span>, not <span class="math inline">\(f^{\text{inv}&#39;}\big(\, f(x) \, \big)\)</span></p>
+<p>set <span class="math inline">\(x=f^\text{inv}(x)\)</span></p>
+<p><span class="math display">\[f^{\text{inv}&#39;}\big(\, f(\underbrace{x}_{=f^\text{inv}(x)}) \, \big) = \frac{1}{f&#39;(\underbrace{x}_{=f^\text{inv}(x)})}\]</span></p>
+<p><span class="math display">\[f^{\text{inv}&#39;}\big(\, f(f^\text{inv}(x)) \, \big) = \frac{1}{f&#39;(f^\text{inv}(x))}\]</span></p>
+<p><span class="math display">\[f^{\text{inv}&#39;}\big(\, x \, \big) = \frac{1}{\,\, f&#39;\big(\, f^\text{inv}(x) \,\big) \,\,}\]</span></p>
+<h2 id="okay-cool-example">okay cool example?</h2>
+<p>i think this is</p>
+</main>
+</body>
+</html>

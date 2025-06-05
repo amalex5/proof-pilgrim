@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Series convergence</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="/main.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <script src="../highlight-toc.js" type="text/javascript"></script>
+</head>
+<body>
+<script>document.addEventListener('DOMContentLoaded', function(e) {
+  Scroller.init();
+})</script>
+<aside>
+<div class="tocLinks" >
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#a-basic-starter-test-for-series-convergence">A Basic Starter Test For Series Convergence</a></li>
+<li><a href="#a-cool-simple-series">A Cool, Simple Series</a></li>
+<li><a href="#another-test-for-convergencedivergence-a-reasonably-important-one">Another Test For Convergence/Divergence (A Reasonably Important One!)</a></li>
+</ul>
+</nav>
+</div>
+</aside>
+<main>
+<header id="title-block-header">
+<h1 class="title">Series convergence</h1>
+</header>
+<p>i gave you those three infinite series</p>
+<p>basic stuff</p>
+<p>comparison</p>
+<p>geometric series</p>
+<p>telescoping</p>
+<p>rearrangement</p>
+<p>sequences series convergence tests</p>
+<p>“convergence tests”</p>
+<p>you ight see flowcharts</p>
+<h2 id="a-basic-starter-test-for-series-convergence">A Basic Starter Test For Series Convergence</h2>
+<p>Here’s an infinite series: <span class="math display">\[\sum_{n=1}^{n=\infty} n = 1+2+3+4+5+6+\cdots\]</span> Obviously this diverges. We’re adding bigger and bigger numbers! The sum is getting bigger and bigger! So clearly, if each of the individual terms in the series increase, the series will diverge. In fact, even if each of the terms stay the same, the series diverges: <span class="math display">\[\sum_{n=1}^{n=\infty} 5 = 5+5+5+5+5+\cdots = \infty\]</span> So we can say this: <strong>if the individual terms of a series do not decrease (i.e., increase or remain constant), the sequence will diverge</strong>. But just because the <strong>terms</strong> of a series decrease, it doesn’t mean that the <strong>series itself</strong> always converges. For example, consider the two series: <span class="math display">\[1+\frac{1}{2}+\frac{1}{3}+\frac{1}{4} + \frac{1}{5} + \cdots\]</span> <span class="math display">\[1 + \frac{1}{2} + \frac{1}{4} + \frac{1}{8} + \frac{1}{16} + \cdots\]</span> The terms in both of these series go to <span class="math inline">\(0\)</span>. But the sums don’t. One of these series converges, and the other diverges. (We haven’t yet seen why; just trust me that this is true, and we’ll figure out why later.) To summarize:</p>
+<p>VENN DIAGRAM</p>
+<div class="callout-box" style="text-align:left;">
+<ul>
+<li>if the individual terms increase or remain constant
+<ul>
+<li>then the series diverges</li>
+</ul></li>
+<li>if the individual terms decrease
+<ul>
+<li>then the series might diverge or might converge</li>
+</ul></li>
+</ul>
+</div>
+<p>top even have the HOPE that a series convreges, its underlying sequence has to go to zero. if it does—if the underlying sequence does go to zero—that doesn’t mean that the series always will converge. but it <em>might</em>. whereas, if the underlying sequence doesn’t go to zero, then the series definitely won’t converge.</p>
+<h2 id="a-cool-simple-series">A Cool, Simple Series</h2>
+<p>Here’s a series: <span class="math display">\[\sum_{n=0}^{n=\infty} \left(\frac{1}{2}\right)^n = 1 + \frac{1}{2} + \frac{1}{4} + \frac{1}{8} + \frac{1}{16} + \cdots\]</span> Here’s what’s cool about it: even though it’s an infinite series, even though it’s infinitely long and we’re adding up an infinite number of positive numbers, {}. We add up this infinite number of reciprocals of powers of <span class="math inline">\(2\)</span>, and we get a <em>finite number</em>. In fact, we get a pretty small finite number: two. <span class="math display">\[\begin{align*}
+\sum_{n=0}^{n=\infty} \left(\frac{1}{2}\right)^n &amp;= 1 + \frac{1}{2} + \frac{1}{4} + \frac{1}{8} + \frac{1}{16} + \cdots\\ \\
+&amp;= 2
+\end{align*}\]</span></p>
+<p>That’s totally nuts!!! Let me see if I can try to convince you <em>that</em> that’s true, and <em>why</em> that’s true.</p>
+<p>For convenience, let’s call this series <span class="math inline">\(S\)</span>: <span class="math display">\[\begin{align*}
+S &amp;= 1 + \frac{1}{2} + \frac{1}{4} + \frac{1}{8} + \frac{1}{16} + \cdots
+\end{align*}\]</span> Now, let’s try multiplying it by <span class="math inline">\(1/2\)</span>. We get: <span class="math display">\[\begin{align*} \frac{1}{2}S &amp;= \frac{1}{2}\cdot\left(1 + \frac{1}{2} + \frac{1}{4} + \frac{1}{8} + \frac{1}{16} + \cdots\right) \\ \\
+\frac{1}{2}S &amp;=  \frac{1}{2} + \frac{1}{4} + \frac{1}{8} + \frac{1}{16} + \frac{1}{32} \cdots
+\end{align*}\]</span> Your first thought should be, “But why? Why are we multiplying this by <span class="math inline">\(1/2\)</span>? Where does that come from?” Just trust me for a moment. I hope you agree that we can multiply both sides of this equation by <span class="math inline">\(1/2\)</span>, and if we do, we get what we wrote above as the result.</p>
+<p>Next, let’s think about the quantity <span class="math inline">\(S-(1/2)S\)</span>. Again, this seems like something I’m pulling out of nowhere, but bear with me for a moment. We know what <span class="math inline">\(S\)</span> is, and we just figured out what <span class="math inline">\((1/2)S\)</span> is, so we should have: <span class="math display">\[S-\frac{1}{2}S = \overbrace{\left(1 + \frac{1}{2} + \frac{1}{4} + \frac{1}{8} + \cdots\right)}^{S} - \overbrace{ \left(\frac{1}{2} + \frac{1}{4} + \frac{1}{8} + \frac{1}{16} \cdots\right)}^{(1/2)S}\]</span> But now we can distribute that negative sign and combine these two parentheses. When we do so, almost everything cancels out: we have a <span class="math inline">\(+(1/2)\)</span> and a <span class="math inline">\(-(1/2)\)</span>; we have a <span class="math inline">\(+(1/4)\)</span> and a <span class="math inline">\(-(1/4)\)</span>, and so forth. The only thing that’s left is the <span class="math inline">\(+1\)</span>: <span class="math display">\[S-\frac{1}{2}S = 1 + \cancel{\frac{1}{2}} + \cancel{\frac{1}{4}} + \cancel{\frac{1}{8}} + \cdots - \cancel{\frac{1}{2}} - \cancel{\frac{1}{4}} - \cancel{\frac{1}{8}} - \cancel{\frac{1}{16}} \cdots\]</span> <span class="math display">\[S-\frac{1}{2}S = 1\]</span> But of course we can easily rearrange this to solve for <span class="math inline">\(S\)</span>: <span class="math display">\[\begin{align*}
+S\left(1-\frac{1}{2}\right) &amp;= 1\\
+\frac{1}{2}S &amp;= 1 \\
+S &amp;= 2
+\end{align*}\]</span> Wow!!!! So we have this infinitely-long infinite series, and it all just adds up to two: <span class="math display">\[\sum_{n=0}^{n=\infty} \left(\frac{1}{2}\right)^n = 1 + \frac{1}{2} + \frac{1}{4} + \frac{1}{8} + \frac{1}{16} + \cdots = 2\]</span> The really cool thing is that it doesn’t just work for this series. There’s nothing particualrly special about the powers of <span class="math inline">\(2\)</span>. We could have powers of some arbitrary number, like <span class="math inline">\(a\)</span>: <span class="math display">\[\sum_{n=0}^{n = \infty} a^n = 1 + a + a^2 + a^3 + a^4 + \cdots\]</span> And then we’d be able to follow the same reasoning as above, and get just: <span class="math display">\[\begin{align*}
+\sum_{n=0}^{n = \infty} a^n &amp;= 1 + a + a^2 + a^3 + a^4 + \cdots \\
+&amp;= \frac{1}{1-a}
+\end{align*}\]</span> So, for instance, in the case of <span class="math inline">\(a=1/2\)</span>, no matter how many terms we add, the series simply gets closer and closer to <span class="math inline">\(2\)</span>: <span class="math display">\[\sum_{n=0}^{n=\infty} \left(\frac{1}{2}\right)^n = 1 + \frac{1}{2} + \frac{1}{4} + \frac{1}{8} + \frac{1}{16} + \cdots = \frac{1}{1-1/2} = \frac{1}{1/2} = 2\]</span> Let’s prove this. Imagine, for the sake of convenience, we call this series <span class="math inline">\(S\)</span>: <span class="math display">\[S = 1 + a + a^2 + a^3 + a^4 + \cdots\]</span> Then: what happens if we multiply both sides of this equation by <span class="math inline">\(a\)</span>? We’ll have: <span class="math display">\[aS = a + a^2 + a^3 + a^4 + a^5 \cdots\]</span> What if we consider the quantity <span class="math inline">\(S-aS\)</span>? This must be just: <span class="math display">\[S-aS = (\overbrace{1 + a + a^2 + a^3 + a^4 + \cdots}^{S}) - (\overbrace{a + a^2 + a^3 + a^4 + a^5 \cdots}^{aS})\]</span> But if we combine those two parentheses, most nearly everything will cancel out—we’ve got an <span class="math inline">\(a\)</span>, and a <span class="math inline">\(-a\)</span>; we’ve got an <span class="math inline">\(a^2\)</span>, and a <span class="math inline">\(-a^2\)</span>, etc. The only thing that will be left is <span class="math inline">\(1\)</span>: <span class="math display">\[S-aS = 1\]</span> But we can easily solve this for <span class="math inline">\(S\)</span>: <span class="math display">\[S(1-a) = 1\]</span> <span class="math display">\[S = \frac{1}{1-a}\]</span> <span class="math display">\[ \includegraphics[scale=.25]{andrewproof.png}\]</span> Ta-da! Now we can deal with any series of the form <span class="math inline">\(\sum a^n\)</span>. In fact, we have quite a bit of power, because lots of tests for convergence only tell us whether a certain series converges—they don’t tell us what such series converge {}. But this test does. For instance, if we have the series: <span class="math display">\[1+\frac{2}{3} + \frac{4}{9} + \frac{8}{27} + \frac{16}{81} + \cdots\]</span>which is really just the series:<span class="math display">\[\sum_{n=0}^{n=\infty} \left(\frac{2}{3}\right)^n\]</span> we know, using this formula we just proved, that this series must converge, and it must converge to <span class="math inline">\(3\)</span>: <span class="math display">\[\sum_{n=0}^{n=\infty} \left(\frac{2}{3}\right)^n = \frac{1}{1-2/3} = \frac{1}{1/3} = 3\]</span> Unfortunately (or fortunately, depending on how you look at it), there’s a pretty substantial caveat. Namely: what if we have the series <span class="math inline">\(\sum 2^n\)</span>: <span class="math display">\[\sum_{n=0}^{n=\infty} \left(2\right)^n = 1 + 2 + 4 + 8 + 16 + \cdots\]</span> Does this series converge? Certainly not! It just keeps getting bigger and bigger! It goes to <span class="math inline">\(\infty\)</span>! But according to our theorem, it does converge: <span class="math display">\[\sum_{n=0}^{n=\infty} \left(2\right)^n = \frac{1}{1-2} = -1\]</span> This series is not <span class="math inline">\(-1\)</span>. You cannot keep adding powers of two and get <span class="math inline">\(-1\)</span>. That is utterly ridiculous. You will keep getting bigger and bigger numbers. The problem is pervasive—consider <span class="math inline">\(a=1\)</span>: <span class="math display">\[\sum_{n=0}^{n=\infty} (1)^n =1 + 1 + 1 + 1 + 1 + \cdots = \infty\]</span> So really, we should specify that in order for this series to converge, <span class="math inline">\(a\)</span> must be less than <span class="math inline">\(1\)</span>. And, actually, we should say that <span class="math inline">\(a\)</span> has to be between <span class="math inline">\(-1\)</span> and <span class="math inline">\(1\)</span>, because numbers below <span class="math inline">\(-1\)</span> give us the same problem: <span class="math display">\[\sum_{n=0}^{n=\infty}(-1)^n =1 - 1 + 1 - 1 - 1 - \cdots = \text{doesn&#39;t converge! keeps flipping between } 0\text{ and }1\]</span> <span class="math display">\[\sum_{n=0}^{n=\infty}(-2)^n =1 - 2 + 4 - 8 + 16 - \cdots = \text{doesn&#39;t converge! gets bigger and bigger, but with alternating signs}\]</span> So we should restate our theorem a little bit more precisely: <span class="math display">\[\boxed{ \sum_{n=0}^{n = \infty} a^n = \frac{1}{1-a} \text{, but only if } -1&lt;a&lt;1} \]</span> This type of series, by the way, is known as a <strong>geometric series</strong>. Not that the name really means much, but other people use the name, so you should probably know it.</p>
+<h2 id="another-test-for-convergencedivergence-a-reasonably-important-one">Another Test For Convergence/Divergence (A Reasonably Important One!)</h2>
+<p>Here’s another cool series: <span class="math display">\[1+ \frac{1}{2} + \frac{1}{6} + \frac{1}{24} + \frac{1}{120} + \frac{1}{720} + \cdots\]</span> Any idea what its formula is? No? It’s a factorial! It’s <span class="math inline">\(1/n!\)</span>: <span class="math display">\[\sum_{n=1}^{n=\infty} \frac{1}{n!} = 1+ \frac{1}{2} + \frac{1}{6} + \frac{1}{24} + \frac{1}{120} + \frac{1}{720} + \cdots\]</span> So the obvious question we can ask about this series, like about every other series, is: does it converge? Each of the terms are getting smaller, so it might. But we can’t come up with a nice little algebraic formula for its sum, like we could for a geometric series. Hmmm. How can we figure out whether the series converges? Here’s the idea: we can compare it to a series that we <em>do</em> know converges or diverges:</p>
+<ul>
+<li>If we can find a series that converges, and which is always greater than <span class="math inline">\(\sum 1/n!\)</span>, then we’ll know that <span class="math inline">\(\sum 1/n!\)</span> must converge, too.</li>
+<li>If we can find a series that diverges and which is always less than <span class="math inline">\(\sum 1/n!\)</span>, then we’ll know that <span class="math inline">\(\sum 1/n!\)</span> must diverge, too.</li>
+</ul>
+<p>Here’s what we know: we know that <span class="math inline">\(n!\)</span> is a skyrocketing function—it goes up really, really fast. Compare it, for example, with <span class="math inline">\(x^2\)</span> (or <span class="math inline">\(n^2\)</span>) and <span class="math inline">\(2^n\)</span>:</p>
+<p>TBALE</p>
+<table>
+<thead>
+<td>
+<span class="math inline">\(n\)</span>
+</td>
+<td>
+<span class="math inline">\(n^2\)</span>
+</td>
+<td>
+<span class="math inline">\(2^n\)</span>
+</td>
+<td>
+<span class="math inline">\(n!\)</span>
+</td>
+</thead>
+<tr>
+<td>
+<span class="math inline">\(1\)</span>
+</td>
+<td>
+<span class="math inline">\(1\)</span>
+</td>
+<td>
+<span class="math inline">\(2\)</span>
+</td>
+<td>
+<span class="math inline">\(1\)</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(2\)</span>
+</td>
+<td>
+<span class="math inline">\(4\)</span>
+</td>
+<td>
+<span class="math inline">\(4\)</span>
+</td>
+<td>
+<span class="math inline">\(2\)</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(3\)</span>
+</td>
+<td>
+<span class="math inline">\(9\)</span>
+</td>
+<td>
+<span class="math inline">\(8\)</span>
+</td>
+<td>
+<span class="math inline">\(6\)</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(4\)</span>
+</td>
+<td>
+<span class="math inline">\(16\)</span>
+</td>
+<td>
+<span class="math inline">\(16\)</span>
+</td>
+<td>
+<span class="math inline">\(24\)</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(5\)</span>
+</td>
+<td>
+<span class="math inline">\(25\)</span>
+</td>
+<td>
+<span class="math inline">\(32\)</span>
+</td>
+<td>
+<span class="math inline">\(120\)</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(6\)</span>
+</td>
+<td>
+<span class="math inline">\(36\)</span>
+</td>
+<td>
+<span class="math inline">\(64\)</span>
+</td>
+<td>
+<span class="math inline">\(720\)</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(7\)</span>
+</td>
+<td>
+<span class="math inline">\(49\)</span>
+</td>
+<td>
+<span class="math inline">\(128\)</span>
+</td>
+<td>
+<span class="math inline">\(5,040\)</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(8\)</span>
+</td>
+<td>
+<span class="math inline">\(64\)</span>
+</td>
+<td>
+<span class="math inline">\(256\)</span>
+</td>
+<td>
+<span class="math inline">\(40,320\)</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(9\)</span>
+</td>
+<td>
+<span class="math inline">\(81\)</span>
+</td>
+<td>
+<span class="math inline">\(512\)</span>
+</td>
+<td>
+<span class="math inline">\(362,880\)</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(\vdots\)</span>
+</td>
+<td>
+<span class="math inline">\(\vdots\)</span>
+</td>
+<td>
+<span class="math inline">\(\vdots\)</span>
+</td>
+<td>
+<span class="math inline">\(\vdots\)</span>
+</td>
+</tr>
+</table>
+<p>It takes <span class="math inline">\(n!\)</span> slightly longer to get going—it’s not the winner until <span class="math inline">\(n=4\)</span>—but after that, it <em>zooms</em> up. Factorials are HUGE!!!!! Which means, of course, that <span class="math inline">\(1/n!\)</span> is tiny. It’s zooming down, zooming down to <span class="math inline">\(0\)</span> far faster than <span class="math inline">\(1/n^2\)</span> or <span class="math inline">\(1/2^n\)</span>. BUT WAIT. We know that <span class="math inline">\(\sum 1/2^n\)</span> converges. That’s just a geometric series:</p>
+<p><span class="math display">\[\sum_{n=0}^{n=\infty}\frac{1}{2^n} = \sum_{n=0}^{n=\infty} \left(\frac{1}{2}\right)^n = \frac{1}{1-1/2} = \frac{1}{1/2} = 2\]</span></p>
+<p>AND we know that</p>
+<p><span class="math display">\[\frac{1}{2^n} &gt; \frac{1}{n!} \text{, at least after } n=4\]</span></p>
+<p>so then we know that</p>
+<p><span class="math display">\[\begin{align*}
+\sum_{n=1}^{n=\infty} \frac{1}{2^n} &amp;= \frac{1}{2} + \frac{1}{4} + \frac{1}{8} + \frac{1}{16} + \frac{1}{32} + \frac{1}{64}\cdots \\ \\
+\sum_{n=1}^{n=\infty} \frac{1}{n!} &amp;= 1+ \frac{1}{2} + \frac{1}{6} + \frac{1}{24} + \frac{1}{120} + \frac{1}{720} + \frac{1}{5040} + \cdots
+\end{align*}\]</span></p>
+<p><span class="math display">\[\sum_{n=4}^{n=\infty}\frac{1}{2^n} \,&gt;\, \sum_{n=4}^{n=\infty} \frac{1}{n!}\]</span> (Note how I changed the <span class="math inline">\(n\)</span>’s to start at <span class="math inline">\(4\)</span>. Not a big deal, though. I’ll address it more in a moment.) Since the <span class="math inline">\(1/2^n\)</span> series converges, and since <span class="math inline">\(1/n!\)</span> is less than <span class="math inline">\(1/2^n\)</span>, the <span class="math inline">\(1/n!\)</span> series must converge, too: <span class="math display">\[\underbrace{\sum_{n=4}^{n=\infty}\frac{1}{2^n}}_\text{this converges} \,&gt;\, \underbrace{\sum_{n=4}^{n=\infty} \frac{1}{n!}}_\text{so this must, too}\]</span> Of course, our original question was not about <span class="math inline">\(\sum 1/n!\)</span> when <span class="math inline">\(n\)</span> starts at <span class="math inline">\(4\)</span>; our question was about <span class="math inline">\(\sum 1/n!\)</span> when <span class="math inline">\(n\)</span> starts at <span class="math inline">\(1\)</span>. But this isn’t a concern. If I just add the first few terms back in, I’ll just be adding some finite number, and that won’t all-of-sudden make the series diverge. Put more formally: <span class="math display">\[\begin{align*}
+\sum_{n=0}^{n=\infty} \frac{1}{n!} &amp;= \overbrace{1}^{\mathclap{\text{the }n=1\text{ term}}} + \underbrace{\frac{1}{2}}_{\mathclap{\text{the }n=2\text{ term}}} + \overbrace{\frac{1}{6}}^{\mathclap{\text{the }n=3\text{ term}}} +  \sum_{n=4}^{n=\infty} \frac{1}{n!}\\
+\sum_{n=0}^{n=\infty} \frac{1}{n!} &amp;= \frac{10}{6}+  \sum_{n=4}^{n=\infty} \frac{1}{n!}
+\end{align*}\]</span> We know that the series from <span class="math inline">\(n=4\)</span> converges, so adding <span class="math inline">\(10/6\)</span> won’t make it diverge. It will still converge, even if we add <span class="math inline">\(10/6\)</span>. The sum from <span class="math inline">\(n=1\)</span> will converge to a slightly different point, yes (a point <span class="math inline">\(10/6\)</span> greater than what the sum from <span class="math inline">\(n=4\)</span> converges to), but since we don’t know what the sum from <span class="math inline">\(n=4\)</span> converges to in the first place, this doesn’t really change our situation. We can’t take a finite number, add another finite number, and get infinity. So:</p>
+<p><span class="math display">\[\sum_{n=1}^{n=\infty} \frac{1}{n!} \text{ converges.}\]</span></p>
+<p>So this is another method we can use to determine whether series converge or diverge: <strong>we can compare it to a series we know something about</strong><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. We might have a series that’s always greater than a series which diverges; therefore, we know it diverges. We might have a series that’s always smaller than a series which converges; therefore, we know it converges.</p>
+<p>(If we have a series that’s always greater than a series which converges; we know nothing, since the series could either converge or diverge (the latter if it’s too much greater than the series that converges). If we have a series that’s always less than a series that diverges, we know nothing, since the series could either converge or diverge (the latter if it’s not smaller enough than the series which diverges).)</p>
+<p>So, to sum up:</p>
+<div class="callout-box">
+<p>If we have a series that’s always smaller than a series that converges, we’ll know it converges.</p>
+<p>If we have a series that’s always greater than a series that diverges, we’ll know it diverges.</p>
+</div>
+<p>This is a very general argument, and a powerful tool to use for series in general. If we have some series, the convergence/divergence of which we’re trying to understand, and we can’t understand the series directly, maybe we could trap it above or beneath a series that we understand better. That’s the essence of this idea.</p>
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>In high school math classes, this often gets called the "<strong>comparison test</strong>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+</main>
+</body>
+</html>

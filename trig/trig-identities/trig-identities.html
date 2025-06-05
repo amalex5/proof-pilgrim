@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Trig Identities</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="/main.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <script src="../highlight-toc.js" type="text/javascript"></script>
+</head>
+<body>
+<script>document.addEventListener('DOMContentLoaded', function(e) {
+  Scroller.init();
+})</script>
+<aside>
+<div class="tocLinks" >
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#periodicity-identities">Periodicity Identities</a></li>
+<li><a href="#symmetry-identities">Symmetry Identities</a></li>
+<li><a href="#interchange-identities">Interchange Identities</a></li>
+<li><a href="#the-pythagorean-identity">The Pythagorean Identity</a></li>
+<li><a href="#summary">Summary!</a></li>
+</ul>
+</nav>
+</div>
+</aside>
+<main>
+<header id="title-block-header">
+<h1 class="title">Trig Identities</h1>
+</header>
+<p>If you open up a trig textbook, you’ll see pages that look like this:</p>
+<p><img src="trig-identities-bad.png" style="border: 0.25px solid black; width: 75%" /></p>
+<!---
+This is horrible.-->
+<p>When I was in high school, my teachers let us bring formula sheets like these into our tests. Their intentions were good: they didn’t want us to memorize all these trig identities. But their assumptions, however well-meaning, were not. The fundamental assumption (fundamental assertion?) behind huge reference sheets like this is, trigonometry is just <em>a set of facts</em>. (As is mathematics.)</p>
+<p>But that’s not true.</p>
+<p>Math isn’t sand. It’s a <em>spiderweb</em>. Mathematics isn’t a set of disconnected facts, floating out in space, occasionally colliding like the point particles that make up an ideal gas (perfectly elastically, etc.) Rather, it’s a complex and beautiful and self-supporting crystal lattice (now it’s my metaphors that are colliding).</p>
+<p>When it comes to trigonometry, we’re trying to understand the very simple beauty of <em>circles</em> and <em>triangles</em>. That’s it! It’s so simple. There’s lots of complexity that comes out of that, sure, but fundamentally it’s so simple. Thinking of trigonometry as being a big list of complicated formulas is not the way to understand it. It’s the way to <em>mis</em>understand it.</p>
+<p>On the other hand, the more we do trig problems, the more we should start to notice patterns. The better we understand trig, the more we’ll start to notice fun facts and shortcuts. We can codify those observations into nice little equations. (When it came to logs, we called these the “fun facts” about log functions.) And it’s not a terrible idea to list our observations, for our own reference and remembrance.</p>
+<p>So, in these notes, I’ll make some observations about how trig works. You could think of this as me listing trig identities and then proving them, but that seems like too aggressive a way to describe it. We’re just thinking about how circles and angles work, noticing patterns and deeper truths, and writing them down.</p>
+<h2 id="periodicity-identities">Periodicity Identities</h2>
+<p>What if we’re trying to find the sine of <span class="math inline">\(9\pi/4\)</span>, like so:</p>
+<p><img src="periodicity-identities-1.svg" style="width:75.0%" /></p>
+<p>It’s the same as <span class="math inline">\(\sin(\pi/4)\)</span>. Why? Because <span class="math inline">\(9\pi/4\)</span> is the same as <span class="math inline">\(\pi/4 + 2\pi\)</span>, and the extra <span class="math inline">\(2\pi\)</span> is just another revolution around the unit circle. <span class="math inline">\(9\pi/4\)</span> is a different <em>angle</em> than <span class="math inline">\(\pi/4\)</span>, but it lands us back in the same <em>place</em> that <span class="math inline">\(\pi/4\)</span> does. So the sine is the same! (It’s <span class="math inline">\(1/\sqrt{2}\)</span>.)</p>
+<p><img src="periodicity-identities-2.svg" style="width:75.0%" /></p>
+<p>This is a general rule. Both sine and cosine repeat every time we go around the unit circle. Every time we add <span class="math inline">\(2\pi\)</span> to an angle, the sine and cosine don’t change. We can add <span class="math inline">\(2\pi\)</span> as many times as we want. We can add <span class="math inline">\(4\pi\)</span>, <span class="math inline">\(6\pi\)</span>, <span class="math inline">\(358\pi\)</span>, whatever. We could go around the circle in the opposite direction, and <em>subtract</em> <span class="math inline">\(2\pi\)</span>, or <span class="math inline">\(4\pi\)</span>, or <span class="math inline">\(358\pi\)</span>. Trig functions repeat! So, if you want to memorialize or formalize this observation into an equation (or a couple of equations), you could write something like this:</p>
+<p><span class="math display">\[\sin(\theta + 2k\pi) = \sin(\theta)\]</span></p>
+<p><span class="math display">\[\cos(\theta + 2k\pi) = \cos(\theta)\]</span></p>
+<p>I’m using <span class="math inline">\(k\)</span> there to stand in for any integer, i.e., any number like <span class="math inline">\(1\)</span>, <span class="math inline">\(-5\)</span>, <span class="math inline">\(0\)</span>, <span class="math inline">\(300\)</span>, and so forth. Sometimes it’s nice to describe that concisely in-line with the equation. In that case we might use “<span class="math inline">\(\in\)</span>” (the “is an element of” symbol) and “<span class="math inline">\(\mathbb{Z}\)</span>” (the symbol for the set of all integers), and write “<span class="math inline">\(\text{for }k\in\mathbb{Z}\)</span>” (“<span class="math inline">\(k\)</span> is in the set of integers”), like so:</p>
+<p><span class="math display">\[\sin(\theta + 2k\pi) = \sin(\theta)\quad\text{for }k\in\mathbb{Z}\]</span></p>
+<p><span class="math display">\[\cos(\theta + 2k\pi) = \cos(\theta)\quad\text{for }k\in\mathbb{Z}\]</span></p>
+<p>If <span class="math inline">\(k\)</span> is an integer, <span class="math inline">\(k\)</span> can be negative, so this includes the “negative” angles (going clockwise around the origin), but if you want to be <em>extra-redundant</em>, you could use a <span class="math inline">\(\pm\)</span> instead of just a <span class="math inline">\(+\)</span>:</p>
+<p><span class="math display">\[\sin(\theta \pm 2k\pi) = \sin(\theta)\quad\text{for }k\in\mathbb{Z}\]</span></p>
+<p><span class="math display">\[\cos(\theta \pm 2k\pi) = \cos(\theta)\quad\text{for }k\in\mathbb{Z}\]</span></p>
+<p>What about tangent? It repeats even faster than sine and cosine. Since the only thing that changes about sine and cosine every <span class="math inline">\(\pi\)</span> units is its sign (s-i-g-n, i.e., whether it’s <span class="math inline">\(+\)</span> or <span class="math inline">\(-\)</span>), and since tangent is just the quotient of sine and cosine, the signs will cancel out. And so tangent repeats every <span class="math inline">\(\pi\)</span> units. Formally:</p>
+<p><span class="math display">\[\tan(\theta \pm k\pi) = \tan(\theta)\]</span></p>
+<h2 id="symmetry-identities">Symmetry Identities</h2>
+<p>Here’s another observation. What if we have some angle <span class="math inline">\(\theta\)</span>, and we find <span class="math inline">\(\cos(\theta)\)</span>, and then we also want to find <span class="math inline">\(\cos(-\theta)\)</span>? Is there any relationship between these two cosines? Let’s think about what this will look like on a unit circle:</p>
+<p><img src="symmetry-identities-1.svg" style="width:75.0%" /></p>
+<p>Cosine, of course, is just the <span class="math inline">\(x\)</span>-coordinate of that point on the unit circle. So if we consider <span class="math inline">\(-\theta\)</span>, that point just becomes the vertical reflection of the corresponding point for <span class="math inline">\(+\theta\)</span>. Meaning that its <span class="math inline">\(x\)</span>-coordinate doesn’t change. Meaning that its cosine doesn’t change. And thus we have the following identity:</p>
+<p><span class="math display">\[\cos(-\theta) = \cos(\theta)\]</span></p>
+<p>By contrast, the <span class="math inline">\(y\)</span>-coordinate of that point <em>does</em> change. The point gets reflected across the horizontal axis. So the <span class="math inline">\(y\)</span>-coordinate becomes the negative of whatever it was before. And the <span class="math inline">\(y\)</span>-coordinate, by definition, is <span class="math inline">\(\sin(\theta)\)</span>. So we must have:</p>
+<p><span class="math display">\[\sin(-\theta) = -\sin(\theta)\]</span></p>
+<p>Visually:</p>
+<p><img src="symmetry-identities-2.svg" style="width:75.0%" /></p>
+<p>As a quick aside, do you remember, from previous classes, the definitions of <strong>even functions</strong> and <strong>odd functions</strong>? (You might not, which isn’t a huge deal.) Even functions are functions that are horizontally symmetric around the vertical <span class="math inline">\(y\)</span>-axis, or, more formally, functions for which <span class="math inline">\(f(-x)=f(x)\)</span>:</p>
+<p><span class="math display">\[\text{even functions: } f(-x) = f(x)\]</span></p>
+<p>In other words, they’re functions that destroy negatives. <span class="math inline">\(x^2\)</span> is an example!</p>
+<p>Odd functions, by contrast, are functions symmetric if you flip them across the line <span class="math inline">\(y=x\)</span>. (Theyu’re <em>not</em> functions that are vertically symmetric across the horizontal axis, note!). In other words, they’re, functions for which <span class="math inline">\(f(-x)=-f(x)\)</span>:</p>
+<p><span class="math display">\[\text{odd functions: } f(-x) = -f(x)\]</span></p>
+<p>In other words, negatives float in and out of them, like ghosts through walls. <span class="math inline">\(x^3\)</span> is an example!</p>
+<p>“Even” and “odd” here don’t have anything to do with even and odd numbers, note; they’re just the names people have chosen to give to functions that have these properties. (Although… any ideas why people might have chosen those words over the many other words they could have chosen?)</p>
+<p>Anyway, notice anything about these two trig identities we just wrote down? They look exactly like the definitions of even and odd functions!!!! So cosine is an even function/a function that’s horizontally symmetric around the <span class="math inline">\(y\)</span>-axis (like <span class="math inline">\(x^2\)</span>), and sine is an odd function (like <span class="math inline">\(x^3\)</span>). (We might have already known that, from knowing what the graphs look like, but the point is, <em>this is where that comes from</em>.)</p>
+<p>Tangent, meanwhile, will incorporate the negative:</p>
+<p><span class="math display">\[\tan(-\theta) = \frac{\sin(-\theta)}{\cos(-\theta)} = \frac{-\sin(\theta)}{\cos(\theta)} = -\tan(\theta)\]</span></p>
+<p>and thus will be odd.</p>
+<p>(Idle related question: will the product of an even function and an odd function be a) always an even function, b) always an odd function, or c) sometimes one and sometimes the other? What about the quotient of an even function and an odd function?)</p>
+<h2 id="interchange-identities">Interchange Identities</h2>
+<p>Another thing we’ve noticed, just from knowing the graphs of sine and cosine, is that they’re the same—they’ve just got a slight horizontal shift. Sine and cosine are <em>the same function</em>. They’re just shifted by <span class="math inline">\(90^\circ\)</span>! Er, uh, excuse me; I mean <span class="math inline">\(\pi/2\)</span>. If we wanted to formalize that observation into an equation (or equation<em>s</em>), one way to do that would be:</p>
+<p><span class="math display">\[\cos(\theta) = \substack{\text{sine, shifted left}\\\text{by $\pi/2$}} = \sin(\theta + \pi/2)\]</span></p>
+<p><span class="math display">\[\sin(\theta) = \substack{\text{cosine, shifted right}\\\text{by $\pi/2$}} =  \cos(\theta - \pi/2)\]</span></p>
+<p>Or just:</p>
+<p><span class="math display">\[\cos(\theta) = \sin(\theta + \pi/2)\]</span></p>
+<p><span class="math display">\[\sin(\theta) = \cos(\theta - \pi/2)\]</span></p>
+<p>We know this from knowing what the graphs of sine and cosine look like… but actually, I should put “know” in quotes. We “know” this. We don’t really <em>know</em> it. We haven’t <em>proved</em> it. We don’t know why, from the basic starter foundational definitions of sine and cosine, why this is true. We’ve sort of seen it empirically, as a high-level phenomenological result… but we should think more deeply. Sine and cosine are the <span class="math inline">\(y\)</span>- and <span class="math inline">\(x\)</span>-coordinates on the unit circle—so what is it that makes them to be the same thing, but just <span class="math inline">\(\pi/2\)</span> apart?</p>
+<p>Here’s a high-level argument: if we take the <span class="math inline">\(x\)</span>-axis and rotate it <span class="math inline">\(\pi/2\)</span>, we get the <span class="math inline">\(y\)</span>-axis! So an <span class="math inline">\(x\)</span>-coordinate, rotated <span class="math inline">\(\pi/2\)</span>, becomes a <span class="math inline">\(y\)</span>-coordinate! Like, suppose we have some angle <span class="math inline">\(\theta\)</span>, such that its <span class="math inline">\(x\)</span>-coordinate is <span class="math inline">\(\cos\theta\)</span>:</p>
+<p><img src="interchange-identities-1.svg" style="width:75.0%" /></p>
+<p>And then we rotate it by <span class="math inline">\(\pi/2\)</span>:</p>
+<p><img src="interchange-identities-2.svg" style="width:75.0%" /></p>
+<p>Then the sine of the rotated angle is the same as the cosine of the original angle!</p>
+<p><img src="interchange-identities-3.svg" style="width:75.0%" /></p>
+<p><span class="math display">\[\underbrace{\cos(\theta)}_{\text{an $x$-coordinate}} = \underbrace{\sin(\overbrace{\theta + \pi/2}^{\text{rotated $\pi/2$}})}_{\text{a $y$-coordinate}}\]</span></p>
+<p>What about the other way around? If we take a <span class="math inline">\(y\)</span>-coordinate, and rotate it <span class="math inline">\(\pi/2\)</span>, we don’t get the <span class="math inline">\(x\)</span>-coordinate. Or we do, but not the <span class="math inline">\(+x\)</span>-coordinate; we get the <span class="math inline">\(-x\)</span>-coordinate. So you could say:</p>
+<p><span class="math display">\[\sin(\theta) = -\cos(\theta + \pi/2) \]</span></p>
+<p>Delightful! But, if we wanted to come up with something more like the second of our original pair of equations, where it’s just about shifting angles and getting stuff, without negatives outside of things, we could realize that if we take a <span class="math inline">\(y\)</span>-coordinate, and rotate it <em>backwards</em> by <span class="math inline">\(\pi/2\)</span>—i.e., rotate it in the negative direction, i.e. the clockwise direction—then we get an <span class="math inline">\(x\)</span>-coordinate:</p>
+<p><span class="math display">\[\underbrace{\sin(\theta)}_{\text{a $y$-coordinate}} = \underbrace{\cos(\overbrace{\theta - \pi/2}^{\substack{\text{rotated backwards}\\\text{by $\pi/2$}}})}_{\text{an $x$-coordinate}}\]</span></p>
+<p>Or just:</p>
+<p><span class="math display">\[\sin(\theta) = \cos(\theta - \pi/2)\]</span></p>
+<h2 id="the-pythagorean-identity">The Pythagorean Identity</h2>
+<p>There’s another really cool relationship between trig functions. Namely: if we square the cosine of some angle, and then square the sine of the same angle, and add them, we just get <span class="math inline">\(1\)</span>:</p>
+<p><span class="math display">\[(\sin \theta)^2 + (\cos \theta)^2 = 1\]</span></p>
+<p>It’s true for any angle!!! As long as we’re sine’ing and cosine’ing the same angle, then if we square them and add them, we always get just <span class="math inline">\(1\)</span>!!!!</p>
+<p>Why is this true? Well, imagine we have some angle <span class="math inline">\(\theta\)</span>:</p>
+<p><img src="pythagorean-identity-1.svg" style="width:75.0%" /></p>
+<p>If we look at it the right way, it makes a nice little right triangle!</p>
+<p><img src="pythagorean-identity-2.svg" style="width:75.0%" /></p>
+<p>It’s a right triangle, with a hypotenuse of <span class="math inline">\(1\)</span>, and legs of length <span class="math inline">\(\cos\theta\)</span> and <span class="math inline">\(\sin\theta\)</span>:</p>
+<p><img src="pythagorean-identity-3.svg" style="width:75.0%" /></p>
+<p>But then… the Pythagorean Theorem has to apply! If we square both the legs, we should get the hypotenuse squared:</p>
+<p><span class="math display">\[(\sin \theta)^2 + (\cos \theta)^2 = 1^2\]</span></p>
+<p>Or just:</p>
+<p><span class="math display">\[(\sin \theta)^2 + (\cos \theta)^2 = 1\]</span></p>
+<p>Whoa!!!</p>
+<p>Often, by the way, we write things like <span class="math inline">\((\sin \theta)^2\)</span> and <span class="math inline">\((\cos \theta)^2\)</span> as <span class="math inline">\(\sin^2 \theta\)</span> and <span class="math inline">\(\cos^2 \theta\)</span>, just as a more convenient notation (fewer parentheses!). (I don’t love this notation, since it seems like you’re squaring the sine alone, and what does it mean to square a function? But I haven’t been able to come up with a better one.) Written that way:</p>
+<p><span class="math display">\[\sin^2 (\theta) + \cos^2 (\theta) = 1\]</span></p>
+<p>We can make slightly modified versions of this identity. For example, if we divide both sides by <span class="math inline">\(\cos^2(\theta)\)</span>, we get:</p>
+<p><span class="math display">\[\begin{align*}
+\frac{\sin^2 \theta + \cos^2 \theta}{\cos^2 \theta} &amp;= \frac{1}{\cos^2 \theta} \\ \\
+\frac{\sin^2 \theta}{\cos^2 \theta} + \frac{\cos^2 \theta}{\cos^2 \theta}  &amp;= \frac{1}{\cos^2 \theta}\\ \\
+\tan^2 \theta + 1 &amp;= \frac{1}{\cos^2 \theta}
+\end{align*}\]</span></p>
+<p>Or if we divide it all by <span class="math inline">\(\sin^2\theta\)</span>:</p>
+<p><span class="math display">\[\begin{align*}
+\frac{\sin^2 \theta + \cos^2 \theta}{\sin^2 \theta} &amp;= \frac{1}{\sin^2 \theta} \\ \\
+\frac{\sin^2 \theta}{\sin^2 \theta} + \frac{\cos^2 \theta}{\sin^2 \theta}  &amp;= \frac{1}{\sin^2 \theta}\\ \\
+1 + \frac{1}{\tan^2 \theta}  &amp;= \frac{1}{\sin^2 \theta}
+\end{align*}\]</span></p>
+<h2 id="summary">Summary!</h2>
+<p>For convenience, you might want to write up these identities we’ve discussed into a handy reference table. Probably you wouldn’t write something as horrific as the example I started these notes with, but you could list the identities we’ve discussed here. Maybe you could add some examples or outline the reasoning. Maybe you could make up (/think up/dream up/notice) even more identities, and add those, too. If you think that’d be useful, then you should make one. It’s always better to make your own list than copy someone else’s.</p>
+<p>But please, please don’t try to memorize these identities (or others). Doing so won’t help you understand trigonometry better. If you understand the trig—really <em>understand</em> it—really <em>feel</em> it—then all of these identities should make sense. If you do a lot of trig problems, then all these identities will start to be natural and feel obvious and eventually, you won’t even really have to think about them in order to apply them. You probably don’t feel that way right now. Hopefully you will, eventually. That’s our goal. (Doing lots of trig problems is the means!)</p>
+<p>A list of trig identities, then, shouldn’t be a list of facts to memorize, or disconnected ideas to search through when trying to solve a problem, but rather, <em>a codification of things we already know.</em></p>
+</main>
+</body>
+</html>

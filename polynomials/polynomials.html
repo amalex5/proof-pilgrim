@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Painting Perfect Polynomials</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="/main.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <script src="../highlight-toc.js" type="text/javascript"></script>
+</head>
+<body>
+<script>document.addEventListener('DOMContentLoaded', function(e) {
+  Scroller.init();
+})</script>
+<aside>
+<div class="tocLinks" >
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#whats-not-a-polynomial">What’s NOT a polynomial???</a></li>
+<li><a href="#polynomial-anatomy-equations">Polynomial anatomy: equations!</a></li>
+<li><a href="#unfactoring-is-boring-and-tedious">Unfactoring is boring and tedious</a></li>
+<li><a href="#but-factoring-is-actually-hard">But factoring is actually hard</a></li>
+<li><a href="#polynomial-anatomy-pictures">Polynomial anatomy: pictures!</a></li>
+<li><a href="#painting-polynomials">Painting polynomials!!!!</a></li>
+<li><a href="#lets-graph-a-real-polynomial">Let’s graph a real polynomial!</a></li>
+<li><a href="#lets-graph-another-polynomial">Let’s graph another polynomial!</a></li>
+<li><a href="#going-backwards">Going backwards</a></li>
+<li><a href="#problems">Problems</a></li>
+</ul>
+</nav>
+</div>
+</aside>
+<main>
+<header id="title-block-header">
+<h1 class="title">Painting Perfect Polynomials</h1>
+</header>
+<p><strong>Polynomials! They’re great!</strong> You’ve known about them for years! Algebraically, they’re expressions that look like:</p>
+<p><span class="math display">\[f(x) = x^7 - 13x^6 + 6 x^5 + 458x^4 - 1007x^3 - 4845x^2 + 10600x + 14000\]</span></p>
+<p>Visually, they’re functions that look like:</p>
+<p><img src="crazy-septic.svg" /></p>
+<p>Here are a few more random examples of polynomials (as equations):</p>
+<p><span class="math display">\[f(x) = 5x^2 + 3x - 2 \quad\quad\quad f(x) = -8x^{15} \quad\quad\quad f(x) = 3x + 4\]</span></p>
+<p><span class="math display">\[f(x) = 25.7x^{9,000,000} - 3x \quad\quad\quad f(x) = 9 \quad\quad\quad f(x) = x^3 + 92x\]</span></p>
+<p>So we just have a bunch of terms added together, where each term looks like a variable raised to some power times some coefficient. We can have as many or as few terms as we want; the coefficients can be integers, real numbers, whatever. That’s what they look like, algebraically. Visually, they’re nice, curvy lines that go up and down, up and down, all curvy, like a weathered mountain range. They go up or down to infinity at the ends but they never do so <em>too dramatically</em>—they’re never infinitely steep or infinitely flat. They’re functions that are simultaneously <em>interesting</em> and also <em>well-behaved</em>. They’re not boring, but neither are they dangerous and scary—they’re the perfect balance!</p>
+<p>We want polynomials to be our best friends. We want to know <em>everything about them</em>. In these notes we’ll discuss their anatomy—both algebraic and visual—and then we’ll discuss how to acquire synæsthesia for polynomials—how to go from their equations to their pictures, from their pictures to their equations, back and forth, back and forth, first consciously and deliberately; then automatically and intuitively.</p>
+<h2 id="whats-not-a-polynomial">What’s NOT a polynomial???</h2>
+<p>We don’t want to be negative. We don’t want to exclude anyone from our beloved community of functional friends. But not everything is a polynomial. One of the main restrictions, algebraically, is that all the powers need to be positive integers. They can’t be negative integers:</p>
+<p><span class="math display">\[\text{not a polynomial: } \quad x^{-1} + 5x^{-2} + 3x^2\]</span></p>
+<p>Nor can they be fractions:</p>
+<p><span class="math display">\[\text{not a polynomial: } \quad x^{1/2} + 2x^{4/3} - 7x^5\]</span></p>
+<p>I’ve included one term with an A-OK positive integer power in each of those counterexamples, just to demonstrate that <em>all</em> of the powers need to be positive integers (or zero, if it’s a constant term, so maybe I should say “non-negative integers”). If any of the powers are fractions or negative (or both!), it’s not a polynomial!</p>
+<p>Why not? Well, there’s a good answer and a bad answer. The bad answer is that that’s just how we define what a polynomial is. Polynomials are things that have variables raised to non-negative powers. But that’s a bad answer. It doesn’t explain <em>why</em> we define polynomials like that. The definition of a polynomial wasn’t given to Joseph Smith on a golden plate by the angel Moroni. Moses didn’t bring the definition of a polynomial down on tablets from Mt. Sinai. The reason we define polynomials this way is because we’re trying to <em>describe</em> a class of functions. “Definition” is a word that implies human agency. But actually, we’re trying to describe abstract objects that are <em>already there</em>, and sort them into useful, descriptive buckets, just like we organize the natural world into kingdoms and phyla and classes and orders and genera and species. We’re not “defining” sea lions as being eared swimming dogs found on the coast; we’re describing what we see and trying to taxonomize it. Even if the act of making a mathematical definition did conjure up abstract structures out of empty space, then we could still ask: why <em>these</em> abstractions, and not others? Why <em>not</em> allow polynomials to have negative or fractional exponents? Why define it in this way, and not a different way?</p>
+<p>The short answer is that, when it comes to polynomials, we’re trying to describe a class of functions that—to put it one way—<em>behave really nicely</em>.</p>
+<p>Why don’t we want negative exponents? We already know one example of a function that’s kind like a polynomial but has a negative exponent. <span class="math inline">\(f(x)=\frac{1}{x^2}\)</span>, if we write it differently, is just <span class="math inline">\(f(x)=x^{-2}\)</span>. And it looks like:</p>
+<p><img src="1overx%5E2.svg" style="width:50.0%" /></p>
+<p>It’s SPIKING UP TO INFINITY! That’s scary. Negative exponents mean we sometimes get <strong>singularities</strong> (or “<strong>vertical asymptotes</strong>”), which can be frightening and tricky to deal with.</p>
+<p>What about if we allow fractional exponents? Like with negative exponents, we already know some examples, since roots are just fractional exponents. A cube root, for instance, <span class="math inline">\(f(x) = \sqrt[3]{x}\)</span>, we can rewrite as <span class="math inline">\(f(x)=x^{1/3}\)</span>:</p>
+<p><img src="cuberootx.svg" style="width:50.0%" /></p>
+<p>This isn’t spiking up to infinity any more… but look at what’s going on at the origin. It’s infinitely steep!!!<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> That’s kind of scary. Plus, cube roots are less scary then square(/even roots), which are also infinitely steep at the origin, but don’t even exist to the left:</p>
+<p><img src="sqrtx.svg" style="width:50.0%" /></p>
+<p>Square roots (and even roots, and anything with a fractional exponent whose denominator is even) are not only infinitely steep at the origin, but they don’t even exist for negative numbers! (At least not without dealing with imaginary numbers, which is a whole other bag of worms.)</p>
+<p>So, the point is, if we just build a fence around our playground, we can keep ourselves safe. If we just restrict ourselves to functions whose exponents are positive (or at least non-negative), then we don’t have to worry about any of these problems. And maybe once we grow up—once we get a little steadier on our feet—then we can start to deal with things that are scarier and more dangerous, like negative or fractional exponents.</p>
+<p>Oh, there’s another set of things I won’t point out that aren’t polynomials. Trig functions and exponential functions—sine, cosine, <span class="math inline">\(e^x\)</span>, all that—those aren’t polynomials, either. We’ll see in calculus that if we could write polynomials with <em>infinitely many terms</em>, then trig functions and exponentials would be polynomials<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. But for now, we’ll stick to the finite world. That’s for later. We’ll require our polynomials to be of finite length because infinity is nasty and nebulous and it’s not entirely clear what we mean by “infinity.”</p>
+<p>(Actually, if we could have infinitely-long polynomials, then sometimes we’d even be able to turn things with fractional and negative exponents into polynomials, at least some of the time! But this is getting a bit ahead of ourselves…)</p>
+<h2 id="polynomial-anatomy-equations">Polynomial anatomy: equations!</h2>
+<p>The first two years of medical school you spend basically memorizing every single bone and every single muscle and every single nerve and every single hormone and <em>every single everything</em> in the human body. It’s a lot of information! And that’s basically what we’re going to do right now (but with polynomials). Polynomials get complicated. There are a bunch of different words we have for the different pieces of their anatomy. So let’s walk step-by-step through what equations for polynomials look like, algebraically, and what we call all their different organ systems.</p>
+<p>To start with, here’s a random equation for a parabola (which is a simple polynomial):</p>
+<p><span class="math display">\[f(x)=5x^2+3x-7\]</span></p>
+<p>So we’ve got some numbers, times some <span class="math inline">\(x\)</span>’s, with each of the <span class="math inline">\(x\)</span>’s raised to some power. Algebraically speaking, the idea with a polynomial is: what if we keep going? What if we add on more terms, with numbers and <span class="math inline">\(x\)</span>’s raised to higher powers?!? For example, here’s a <strong>cubic equation</strong> (a polynomial where the highest exponent is <span class="math inline">\(3\)</span>):</p>
+<p><span class="math display">\[f(x)=12x^3 + 5x^2+3x-7\]</span></p>
+<p>And here’s a <strong>quartic equation</strong> (a polynomial where the highest exponent is <span class="math inline">\(4\)</span>):</p>
+<p><span class="math display">\[f(x)= x^4 + 12x^3 + 5x^2+3x-7\]</span></p>
+<p>The fancy word for “the highest exponent in a polynomial” is <strong>degree</strong>. So, for example, the degree of a quartic equation is <span class="math inline">\(4\)</span>, the degree of a cubic equation is <span class="math inline">\(3\)</span>, the degree of a quadratic equation (i.e., a parabola) is <span class="math inline">\(2\)</span>, and so forth.</p>
+<p>Straight lines are actually just polynomials of degree <span class="math inline">\(1\)</span>! That’s because the <span class="math inline">\(x\)</span> in the equation actually has an invisible exponent of <span class="math inline">\(1\)</span>:</p>
+<p><span class="math display">\[\begin{align*}
+f(x) &amp;= 2x+3 \\
+&amp;= 2x^1 + 3
+\end{align*}\]</span></p>
+<p>Actually, straight lines are polynomials of degree zero if they’re flat. That’s because we can think of the constant term (the <span class="math inline">\(y\)</span>-intercept) as having an invisible <span class="math inline">\(x^0\)</span> next to it (because <span class="math inline">\(x^0=1\)</span>). For example, here’s a horizontal straight line at all the <span class="math inline">\(y\)</span>-values of <span class="math inline">\(5\)</span>:</p>
+<p><span class="math display">\[\begin{align*}
+f(x) &amp;= 5 \\
+&amp;= 5x^0
+\end{align*}\]</span></p>
+<p>So, actually, <em>all sorts of things</em> are polynomials! Straight lines are polynomials! Parabolas are polynomials!!! Et cetera!</p>
+<p><img src="polynomials-containment-diagram.svg" /></p>
+<p>Here’s another polynomial: <span class="math display">\[f(x) = 12x^{320}\]</span> It’s not very poly. There’s only one term. The name people often give to a one-term polynomial like this is a <strong>monomial</strong>. But it’s still a type of polynomial.</p>
+<p>Here’s that same <em>terrifying-looking</em> seventh-degree polynomial from the introduction:</p>
+<p><span class="math display">\[f(x)=x^7 - 13x^6 + 6 x^5 + 458x^4 - 1007x^3 - 4845x^2 + 10600x + 14000\]</span></p>
+<p>I guess if you wanted to give it a cool name, you could call it a <strong>septic equation</strong>, since “sept-” is the Latin root for “seven.” Anyway, you can factor this as:</p>
+<p><span class="math display">\[\begin{align*}
+f(x) &amp;= x^7 - 13x^6 + 6 x^5 + 458x^4 - 1007x^3 - 4845x^2 + 10600x + 14000 \\
+&amp; = (x+1)(x-7)(x+4)^2(x-5)^3
+\end{align*}\]</span></p>
+<p>And by “you,” I mean, “theoretically, this <em>could</em> be factored by someone, but definitely not you, and definitely not me.” I came up with it by writing out the factored form first, and then multiplying it all out to get the unfactored form. (Well, actually, even that would be a pain—I just asked a computer to multiply it out for me.)</p>
+<p>We can write polynomials in both <strong>factored</strong> and <strong>unfactored</strong> forms:</p>
+<p><span class="math display">\[\begin{align*}
+f(x) &amp;= \overbrace{x^7 - 13x^6 + 6 x^5 + 458x^4 - 1007x^3 - 4845x^2 + 10600x + 14000}^{\text{unfactored form}} \\ \\
+&amp;= \underbrace{(x+1)(x-7)(x+4)^2(x-5)^3}_{\text{factored form}}
+\end{align*}\]</span></p>
+<p>Note that lots of high school math teachers call this unfactored form on the top <strong>standard form</strong>, but I don’t like that, because that would imply that there’s something “not standard” about factored form. That’s silly. Factored form is a perfectly “standard” way to write a polynomial.</p>
+<p>Unfactored form is made up of a bunch of <strong>terms</strong> added together:</p>
+<p><span class="math display">\[f(x) = \underbrace{x^7}_\text{term} - \underbrace{13x^6}_\text{term}  + \underbrace{6x^5}_\text{term}  + \underbrace{458x^4}_\text{term}  - \underbrace{1007x^3}_\text{term}  - \underbrace{4845x^2}_\text{term}  + \underbrace{10600x}_\text{term}  + \underbrace{14000}_\text{term}\]</span></p>
+<p>The term with the highest exponent gets called the <strong>leading term</strong>. The term that’s just a number—i.e., the term with the invisible <span class="math inline">\(x^0\)</span>—gets called the <strong>constant term</strong>. Sometimes people call the terms in between the <strong>cross terms</strong>:</p>
+<p><span class="math display">\[f(x) = \overbrace{x^7}^{\mathclap{\text{leading term}}} \underbrace{- 13x^6 + 6 x^5 + 458x^4 - 1007x^3 - 4845x^2 + 10600x}_{\text{cross terms}} + \overbrace{14000}^{\mathclap{\text{constant term}}}\]</span></p>
+<p>Oh! And there’s another really important word: <strong>coefficient</strong>. A coefficient is the number before the <span class="math inline">\(x\)</span>—the number the <span class="math inline">\(x\)</span> is multiplied by. So, for example:</p>
+<p><span class="math display">\[f(x) = x^7 \underbrace{-13}_{\mathclap{\text{coefficient}}}x^6 + \underbrace{6}_{\mathclap{\text{coefficient}}} x^5 + \underbrace{458}_{\mathclap{\text{coefficient}}}x^4 \underbrace{- 1007}_{\mathclap{\text{coefficient}}}x^3 \underbrace{- 4845}_{\mathclap{\text{coefficient}}}x^2 + \underbrace{10600}_{\mathclap{\text{coefficient}}}x + \underbrace{14000}_{\mathclap{\text{coefficient}}}x^0\]</span></p>
+<p>So, for example, the coefficient on the <span class="math inline">\(x^6\)</span> term is <span class="math inline">\(-13\)</span>. The coefficient on the <span class="math inline">\(x^5\)</span> term is <span class="math inline">\(6\)</span>. And so forth. It includes the positive or negative sign. The coefficient on the <span class="math inline">\(x^7\)</span> term is <span class="math inline">\(1\)</span>—it’s just an invisible <span class="math inline">\(1\)</span> we didn’t write. Since the <span class="math inline">\(x^7\)</span> term goes by the name “leading term,” the coefficient on it often gets called the <strong>leading coefficient</strong>:</p>
+<p><span class="math display">\[f(x) = \overbrace{1\cdot}^{\mathclap{\text{leading coefficient}}}x^7 - 13x^6 + 6 x^5 + 458x^4 - 1007x^3 - 4845x^2 + 10600x + 14000\]</span></p>
+<p>Sometimes coefficients are zero! For example, here’s the equation for a parabola:</p>
+<p><span class="math display">\[f(x) = x^2 - 16\]</span></p>
+<p>What’s the coefficient on the <span class="math inline">\(x\)</span>-term? Trick question?!? There’s no <span class="math inline">\(x\)</span>-term?!? Of course there is! It’s just that the coefficient is zero, making the <span class="math inline">\(x\)</span>-term invisible:</p>
+<p><span class="math display">\[\begin{align*}
+f(x) &amp;=  x^2 - 16 \\
+&amp;=  x^2\quad\quad\, - 16 \\
+&amp;= x^2 + 0x - 16
+\end{align*}\]</span></p>
+<p>There’s some vocabulary associated with polynomials written in factored form, too. Factored form is made up of a bunch of <strong>factors</strong> multiplied together: <span class="math display">\[f(x)= \underbrace{(x+1)}_\text{factor}\cdot\underbrace{(x-7)}_\text{factor}\cdot\underbrace{(x+4)^2}_\text{factor}\cdot\underbrace{(x-5)^3}_\text{factor} \]</span> The number of times a factor shows up (i.e., its exponent) is called its <strong>multiplicity</strong>: <span class="math display">\[f(x)= \underbrace{(x+1)}_{\substack{\text{factor of}\\\text{multiplicity $1$}}}\cdot\underbrace{(x-7)}_{\substack{\text{factor of}\\\text{multiplicity $1$}}}\cdot\underbrace{(x+4)^2}_{\substack{\text{factor of}\\\text{multiplicity $2$}}}\cdot\underbrace{(x-5)^3}_{\substack{\text{factor of}\\\text{multiplicity 3}}} \]</span></p>
+<p>Factors with multiplicities greater than one people sometimes call <strong>repeated roots</strong>. If you want to sound more sophisticated, you can call them <strong>degenerate roots</strong>. (There’s nothing salacious about them; it’s just that “degenerate” is a fancy word mathematicians and physicists often use for repeats.) Multiplicities have a big effect on what polynomials look like near their <span class="math inline">\(x\)</span>-intercepts! We’ll get to that soon.</p>
+<p>Factors are themselves polynomials, so we can describe as being <strong>linear factors</strong> or <strong>quadratic factors</strong> or <strong>cubic factors</strong> etc., based on what degree polynomial they are. For example, here’s a different version of the above polynomial: <span class="math display">\[f(x) = \underbrace{\left( x-7 \right)}_{\text{linear factor}} \underbrace{\left( x^2 + 8x + 16 \right)}_{\text{quadratic factor}}\underbrace{\left(x^3 - 9x^2 + 15x + 25 \right)}_{\text{cubic factor}}\underbrace{\left( x-5 \right)}_{\text{linear factor}}  \]</span> Above, I made the quadratic factor by multiplying out <span class="math inline">\((x+4)^2\)</span>, and made the cubic factor by multiplying together <span class="math inline">\((x+1)(x-5)^2\)</span> (so two of the <span class="math inline">\((x-5)\)</span> factors, but not all three). I’s hard to see that this version is the same as the <strong>fully-factored</strong> version of the polynomial just by looking at it (although it is!). Fully-factored, in this context, means that all the factors are linear factors: <span class="math display">\[f(x)= \underbrace{(x+1)}_\text{linear factor}\cdot\underbrace{(x-7)}_\text{linear factor}\cdot\underbrace{(x+4)^2}_\text{linear factor}\cdot\underbrace{(x-5)^3}_\text{linear factor} \]</span> We’ve broken the polynomial down as far as we can go! Linear factors are the <em>atoms</em> of polynomials. They’re the prime numbers of polynomials: think of how we factor numbers down into primes (and how primes are the smallest factors we can break numbers down into).</p>
+<p>If you really want to be ridiculous, you could say that the unfactored version of the polynomial is really just a single septic factor: <span class="math display">\[f(x) = \underbrace{\left(x^7 - 13x^6 + 6 x^5 + 458x^4 - 1007x^3 - 4845x^2 + 10600x + 14000\right)}_{\text{``a septic factor&quot;}}\]</span> Following the letter of the law, but violating the spirit!</p>
+<div style="height:1em">
+
+</div>
+<p>Factored and unfactored forms aren’t the only ways you can write a polynomial. Here’s another polynomial:</p>
+<p><span class="math display">\[f(x) = (x - 2)(x +3)^2 - 7\]</span></p>
+<p>This is neither factored nor in “standard” (a/k/a unfactored) form. It’s just a weird Frankenstein polynomial. A factored polynomial consists of <em>only</em> a bunch of factors multiplied together; a fully-unfactored polynomial consists of <em>only</em> a bunch of terms added together.</p>
+<p>The verb for factoring a polynomial, by the way, is just <strong>to factor</strong>, note, and definitely not <strong>to factorize</strong>. What’s that extra “-ize” doing? Come on! (If you’re British, it’s not “<strong>to factorise</strong>,” either.)</p>
+<h2 id="unfactoring-is-boring-and-tedious">Unfactoring is boring and tedious</h2>
+<p>How do we go back and forth between factored and unfactored forms of a polynomial? If we have a factored polynomial, then all we have to do is multiply it out to get the unfactored form! Of course, if it’s something with a ton of factors, that’s probably pretty boring and tedious. It’s not <em>difficult</em> (intellectually speaking), but it is <em>tedious</em>.</p>
+<p>One nice little trick is that if we have a factored polynomial, and we just want to know its leading term and its constant term, all we have to do is multiply together all the first terms of each factor (to get the leading term) or all the second terms of each factor (to get the constant term). All the gross cross-terms come from combining different combinations of the first and second term of each factor. But if we just want the outermost terms—like, if we want to know the degree of a factored polynomial, or its <span class="math inline">\(y\)</span>-intercept—then things are much easier. For example, here’s how you could figure out the degree and constant term of that big scary septic polynomial:</p>
+<p><span class="math display">\[\begin{align*}
+f(x) &amp;= (x+1)(x-7)(x+4)^2(x-5)^3 \\ \\
+&amp;\text{..multiply it all out}\\
+&amp;\quad\quad\text{combining every combination of the first and second term of each factor...}\\ \\
+&amp;= \Big(\substack{\text{all of the first}\\\text{terms of each factor}}\Big) + \,\, \cdots \quad \substack{\text{a bunch of cross-terms, coming }\\\text{from different combinations}\\\text{of the first and second term}\\\text{of each factor}}\quad \cdots \,\, + \Big(\substack{\text{all of the last}\\\text{terms of each factor}}\Big) \\ \\
+&amp;= x\!\cdot\!x\!\cdot\!x^2\!\cdot\!x^3 \quad+ \,\, \cdots \quad \text{cross-terms}\quad \cdots \,\, +\quad (1)(-7)(4)^2(-5)^3 \\ \\
+&amp;= x^7  \quad+ \,\, \cdots \quad \text{cross-terms}\quad \cdots \,\, +\quad 14000 \\ \\
+&amp;= x^7 - 13x^6 + 6 x^5 + 458x^4 - 1007x^3 - 4845x^2 + 10600x + 14000 
+\end{align*}\]</span></p>
+<h2 id="but-factoring-is-actually-hard">But factoring is actually hard</h2>
+<p>Factoring, in contrast to multiplying, is a legitimate intellectual challenge. It’s tough. When you first learn it, it’s really hard. There’s no formula for how to do it. You’re sitting there, a wee eighth-grader, querulous over a quagmire of a quadratic like:</p>
+<p><span class="math display">\[x^2 - 2x - 15\]</span></p>
+<p>You’re not sure what to do. So you write down:</p>
+<p><span class="math display">\[(x + \,\,\,\,\,\,)(x + \,\,\,\,\,\,)\]</span></p>
+<p>You stare at that for a while. You experiment. You quiver in anxiety. You try some numbers, multiply them out, and they don’t work. So you try some more. Eventually—in a blinding flash of insight—you realize how to do it! You realize that it’s:</p>
+<p><span class="math display">\[(x + 3)(x -5)\]</span></p>
+<p>In a sense, this is the first time that you really get to experience the <em>feeling</em> of doing math. You get that feeling of being lost in the woods without a map, and having to stumble through, trusting that eventually you’ll make it out, groping at branches,</p>
+<blockquote>
+<p>… in a dark wood, in a bramble, <br> On the edge of a grimpen, where is no secure foothold, <br> And menaced by monsters, fancy lights, <br> Risking enchantment. … <a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
+</blockquote>
+<p>And then all of a sudden, without warning, you come to an opening and push the branches aside and see the glory of a beautiful mirador!!! It’s glorious! It’s beautiful! It’s sublime!</p>
+<p>So you keep factoring. You do more and more problems, and it gets easier. You come up with little strategies for how to factor, little mental heuristics, and you develop an intuition. You wonder: could you formalize this intuition? Meaning: you’ve gotten good at factoring, but you still don’t really want to have to factor every quadratic you see by hand. It would be nice if you could do it automatically. It would be nice if you could <em>build a machine</em> that factors quadratics for you! It would be nice if you <em>had an equation</em> into which you could pop a quadratic, and out of which would pop its roots!</p>
+<p>So you work on this project for a while. And eventually you come up with the method of completing the square, and eventually you derive the quadratic equation. And with the quadratic equation, you can now factor every quadratic!!! To wit:</p>
+<p><span class="math display">\[ax^2 + bx + c \quad=\quad a\left(x - \frac{-b \,+ \, \sqrt{b^2 - 4ac}}{2a}\right)\!\!\! \left(x - \frac{-b \,-\, \sqrt{b^2 - 4ac}}{2a}\right)\]</span></p>
+<p>If you’re skeptical, just multiply out the right side (using FOIL or something). After a lot of simplification, you’ll get just <span class="math inline">\(ax^2 + bx + c\)</span>! Isn’t it beautiful? Here’s a picture of the quadratic equation spray-painted onto a Jersey barrier in New York:</p>
+<p><img src="quadraticgraffiti.jpg" style="width:75.0%" /><a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></p>
+<p>You can do the same thing for any cubic polynomial. You can come up with a “cubic formula” which is hideously long but does factor any third-degree polynomial. Likewise with quartics (fourth-degree polynomials), though the quartic formula is so long and messy that it’s kind of a nightmare. But as it turns out, for fifth-degree polynomials and above, there is no general formula for factoring. There’s no machine we can build that will factor every fifth-degree (or higher) polynomial. In other words, sometimes it’s <em>impossible</em> to factor fifth-degree and greater polynomials! Thank Évariste Galois (1811-1832) for proving that, and then getting killed in a duel over a love interest before he could do even more awesome mathematics.</p>
+<p>The theory of factoring is one of my favorite things in mathematics. When you do it abstractly enough (i.e., you define a polynomial such that it might not involve numbers, or even arithmetic), there is a lot of beauty in factorization. It requires a lot of mathematical machinery, but there are some really amazing connections between whether you can factor a polynomial and the symmetry of the coefficients. When you take Jana’s Abstract Algebra course, you’ll get to learn this!</p>
+<h2 id="polynomial-anatomy-pictures">Polynomial anatomy: pictures!</h2>
+<p>So, that’s the <em>algebraic</em> anatomy of polynomials. What about their <em>visual</em> anatomy? This is easier! They’re just curvy lines.</p>
+<p>Polynomials have <strong>maxima</strong> and <strong>minima</strong>:</p>
+<p><img src="polynomial-extrema-1.svg" style="width:65.0%" /></p>
+<p>You can think of maxima as being like the mountains of the polynomials, and minima as the valleys. Sometimes people call them <strong>local maxima</strong> and <strong>local minima</strong>, to emphasize that they’re just the highest/lowest points nearby, as opposed to the highest or lowest the polynomial <em>ever</em> gets (which people call a <strong>global maximum</strong> and a <strong>global minimium</strong>). But I usually just use <strong>maximum</strong> and <strong>minimum</strong> (those are the singular forms.) If we want to talk about them collectively, we can refer to <strong>optima</strong> (singular <strong>optimum</strong>) or <strong>extrema</strong> (singular <strong>extremum</strong>):</p>
+<p><img src="polynomial-extrema-2.svg" style="width:65.0%" /></p>
+<p>Polynomials also have weird points like this:</p>
+<p><img src="indecisive-points.svg" style="width:65.0%" /></p>
+<p>Most people call these <strong>inflection points</strong>; I usually call them <strong>indecisive points</strong>, because it’s like the polynomial is indecisive about whether it wants to be an extremum or not. It’s going up, slowing down, about to turn around and go towards the negative, it’s <em>almost</em> a maximum… but then it changes its mind at the last minute. Or, inversely, it’s going down, and it’s slowing down, about to turn around and go back towards the positive and become a minimum… but then it changes its mind and keeps going down. It’s indecisive! (Also, inflection points are also defined in a slightly more subtle way, encompassing more than just what I’ve described as indecisive points, but we’ll wait to calculus to talk about them.<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>)</p>
+<p>Polynomials also have <strong><span class="math inline">\(x\)</span>-intercepts</strong>! Which are also known as <strong>roots</strong>! Which are also known as <strong>solutions</strong>! Which are also known as <strong>zeroes</strong>! (These terms all have slight shades of meaning, but it’s fine for us to use them interchangeably.) They’re great! They’re wherever a polynomial crosses (or even just touches) the <span class="math inline">\(x\)</span>-axis. Here are some:</p>
+<p><img src="polynomial-roots-1.svg" style="width:65.0%" /></p>
+<p>Note that polynomials can behave in different ways at their roots. They can bounce off the <span class="math inline">\(x\)</span>-axis—i.e., they can touch it, without actually crossing it. They can cross it, straight through, directly, with confidence. Or they can cross, but kind of indecisively and bendily:</p>
+<p><img src="polynomial-roots-2.svg" style="width:65.0%" /></p>
+<p>The distinction between a root at which the polynomial crosses in a straight line versus a root at which the polynomial crosses in a cubicky shape is kind of like the distinction between dogs and coyotes. If you’re walking down the street and see some sort of generic canine ambling along, how do you know if it’s a dog or a coyote? Well, dogs, when they take themselves for walks, are indecisive. They pause to sniff, they circle back, they path-find along twisty, tortuous curves. But coyotes—they just <em>go</em>. They’re goal-oriented. They move quickly. They walk decisively. They walk in straight lines, not paying attention to the people or the plants or anything else. So a root that crosses the <span class="math inline">\(x\)</span>-axis straight through is like a coyote; a root that crosses the <span class="math inline">\(x\)</span>-axis is like a dog.</p>
+<p>What about roots that bounce off the <span class="math inline">\(x\)</span>-axis? I should come up with an animal name for them, too. Maybe an animal that’s skittish and scared and will run away? A deer?</p>
+<p><img src="polynomial-roots-3.svg" style="width:65.0%" /></p>
+<p>Oh, and polynomials have <strong><span class="math inline">\(y\)</span>-intercepts</strong>, too. They’re not that exciting:</p>
+<p><img src="polynomial-y-intercept.svg" style="width:65.0%" /></p>
+<h2 id="painting-polynomials">Painting polynomials!!!!</h2>
+<p>So we can think about polynomials <em>algebraically</em>, or we can think about them <em>visually</em>! But how do we connect these two representations? How do we take the equation for a polynomial and draw a picture? How do we take the picture of a polynomial and write an equation??</p>
+<p><span class="math display">\[\large \substack{\text{equation of}\\ \text{a polynomial}} \quad \overset{???}{\Longleftrightarrow} \quad \substack{\text{picture of}\\ \text{a polynomial}}  \]</span></p>
+<p>If our polynomial is just a monomial—if it just has one term—then it’s pretty easy to draw. Even-degree monomials look like this:</p>
+<p><img src="x%5Eevens.svg" /></p>
+<p>So, as the power increases, even monomials get steeper at the edges, and flatter between <span class="math inline">\(x=-1\)</span> and <span class="math inline">\(x=+1\)</span>. In Jamie Choy ’24’s phrasing, they get a <em>stronger jawline</em>. So <span class="math inline">\(x^6\)</span> has a stronger jawline than <span class="math inline">\(x^4\)</span>, which has a stronger jawline than <span class="math inline">\(x^2\)</span>, etc.</p>
+<p>Odd-degree monomials, meanwhile, look like:</p>
+<p><img src="x%5Eodds.svg" /></p>
+<p>They, too, get a stronger jawline; it’s just that… well, uh, they’re beautiful in their own way.</p>
+<p><br><br><br></p>
+<p>But what about polynomials that have lots of terms? What about stuff like:</p>
+<p><span class="math display">\[f(x) = 5x^4 - 35x^3 + 25x^2 + 155x - 150\]</span></p>
+<p>What happens when we add all of those extra terms? How do all of those cross-terms affect the shape of the polynomial? Good news: that’s when the fun stuff happens! It’s the cross-terms that make polynomials bounce up and down! It’s the cross-terms that make them exciting! When we add these additional terms, we introduce the possibility of factoring the polynomial differently, which would give us new <span class="math inline">\(x\)</span>-intercepts, and consequently, new maxima and minima. And we’ll get to all that fun stuff in a second. But, overall, the polynomial retains the “general shape” of its leading term—meaning that if you zoom out far enough, the polynomial above will look more and more like <span class="math inline">\(f(x) = 5x^4\)</span>:</p>
+<p><span class="math display">\[5x^4 - 35x^3 + 25x^2 + 155x - 150 \quad \xrightarrow{\quad \text{as we zoom reallllly far out}\quad }\quad 5x^4\]</span></p>
+<p>In other words, it’ll look more and more like a parabola (or at least more and more like <span class="math inline">\(x^4\)</span>, which is just a parabola with a stronger jawline). Here’s what the function looks like, zoomed in, near the roots:</p>
+<p><img src="polynomial-end-asymptote-1.svg" style="width:50.0%" /></p>
+<p>And here’s what it looks like if we zoom out a bit:</p>
+<p><img src="polynomial-end-asymptote-2.svg" style="width:50.0%" /></p>
+<p>Here’s what it looks like if we zoom out even further:</p>
+<p><img src="polynomial-end-asymptote-3.svg" style="width:50.0%" /></p>
+<p>It looks like a parabola!!! Another way of describing this is to say that the polynomial has an <strong>end asymptote</strong><a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a> at whatever its leading term is. In the above example, for instance, the polynomial <span class="math inline">\(f(x) =5x^4 - 35x^3 + 25x^2 + 155x - 150\)</span> has an end asymptote at <span class="math inline">\(f(x) = 5x^4\)</span> (a <strong>parabolic asymptote</strong>).</p>
+<p><img src="parabolic-end-asymptote.svg" style="width:65.0%" /></p>
+<p>Let me see if I can give some justification for why this happens. This isn’t a formal proof, but it does contain the basic idea about what’s going on. Imagine we have some polynomial—say, the one we’ve been playing with. What happens as we plug in bigger and bigger values for <span class="math inline">\(x\)</span>? Let’s make a table and see.</p>
+<p><span class="math display">\[f(x) = 5x^4 - 35x^3 + 25x^2 + 155x - 150\]</span></p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><span class="math inline">\(x\)</span></th>
+<th><span class="math inline">\(5x^4\)</span></th>
+<th><span class="math inline">\(-35x^3\)</span></th>
+<th><span class="math inline">\(25x^2\)</span></th>
+<th><span class="math inline">\(155x\)</span></th>
+<th><span class="math inline">\(-150\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(0\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+<td><span class="math inline">\(-150\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(5\)</span></td>
+<td><span class="math inline">\(-35\)</span></td>
+<td><span class="math inline">\(25\)</span></td>
+<td><span class="math inline">\(155\)</span></td>
+<td><span class="math inline">\(-150\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(5\)</span></td>
+<td><span class="math inline">\(3,\!125\)</span></td>
+<td><span class="math inline">\(-4,\!375\)</span></td>
+<td><span class="math inline">\(625\)</span></td>
+<td><span class="math inline">\(775\)</span></td>
+<td><span class="math inline">\(-150\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(10\)</span></td>
+<td><span class="math inline">\(50,\!000\)</span></td>
+<td><span class="math inline">\(-35,\!000\)</span></td>
+<td><span class="math inline">\(2,\!500\)</span></td>
+<td><span class="math inline">\(1,\!550\)</span></td>
+<td><span class="math inline">\(-150\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(100\)</span></td>
+<td><span class="math inline">\(500,\!000,\!000\)</span></td>
+<td><span class="math inline">\(-35,\!000,\!000\)</span></td>
+<td><span class="math inline">\(250,\!000\)</span></td>
+<td><span class="math inline">\(15,\!500\)</span></td>
+<td><span class="math inline">\(-150\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(1000\)</span></td>
+<td><span class="math inline">\(1,\!000,\!000,\!000,\!000\)</span></td>
+<td><span class="math inline">\(-35,\!000,\!000,\!000\)</span></td>
+<td><span class="math inline">\(25,\!000,\!000\)</span></td>
+<td><span class="math inline">\(155,\!000\)</span></td>
+<td><span class="math inline">\(-150\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>What’s going on here? When we plug in zero for <span class="math inline">\(x\)</span>, everything is zero, except for the constant term. Near <span class="math inline">\(x=0\)</span>, all the other terms will be comparatively small, so the constant term (to use a fancy phrase) is the <strong>dominant term</strong>, and the function will be close to <span class="math inline">\(y = -150\)</span>. But as we plug in larger values for <span class="math inline">\(x\)</span>, <span class="math inline">\(-150\)</span> just stays the same, and all of a sudden other terms start getting larger than it. As we plug in bigger and bigger values for <span class="math inline">\(x\)</span>, not only is the leading term (<span class="math inline">\(5x^4\)</span>) getting exponentially bigger, but the <em>difference</em> between <span class="math inline">\(5x^4\)</span> and all the other terms is <em>itself</em> getting exponentially bigger. Compared to <span class="math inline">\(-150\)</span>, <span class="math inline">\(50\!,000\)</span>, or even one million, <span class="math inline">\(1\!,000\!,000\!,000\!,000\)</span> is just way, way bigger.</p>
+<p>In summary, then, it’s easy to find out what a polynomial looks like on the far left side and the far right side—we just look at the leading term. The tails of a polynomial always go either up to infinity or down to negative infinity—there are never any horizontal asymptotes or anything like that. Put differently:</p>
+<ul>
+<li><strong>Polynomials of even degree</strong>: the tails both go in the same direction.
+<ul>
+<li>Leading coefficient <span class="math inline">\(+\)</span>: tails both go up (like <span class="math inline">\(+x^2\)</span>).</li>
+<li>Leading coefficient <span class="math inline">\(-\)</span>: tails both go down (like <span class="math inline">\(-x^2\)</span>).</li>
+</ul></li>
+<li><strong>Polynomials of odd degree</strong>: the tails go in opposite directions.
+<ul>
+<li>Leading coefficient <span class="math inline">\(+\)</span>: down on the left, up to the right (like <span class="math inline">\(+x^3\)</span>)</li>
+<li>Leading coefficient <span class="math inline">\(-\)</span>: up on the left, down to the right (like <span class="math inline">\(-x^3\)</span>)</li>
+</ul></li>
+</ul>
+<p><br><br><br></p>
+<p>So that’s what the edges of a polynomial will look like. What about the middle of a polynomial?</p>
+<blockquote>
+<p>In the middle, not only in the middle of the way <br> But all the way, in a dark wood, in a bramble, <br> On the edge of a grimpen, where is no secure foothold, <br> And menaced by monsters, fancy lights, <br> Risking enchantment. …</p>
+</blockquote>
+<p>Oh… that’s that exact same passage from <em>East Coker</em> again. Oops. Anyway, the <em>middle</em> is where the real fun happens! That’s where polynomials bounce up and down—smoothly, continuously, never getting infinitely steep, never getting infinitely flat, etc., etc. We’re definitely not “menaced by monsters” in the middle of a polynomial. Instead, we can basically figure out how they bounce up and down just by figuring out where the roots/zeroes/solutions/<span class="math inline">\(x\)</span>-intercepts are, and then connecting the dots (as it were)! If we know what’s happening at the far left and far right edges of the polynomial, and we know where and how the polynomial is crossing the <span class="math inline">\(x\)</span>-axis, then we can just connect the dots and doodle a pretty polynomial!</p>
+<p>So then our question becomes: where do roots/zeroes/solutions/<span class="math inline">\(x\)</span>-intercepts happen? How do we find them? Well, <span class="math inline">\(x\)</span>-intercepts happen wherever the <span class="math inline">\(y\)</span>-value of a polynomial is zero. So to find them, we can set the polynomial equal to zero, and solve for <span class="math inline">\(x\)</span>. It’s way easier to do this in factored form, because then we just have to look at where each individual factor is zero. (If one of the factors is zero, then the whole polynomial has to be zero, because zero times anything is still zero.)</p>
+<p>For example, consider the polynomial:</p>
+<p><span class="math display">\[f(x) = (x+2)(x-3)\]</span></p>
+<p>If we want to find its roots/solutions/zeroes/<span class="math inline">\(x\)</span>-intercepts, we want to find where its <span class="math inline">\(y\)</span>-value is zero, so we can set the whole thing equal to zero:</p>
+<p><span class="math display">\[0 = (x+2)(x-3)\]</span></p>
+<p>What values of <span class="math inline">\(x\)</span> make this true? If either <em>one</em> of those two factors on the right is zero, then the entire expression will be zero, and so the equation will be true. So, for example, if the <span class="math inline">\((x-2)\)</span> factor is zero, we’ll have:</p>
+<p><span class="math display">\[\begin{align*}
+0 &amp;= \underbrace{(x+2)}_{\mathclap{\substack{\text{if this is zero,}\\\text{then EVERYTHING is zero}\\\text{and the equation will be true}}}}(x-3)\\
+0 &amp;= 0\cdot (x-3) \\
+0 &amp;= 0 \\
+&amp;\text{great}
+\end{align*}\]</span></p>
+<p>So we just need to find when <span class="math inline">\(x+2\)</span> is zero:</p>
+<p><span class="math display">\[0 = \underbrace{(x+2)}_{\mathclap{\substack{x+2=0\\ \\ x=-2}}}(x-3)\]</span></p>
+<p>So <span class="math inline">\(x=-2\)</span> is one of the roots/solutions/zeroes/<span class="math inline">\(x\)</span>-intercept. What about the other factor? If that’s ever zero, then the whole polynomial will be zero, too:</p>
+<p><span class="math display">\[0 = (x+2)\underbrace{(x-3)}_{\mathclap{\substack{\text{if this is zero,}\\\text{then EVERYTHING is zero}\\\text{and the equation will be true}}}}\]</span></p>
+<p>So let’s figure out when it’s zero:</p>
+<p><span class="math display">\[0 = (x-2)\underbrace{(x-3)}_{\mathclap{\substack{x-3=0\\ \\ x=+3}}}\]</span></p>
+<p>So then <span class="math inline">\(x=+3\)</span> is another root/solution/zero/<span class="math inline">\(x\)</span>-intercept.</p>
+<p>In this case, of course, the two equations we had to solve were pretty simple. But in other instances, they might be more complicated. The point is: to find the roots, we find where the <span class="math inline">\(y\)</span>-value of the polynomial is zero; this means that we just need to find where each factor of the polynomial is zero! (And… there might be times when we have a factor that doesn’t actually cause an <span class="math inline">\(x\)</span>-intercept! We’ll see an example later.)</p>
+<p>Of course, as we’ve already seen, roots can do different things at the <span class="math inline">\(x\)</span>-axis! They can go straight through, like coyotes; they can go through distractedly and bendily, like dogs; they can skittishly bounce off, like deer. How can we figure out, from the equation, which of these happens? We just have to think about the multiplicity of a root!!! As we said earlier, the <strong>multiplicity</strong> of an <span class="math inline">\(x\)</span>-intercept/solution/zero/root is the number of times the factor creating the particular root shows up in the complete factorization (in the factored form of the polynomial). They’re useful in our synæsthesia, because the multiplicity of a root tells us what the polynomial looks like near that root! It tells us the shape of the polynomial near the <span class="math inline">\(x\)</span>-intercept/root/solution/zero. In particular:</p>
+<ul>
+<li>if the root is of <strong>multiplicity <span class="math inline">\(1\)</span></strong>: the polynomial looks like a straight line near that root (crosses through axis)(like a coyote)</li>
+<li>if the root is of <strong>even multiplicity</strong>: the polynomial looks like a parabola (even-degree polynomial) near the root (i.e., it only bounces off the axis; it doesn’t cross it)(like a deer)</li>
+<li>if the root is of <strong>odd multiplicity</strong> (greater than <span class="math inline">\(1\)</span>): the polynomial looks like an odd-degree polynomial near the root (e.g., crosses through axis and is bendy as it goes through)(like a dog)</li>
+</ul>
+<p><img src="polynomial-roots-multiplicity.svg" style="width:65.0%" /></p>
+<p><br><br><br></p>
+<p>Oh right, and then there’s that boring ol’ <span class="math inline">\(y\)</span>-intercept. Finding the <span class="math inline">\(y\)</span>-intercept of a polynomial is the same as finding the <span class="math inline">\(y\)</span>-intercept of anything else. Since the <span class="math inline">\(y\)</span>-axis is just the line <span class="math inline">\(x=0\)</span>, the <span class="math inline">\(y\)</span>-intercept is just the value of the function when <span class="math inline">\(x=0\)</span>. So we can plug <span class="math inline">\(0\)</span> in for <span class="math inline">\(x\)</span> to find the <span class="math inline">\(y\)</span>-intercept.</p>
+<p>If we have a polynomial in un-factored form, the <span class="math inline">\(y\)</span>-intercept is just the constant term. For example, consider the polynomial:</p>
+<p><span class="math display">\[\begin{align*}
+f(x) &amp;= 5x^6 - 2x^3 + 4x + 32 \\
+\text{Then its $y$-intercept will be at:} \\
+f(0) &amp;= 5\cdot0^6 - 2\cdot0^3 + 4\cdot0 + 32 \\
+&amp;= 0 - 0 + 0 + 32 \\
+&amp;= 32
+\end{align*}\]</span></p>
+<p>So the <span class="math inline">\(y\)</span>-intercept is at <span class="math inline">\(y = 32\)</span>.</p>
+<p>If we have a polynomial that’s factored, it’s a little trickier… but not much trickier. We just multiply the non-variable parts of each term (including the exponents). So, for example, if we have the polynomial:</p>
+<p><span class="math display">\[\begin{align*}
+f(x) &amp;= (x + 3)(x - 4)(x + 2)^2 \\
+\text{Then the $y$-intercept is at:} \\
+f(0) &amp;= (0 + 3)(0 - 4)(0 + 2)^2 \\
+&amp;= (3)(-4)(2)^2  \\
+&amp;= - 48
+\end{align*}\]</span></p>
+<p>So the <span class="math inline">\(y\)</span>-intercept is at <span class="math inline">\(y = -48\)</span>.</p>
+<h2 id="lets-graph-a-real-polynomial">Let’s graph a real polynomial!</h2>
+<p>All that theory is tedious. Let’s actually graph (paint) a real (pretty) polynomial!!! Start to finish! Consider this polynomial: <span class="math display">\[f(x) = x(x - 2)(x+4)^3(2x-6.39)^2\]</span></p>
+<ul>
+<li>First, let’s figure out what the overall shape will look like! To do that, we need to see what degree this polynomial is. If we were to multiply this all out, the leading term would be something like <span class="math inline">\(x^7\)</span>, so the general shape will look like a <span class="math inline">\(+x^\text{odd}\)</span> polynomial! So it looks like <span class="math inline">\(+x^3\)</span> or something—it comes from the bottom left, and ends up heading up and to the right. Let’s mark that:</li>
+</ul>
+<p><img src="example-polynomial-1-1.svg" style="width:65.0%" /></p>
+<ul>
+<li><p>Next, let’s find the <span class="math inline">\(x\)</span>-intercepts/roots/solutions/zeroes. This function has four factors, so we’ll set each of them equal to zero and figure out the corresponding <span class="math inline">\(x\)</span>-intercept/root/solution/zero.</p>
+<ul>
+<li>From the first factor, <span class="math inline">\(x\)</span>, we get <span class="math inline">\(x=0\)</span> as a root/<span class="math inline">\(x\)</span>-intercept, of multiplicity <span class="math inline">\(1\)</span>. It’s a little easier to see if we write that factor as “<span class="math inline">\((x-0)\)</span>” instead of just “<span class="math inline">\(x\)</span>”: <span class="math display">\[\begin{align*}
+f(x) &amp;= x(x - 2)(x+4)^3(2x-6.39)^2 \\
+&amp;= (x-0)(x - 2)(x+4)^3(2x-6.39)^2
+\end{align*}\]</span></li>
+</ul>
+<p>So if we set that factor equal to zero, we’ll get <span class="math inline">\(0\)</span> as a root: <span class="math display">\[f(x) = \underbrace{(x-0)}_{\mathclap{\substack{x-0=0\\ \\x=0}}}(x - 2)(x+4)^3(2x-6.39)^2\]</span> It has a multiplicity of <span class="math inline">\(1\)</span>, because there’s an invisible “<span class="math inline">\(1\)</span>” on the <span class="math inline">\(x\)</span>: <span class="math display">\[\begin{align*}
+f(x) &amp;= x^1(x - 2)(x+4)^3(2x-6.39)^2 \\
+&amp;= (x-0)^1(x - 2)(x+4)^3(2x-6.39)^2
+\end{align*}\]</span> So it passes through the <span class="math inline">\(x\)</span>-axis, and it passes straight through, like a line.</p>
+<ul>
+<li><p>From the second factor, <span class="math inline">\((x-2)\)</span>, we get that <span class="math inline">\(x=2\)</span> is a root (of multiplicity <span class="math inline">\(1\)</span>, so it goes straight through). Again, we can see this by setting that factor equal to zero and solving for <span class="math inline">\(x\)</span>: <span class="math display">\[f(x) = x\underbrace{(x-2)}_{\mathclap{\substack{x-2=0\\ \\x=2}}}(x+4)^3(2x-6.39)^2\]</span></p></li>
+<li><p>From the <span class="math inline">\((x+4)^3\)</span> factor, we get that <span class="math inline">\(x=-4\)</span> is a root, of multiplicity <span class="math inline">\(3\)</span>. We can figure this out by setting that factor equal to zero and doing some algebra: <span class="math display">\[f(x) = x(x - 2)(x+4)^3\underbrace{(x+4)^3}_{\mathclap{\substack{(x+4)^3=0\\ \\\sqrt[3]{(x+4)^3}=\sqrt[3]{0}\\ \\ x+4 = 0 \\ \\ x = -4}}}(2x-6.39)^2\]</span> So <span class="math inline">\(x = -4\)</span> is an <span class="math inline">\(x\)</span>-intercept. And, since the factor <span class="math inline">\((x+4)^3\)</span> is cubed, the root is of multiplicity <span class="math inline">\(3\)</span>. So it goes through the <span class="math inline">\(x\)</span>-axis, and it’s bendy as it goes through.</p></li>
+<li><p>Finally, the <span class="math inline">\((2x-6.39)^2\)</span> factor gives us an <span class="math inline">\(x\)</span>-intercept at <span class="math inline">\(x = 3.195\)</span> (of multiplicity <span class="math inline">\(2\)</span>): <span class="math display">\[f(x) = x(x - 2)(x+4)^3(x+4)^3\underbrace{(2x-6.39)^2}_{\mathclap{\substack{(2x-6.39)^2=0\\ \\\sqrt{(2x-6.39)^2}=\sqrt{0}\\ \\ 2x-6.39 = 0 \\ \\ 2x = 6.39 \\ \\ x = 3.195}}}\]</span></p></li>
+</ul></li>
+</ul>
+<p>We can summarize our findings:</p>
+<p><span class="math display">\[f(x) = x(x - 2)(x+4)^3(2x-6.39)^2\]</span></p>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>factor</th>
+<th><span class="math inline">\(x\)</span></th>
+<th><span class="math inline">\((x - 2)\)</span></th>
+<th><span class="math inline">\((x+4)^3\)</span></th>
+<th><span class="math inline">\((2x-6.39)^2\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>root</td>
+<td><span class="math inline">\(x=0\)</span></td>
+<td><span class="math inline">\(x=2\)</span></td>
+<td><span class="math inline">\(x=-4\)</span></td>
+<td><span class="math inline">\(x=3.195\)</span></td>
+</tr>
+<tr class="even">
+<td>multiplicity</td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(3\)</span></td>
+<td><span class="math inline">\(2\)</span></td>
+</tr>
+<tr class="odd">
+<td>shape</td>
+<td><span class="math inline">\(\substack{\text{straight}\\\text{through}}\)</span></td>
+<td><span class="math inline">\(\substack{\text{straight}\\\text{through}}\)</span></td>
+<td><span class="math inline">\(\substack{\text{bendy}\\\text{through}}\)</span></td>
+<td><span class="math inline">\(\text{bounces}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Let’s mark those roots on the graph: <img src="example-polynomial-1-2.svg" style="width:65.0%" /></p>
+<ul>
+<li><p>How about the <span class="math inline">\(y\)</span>-intercept? We’ll just plug <span class="math inline">\(0\)</span> in for <span class="math inline">\(x\)</span>, and get: <span class="math display">\[\begin{align*}
+f(0) &amp;= 0(0 - 2)(0+4)^3(2\cdot0-6.39)^2 \\
+&amp;=0(- 2)(4)^3(-6.39)^2 \\
+&amp;= 0
+\end{align*}\]</span> So this polynomial has a y-intercept at <span class="math inline">\(0\)</span>. It has to, because it has a root there at <span class="math inline">\(x=0\)</span>! But it’s good to double-check. That’s already on our picture, so no need to add anything new.</p></li>
+<li><p>So now we can graph it! All we have to do is plot the <span class="math inline">\(x\)</span>-intercepts and, basically, connect the dots—we need to know where to start drawing a line from (in this case, starting at the bottom left and ending at the top right, because it looks like <span class="math inline">\(+x^3\)</span>), and we need to know what the polynomial looks like at each of the <span class="math inline">\(x\)</span>-intercepts (which the multiplicity tells us). But then we can do it!</p></li>
+</ul>
+<p><img src="example-polynomial-1-3.svg" style="width:65.0%" /></p>
+<h2 id="lets-graph-another-polynomial">Let’s graph another polynomial!</h2>
+<p>Another! This time, let’s draw a picture of this polynomial:</p>
+<p><span class="math display">\[f(x) = - (x - 3)(x + 1)^2(x-1)^3\]</span></p>
+<ul>
+<li><p>This is sixth-degree, and there’s a negative in front, so the general shape is like <span class="math inline">\(-x^2\)</span> (so both the tails go down). So, let’s draw that in on our graph: <img src="example-polynomial-2-1.svg" style="width:65.0%" /></p></li>
+<li><p>Its roots and their multiplicities are:</p></li>
+</ul>
+<p><span class="math display">\[f(x) = - (x - 3)(x + 1)^2(x-1)^3\]</span></p>
+<table>
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 26%" />
+<col style="width: 26%" />
+<col style="width: 26%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;">factor</th>
+<th style="text-align: center;"><span class="math inline">\((x - 3)\)</span></th>
+<th style="text-align: center;"><span class="math inline">\((x + 1)^2\)</span></th>
+<th style="text-align: center;"><span class="math inline">\((x-1)^3\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">root</td>
+<td style="text-align: center;"><span class="math inline">\(x=+3\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(x=-1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(x=+1\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">multiplicity</td>
+<td style="text-align: center;"><span class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(2\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(3\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">shape</td>
+<td style="text-align: center;"><span class="math inline">\(\substack{\text{straight}\\\text{through}}\)</span></td>
+<td style="text-align: center;">bounces</td>
+<td style="text-align: center;"><span class="math inline">\(\substack{\text{bendily}\\\text{through}}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Let’s mark those on the graph!</p>
+<p><img src="example-polynomial-2-2.svg" style="width:65.0%" /></p>
+<ul>
+<li>It has a <span class="math inline">\(y\)</span>-intercept at: <span class="math display">\[\begin{align*}
+f(0) &amp;= - (0 - 3)(0 + 1)^2(0 - 1)^3 \\
+&amp;= - (- 3)(1)^2(- 1)^3 \\
+&amp;= - 3
+\end{align*}\]</span> Let’s mark that on the graph!!!</li>
+</ul>
+<p><img src="example-polynomial-2-3.svg" style="width:65.0%" /></p>
+<ul>
+<li>So now let’s connect the dots, and paint our complete polynomial!!!! We should have:</li>
+</ul>
+<p><img src="example-polynomial-2-4.svg" style="width:65.0%" /></p>
+<h2 id="going-backwards">Going backwards</h2>
+<p>What if we wanted to do the reverse—to walk into the Metropolitan Museum of Art, see a beautiful oil painting of a polynomial on the wall (there is a little-known mathematics gallery underneath the Temple of Dendur), and show off our math skills to our attractive date by saying, “Aha! I can come up with an equation for that polynomial!”?</p>
+<p>We could do just that. Imagine that the painting that strikes our fancy looks like this:</p>
+<p><img src="example-polynomial-3.svg" style="width:65.0%" /></p>
+<p>What can we say about this just from looking at it?</p>
+<ul>
+<li><p>We can see that both tails point in the same direction, so it must be of even degree. The tails are both pointing down (not up), so it must have a negative out in front somewhere (making it open down rather than up).</p></li>
+<li><p>We can see that it has three roots:</p>
+<ul>
+<li><p>It has a root at <span class="math inline">\(x=-2\)</span>, and since the polynomial bounces/looks like a parabola near <span class="math inline">\(x=-2\)</span>, this root must be of even multiplicity. It might be of multiplicity <span class="math inline">\(2\)</span>, multiplicity <span class="math inline">\(4\)</span>, <span class="math inline">\(6\)</span>, etc. So a possible factor of the polynomial could be <span class="math inline">\((x + 2)^2\)</span>.</p></li>
+<li><p>It has a root at <span class="math inline">\(x=+1\)</span>, and since it goes straight through the axis (not curvily through the axis), that root must be of multiplicity <span class="math inline">\(1\)</span>. So it must have been created by the factor <span class="math inline">\((x - 1)\)</span>.</p></li>
+<li><p>Finally, it has a root at <span class="math inline">\(x=+3\)</span>, and since it goes through the axis and is kinda bendy as it goes through, that root must be of odd multiplicity—maybe multiplicity <span class="math inline">\(3\)</span>, maybe <span class="math inline">\(5\)</span>, maybe <span class="math inline">\(341\)</span>. So a possible factor could be <span class="math inline">\((x - 3)^3\)</span>.</p></li>
+</ul>
+<p>We can summarize our findings, similarly to how we did before:</p>
+<div style="text-align:center;">
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: right;">root</th>
+<th style="text-align: center;"><span class="math inline">\(x=-2\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(x=+1\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(x=+3\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">multiplicity</td>
+<td style="text-align: center;">even</td>
+<td style="text-align: center;"><span class="math inline">\(1\)</span></td>
+<td style="text-align: center;">odd</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">possible factor</td>
+<td style="text-align: center;"><span class="math inline">\((x + 2)^2\)</span></td>
+<td style="text-align: center;"><span class="math inline">\((x + 1)\)</span></td>
+<td style="text-align: center;"><span class="math inline">\((x - 3)^3\)</span></td>
+</tr>
+</tbody>
+</table>
+</div></li>
+</ul>
+<p>So now we can take a stab at coming up with an equation! We’ll just pile all those factors together, and remember to include a <span class="math inline">\(-\)</span> in front:</p>
+<p><span class="math display">\[f(x) = -(x + 2)^2(x + 1)(x - 3)^3\]</span></p>
+<p>Could this be an equation for this graph? Sure. The polynomial we’ve written is of degree <span class="math inline">\(6\)</span>, so it’s even, which checks out. It has a negative in front, which will make it open downward (good). And, finally, we can check the <span class="math inline">\(y\)</span>-intercept:</p>
+<p><span class="math display">\[\begin{align*}
+f(0) &amp;= -(0 + 2)^2(0 + 1)(0 - 3)^3 \\
+&amp;= -(1)^2(1)(-3)^3 \\
+&amp;= -108 \\
+&amp;= (\text{negative})
+\end{align*}\]</span></p>
+<p>The <span class="math inline">\(y\)</span>-axis on our graph doesn’t have a scale, but we can see that the <span class="math inline">\(y\)</span>-intercept should be some negative number—so this appears to work. Hooray!</p>
+<p>So you tell this to your date. And they say, “Mmm… but couldn’t it also be <span class="math display">\[f(x) = -(x + 2)^4(x + 1)(x - 3)^7\]</span></p>
+<p>And you stammer, “Well, of course. That function would still have the same basic properties—it just might have a different vertical scale, and some of the roots might be a little more shapely.”</p>
+<p>Then they say, “What about</p>
+<p><span class="math display">\[f(x) = -(x + 2)^4(x + 1)(x - 3)^7\left(x^2+1\right)\]</span></p>
+<p>And you say, “Of course not! What’s that extra <span class="math inline">\(\left(x^2 + 1\right)\)</span> factor doing in there? There’s no root at… oh.”</p>
+<p>They say, “It works. The factor <span class="math inline">\(\left(x^2 + 1\right)\)</span> doesn’t give you a real-valued root that you can plot on the <span class="math inline">\(xy\)</span>-plane. If you try to solve it, you get:</p>
+<p><span class="math display">\[\left(x^2 + 1\right) = 0\]</span> <span class="math display">\[x^2 = -1\]</span> <span class="math display">\[x =\pm \sqrt{-1}\]</span> “The square root of negative one is an imaginary number, not a real one. It’ll change the vertical scale of the polynomial—it’s like a non-linear vertical expansion, if you can imagine that—but it’ll still have all these basic properties.”</p>
+<p>And then they walk off toward the Henry Moore exhibit.</p>
+<h2 id="problems">Problems</h2>
+<p>First, some factoring! Solve each of the following equations for <span class="math inline">\(x\)</span>. (What do I mean by “solve”? I mean, find all the values of <span class="math inline">\(x\)</span> such that the equation is true.)</p>
+<div style="column-width: 14em;  column-gap: 2em;  column-rule: 1px solid #ccc;">
+<ol class="problems">
+<li>
+<span class="math inline">\(x = 0\)</span>
+</li>
+<li>
+<span class="math inline">\(2x = 4\)</span>
+</li>
+<li>
+<span class="math inline">\(3x = 5\)</span>
+</li>
+<li>
+<span class="math inline">\(x - b = 0\)</span>
+</li>
+<li>
+<span class="math inline">\(4x - 2a = -7\)</span>
+</li>
+<li>
+<span class="math inline">\(5 = 3\)</span>
+</li>
+<li>
+<span class="math inline">\(x - 5 = 6\)</span>
+</li>
+<li>
+<span class="math inline">\(x^2 = 9\)</span>
+</li>
+<li>
+<span class="math inline">\(x^2 = 12\)</span>
+</li>
+<li>
+<span class="math inline">\(x^2 = 40\)</span>
+</li>
+<li>
+<span class="math inline">\(-x^2 = -10\)</span>
+</li>
+<li>
+<span class="math inline">\(3x^2 = 12\)</span>
+</li>
+<li>
+<span class="math inline">\(\frac{1}{2}x^2 = 10\)</span>
+</li>
+<li>
+<span class="math inline">\(-5x^2 = -30\)</span>
+</li>
+<li>
+<span class="math inline">\(-3x^2 = 11\)</span>
+</li>
+<li>
+<span class="math inline">\(25x^2 - 4 = 0\)</span>
+</li>
+<li>
+<span class="math inline">\(4x^2 - 28 = 0\)</span>
+</li>
+<li>
+<span class="math inline">\(-3x^2 + 8 = -20\)</span>
+</li>
+<li>
+<span class="math inline">\(-2x^2 - 11 = 5\)</span>
+</li>
+<li>
+<span class="math inline">\(\frac{1}{x} = 0\)</span>
+</li>
+<li>
+<span class="math inline">\(x^2 - 8x + 15 = 0\)</span>
+</li>
+<li>
+<span class="math inline">\(x^2 - 5x = 14\)</span>
+</li>
+<li>
+<span class="math inline">\(x^2 + 5x + 6 = 0\)</span>
+</li>
+<li>
+<span class="math inline">\(x^2 + x = 20\)</span>
+</li>
+<li>
+<span class="math inline">\(2x^2 + 5x - 3 = 0\)</span>
+</li>
+<li>
+<span class="math inline">\(3x^2 - x - 2 = 0\)</span>
+</li>
+<li>
+<span class="math inline">\(4x^2 + 9x + 2 = 0\)</span>
+</li>
+<li>
+<span class="math inline">\(9x^2 + 2 = 11x\)</span>
+</li>
+<li>
+<span class="math inline">\(3x^2 + x = 4\)</span>
+</li>
+<li>
+<span class="math inline">\(5x^2 + 26x = -5\)</span>
+</li>
+<li>
+<span class="math inline">\(12x^2 + 13x = 4\)</span>
+</li>
+<li>
+<span class="math inline">\(18x^2 = 23x + 6\)</span>
+</li>
+<li>
+<span class="math inline">\(x^2 - yz + xz - xy = 0\)</span>
+</li>
+<li>
+<span class="math inline">\(x^6 - 2x^4 - 8x^2 + 16 = 0\)</span>
+</li>
+<li>
+<span class="math inline">\(a^3 - 2b^2 + 2a^2b - ab = 0\)</span>
+</li>
+<li>
+<span class="math inline">\(u^2x - 2w^2 - 2uxw + uw = 0\)</span>
+</li>
+<li>
+<span class="math inline">\(x^3 + 4x^2 - 8x - 32 = 0\)</span>
+</li>
+<li>
+<span class="math inline">\(z^8 - 5z^7 + 2z - 10 = 0\)</span>
+</li>
+<li>
+<span class="math inline">\(12x^3 + 9x^2 + 8x + 6 = 0\)</span>
+</li>
+<li>
+<span class="math inline">\(10x^2y - 8x^2 + 5y - 4 = 0\)</span>
+</li>
+<li>
+<span class="math inline">\(3x^2 + 5x + 11 = 0\)</span>
+</li>
+<li>
+<span class="math inline">\(px^2 + qx + r = 0\)</span>
+</li>
+<li>
+<span class="math inline">\(x^2 -2x = 12\)</span>
+</li>
+<li>
+<span class="math inline">\(x^2 - 4x - 30 = 0\)</span>
+</li>
+<li>
+<span class="math inline">\(x^2 - x - 1 = 0\)</span>
+</li>
+<li>
+<span class="math inline">\(x^2 + 3x - 2 = 0\)</span>
+</li>
+<li>
+<span class="math inline">\(x^2 - 4x + 1 = 0\)</span>
+</li>
+<li>
+<span class="math inline">\(x^2 + 6x + 7 = 0\)</span>
+</li>
+<li>
+<span class="math inline">\(x^2 + 6 = 2x\)</span>
+</li>
+<li>
+<span class="math inline">\(4x^2 - 4x = 7\)</span>
+</li>
+<li>
+<span class="math inline">\(4x^2 - 8x + 1 = 0\)</span>
+</li>
+<li>
+<span class="math inline">\(5x^2 + 8x = -2\)</span>
+</li>
+<li>
+<span class="math inline">\(x^2 + 9x + 18 = 0\)</span>
+</li>
+<li>
+<span class="math inline">\(4x(x+ 1) = 1\)</span>
+</li>
+<li>
+<span class="math inline">\(2x^2 = 7x + 15\)</span>
+</li>
+<li>
+<span class="math inline">\(x^2 + 4x + 13 = 0\)</span>
+</li>
+<li>
+<span class="math inline">\(\frac{7x^2}{3} = \frac{2x}{3} - 1\)</span>
+</li>
+<li>
+<span class="math inline">\(25x + \frac{4}{x} = 20\)</span>
+</li>
+<li>
+<span class="math inline">\(\sqrt{7}x^2 + 3x + 33 = 0\)</span>
+</li>
+<li>
+<span class="math inline">\(x^2 + \pi x + 3.1 = 0\)</span>
+</li>
+<li>
+<span class="math inline">\(5x^2 + 5x + 5 = 0\)</span>
+</li>
+<li>
+<span class="math inline">\(10\alpha x^{29} - 40g\alpha x^{27} - 5yx^2{\alpha}^2 + 20{\alpha}^2gy = 0\)</span>
+</li>
+</ol>
+</div>
+<p><br><br><br></p>
+For the following polynomials:
+<ol class="lettered-list">
+<li>
+What is the degree of the polynomial?
+</li>
+<li>
+What is the sign of the leading coefficient?
+</li>
+<li>
+How many real roots/solutions/zeroes/<span class="math inline">\(x\)</span>-intercepts does it have? Where are they, and what are their multiplicities?
+</li>
+<li>
+What is the <span class="math inline">\(y\)</span>-intercept?
+</li>
+<li>
+What does the polynomial look like? (i.e., sketch it. Without a calculator!)
+</li>
+</ol>
+<p>(You might have to factor or otherwise manipulate the expressions to get them into a convenient form.)</p>
+<div style="column-width: 14em;  column-gap: 2em;  column-rule: 1px solid #ccc;">
+<ol class="problems">
+<li>
+<span class="math inline">\(f(x) = (x - 2)(x + 4)\)</span>
+</li>
+<li>
+<span class="math inline">\(h(x) = x^2 + 8x + 15\)</span>
+</li>
+<li>
+<span class="math inline">\(t(x) = x^2 - 2x -15\)</span>
+</li>
+<li>
+<span class="math inline">\(r(x) = x^2 - x - 2\)</span>
+</li>
+<li>
+<span class="math inline">\(w(x) = x^2 - 2x - 63\)</span>
+</li>
+<li>
+<span class="math inline">\(f(x) = x^3 + x^2 - 4x - 4\)</span>
+</li>
+<li>
+<span class="math inline">\(j(x) = x^4 + 2x^3 + 9x + 18\)</span>
+</li>
+<li>
+<span class="math inline">\(g(x) = x^5 - x^3 + 5x^2 - 5\)</span>
+</li>
+<li>
+<span class="math inline">\(h(x) = (x - 2)(x + 3)(x + 5)\)</span>
+</li>
+<li>
+<span class="math inline">\(t(x) = -(x - 1)(x + 9)(x -7)(x + 3)\)</span>
+</li>
+<li>
+<span class="math inline">\(r(x) = (x + 4)(x - 2)(x + 6)(x - 5)\)</span>
+</li>
+<li>
+<span class="math inline">\(f(x) = 5(x - 2)(x + 10) (x + 4)\)</span>
+</li>
+<li>
+<span class="math inline">\(f(x) = 3x^2(x - 1)(x + 7) (x + 8)\)</span>
+</li>
+<li>
+<span class="math inline">\(w(x) = (x - 6)(x + 4)^2(x - 1)^3\)</span>
+</li>
+<li>
+<span class="math inline">\(f(x) = (x + 3)^2(x + 5)^2\)</span>
+</li>
+<li>
+<span class="math inline">\(j(x) = (x + 1)^2\)</span>
+</li>
+<li>
+<span class="math inline">\(f(x) = (x + 1)(x- 5)^2(x^2 + 3)\)</span>
+</li>
+<li>
+<span class="math inline">\(f(x) = -(x^2 - 1)(x- 3)^2x^2\)</span>
+</li>
+<li>
+<span class="math inline">\(f(x) = 5x(3x + 2)(x - 5)(x + 6)\)</span>
+</li>
+<li>
+<span class="math inline">\(f(x) = (x^3 + 27)(x + 2)^2\)</span>
+</li>
+<li>
+<span class="math inline">\(f(x) = -(x^2 - x - 12)(x^2 + 8x + 12)\)</span>
+</li>
+<li>
+<span class="math inline">\(f(x) = (x + 1)^2(x + 7)^7(x^2 + 3)\)</span>
+</li>
+<li>
+<span class="math inline">\(f(x) = x^3(x^2 - 9)\)</span>
+</li>
+<li>
+<span class="math inline">\(f(x) = (x - a)(x+5a)^2(x+a)\)</span>, where <span class="math inline">\(a\)</span> is a constant greater than zero.
+</li>
+<li>
+<span class="math inline">\(f(x) = a^2(x - 3a)(x+a)^3\)</span>, where <span class="math inline">\(a\)</span> is a constant greater than zero.
+</li>
+<li>
+<span class="math inline">\(f(x) = (x - a)(x+b)^2(x+5b)\)</span>
+</li>
+</ol>
+</div>
+<p><br><br><br></p>
+<p>For the following graphs of polynomials:</p>
+<ol class="lettered-list">
+<li>
+What is the degree of the polynomial (even or odd)?
+<li>
+What is the sign of the leading coefficient (positive or negative)?
+<li>
+How many real roots/solutions/zeroes/<span class="math inline">\(x\)</span>-intercepts does it have? Where are they, and what are their multiplicities?
+<li>
+How many extrema (minima and maxima) does the polynomial have?
+<li>
+What could a possible equation for the polynomial be? (Give it in factored form.)
+<li>
+What could a <em>second</em> possible equation for this polynomial be? (i.e., an equation which gives a polynomial that has the same general shape and the same <span class="math inline">\(x\)</span>-intercepts.)
+</ol>
+<p>(Note that the <span class="math inline">\(x\)</span>-axes and <span class="math inline">\(y\)</span>-axes of these graphs have different scales.)</p>
+<div style="column-width: 14em;  column-gap: 2em;  column-rule: 1px solid #ccc;">
+<ol class="problems">
+<li>
+<img src="polynomial-sketching-1.svg" style="width:90.0%" />
+</li>
+<li>
+<img src="polynomial-sketching-2.svg" style="width:90.0%" />
+</li>
+<li>
+<img src="polynomial-sketching-3.svg" style="width:90.0%" />
+</li>
+<li>
+<img src="polynomial-sketching-4.svg" style="width:90.0%" />
+</li>
+<li>
+<img src="polynomial-sketching-5.svg" style="width:90.0%" />
+</li>
+<li>
+<img src="polynomial-sketching-6.svg" style="width:90.0%" />
+</li>
+<li>
+<img src="polynomial-sketching-7.svg" style="width:90.0%" />
+</li>
+<li>
+<img src="polynomial-sketching-8.svg" style="width:90.0%" />
+</li>
+<li>
+<img src="polynomial-sketching-9.svg" style="width:90.0%" />
+</li>
+<li>
+<img src="polynomial-sketching-10.svg" style="width:90.0%" />
+</li>
+<li>
+<img src="polynomial-sketching-11.svg" style="width:90.0%" />
+</li>
+<li>
+<img src="polynomial-sketching-12.svg" style="width:90.0%" />
+</li>
+<li>
+<img src="polynomial-sketching-13.svg" style="width:90.0%" />
+</li>
+<li>
+<img src="polynomial-sketching-14.svg" style="width:90.0%" />
+</li>
+<li>
+<img src="polynomial-sketching-15.svg" style="width:90.0%" />
+</li>
+<li>
+<img src="polynomial-sketching-16.svg" style="width:90.0%" />
+</li>
+<li>
+<img src="polynomial-sketching-17.svg" style="width:90.0%" />
+</li>
+<li>
+<img src="polynomial-sketching-18.svg" style="width:90.0%" />
+</li>
+<li>
+<img src="polynomial-sketching-19.svg" style="width:90.0%" />
+</li>
+<li>
+<img src="polynomial-sketching-20.svg" style="width:90.0%" />
+</li>
+<li>
+<img src="polynomial-sketching-21.svg" style="width:90.0%" />
+</li>
+<li>
+<img src="polynomial-sketching-22.svg" style="width:90.0%" />
+</li>
+</ol>
+</div>
+<ol class="problems">
+<li>
+Suppose you have a polynomial of degree <span class="math inline">\(n\)</span>.
+<ol class="lettered-list">
+<li>
+What’s the largest number of extrema (max/mins) it can have? The smallest? Why? Explain!!!!
+<li>
+What’s the largest number of roots it can have? The smallest? Why? Explain!!!
+</ol>
+<li>
+harder problems TKTKTKTKTKTKKTKTKTKTKTKKT
+</ol>
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>A <strong>cusp</strong> is the fancy word for this sort of place, where a function is infinitely steep.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p>This is one of my favorite theorems from calculus, known as <strong><a href="https://en.wikipedia.org/wiki/Taylor%27s_theorem">Taylor’s Theorem</a></strong>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3" role="doc-endnote"><p>T.S. Eliot, <em>East Coker</em>, 90-93<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4" role="doc-endnote"><p>http://www.flickr.com/photos/37665276@N00/76780093<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5" role="doc-endnote"><p>Or this footnote. Here is a picture of other points that get described as inflection points—can you figure out what inflection points actually are? What do all these points have in common??? <img src="inflection-points.svg" style="width:50.0%" /> <a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6" role="doc-endnote"><p>The rigorous mathematician inside of me feels obligated to point out that all this stuff is true only for a certain definition of an asymptote, and not necessarily true for other definitions, but I’m going to pretend that we are using the computer-sciencey definition of an asymptote, and we can always save the rigor and the details for later… it’s not like we’re formally defining any of this, anyway!<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+</main>
+</body>
+</html>

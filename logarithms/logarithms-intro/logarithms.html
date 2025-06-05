@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Logarithms</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="../complex-numbers.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <script src="../highlight-toc.js" type="text/javascript"></script>
+</head>
+<body>
+<script>document.addEventListener('DOMContentLoaded', function(e) {
+  Scroller.init();
+})</script>
+<aside>
+<div class="tocLinks" >
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#its-worse">It’s worse</a></li>
+<li><a href="#fun-facts">Fun facts</a></li>
+<li><a href="#problems">Problems</a></li>
+</ul>
+</nav>
+</div>
+</aside>
+<main>
+<header id="title-block-header">
+<h1 class="title">Logarithms</h1>
+</header>
+<p><strong>Arizona. August 2036</strong>. It’s 145 degrees. Wave after wave of photons crashes down on you as you stroll along the shore of Tempe Town Flats. It used to be a lake, but that was before—before it all evaporated. The water, the town, the people, their souls, your bank account—gone. All gone. They evaporated into a humid human mist that hung in the air briefly, like a firework at the apex of its flight, and then dispersed, constrained by the second law of thermodynamics to forever increase the entropy of the universe.</p>
+<p>It’s so hot you can’t even ride your bike. The rubber tires crumble the instant they meet UV. Forget about driving. Car tires are just as bad. Prices have reached $10,000 for a set, and even then, you can only drive between 1 and 2 AM. Your buddy stole a tank from the abandoned army base—no rubber on that thing!—but you wouldn’t want to be sealed into a hermetic steel chamber in this heat. You no longer need superheated gases to weld your metal sculptures together. You just use a magnifying glass.</p>
+<p>You’ve got to get out of Tempe. Luckily, you’ve saved up $3,000 over the past few years by running a textbook-smuggling ring. New editions of glossy books, delivered in crates by your contacts at print shops in Dallas and Sacramento, resold at a tenth of retail to impoverished ASU students. Somehow the university still operates, despite what’s happened to the rest of the Valley. Quality doesn’t seem to have gone down.</p>
+<p>You’ve got to get out of the wasteland. You want to go to Alaska. You’re not really sure what you would do. Maybe set up a used-book store outside of Fairbanks. Maybe set up a homestead; live off the land. Lumber’s probably easily available. You could export moose- and bear-jerky to gourmet food stores the Lower 48.</p>
+<p>In any case, you figure you need $9,000 to get up there and get set up. You’ve got a guy in Tucson who says he can given you a 15% return per year on your money. 15% per year, every year. That beats inflation. That beats inflation a lot. You decide to invest with him. Eventually, you’ll have enough to export yourself to the land of the midnight sun.</p>
+<table>
+<tr>
+<th>
+time passed
+</th>
+<th>
+your assets
+</th>
+</tr>
+<tr>
+<td>
+initially
+</td>
+<td>
+<span class="math inline">\(\$3,000\)</span>
+</td>
+</tr>
+<tr>
+<td>
+after 1 year
+</td>
+<td>
+<span class="math inline">\(\$3,000 \cdot (1.15) = \$3,450\)</span>
+</td>
+</tr>
+<tr>
+<td>
+after 2 years
+</td>
+<td>
+<span class="math inline">\(\underbrace{\$3,000 \cdot (1.15)}_{\text{what you had last year}}\cdot (1.15) = \$3,967.50\)</span>
+</td>
+</tr>
+<tr>
+<td>
+after 3 years
+</td>
+<td>
+<span class="math inline">\(\underbrace{\$3,000 \cdot (1.15)\cdot(1.15)}_{\text{what you had last year}}\cdot (1.15) \$4,562.63\)</span>
+</td>
+</tr>
+<tr>
+<td>
+after 4 years
+</td>
+<td>
+$_{}(1.15) = $5,247.02 <span class="math inline">\(&lt;/td&gt;  &lt;/tr&gt;  &lt;tr&gt;  &lt;td&gt;\)</span><span class="math inline">\(&lt;/td&gt;  &lt;td&gt;\)</span>$
+</td>
+</tr>
+<tr>
+<td>
+after <span class="math inline">\(t\)</span> years
+</td>
+<td>
+$($3,000) (1.15)^t $
+</td>
+</tr>
+</table>
+<p>After you invest, your assets will increase exponentially! You can even plot their growth with time:</p>
+<p><embed src="money.pdf" style="width:75.0%" /></p>
+<p>Here’s the question: when will you be able to go to Alaska? When will you have the <span class="math inline">\(\$9,000\)</span> necessary to leave? From the graph, it looks like it’ll take another 8 years of textbook-running.</p>
+<p>But how do you find this <em>exactly</em>? You need to find what value of <span class="math inline">\(t\)</span> makes your asset-function equal to <span class="math inline">\(\$9,000\)</span>:</p>
+<p><span class="math display">\[\$9,000 = \$(3000)\cdot(1.15)^t\]</span></p>
+<p>How do you solve this equation? I guess you could start by dividing off the <span class="math inline">\(\$3,000\)</span>:</p>
+<p><span class="math display">\[\frac{\$9,000}{\$3,000} = (1.15)^t\]</span> <span class="math display">\[3 = (1.15)^t\]</span></p>
+<p>But how do we isolate <span class="math inline">\(t\)</span>? Could we take a <span class="math inline">\(t\)</span>’th root?</p>
+<p><span class="math display">\[\begin{align*}
+\sqrt[t]{3} &amp;= \sqrt[t]{ (1.15)^t }\\
+3^{1/t} &amp;= \Big( (1.15)^t \Big)^{1/t} \\
+3^{1/t} &amp;= (1.15)^{t \cdot (1/t)} \\
+3^{1/t} &amp;= 1.15
+\end{align*}\]</span></p>
+<p>That doesn’t work. It just gives us the same problem, in a different place. We still have a <span class="math inline">\(t\)</span> in the exponent. What we really need, I guess, is some function that could get the <span class="math inline">\(t\)</span> out of the exponent. Some function that could undo the action of exponentiation… <em>an inverse function</em>!</p>
+<p>How would we do this? I guess we’d say that we have the function:</p>
+<p><span class="math display">\[f(x) = 3000\cdot1.15^x\]</span></p>
+<p>And we want to find:</p>
+<p><span class="math display">\[f^{\text{inv}}(x)\]</span></p>
+<p>Such that:</p>
+<p><span class="math display">\[f^{\text{inv}}(3000\cdot1.15^t) = t\]</span></p>
+<p>That way, we could solve our equation for <span class="math inline">\(t\)</span>:</p>
+<p><span class="math display">\[\begin{align*}
+9000 &amp;= 3000(1.15)^t \\
+f^{\text{inv}}(9000) &amp;= f^{\text{inv}}(3000\cdot1.15^t) \\
+f^{\text{inv}}(9000) &amp;= t \\
+t &amp;= f^{\text{inv}}(9000) \\
+\end{align*}\]</span></p>
+<p>Whatever that inverse function is—and we don’t really know what it is; we’re just assuming that exists and that it’s <em>something</em>—we can just plug $9,000 into it, and find out how long we need to wait until we triple our assets and can go to Alaska!!! I guess the inverse function will look like this (a reflection of the original function across <span class="math inline">\(y=x\)</span>):</p>
+<h2 id="its-worse">It’s worse</h2>
+<p>The problem is even more general than simply finding out when we can go to Alaska. More broadly, we know how to deal with exponential functions. Can we come up with functions that are the inverse of exponential functions? Let us call such functions (whatever they are) <strong>logarithms</strong>, and define them formally in this way, as the inverse of an exponential function: if we have an <strong>exponential function with base a</strong>: <span class="math display">\[f(x) = a^x\]</span> then the <strong>logarithm base a</strong> is its inverse: <span class="math display">\[f^{\text{inv}}(x) = \log_a{x}\]</span> such that <span class="math display">\[\log_a\left( a^x \right) = x \hspace{1cm}\text{and/or}\hspace{1cm} a^{\log_a(x)} = x\]</span> We might not have a general method to figure these out—to actually <em>compute</em> logarithms as specific functions or specific numbers, written in terms of decimals and square roots and arithmetic operations and whatnot. But if we define the logarithm in this way, we should be able to figure out some simple ones. I’ll give examples in a moment.</p>
+<p>The problem is, if we define the logarithm in this way, we don’t know very much about it. We don’t know what the function is in terms of numbers and addition/subtraction/multiplication/division, in terms of <span class="math inline">\(x\)</span>’s and square roots and that sort of thing. All we know is that it’s the inverse of an exponential. That, by itself, isn’t particularly useful. We can’t call up the travel agent and book tickets to Alaska, “departing <span class="math inline">\(\log_{1.15}(9000)\)</span> years from now.” Not yet, at least. So the question is: if this is all we know about the logarithm, what else must necessarily be true?</p>
+<p>I guess we must know what it looks like. We know what exponential functions look like (e.g. <span class="math inline">\(e^x\)</span>, <span class="math inline">\(5^x\)</span>, etc.). We know what inverses look like (they look like the original function flipped around the line <span class="math inline">\(y=x\)</span>). So we know what logarithms have to look like! Imagine we have some generic exponential function <span class="math inline">\(a^x\)</span>, where <span class="math inline">\(a\)</span> is some constant.:</p>
+<p>PICTURE</p>
+<p>Then the <span class="math inline">\(\log_a(x)\)</span> must look like this (graphed together with <span class="math inline">\(y=a^x\)</span> and <span class="math inline">\(y=x\)</span>):</p>
+<p>PICTURE</p>
+<p>So that’s helpful. The graph should give us <em>some</em> idea as to how <span class="math inline">\(\log\)</span> should behave as a function—what sort of numbers it should give us when we plug numbers into it. There’s a vertical asymptote at <span class="math inline">\(x=0\)</span>, and an <span class="math inline">\(x\)</span>-intercept at <span class="math inline">\(x=1\)</span>. It looks like it increases as we go to the right, but slowly\footnote{Note that it doesn’t exist on the left side of the graph. For our purposes, we’re only defining the logarithm of positive numbers. You <em>can</em> define the logarithm for negative numbers, but for various reasons there are lots of different ways to define it, and it gets kind of messy.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
+<p>What else can we figure out about logarithms, based solely on this definition? I suppose the next most important observation (which concerns specific numbers and not more general functions) is this. Imagine we have some sort of exponential equation, like:</p>
+<p><span class="math display">\[a^b = c\]</span></p>
+<p>This is the same<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> as writing:</p>
+<p><span class="math display">\[\log_a(c) = b\]</span></p>
+<p>For instance, since <span class="math inline">\(5^2 = 25\)</span>, then <span class="math inline">\(\log_5\left(25\right) = 2\)</span>. Why is this true (in general)? Well, imagine I have <span class="math inline">\(a^b = c\)</span>. Then…<br />
+</p>
+begin{center}
+<p>\end{center}</p>
+<p>So, for example:</p>
+<ul>
+<li><span class="math inline">\(5^2 = 25\)</span>, and <span class="math inline">\(\log_{5}(25) = 2\)</span></li>
+<li><span class="math inline">\(4^3 = 64\)</span>, and <span class="math inline">\(\log_4(64) = 3\)</span></li>
+<li><span class="math inline">\(2^4 = 16\)</span>, and <span class="math inline">\(\log_2(16) = 4\)</span></li>
+</ul>
+<p>Another way to think about these examples is this:</p>
+<ul>
+<li><span class="math display">\[\begin{align*}
+\log_5(25) &amp; = \log_5\left(5^2\right) \quad\quad \text{(another way to write $25$)} \\
+ &amp;=2 \quad\quad\text{(inverse fxns---they cancel out)}
+\end{align*}\]</span></li>
+<li><span class="math display">\[\begin{align*}
+\log_4(64) &amp;= \log_4\left(4^3\right) \quad\quad\text{(another way to write $64$)} \\
+&amp;=3 \quad\quad \text{(inverse fxns cancel)}
+\end{align*}\]</span></li>
+<li><span class="math display">\[\begin{align*}
+\log_2(16) &amp;= \log_2\left(2^4\right) \quad\quad\text{(another way to write $8$)}  \\
+&amp;=4 \quad\quad \text{(inverse fxns cancel)}
+\end{align*}\]</span></li>
+</ul>
+<p>Yet another way to think about these (and I think this is the best way) is as a question:</p>
+<ul>
+<li><span class="math inline">\(\log_{5}(25)\)</span> is like asking, <span class="math inline">\(5^\text{what} = 25\)</span>? Clearly, the answer is just <span class="math inline">\(2\)</span>. So <span class="math inline">\(\log_{5}(25) = 2\)</span>.</li>
+<li><span class="math inline">\(\log_{4}(64)\)</span> is like asking, <span class="math inline">\(4^\text{what} =64\)</span>? Clearly, the answer is just <span class="math inline">\(3\)</span>. So <span class="math inline">\(\log_{4}(64) = 3\)</span>.</li>
+<li><span class="math inline">\(\log_{2}(16)\)</span> is like asking, <span class="math inline">\(2^\text{what} = 16\)</span>? Clearly, the answer is just <span class="math inline">\(4\)</span>. So <span class="math inline">\(\log_{2}(16) = 4\)</span>.</li>
+</ul>
+<p>Here’s another way of thinking about logs. (I’m worried this is really disorganized, so if you have better ideas, please let me know.) I like the number seven. It’s my favorite number. But sometimes I don’t want to write just “<span class="math inline">\(7\)</span>”. Sometimes I want to write it differently. Luckily, there are lots of different ways to write <span class="math inline">\(7\)</span>:</p>
+<ul>
+<li><span class="math inline">\(7\)</span></li>
+<li><span class="math inline">\(10-3\)</span></li>
+<li><span class="math inline">\(\sqrt{49}\)</span></li>
+<li>28/4</li>
+<li><span class="math inline">\(7\cdot1\)</span></li>
+<li>the solution to the equation <span class="math inline">\(x - 7 = 0\)</span></li>
+<li><span class="math inline">\(343^{1/3}\)</span></li>
+</ul>
+<p>But two years before 7 became my favorite number, <span class="math inline">\(5\)</span> was my favorite number. What if I wanted to combine these two? What if I wanted to write my current favorite number (7) in terms of my older favorite number (5)? I guess I could write:</p>
+<ul>
+<li><span class="math inline">\(5+2 = 7\)</span></li>
+<li><span class="math inline">\(5\cdot1.4 = 7\)</span></li>
+</ul>
+<p>But what if I wanted to do this not using addition (like in the first example) or multiplication (like in the second), but by using my <em>third</em> binary operation—exponentiation? Put differently, what if I want to write:</p>
+<p><span class="math display">\[5^\text{something} = 7\]</span></p>
+<p>How do I figure out what that something in the exponent is? Put more formally, if I have <span class="math inline">\(5^x = 7\)</span>, how do I solve for <span class="math inline">\(x\)</span>? The cool observation here, that might have escaped your notice, is that <em>we can write any (positive) number, simply as any other positive number raised to some power</em>!!! And logarithms tell us how we can do that. It’s the same as how we can write any number as some other number plus something:</p>
+<p><span class="math display">\[\text{there is some number $x$ such that } 5 + x = 7\]</span></p>
+<p><span class="math display">\[\text{we can find it using subtraction: } x = 7 - 5\]</span></p>
+<p>or how I can write any number as some other number times something:</p>
+<p><span class="math display">\[\text{there is some number $x$ such that } 5\cdot x = 7\]</span></p>
+<p><span class="math display">\[\text{we can find it using division: } x = 7/5\]</span></p>
+<p>so we define the <strong>logarithm</strong> as the operation that does this—that is the inverse of exponentiation. <span class="math display">\[\text{there is some number $x$ such that } 5^x = 7\]</span></p>
+<p><span class="math display">\[\text{we can find it using a logarithm: } x = \log_5(7)\]</span></p>
+<p>Does any of this make any sense? I have given, like, five different intuitive explanations of a logarithm, plus a formal definition, and some wacky story about textbooks and Tucson. I’m trying to make it un-confusing, but I worry that excessive information will have the opposite effect.</p>
+<table style="text-align:center;">
+<thead>
+<td>
+<strong>operation</strong>
+</td>
+<td>
+<strong>inverse operation</strong>
+</td>
+</thead>
+<tr>
+<td>
+addition
+</td>
+<td>
+subtraction
+</td>
+</tr>
+<tr>
+<td>
+multiplication
+</td>
+<td>
+division
+</td>
+</tr>
+<tr>
+<td>
+exponentiation
+</td>
+<td>
+logarithmancy
+</td>
+</tr>
+</table>
+<p>Anyway, your persisting question should be, “Well, it’s all well and good to say that <span class="math inline">\(\log_5(7)\)</span> is the number such that <span class="math inline">\(5^\text{that number} = 7\)</span>, but I still don’t know what it is! We’ve just written “log”! We don’t know what it is as a decimal!!!"</p>
+<p>That is a good objection. I hope you agree, as we saw before, that we can find the logarithm as a decimal under the right circumstances: <span class="math inline">\(\log_5(25) = 2\)</span>, because <span class="math inline">\(5^2 = 25\)</span>. But this leaves us with a lot to be desired. What is <span class="math inline">\(\log_5(7)\)</span> as a decimal, anyway? And when can we can go to Alaska? From looking at the graphs back on pages 2 or 3, we can see that it’ll take maybe 7 or 8 years. But we’d like to know the exact date, so we can buy plane tickets! How do we figure that out?</p>
+<p>The analogy here is to division. Sometimes we can divide numbers and get really clean results: <span class="math display">\[\frac{10}{5} = 2\]</span> But sometimes we can’t, and we have to approximate using long division <span class="math display">\[\frac{10}{7} \approx 1.428571\dots\]</span> It’s the same with logarithms. Logarithmancy, like division, is a <em>messy</em> operation. So if we’re faced with something like <span class="math inline">\(\log_5(7)\)</span>, we have vrious options:</p>
+<ul>
+<li><p>We might be able to approximate in our heads. For example, if we want to find <span class="math inline">\(\log_{10}(1004)\)</span>, we know that’s probably a little bit more than <span class="math inline">\(3\)</span>, because <span class="math inline">\(10^3 = 1000\)</span>. Or if we want to find <span class="math inline">\(\log_6(34)\)</span>, that’s probably a little less than <span class="math inline">\(2\)</span>, because <span class="math inline">\(6^2 = 36\)</span>.</p></li>
+<li><p>We could use our… our… calculator. Eek. Except our calculators only has <code>ln</code> and <code>Log</code> buttons, for the base-<span class="math inline">\(e\)</span> and base-<span class="math inline">\(10\)</span> logs. What if you want to find <span class="math inline">\(\log_5(7)\)</span>? As it turns out, there’s a <em>change-of-base formula</em> that lets you write any logarithm in terms of any other logarithm. We’ll prove it in a bit. But I’ll give it to you now: <span class="math display">\[\log_a(b) = \frac{\log_c(b)}{\log_c(a)}\]</span>So in this case, you could have<span class="math display">\[\log_5(7) = \frac{\log_e(7)}{\log_e(5)} = \frac{\ln(7)}{\ln(5)}\]</span>And you could type that into your stupid hunk of silicon. You get that <span class="math inline">\(\log_5(7) \approx 1.209\dots\)</span></p></li>
+<li><p>Or we could use the change-of-base formula, coupled with this fun fact from higher calculus: <span class="math display">\[\ln (1+x) \;=\; \sum_{n=1}^{n = \infty} \frac{(-1)^{n+1}}{n} x^n \;=\; x \,-\, \frac{x^2}{2} \,+\, \frac{x^3}{3} \,-\, \frac{x^4}{4} \,+\, \cdots\]</span>This, by the way, is basically how your calculator computes logs—it uses a series approximation like this. But I don’t think you’d really want to do this by hand, because it’d take a long time, and it’d be boring…</p></li>
+</ul>
+<p>More broadly: who cares if we can’t write it as a decimal? A decimal is (usually) just an <em>approximation</em> of a number. We’d far prefer to write <span class="math inline">\(10/7\)</span> as <span class="math inline">\(10/7\)</span> and not as <span class="math inline">\(1.42857\dots\)</span>. The former is the <em>actual number</em>; the latter is just a <em>dirty photocopy</em>. This sort of thing comes up all the time. There are very few numbers that we can write exactly as a decimal (like <span class="math inline">\(2\)</span> or <span class="math inline">\(5.68\)</span>). There are far more numbers that we can’t express exactly in decimal form—like <span class="math inline">\(\sqrt{2}\)</span> or <span class="math inline">\(\pi\)</span> or even something basic like <span class="math inline">\(1/3\)</span>.</p>
+<table style="text-align:center;">
+<thead>
+<td>
+<strong>the actual number</strong>
+</td>
+<td>
+<strong>its decimal approximation</strong>
+</td>
+</thead>
+<tr>
+<td>
+<span class="math inline">\(46\)</span>
+</td>
+<td>
+<span class="math inline">\(46\)</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(\pi\)</span>
+</td>
+<td>
+<span class="math inline">\(3.14159\dots\)</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(\sqrt{2}\)</span>
+</td>
+<td>
+<span class="math inline">\(1.41421\dots\)</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(50/17\)</span>
+</td>
+<td>
+<span class="math inline">\(2.94117\dots\)</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(5/4\)</span>
+</td>
+<td>
+<span class="math inline">\(1.25\)</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(\pi/5\)</span>
+</td>
+<td>
+<span class="math inline">\(0.58778\dots\)</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(\log_5(7)\)</span>
+</td>
+<td>
+<span class="math inline">\(1.20906\dots\)</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(\ln(5)\)</span>
+</td>
+<td>
+<span class="math inline">\(1.60943\dots\)</span>
+</td>
+</tr>
+</table>
+<p>Before we go much further, I should probably comment on a special logarithm, and the special number that is its base. (Because I just used it in my examples, among other things.) That is: the <strong>natural logarithm</strong> <span class="math inline">\(\ln(x)\)</span>, defined as the logarithm to the base <span class="math inline">\(e\)</span>: <span class="math inline">\(\ln(x)= \log_e(x)\)</span>, where <span class="math inline">\(e\)</span> is an irrational, transcendental number (like <span class="math inline">\(\pi\)</span>): <span class="math inline">\(e \approx 2.718...\)</span> Incidentally, there’s a cool mnemonic to remember the first 15 digits:</p>
+<p><span class="math display">\[e \approx 2.7 \,\, 1828 \,\, 1828\,\, 45\,\, 90\,\, 45...\]</span></p>
+<p>So it’s just <span class="math inline">\(2.7\)</span>, followed by the year Andrew Jackson was elected president, then that again, followed by a <span class="math inline">\(45-45-90\)</span> right triangle (but rearranged).</p>
+<p>The abbreviation <span class="math inline">\(\ln\)</span>, by the way, comes from the Latin <em>logarithmus naturalis</em>. You can pronounce it “ell-enn” or “linn” or even just “log,” if you’re of a certain bent. Often mathematicians will write “log” when they mean “log base <span class="math inline">\(e\)</span>”. But the button <code>Log(x)</code> on your calculator computes the base-<span class="math inline">\(10\)</span> log (<span class="math inline">\(\log_{10}(x)\)</span>), and a lot of K-12 teachers say that “log” means “log base ten.” I think this is silly. <span class="math inline">\(10\)</span> is a horrifically <em>un</em>natural base for a logarithm. The only reason we use base 10 is because we count in units of ten, and the only reason we count in units of ten (base 10) is because we have ten fingers. What if you were a tapir? with only four toes on each of your front feet? Would you then use a base-8 number system? What if you wanted to count with your rear toes? Tapirs only have three toes on each rear foot. Would you then use a base-6 number system? Thus, you can assume that if I just say “log” without any qualification as to the base, I’m talking about the natural log. If I say “the artificial, evolutionarily-induced log,” then I’m probably talking about the base-10 log. (Or going on a bizarre rant about faux-wood trim.)</p>
+<p>But where does <span class="math inline">\(e\)</span> come from? Why do we care about the natural log? Is it just one of those bizarre math-things that we’re not supposed to be able to understand but have to accept? No. <span class="math inline">\(e\)</span> is a number that eerily arises out of mathematical nature, like <span class="math inline">\(\pi\)</span>. <span class="math inline">\(\pi\)</span> is just the ratio of the circumference of a circle to its diameter. But it’s not a nice, clean integer, or even a rational number. It’s an infinitely-long, non-repeating, patternless decimal. Out of very basic geometry we get a very strange number<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>.</p>
+<p><span class="math inline">\(e\)</span>’s origin is slightly more abstract. It comes from this question: is there a function that is its own slope? As it turns out—you won’t know why for a bit—as it turns out, the slope of exponential functions like <span class="math inline">\(5^x\)</span> or <span class="math inline">\(7^x\)</span> is equal to the same exponential function back again, but times some constant: <span class="math display">\[\left( \text{slope of } 5^x \right)  = (\text{some constant})\cdot 5^x\]</span> And <span class="math inline">\(e\)</span> is the number such that that constant is 1: <span class="math display">\[\begin{align*}
+\left( \text{slope of } e^x \right) &amp;= 1\cdot e^x  \\
+&amp;= e^x
+\end{align*}\]</span> THAT is why we care about the number <span class="math inline">\(e\)</span>. It’s the number whose exponential function <em>is its own slope</em>!!! There’s another amazing fact we’ll prove in calculus: <span class="math display">\[e^{i\pi} + 1 = 0\]</span> This is known as <strong>Euler’s Identity</strong>, after Leonhard Euler (1707–1783). It is wondrous and beautiful. It gives, in a single equation, a relationship between the five most important numbers in math—<span class="math inline">\(e\)</span>, <span class="math inline">\(i\)</span>, <span class="math inline">\(\pi\)</span>, <span class="math inline">\(0\)</span>, and <span class="math inline">\(1\)</span>—the three most important operations—addition, multiplication, exponentiation—and the most important relationship—equality.</p>
+<p>One more thing: I don’t think I’ve talked about what the graph of a log looks like. I mean, I guess you guys should already know, since it was one of our parent functions, but in case you’ve forgotten, here it is:</p>
+<p>PICTURE</p>
+<p>So it looks just like the graph of <span class="math inline">\(e^x\)</span>, but flipped about the line <span class="math inline">\(y=x\)</span>. It has a vertical asymptote at <span class="math inline">\(x=1\)</span>, and an <span class="math inline">\(x\)</span>-intercept at <span class="math inline">\(x=0\)</span>. Any other logarithm (or any other exponential) looks essentially the same (but possibly with vertical expansion/compression). Note that it doesn’t exist on the left side of the graph. For our purposes, we’re only defining the logarithm of positive numbers. You <em>can</em> define the logarithm for negative numbers, but it gets messy, and you need complex numbers and all that.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></p>
+<h2 id="fun-facts">Fun facts</h2>
+<p>Anyway, let’s talk more about how logs behave. We’ve talked a lot about how we can compute logarithms of specific numbers. But let’s consider how logarithms behave in a more general sense. Here are a bunch of cool properties that we’ll prove (and that you can use):</p>
+<p>: <span class="math inline">\(\log_a(a^x) = x\)</span> and <span class="math inline">\(a^{\log_a(x)} = x\)</span></p>
+<p>: We already proved these, right after we gave the definition of the logarithm (as an inverse function). But let’s demonstrate the proof again.</p>
+<p>Imagine we have some exponential function, <span class="math inline">\(f(x) = a^x\)</span>. Then, by definition, the inverse of <span class="math inline">\(f(x)\)</span> is the logarithm base <span class="math inline">\(a\)</span> (“log base <span class="math inline">\(a\)</span>” is just another name for “the inverse of <span class="math inline">\(a^x\)</span>”). So: <span class="math display">\[f(x) = a^x \hspace{1cm} f^\text{inv}(x) = \log_a(x)\]</span>But we know that, if we have any two functions that are inverses of each other, they will cancel out upon composition:<span class="math display">\[f^\text{inv}(\, f(x)\, ) = x \hspace{1cm}\text{and}\hspace{1cm}f(\,f^\text{inv}(x)\,) = x \]</span>So then, for these specific two inverses, we will have: <span class="math display">\[\log_a(\,a^x\,) = x \hspace{1cm}\text{and}\hspace{1cm} a^{\log_a(x)}=x\]</span> <span class="math display">\[\includegraphics[scale=.25]{andrewproof.png}  \]</span></p>
+<p>Fun Fact #1: <span class="math inline">\(\log_a(b\cdot c) = \log_a(b) + \log_a(c)\)</span></p>
+<p>Argument</p>
+<p>The theme here, like</p>
+<p>stupidity</p>
+<ul>
+<li><span class="math inline">\(b = b+ 0\)</span></li>
+<li><span class="math inline">\(b = b\cdot 1\)</span></li>
+<li><span class="math inline">\(b = \sqrt[3]{b^3}\)</span></li>
+<li><span class="math inline">\(b = b + 12 - 12\)</span></li>
+<li><span class="math inline">\(b = b\cdot 7 \cdot \frac{1}{7}\)</span></li>
+</ul>
+<p>And…</p>
+<p><span class="math inline">\(b = a^{\log_a(b)}\)</span></p>
+<p><span class="math inline">\(b = \log_a\left(a^b\right)\)</span></p>
+<p>So then, if we want to calculate <span class="math inline">\(\log_a(b\cdot c)\)</span>, we really have:</p>
+<p><span class="math display">\[\begin{align*}
+\log_a(b\cdot c) &amp;= \log_a\left( \underbrace{a^{\log_a(b)}}_{=b}\cdot \underbrace{a^{\log_a(c)}}_{=c} \right)
+\end{align*}\]</span></p>
+<p>but then we can use rules of exponents, and we have</p>
+<p><span class="math display">\[ = \log_a\left( a^{\log_a(b)+\log_a(c)} \right) \]</span></p>
+<p>but wait! then we have <span class="math inline">\(\log_a\)</span> of <span class="math inline">\(a^\text{something}\)</span>! Those cancel out! they’re just inverses! so we have:</p>
+<p><span class="math display">\[\begin{align*}
+&amp;= \cancel{\log_a}\left( \cancel{a}^{\log_a(b)+\log_a(c)} \right) \\
+&amp;= \log_a(b)+\log_a(c)
+\end{align*}\]</span></p>
+<p>but that’s what we wanted to prove!</p>
+<p>Fun Fact #2</p>
+<p>This theorem is really useful and really cool. It tells us that if we want to get something out of an exponent (which is our whole reason for coming up with logs in the first place), we can take <em>any</em> logarithm—we don’t need to get the base right. This is a very, very useful property. It tells us, for instance, that: <span class="math display">\[\ln\left(7^5\right) = 5\cdot \ln(7)\]</span></p>
+<p>Argument</p>
+<p>:</p>
+<p>Fun Fact #3</p>
+<p>Argument (#1)</p>
+<p>Argument (#2)</p>
+<p>Fun Fact #4</p>
+<p></p>
+<p>This is the change-of-base formula! With this formula, we’ll finally be able to use our calculators (ew ew ew) and evaluate logarithms to weird bases—we’ll be able to compute <span class="math inline">\(\log_5(7)\)</span>, and we’ll be able to compute when we can finally go to Alaska!</p>
+<p>{}: So imagine we want to rewrite <span class="math inline">\(\log_a(x)\)</span> using a differently-based logarithm (say in terms of a base-<span class="math inline">\(b\)</span> logarithm). For starters, I hope you agree that, due to Theorem B, I can rewrite <span class="math inline">\(x\)</span> as: <span class="math display">\[x = a^{\log_a(x)}\]</span> This may seem obvious and pointless, but be patient. Now imagine that we take the <span class="math inline">\(\log_b\)</span> of both sides. Then we have: <span class="math display">\[\log_b(x) = \log_b\left(a^{\log_a(x)}\right)\]</span> But because of Theorem D (I told you it was cool), we can just move that exponent inside the log out of it: <span class="math display">\[\log_b(x) = \log_a(x) \cdot \log_b(a)
+\]</span>But if we just rearrange this, we get:<span class="math display">\[ \log_a(x) = \frac{\log_b(x)}{\log_b(a)}\]</span> <span class="math display">\[\includegraphics[scale=.25]{andrewproof.png} \]</span></p>
+<p>: <span class="math inline">\(\log_a(xy) = \log_a(x) + \log_a(y)\)</span></p>
+<p>This is one of the coolest properties of logs—that we can split them up along multiplication! Or, put differently, that logarithms can <em>turn multiplication into addition</em>. In fact, we could (if we wanted to) define logarithms only as a function that has this property (rather than define them as the inverse of an exponential). That’s how they were created—18th century mathematicians wanted an easier way to multiply number together, and tried to find a function that could turn a (potentially difficult) multiplication problem into an (easier) addition problem.</p>
+{}: The proof is kind of cool. First, we’ll use logs to find a different way to write <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>, and then multiply them together to find a different way to write <span class="math inline">\(xy\)</span>. And then we’ll hit that up with a log <em>again</em>, simplify, and poof! we’ll get our answer.
+<p>: <span class="math inline">\(\log_a(x^k) = k\log_a(x)\)</span></p>
+<p>: <span class="math inline">\(\displaystyle \log_a\left(\frac{x}{y} \right) = \log_a(x) - \log_a(y)\)</span></p>
+<p>There are two ways we can prove this. One way is to make basically the same argument that we used to prove theorem C (use a tool we already have). The other way is to use Theorem C and D together to make a slightly different argument (use our existing tools to make more complicated tools). Here’s the first way:</p>
+{}:
+<p>Here’s the second way:</p>
+{}:
+<p>: <span class="math inline">\(\log_a(1) = 0\)</span></p>
+<p>: We know, as a property of exponents, that any number raised to the <span class="math inline">\(0\)</span> is <span class="math inline">\(1\)</span>. Boom. </p>
+<p></p>
+<p>This is the change-of-base formula! With this formula, we’ll finally be able to use our calculators (ew ew ew) and evaluate logarithms to weird bases—we’ll be able to compute <span class="math inline">\(\log_5(7)\)</span>, and we’ll be able to compute when we can finally go to Alaska!</p>
+<p>{}: So imagine we want to rewrite <span class="math inline">\(\log_a(x)\)</span> using a differently-based logarithm (say in terms of a base-<span class="math inline">\(b\)</span> logarithm). For starters, I hope you agree that, due to Theorem B, I can rewrite <span class="math inline">\(x\)</span> as: <span class="math display">\[x = a^{\log_a(x)}\]</span> This may seem obvious and pointless, but be patient. Now imagine that we take the <span class="math inline">\(\log_b\)</span> of both sides. Then we have: <span class="math display">\[\log_b(x) = \log_b\left(a^{\log_a(x)}\right)\]</span> But because of Theorem D (I told you it was cool), we can just move that exponent inside the log out of it: <span class="math display">\[\log_b(x) = \log_a(x) \cdot \log_b(a)
+\]</span>But if we just rearrange this, we get:<span class="math display">\[ \log_a(x) = \frac{\log_b(x)}{\log_b(a)}\]</span> <span class="math display">\[\includegraphics[scale=.25]{andrewproof.png} \]</span></p>
+<p>So now we can finally compute <span class="math inline">\(\log_5(7)\)</span>, as well as figure out when we’ll go to Alaska! For the former… <span class="math display">\[\log_5(7) = \frac{\ln(7)}{\ln(5)} \approx 1.20906 \dots\]</span>So then <span class="math inline">\(5^{1.20906\dots} = 7\)</span>!!! As for Alaska, we needed to solve the following equation for <span class="math inline">\(t\)</span>: <span class="math display">\[\begin{align*}
+\$9,000 &amp;= \$(3000)\cdot(1.15)^t \\
+\frac{\$9,000}{\$3,000} &amp;= 1.15^t \\
+3 &amp;= 1.15^t \\
+\ln(3) &amp;= \ln\left(1.15^t\right) \\
+\ln(3) &amp;= t\ln(1.15) \\
+t &amp;= \frac{\ln(3)}{\ln(1.15)} \\
+t &amp;\approx 7.8606\dots
+\end{align*}\]</span> So we can go to Alaska in 7.86 years!!! Note that (secret of secrets) we didn’t even need to use the change-of-base formula—we could have taken a <span class="math inline">\(\log_{1.15}\)</span>, yes, and then used the change-of-base formula, but since we just wanted to get the <span class="math inline">\(t\)</span> out of the exponent, <em>any</em> logarithm would do, so we chose the easiest one (the natural log).</p>
+<h2 id="problems">Problems</h2>
+<p>make a list of the fun facts</p>
+Evaluate the following logarithms (without a calculator!):
+<div style="column-width: 12em;  column-gap: 2em;  column-rule: 1px solid #ccc;">
+<ol class="problems">
+<li>
+<span class="math inline">\(\log_2(2)\)</span>
+</li>
+<li>
+<span class="math inline">\(\log_5(5)\)</span>
+</li>
+<li>
+<span class="math inline">\(\log_2(2^3)\)</span>
+</li>
+<li>
+<span class="math inline">\(\log_7(7^9)\)</span>
+</li>
+<li>
+<span class="math inline">\(\log_{11}(11^{45})\)</span>
+</li>
+<li>
+<span class="math inline">\(\log_{15}(15)\)</span>
+</li>
+<li>
+<span class="math inline">\(\ln(e)\)</span>
+</li>
+<li>
+<span class="math inline">\(\ln(e^3)\)</span>
+</li>
+<li>
+<span class="math inline">\(\log_2(2^{10})\)</span>
+</li>
+<li>
+<span class="math inline">\(\log_4\left(4^3\right)\)</span>
+</li>
+<li>
+<span class="math inline">\(\log_5(25)\)</span>
+</li>
+<li>
+<span class="math inline">\(\log_3(81)\)</span>
+</li>
+<li>
+<span class="math inline">\(\log_7(343)\)</span>
+</li>
+<li>
+<span class="math inline">\(\log_2(512)\)</span>
+</li>
+<li>
+<span class="math inline">\(\log_4(64)\)</span>
+</li>
+<li>
+<span class="math inline">\(\log_{10}(10,000,000)\)</span>
+</li>
+<li>
+<span class="math inline">\(\log_{125}(1)\)</span>
+</li>
+<li>
+<span class="math inline">\(\log_4(1)\)</span>
+</li>
+<li>
+<span class="math inline">\(\log_7(1)\)</span>
+</li>
+<li>
+<span class="math inline">\(\log_{23,344.1}(1)\)</span>
+</li>
+<li>
+<span class="math inline">\(\log_\pi(1)\)</span>
+</li>
+<li>
+<span class="math inline">\(\ln(1)\)</span>
+</li>
+<li>
+<span class="math inline">\(\log_{246.7}(1)\)</span>
+</li>
+<li>
+<span class="math inline">\(\log_{27.9}(27.9)\)</span>
+</li>
+<li>
+<span class="math inline">\(\log_{46}(46)\)</span>
+</li>
+<li>
+<span class="math inline">\(\log_3(3)\)</span>
+</li>
+<li>
+<span class="math inline">\(\log_5\left(\frac{1}{5}\right)\)</span>
+</li>
+<li>
+<span class="math inline">\(\log_7\left(\frac{1}{7}\right)\)</span>
+</li>
+<li>
+<span class="math inline">\(\log_4\left(\frac{1}{4}\right)\)</span>
+</li>
+<li>
+<span class="math inline">\(\log_6\left(\frac{1}{36}\right)\)</span>
+</li>
+<li>
+<span class="math inline">\(\log_9\left(\frac{1}{81}\right)\)</span>
+</li>
+<li>
+<span class="math inline">\(\log_{11}\left(\frac{1}{121}\right)\)</span>
+</li>
+<li>
+<span class="math inline">\(\log_{12}\left(\frac{1}{144}\right)\)</span>
+</li>
+<li>
+<span class="math inline">\(\log_2\left(\frac{1}{4,096}\right)\)</span>
+</li>
+<li>
+<span class="math inline">\(\log_5\left(\frac{1}{125}\right)\)</span>
+</li>
+<li>
+<span class="math inline">\(\log_{1/2}\left(\frac{1}{2}\right)\)</span>
+</li>
+<li>
+<span class="math inline">\(\log_{1/6}\left(\frac{1}{6}\right)\)</span>
+</li>
+<li>
+<span class="math inline">\(\log_{1/7}\left(\frac{1}{7}\right)\)</span>
+</li>
+<li>
+<span class="math inline">\(\log_{1/9}(9)\)</span>
+</li>
+<li>
+<span class="math inline">\(\log_{1/5}(5)\)</span>
+</li>
+<li>
+<span class="math inline">\(\log_{1/3}(3)\)</span>
+</li>
+<li>
+<span class="math inline">\(\log_{1/5}(125)\)</span>
+</li>
+<li>
+<span class="math inline">\(\log_{1/9}(81)\)</span>
+</li>
+<li>
+<span class="math inline">\(\log_{1/4}(16)\)</span>
+</li>
+<li>
+<span class="math inline">\(\log_{1/9}(3)\)</span>
+</li>
+<li>
+<span class="math inline">\(\log_{1/16}(2)\)</span>
+</li>
+<li>
+<span class="math inline">\(\ln(\frac{1}{e})\)</span>
+</li>
+</ol>
+</div>
+<p>Estimate the following logarithms WITHOUT A CALCULATOR!!! (Show your thought process!) Then check your estimate using a calulator.</p>
+<div style="column-width: 14em;  column-gap: 2em;  column-rule: 1px solid #ccc;">
+<ol class="problems">
+<li>
+<span class="math inline">\(\log_{10}(947)\)</span>
+</li>
+<li>
+<span class="math inline">\(\log_{2}(65)\)</span>
+</li>
+<li>
+<span class="math inline">\(\log_{2}(131)\)</span>
+</li>
+<li>
+<span class="math inline">\(\log_{5}(33.1)\)</span>
+</li>
+<li>
+<span class="math inline">\(\log_{7}(45)\)</span>
+</li>
+<li>
+<span class="math inline">\(\ln(3)\)</span>
+</li>
+<li>
+<span class="math inline">\(\ln(2.5e)\)</span>
+</li>
+<li>
+<span class="math inline">\(\ln(10)\)</span>
+</li>
+<li>
+<span class="math inline">\(\ln(10e)\)</span>
+</li>
+<li>
+<span class="math inline">\(\log_{10}(15)\)</span>
+</li>
+<li>
+<span class="math inline">\(\log_{10}(7500)\)</span>
+</li>
+<li>
+<span class="math inline">\(\log_{3}(3)\)</span>
+</li>
+</ol>
+</div>
+<p>LOG EXPLOSION! Rewrite the following expressions so that inside the logarithm(s) there are <em>as few things as possible</em> (potentially exploding the expression into multiple seperate logarithms to do so!).</p>
+<div style="column-width: 14em;  column-gap: 2em;  column-rule: 1px solid #ccc;">
+<ol class="problems">
+<li>
+<span class="math inline">\(\log_{a}\left(\frac{a^b}{a^c}\right)\)</span>
+</li>
+<li>
+<span class="math inline">\(\log_{a}\left(a^ba^c\right)\)</span>
+</li>
+<li>
+<span class="math inline">\(\log_{x}(x^5)\)</span>
+</li>
+<li>
+<span class="math inline">\(\log_{a}(a^b + a^b)\)</span>
+</li>
+<li>
+<span class="math inline">\(\log_{k}(5^{2000})\)</span>
+</li>
+<li>
+<span class="math inline">\(\log_{a}(a+4a^2)\)</span>
+</li>
+<li>
+<span class="math inline">\(\log_{a}(a^bk^b)\)</span>
+</li>
+<li>
+<span class="math inline">\(\log_{a}(a\sqrt[b]{a})\)</span>
+</li>
+<li>
+<span class="math inline">\(\ln(2k^5)\)</span>
+</li>
+<li>
+<span class="math inline">\(\log_5(\sqrt{v})\)</span>
+</li>
+<li>
+<span class="math inline">\(\log_2\left(4xy^2\right)\)</span>
+</li>
+<li>
+<span class="math inline">\(\log_2\left(\frac{x}{8y}\right)\)</span>
+</li>
+<li>
+<span class="math inline">\(\log_5\left(u^3v^5\right)\)</span>
+</li>
+<li>
+<span class="math inline">\(\log_5(625uv)\)</span>
+</li>
+<li>
+<span class="math inline">\(\log_2\left(\frac{1}{y\sqrt{x}}\right)\)</span>
+</li>
+<li>
+<span class="math inline">\(\log_{a}(\frac{xy^2}{4x^3})\)</span>
+</li>
+<li>
+<span class="math inline">\(\log_{a}(a^bb^5)\)</span>
+</li>
+<li>
+<span class="math inline">\(\log_{a}\left(\frac{a^b}{b^5}\right)\)</span>
+</li>
+<li>
+<span class="math inline">\(\log_{a}(\frac{a}{50})\)</span>
+</li>
+<li>
+<span class="math inline">\(\log_{a}(10^55^3)\)</span>
+</li>
+<li>
+<span class="math inline">\(\ln(25^29^5)\)</span>
+</li>
+<li>
+<span class="math inline">\(\log_{a}(2^23^35^27^211^5)\)</span>
+</li>
+<li>
+<span class="math inline">\(\ln(5^{10}\cdot3^{10}\cdot2^{10}\cdot7^{10}\cdot100\cdot13^{10})\)</span>
+</li>
+<li>
+<span class="math inline">\(\log_{a}(x^2 - 2x - 3)\)</span>
+</li>
+<li>
+<span class="math inline">\(\ln\left(12x^3 + 9x^2 + 8x + 6\right)\)</span>
+</li>
+<li>
+<span class="math inline">\(\log_{a}(3x^2 + 5x + 11)\)</span>
+</li>
+<li>
+<span class="math inline">\(2\ln(\sqrt{e})\)</span>
+</li>
+<li>
+<span class="math inline">\(\ln\left(\ln\left(e^e\right)\right)\)</span>
+</li>
+<li>
+<span class="math inline">\(\ln(e^{2\ln(x)})\)</span>
+</li>
+<li>
+<span class="math inline">\(\ln(\sin \theta) - \ln(\frac{\sin \theta}{5})\)</span>
+</li>
+<li>
+<span class="math inline">\(\ln(3x^2 - 9x) + \ln(\frac{1}{3x})\)</span>
+</li>
+<li>
+<span class="math inline">\(\frac{1}{2}\ln(4t^4) - \ln(2)\)</span>
+</li>
+<li>
+<span class="math inline">\(\ln\left(\frac{1}{\cos \theta}\right) + \ln\left(\cos \theta\right)\)</span>
+</li>
+<li>
+<span class="math inline">\(\ln(8x + 4) - 2\ln(2)\)</span>
+</li>
+<li>
+<span class="math inline">\(3\ln\left(\sqrt[3]{t^2 - 1}\right) - \ln(t + 1)\)</span>
+</li>
+<li>
+<span class="math inline">\(e^{\ln(7.2)}\)</span>
+</li>
+<li>
+<span class="math inline">\(e^{-\ln(x^2)}\)</span>
+</li>
+<li>
+<span class="math inline">\(e^{\ln(x) - \ln(y)}\)</span>
+</li>
+<li>
+<span class="math inline">\(e^{\ln(x^2 +y^2)}\)</span>
+</li>
+<li>
+<span class="math inline">\(e^{-\ln(.3)}\)</span>
+</li>
+<li>
+<span class="math inline">\(e^{\ln(\pi x) - \ln(2)}\)</span>
+</li>
+</ol>
+</div>
+<p>LOG IMPLOSION!!!! Rewrite the following expressions so that there are <em>as few logarithms as possible</em>, and <em>as much stuff inside each as possible</em>.</p>
+<div style="column-width: 14em;  column-gap: 2em;  column-rule: 1px solid #ccc;">
+<ol class="problems">
+<li>
+<span class="math inline">\(\log_5(3)+3\log_5(7)+\frac{\log_5(10)}{2}\)</span>
+</li>
+<li>
+<span class="math inline">\(4\log_3(8) - \log_3(7) - 5\log_3(5)\)</span>
+</li>
+<li>
+<span class="math inline">\(\log(c) + 2\log(a) + 3\log(b)\)</span>
+</li>
+<li>
+<span class="math inline">\(5\log(w) + 5\log(u) + 10\log(v)\)</span>
+</li>
+<li>
+<span class="math inline">\(\log(w) + \frac{\log(x)}{2} + \frac{\log(y)}{2} + \frac{\log(z)}{2}\)</span>
+</li>
+<li>
+<span class="math inline">\(\log_2(8) + \frac{4\log_2(7)}{3} + \frac{\log_2(5)}{3}\)</span>
+</li>
+<li>
+</li>
+<li>
+</li>
+</ol>
+</div>
+<p>True or false???</p>
+<li>
+<span class="math inline">\(\log_b(x+y) = \log_b(y) + \log_b(y)\)</span>
+</li>
+<li>
+<span class="math inline">\(\left(\log_b(x)\right)\left(\log_b(y)\right) = \log_b(xy)\)</span>
+</li>
+<li>
+<span class="math inline">\(\frac{\log_b(x)}{\log_b(y)} = \log_b\left(\frac{x}{y})\)</span>
+</li>
+<li>
+<span class="math inline">\(\log_a\left(b^x+c^y\right) = x\log_a(b) + y\log_a(c)\)</span>
+</li>
+<p>Solve the following equations for <span class="math inline">\(y\)</span> or <span class="math inline">\(t\)</span>:</p>
+<div style="column-width: 14em;  column-gap: 2em;  column-rule: 1px solid #ccc;">
+<ol class="problems">
+<li>
+<span class="math inline">\(\ln(y - 40) = 5t\)</span>
+</li>
+<li>
+<span class="math inline">\(\ln(y-1) - \ln(2) = x + \ln(x)\)</span>
+</li>
+<li>
+<span class="math inline">\(\ln(y) = -t + 5\)</span>
+</li>
+<li>
+<span class="math inline">\(\ln(1-2y) = t\)</span>
+</li>
+<li>
+<span class="math inline">\(\ln(y^2 - 1) - \ln(y + 1) = \ln(\sin x)\)</span>
+</li>
+<li>
+<span class="math inline">\(e^{2y} = 4\)</span>
+</li>
+<li>
+<span class="math inline">\(100e^{10y} - 200 = 0\)</span>
+</li>
+<li>
+<span class="math inline">\(e^{5y} = 1/4\)</span>
+</li>
+<li>
+<span class="math inline">\(80e^y = 1\)</span>
+</li>
+<li>
+<span class="math inline">\(e^{y/1000} = a\)</span>
+</li>
+<li>
+<span class="math inline">\(e^{y\ln(.8)} = .8\)</span>
+</li>
+<li>
+<span class="math inline">\(e^{-.3t} = 27\)</span>
+</li>
+<li>
+<span class="math inline">\(e^{ky} = 1/2\)</span>
+</li>
+<li>
+<span class="math inline">\(e^{t\ln(.2)} = .4\)</span>
+</li>
+<li>
+<span class="math inline">\(e^{ky} = 1/10\)</span>
+</li>
+<li>
+<span class="math inline">\(e^{t\ln(2)} - 1/2 = 0\)</span>
+</li>
+<li>
+<span class="math inline">\(\ln(t) = 2t + 4\)</span>
+</li>
+<li>
+<span class="math inline">\(\left(\log_2(x)\right)^4 - 625 = 0\)</span>
+</li>
+<!-- quadratic! -->
+<li>
+<span class="math inline">\(2\ln(x) = \ln(2x-1)\)</span>
+</li>
+<!-- quadratic! -->
+<li>
+<span class="math inline">\(\ln(x+4) + \ln(x-2) = 5\)</span>
+</li>
+<!-- quadratic! -->
+<li>
+<span class="math inline">\(2\ln(x) - \ln(3x-7) = \ln(5x) - \ln(x+3)\)</span>
+</li>
+<!-- quadratic! -->
+<li>
+<span class="math inline">\(e^{2x} - 12e^x + 27 = 0\)</span>
+</li>
+<!-- quadratic! -->
+<li>
+<span class="math inline">\(e^{2x+1} - 26e^x + 5 = 0\)</span>
+</li>
+<!-- quadratic! -->
+</ol>
+</div>
+<p>quadratics:</p>
+<p>Here are some word problems involving exponential growth and decay. Do them.</p>
+<ol class="problems">
+<li>
+After doing some sort of bacterial experiment, you place your agar-coated petri dish underneath a UV lamp to sterilize it so that you can reuse it. You leave it under the UV lamp for ten minutes, and the high-energy light kills all the bacteria… except for one. The lone remaining bacterium, fed by the plentiful supply of agar, begins to grow and reproduce. It takes about an hour for it to undergo a complete cell cycle, so an hour later, there are two bacteria. How many bacteria are there after two hours? three hours? four hours? what about after <span class="math inline">\(t\)</span> hours? what about after <span class="math inline">\(m\)</span> minutes? how many bacteria will there be after a day? when will there be ten million bacteria on your petri dish?
+</li>
+<li>
+Russia has a problem. A problem with overpopulation. Or rather, a problem with <em>under</em>population. Population growth in Russia is (and has been for the past several decades) below replacement levels, meaning that the population has actually been <em>decreasing</em>. (Depressingly, this is due not only to a declining birthrate, but also to a decreasing life expectancy, thanks to the increasingly third-world-quality of Russia’s healthcare system (not to mention its political system).) In 2009, Russia’s population was about <span class="math inline">\(142\)</span> million, and was declining at a rate of <span class="math inline">\(0.177\%\)</span> per year. If this is true, what should Russia’s population be this year (2010)? next year? in 2011? what about in 2020? what about in the centenary of Putin’s birth in 2052? when will the Russian population drop below <span class="math inline">\(100\)</span> million? according to the model, when will it drop below <span class="math inline">\(75\)</span> million? If you were a Russian policymaker, what would you do to alleviate this problem?
+</li>
+<li>
+In 1985, the only freeways that existed in the greater Salt River Valley area were I-10 and I-17, totaling about 85 miles in length. In 1985, Arizona voters passed Proposition 300, enacting a half-cent sales tax to fund highway construction. This resulted in the current car-encouraging sprawl of superhighways. In 2005, the total freeway network in Maricopa County was about 185 miles in length. Assuming you have no other knowledge about Ph****x’s growth patterns, Arizona politics, American demographics, etc., and can only assume that the Maricopa highway network will continue to grow at the same rate, how many miles of freeway should there be in 2010? What about in 2015? What about in 2020? What about in year <span class="math inline">\(t\)</span>? When will the highway network in the Salt River Valley reach 1,000 miles in length?
+</li>
+<li>
+After graduating from high school, you gradually begin to lose touch with friends, such that every year, you only have half as many friends from high school as you did the year before. At the instant of your graduation, you had 22 friends from high school. How many do you have the summer after your first year of college? the summer after that? Come up with a function for the number of high school friends you have as a function of the years since your graduation. (Do you think that creating said functions might be responsible for the decline in your number of friends?) When will you only have four friends left from high school? When will you have no friends left from high school?
+</li>
+<li>
+Between 2003 and 2007, the University of Chicago’s endowment increased from <span class="math inline">\(\$3.22\)</span> billion dollars to <span class="math inline">\(\$6.2\)</span> billion dollars—an average increase of roughly <span class="math inline">\(18\%\)</span> per year . Assuming that the U of C’s endowment increases exponentially, as financial instruments seem wont to do in first-order approximations, come up with a function for the value of the U of C’s endowment as a function of time. (It might help to set 2003 as “year zero,” though if you set the year <span class="math inline">\(0\)</span> C.E. as “year zero” in the model, it’s just a simple horizontal shift away.) Based on your model, what was the endowment worth in 2006? When did the endowment hit $5 billion? What should the endowment have been worth in 2009, according to your model? The actual value of the endowment in 2009 was $5.1 billion. Why does your model disagree? (Models are imperfect. Also, what happened in 2008?)
+</li>
+<p>In 2019, the U of C’s endowment was worth <span class="math inline">\(\$8.5\)</span> billion. What was the average annual percentage increase from 2003 to 2019? What about from 2009 to 2019?</p>
+<li>
+You have a baby. You want the baby to go to college. (You hope the baby wants to go to college, too.) But college is expensive, so as soon as the baby is born, you start putting aside money into an educational investment account (a 529 plan). You’re not sure how much money to put in, so you do some calculations. \begin{enumerate}
+Imagine you deposit <span class="math inline">\(k\)</span> dollars into this account every year, and the account grows at a nice, predictable rate of <span class="math inline">\(p\)</span> percent every year. (So after the first year, the account is worth <span class="math inline">\(k(1+p)\)</span>.) How much money will there be in <span class="math inline">\(18\)</span> years, when your kid is headed off to Cambridge? Give your answer in terms of <span class="math inline">\(k\)</span> and <span class="math inline">\(p\)</span>. If you assume that it grows at a reasonable rate of 5% every year, what will a <span class="math inline">\(\$1,000\)</span> annual contribution become in <span class="math inline">\(18\)</span> years? A <span class="math inline">\(\$5,000\)</span> annual contribution? <span class="math inline">\(\$10,000\)</span>? The current cost of attending MIT for four years is about <span class="math inline">\(\$200,000\)</span>—how much money will you need to deposit every year in order to have that much in <span class="math inline">\(18\)</span> years?
+Realistically, though, the cost of attending MIT will increase in the next <span class="math inline">\(18\)</span> years. Assume that the total four-year cost of attending school X is currently <span class="math inline">\(c\)</span> dollars, and that it increases at a steady rate of <span class="math inline">\(q\)</span> percent each year. How much will it cost to attend school X in 18 years? Give your answer in terms of <span class="math inline">\(c\)</span> and <span class="math inline">\(q\)</span>. What will the cost of attending MIT be in <span class="math inline">\(18\)</span> years?
+Let’s combine these two ideas. Your kid wants to attend school X in 18 years, and you deposit <span class="math inline">\(k\)</span> dollars annually into an account that grows at <span class="math inline">\(p\)</span> percent per year. How much money should you deposit per year? Give your answer in terms of <span class="math inline">\(k\)</span>, <span class="math inline">\(p\)</span>, <span class="math inline">\(c\)</span>, and <span class="math inline">\(q\)</span>. Now imagine that school X is MIT, and that your kid’s 529 plan returns <span class="math inline">\(5\%\)</span> per year. How much should you deposit per year?
+Of course, realistically, your income is probably going to increase over the course of the <span class="math inline">\(18\)</span> years this little thing is wandering around your house, so we could continue this and say, well, what if our contribution to the 529 plan increases by <span class="math inline">\(r\)</span> percent each year… but that would be creating a very complicated model all teetering on top of this assumption of nice, predictable, exponential growth. And economies and incomes don’t actually work like that. Also, MIT gives out lots of financial aid.
+</li>
+<li>
+<p>In 1948, shortly before India and Pakistan’s independence from the United Kingdom and subsequent Partition, the nizam (ruler) of Hyderabad deposited just over one million British pounds into a bank account in London for safekeeping. The money remained in legal limbo for the next 71 years, being claimed by the governments of India and Pakistan as well as the nizam and his family, until a British court in October 2019 finally ruled that the money could be paid out to the nizam’s descendants. By then, the money had grown with interest to about 35 million pounds ($43 million-ish USD).<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a></p>
+<ol type="1">
+<li>What was the average annual interest rate (or rate of return) on the money over that time period?</li>
+<li>Suppose that instead of investing the money in a generic British savings account, the nizam had instead invested it in a broad mix of American stocks in the form of an S&amp;P 500 index fund (which didn’t exist until decades later on a different continent, but no matter). Between 1948 and 2019, the S&amp;P 500 (the stocks of the 500 largest publicly-traded companies in the US) had an average annual return of 11.1% (including re-invested dividends, but ignoring inflation). How much money would the nizam’s family have now?</li>
+<li>Right now, a typical savings account in the U.S. pays out only a few tenths of a percent per year in interest. Suppose you invested a million dollars into a savings account paying <span class="math inline">\(0.15\%\)</span> interest annually for the next <span class="math inline">\(71\)</span> years––how much money would you have in <span class="math inline">\(2090\)</span>?</li>
+</ol>
+</li>
+</ol>
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>Complex numbers get involved! The typical way to define the logarithm of a negative is such that <span class="math inline">\(\ln(-1) = i\pi\)</span>.)<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p>By “the same” I mean that these two statements are logically equivalent—that if one is true, then the other is necessarily true as well. Often we just denote this using a double-double-arrow: <span class="math inline">\(a^b = c \iff \log_a(c) = b\)</span><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3" role="doc-endnote"><p>Incidentally: what’s the length of the hypotenuse of a right triangle whose other sides are <span class="math inline">\(1\)</span>?<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4" role="doc-endnote"><p>The typical way to define the logarithm of a negative is such that <span class="math inline">\(\ln(-1) = i\pi\)</span>, though, if you ask me, it really should be the infinite set of numbers, <span class="math inline">\(\ln(-1)=i\pi(2k+1)\)</span>, where <span class="math inline">\(k\)</span> is any/all the integers.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5" role="doc-endnote"><p>“Heirs Of Hyderabad’s Last King Can Claim Millions Held In U.K. Account, Court Rules,”" <em>NPR</em>, 3 October 2019, https://www.npr.org/2019/10/03/766701335/heirs-of-hyderabads-last-king-can-claim-millions-held-in-u-k-account-court-rules<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+</main>
+</body>
+</html>

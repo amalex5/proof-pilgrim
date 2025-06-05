@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Integrals are areas, right?</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="/main.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <script src="../highlight-toc.js" type="text/javascript"></script>
+</head>
+<body>
+<main>
+<header id="title-block-header">
+<h1 class="title">Integrals are areas, right?</h1>
+</header>
+<p><strong>There’s a major caveat to integrals that we haven’t mentioned yet</strong>. Namely: in the way that we’ve constructed them, integrals measure not “area,” but rather something more like <em>net area</em>. Meaning: regions above the <span class="math inline">\(x\)</span>-axis get counted as positive-area and regions below the <span class="math inline">\(x\)</span>-axis get counted as negative area, like so:</p>
+<p><img src="integration-as-net-area-arbitrary-function.svg" /></p>
+<p>For example, consider <span class="math inline">\(\sin(\theta)\)</span>, between <span class="math inline">\(\theta=0\)</span> and <span class="math inline">\(\theta=2\pi\)</span>:</p>
+<p><img src="sine-net-area.svg" /></p>
+<p>There’s a lot of area there! But both those lobes are the same size, so when we actually calculate the integral, they cancel out, giving us an integral of zero:</p>
+<p><span class="math display">\[\begin{align*}
+\int_0^{2\pi} \sin(\theta)\, d\theta &amp;= \Big|\, -\cos\theta \,\Big|_0^{2\pi} \\ \\
+&amp;= \Big(\, -\cos(2\pi) \,\Big) - \Big(\, -\cos(0)\,\Big) \\ \\
+&amp;= \Big(\, - 1 \,\Big) - \Big(\, -1 \,\Big) \\ \\
+&amp;= -1 + 1 \\ \\
+&amp;= 0
+\end{align*}\]</span></p>
+<p>(How big is a single lobe of sine? If we wanted to find the actual area of sine from <span class="math inline">\(0\)</span> to <span class="math inline">\(2\pi\)</span>—not the integral, not the net area, the <em>actual</em> area—how might we do it?)</p>
+<p>That integrals are “net area” may seem odd, but it is a concept we’ve encountered many times before. The distinction between “integral” and “area” is the same as the distinction between “velocity” and “speed,” or as between “subtraction” and “distance.”</p>
+<table style="text-align:center;">
+<thead>
+<td>
+<strong>Measures of magnitude</strong>
+</td>
+<td>
+<strong>Measures of magnitude <em>and</em> direction</strong>
+</td>
+</thead>
+<tr>
+<td>
+area
+</td>
+<td>
+integral
+</td>
+</tr>
+<tr>
+<td>
+speed
+</td>
+<td>
+velocity
+</td>
+</tr>
+<tr>
+<td>
+distance
+</td>
+<td>
+subtraction
+</td>
+</tr>
+</table>
+<p>Subtraction, for instance, measures the “distance” between two numbers—-but if we do it in the wrong order, we get a negative:</p>
+<p><span class="math display">\[\begin{align*}
+5 - 2 &amp;= +3 \\
+2 - 5 &amp;= -3
+\end{align*}\]</span></p>
+<p>If we want to <em>really</em> measure distance—the absolute distance, without any information about the direction—we need to use an absolute value <span class="math display">\[\begin{align*}
+|5 - 2| &amp;= +3 \\
+|2 - 5| &amp;= +3
+\end{align*}\]</span></p>
+<p>If you’ve taken physics, or perhaps certain other math classes, you might also recognize this as the distinction between a <strong>vector</strong> and a <strong>scalar</strong>:</p>
+<table style="text-align:center;">
+<thead>
+<td>
+<strong>Scalar quantities</strong>
+</td>
+<td>
+<strong>Vector quantities</strong>
+</td>
+</thead>
+<tr>
+<td>
+area
+</td>
+<td>
+integral
+</td>
+</tr>
+<tr>
+<td>
+speed
+</td>
+<td>
+velocity
+</td>
+</tr>
+<tr>
+<td>
+distance
+</td>
+<td>
+subtraction
+</td>
+</tr>
+</table>
+<p>So, that’s the distinction between integrals and areas. We think of “area” as being something that’s never negative, just like how we think of “distance” as being something that’s never negative. But integrals, in fact, consider any area above the <span class="math inline">\(x\)</span>-axis to be “positive area” any area below the <span class="math inline">\(x\)</span>-axis to be “negative” area.</p>
+<p>Why? What’s going on here?</p>
+<p>Let me give an example. Earlier, even before we learned that, as a result of the Fundamental Theorem of Calculus, integrals are really just antiderivatives, we were able to use basic geometry to come up with this formula:</p>
+<p><span class="math display">\[\int_a^b \!k\,dx = (b-a)k\]</span></p>
+<p>But the implicit assumption we made is that we have a situation like this:</p>
+<p><img src="ImplicitIntegrationAssumption.png" /></p>
+<p>Namely, we’re assuming that <span class="math inline">\(k\)</span> is some positive number. We’re assuming that this line <span class="math inline">\(f(x)=k\)</span> lies <em>above</em>, not below, the <span class="math inline">\(x\)</span>-axis. But what if <span class="math inline">\(k\)</span> were negative? Then by our formula, <em>the integral would be negative, too</em>. For example, if we had <span class="math inline">\(f(x) = -5\)</span>, then according to this formula, we’d have: <span class="math display">\[\begin{align*}
+ \int_3^7 \! (-5)\,dx &amp;= (7-3)(-5) \\
+ &amp;= -20
+ \end{align*}\]</span> But obviously the region in question doesn’t have some sort of metaphysically-disturbing “negative area”—it has a positive area. The area of this region is <span class="math inline">\(20\)</span> units. It’s just that the region has been flipped below the <span class="math inline">\(x\)</span>-axis:</p>
+<p><img src="NetArea2.png" /></p>
+<p>If we wanted that integral to be positive, we’d have to throw some sort of messy absolute-value into our formula. We’d have to say:</p>
+<p><span class="math display">\[\int_a^b \!k\,dx = (b-a)|k|\]</span></p>
+<p>But obviously, that’s a problem, because <em>then the integral would no longer be the same as the antiderivative</em>. Rather than simply have <span class="math inline">\(F(b)-F(a)\)</span> be a general formula that tells us how to evaluate any integral, we’d have to go back to the graph of the function every time and make sure it’s above the <span class="math inline">\(x\)</span>-axis (and throw in absolute values in the right places if it’s not). The beauty and simplicity of the Fundamental Theorem of Calculus would be completely destroyed.</p>
+<p>It wouldn’t work, by the way, just to throw in a single absolute value after the whole thing—to say, for instance, that given some function <span class="math inline">\(g(x)\)</span> and its antiderivative <span class="math inline">\(G(x)\)</span>, that:</p>
+<p><span class="math display">\[\int_a^b g(x)\,dx = |G(b) - G(a)|\]</span> This wouldn’t work because we might have a region that is both above <em>and</em> below the <span class="math inline">\(x\)</span>-axis between <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>. Take <span class="math inline">\(\sin(x)\)</span>, for instance: <img src="sinex2.png" /> If we try to find <span class="math inline">\(\displaystyle \int_0^{2\pi} \sin(x)\,dx\)</span> using the FTC, we just get zero. And taking an absolute value of zero won’t change that: <span class="math display">\[\begin{align*}
+\int_0^{2\pi} \sin(x)\,dx &amp;= \Big[\, -\cos(x) \,\Big]_0^{2\pi} \\
+&amp;= [-\cos(2\pi)] - [-\cos(0)] \\
+&amp;= -\cos(2\pi) + \cos(0) \\
+&amp;= -1 + 1 \\
+&amp;= 0
+\end{align*}\]</span></p>
+<p>Note that if we <em>do</em> want to find the actual area beneath sine, or beneath any curve, we’ll have to split it up at all of its <span class="math inline">\(x\)</span>-intercepts, and <em>then</em> take integrals, and <em>then</em> absolute-value the integrals:</p>
+<p><span class="math display">\[\begin{align*}
+\text{absolute area } &amp;= \left\vert \int_0^\pi \sin(x)\,dx \right\vert  + \left\vert \int_\pi^{2\pi} \sin(x)\,dx \right\vert \\
+&amp;= \Big\vert \Big[\, -\cos(x) \,\Big]_0^\pi \Big\vert + \left\vert \Big[\, -\cos(x) \,\Big]_\pi^{2\pi} \right\vert \\
+&amp;= \left\vert -\cos(\pi) - -\cos(0) \right\vert + \left\vert -\cos(2\pi) - -\cos(\pi) \right\vert \\
+&amp;= \left\vert 1 - -  1 \right\vert + \left\vert -1 - - - 1 \right\vert \\
+&amp;= \left\vert 1 + 1 \right\vert + \left\vert -1 - 1 \right\vert \\
+&amp;= \left\vert 2 \right\vert + \left\vert -2 \right\vert \\
+&amp;= 2 + 2 \\
+&amp;= 4
+\end{align*}\]</span> So it seems that if we have a negative inside of an integral, it doesn’t go away—rather, it keeps the entire integral negative:</p>
+<p><span class="math display">\[\boxed{\int_a^b -f(x)\,dx = -\int_a^b f(x)\,dx}\]</span></p>
+<p>Put differently: if we flip a function vertically (by multiplying it by <span class="math inline">\(-1\)</span>), the integral’s sign flips as well. Another way to interpret this formula is this: we can pull negatives out of integrals, just like we can with derivatives. In fact, integrals obey many of the same nice properties as derivatives—we can pull out constants, and we can split them up along addition: <span class="math display">\[\begin{align*}
+\int_a^b k\cdot f(x)\,dx &amp;= k \cdot \int_a^b f(x)\,dx \\
+\int_a^b f(x)+g(x) \, dx &amp;= \int_a^b f(x)\,dx + \int_a^b g(x)\,dx
+\end{align*}\]</span> You’ve seen a lot of functions that obey these two properties—derivatives, integrals, sums (with the <span class="math inline">\(\Sigma\)</span>), etc. (The general name for a function that obeys such properties is a <strong>linear function</strong>.)</p>
+<p>Back to integrals. There’s a second complication we haven’t dealt with. We made another assumption in our sketch:</p>
+<p><img src="ImplicitIntegrationAssumption.png" /></p>
+<p>In figuring out <span class="math inline">\(\displaystyle \int_a^b k \,dx\)</span>, not only did we assume that <span class="math inline">\(k\)</span> was positive; we also assumed that <span class="math inline">\(a\)</span> is to the left of <span class="math inline">\(b\)</span> (algebraically, that <span class="math inline">\(b&gt;a\)</span>). Our formula works out fine as long as <span class="math inline">\(a\)</span> is to the left of <span class="math inline">\(b\)</span>, like in the diagram. If <span class="math inline">\(b&gt;a\)</span>, then <span class="math inline">\((a-b)\)</span> is a positive number, and thus we have a positive “width” for the box. But what if we swap <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>? Imagine my same example with <span class="math inline">\(f(x) = 5\)</span>. I’d have: <span class="math display">\[\begin{align*}
+\int_3^7 \!5\,dx &amp;= (7-3)\cdot5 = 4\cdot5 = 20 \\
+\int_7^3 \! 5\, dx &amp;= (3-7)\cdot5 = (-4)\cdot 5 = -20
+\end{align*}\]</span> All of a sudden our box has a “negative” width, and thus a negative area. Yipes.</p>
+<p>More generally, as another consequence of the whole “net area” thing, the order in which we write the little numbers to the right of the integral sign—the “limits” or “bounds” of integration—matters. Namely: <strong>switching the bounds switches the signs</strong>:</p>
+<p><span class="math display">\[\boxed{\int_a^b \!f(x)\,dx = - \int_b^a \!f(x)\,dx}\]</span></p>
+<p>Ordinarily we write them with the leftmost bound on the bottom, and the rightmost bound on the top, and then we don’t have to worry about this—if we do that, then we only need to keep track of whether the area is above or below the <span class="math inline">\(x\)</span>-axis.</p>
+<p>As before, we could fix this simply by throwing an absolute value into our equation: <span class="math display">\[\int_a^b \!k\,dx = |b-a|\cdot k\]</span> but the problem now is that, like before, I have this messy absolute value. This is unpleasant for many reasons, not least of which is that {}. The fundamental theorem of calculus would no longer hold. (Or at least not without considerably more caveats and details.)</p>
+<p>If we return to our definition of an integral (as being a limit of Riemann sums), we can see where these negatives come from. We defined an integral as: <span class="math display">\[\int_a^b\!f(x)\,dx = \lim_{n\rightarrow \infty} \left[ \sum_{k=0}^{k=n} f(c_k)\Delta x_k \right]\]</span> But if we have a shape that’s below the <span class="math inline">\(x\)</span>-axis, then the <span class="math inline">\(f(c_k)\)</span>’s will be negative: <img src="negativecks.png" /> And so if the <span class="math inline">\(f(c_k)\)</span>’s are negative, then <span class="math inline">\(f(c_k)\Delta x_k\)</span> will be negative, too, and I’ll be adding up a bunch of “negative” areas.</p>
+<p>Likewise, by <span class="math inline">\(\Delta x_k\)</span>, we mean something like <span class="math inline">\(x_k - x_{k-1}\)</span>. And we make our sum by saying that the leftmost point on the region is <span class="math inline">\(x_0\)</span>, and then the side of the next box is <span class="math inline">\(x_1\)</span>, and then the next box to the right is <span class="math inline">\(x_2\)</span>, and so forth. We go from left to right. So as long as we’re going from left to right—as long as <span class="math inline">\(x_k &gt; x_{k-1}\)</span>—then <span class="math inline">\(x_k - x_{k-1}\)</span> will be positive. But if we go from right to left, then I’ll be subtracting bigger numbers from smaller numbers, and so <span class="math inline">\(x_k - x_{k-1}\)</span> willl be *negative}. And then, as before, <span class="math inline">\(f(c_k)\Delta x_k\)</span> will be negative, and I’ll be adding up a bunch of “negative” areas.</p>
+<p>Again, we could totally make this into a non-issue by defining a Riemann integral as: <span class="math display">\[\int_a^b\!f(x)\,dx = \lim_{n\rightarrow \infty} \left[ \sum_{k=0}^{k=n} |f(c_k)| \cdot|\Delta x_k| \right]\]</span> But then our integral would no longer be an antiderivative. The signs would be all messed up. And then, if it weren’t an antiderivative, it would be a huge pain to compute. The whole joy and beauty of an integral is that this giant mess of Riemann sums simplifies down just to an easy antiderivative.</p>
+<p>Besides, there are plenty of times when we are far more interested in <em>net} quantity rather than </em>absolute* quantity. If I go online to look at my bank account, I want it to show me the <em>net</em> amount of money I have: the amount of money I’ve earned, minus the money I’ve spent. I don’t want it to add the money I’ve spent to the money I’ve earned. That would be bizarre, confusing, and useless. If I want to sail down Cayuga Lake, I want to know that there’s a lot of wind. But I want to know not only that there’s a lot of wind, but that the wind is blowing <em>north</em>—otherwise I’d be sailing directly into the wind. So we’ll leave the integral as telling us net area, and if we ever need to find the absolute area, we can just deal.</p>
+</main>
+</body>
+</html>

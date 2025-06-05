@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>some example unit circle problems!</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="/main.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <script src="../highlight-toc.js" type="text/javascript"></script>
+</head>
+<body>
+<script>document.addEventListener('DOMContentLoaded', function(e) {
+  Scroller.init();
+})</script>
+<aside>
+<div class="tocLinks" >
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#sin0"><span class="math inline">\(\sin(0) = \,\,???\)</span></a></li>
+<li><a href="#cos5pi6"><span class="math inline">\(\cos(5\pi/6) = \,\,???\)</span></a></li>
+<li><a href="#sin7pi4"><span class="math inline">\(\sin(7\pi/4) = \,\,???\)</span></a></li>
+<li><a href="#cos5pi3"><span class="math inline">\(\cos(5\pi/3) = \,\,???\)</span></a></li>
+</ul>
+</nav>
+</div>
+</aside>
+<main>
+<header id="title-block-header">
+<h1 class="title">some example unit circle problems!</h1>
+</header>
+<p>Please DON’T just blaze through all of these problems—please do these thoughtfully and slowly. What I mean by that is: I want you do to try to work out these trig functions from the basics, in the same sort of procedural way that I outline and give an example of in the notes. I <em>don’t</em> want you to just “memorize the unit circle.” Please please don’t do that—math isn’t about memorization! Rather, we want to understand, deeply, how these things work. To use a CS/Silicon Valley phrase: we want to go down to the bare metal!</p>
+<h2 id="sin0"><span class="math inline">\(\sin(0) = \,\,???\)</span></h2>
+<p>OK, let’s draw this angle on the unit circle! <img src="unit-circle-1-1.svg" style="width:50.0%" /> Not much to draw. Meanwhile, we know that the <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>-coordinates of the point where that line intersects the unit circle will tell us the sine and cosine of the angle, respectively. <img src="unit-circle-1-2.svg" style="width:50.0%" /> Sine is the <span class="math inline">\(y\)</span>-coordinate… and here the <span class="math inline">\(y\)</span>-coordinate is obviously zero. Nothing fancy required! (Also, we get the cosine for free: the <span class="math inline">\(x\)</span>-coordinate of this point is <span class="math inline">\(1\)</span>, so then <span class="math inline">\(\cos(0)\)</span> is <span class="math inline">\(1\)</span>! <img src="unit-circle-1-3.svg" style="width:50.0%" /> <span class="math display">\[\boxed{ \sin(0) =0 }\]</span></p>
+<h2 id="cos5pi6"><span class="math inline">\(\cos(5\pi/6) = \,\,???\)</span></h2>
+<p>Here’s an angle whose trig functions we wouldn’t be able to figure out if we just defined trig functions using triangles!!! <span class="math inline">\(5\pi/6\)</span> is a little less than <span class="math inline">\(6\pi/6\)</span>, i.e. a little less than <span class="math inline">\(\pi\)</span>, i.e. a little less than <span class="math inline">\(180^\circ\)</span>. In particular, it’s like <span class="math inline">\(150^\circ\)</span>. Do you know any right triangles with an angle of <span class="math inline">\(150^\circ\)</span>? No! Of course not!!! Thus the utility of our broader, expanded definition of trig functions: we can evaluate the trig functions of angles BIGGER than <span class="math inline">\(90^\circ\)</span>, or less than <span class="math inline">\(0^\circ\)</span>! Anyway, drawing the angle <span class="math inline">\(5\pi/6\)</span>, we have: <img src="unit-circle-32-1.svg" style="width:50.0%" /> If we can find the <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>-coordinates of this point, we’ll find the cosine and sine! <img src="unit-circle-32-2.svg" style="width:50.0%" /> But how? How do we figure out the coordinates of that point? Agh. What a conundrum.</p>
+<p>Oh! I have an idea! That little sliver between the angle and the <span class="math inline">\(x\)</span>-axis is <span class="math inline">\(\pi/6\)</span>: <img src="unit-circle-32-3.svg" style="width:50.0%" /> And that reminds me of our <span class="math inline">\(30-60-90\)</span> special right triangle—I mean, our <span class="math inline">\(\pi/6-\pi/3-\pi/2\)</span> special right triangle: <img src="30-60-90.svg" style="width:50.0%" /> We know all of its side lengths, and we know that it has a <span class="math inline">\(\pi/6\)</span> angle. That means we could slide it into place, right there on our unit circle. It’d fit in the <span class="math inline">\(\pi/6\)</span> angle, and it’d also touch that magic point on the unit circle, whose coordinates are the sine and cosine of <span class="math inline">\(5\pi/6\)</span>. So then, since we know its side lengths, we’d be able to figure out the coordinates of that point!!! Let’s try it: <img src="unit-circle-32-4.svg" style="width:50.0%" /> We know the side lengths of the triangle, so we know the coordinates of the magic point!!! The horizontal distance on the bottom/<span class="math inline">\(x\)</span> is <span class="math inline">\(\sqrt3/2\)</span>, but it’s going in the negative direction, so the <span class="math inline">\(x\)</span>-coordinate is <span class="math inline">\(-\frac{\sqrt{3}}{2}\)</span>. And the vertical distance to the point is <span class="math inline">\(1/2\)</span>, in the positive direction, so the <span class="math inline">\(y\)</span>-coordinate is <span class="math inline">\(+1/2\)</span>: <img src="unit-circle-32-5.svg" style="width:50.0%" /> And so then we know: <span class="math display">\[\cos(5\pi/6) = -\frac{\sqrt{3}}{2}\]</span> <span class="math display">\[\sin(5\pi/6) = +\frac{1}{2}\]</span> Yay! <span class="math display">\[\boxed{ \cos(5\pi/6) = -\frac{\sqrt{3}}{2} }\]</span></p>
+<h2 id="sin7pi4"><span class="math inline">\(\sin(7\pi/4) = \,\,???\)</span></h2>
+<p>OK, once again we have an angle whose trig functions we can’t evaluate without using a unit circle! <span class="math inline">\(7\pi/4\)</span> is a little less than <span class="math inline">\(8\pi/4\)</span>, which is <span class="math inline">\(2\pi\)</span>, which is <span class="math inline">\(360^\circ\)</span>, and <span class="math inline">\(\pi/4\)</span> is <span class="math inline">\(45^\circ\)</span>, so then <span class="math inline">\(7\pi/4\)</span> is <span class="math inline">\(315^\circ\)</span>. Halfway between the <span class="math inline">\(x\)</span>- and <span class="math inline">\(y\)</span>-axes in the lower-right quadrant! Let’s draw it: <img src="unit-circle-49-1.svg" style="width:50.0%" /> OK, so, to figure out the sine of <span class="math inline">\(7\pi/4\)</span>, we nede to figure out the <span class="math inline">\(y\)</span>-coordinate of this point: <img src="unit-circle-49-2.svg" style="width:50.0%" /> But how? Hmm. If we think about that little leftover sliver of an angle, it’s <span class="math inline">\(\pi/4\)</span>: <img src="unit-circle-49-3.svg" style="width:50.0%" /> But that should remind us of our beloved <span class="math inline">\(45-45-90\)</span>—I mean, <span class="math inline">\(\pi/4-\pi/4-\pi/2\)</span>—special right triangle!!!! <img src="45-45-90.svg" style="width:50.0%" /> We know all its side lengths! So if we slide it in here (I guess we have to flip it upside-down first), we’ll be able to find the <span class="math inline">\((x,y)\)</span>-coordinates of that point! <img src="unit-circle-49-4.svg" style="width:50.0%" /> OK! So the <span class="math inline">\(x\)</span>-coordinate of this point is <span class="math inline">\(1/\sqrt2\)</span> away from the origin, in the positive direction, so it’s <span class="math inline">\(+1/\sqrt2\)</span>. And the <span class="math inline">\(y\)</span>-coordinate is also <span class="math inline">\(1/\sqrt2\)</span> away from the origin, but in the negative direction, so it’s <span class="math inline">\(-1/\sqrt2\)</span>: <img src="unit-circle-49-5.svg" style="width:50.0%" /> Yay! So then the sine of <span class="math inline">\(7\pi/4\)</span> is <span class="math inline">\(-1/\sqrt2\)</span>. <span class="math display">\[\boxed{ \sin(7\pi/4) = -\frac{1}{\sqrt{2}}} \]</span></p>
+<h2 id="cos5pi3"><span class="math inline">\(\cos(5\pi/3) = \,\,???\)</span></h2>
+<p>OK, another fun angle!!! Let’s draw it: <img src="unit-circle-68-1.svg" style="width:50.0%" /> OK, so, if we can find the <span class="math inline">\((x,y)\)</span>-coordinates of where the angle touches the circle, we’ll find the cosine and sine of <span class="math inline">\(5\pi/3\)</span>! <img src="unit-circle-68-2.svg" style="width:50.0%" /> Hmmm, how to do that? There’s a little wedge of <span class="math inline">\(\pi/3\)</span> that we could probably shove our <span class="math inline">\(\pi/3-\pi/6-\pi/2\)</span> special right triangle into! <img src="unit-circle-68-3.svg" style="width:50.0%" /> Let’s do that: <img src="unit-circle-68-4.svg" style="width:50.0%" /> OK! So now we can find the coordinates of the point! <img src="unit-circle-68-5.svg" style="width:50.0%" /> And thus: <span class="math display">\[\boxed{ \cos(5\pi/3) = +\frac{1}{2} } \]</span></p>
+</main>
+</body>
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Some tricky integration by parts examples!</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="/main.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <script src="../highlight-toc.js" type="text/javascript"></script>
+</head>
+<body>
+<script>document.addEventListener('DOMContentLoaded', function(e) {
+  Scroller.init();
+})</script>
+<aside>
+<div class="tocLinks" >
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#integration-by-parts-works-even-when-we-dont-need-it">Integration by parts works even when we don’t need it!</a></li>
+<li><a href="#integration-by-parts-in-a-totally-weird-and-cool-and-surprising-way">Integration by parts… in a totally weird and cool and surprising way!</a></li>
+<li><a href="#integration-by-parts-helping-us-integrate-something-we-couldnt-previously-integrate">Integration by parts helping us integrate something we couldn’t previously integrate!!!!</a></li>
+</ul>
+</nav>
+</div>
+</aside>
+<main>
+<header id="title-block-header">
+<h1 class="title">Some tricky integration by parts examples!</h1>
+</header>
+<h2 id="integration-by-parts-works-even-when-we-dont-need-it">Integration by parts works even when we don’t need it!</h2>
+<p>We know the integral of <span class="math inline">\(x^2\)</span>:</p>
+<p><span class="math display">\[\int x^2 \, dx = \frac{1}{3}x^3 \]</span></p>
+<p>But… what if we didn’t??? Or, put differently, <em>what if we tried to integrate this by parts</em>?!? After all, this is really:</p>
+<p><span class="math display">\[\int x^2 \, dx = \int x\cdot x \, dx\]</span></p>
+<p>So let’s try to integrate this by parts, just for fun! Presumably we should get <span class="math inline">\(\frac13 x^3\)</span>!</p>
+<p>Let’s remind ourselves of the integration-by-parts formula, ’cause I never remember it:</p>
+<p><span class="math display">\[\boxed{\int\! f&#39;(x)g(x)\, dx \quad=\quad f(x)\cdot g(x) \,-\, \int\! f(x)g&#39;(x) \,dx}\]</span></p>
+<p>Here, we have:</p>
+<p><span class="math display">\[\int \underbrace{x}_{f&#39;(x)}\cdot\underbrace{ x}_{g(x)}\,dx\]</span> <span class="math display">\[\begin{align*}
+f(x) &amp;= \quad\quad &amp; g(x) &amp;= x\\
+f&#39;(x) &amp;= x \quad\quad&amp; g&#39;(x) &amp;=
+\end{align*}\]</span></p>
+<p>Working out these (anti-)derivatives, we have:</p>
+<p><span class="math display">\[\begin{align*}
+f(x) &amp;= \frac{1}{2}x^2 \quad\quad &amp; g(x) &amp;= x \\
+f&#39;(x) &amp;= x \quad\quad&amp; g&#39;(x) &amp;= 1
+\end{align*}\]</span></p>
+<p>So we get:</p>
+<p><span class="math display">\[\begin{align*}
+\int x^2 \, dx = \int  \underbrace{x}_{g(x)}\cdot\underbrace{ x}_{f&#39;(x)} \,dx &amp;= f(x)\cdot g(x) - \int f(x)g&#39;(x) \,dx \\ \
+&amp;= \frac{1}{2}x^2 \cdot x - \int \frac{1}{2}x^2 \cdot 1 \,dx \\ \\
+&amp;= \frac{1}{2}x^2 \cdot x - \frac{1}{6}x^3 \ \\ \\
+&amp;= \frac{1}{2}x^3 - \frac{1}{6}x^3 \\ \\
+&amp;= \left(\frac{1}{2} - \frac{1}{6}\right)x^3 \\ \\
+&amp;= \frac{1}{3}x^3 
+\end{align*}\]</span></p>
+<p>Yay! That’s exactly what we expect to get!!! Except, actually, we were cheating. In those last few steps there we assumed we knew how to integrate <span class="math inline">\(\int x^2 \, dx\)</span>. But we can’t do that, since figuring that out was the whole point. So let’s <em>redo</em> this, without making that assumption. We had:</p>
+<p><span class="math display">\[\begin{align*}
+\int x^2 \, dx = \int  \underbrace{x}_{g(x)}\cdot\underbrace{ x}_{f&#39;(x)} \,dx &amp;= f(x)\cdot g(x) - \int f(x)g&#39;(x) \,dx \\ \
+&amp;= \frac{1}{2}x^2 \cdot x - \int \frac{1}{2}x^2 \cdot 1 \,dx \\ \\
+&amp;= \frac{1}{2}x^3 - \frac{1}{2}\int x^2 \,dx \\ \\
+\end{align*}\]</span> OK. We have an answer, but it’s in terms of <em>another</em> <span class="math inline">\(\int x^2\)</span>, and that won’t do. So, writing it out as a single equation (both sides), we have:</p>
+<p><span class="math display">\[ \int x^2 \, dx = \frac{1}{2}x^3 - \frac{1}{2}\int x^2 \,dx\]</span></p>
+<p>But actually, we can do something with this!!! Let’s move the <span class="math inline">\(\frac{1}{2}\int x^2 \,dx\)</span> on the right over to the left:</p>
+<p><span class="math display">\[ \int x^2 \, dx + \frac{1}{2}\int x^2 \,dx = \frac{1}{2}x^3 \]</span></p>
+<p>I.e.:</p>
+<p><span class="math display">\[ \frac{3}{2}\int x^2 \,dx = \frac{1}{2}x^3 \]</span></p>
+<p>So if we divide:</p>
+<p><span class="math display">\[ \int x^2 \,dx = \frac{2}{3}\cdot \frac{1}{2}x^2 \cdot x \]</span></p>
+<p>I.e.:</p>
+<p><span class="math display">\[ \int x^2 \,dx = \frac{1}{3}x^3 \]</span></p>
+<p>So we have it!!! That’s it! We’ve computed the antiderivative of <span class="math inline">\(x^2\)</span>!!!! Of course, we knew it already, but we were able to calculate it, blindly, <em>ab initio</em>, using integration by parts!!!!</p>
+<p>It’s kind of like how we could also take the derivative of <span class="math inline">\(x^2\)</span> using the product rule. It’s ridiculous and unnecessary, but we <em>could</em>:</p>
+<p><span class="math display">\[\begin{align*}
+\Big( x^2 \Big)&#39; &amp;= \Big( x\cdot x\Big)&#39; \\
+&amp;= (x)&#39;\!\cdot\! x \,+\, x\!\cdot\! (x)&#39; \\
+&amp;= 1\cdot x + x\cdot 1 \\
+&amp;= x + x \\
+&amp;= 2x
+\end{align*}\]</span></p>
+<h2 id="integration-by-parts-in-a-totally-weird-and-cool-and-surprising-way">Integration by parts… in a totally weird and cool and surprising way!</h2>
+<p>Here’s an integral that doesn’t look like fun:</p>
+<p><span class="math display">\[\int e^x\cos(x)\, dx\]</span></p>
+<p>We can try to integrate this by parts, but here’s my concern: both of these “parts” (the <span class="math inline">\(e^x\)</span> and the <span class="math inline">\(\cos x\)</span>) have derivatives/antiderivatives that go on forever. They never zero out, like <span class="math inline">\(x^n\)</span> will. So if we integrate this by parts, maybe we’ll just get some perpetual series.</p>
+<p>But let’s try anyway!!! Here’s one way we could choose <span class="math inline">\(f&#39;\)</span> and <span class="math inline">\(g\)</span>:</p>
+<p><span class="math display">\[\int \underbrace{e^x}_{g(x)}\cdot\underbrace{ \cos(x)}_{f&#39;(x)}\,dx\]</span> <span class="math display">\[\begin{align*}
+f(x) &amp;= \quad\quad &amp; g(x) &amp;= e^x\\
+f&#39;(x) &amp;= \cos(x) \quad\quad&amp; g&#39;(x) &amp;=
+\end{align*}\]</span></p>
+<p>If this choice doesn’t go anywhere, we can make the opposite choice and try again. Anyway, finding <span class="math inline">\(f\)</span> and <span class="math inline">\(g&#39;\)</span>, we have:</p>
+<p><span class="math display">\[\begin{align*}
+f(x) &amp;= \sin(x) \quad\quad &amp; g(x) &amp;= e^x\\
+f&#39;(x) &amp;= \cos(x) \quad\quad&amp; g&#39;(x) &amp;= e^x
+\end{align*}\]</span></p>
+<p>So, running the computation, we get:</p>
+<p><span class="math display">\[\begin{align*}
+\int  \underbrace{e^x}_{g(x)}\cdot\underbrace{ \cos(x)}_{f&#39;(x)} \,dx &amp;= f(x)\cdot g(x) - \int f(x)g&#39;(x) \,dx \\ \
+&amp;= \sin(x) \cdot e^x  - \int \sin(x) \cdot e^x\,dx \\ \\
+&amp;= e^x\sin(x)  - \int e^x\sin(x) \,dx \\ \\
+\end{align*}\]</span></p>
+<p>Yeah, this does not seem all that promising. But let’s continue anyway! Let’s try to integrate <span class="math inline">\(\int e^x \sin(x)\, dx\)</span> by parts now. We’ll make the analogous choice, and have <span class="math inline">\(e^x\)</span> be the <span class="math inline">\(g(x)\)</span>, and <span class="math inline">\(\sin(x)\)</span> be the <span class="math inline">\(f&#39;(x)\)</span>. So we have:</p>
+<p><span class="math display">\[\begin{align*}
+&amp;= e^x\sin(x)  - \int \underbrace{e^x}_{g(x)}\underbrace{\sin(x)}_{f&#39;(x)} \,dx \\ \\
+&amp;= e^x\sin(x)  - \Big(  f(x)g(x) \,-\, \int\! f(x)g&#39;(x) \,dx  \Big) \\ \\
+&amp;= e^x\sin(x)  - \Big(  -\cos(x)\cdot e^x \,-\, \int\! -\cos(x)\cdot e^x \,dx  \Big) \\ \\
+&amp;= e^x\sin(x)  + \cos(x)\cdot e^x + \int\! - \cos(x)\cdot e^x \,dx  \\ \\
+&amp;= e^x\sin(x)  + e^x\cos(x) - \int\! e^x\cos(x) \,dx \\ \\
+\end{align*}\]</span></p>
+<p>Hey… wait a minute. I think I notice something. Let’s actually write out this whole equation now, with the original left side, just to show where we’re at:</p>
+<p><span class="math display">\[\underbrace{\int e^x\cos(x)\, dx}_{\text{what we&#39;re trying to calculate}} = \underbrace{x\sin(x)  + e^x\cos(x)- \int\! e^x\cos(x) \,dx}_{\text{what we&#39;ve gotten so far}} \]</span></p>
+<p>We were trying to calculate <span class="math inline">\(\int e^x\cos(x)\, dx\)</span>, but our answer now includes another <span class="math inline">\(\int e^x\cos(x)\, dx\)</span>. Darn! It must be impossibly recursive and self-referential and gross.</p>
+<p>Except… wait. The integral is negative on one side; it’s positive on the other. What if we… just move it around? Like, what if we move both integrals to the same side, like so:</p>
+<p><span class="math display">\[ \int e^x\cos(x)\, dx  + \int\! e^x\cos(x) \,dx =x\sin(x)  + e^x\cos(x)\]</span></p>
+<p>It’s just two of the same thing, so we have:</p>
+<p><span class="math display">\[ 2\int e^x\cos(x)\, dx  =x\sin(x)  + e^x\cos(x) \]</span></p>
+<p>But wait!!! We have it! Now we just divide by two, and we’ve found an expression for the original integral!!!</p>
+<p><span class="math display">\[ \int e^x\cos(x)\, dx  = \frac{x\sin(x)  + e^x\cos(x)}{2} \]</span></p>
+<p>Wow!!!! Rather than getting some boring repeating infinite series, the cyclic nature of the trig derivatives let us beautifully cancel out and simplify things. And this is totally not an integral we could have seen otherwise! (At least I never would have been able to see it otherwise.)</p>
+<h2 id="integration-by-parts-helping-us-integrate-something-we-couldnt-previously-integrate">Integration by parts helping us integrate something we couldn’t previously integrate!!!!</h2>
+<p>Let’s integrate this by parts:</p>
+<p><span class="math display">\[\int\, \ln(x)\, dx\]</span></p>
+<p>Trick question! There are no “parts”! There’s only one part! Only the <span class="math inline">\(\ln\)</span>! Fooled you!</p>
+<p>Wait, no, <em>doubly</em>-trick question… <em>there actually are two parts here</em>!!!! This is really:</p>
+<p><span class="math display">\[\int \! 1 \cdot \ln(x) \, dx\]</span></p>
+<p>See, guys, <em>everything</em> has parts. <em>Everything</em> can be integrated by parts! There’s always an invisible imaginary <span class="math inline">\(1\)</span> that everything is multiplied by!!!</p>
+<p>So… ridiculous as this situation is, let’s integrate this by parts!</p>
+<p>Actually, this isn’t ridiculous at all, because how else would we know how to find the antiderivative of <span class="math inline">\(\ln(x)\)</span>? I mean, you might have seen it somewhere and memorized it as a formula; you might have experimented and guessed and been given it as a gift from the mathematical muses (a totally valid method!), but integration by parts here actually gives us a <em>systematic method</em> for calculating it.</p>
+<p>If we want to integrate this by parts, we have a couple options. We can let <span class="math inline">\(\ln(x)\)</span> be <span class="math inline">\(g(x)\)</span> and let <span class="math inline">\(1\)</span> be <span class="math inline">\(f&#39;(x)\)</span>:</p>
+<p><span class="math display">\[\int \underbrace{1}_{f&#39;(x)}\cdot\underbrace{ \ln(x)}_{g(x)}\,dx\]</span></p>
+<p>Or we can make the opposite choice, and let <span class="math inline">\(\ln(x)\)</span> be the <span class="math inline">\(f&#39;(x)\)</span>, and let <span class="math inline">\(1\)</span> be the <span class="math inline">\(g(x)\)</span>:</p>
+<p><span class="math display">\[\int \underbrace{1}_{g(x)}\cdot\underbrace{ \ln(x)}_{f&#39;(x)}\,dx\]</span></p>
+<p>Let’s try both!!!</p>
+<p>If we let <span class="math inline">\(\ln(x)\)</span> be <span class="math inline">\(f&#39;(x)\)</span> and let <span class="math inline">\(1\)</span> be <span class="math inline">\(g(x)\)</span>, then we have: <span class="math display">\[\int \underbrace{1}_{g(x)}\cdot\underbrace{ \ln(x)}_{f&#39;(x)}\,dx\]</span> <span class="math display">\[\begin{align*}
+f(x) &amp;= \quad\quad &amp; g(x) &amp;= 1\\
+f&#39;(x) &amp;= \ln(x) \quad\quad&amp; g&#39;(x) &amp;=
+\end{align*}\]</span></p>
+<p>Working out these (anti-)derivatives, we have:</p>
+<p><span class="math display">\[\begin{align*}
+f(x) &amp;= \int\!\ln(x)\,dx \quad\quad &amp; g(x) &amp;= 1\\
+f&#39;(x) &amp;= \ln(x) \quad\quad&amp; g&#39;(x) &amp;= x
+\end{align*}\]</span></p>
+<p>Uhh… this does not seem promising. We need to work out the antiderivative of <span class="math inline">\(\ln(x)\)</span> to use our formula, but… working out the antiderivative of <span class="math inline">\(\ln(x)\)</span> was kinda the whole point. Um, just plugging things into the formula anyway, we get:</p>
+<p><span class="math display">\[\begin{align*}
+\int  \underbrace{1}_{g(x)}\cdot\underbrace{ \ln(x)}_{f&#39;(x)} \,dx &amp;= f(x)\cdot g(x) - \int f(x)g&#39;(x) \,dx \\ \
+&amp;= 1\cdot \int\!\ln(x)\,dx  - \int \left(\int\!\ln(x)\,dx \right) \cdot x \,dx \\ \\
+&amp;= \int\!\ln(x)\,dx  - \int \left(\int\!\ln(x)\,dx \right) \cdot x \,dx \\ \\
+&amp;= \text{?!?!?!?!?!?!}
+\end{align*}\]</span></p>
+<p>Okay, this sucks. It’s recursive, in the worst way: we were trying to work out <span class="math inline">\(\int \ln(x)\)</span>, and we got an answer that includes <span class="math inline">\(\int \ln(x)\)</span> itself. Let’s try the opposite choice. If we let <span class="math inline">\(\ln(x)\)</span> be <span class="math inline">\(g(x)\)</span> and let <span class="math inline">\(1\)</span> be <span class="math inline">\(f&#39;(x)\)</span>, then we have: <span class="math display">\[\int \underbrace{1}_{f&#39;(x)}\cdot\underbrace{ \ln(x)}_{g(x)}\,dx\]</span> <span class="math display">\[\begin{align*}
+f(x) &amp;= \quad\quad &amp; g(x) &amp;= \ln(x)\\
+f&#39;(x) &amp;= 1 \quad\quad&amp; g&#39;(x) &amp;=
+\end{align*}\]</span></p>
+<p>So, if we work out those (anti-)derivatives, we have:</p>
+<p><span class="math display">\[\begin{align*}
+f(x) &amp;= x \quad\quad &amp; g(x) &amp;= \ln(x)\\
+f&#39;(x) &amp;= 1 \quad\quad&amp; g&#39;(x) &amp;= \frac1x
+\end{align*}\]</span></p>
+<p>Yeah, this seems way more promising. So then, by the integration-by-parts formula, we get:</p>
+<p><span class="math display">\[\begin{align*}
+\int  \underbrace{1}_{f&#39;(x)}\cdot\underbrace{ \ln(x)}_{g(x)} \,dx &amp;= f(x)\cdot g(x) - \int f(x)g&#39;(x) \,dx \\
+&amp;= x\cdot \ln(x)  - \int x \cdot \frac1x \,dx \\
+&amp;= x\ln(x)  - \int \frac{x}{x} \,dx \\
+&amp;= x\ln(x)  - \int 1\,dx \\
+&amp;= x\ln(x)  - x 
+\end{align*}\]</span></p>
+<p>Yay!!!! This is a nice closed-form solution. (<strong>Closed-form</strong> meaning “there’s no integral and no other scary stuff.”)</p>
+<p>Let’s check that it works, just so we can really <em>see</em> and <em>feel</em> how this wacky formula collapses upon differentiation to just <span class="math inline">\(\ln x\)</span>:</p>
+<p><span class="math display">\[\begin{align*}
+\Big(\, x\ln(x) - x \,\Big)&#39; &amp;= \left(x\ln x \right)&#39; - (x)&#39; \\ \\
+&amp;= (x)&#39;\!\cdot\! \ln(x) + x\!\cdot\!\left(\ln x\right)&#39; \,\,-\,\, 1\\ \\
+&amp;= 1\!\cdot\! \ln(x) + x\!\cdot\!\frac{1}{x} \,\,-\,\, 1 \\ \\
+&amp;= \ln(x) + \frac{x}{x} - 1 \\ \\
+&amp;= \ln(x) + 1 - 1 \\ \\
+&amp;= \ln(x)
+\end{align*}\]</span></p>
+</main>
+</body>
+</html>

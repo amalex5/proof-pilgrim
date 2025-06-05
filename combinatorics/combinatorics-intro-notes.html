@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>counting, order, and disorder</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="/main.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <script src="../highlight-toc.js" type="text/javascript"></script>
+</head>
+<body>
+<script>document.addEventListener('DOMContentLoaded', function(e) {
+  Scroller.init();
+})</script>
+<aside>
+<div class="tocLinks" >
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#neat-and-clean-counting-when-order-matters">neat and clean: counting when order matters</a></li>
+<li><a href="#messy-and-chaotic-counting-when-order-doesnt-matter">messy and chaotic: counting when order doesn’t matter</a></li>
+<li><a href="#enthusiasm">enthusiasm</a></li>
+<li><a href="#problem">problem</a></li>
+</ul>
+</nav>
+</div>
+</aside>
+<main>
+<header id="title-block-header">
+<h1 class="title">counting, order, and disorder</h1>
+</header>
+<p>Counting is hard.</p>
+<p>No, seriously.</p>
+<p>It’s easy to count when we know how many things we want to count.</p>
+<p>We can all count to three, or even three hundred, but what if we want to count the number of ways we could choose some things?</p>
+<p>One of the distinctions that we need to make is whether we care about the <em>order</em> in which we count things. Sometimes there might be times when the order in which we count things matters (does it matter which thing we pick first? which thing we pick second?); other times, that order might not matter.</p>
+<h2 id="neat-and-clean-counting-when-order-matters">neat and clean: counting when order matters</h2>
+<p>Here’s an example. Suppose we’re picking three letters from the alphabet. All caps, no repeats. How many different ways are there of picking those three letters? Let’s assume, for starters, that we care about the order in which we pick the letters:</p>
+<p><span class="math display">\[\text{If order matters: }A,B,C \text{ is different from }C,B,A\]</span></p>
+<p>If the order we pick them in matters, our possibilities are things like:</p>
+<p><img src="combinations-of-abc-ordered.svg" style="width:75.0%" /></p>
+<p>I’m not going to draw out all the possibilities, because there are way too many! How many? There are:</p>
+<ul>
+<li><span class="math inline">\(26\)</span> choices for the first letter</li>
+<li><span class="math inline">\(25\)</span> choices for the second letter</li>
+<li><span class="math inline">\(24\)</span> choices for the third letter</li>
+</ul>
+<p>So then, the total number of possible three-letter sequences we can make is:</p>
+<p><span class="math display">\[\substack{\text{the total number of ways}\\\text{to pick three letters}\\\text{when order matters}} = 26\cdot 25\cdot 24\]</span></p>
+<p>This works out to be <span class="math inline">\(15,600\)</span>. I’ll leave it as <span class="math inline">\(26\cdot 25 \cdot 24\)</span>, because that shows <em>where that number comes from</em>. If we write it as just <span class="math inline">\(15,600\)</span>, it just shows the answer. But writing it as <span class="math inline">\(26\cdot 25 \cdot 24\)</span> shows the <em>bones</em>! It shows the <em>construction</em>! It’s a window into what’s going on!</p>
+<p>What are some other ways we can express this number? It kinda seems like a factorial. Factorials involve multiplying numbers. But factorials multiply all the numbers down to <span class="math inline">\(1\)</span>. For example, <span class="math inline">\(26\)</span> factorial is: <span class="math display">\[26 \text{ factorial} \,\,=\,\, 26! \,\,=\,\, 26\cdot 25 \cdot 24 \cdot 23 \cdot 22 \cdot 21 \cdots \text{etc.} \cdots 3 \cdot 2 \cdot 1 = \substack{\text{a ginormous number}\\\text{that we&#39;re not going to write out}}\]</span> In our case, <span class="math inline">\(26\cdot 25 \cdot 24\)</span> is like <span class="math inline">\(26!\)</span>, but only going down to <span class="math inline">\(24\)</span>, not down to <span class="math inline">\(1\)</span>. <span class="math display">\[\substack{\text{the total number of ways}\\\text{to pick three letters}\\\text{when order matters}} \quad=\quad 26\cdot 25\cdot 24 \quad= \quad \substack{\text{like a factorial}\\\text{but only going down to $24$}}\]</span> Hmm… maybe we could write this with a factorial by taking <span class="math inline">\(26!\)</span> and getting rid of the stuff we don’t want? <span class="math display">\[26! = \underbrace{26\cdot 25 \cdot 24}_{\mathclap{\text{this is what we want}}} \cdot \underbrace{23 \cdot 22 \cdot 21 \cdots 3 \cdot 2 \cdot 1}_{\text{can we get rid of this?}}\]</span> We can get rid of all that other stuff by dividing! We want to divde by all the integers <span class="math inline">\(23\)</span> and less: <span class="math display">\[\frac{26\cdot 25 \cdot 24 \cdot 23 \cdot 22 \cdot 21 \cdots 3 \cdot 2 \cdot 1}{23 \cdot 22 \cdot 21 \cdots 3 \cdot 2 \cdot 1} \]</span> Because then things will cancel: <span class="math display">\[\frac{26\cdot 25 \cdot 24 \cdot \cancel{23} \cdot \cancel{22} \cdot \cancel{21} \cdots \cancel{3} \cdot \cancel{2} \cdot \cancel{1}}{\cancel{23} \cdot \cancel{22} \cdot \cancel{21} \cdots \cancel{3} \cdot \cancel{2} \cdot \cancel{1}} \]</span> … but on the bottom, that’s just a factorial! It’s just <span class="math inline">\(23!\)</span> in the denominator! <span class="math display">\[\frac{26!}{23!} = \frac{26\cdot 25 \cdot 24 \cdot \cancel{23} \cdot \cancel{22} \cdot \cancel{21} \cdots \cancel{3} \cdot \cancel{2} \cdot \cancel{1}}{\cancel{23} \cdot \cancel{22} \cdot \cancel{21} \cdots \cancel{3} \cdot \cancel{2} \cdot \cancel{1}} \]</span> So we’re left with: <span class="math display">\[\frac{26!}{23!}  \quad=\quad \frac{26\cdot 25 \cdot 24 \cdot \cancel{23} \cdot \cancel{22} \cdot \cancel{21} \cdots \cancel{3} \cdot \cancel{2} \cdot \cancel{1}}{\cancel{23} \cdot \cancel{22} \cdot \cancel{21} \cdots \cancel{3} \cdot \cancel{2} \cdot \cancel{1}} \quad=\quad 26\cdot 25 \cdot 24\]</span> Or just: <span class="math display">\[26\cdot 25 \cdot 24 = \frac{26!}{23!}\]</span> So we have:</p>
+<p><span class="math display">\[\substack{\text{the number of ways we can pick three things}\\\text{from a set of 26 things}\\\text{where order matters}} \quad=\quad 26\cdot 25 \cdot 24 \quad = \quad \frac{26!}{23!}\]</span></p>
+<p>In this formula, as we’ve written it, it feels a bit like the <span class="math inline">\(23\)</span> is coming out of nowhere. Where’s the <span class="math inline">\(23\)</span> coming from? It’s coming from the fact that we’re choosing from a set of <span class="math inline">\(26\)</span> things, but only choosing three things, and <span class="math inline">\(26-3=23\)</span>. So another way to write this is:</p>
+<p><span class="math display">\[\substack{\text{the number of ways we can pick three things}\\\text{from a set of 26 things}\\\text{where order matters}} \quad=\quad \frac{26!}{(26-3)!}\]</span></p>
+<p>I’m writing it that way because it makes the more general idea more clear!!! What if we have not <span class="math inline">\(26\)</span> things, but <span class="math inline">\(n\)</span> things, and what if we choose not <span class="math inline">\(3\)</span> of them, but <span class="math inline">\(k\)</span> of them?</p>
+<p><span class="math display">\[\substack{\text{the number of ways we can pick $k$ things}\\\text{from a set of $n$ things}\\\text{where order matters}} \quad=\quad \frac{n!}{(n-k)!}\]</span></p>
+<p>Mathematicians call this a <strong>permutation</strong>. The typical notation people use to express it is <span class="math inline">\({}_n \mathrm{ P }_k\)</span>, where we have <span class="math inline">\(n\)</span> things and we pick <span class="math inline">\(k\)</span> of them, and we care about order.</p>
+<p>Don’t worry too much about the notation. Worry about the <em>ideas</em>, not the <em>symbols</em>. Notation is how we <em>express</em> mathematics, but it’s not what mathematics <em>is</em>.</p>
+<p><span class="math display">\[\substack{\text{the number of ways we can pick $k$ things}\\\text{from a set of $n$ things}\\\text{where order matters}} \quad = \quad {}_n \mathrm{ P }_k \quad=\quad \frac{n!}{(n-k)!} \quad= \quad \left(\substack{\text{kinda like a factorial}\\\text{but from $n$}\\\text{only down to $n-k$}}\right)\]</span> Don’t try to memorize this! It’ll be worse if you try to memorize it! Try to understand it, and understand where it comes from!</p>
+<p>If you want a scary abstract way to write <span class="math inline">\(\frac{n!}{(n-k)!}\)</span>, you could write it like this:</p>
+<p><span class="math display">\[\begin{align*}
+\frac{n!}{(n-k)!}  &amp;= \frac{n (n-1)(n-2)(n-3) \cdots \big(n-\,(k+2)\,\big) \big(n-\,(k+1)\,\big)  (n-k)\cdot (n-k-1) \cdots \cdot 3\cdot2 \cdot 1}{(n-k)(n-k-1)(n-k-2)\cdots \cdot 3\cdot2 \cdot 1} \\ \\
+&amp;= \frac{n (n-1)(n-2)(n-3) \cdots \big(n-\,(k+2)\,\big) \big(n-\,(k+1)\,\big)  \cancel{(n-k)} \cancel{(n-k-1)} \cdots \cancel3\cancel2 \cancel1}{\cancel{(n-k)}\cancel{(n-k-1)}\cancel{(n-k-2)}\cdots \cancel3\cdot\cancel2 \cancel1} \\ \\
+&amp;= n\cdot (n-1)\cdot(n-1)\cdot (n-1) \cdots \text{ etc. } \cdots \big(n-\,(k+2)\,\big)\cdot \big(n-\,(k+1)\,\big) \\ \\
+&amp;= \quad\text{kinda like a factorial, but from $n$ only down to $n-k$} \\ \\
+\end{align*}\]</span></p>
+<p>This looks scary, but it’s no different than just multiplying together all the integers starting with <span class="math inline">\(26\)</span> and going down through the next three integers! It’s just an abstract way of phrasing/formulating that. Note that the last factor is <span class="math inline">\(\big(n-\,(k+1)\,\big)\)</span> and not <span class="math inline">\((n-k)\)</span>, because <span class="math inline">\((n-k)\)</span> is the first factor we’re <em>not</em> including. In the example with <span class="math inline">\(26\)</span> letters, we start at <span class="math inline">\(26\)</span> and go down three to <span class="math inline">\(24\)</span>, so <span class="math inline">\(26\cdot 25\cdot 24\)</span>, and <span class="math inline">\(26-3\)</span>, i.e. <span class="math inline">\(23\)</span>, is the first number we <em>don’t</em> include. So <span class="math inline">\(26-(3+1)\)</span> gets us <span class="math inline">\(26-2=24\)</span>, which is the last number we <em>do</em> want.</p>
+<p>In summary, our specific example is: <span class="math display">\[\substack{\text{the number of ways we can pick three things}\\\text{from a set of 26 things}\\\text{when order matters}} = 26\cdot 25 \cdot 24 = \frac{26!}{23!} = \frac{26!}{(26-3)!}\]</span> More generally, we have: <span class="math display">\[\boxed{\quad\text{a ``permutation:&#39;&#39; }\,\, \substack{\text{the number of ways we can pick $k$ things}\\\text{from a set of $n$ things}\\\text{when order matters}} = \frac{n!}{(n-k)!} = {}_{n} P_k \quad}\]</span></p>
+<h2 id="messy-and-chaotic-counting-when-order-doesnt-matter">messy and chaotic: counting when order doesn’t matter</h2>
+<p>What if we don’t care about the order in which we pick things? What if we pick three letters, but we don’t care about the order in which we get out those letters?</p>
+<p><span class="math display">\[\text{if order doesn&#39;t matter: }\quad A,B,C \text{ is the same as }C,B,A\]</span></p>
+<p>This means we’re going to have <em>fewer</em> options! If we think about our original list of all the ways to pick out three letters, and if we don’t care about the order of those three letters, then some of those are going to be the same:</p>
+<p><img src="combinations-of-abc-unordered.svg" style="width:75.0%" /></p>
+<p>To use the fancy word, we’re <strong>overcounting</strong>. If we care about order, then <span class="math inline">\(A,B,C\)</span> is different than <span class="math inline">\(B,C,A\)</span>. If we don’t care about order, then those are the same! Our vision is blurrier. Things that were once different are now the same. Things are crystallizing. We’re zooming out.</p>
+<p>Our question now is: how many options are there? We know how many ways to pick three letters if order matters; how many ways are there to pick three letters if order doesn’t matter? Presumably it’s less:</p>
+<p><span class="math display">\[ \substack{\text{the number of ways we can pick three things}\\\text{from a set of 26 things}\\\text{when order DOESN&#39;T matter}} \quad&lt;\quad \substack{\text{the number of ways we can pick three things}\\\text{from a set of 26 things}\\\text{when order DOES matter}}\]</span></p>
+<p>But how much less? How do we figure it out?</p>
+<p>We need to somehow compensate for the overcounting:</p>
+<p><span class="math display">\[\substack{\text{the number of ways we can pick things}\\\text{when order DOESN&#39;T matter}} = \frac{\text{number of ways we can pick things, when order DOES matter}}{\text{amount by which that overcounts}}\]</span></p>
+<p>If we look at the diagram above, it seems like that if we don’t care about order, our original possibilities crystallize into groups of <span class="math inline">\(6\)</span>. So it seems like we’re overcounting by a factor of <span class="math inline">\(6\)</span>. It seems like, in order to figure out the number of ways to pick three things from a set of <span class="math inline">\(26\)</span> things when order <em>doesn’t</em> matter, we just divide by six:</p>
+<p><span class="math display">\[\begin{align*}
+\substack{\text{the number of ways we can pick three things}\\\text{from a set of 26 things}\\\text{when order DOESN&#39;T matter}} &amp;= \frac{\quad \substack{\text{the number of ways we can pick three things}\\\text{from a set of 26 things}\\\text{when order DOES matter}} \quad }{6} \\ \\
+&amp;= \frac{15600}{6} \\ \\
+&amp;= 2600
+\end{align*}\]</span></p>
+<p>Why? Why six?</p>
+<p>It’s coming from the number of different ways there are to arrange these sets of three items. If we’ve already chosen three things, how many different orders are there that we can order them in? How many different ways are there to arrange three things, when the order <em>does</em> matter? We’ve already figured this out! It’s just:</p>
+<p><span class="math display">\[\begin{align*}
+\substack{\text{the number of ways to arrange three things}\\\text{when order matters}} \,\,&amp;=\,\, 3\cdot 2 \cdot 1 \\
+&amp;= 3! \\ 
+&amp;= 6
+\end{align*}\]</span></p>
+<p>So that’s how many DIFFERENT ways there are of ordering these same things! That’s the amount (the factor) we’ve overcounted by!</p>
+<p>We can even phrase it in terms of permuatations and whatnot. This just just the number of ways to “choose” three things from a set of three things, when the order matters. It’s a permutation! <span class="math display">\[\begin{align*}
+\substack{\text{the number of ways to arrange $3$ things}\\\text{when order DOES matter}} \,\,&amp;=\,\,  \substack{\text{the number of ways to pick}\\\text{$3$ things from a set of $3$ things}\\\text{when order DOES matter}}\\ \\
+&amp;= {}_3 \mathrm{ P }_3 \\ \\
+&amp;=  \frac{3!}{(3-3)!} \\ \\
+&amp;=  \frac{k!}{0! } \\ \\
+&amp;=\frac{3!}{1 } \quad\quad(\text{because }0!=1) \\ \\
+&amp;= 3! \\
+&amp;= 3\cdot 2 \cdot 1 \\
+&amp;= 6
+\end{align*}\]</span></p>
+<p>Admittedly, choosing three things from a set of three things doesn’t feel like much of a “choice”… but that’s the language!</p>
+<p>More generally, using this big fancy formulation of permutatations, the number of ways we can arrange <span class="math inline">\(k\)</span> things is:</p>
+<p><span class="math display">\[\begin{align*}
+\substack{\text{the number of ways to arrange $k$ things}\\\text{when order DOES matter}} &amp;=  \substack{\text{the number of ways to pick}\\\text{$k$ things from a set of $k$ things}\\\text{when order DOES matter}}\\ \\
+&amp;= {}_k \mathrm{ P }_k \\ \\
+&amp;=  \frac{k!}{(k-k)!} \\ \\
+&amp;=  \frac{k!}{0! } \\ \\
+&amp;=\frac{k!}{1 } \quad\quad(\text{because }0!=1) \\ \\
+&amp;= k!
+\end{align*}\]</span></p>
+<p>So, a fuller calculation, to find the number of ways to pick three letters, when we don’t care about the order, might look like:</p>
+<p><span class="math display">\[\begin{align*}
+\substack{\text{the number of ways to pick three things from a set of 26 things}\\\text{where order DOESN&#39;T matter}} \,\,&amp;=\,\, \frac{\quad \substack{\text{the number of ways to pick}\\\text{three things from a set of 26 things}\\\text{when order DOES matter}}\quad}{\text{the amount that overcounts}} \\ \\
+&amp;=\frac{\quad \substack{\text{the number of ways to pick $3$ things from a set of 26 things}\\\text{when order DOES matter}}\quad}{\quad\substack{\text{the number of ways to arrange $3$ things}\\\text{when order DOES matter}}\quad} \\ \\
+&amp;= \frac{\quad  \frac{26!}{(26-3)!}  \quad}{3!} \\ \\
+&amp;=   \frac{26!}{3!(26-3)!} \quad \quad\text{(algebra)} \\ \\
+&amp;= \frac{26\cdot 25 \cdot 24}{3\cdot2\cdot 1} \\ \\
+&amp;= \frac{15600}{6} \\ \\
+&amp;= 2600
+\end{align*}\]</span></p>
+<p>Mathematicians call this kind of counting a <strong>combination</strong>: when we’re counting things, and we don’t care about the order. There are a couple different notations in standard rotation:</p>
+<p><span class="math display">\[\text{a ``combination:&#39;&#39;}\quad \substack{\text{the number of ways we can choose $k$ things}\\\text{from a set of $n$ things}\\\text{where order DOESN&#39;T mater}} = {}_n \mathrm{ C }_k = \binom{ n }{ k } = \text{``$n$ choose $k$&#39;&#39;}\]</span></p>
+<p>``<span class="math inline">\(n\)</span> choose <span class="math inline">\(k\)</span>’’ is how it usually gets pronounced. We have <span class="math inline">\(n\)</span> things; we choose <span class="math inline">\(k\)</span> of them, without caring about order. As a formula, it works out to be:</p>
+<p><span class="math display">\[\begin{align*}
+\substack{\text{the number of ways we can choose $k$ things}\\\text{from a set of $n$ things}\\\text{where order DOESN&#39;T mater}} &amp;= \frac{\quad  \substack{\text{the number of ways to pick $k$ things from a set of $n$ things}\\\text{when order DOES matter}}\quad}{\quad \text{the amount that overcounts}\quad} \\ \\ \\
+&amp;=\frac{\quad \substack{\text{the number of ways to pick $k$ things from a set of $n$ things}\\\text{when order DOES matter}}\quad}{\quad\substack{\text{the number of ways to arrange $k$ things}\\\text{when order DOES matter}}\quad} \\ \\
+&amp;= \frac{\quad  \frac{n!}{(n-k)!}  \quad}{k!} \\ \\
+&amp;= \frac{n!}{k!(n-k)!}
+\end{align*}\]</span></p>
+<p>That extra <span class="math inline">\(k!\)</span> factor on the bottom is like an “overcounting correction factor:” <span class="math display">\[\substack{\text{the number of ways we can choose $k$ things}\\\text{from a set of $n$ things}\\\text{where order DOESN&#39;T mater}} = \frac{n!}{\underbrace{k!}_{\mathclap{\substack{\text{overcounting}\\\text{correction factor}}}}(n-k)!}\]</span></p>
+<p>So, in summary, we have:</p>
+<p><span class="math display">\[\boxed{\quad \substack{\text{the number of ways we can choose $k$ things}\\\text{from a set of $n$ things}\\\text{where order DOESN&#39;T mater}} = {}_n \mathrm{ C }_k = \binom{ n }{ k } = \text{``$n$ choose $k$&#39;&#39;} = \frac{n!}{k!(n-k)!} \quad} \]</span></p>
+<h2 id="enthusiasm">enthusiasm</h2>
+<p>One of the things I love about the particular notational and typographical choices that happen to have arisen here in combinatorics—all these factorials!—is the inherent <em>enthusiasm</em>.</p>
+<p>(… he writes, ending his sentence with a full stop.)</p>
+<h2 id="problem">problem</h2>
+<p>What if we have this same collection of three letters, and we care about how they’re ordered… <em>kinda</em>. Like we care about how they’re ordered, but we don’t care <em>that much</em>. (Is that like being a little bit pregnant? Isn’t this a discrete situation?) What I mean here is, suppose we</p>
+</main>
+</body>
+</html>

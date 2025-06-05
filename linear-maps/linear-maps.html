@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Linear maps: what they send to zero and what they do to linear independence!</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="/main.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <script src="../highlight-toc.js" type="text/javascript"></script>
+</head>
+<body>
+<script>document.addEventListener('DOMContentLoaded', function(e) {
+  Scroller.init();
+})</script>
+<aside>
+<div class="tocLinks" >
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#whats-up-with-the-stuff-that-gets-sent-to-the-zero-veckkie">What’s up with the stuff that gets sent to the zero veckkie?</a>
+<ul>
+<li><a href="#can-a-linear-transformation-send-other-stuff-thats-not-the-zero-veckkie-to-the-zero-veckkie">Can a linear transformation send OTHER STUFF that’s not the zero veckkie to the zero veckkie??</a></li>
+<li><a href="#this-has-ramifications-for-us-doing-algebra">This has ramifications for us doing algebra!</a></li>
+<li><a href="#whats-the-deal-with-the-stuff-that-gets-sent-to-zero">What’s the deal with the stuff that gets sent to zero?</a></li>
+</ul></li>
+<li><a href="#what-do-linear-transformations-do-to-linear-independence">What do linear transformations do to linear in/dependence?</a></li>
+<li><a href="#do-linear-transformations-preserve-linear-independence">Do linear transformations preserve linear independence?</a></li>
+<li><a href="#do-linear-transformations-preserve-linear-dependence">Do linear transformations preserve linear DEpendence?</a></li>
+<li><a href="#in-conclusion">In conclusion!</a></li>
+<li><a href="#section"></a></li>
+<li><a href="#what-if-we-have-a-linear-function-thats-injectivedoes-that-preserve-linear-independence">What if we have a linear function that’s injective—does <em>that</em> preserve linear independence?</a></li>
+</ul>
+</nav>
+</div>
+</aside>
+<main>
+<header id="title-block-header">
+<h1 class="title">Linear maps: what they send to zero and what they do to linear independence!</h1>
+</header>
+<h2 id="whats-up-with-the-stuff-that-gets-sent-to-the-zero-veckkie">What’s up with the stuff that gets sent to the zero veckkie?</h2>
+<p>Suppose we have some linear transformation. Can it take the zero veckkie to something that’s not the zero veckkie? <img src="linear-transformations-null-space-provocation-1.svg" /> It’d be cool if it could! Think back to when we were talking about groups and fields and whatnot: we had all sorts of psychedelic questions like, can we have algebraic structures in which there are multiple identities? Or in which an element has multiple inverses? Or in which inverses don’t commute? Crazy creatures we’d sought but never seen! The Loch Ness Monster of mathematics! An Abominable Snowman of algebra! Tragically, just like with Nessie and the Yeti, we had to resolve in the negative. It’s the same here: if we have a linear transformation, the zero vecckie HAS to get sent to the zero vecckie.</p>
+<p>Why? Let’s formalize this. Suppose, like in our picture, we have some vector space <span class="math inline">\(V\)</span>, and a linear map <span class="math inline">\(T\)</span> that sends elements of <span class="math inline">\(V\)</span> to elements of the vector space <span class="math inline">\(W\)</span>. What does <span class="math inline">\(T\)</span> send the zero vector to? <span class="math display">\[\underbrace{T(\text{the zero vector}) = T0 = T\vec{0} = T\left(\vec{0}\right)}_{\text{just different notations}} \quad=\quad \text{(some vector)}\]</span> Let’s write that more compactly, and call whatever vector the zero vecckie gets mapped to <span class="math inline">\(\vec{x}\)</span>: <span class="math display">\[T\left(\vec{0}\right)= \vec{x}\]</span> So, what’s <span class="math inline">\(\vec{x}\)</span>??? Hmm. Well, because the zero vecckie is its own additive identity, this equation is the same as: <span class="math display">\[T\left(\vec{0} + \vec{0}\right)  = \vec{x}\]</span> But because <span class="math inline">\(T\)</span> is linear, this is the same as: <span class="math display">\[T\left(\vec{0}\right) + T\left(\vec{0}\right)= \vec{x}\]</span> But each of those guys are INDIVIDUALLY <span class="math inline">\(\vec{x}\)</span>: <span class="math display">\[\underbrace{T\left(\vec{0}\right)}_{=\vec{x}} + \underbrace{T\left(\vec{0}\right)}_{=\vec{x}}= \vec{x}\]</span> So we get: <span class="math display">\[\vec{x} + \vec{x}= \vec{x}\]</span> <span class="math display">\[\vec{x} = 0\]</span> So <span class="math inline">\(\vec{x}\)</span> MUST be the zero vector! HUZZAH!!! <span class="math display">\[\left(\, T\left(\vec{0}\right)=\vec{x}  \,\right) \quad\implies\quad \Big(\, \vec{x}=\vec{0} \,\Big)\]</span> Great. So then a linear transformation HAS to send the zero veckkie to the zero veckkie.</p>
+<div style="height:3em">
+
+</div>
+<h3 id="can-a-linear-transformation-send-other-stuff-thats-not-the-zero-veckkie-to-the-zero-veckkie">Can a linear transformation send OTHER STUFF that’s not the zero veckkie to the zero veckkie??</h3>
+<p><img src="linear-transformations-null-space-provocation-2.svg" /> Sure!!! Here’s a quick example: the zero function!!! The zero function is the function that just sends everything to zero: <span class="math display">\[\text{zero}\left(\vec{x}\right) = \vec{0}\]</span> Is this indeed a linear function? I think we’ve proven this in the past, but let’s double-check:</p>
+<ul>
+<li><p>Is it additive? I.e., can we split it up along addition? Sure. If we have: <span class="math display">\[\begin{align*}
+  \text{zero}\left(\vec{x}+\vec{y}\right) &amp;= \vec{0} \quad\text{(because the zero function ALWAYS outputs zero)} \\
+      &amp;= \vec{0} + \vec{0} \quad\text{(&#39;cause zero is zero plus zero)}\\
+      &amp;= \text{zero}\left(\vec{x}\right) + \text{zero}\left(\vec{y}\right)
+      \end{align*}\]</span></p></li>
+<li><p>Is it <del>homogenous</del> paranormal? I.e., can we pull scalars/constants out?? Also yes! Suppose we have some scalar <span class="math inline">\(k\)</span>. Then: <span class="math display">\[\begin{align*}
+  \text{zero}\left(k\vec{x}\right) &amp;= \vec{0} \quad\text{(because the zero function ALWAYS outputs zero)} \\
+      &amp;= k\cdot \vec{0}  \quad\text{(&#39;cause zero times anything is zero)}\\
+      &amp;= k\cdot \text{zero}\left(\vec{x}\right)
+      \end{align*}\]</span></p></li>
+</ul>
+<p>Great. So, here’s a counterexample: the zero function!</p>
+<p>You might object that this isn’t the world’s most INTERESTING counterexample. It’s taking EVERYTHING to zero! Sure, this demonstrates, logically, that there’s <em>some</em> linear function that sends <em>some</em> stuff other than the zero vecckie to the zero vecckie, but it’s such an extreme case, that it’s not clear how much deep insight we gain about linear functions. If we focus too much on edge cases we run the risk of missing the forest for the trees. Is an edge case a decent representation of the big picture, or is it a <em>distraction</em> from the big picture? Put more concretely, and in this context: look, forget about how the zero function technically works here. Are their functions that take MORE than just the zero vector to zero, but without taking EVERYTHING to zero??? In other words, can we come up with a more interesting counterexample? Or perhaps understand the space of counterexamples better???</p>
+<p>Here’s another, concrete example. Imagine the linear transformation: <span class="math display">\[g:\mathbb{R}^3\rightarrow\mathbb{R}^2\]</span> <span class="math display">\[g(x,y,z) = ( x, y) \]</span> So this is just a linear map that takes any point in 3D space and projects it down onto the <span class="math inline">\(xy\)</span>-plane. All it does is delete the <span class="math inline">\(z\)</span>-coordinate! (If you like, you can check the axioms to make sure it’s linear.)</p>
+<p>Does it take the zero vector in <span class="math inline">\(\mathbb{R}^3\)</span> to the zero vector in <span class="math inline">\(\mathbb{R}^2\)</span>? Yeah. The zero vector in <span class="math inline">\(\mathbb{R}^3\)</span> is <span class="math inline">\((0,0,0)\)</span>; in <span class="math inline">\(\mathbb{R}^2\)</span>, the zero vector is <span class="math inline">\((0,0)\)</span>. So we have: <span class="math display">\[\begin{align*}
+g\left(\vec{0}\right) &amp;= g(0,0,0) \\
+&amp;= (0,0) \\
+&amp;= \vec{0}
+\end{align*}\]</span> Note that I’m using ``<span class="math inline">\(\vec{0}\)</span>’’ there to represent the zero vector in <span class="math inline">\(\mathbb{R}^3\)</span> as well as the zero vector in <span class="math inline">\(\mathbb{R}^2\)</span>, even though those are two different objects! We pay a price for having compact notation. But we pay a price for not having notation, too: <span class="math display">\[\begin{align*}
+g\left(\substack{\text{the zero vector}\\\text{in $\mathbb{R}^3$}}\right) &amp;= g\big(\, (0,0,0) \,\big) \\ \\
+&amp;= (0,0) \\ \\
+&amp;= \substack{\text{the zero vector}\\\text{in $\mathbb{R}^2$}}
+\end{align*}\]</span> Anyway, <span class="math inline">\(g\)</span> takes more than just <span class="math inline">\(\mathbb{R}^3\)</span>’s zero vector to <span class="math inline">\(\mathbb{R}^2\)</span>’s zero vector! It takes anything that’s directly above or below the zero vector/origin in <span class="math inline">\(\mathbb{R}^3\)</span> to the zero vector in <span class="math inline">\(\mathbb{R}^2\)</span> as well! For example, it takes <span class="math inline">\((0,0,7)\in\mathbb{R}^3\)</span> to <span class="math inline">\((0,0)=\vec{0}\in\mathbb{R}^2\)</span>: <span class="math display">\[\begin{align*}
+g(0,0,5) &amp;= (0,0) \\
+&amp;= \vec{0}
+\end{align*}\]</span> So then the set of (other) stuff in <span class="math inline">\(\mathbb{R}^3\)</span> that <span class="math inline">\(g\)</span> sends to the zero veckkie in <span class="math inline">\(\mathbb{R}^2\)</span> is is a vertical line through the origin, i.e.: <span class="math display">\[\text{all the stuff that $g$ sends to the zero veckkie: } \quad\big\{ (0,0,k) \text{ for all } k\in\mathbb{R} \big\}\]</span></p>
+<h3 id="this-has-ramifications-for-us-doing-algebra">This has ramifications for us doing algebra!</h3>
+<p>This also means that if we’re doing equations with linear transformations, we need to be careful to not assume that just because a transformation outputs zero, that then its input is zero. <span class="math inline">\(T(0)\)</span> is always <span class="math inline">\(0\)</span>, but just because <span class="math inline">\(T(\text{something})\)</span> is zero doesn’t mean that <span class="math inline">\(\text{something}=0\)</span>!</p>
+<p>Phrased more formally:</p>
+<p><span class="math display">\[\begin{align*}
+\text{this is true: }\quad \Big(\, T(0) = x \,\Big) &amp;\implies \Big(\, x=0 \,\Big) \\ \\
+\text{this is NOT true: }\quad \Big(\, T(x) = 0 \,\Big) &amp;\implies \Big(\, x=0 \,\Big)
+\end{align*}\]</span></p>
+<p>Here’s a really really concrete example of that. Suppose we’re back in Math 3, and we’re playing with a fun, ordinary, real-valued polynomial, like, I dunno: <span class="math display">\[h:\mathbb{R}^1\rightarrow\mathbb{R}^1\]</span> <span class="math display">\[h(x) = (x-2)(x+3)^3\]</span> And suppose we we’re dealing with <span class="math inline">\(h\)</span> in the abstract, and we have some equation like: <span class="math display">\[h(b) = 0\]</span> Is it then true that <span class="math inline">\(b=0\)</span>??? No!!!! Yeah, the <em>output</em> of <span class="math inline">\(h\)</span>, at some input <span class="math inline">\(b\)</span>, is zero. But that doesn’t mean that its input <span class="math inline">\(b\)</span> is zero!!! In fact, if <span class="math inline">\(b=0\)</span>, then <span class="math inline">\(h\)</span>’s output would have to be: <span class="math display">\[\begin{align*}
+h(b) \overset{\text{supposedly}}{=} h(0) &amp;= (0-2)(0+3)^3 \\
+&amp;= (-2)(27) \\
+&amp;= -54 \\
+&amp;\neq 0
+\end{align*}\]</span> In truth, if <span class="math inline">\(h\)</span>’s output is zero, then <span class="math inline">\(h\)</span>’s input must be either <span class="math inline">\(+2\)</span> or <span class="math inline">\(-3\)</span>. But not zero.</p>
+<p>Note that <span class="math inline">\(h\)</span> isn’t a linear function; regardless, I think it’s still a good example, because this is still true for linear functions. Like, OK, think about <span class="math inline">\(g\)</span> again from the last example: <span class="math display">\[g:\mathbb{R}^3\rightarrow\mathbb{R}^2\]</span> <span class="math display">\[g(x,y,z) = ( x, y) \]</span> We saw how <span class="math inline">\(g\)</span> sends <span class="math inline">\((0,0,5)\)</span> to the zero vecckie. So just because we have some random vector <span class="math inline">\(\vec{b}\)</span> that <span class="math inline">\(g\)</span> sends to zero: <span class="math display">\[g\left(\vec{b}\right) = \vec{0}\]</span> That doesn’t mean that <span class="math inline">\(\vec{b}=0\)</span>: <span class="math display">\[\Big(\, g(\vec{b}) = \vec{0} \,\Big) \quad\centernot\implies \quad \Big(\, \vec{b} = 0 \,\Big)\]</span></p>
+<p>I’m hammering away at this point because I’m <em>still</em> annoyed at myself for making this mistake in our proof a few weeks ago. And when I told my housemate Aamnah about it—brilliant Stanford math person, etc.—it took <em>her</em> a moment to realize why I had been wrong, too.</p>
+<h3 id="whats-the-deal-with-the-stuff-that-gets-sent-to-zero">What’s the deal with the stuff that gets sent to zero?</h3>
+<p>This all begs the question: what’s going on with that stuff that gets sent to zero? Can we learn anything about it? Can we say anything about it in the general case? If it has the gets-mapped-to-zero property, are there other properties it has to have? <img src="linear-transformations-null-space-provocation-3.svg" /> Let’s say we have some vectors in <span class="math inline">\(V\)</span> that <span class="math inline">\(T\)</span> each maps to the zero vector in <span class="math inline">\(W\)</span>. Call them <span class="math inline">\(\vec{x}\)</span> and <span class="math inline">\(\vec{y}\)</span>. Perhaps <span class="math inline">\(\vec{x}\)</span> is the zero vector in <span class="math inline">\(V\)</span>; perhaps <span class="math inline">\(\vec{y}\)</span> is; perhaps neither of them are; they’re just two vectors that <span class="math inline">\(T\)</span> maps to the zero vector in <span class="math inline">\(W\)</span>.</p>
+<p><img src="null-space-closure-1.svg" /></p>
+<p>So we have: <span class="math display">\[T\left(\vec{x}\right) = \vec{0} \quad\quad\text{and}\quad\quad T\left(\vec{y}\right) = \vec{0}\]</span> In other words, we have: <span class="math display">\[T\left(\vec{x}\right) + T\left(\vec{y}\right) = \vec{0} + \vec{0}\]</span> Or just: <span class="math display">\[T\left(\vec{x}\right) + T\left(\vec{y}\right) = \vec{0}\]</span> But because <span class="math inline">\(T\)</span> is linear, the left side of this equation is really: <span class="math display">\[T\left(\vec{x} + \vec{y}\right) = \vec{0}\]</span> Huh. So then we know at least <em>three</em> elements of <span class="math inline">\(V\)</span> that map to zero: <span class="math inline">\(\vec{x}\)</span>, <span class="math inline">\(\vec{y}\)</span>, and <span class="math inline">\(\vec{x}+\vec{y}\)</span>: <span class="math display">\[T\left(\vec{x}\right) = \vec{0}, \quad\ T\left(\vec{y}\right) = \vec{0}, \quad T\left(\vec{x} + \vec{y}\right) = \vec{0}\]</span></p>
+<p><img src="null-space-closure-2.svg" /></p>
+<p>Or in other words, if we have any two elements in <span class="math inline">\(V\)</span> that map to zero, then their sum maps to zero, too. So it’s like this being-mapped-to-zero property is closed under vector addition.</p>
+<p>Hmm. Is it also closed under scalar multiplication?</p>
+<p>Well… let’s suppose we have some scalar <span class="math inline">\(k\)</span>. What’s <span class="math inline">\(T\left(k\vec{x}\right)\)</span>? <span class="math display">\[T\left(k\vec{x}\right) = ???\]</span> Well, because <span class="math inline">\(T\)</span> is linear, this must be: <span class="math display">\[\begin{align*}
+    T\left(k\vec{x}\right) &amp;= k\cdot T\left(\vec{x}\right) \quad\text{(bc $T$ linear)} \\
+    &amp;= k \cdot \vec{0} \\
+    &amp;= \vec{0}
+\end{align*}\]</span> So then if <span class="math inline">\(\vec{x}\)</span> maps to zero, then <span class="math inline">\(k\vec{x}\)</span> maps to zero, too. So the being-mapped-to-zero property is closed under scalar multiplication</p>
+<p><img src="null-space-closure-3.svg" /></p>
+<p>So, so far, we’ve learned:</p>
+<ul>
+<li>the zero vector maps to zero</li>
+<li>if two vectors map to zero separately, then their sum also maps to zero</li>
+<li>if a vector maps to zero, any scalar multiple of it maps to zero</li>
+</ul>
+<p>Or:</p>
+<ul>
+<li>the zero vector maps to zero</li>
+<li>the being-mapped-to-zero property is closed under:
+<ul>
+<li>vector addition</li>
+<li>scalar multiplication</li>
+</ul></li>
+</ul>
+<p>There’s a bunch of stuff that maps to zero. The zero vector is one of those things. The sum of any two of those things is also one of those things. The scalar multiple of any of those things is also one of those things.</p>
+<p>… do you see where I’m going with this???</p>
+<p>The stuff that maps to zero forms a subspace!!!</p>
+<p>Put more formally, the set of all <span class="math inline">\(\vec{x}\)</span> in <span class="math inline">\(V\)</span> such that <span class="math inline">\(T\vec{x} = \vec{0}\)</span> forms a subspace of <span class="math inline">\(V\)</span>. People call this the <strong>null space</strong> or sometimes <strong>kernel</strong> of a transformation/map <span class="math inline">\(T\)</span>:</p>
+<div class="callout-box">
+<p>For any linear transformation <span class="math inline">\(T:V\rightarrow W\)</span>, its <strong>kernel</strong> or <strong>null space</strong> of <span class="math inline">\(T\)</span> is all the elements in <span class="math inline">\(V\)</span> that <span class="math inline">\(T\)</span> maps to the zero vekkie: <span class="math display">\[\big\{\, \vec{x}\in V \text{ such that } T\vec{x}=0 \,\big\}\]</span></p>
+</div>
+<p>If we think back to the example function <span class="math inline">\(g\)</span>: <span class="math display">\[g:\mathbb{R}^3\rightarrow\mathbb{R}^2\]</span> <span class="math display">\[g(x,y,z) = ( x, y) \]</span> Then its kernel is: <span class="math display">\[\text{the kernel/null space of $g$: } \quad\big\{ (0,0,k) \text{ for all } k\in\mathbb{R} \big\} \subset \mathbb{R}^3\]</span></p>
+<h2 id="what-do-linear-transformations-do-to-linear-independence">What do linear transformations do to linear in/dependence?</h2>
+<p>We’ve spent a lot of time thinking about certain sets of vectors, or rather, sets of vectors that have certain nice properties: linear independence, span, basis.</p>
+<p>What do linear transformations do to these properties?!? In particular:</p>
+<ul>
+<li>If we have a set of linearly independent vectors and linearly-map them, is the result always linearly independent? (Always, sometimes, never?)</li>
+<li>If we have a set of linearly independent vectors that is the result of having been mapped from some antecedent set of vectors, is/was that antecedent set of vectors linearly independent? (Always, sometimes, never?)</li>
+<li>If we have a set of linearly DEpendent vectors and linearly-map them, is the result always linearly DEpendent? (Always, sometimes, never?)</li>
+<li>If we have a set of linearly DEpendent vectors that is the result of having been mapped from some antecedent set of vectors, is/was that antecedent set of vectors linearly DEpendent? (Always, sometimes, never?)</li>
+</ul>
+<h2 id="do-linear-transformations-preserve-linear-independence">Do linear transformations preserve linear independence?</h2>
+<p><img src="linear-independence-to-unknown-1.svg" /> If we linearly-transform some linearly-independent stuff, is the result always also linearly independent? More formally: suppose we have a set of linearly independent vectors in <span class="math inline">\(V\)</span>. When we map them into <span class="math inline">\(T\)</span>, is the resulting set of vectors (in <span class="math inline">\(T\)</span>) still linearly independent? Yes or no? Always, sometimes, never?</p>
+<p>Even more formally: <span class="math display">\[T\left(\text{some linearly-independent vectors}\right) \quad\overset{?}{=}\quad \text{(some linearly independent vectors)}\]</span> Or, more specifically: let’s say that we have some linearly independent vectors <span class="math inline">\(v_1\)</span>, <span class="math inline">\(v_2\)</span>, etc., through <span class="math inline">\(v_n\)</span>, and they map to <span class="math inline">\(w_1\)</span>, <span class="math inline">\(w_2\)</span>, etc., to <span class="math inline">\(w_n\)</span>, respectively:</p>
+<p><span class="math display">\[\begin{align*}
+    T\left(v_1\right) &amp;= w_1 \\
+    T\left(v_2\right) &amp;= w_2 \\
+    \vdots \quad &amp;\quad \vdots \\
+    T\left(v_n\right) &amp;= w_n \\
+\end{align*}\]</span></p>
+<p><img src="linear-independence-to-unknown-2.svg" /> So if <span class="math inline">\(v_1, v_2, \cdots, v_n\)</span> are linearly independent, are <span class="math inline">\(w_1, w_2, \cdots w_n\)</span> also linearly independent?? <span class="math display">\[\Big(\, v_1, v_2, \cdots v_n \text{ linearly independent}\,\Big) \overset{?}{\implies} \Big(\, w_1,w_2, \cdots w_n \text{ linearly independent} \,\Big)\]</span></p>
+<p>Perhaps let’s phrase these veckkies not as <span class="math inline">\(w_1, w_2, \cdots w_n\)</span>, which throws extra variables into the mix, but instead as just <span class="math inline">\(Tv_1, Tv_2, \cdots Tv_n\)</span>:</p>
+<p><img src="linear-independence-to-unknown-3.svg" /></p>
+<p>So then our question is: if <span class="math inline">\(v_1, v_2, \cdots, v_n\)</span> are linearly independent, is <span class="math inline">\(Tv_1, Tv_2, \cdots Tv_n\)</span>?</p>
+<p><span class="math display">\[\Big(\, v_1, v_2, \cdots v_n \text{ linearly independent}\,\Big) \overset{?}{\implies} \Big(\, Tv_1, Tv_2, \cdots Tv_n \text{ linearly independent} \,\Big)\]</span></p>
+<p>Or, dropping the hypothesis:</p>
+<p><span class="math display">\[\text{is }\big\{\, Tv_1, Tv_2, \cdots, Tv_n \,\big\} \text{ linearly independent?}\]</span></p>
+<p>Or, put differently, can we linearly combine all the <span class="math inline">\(Tv_i\)</span> and get zero without needing all the coefficients/scalars to be zero? (Note how when we’re referring to them in the plural/in the aggregate we might refer to them with the subscript <span class="math inline">\(i\)</span>—that’s a common convention.) Put more formally: <span class="math display">\[\Big(\, a_1Tv_1 + a_2Tv_2 + \cdots + a_nTv_n = 0 \,\Big) \quad\overset{?}{\implies}\quad \left(\text{all the $a_i$ are zero}\right)\]</span> So, this is our question!!!!</p>
+<p>OK, let’s start to figure things out.</p>
+<div style="height:2em">
+
+</div>
+<p>Let’s pull out this equation. Suppose we have: <span class="math display">\[a_1Tv_1 + a_2Tv_2 + \cdots + a_nTv_n = 0\]</span> What can we say here? Well, <span class="math inline">\(T\)</span> is linear, so then we can float scalars/coefficients in and out of it. I guess some people call this the <strong>homogeneity</strong> property, but I prefer to think of it as the <strong>paranormal</strong> property: scalars can float in and out of functions, just like ghosts through walls!!! So this equation is: <span class="math display">\[T\left(a_1v_1\right) + T\left(a_2v_2\right) + \cdots + T\left(a_nv_n\right) = 0\]</span> I’m tossing parentheses back in for function composition because I think that’ll make it neater. And implicitly I guess the scalars of <span class="math inline">\(V\)</span> and <span class="math inline">\(W\)</span> are drawn from the same field, otherwise this wouldn’t make sense. Meanwhile, now we just have a bunch of <span class="math inline">\(T\)</span>’s added up, and because of that other sub-property of linearity, <strong>additivity</strong> (TODO: COME UP WITH BETTER NAME)(“A TASK FOR THE READER”), we can smush them all together: <span class="math display">\[T\left(a_1v_1 + a_2v_2  + \cdots + a_nv_n\right) = 0\]</span> OK, this is nice, but we’re kind of stuck here. We have this nice linear equation in <span class="math inline">\(V\)</span>, and we’re mapping it to <span class="math inline">\(W\)</span> and getting the zero vector, but… is that telling us all that much? It certainly DOESN’T follow, as we’ve discussed: <span class="math display">\[\text{DOESN&#39;T FOLLOW: }\quad a_1v_1 + a_2v_2  + \cdots + a_nv_n = 0\]</span> Because we might have a linear transformation that sends something that’s not zero to zero!</p>
+<p>In any case, we’ve now rephrased our original question as: <span class="math display">\[\Big(\, T\left(a_1v_1 + a_2v_2  + \cdots + a_nv_n\right) = 0 \,\Big) \quad\overset{?}{\implies}\quad \left(\text{all the $a_i$ are zero}\right)\]</span> So… does this help resolve our question? Here are two specific examples drawn from different extremes of what <span class="math inline">\(T\)</span> could be.</p>
+<ul>
+<li><p>Suppose <span class="math inline">\(T\)</span> is the identity function. (So then <span class="math inline">\(V\)</span> and <span class="math inline">\(W\)</span> are the same, and we are just boringly mapping the same space to itself boringly.) Then we’d have: <span class="math display">\[T\left(a_1v_1 + a_2v_2  + \cdots + a_nv_n\right) = 0\]</span> <span class="math display">\[a_1v_1 + a_2v_2  + \cdots + a_nv_n = 0\]</span> and since the only way to make this (by assumption) is that all of the <span class="math inline">\(a_i\)</span> are zero, then all the <span class="math inline">\(a_i\)</span> are zero, and so the output of <span class="math inline">\(T\)</span> is also linearly independent, and so we have a linearly independent set mapped to a linearly independent set! (Which… is what we better hope if we’re dealing with the identity function!)</p></li>
+<li><p>Alternatively, suppose <span class="math inline">\(T\)</span> is the zero function. Then if we have: <span class="math display">\[T\left(a_1v_1 + a_2v_2  + \cdots + a_nv_n\right) = 0\]</span> Then this whole thing is true even if the <span class="math inline">\(a_i\)</span> aren’t all zero! ’Cause it doesn’t matter <em>at all</em> what the <span class="math inline">\(a_i\)</span> are!!!</p></li>
+</ul>
+<p>So linear transformations don’t neccessarily map linearly-independent sets to other linearly-independent sets. Sometimes they do, but but not always!</p>
+<p>You might object here that using the examples of the zero function and the identity function are extremes. They’re both edge cases! (At two opposite edges!) Yes, a counterexample at the edge is still a counterexample, but is it something we should actually care deeply about? It’s the stuff in between that perhaps we should care more deeply about!</p>
+<p>So, let’s go back to our example from before, of the function that collapses 3D space down onto the 2D plane: <span class="math display">\[g:\mathbb{R}^3\rightarrow\mathbb{R}^2\]</span> <span class="math display">\[g(x,y,z) = ( x, y) \]</span> Here are some linearly independent vectors in <span class="math inline">\(\mathbb{R}^3\)</span>: <span class="math display">\[\text{linearly independent in $\mathbb{R}^3$:}\quad (5,0,0),(0,7,0),(3,5,17)\]</span> You can check that they’re linearly independent if you don’t believe me! Here’s what they become when we <span class="math inline">\(g\)</span> them (functions are verbs and so we should use them as verbs)(of course functions are also sometimes nouns)(but right now they’re verbs): <span class="math display">\[\text{those vectors, $g$&#39;d: }\quad (5,0),(0,7),(3,5)\]</span> They’re no longer linearly independent! <span class="math display">\[\text{not linearly independent in $\mathbb{R}^2$:}\quad (5,0),(0,7),(3,5)\]</span> You can check this if you like.</p>
+<p>So. If we linearly-transform a linearly-independent set, the result might or might not be linearly independent. The result doesn’t have to be linearly independent.</p>
+<p><img src="linear-independence-to-unknown-4.svg" /></p>
+<div style="height:3em">
+
+</div>
+<p><strong>Conversely</strong>: suppose we have a set of linearly independent vectors in <span class="math inline">\(W\)</span>. We can think of them as being the output of <span class="math inline">\(T\)</span>, and so we can, as it were, rewind the tape (<code>git revert</code>), and see what vectors in <span class="math inline">\(V\)</span> these vectors came from. So then we can ask: if we have a set of linearly independent vectors in <span class="math inline">\(W\)</span>, is the stuff they came from linearly independent? Yes or no? Always, sometimes, never? Necessarily, possibly, probably? <img src="unknown-to-linear-independence-1.svg" /> So let’s suppose we have some linearly-independent elements of <span class="math inline">\(W\)</span>. Let’s call them <span class="math inline">\(w_1\)</span>, <span class="math inline">\(w_2\)</span>, and so on: <img src="unknown-to-linear-independence-2.svg" /> They had to come from somewhere! They had to come from somewhere in <span class="math inline">\(V\)</span>!!! Let’s say the vectors they came from are <span class="math inline">\(v_1\)</span>, <span class="math inline">\(v_2\)</span>, and so forth: <img src="unknown-to-linear-independence-3.svg" /> So our question is: did the stuff in <span class="math inline">\(V\)</span> that the <span class="math inline">\(w_i\)</span> came from—is that stuff <em>also</em> linearly independent??? Are the <span class="math inline">\(v_i\)</span> linearly independent? In other words: <span class="math display">\[\Big(\, \text{ the $w_i$ are linearly independent}\,\Big) \overset{?}{\implies} \Big(\, \text{ the $v_i$ are linearly independent} \,\Big)\]</span> We could describe the stuff they came from in <span class="math inline">\(V\)</span> by talking about the inverse of <span class="math inline">\(T\)</span> or something. But that seems complicated. Also we don’t know that <span class="math inline">\(T\)</span> is invertible??? So instead, like in the last problem, let’s re-label the stuff in <span class="math inline">\(W\)</span> as having come from certain elements in <span class="math inline">\(T\)</span>. In other words, just like in the last part, let’s say: <span class="math display">\[\begin{align*}
+    T\left(v_1\right) &amp;= w_1 \\
+    T\left(v_2\right) &amp;= w_2 \\
+    \vdots \quad &amp;\quad \vdots \\
+    T\left(v_n\right) &amp;= w_n \\
+\end{align*}\]</span> And so we have: <img src="unknown-to-linear-independence-4.svg" /> OK. So <span class="math inline">\(Tv_1, Tv_2, \cdots Tv_n\)</span> are linearly independent. Are the <span class="math inline">\(v_i\)</span> linearly independent??? <span class="math display">\[\Big(\, \text{ the $Tv_i$ are linearly independent}\,\Big) \overset{?}{\implies} \Big(\, \text{ the $v_i$ are linearly independent} \,\Big)\]</span></p>
+<div style="height:1em">
+
+</div>
+<p>OK, so, our starting assumption is that this set of output vectors are linearly independent; i.e., there’s no set of not-all-zero <span class="math inline">\(a_i\)</span> such that: <span class="math display">\[a_1w_1 + a_2w_2 + \cdots a_nw_n = 0\]</span> Or, in other words, there’s no set of <span class="math inline">\(Tv_i\)</span> such that: <span class="math display">\[a_1Tv_1 + a_2Tv_2 + \cdots a_nTv_n = 0\]</span> without all the <span class="math inline">\(a_i\)</span> being zero.</p>
+<p>Of course, our question here is about whether the <span class="math inline">\(v_i\)</span> themselves are linearly independent. So, let’s suppose we have this linear combination of the <span class="math inline">\(v_i\)</span> making zero: <span class="math display">\[b_1v_1 + b_2v_2 + \cdots + b_nv_n = 0\]</span> What can we learn about the <span class="math inline">\(b_i\)</span>? Are they all zero? Or can they possibly be not all zero??? Hmmmm. OK, this is an equation, so we can do some algebra. Let’s <span class="math inline">\(T\)</span> both sides! So we have: <span class="math display">\[T\left(\,  b_1v_1 + b_2v_2 + \cdots + b_nv_n \,\right) = T(0)\]</span> But <span class="math inline">\(T(0)\)</span> has to be zero. So this equation is: <span class="math display">\[T\left(\,  b_1v_1 + b_2v_2 + \cdots + b_nv_n \,\right) = 0\]</span> Meanwhile, <span class="math inline">\(T\)</span> is linear, so we can split it up across addition: <span class="math display">\[T\left(\,  b_1v_1 \,\right) + T\left(\, b_2v_2 \,\right) + \cdots + T\left(\, b_nv_n \,\right) = 0\]</span> And we can pull the scalars <span class="math inline">\(b_i\)</span> out: <span class="math display">\[b_1T\left(\,  v_1 \,\right) + b_2T\left(\, v_2 \,\right) + \cdots + b_nT\left(\, v_n \,\right) = 0\]</span> <span class="math display">\[b_1Tv_1 + b_2Tv_2 + \cdots + b_nTv_n = 0\]</span> But, wait a sec. We know the <span class="math inline">\(Tv_i\)</span> are linearly independent. So the only way we can linearly-combine/scalar-multiply-and-add them to get zero is if all the scalars are zero! In other words, if all the <span class="math inline">\(b_i\)</span> are zero! So then all the <span class="math inline">\(b_i\)</span> are zero. But wait! The <span class="math inline">\(b_i\)</span> came from this equation: <span class="math display">\[b_1v_1 + b_2v_2 + \cdots + b_nv_n = 0\]</span> And now we’ve learned that all the <span class="math inline">\(b_i\)</span> are zero! So if that equation results in requiring that all the <span class="math inline">\(b_i\)</span> be zero, then that means that the <span class="math inline">\(v_i\)</span> have to be linearly independent!!!! So indeed: <span class="math display">\[\Big(\, \text{ the $Tv_i$ are linearly independent}\,\Big)\implies\Big(\, \text{ the $v_i$ are linearly independent} \,\Big)\]</span> And: <img src="unknown-to-linear-independence-5.svg" /></p>
+<h2 id="do-linear-transformations-preserve-linear-dependence">Do linear transformations preserve linear DEpendence?</h2>
+<p>Suppose we have a set of linearly DEpendent vectors in <span class="math inline">\(V\)</span>. When we map them into <span class="math inline">\(T\)</span>, is the resulting set of vectors (in <span class="math inline">\(T\)</span>) still linearly dependent? Always, sometimes, never? <img src="linear-dependence-to-unknown-1.svg" /> Suppose we have some linearly dependent vectors <span class="math inline">\(v_i\)</span> in <span class="math inline">\(V\)</span>: <span class="math display">\[\text{some linearly dependent vectors in $V$: } v_1, v_2, \cdots v_n\]</span> Is their output, under <span class="math inline">\(T\)</span>, also linearly dependent?? In other words, is <span class="math inline">\(Tv_1\)</span>, <span class="math inline">\(Tv_2\)</span>, <span class="math inline">\(Tv_n\)</span>, etc., linearly dependent??</p>
+<p>Hmm. The <span class="math inline">\(v_i\)</span> are all linearly dependent, so we can linearly-combine/scalar-multiply-and-add them to get zero without all the coefficients/scalars being zero: <span class="math display">\[\text{not all the $a_i$ need be zero: } a_1v_1 + a_2v_2 + \cdots a_nv_n = 0\]</span> OK. What if we take that equation, and use <span class="math inline">\(T\)</span> to map it into <span class="math inline">\(W\)</span>? <span class="math display">\[T\Big(\, a_1v_1 + a_2v_2 + \cdots a_nv_n \,\Big) = T\Big(\, 0 \,\Big)\]</span> On the right side, because <span class="math inline">\(T\)</span> is linear, <span class="math inline">\(T(0)=0\)</span>, so this becomes: <span class="math display">\[T\Big(\, a_1v_1 + a_2v_2 + \cdots a_nv_n \,\Big) =0\]</span> On the right side, because <span class="math inline">\(T\)</span> is linear, this becomes: <span class="math display">\[T\Big(\, a_1v_1 \,\Big) + T\Big(\, a_2v_2 \,\Big)  + \cdots T\Big(\, a_nv_n \,\Big) =0\]</span> <span class="math display">\[a_1 T\Big(\, v_1 \,\Big) + a_2T\Big(\, v_2 \,\Big)  + \cdots a_nT\Big(\, v_n \,\Big) =0\]</span> <span class="math display">\[a_1 T v_1  + a_2T v_2  + \cdots a_nT v_n  =0\]</span> But wait! By assumption/hypothesis, the <span class="math inline">\(a_i\)</span> aren’t all zero. And yet here’s an equation in which we scalar-multiply by the <span class="math inline">\(a_i\)</span> the outputs of the <span class="math inline">\(v_i\)</span>, i.e. the <span class="math inline">\(Tv_i\)</span>, and we get zero! So then the <span class="math inline">\(Tv_i\)</span> must be linearly dependent. So then if we linearly-map some linearly dependent vectors, the output always has to be linearly dependent. <img src="linear-dependence-to-unknown-2.svg" /></p>
+<div style="height:3em">
+
+</div>
+<p><strong>What about the converse?</strong> Suppose we have a set of linearly DEpendent vectors in <span class="math inline">\(W\)</span>. Is the stuff they came from in <span class="math inline">\(V\)</span> necessarily linearly dependent? <img src="unknown-to-linear-dependence-1.svg" /> Well… we’ve basically answered this question by now. We saw, earlier, that a set of linearly-independent vectors can linearly-map into either a linearly independent or a linearly DEpendent set. <img src="linear-independence-to-unknown-4.svg" /> And we just saw that a linearly DEpendent set of vectors has to linearly-map into another set of linearly DEpendent vectors. <img src="linear-dependence-to-unknown-2.svg" /> So therefore, if we’ve got a set of linearly dependent vectors as the output of some linear map, then they could have come from either a linearly independent or a linearly dependent set of vectors. (And a set of vectors is either linearly independent or linearly DEpendent—there’s no in-between!) <img src="unknown-to-linear-dependence-2.svg" /></p>
+<h2 id="in-conclusion">In conclusion!</h2>
+<p>So, what have we learned about how linear transformations/functions/maps treat linear independence? Here’s the big takeaway:</p>
+<ul>
+<li>A linear map can take a linearly independent set of vectors to another linearly-independent set of vectors, or it can collapse it to a linearly DEpendent set of vectors.</li>
+<li>A linear map has to take a linearly DEpendent set of vectors to another linearly DEpendent set of vectors. It can’t create linear independence.</li>
+</ul>
+<p>Put visually:</p>
+<p><img src="linear-transformations-linear-independence-conclusion.svg" /></p>
+<p>Linear independence is fragile. It’s easy to destroy. It’s low-entropy. Linear DEpendence, by contrast, is the default state of chaotic unorganized dissonant high-entropy nature. Linear transformations can’t create linear independence. But they can destroy it.</p>
+<h2 id="section"></h2>
+<p>one of the useful ideas with functiosn is injectivity/one-to-one-ness</p>
+<p>eg with x^2 vs x^3</p>
+<p>invertible</p>
+<p>maybe we send 0 to 0, but then a bunch of other stuff maps onto the same elements</p>
+<p>PICTURE</p>
+<p>can this happen?</p>
+<p>nope!</p>
+<p>as it turns out</p>
+<p>being invertible/injective/one to one is equiv to having kernel being 0</p>
+<p>as a FUNCTION this is fine, but it breaks linearity but it’d be no longer linear</p>
+<p>prove that the kernel being just zero is equivalent to injectivity</p>
+<p>injective maps preserve linear independnece</p>
+<p>injective maps?</p>
+<p>suppose we have some linear map <span class="math inline">\(T\)</span> that only maps the zero vector to zero, but does map other vectors to the same vector. in other words, perhaps it looks like this:</p>
+<p>PIC</p>
+<p>So the only thing that gets sent to <span class="math inline">\(\vec{0}\)</span> in <span class="math inline">\(W\)</span> is <span class="math inline">\(\vec{0}\)</span> in <span class="math inline">\(V\)</span> but we have <span class="math inline">\(x,y\)</span> in <span class="math inline">\(V\)</span> that both get sent to <span class="math inline">\(w\)</span> in <span class="math inline">\(W\)</span>.</p>
+<p><span class="math inline">\(T(x) = w\)</span> <span class="math inline">\(T(y) = w\)</span></p>
+<p>adding these two eqns</p>
+<p><span class="math inline">\(T(x) + T(y) = w + w\)</span></p>
+<p><span class="math inline">\(T(x+y) = w+w\)</span></p>
+<p>let’s SUBTRACT</p>
+<p><span class="math inline">\(T(x) - T(y) = w - w\)</span> <span class="math inline">\(T(x) - T(y) = 0\)</span> <span class="math inline">\(T(x-y) = 0\)</span> but bc the kernel is zero we must have <span class="math inline">\(x- y = 0\)</span> <span class="math inline">\(x = y\)</span> so in fact, <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> are the same</p>
+<p>moreover <span class="math inline">\(T(v) = 0 \implies v=0\)</span> if we have something in <span class="math inline">\(V\)</span> that maps to <span class="math inline">\(0\)</span> in <span class="math inline">\(W\)</span>, that means that that original thing also has to be <span class="math inline">\(0\)</span> in <span class="math inline">\(V\)</span>.</p>
+<h2 id="what-if-we-have-a-linear-function-thats-injectivedoes-that-preserve-linear-independence">What if we have a linear function that’s injective—does <em>that</em> preserve linear independence?</h2>
+<p>it seems like it should?</p>
+</main>
+</body>
+</html>

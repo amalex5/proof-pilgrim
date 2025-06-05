@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Complex Numbers: Nothing Is Real Anymore</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1.0, width=device-width">
+  <link rel="icon" href="andrew-logo.svg" />
+
+<meta name="title" content="Complex Numbers: Nothing Is Real Anymore">
+<meta name="author" content="Andrew M.H. Alexander">
+<meta name="description" content="Thoughtful, inquiry-based complex numbers notes for high schoolers, through polar coordinates, Euler's Formula, complex roots, and the complex logarithm.">
+<meta name="keywords" content="math, complex numbers, i, inquiry-based, discovery-based, complex roots, polar coordinates, euler's formula">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="http://www.andrusia.com/math/complex-numbers/">
+<meta property="og:title" content="Complex Numbers: Nothing Is Real Anymore">
+<meta property="og:description" content="Thoughtful, inquiry-based complex numbers notes for high schoolers, through polar coordinates, Euler's Formula, complex roots, and the complex logarithm.">
+<meta property="og:image" content="andrew-logo.svg">
+
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="http://www.andrusia.com/math/complex-numbers/">
+<meta property="twitter:title" content="Complex Numbers: Nothing Is Real Anymore">
+<meta property="twitter:description" content="Thoughtful, inquiry-based complex numbers notes for high schoolers, through polar coordinates, Euler's Formula, complex roots, and the complex logarithm.">
+<meta property="twitter:image" content="http://www.andrusia.com/andrew-logo.svg">
+
+
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-29238857-1"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-29238857-1');
+  </script>
+
+  <link rel="stylesheet" href="complex-numbers.css" />
+</head>
+
+<body>
+  <main>
+
+    <h1>Complex Numbers: Nothing Is Real Anymore</h1>
+      <h2> Numbers are actually two dimensional. Functions can have multiple outputs. Prime numbers aren’t actually prime.</h2>
+    <h3><a href=http://www.andrusia.com>Andrew M.H. Alexander</a></h3>
+  
+
+
+
+<p>I taught complex numbers to high schoolers for the first time in the winter of 2020. I couldn’t find any textbooks that describe complex numbers or lead students through them in a way that is remotely thoughtful or motivated, so I had to make everything up myself. I thought deeply about how to organize, connect, motivate, and justify the mathematics. This is my summary, with links to all my notes and worksheets.</p>
+ 
+  <p><b>I wanted the kids to discover for themselves the algebra and geometry of complex numbers, and through both a) their own discovery and b) thoughtful practice, gain a lucid intuition for how complex numbers behave.</b></p>
+    
+   My primary curricular goal was for us to build to <b>understanding how complex roots work</b>. This seems like the normal amount of stuff that gets done at this level. Plus, it’s a goal that both requires and allows lots of antecedent work and side journeys. 
+    
+    <p>Of course, the roots of any complex number is “just a formula,” which the textbooks happily provide with minimal motivation or intuition. But I wanted the kids to understand how complex roots behave well enough to <em>come up with the formula themselves</em>. The formula is scary and complicated if you don’t know why it works. One thing well-meaning teachers often do is help kids reverse-engineer scary formulas: “See, this variable is in the formula because of such-and-such!” That’s well-intended. But it’s treating the symptoms rather than the root cause. I wanted my kids to <em>forwards-engineer</em> the formula, for themselves. And not to forward-engineer it in a way that required them to either a) perform heroic intellectual feats or b) rely on blinding insights from the gods—but to build it a way that is natural and easy, as a result of being carefully guided, bit by bit, slowly chipping away at the margins. <b>Formulas should be formalized versions of our intuition, not talismans or tablets of received wisdom.</b></p>
+
+    <p class="contents">
+      <a href="#cyclic">the powers of \(i\) are cyclic</a>
+      ◆ <a href="#basic-arithmetic">basic arithmetic and algebra</a>
+      ◆ <a href="#sqrti">the square roots of \(i\)</a>
+      ◆ <a href="#roots-rectangular">finding roots of \(i\) in rectangular</a>
+      ◆ <a href="#mult-by-i">multiplying by \(i\) is rotation</a>
+      ◆ <a href="#64">the six sixth roots of \(64\)</a>
+      ◆ <a href="#flt"><em>Fermat’s Last Theorem</em></a>
+      ◆ <a href="#adding-angles">multiplication is adding angles</a>
+      ◆ <a href="#polar">polar coordinates</a>
+      ◆ <a href="#forms">different representations</a>
+      ◆ <a href="#euler">\(re^{i\theta}\) form</a>
+      ◆ <a href="#roots-revisited">complex roots, revisited</a> 
+      ◆ <a href="#exponentiation">\(i^i\) and complex exponentiation</a>
+      ◆ <a href="#video"><em>Imaginary Numbers Are Real</em></a>
+      <br><br>
+      unused ideas: 
+        <a href="#fta">the fundamental theorem of algebra</a>
+      ◆ <a href="#geometry">geometry problems</a>
+      ◆ <a href="#word-problems">word problems</a>
+      ◆ <a href="#hyperbolic">hyperbolic trig functions</a>
+      ◆ <a href="#gaussian-integers">prime numbers aren't prime</a>
+      ◆ <a href="#quaternions">quaternions</a>
+      ◆ <a href="#lin-alg">baby linear algebra</a>
+      ◆ <a href="#quiz-questions">quiz questions</a>
+      <br><br>
+      <a href="#kids">student reactions</a>
+    </p>
+
+    
+     
+
+     <span class='asterism'  id="cyclic"></span>
+
+      <p><a href="complex-numbers-one.pdf">We started off the first day</a> by seeing that <b>the powers of \(i\) are cyclic</b>. I figured the kids had seen this before, and they had, but it was still the right way to start. That the powers of \(i\) are cyclic is our first indication that \(i\) behaves weirdly! Other numbers don’t do that!</p>
+      
+      <p>It induces all sorts of questions: why do the powers of \(i\) repeat every four? Why not every two, or every three, or every five? Why is the pattern this: \[\cdots, +i, -1, -i, +1, \cdots\]
+      And not this: \[\cdots, +i,-i,+1,-1, \cdots\quad???\]
+      or this: \[\cdots, +i,+1,-i,-1, \cdots\quad???\] 
+        These are <a href=https://twitter.com/hillelogram/status/1186753617002422272>real, genuine questions, right at the surface</a>! There’s a pedantic dumb answer, which is that “the pattern is what it is because that’s what it is.” If we were gods, maybe <a href=https://en.wikipedia.org/wiki/Tractatus_Logico-Philosophicus>the tautology of the world would resolve itself</a>. But we’re not, and it doesn’t. <a href="http://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0172%3Atext%3DTheaet.%3Asection%3D155d">Philosophy begins in wonder</a>, and we ought encourage that.<p>
+        <li><a href="complex-numbers-one.pdf#page=7">We also <b>reviewed basic arithmetic</b> with complex numbers</a> on the first day of class. It turned out the kids all remembered that pretty well. Unlike my usual experience of having to re-teach everything, whatever they did with complex numbers last year really stuck. (They had done basic arithmetic, algebra, and graphing, all in rectangular.)<p>
+        
+        <li> I didn’t try to motivate or justify of the idea of \(i\). That was partly because doing so seemed hard to do well and easy to do poorly, and partly because I assumed they’d done it last year. So rather than following the historical development of the complex numbers, and motivating them in terms of adding closure to the reals, I motivated \(i\) as just a formal symbol with the property that \(i^2=-1\). (I didn’t use that word with them, but that’s how I was thinking.) I urged students to suspend their disbelief, just as they might when reading a fantasy novel. Refusing to read or disliking <em>The Lord of the Rings</em> because hobbits don’t exist misses the point. If the internal logic of a world creates contradictions, then by all means call them out. Otherwise: live by the internal logic, suspend your disbelief, and see what you can discover. That’s good advice for math, for literature, for dealing with people, and for many things. (I think I can say all that without veering too far into moral relativism.)<p>
+
+
+<span class='asterism'  id="basic-arithmetic"></span>
+
+        <li>Summarizing our introduction to our study of complex numbers, I wrote:<blockquote>Now that we have these new numbers, the complex numbers, we need to (re-)learn how to do math with them. Namely:
+<ul>
+  <li><p>How do we do <b>arithmetic</b> with complex numbers? We’re pretty good at arithmetic with real numbers. What about with complex numbers?
+<ul>
+  <li> How do we <b>add</b> and <b>subtract</b> complex numbers?
+  <li>  How do we <b>multiply</b> and <b>divide</b> complex numbers?
+  <li>  How do we takes <b>powers</b> and <b>roots</b> of complex numbers?
+  <li>  How do we <b>exponentiate</b> and <b>logarithm...ate</b> complex numbers?
+  </ul>
+          </ul></p>
+<p>And we know a lot more math than just arithmetic! We’d also like to learn:
+<ul>
+  <li> How do we do <b>algebra</b> with complex numbers? How do <b>functions</b> of complex numbers work? What do they look like?
+<li> How do we do <b>geometry</b> with complex numbers?
+<li> How do we do <b>calculus</b> with complex numbers? (Well, I guess we should probably learn how to do calculus with real numbers first!)
+          </ul></p>
+<p>When we generalize and zoom out, things can get weird. We’ve already seen this: we played around with polynomials, which were very nice. Then we generalized to rational functions. Every polynomial is also a rational function, but there are plenty of rational functions that aren’t polynomials. (Rational functions are what we get if we allow the exponents to be negative!) And it turns out that if we zoom out to thinking about all rational functions, things can get pretty weird. We get asymptotes! (Both the horizontal and vertical kind!) </p>
+
+<p>Similarly, <b>do strange new things happen when we zoom out from the real numbers to the complex numbers?</b> Which new uncontacted tribes do we, as mathematical anthropologists, discover and try to understand? T.S. Eliot <a href="http://www.davidgorman.com/4quartets/2-coker.htm">writes</a>:
+          <blockquote>
+Home is where one starts from. As we grow older<br>
+The world becomes stranger, the pattern more complicated
+            </blockquote>
+          Of course, he wasn’t writing about math <em>per se</em>, but he might as well have been, since the poem continues, a few lines later:
+          <blockquote>
+We must be still and still moving<br>
+Into another intensity <br>
+For a further union, a deeper communion
+          </blockquote>
+          Let us move into the intensity of the complex numbers, and in so doing have a deeper communion with mathematical reality. </p>
+          </blockquote>
+          
+          <li><p><a href="complex-numbers-one.pdf#page=13" id="sqrti">We ended the first day of complex numbers</a> doing something I was pretty sure they’d never seen before, and which I knew would be exciting. I put this weird expression on the board, and asked the kids to simplify it:
+          \[\left(\pm\frac{1}{\sqrt{2}}\pm\frac{1}{\sqrt{2}}i\right)^2  \]
+         We get just \(i\), which tells us that <b>this weird number is a square root of \(i\)</b>:
+         \[\sqrt{i} = \pm\frac{1}{\sqrt{2}}\pm\frac{1}{\sqrt{2}}i \]
+         This is really strange! How can \(i\) have a square root? It already <em>is</em> a square root—can it have its own square root? How is that even possible? Is this, like, the fourth root of \(-1\)? Where does this weird expression come from? Why does it look so much like a trig function of a \(45^\circ\) angle? Can we actually take roots of complex numbers? Does \(i\) have a third or fourth or fifth root? If so, how would we find it? It’s easy to verify that a number we already have is a square root of \(i\), but how do we come up with that number in the first place (pedagogical NP-completeness)?</p>
+         
+<li><p>The bigger idea I was going for was to understand how complex roots work with three levels of increasing clarity:
+<ol>
+<li>We can prove that this number is a square root of \(i\), but we don’t know where it came from.
+<li>We can come up with a procedure to find the square roots of \(i\), but the procedure itself doesn’t give us a lot of insight.
+<li>We can understand, on a deep intuitive level, why the two square roots of \(i\) are what they are.
+  </ol></p>
+<li><p>We spent a few days reviewing basic arithmetic and algebra with complex numbers in rectangular form, doing various fun problems. (The cool thing about equations with complex numbers is that <em>one</em> equation relating <em>two</em> complex numbers is <em>two</em> equations relating <em>four</em> real numbers!)</p>
+<li><p>Eventually, once the kids were reasonably solid at that, <a href="complex-numbers-one.pdf#page=13">I showed them how we could <b>figure out the square roots of \(i\) in rectangular</a></b>. We can assume that \(\sqrt{i}\) is some complex number, set up an equation with unknowns \(a\) and \(b\), and solve:
+      \[ a+bi = \sqrt{i}\]
+    This begets both square roots of \(i\), but it’s still kinda unsatisfying. We have a procedure now, so our situation has improved, but doing the algebra doesn’t give us a lot of insight into <em>why</em> the answer is what it is. We’re just blindly symbol-manipulating.</p>
+
+<span class='asterism'  id="roots-rectangular"></span>
+
+<p><a href="complex-roots-rectangular-form-web.pdf">Then the kids did the same procedure to <b>find all the cube roots of \(i\), and the fourth roots of \(i\)</a>, in rectangular</b>. This went really, really well. The two or three class days we spent on it were some of the highlights of the entire unit, at least for me.
+  
+  <p>One of the really great things about these problems is that they’re problems which a) are internal to math, but b) require a lot of calculation to work out. It’s very hard to find problems like that at this level. So much of what kids learn is either basic definitions and procedures, the symbol-manipulative aspects of which are very simple. So then a “hard” problem is one which is hard because either a) it requires some sort of blinding insight or tricky step, or b) it’s some sort of complicated applied/word problem. Finding the roots of \(i\) in rectangular, though, is a genuine mathematical problem, and one which requires a whole bunch of <em>work</em>—mathematical work.</p>
+    
+    <p>Finding the fourth roots in rectangular involves, among other things, solving two separate quadratic equations, one of which is quadratic in the variable \(b^2\), and endless <em>Keystone Cops</em>-style sign chasing. I wasn’t really expecting anyone to figure it out—the point was for them to get bogged down in the algebraic swamp, and thus desire and seek a better way out. But a number of students actually did manage to calculate all of the roots! With only a few exceptions they did it working in groups (spontaneously-organized ones, and in several cases groups of kids who don’t usually work together). I was very impressed. 
+      
+      <p>Many of the kids started to stumble on the polar representation of complex numbers during these problems, or at least start to notice that there seemed to be connections between complex numbers, angles, and trig. I wrote in my diary:
+      <blockquote>
+        ... Of course it IS my ultimate goal to get the kids to decide themselves that we ought to represent complex numbers in terms of their angles and radii (at least some of the time). It’s just that a) I wasn’t even sure if that was an achievable goal, and b) I wasn’t planning on working toward it yet! Like, I have a worksheet with a bunch of problems that are supposed to motivate and induce the idea of polar coordinates—a bunch of aggravating multiplication problems, multiplying together various roots and powers of \(i\) and graphing them, all in rectangular/Cartesian—but, like, that’s several class days away! I wasn’t expecting them to start figuring it out ALREADY!!! (This is what I get for making sure they know trig so solidly???)</p>
+
+<p>The other hard thing about getting them to stumble on the polar representation of complex numbers is: <em>it’s a definition</em>. It’s hard enough to get kids to figure out by themselves how to prove given theorems. It’s way harder to get them to decide what theorems to prove. And it’s harder still for them to define and create objects (objects to state and prove theorems about)!!! <em>Definitions are the hardest</em>. Because definitions, in a sense, are not mathematical questions, or rather, are not deductive questions. “How do we prove such-and-such” is a question whose answer lies in a deductive process; “what should we prove?” or “what should we study?” comes before that. ...</p>
+  </blockquote>
+    
+      <p>Later, after we had learned all about polar coordinates and figured out how trivial finding complex roots in polar is, one of the kids told me, “I actually liked doing it in rectangular more, because it was just so much <em>harder</em>, and I was so much more <em>emotionally invested</em> in the outcome.” My intent had been the opposite, but whatever works, kid.
+
+<span class='asterism'  id="mult-by-i"></span>
+
+<p>Meanwhile, I gave the kids <a href="multiplication-by-i-as-rotation.pdf">a worksheet to have them figure out that <b>multiplying numbers by  \(i\) rotates them \(90^\circ\)</b></a>. Most of them hadn’t seen that before. It’s another indication that complex numbers behave weirdly—our first hint that there’s some deep connection between complex numbers and geometry. <a href="complex-numbers-rotation-notes.pdf">I also wrote some brief didactic notes and repetitive problems to reinforce that</a>. Conceptually, this was a bit disconnected from the rest of our adventure. (It turns out the kids had thought about complex numbers as vectors last year, so they were able to connect it to that.)</p>
+  
+  <li><p id="64">I gave the kids <a href="roots-of-64.pdf">a classic <em>Art of Problem Solving</em> problem involving <b>finding all six sixth roots of \(64\)</b></a>. The roots can be found algebraically by successively applying the difference of squares, difference of cubes, and sum of cubes factorizations, together with the quadratic equation. It’s a cool solution, even though (or perhaps because) it doesn’t generalize. The kids plotted the roots, and noticed that they lie on a circle of radius two, and/or are the vertices of a regular hexagon. Would the sixth roots of 729 all lie on a circle of radius 3?, several wondered.</p>
+    <p>The six sixth roots of \(64\) recurred several times throughout our study of complex numbers, becoming a sort of “model organism” for how complex roots work. Conveniently, most of the kids were doing experiments on planarian worms in their 10th grade biology class—an actual model organism. We should find the general from the particular, not the particular from the general, <a href=https://plato.stanford.edu/entries/aristotle-logic/#IndDed>following Aristotle</a>, as Andrew Ellison once advised me.</p>
+
+    <p> I made <a href="roots-of-64-lowres.gif">an animation of the sixth roots of \(64\) all being exponentiated from \(0\) up to \(6\)</a>. They create a very beautiful spiral, and the asymmetry of the \(z=+2\) and \(z=-2\) roots, especially in contrast to the symmetry of the other roots, is very pretty.
+      
+      
+<span class='asterism' id="flt"></span>
+
+ <p >We spent a day watching <a href=https://simonsingh.net/books/fermats-last-theorem/fermats-last-theorem-the-tv-documentary/>Simon Singh’s 1996 BBC documentary <em>Fermat’s Last Theorem</em></a>. That was intended to be completely unrelated—we had an extra day in the schedule; it’s a great documentary; it was the day before ski week; I made cookies for everyone—but it turned out to have some important resonance. 
+  
+  <ul>
+    <li><p>Towards the beginning, Andrew Wiles says:
+      
+      <blockquote>Perhaps I could best describe my experience of doing mathematics in terms of entering a dark mansion. One goes into the ﬁrst room, and it’s dark, completely dark. One stumbles around bumping into the furniture, and gradually, you learn where each piece of furniture is, and finally, after six months or so, you find the light switch. You turn it on, and <em>suddenly, it’s all illuminated</em>. You can see exactly where you were.</blockquote>
+    <p>This, I told the kids, is basically where we are with complex numbers (in the beginning). We’re stumbling around, finding these roots of \(i\), but not really knowing <em>why</em> things are the way they are. The polar representation of complex numbers, once we found it, would become our light switch. Thinking about complex numbers in polar form explains so much: how roots work, why the powers of \(i\) repeat in the pattern they do, why they behave geometrically, etc.<p>
+      <li><p> One thing the documentary does very well is to try to explain, in a high-level way, how Wiles solved the FLT by translating it from a question about number theory into a question about “modular forms.” Obviously this is a broad theme in math: translating questions in one setting into a different setting in which they’re more easily answered. And this is definitely true in the world of complex numbers: there are many questions about complex numbers which are difficult to answer in rectangular, but far easier to answer in polar.</p>
+              <li><p>Finally, one mathematician featured in the documentary describes a deceased colleague thusly: 
+        <blockquote>Taniyama was not a very careful person as a mathematician. He made a lot of mistakes. But he made mistakes in a good direction. So eventually he got to the right answers. I tried to imitate him, but I found out that it is very difficult to make good mistakes.</blockquote>
+        While we were calculating the cube roots of \(i\), two of the kids made conjectures which, while not precisely correct, were still very clever. I ended up <a href=#quiz-questions>writing them up as quiz questions</a>, with the explanation that they were <em>very good mistakes</em>.
+      </p>
+  </ul>
+
+
+<span class='asterism' id="adding-angles"></span>
+
+<p>Finally, it was <b>time to definitively figure out how to represent complex numbers in terms of their angles and radii!</b> This had been foreshadowed heavily, starting on the first day, when many kids noticed that one of the square roots of \(i\) looked an awful lot like a point on the unit circle with angle \(45^\circ\). Many of them had noticed unit circle/trig/special right triangle points continuing to show up, had begun to notice patterns, and had begun to suggest that perhaps all this complex number stuff would be a lot easier if we just thought about complex numbers in terms of their angles.</p>
+  
+  <p>To get everyone to realize this, and help them conclusively create the polar representation of complex numbers, <a href="complex-numbers-three-polar-motivation.pdf">I wrote a worksheet to empirically lead them to this result</a>.</p>
+    
+    <p>The worksheet has lots of problems with multiplying and dividing complex numbers in rectangular form, with the idea being that they’ll then recognize that multiplying two complex numbers together is the same as adding their angles. (We had just done trig, so it was easy for them to recognize how the points on the complex plane corresponded to angles.)</p>
+    
+    <p>For example, I had the kids multiply together these two complex numbers:
+    \[\left(\frac{1}{\sqrt{2}} + \frac{1}{\sqrt{2}}i\right)\cdot \left( \frac{\sqrt{3}+1}{2\sqrt{2}} + \frac{\sqrt{3}-1}{2\sqrt{2}} i \right)\]
+    This takes a henious amount of algebra (good practice!), but once we compute it, we get just:
+    \[ \frac{1}{2} + \frac{\sqrt{3}}{2}i \]
+  And then we can notice that all of these expressions correspond to points on the unit circle:
+    \[ \underbrace{\left(\frac{1}{\sqrt{2}} + \frac{1}{\sqrt{2}}i\right)}_{=45^\circ}\cdot \underbrace{\left( \frac{\sqrt{3}+1}{2\sqrt{2}} + \frac{\sqrt{3}-1}{2\sqrt{2}} i \right)}_{=15^\circ} = \underbrace{\frac{1}{2} + \frac{\sqrt{3}}{2}i}_{=60^\circ}\]
+    And:
+    \[ 45^\circ + 15^\circ = 60^\circ \]
+By doing enough problems like that (multiplying and dividing points on the unit circle, whose angles they already know), we can see the pattern, and figure out what’s going on.</p>
+ <p>The crux question was this:
+   <blockquote>
+     Suppose I ask you to multiply together the following complex numbers:
+
+\[\left( \frac{1}{\sqrt{2}} - \frac{1}{\sqrt{2}}i \right)\cdot \left(\frac{1}{2} + \frac{\sqrt{3}}{2}i \right)\cdot \left( -i \right)\cdot \left( -\frac{1}{\sqrt{2}} + \frac{1}{\sqrt{2}}i \right)\cdot \left( \frac{\sqrt{3}+1}{2\sqrt{2}} + \frac{\sqrt{3}-1}{2\sqrt{2}} i \right)\]
+<ul>
+  <li>Do you want to multiply all of these out by hand?
+  <li>Do you have any better ideas?
+  <li>Are you lazy? Can you figure out a faster way? 
+  <li>Don’t just “suppose” that I asked you to multiply those numbers together—actually multiply them together. What do you get?
+     </ul>
+   </blockquote>
+  One way or another, the kids all decided that it’s way easier just to add the angles.</p>
+  
+  <p>Finally, we did some problems involving points off the unit circle, with a radius greater or smaller than one. Once we have a solid understanding of what’s going on with the angle when we multiply two complex numbers together, we can figure out what’s going on with the radius. (And that’s easier to understand.)</p>
+      
+     <span class='asterism' ></span>
+
+<p id="polar"><a href="complex-numbers-polar-notes-web.pdf">I wrote some didactic notes about polar coordinates</a>, too. There are lots of fun problems at the end, which I had fun writing and/or assembling. I finally had the opportunity—I’d wanted to do this for years—to use the street grids of New York City and Burning Man as examples of Cartesian and polar coordinate systems. We also played <a href="http://andrusia.com/polartetris.html">my Polar Tetris game</a>.</p>
+        
+    <span class='asterism' id="forms"></span>
+
+<p>By this point, we can <b>represent complex numbers in a variety of different ways</b>:
+          <ul><li>We can write them in rectangular form, using a coordinate pair:\[(a,b)\]
+            <li>We can write them in rectangular form, as a single expression:\[a+bi\]
+              <li>We can write them in polar form, as a coordinate pair:\[r\angle\theta\]
+                <li>We can write them as a single expression using trig functions: \[r(\cos\theta + i\sin\theta)\]
+                  <li>We can write them as a power of \(i\):\[ri^{\theta/(\pi/2)}\]
+                  <p>This form isn’t a way I’ve seen anyone else write complex numbers. If you want to get really precise about it, there’s some ambiguity about the fractional powers and repeated roots that might get stuffy fussbudget mathematicians upset. But it’s a fun extra way, and emphasizes the rotational properties of the powers of \(i\).</p>
+                              
+            <li>But there’s still <b>one more way</b> we want to be able to represent complex numbers: exponential/Euler form:
+          \[re^{i\theta}\]
+            </ul>
+
+    <span class='asterism' id="euler"></span>
+
+<p >I thought a lot about how to actually get to <b>exponential/Euler/\(e^{i\theta}\) form</b>. From my perspective, this was the trickiest part of the entire unit—how to make this connection.</p>
+  
+<p>To recap: we started by representing complex numbers in rectangular form. We intuitively figured out how to represent complex numbers with sine and cosine, which was facilitated by all the time we had spent with trig. We intuitively figured out the polar multiplication and exponentiation rules, through experimentation. Then we passed these through to sine and cosine, giving us what people call De Moivire’s Theorem. None of that is a proof—but it doesn’t need to be.
+  
+  <p>But how to get to representing a complex number \(r\angle\theta\) as \(re^{i\theta}\)? Without calculus, we’re pretty stuck.</p>
+
+  <p>Eventually, at Jana’s suggestion, I did her Desmos derivation of Taylor series. What if you want to make up Taylor series, but you don’t know calculus, but you do have a very fancy graphing calculator??? We can look at the graphs of sine, cosine, and \(e^x\), and then try to write polynomials to fit the graphs.</p>
+    
+    <p>When we did this in class, I started the day by telling the kids that we were going to take a break from complex numbers, and talk about something that <em>definitely doesn’t have anything to do with complex numbers</em>. Instead, we were going to talk about infinitely-long polynomials! With the help of Desmos and some heavy suggesting, we came up with the Taylor series forms:
+    \[\sin x = x - \frac{x^3}{3!} + \frac{x^5}{5!} - \frac{x^7}{7!} + \frac{x^9}{9!} -\cdots\]
+      \[\cos x = 1 - \frac{x^2}{2!} + \frac{x^4}{4!} - \frac{x^6}{6!} + \frac{x^8}{8!} - \cdots \]
+    \[e^x = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \frac{x^4}{4!}  +\cdots \]
+    Gee, the three of these look so similar to each other! Sine and cosine are like each half of \(e^x\)! I mean, not quite, because of the negatives and stuff. But almost! So I challenged the kids to try to put these three equations together, and find a way to connect sine, cosine, and \(e^x\). Many of them were able to notice that there seems to be a pattern that repeats every four cycles—and thus make the connection that maybe \(i\) is somehow involved! Very surprising, and very exciting. But putting \(i\) into the exponent of \(e\) is a little weird, so not everyone made it all the way to Euler’s Formula. Many did, though, and everyone made good efforts, and lots of them came up with other interesting identities relating sine, cosine, and \(e^x\).</p>
+  
+  <p>At the end of class, after we had figured out Euler’s Formula, I had the kids plug \(\pi\) into it to see what happens. I’ll note that it felt pretty gross to have Euler’s Identity not be not the end goal, but rather instrumental to a different goal.</p>
+  
+  <p>But, anyway, we figured out Euler’s Formula, and by comparing it to our existing ways of representing complex numbers, we realized we had a sixth (and final) way to represent complex numbers:
+    \[re^{i\theta} = r(\cos \theta + i\sin \theta)\]
+  As I told the kids, <em>exponential functions are just trig functions. Trig functions are just exponential functions.</em> And they’re connected through \(i\).
+  </p>
+  <p><a href="eulers-identity.pdf">I wrote some didactic notes summarizing all this</a>. They included lots of problems involving writing some complex number in all six different forms, so as to build fluency and intuition for translating the numbers back and forth into each different representation.</p>
+      
+
+
+<p>Then, with all six forms of representing complex numbers, we can do even more fun stuff! With all that flexibility and fluency, there’s all sorts of stuff we can easily discover. I wrote and assembled <a href="eulers-identity.pdf#page=7">some more fun problems at the end of my didactic notes</a>.</p>
+  
+   
+<span class='asterism' id="roots-revisited"></span>
+
+
+In particular, we can finally move on to <b>figuring out how complex roots work</b>! In some sense, this had been the overwhelming question since seeing on the first day that \(i\) has a square root (two of them). We struggled with heinous amounts of algebra to figure out the third and fourth roots of \(i\). Now that we have all the tools and tricks for thinking about complex numbers in terms of their angles and radii, we can finally obtain some genuine understanding for why complex roots behave the way they do. </p>
+      
+      <p><a href="complex-roots-motivation.pdf">I wrote a worksheet to lead the kids to that understanding</a>. We started by calculating the square, cubic, and quartic roots of \(i\), but this time in polar. Then we generalized to find more roots of \(i\), and also roots of \(1\). Then we generalized some more to find the roots of other numbers on the unit circle. Eventually, we generalized to any number on the unit circle, and then to any complex number whatsoever.
+
+<p>I never finished writing didactic notes to summarize what we learned about complex roots, because COVID-19 cut us off. But I did <a href="complex-roots-notes.pdf">start drafting such notes</a>, <a href="cube-roots-of-i.pdf">I drew a nice picture showing how to think about the cube roots of \(i\) geometrically/rotationally</a>, and I passed out <a href="every-root-of-every-complex-number.jpg">an annotated version of the formula for every complex root</a>. And we played around a bit with the <a href="https://mathlets.org/mathlets/complex-roots/">MIT Mathlets complex roots applet</a>, as another way of confirming our discoveries.</p>
+  
+  <p>What I would have written in the didactic notes, and the <b>key insight I wanted the kids to get to</b>, was something like this. Finding the principal \(n\)’th root of a complex number is easy: just divide the angle by \(n\). But how do we find the other \(n-1\) roots? The clearest way I’ve been able to think about it is this:
+    
+    Suppose we want to find all the fourth roots of \(1\angle120^\circ\). Finding the principal root is easy:
+    \[\sqrt[4]{1\angle120^\circ} = 1\angle\frac{120^\circ}{4} = 1\angle30^\circ\]
+    But how to find the other ones? We can remember that actually, <em>there are an infinite number of ways to write \(120^\circ\)</em>, just by adding or subtracting multiples of \(360^\circ\):
+    \[\begin{align*}
+&\quad\quad\vdots\\
+& +1560^\circ,\\
+& +1200^\circ,\\
+& +840^\circ,\\
+& +480^\circ,\\
+120^\circ \cong\quad & +120^\circ,\\
+& -240^\circ,\\
+& -600^\circ,\\
+& -960^\circ,\\
+&\quad\quad\vdots
+\end{align*} \]    
+    And we can find all the fourth roots just by dividing all of these different representations of \(120^\circ\) by four:
+        \[\begin{align*}
+&\quad\quad\vdots\\
+& 1\angle\frac{1560^\circ}{4} = 1\angle390^\circ = 1\angle30^\circ,\\
+& 1\angle\frac{1200^\circ}{4} = 1\angle300^\circ,\\
+& 1\angle\frac{840^\circ}{4} = 1\angle210^\circ,\\
+& 1\angle\frac{480^\circ}{4} = 1\angle120^\circ,\\
+\sqrt[4]{1\angle120^\circ} =\quad & 1\angle\frac{120^\circ}{4} = 1\angle30^\circ,\\
+& 1\angle\frac{-240^\circ}{4} = 1\angle-60^\circ = 1\angle300^\circ,\\
+& 1\angle\frac{-600^\circ}{4} = 1\angle-150^\circ = 1\angle210^\circ,\\
+& 1\angle\frac{-960^\circ}{4} = 1\angle-240^\circ = 1\angle120^\circ,\\
+&\quad\quad\vdots
+\end{align*} \]  
+    So then we can clearly see all of the distinct roots, where they come from, and when they start repeating.</p>
+
+      <p>I haven’t seen anyone else explain complex roots in this way—and every textbook I’ve seen has just given the formula with minimal motivation—but this seems to be the clearest way to think about them. It also segues very naturally into the work we did subsequently with complex exponentiation, and the general issue of multiple-valued-ness when dealing with complex functions.</p>
+
+      <p><em><b>Update</b>, Spring 2022: I finally finished writing <a href=complex-roots-notes.pdf>some great didactic notes on complex roots</a> for my second iteration of this class. Here's how they start:</em>
+        <blockquote><b>Angles are not the same as positions.</b> Every skateboarder and figure-skater knows this. Spin \(1440^\circ\) or spin \(0^\circ\): you end up in the same place. In one of those maneuvers, you win gold; in the other, you're laughed at. How many revolutions you make is not the same as where you end up. (You might interpret this as an observation about politics.) We can ask two questions:
+
+          <br><br><ul>
+<li> If we spin a certain amount, where do we end up? (<em>There's only one answer.</em>)
+<li> If we end up at a certain place, how much did we spin to get there?  (<em>There are lots of possible answers.</em>)
+</ul><br>
+As we've grown to understand complex numbers better, we've realized that <em>numbers spin</em>. We raise a number to an exponent, and it spins around the complex plane. But also, numbers can <em>un-spin</em>. We can <em>un-raise</em> a number to an exponent—better known as taking a root. And when we do that, we have lots of possible answers.</blockquote>
+      
+      <span class='asterism' ></span>
+
+<p>I gave the kids a writing assignment, to <a href="complex-roots-writing-assignment-web.pdf">write a letter to their imaginary penpals teaching them how to find complex roots</a>.</p> 
+      
+           <span class='asterism' ></span>
+
+      <p>As a passing comment, I’ll note that the textbooks have a weird obsession with “<b>roots of unity</b>,” to the exclusion of roots of all the other complex numbers. I don’t get it. If you have a solid understanding of how complex roots work, then the generalization from roots of \(1\) to roots of any other complex number is straightforward. Why stop short?? </p>
+    
+       
+            <span class='asterism' ></span>
+
+
+          <p>As another passing comment, I’ll note that the kids really liked writing complex numbers in polar form as \(r\angle\theta\). From my perspective, and with my experience, I was expecting everyone to immediately start writing them as \(re^{i\theta}\), once we got to that form. That’s always been my default, coming from math and physics. But the kids pointed out that that takes longer to write, and exponentiation is typographically challenging when the exponent is complicated. We can translate to it if we need to, they said, but we know how to manipulate \(r\angle\theta\), so we’ll stick with that.</p>
+            
+            <p>One of the things I frequently try to emphasize in teaching is that <em>notation is not mathematics</em>. So this was a good exercise in humility and a reminder to follow my own philosophy. Even though they weren’t using <em>my</em> preferred notation, they were using a notation that worked for them and was internally consistent. That’s not something to criticize.</p>
+
+
+    <span class='asterism' id="exponentiation"></span>
+
+Then we talked about <b>complex exponentiation</b>. <a href="complex-exponentiation.pdf">I asked the kids</a>:
+  
+  <blockquote>We’ve spent a lot of time talking about how to raise complex numbers to real exponents—maybe those exponents are fractions, so we have roots—but what if we raise a complex number to a <em>complex</em> exponent? (Or, more precisely, a nonreal one.)
+
+<p>For example, what’s \(i^i\)?  Can we even figure it out?  Is it even a complex number?  Or is it possibly something even more complex than the complex numbers?  Does raising a complex number to another complex number wormhole us out into an even more bizarre realm of numbers? As it turns out, it’s even weirder: not only does \(i^i\) not wormhole us out into a even more exotic world of numbers, <em>it’s just a real number</em>.</p></blockquote>
+  
+  <p>I told the kids that \(i^i\) is about \(0.2078\). Do you actually believe that? Come on, guys, do you <em>really</em> think that \(i^i\) is \(0.2\)ish?? Yeah, I’m just kidding! It’s actually:
+    \[ 
+    \begin{align*}
+&\quad\quad\vdots\\
+&31,920,519.1574213\dots,\\
+&59,609.74149287215\dots,\\
+&111.31777848985622\dots,\\
+i^i =\quad &0.2078795763507619\dots,\\
+&0.0003882032039267\dots,\\
+&0.0000000724947252\dots,\\
+&0.0000000001353797\dots,\\
+&\quad\quad\vdots
+\end{align*}
+    \]
+
+<p> I then asked the kids to try to calculate \(i^i\), \(\sqrt[i]{i}\), and \(2^i\). Most were able to calculate \(i^i\) (“try writing \(i\) in a different way”); of those who were, almost all were able to calculate \(\sqrt[i]{i}\) (turns out it only requires two more steps). Almost no one was able to calculate \(2^i\), which wasn’t surprising. (Doing so involved a proof technique that we had used back in the fall on our proofs of logarithm theorems, so it wasn’t out of the question, but the couple kids who were determined to figure it out needed a lot of guidance.)
+
+<p>The notes and worksheet I wrote for complex exponentiation also included problems working the kids through coming up with a formula for any arbitrary complex number raised to any other arbitrary complex number, the complex logarithm, and complex-based logarithms of complex numbers (!)—but COVID-19 cut us off from getting to any of these.  
+
+<a href="complex-exponentiation.pdf">As a work of mathematical exposition, this set of notes was my favorite from the whole unit</a>. They end with my signature teaching move: grossly overstating the philosophical implications of small symbol-manipulations:
+
+<blockquote>Your teachers have been lying to you all your lives:  not only are numbers in fact two-dimensional, but also <em>functions can in fact have multiple values</em>.  That’s what we’re seeing now.
+<p>You’ve known for years that square roots have two values.   When we’re younger, that gets shoved behind the curtain. “Oh, we only care about the <em>positive</em> root! Don’t worry about the  negative  one!” We’ve been discovering recently that not only do square roots have two values, but cube roots have three values, quartic roots have four values, and \(n\)th roots have \(n\) values. And now, what we’re seeing is that if we raise things to imaginary powers, we have an infinite number of values.
+<p>Square roots are fundamentally multi-valued. Actually, <em>most</em> things are fundamentally multi-valued. The real-numbered  world  we inhabit is only a slice through that—a particular slice of  reality in which most things only have one value. But sometimes we see cracks in that reality. Square roots are an example of that. So are inverse trig functions. (They’re infinite-valued.)  Complex numbers lead us to the deeper reality: the world is fundamentally multi-valued.
+</blockquote>
+
+      <span class='asterism' id="video" ></span>
+
+The final thing we managed to squeeze in before COVID-19 shut us down was to watch this 90-minute-long YouTube series, <a href="http://www.welchlabs.com/blog/2015/8/28/imaginary-numbers-are-real-part-1-introduction">Imaginary Numbers Are Real</a>. I had discovered the series in the fall, and was blown away by the mathematical clarity, narrative and structural thoughtfulness, and production value. (I was even more astounded when I learned that the guy who made them is some rando Bay Area software engineer who had made it for fun in his spare time. <a href="http://www.welchlabs.com/resources/freebook">He also wrote an accompanying free 90-page textbook/workbook</a>.)</p>
+        
+        <p>We watched the videos over three class days (while also doing other stuff). They give a very good historical background and motivation for \(i\), and the last few episodes (which were the whole reason I wanted to show them) talk about complex functions, motivate Riemann surfaces, and have some gorgeous animations. The very last episode <A href="https://www.youtube.com/watch?v=4MmSZrAlqKc&feature=youtu.be&t=767">ends in a cinematically-gorgeous way</a>, with the narrator recapping all of the mathematics that’s led to that point, and all of the mathematicians who had struggled for centuries, with piano music playing and images of the math and mathematicians tiling the screen, until all of it just cuts to a black background with a white \(i\) at the center. </p>
+          
+          <p>I timed the last set of episodes so that they ended right as our class period did. As luck had it, those were our very last classes of the year, as they ended up being on our last class days before school closed. It was a beautiful way to end the year. For that I am very grateful.</p>
+
+          
+          <span class='asterism' ></span>
+
+<p id="unused">We were mostly finished with our adventures in the complex by the time COVID-19 closed the school. I took that as a natural ending point. Had we had a few more days, there were <b>a few more things I wanted to do</b>:</p>
+            
+<ul>
+  <li><p id="fta">We understood complex roots well enough to basically understand/prove the Fundamental Theorem of Algebra in a hand-wavey way. I wanted to make this connection/theorem more explicit, but didn’t. In retrospect, building to this would have been a great overarching goal. It contains, but is deeper, than just understanding complex roots.
+  
+   <li><p id="hyperbolic">I thought we might be able to have a fun day investigating hyperbolic trig functions, or at least I could show them to the kids in a problem set.</p>
+     
+     <li><p id="geometry">There are tons of fun geometry problems that are really easy using the machinery of complex numbers. But we didn’t really do any.</p>
+     
+     <li> <p id="word-problems">I had the vague idea to write some applied/word problems using complex numbers to study harmonic motion or E&M or something like that. Without being able to solve differential equations, or being able to assume very much knowledge of physics, I wasn’t quite sure what we could do that wasn’t totally pointless, so I didn’t pursue it. But it’s something I want to keep thinking about. Maybe there’s a natural connection between drawing diagrams in phase space and complex numbers? Or maybe there’s some interesting way we could do baby Fourier series?</p>
+
+      <li><p id="gaussian-integers">I had hoped to spend a day <a href="gaussian-integers.pdf">letting the kids play with the Gaussian integers</a>. I had planned to motivate them by telling them that <em>prime numbers aren’t actually prime</em>, and having them multiply out the following factorization:
+        \[(2+i)(2-i)\]
+        This works out to be \(5\), and so thus the kids would discover that \(5\), which they’d long thought was a prime number, can in fact be factored if you use complex numbers. Thus: can we factor every prime number using complex numbers? if not, which prime numbers are still prime in the complex numbers, and which aren’t? can we factor complex numbers <em>ad infinitum</em>? do unfactorable numbers still exist?</p>
+
+<p>The formal machinery to answer these questions is way more than what they had, or what they’d be able to even begin to create, but I thought it’d still be a fun single-class-long exploration. Kathy told me that when she did something similar with her Math 2 kids, most of them were able to see that the answers relate to sums of two squares, but not get much further than that.</p>
+
+          <li><p id="quaternions">I thought we might be able to spend a day or two generalizing from the complex numbers to the quaternions, and playing around with those. I didn’t manage to figure out how to do it, or find any good high-school-level problem-based explorations of the subject; in any case, COVID-19 cut us off from it. (I did want to show the kids the <a href=https://www.youtube.com/watch?v=SZXHoWwBcDc>William Rowan Hamilton/Alexander Hamilton parody video</a>.)</p>
+ 
+          <li><p id="lin-alg">From there, there’s a natural segue into vectors/matrices/baby linear algebra, which is also on the Math 3 curriculum. If we want to think about how to model higher-dimensional space, one way to do it is to <a href=https://en.wikipedia.org/wiki/Cayley%E2%80%93Dickson_construction>follow the generalization of the complex numbers and the quaternions</a>. This is great for two dimensions. But after that, the algebra gets very nasty very fast and we rapidly start losing algebraic properties. Plus, we can only do it for powers-of-two dimensions. Better strategy: use the ideas of vectors and matrices.</p>
+            
+          <li><p id="quiz-questions">I also wrote <a href="complex-numbers-quiz-problems.pdf">two great quiz questions</a>, based off of conjectures that two students came up with while we were playing around with finding the cube roots of \(i\) in rectangular form. But because of COVID-19, we never had a complex numbers test. So instead I assigned the problems as homework. (<a href="ps-15-select-solutions.pdf">I wrote up the solutions to the problems</a>, which is something I started doing for COVID-consequent remote learning.)
+              
+
+</ul>
+
+<span class='asterism' ></span>
+
+<p id="kids">Finally, here are some (shamelessly selective) <b>student comments</b> on our adventures, excerpted from their end-of-year self-evaluations:
+
+
+<ul><li> <blockquote class="student-comment">...oh boy. Moving from the unit circle to complex numbers blew my mind. TWO DIMENSIONAL NUMBER LINES!! It connected EVERYTHING and was just...so incredibly cool the WHOLE way through. Hard, definitely really really hard, but so rewarding! Unfortunately, I haven’t gone through my notes since, so some of it’s probably gone out of my memory. There are some parts I don't completely understand, only partially (like ‘ohhh yeah i guess i can see why that works?’ but not enough to come to the solution on my own) and I really want to revisit my notes so I don't forget the super coolness of it.<br><br>
+
+  My view on math has pretty much completely flipped. I thought it was just graphs and numbers but—it’s bigger—on the inside—than it is—on the outside!!! My entire understanding of physical space has been transformed! Three dimensional euclidian geometry torn up and thrown in the air and chopped into pieces! My entire grasp of the universe’s constants and physical reality has been changed... forever... That sums it up. I’m looking forward to next year, absolutely!
+  </blockquote>
+<li><blockquote class="student-comment">This unit was a slow but steady descent (or ascent?) into the next dimension (literally). It started off deceivingly simple as we learned how to take the roots of negative numbers, but spiraled back into trig, logarithms, and literally un-graphable functions. And while by the end of the unit my head was spinning, it was extremely satisfying to see how these concepts that felt like they could have been made up by some lunatic connected so impossibly well back into all of the previous units, so much so that it couldn’t be mere coincidence. My favorite part of this unit was when I had an “aha” moment, figuring out what multiplying and dividing complex numbers did, and how it still fit into the number line I learned in kindergarten.</blockquote>
+
+
+  <li><blockquote class="student-comment">Trig is another area where I feel I gained a really solid foundation. It was really awesome how you (Andrew) helped us see why the unit circle is the way it is, and the importance of pi, and how to find new special right triangles. When that merged into imaginary numbers, my mind was literally blown. Every time we had a class during the imaginary numbers unit, it felt like I was unraveling all the secrets of the universe or like looking into a different dimension. It was super crazy. <!-- I had a different experience learning complex numbers with Ted in 9th grade, because he was really excited about them but sometimes he got really conceptual with it so we kind of didn’t get very far in terms of learning content. This year, i-->It felt like a lot of new discoveries but also a lot of theory. The best part was probably when [S.], [E.], and I were able to figure out i raised to the i!
+    </blockquote>
+</ul>
+
+
+</ul>
+
+ <div class="footer"> <p><a href="http://www.andrusia.com"><img src="http://andrusia.com/andrewproof.png" width=30></a></p>
+  </div>
+</article>
+
+    </body>
+</html>

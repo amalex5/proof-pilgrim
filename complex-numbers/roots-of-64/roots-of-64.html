@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>When It’s 64</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="/main.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <script src="../highlight-toc.js" type="text/javascript"></script>
+</head>
+<body>
+<main>
+<header id="title-block-header">
+<h1 class="title">When It’s 64</h1>
+</header>
+<p><strong>Can you find all the sixth roots of <span class="math inline">\(64\)</span>?</strong> Put differently, can you find all the solutions to <span class="math inline">\(x^6=64\)</span>? It’s pretty easy to find two of them (hint: <em>two</em> of them), but actually there are <em>six</em> roots in total. This is because of the <strong>fundamental theorem of algebra</strong>, which you’ve probably seen in some form or another, which says that an <span class="math inline">\(n\)</span>th degree polynomial has exactly <span class="math inline">\(n\)</span> complex roots. No more, no less (though sometimes the roots can have multiplicities). Sometimes all of those roots are imaginary; sometimes they’re all real; sometimes they’re a mix. You’re pretty familiar with this when it comes to quadratics, i.e., second-degree polynomials: they either have two real roots, one real root that happens twice, or two imaginary roots. Either way, they always have exactly two complex roots!</p>
+<p>So: can you find <em>all</em> the roots of <span class="math inline">\(64\)</span>? (Graph them, too, when you’re done, using the axes on the back. Do you notice anything?) Here’s my suggestion: if you do it the same way we found the roots of <span class="math inline">\(i\)</span>, by setting the roots equal to <span class="math inline">\(a+bi\)</span>, you’ll be in for some unpleasantness:</p>
+<p><span class="math display">\[\begin{align*}
+\sqrt[6]{64} &amp;=a+bi \\
+64 &amp; = (a+bi)^6 \\
+&amp;\text{eeeek}
+\end{align*}\]</span></p>
+<p>Instead, one of the nice things about this problem is that if we just take some generic complex number <span class="math inline">\(x\)</span>, set it equal to the sixth roots, and rearrange:</p>
+<p><span class="math display">\[\begin{align*}
+\sqrt[6]{64} &amp;= x \\
+64 &amp;= x^6 \\
+ x^6-64 &amp;= 0
+\end{align*}\]</span></p>
+<p>… then we get this nice equation which we can factor! We can factor it all the way out to get six factors (and thus six roots), but you may need to remind yourself of some fun factoring formulas!</p>
+<p>Also—and this is important—<strong>graph all these roots</strong> once you’re done! (Write up all your work reasonably nicely on this sheet and the reverse.) (This is a classic <em>Art of Problem Solving</em> problem that I stole!)</p>
+</main>
+</body>
+</html>

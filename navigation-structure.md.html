@@ -1,0 +1,193 @@
+<h1 id="navigation-structure">Navigation Structure</h1>
+<p>{: .no_toc }</p>
+<details open>
+<summary>
+Table of contents
+</summary>
+{: .text-delta } - TOC {:toc}
+</details>
+<hr />
+<h2 id="main-navigation">Main navigation</h2>
+<p>The main navigation for your Just the Docs site is on the left side of the page at large screens and on the top (behind a tap) on small screens. The main navigation can be structured to accommodate a multi-level menu system (pages with children and grandchildren).</p>
+<p>By default, all pages will appear as top level pages in the main nav unless a parent page is defined (see <a href="#pages-with-children">Pages with Children</a>).</p>
+<hr />
+<h2 id="ordering-pages">Ordering pages</h2>
+<p>To specify a page order, you can use the <code>nav_order</code> parameter in your pages’ YAML front matter.</p>
+<h4 id="example">Example</h4>
+<p>{: .no_toc }</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">layout</span><span class="kw">:</span><span class="at"> default</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> Customization</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">nav_order</span><span class="kw">:</span><span class="at"> </span><span class="dv">4</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div>
+<p>The parameter values determine the order of the top-level pages, and of child pages with the same parent. You can reuse the same parameter values (e.g., integers starting from 1) for the child pages of different parents.</p>
+<p>The parameter values can be numbers (integers, floats) and/or strings. Pages with numerical <code>nav_order</code> parameters always come before those with string <code>nav_order</code> parameters. When you omit <code>nav_order</code> parameters, they default to the titles of the pages. If you want to make the page order independent of the page titles, you can set explicit <code>nav_order</code> parameters on all pages. All pages with explicit <code>nav_order</code> parameters come before all pages ordered by their <code>title</code> values.</p>
+<p>By default, all Capital letters come before all lowercase letters; you can add <code>nav_sort: case_insensitive</code> in the configuration file to ignore the case. Enclosing strings in (single or double) quotation marks is optional. Numeric values are not enclosed in quotation marks, e.g., <code>42</code>, <code>-1.0</code>; numbers in quotation marks are lexicographically ordered, so <code>"10"</code> comes before <code>"2"</code>, for example.</p>
+<hr />
+<h2 id="excluding-pages">Excluding pages</h2>
+<p>For specific pages that you do not wish to include in the main navigation, e.g. a 404 page or a landing page, use the <code>nav_exclude: true</code> parameter in the YAML front matter for that page.</p>
+<h4 id="example-1">Example</h4>
+<p>{: .no_toc }</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">layout</span><span class="kw">:</span><span class="at"> default</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="dv">404</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">nav_exclude</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div>
+<p>The <code>nav_exclude</code> parameter does not affect the <a href="#auto-generating-table-of-contents">auto-generating list of child pages</a>, which you can use to access pages excluded from the main navigation.</p>
+<p>Pages with no <code>title</code> are automatically excluded from the main navigation.</p>
+<hr />
+<h2 id="pages-with-children">Pages with children</h2>
+<p>Sometimes you will want to create a page with many children (a section). First, it is recommended that you keep pages that are related in a directory together… For example, in these docs, we keep all of the written documentation in the <code>./docs</code> directory and each of the sections in subdirectories like <code>./docs/ui-components</code> and <code>./docs/utilities</code>. This gives us an organization like:</p>
+<pre><code>+-- ..
+|-- (Jekyll files)
+|
+|-- docs
+|   |-- ui-components
+|   |   |-- index.md  (parent page)
+|   |   |-- buttons.md
+|   |   |-- code.md
+|   |   |-- labels.md
+|   |   |-- tables.md
+|   |   +-- typography.md
+|   |
+|   |-- utilities
+|   |   |-- index.md      (parent page)
+|   |   |-- color.md
+|   |   |-- layout.md
+|   |   |-- responsive-modifiers.md
+|   |   +-- typography.md
+|   |
+|   |-- (other md files, pages with no children)
+|   +-- ..
+|
+|-- (Jekyll files)
++-- ..</code></pre>
+<p>On the parent pages, add this YAML front matter parameter:</p>
+<ul>
+<li><code>has_children: true</code> (tells us that this is a parent page)</li>
+</ul>
+<h4 id="example-2">Example</h4>
+<p>{: .no_toc }</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">layout</span><span class="kw">:</span><span class="at"> default</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> UI Components</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">nav_order</span><span class="kw">:</span><span class="at"> </span><span class="dv">2</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">has_children</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div>
+<p>Here we’re setting up the UI Components landing page that is available at <code>/docs/ui-components</code>, which has children and is ordered second in the main nav.</p>
+<h3 id="child-pages">Child pages</h3>
+<p>{: .text-gamma }</p>
+<p>On child pages, simply set the <code>parent:</code> YAML front matter to whatever the parent’s page title is and set a nav order (this number is now scoped within the section).</p>
+<h4 id="example-3">Example</h4>
+<p>{: .no_toc }</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">layout</span><span class="kw">:</span><span class="at"> default</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> Buttons</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">parent</span><span class="kw">:</span><span class="at"> UI Components</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">nav_order</span><span class="kw">:</span><span class="at"> </span><span class="dv">2</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div>
+<p>The Buttons page appears as a child of UI Components and appears second in the UI Components section.</p>
+<h3 id="ordering-child-pages">Ordering child pages</h3>
+<p>You can optionally add the following to the YAML front matter to reverse the default sort order of child pages:</p>
+<ul>
+<li><code>child_nav_order: reversed</code></li>
+</ul>
+<h4 id="example-4">Example</h4>
+<p>{: .no_toc }</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">layout</span><span class="kw">:</span><span class="at"> default</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> Reversed Child Pages</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">child_nav_order</span><span class="kw">:</span><span class="at"> reversed</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div>
+<h3 id="auto-generating-table-of-contents">Auto-generating Table of Contents</h3>
+<p>By default, all pages with children will automatically append a Table of Contents which lists the child pages after the parent page’s content. To disable this auto Table of Contents, set <code>has_toc: false</code> in the parent page’s YAML front matter.</p>
+<h4 id="example-5">Example</h4>
+<p>{: .no_toc }</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">layout</span><span class="kw">:</span><span class="at"> default</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> UI Components</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">nav_order</span><span class="kw">:</span><span class="at"> </span><span class="dv">2</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">has_children</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="fu">has_toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div>
+<h3 id="children-with-children">Children with children</h3>
+<p>{: .text-gamma }</p>
+<p>Child pages can also have children (grandchildren). This is achieved by using a similar pattern on the child and grandchild pages.</p>
+<ol type="1">
+<li>Add the <code>has_children</code> attribute to the child</li>
+<li>Add the <code>parent</code> and <code>grand_parent</code> attribute to the grandchild</li>
+</ol>
+<h4 id="example-6">Example</h4>
+<p>{: .no_toc }</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">layout</span><span class="kw">:</span><span class="at"> default</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> Buttons</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">parent</span><span class="kw">:</span><span class="at"> UI Components</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">nav_order</span><span class="kw">:</span><span class="at"> </span><span class="dv">2</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="fu">has_children</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">layout</span><span class="kw">:</span><span class="at"> default</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> Buttons Child Page</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">parent</span><span class="kw">:</span><span class="at"> Buttons</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">grand_parent</span><span class="kw">:</span><span class="at"> UI Components</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="fu">nav_order</span><span class="kw">:</span><span class="at"> </span><span class="dv">1</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div>
+<p>This would create the following navigation structure:</p>
+<pre><code>+-- ..
+|
+|-- UI Components
+|   |-- ..
+|   |
+|   |-- Buttons
+|   |   |-- Button Child Page
+|   |
+|   |-- ..
+|
++-- ..</code></pre>
+<p>{: .note } Currently, the navigation structure is limited to 3 levels: grandchild pages cannot themselves have child pages.</p>
+<hr />
+<h2 id="auxiliary-links">Auxiliary Links</h2>
+<p>To add auxiliary links to your site (in the upper right on all pages), add it to the <code>aux_links</code> <a href="%7B%7B%20site.baseurl%20%7D%7D%7B%%20link%20docs/configuration.md%20%%7D#aux-links">configuration option</a> in your site’s <code>_config.yml</code> file.</p>
+<h4 id="example-7">Example</h4>
+<p>{: .no_toc }</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Aux links for the upper right navigation</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">aux_links</span><span class="kw">:</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">&quot;Just the Docs on GitHub&quot;</span><span class="kw">:</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="st">&quot;//github.com/just-the-docs/just-the-docs&quot;</span></span></code></pre></div>
+<hr />
+<h2 id="external-navigation-links">External Navigation Links</h2>
+<p>To add external links to the navigation, add them to the <code>nav_external_links</code> <a href="%7B%7B%20site.baseurl%20%7D%7D%7B%%20link%20docs/configuration.md%20%%7D">configuration</a> option in your site’s <code>_config.yml</code> file. External links will appear in the navigation after the links to ordinary pages, but before any collections.</p>
+<h4 id="example-8">Example</h4>
+<p>{: .no_toc }</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># External navigation links</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nav_external_links</span><span class="kw">:</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> Just the Docs on GitHub</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">url</span><span class="kw">:</span><span class="at"> https://github.com/just-the-docs/just-the-docs</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">hide_icon</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span><span class="co"> # set to true to hide the external link icon - defaults to false</span></span></code></pre></div>
+<p>The external links are decorated by an icon, which distinguishes them from internal links. You can suppress the icon by setting <code>hide_icon: true</code>.</p>
+<hr />
+<h2 id="in-page-navigation-with-table-of-contents">In-page navigation with Table of Contents</h2>
+<p>To generate a Table of Contents on your docs pages, you can use the <code>{:toc}</code> method from Kramdown, immediately after an <code>&lt;ol&gt;</code> in Markdown. This will automatically generate an ordered list of anchor links to various sections of the page based on headings and heading levels. There may be occasions where you’re using a heading and you don’t want it to show up in the TOC, so to skip a particular heading use the <code>{: .no_toc }</code> CSS class.</p>
+<h4 id="example-9">Example</h4>
+<p>{: .no_toc }</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Navigation Structure</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>{: .no_toc }</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="fu">## Table of contents</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>{: .no_toc .text-delta }</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>TOC</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>{:toc}</span></code></pre></div>
+<p>This example skips the page name heading (<code>#</code>) from the TOC, as well as the heading for the Table of Contents itself (<code>##</code>) because it is redundant, followed by the table of contents itself. To get an unordered list, replace <code>1. TOC</code> above by <code>- TOC</code>.</p>
+<h3 id="collapsible-table-of-contents">Collapsible Table of Contents</h3>
+<p>The Table of Contents can be made collapsible using the <code>&lt;details&gt;</code> and <code>&lt;summary&gt;</code> elements , as in the following example. The attribute <code>open</code> (expands the Table of Contents by default) and the styling with <code>{: .text-delta }</code> are optional.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;details</span><span class="ot"> open markdown=</span><span class="st">&quot;block&quot;</span><span class="kw">&gt;</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">&lt;summary&gt;</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    Table of contents</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">&lt;/summary&gt;</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  {: .text-delta }</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>TOC</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>{:toc}</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/details&gt;</span></span></code></pre></div>
+<p>The result is shown at <a href="#navigation-structure">the top of this page</a> (<code>{:toc}</code> can be used only once on each page).</p>

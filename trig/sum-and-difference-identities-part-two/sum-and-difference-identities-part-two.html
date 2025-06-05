@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Exactly Evaluating Even More Trig Functions, Part II</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="/main.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <script src="../highlight-toc.js" type="text/javascript"></script>
+</head>
+<body>
+<script>document.addEventListener('DOMContentLoaded', function(e) {
+  Scroller.init();
+})</script>
+<aside>
+<div class="tocLinks" >
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#problems">Problems</a></li>
+</ul>
+</nav>
+</div>
+</aside>
+<main>
+<header id="title-block-header">
+<h1 class="title">Exactly Evaluating Even More Trig Functions, Part II</h1>
+</header>
+<p>After a massive amount of effort—involving geometry, a bunch of algebra, various fun facts about trig—we figured out what the cosine of two angles subtracted was: <span class="math display">\[\cos(\alpha - \beta) = \cos\alpha\cos\beta  + \sin\alpha\sin\beta\]</span> Using that, we were able to figure out how to calculate the cosine of <span class="math inline">\(\pi/12\)</span> without a calculator, which is pretty cool:</p>
+<p><span class="math display">\[\begin{align*}
+\cos\left(\frac{\pi}{12}\right) &amp;= \cos\left(\frac{\pi}{3} - \frac{\pi}{4}\right) \\ \\
+&amp;= \underbrace{\cos\left(\frac{\pi}{3}\right)\cos\left(\frac{\pi}{4}\right) + \sin\left(\frac{\pi}{3}\right)\sin\left(\frac{\pi}{4}\right)}_{\text{by our awesome equation}} \\ \\
+&amp;= \frac{1}{2}\cdot \! \frac{1}{\sqrt{2}}\,+\, \frac{\sqrt{3}}{2}\cdot\! \frac{1}{\sqrt{2}} \\ \\
+&amp;=  \frac{1+\sqrt{3}}{2\sqrt{2}}
+\end{align*}\]</span></p>
+<p>But this still left us with many questions unanswered. We know the cosine of <span class="math inline">\(\pi/12\)</span>—but what’s the sine? We know <span class="math inline">\(\cos(\alpha - \beta)\)</span>—but what about <span class="math inline">\(\cos(\alpha + \beta)\)</span>? Or <span class="math inline">\(\sin(\alpha + \beta)\)</span>? Or <span class="math inline">\(\sin(\alpha - \beta)\)</span>? We could make a whole list of related formulae:</p>
+<div class="callout-box">
+<p><strong>Sum and Difference Identities:</strong></p>
+<p><span class="math display">\[\begin{align*}
+\sin(\alpha + \beta) &amp;=  \quad ??? \\
+\sin(\alpha - \beta) &amp;=  \quad ???  \\
+\cos(\alpha + \beta) &amp;= \quad ???  \\
+\cos(\alpha - \beta) &amp;= \cos\alpha\cos\beta  + \sin\alpha\sin\beta
+\end{align*}\]</span></p>
+</div>
+<p>We only know one of these formulae. Let’s see if we can find the other three. Our goal, ultimately, is to be able to find <span class="math inline">\(\sin(\alpha - \beta)\)</span>, and thus <span class="math inline">\(\sin(\pi/12)\)</span>.</p>
+<p>One way to do this would be to follow the same procedure we did to find <span class="math inline">\(\cos(\alpha - \beta)\)</span>. We could draw the angle <span class="math inline">\(\alpha-\beta\)</span> in two different ways, measure its length, and do some algebra. That would work. It’s what many of you did on the homework. Some of you were even successful! But it was such a tedious, long process. Doing repetitive, tedious processes isn’t fun. It’d be nice if there was an easier way. And there is!!!</p>
+<p>It’s kind of like how, when you break into a house to steal the TV, it’s really tough to get in. You have to cut the phone lines. You have to disable the security system. You have to feed sleeping-pill-laced steaks to the guard dogs. You have to dance your way through the lattice of laser sensors. You have to carefully cut a hole in a window and suction-cup remove it. It’s a lot of work!!! But if you then decide that you also want to steal the stereo, <em>you don’t have to break into the house a second time</em>. You can just walk over and take the stereo! Sure, you <em>could</em> break into the house a second time. You <em>could</em> do all that hard stuff again. But why???</p>
+<p>We’ve done the hard work to get one of the formulas. The other three can now come much more easily.</p>
+<p>For instance, if we want to find <span class="math inline">\(\cos(\alpha + \beta)\)</span>, we can use the fact that subtraction is just addition, but with a negative sign! So we can take the formula we came up with, “subtract” “negative beta,” and then use two of our symmetry identities to simplify it:</p>
+<p><span class="math display">\[\begin{align*}
+\cos(\alpha + \beta) &amp;= \cos\big(\alpha - (-\beta) \big) \quad\quad\text{(just algebra!!!)} \\ \\
+&amp;= \cos(\alpha)\cos(-\beta) + \sin(\alpha)\sin(-\beta)  \quad\quad\text{(we can apply our equation)} \\ \\
+&amp; =  \cos(\alpha)\cos(\beta) + \sin(\alpha)\sin(-\beta)  \quad\quad\text{(we know $\cos(-\theta) = \cos(\theta)$)}  \\ \\
+&amp;= \cos(\alpha)\cos(\beta) + \sin(\alpha)\big(-\sin(\beta)\big)  \quad\quad\text{(and $\sin(-\theta) = -\sin(\theta)$)} \\ \\
+&amp;= \cos(\alpha)\cos(\beta) - \sin(\alpha)\sin(\beta)  \quad\quad\text{(distributing negative)} \\ \\
+&amp; \includegraphics[scale=.25]{andrewproof.png}
+\end{align*}\]</span></p>
+<p>Hooray!!! So here’s what we know now:</p>
+<div class="callout-box">
+<p><strong>Sum and Difference Identities:</strong></p>
+<p><span class="math display">\[\begin{align*}
+\sin(\alpha + \beta) &amp;=  \quad ??? \\
+\sin(\alpha - \beta) &amp;=  \quad ???  \\
+\cos(\alpha + \beta) &amp;= \quad \cos(\alpha)\cos(\beta) - \sin(\alpha)\sin(\beta)   \\
+\cos(\alpha - \beta) &amp;= \quad\cos(\alpha)\cos(\beta)  + \sin(\alpha)\sin(\beta)
+\end{align*}\]</span></p>
+</div>
+<p>What about the sines? OK, this isn’t <em>quite</em> as easy. We did all that hard work to break into the house to steal the TV. We decided to steal the stereo, too, and that was very little extra work. But now we want to steal the family silver. So we’ll have to break into pantry, hunt around, and maybe pick a few locks on the cupboard doors. It’s a little bit more work. (But still way easier than breaking into the house <em>ab initio</em>!)</p>
+<p>Here’s the argument we can make. We know that sine and cosine <em>are the same function</em>… just modulo a horizontal shift<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. More formally, we know:</p>
+<p><span class="math display">\[\sin(\theta) = \cos(\theta - \pi/2)\]</span></p>
+<p>So if we think of a sine as just being a shifted cosine, we have:</p>
+<p><span class="math display">\[\sin(\alpha + \beta) = \cos\Big( \,(\alpha + \beta)\, - \pi/2 \Big)\]</span></p>
+<p>Yay! And now we’ve got just the cosine of two angles subtracted! We have a formula for that! So if we apply that, we’ll get:</p>
+<p><span class="math display">\[\sin(\alpha + \beta) = \cos(\, \alpha + \beta\,)\cos\left(\frac{\pi}{2}\right) + \sin(\, \alpha + \beta\,)\sin\left(\frac{\pi}{2}\right)\]</span></p>
+<p>OK, and we know that <span class="math inline">\(\cos(\pi/2)\)</span> is <span class="math inline">\(0\)</span>, and <span class="math inline">\(\sin(\pi/2)\)</span> is <span class="math inline">\(1\)</span>, so this becomes:</p>
+<p><span class="math display">\[\begin{align*}
+\sin(\alpha + \beta) &amp;= \cos(\, \alpha + \beta\,)\underbrace{\cos\left(\frac{\pi}{2}\right)}_{=0} + \sin(\, \alpha + \beta\,)\underbrace{\sin\left(\frac{\pi}{2}\right)}_{=1} \\ \\
+\sin(\alpha + \beta) &amp;= \cos(\, \alpha + \beta\,)\cdot 0 \quad+\quad \sin(\, \alpha + \beta\,)\cdot 1 \\ \\
+\sin(\alpha + \beta) &amp;= 0 + \sin(\, \alpha + \beta\,) \\ \\
+\sin(\alpha + \beta) &amp;= \sin(\, \alpha + \beta\,)
+\end{align*}\]</span></p>
+<p>Uh.</p>
+<p>Uh.</p>
+<p>OK, I mean, we’re not wrong here… <span class="math inline">\(\sin(\alpha+\beta)\)</span> does equal <span class="math inline">\(\sin(\alpha+\beta)\)</span>. Things do equal themselves. Math would be… a lot more boring if they didn’t. (Or maybe a lot more exciting? Unclear.) But this isn’t what we were hoping to get. We didn’t do anything <em>wrong</em>, but we didn’t do anything <em>right</em>. We didn’t get what we wanted. We didn’t get caught, but nor did we get the family silver.</p>
+<p>So let’s… try again? Maybe we can rearrange things in a way that’s a bit more productive. We had:</p>
+<p><span class="math display">\[\sin(\alpha + \beta) = \cos\Big( \,(\alpha + \beta)\, - \pi/2 \Big)\]</span></p>
+<p>Let’s move the parentheses around:</p>
+<p><span class="math display">\[\sin(\alpha + \beta) = \cos\Big( \alpha + (\beta - \pi/2)\, \Big)\]</span></p>
+<p>But now we have the cosine of two things <em>added</em>! And we have a formula for that. So, applying that formula, we get:</p>
+<p><span class="math display">\[\sin(\alpha + \beta) = \cos(\alpha)\cos\left(\beta - \frac{\pi}{2}\right) - \sin(\alpha)\sin\left(\beta-\frac{\pi}{2}\right)\]</span></p>
+<p>That’s kind of ugly. We can make it nicer! We could simplify the <span class="math inline">\(\cos(\beta - \pi/2)\)</span> by applying our formula for <span class="math inline">\(\cos(\alpha-\beta)\)</span> again, but we that’s overkill. Instead, let’s use that same horizontal shift identity!!! We know that <span class="math inline">\(\sin(\theta) = \cos\left(\theta - \frac{\pi}{2}\right)\)</span>. We’ve already used it. We can apply it <em>again</em>. So then we have:</p>
+<p><span class="math display">\[\sin(\alpha + \beta) = \cos(\alpha)\sin(\beta) - \sin(\alpha)\sin(\beta-\pi/2)\]</span></p>
+<p>What about this <span class="math inline">\(\sin\left(\beta-\frac{\pi}{2}\right)\)</span>? Can we simplify that? You might not know it offhand, but we can come up with a similar horizontal shift identity. You can convince yourself that <span class="math inline">\(\sin\left(\theta - \frac{\pi}{2}\right) = -\cos(\theta)\)</span>. So if we apply that, we have:</p>
+<p><span class="math display">\[\sin(\alpha + \beta) =  \cos(\alpha)\sin(\beta) - \sin(\alpha)\big(-\cos(\beta)\, \big)\]</span></p>
+<p>We can distribute the negatives, and then the two negatives annihilate each other like matter and antimatter:</p>
+<p><span class="math display">\[\begin{align*}
+\sin(\alpha + \beta) &amp;=  \cos(\alpha)\sin(\beta) + \sin(\alpha)\cos(\beta) \\
+&amp;\includegraphics[scale=.25]{andrewproof.png}
+\end{align*}\]</span></p>
+<p>Yay!!! So now our big list of formulas looks like:</p>
+<div class="callout-box">
+<p><strong>Sum and Difference Identities:</strong></p>
+<p><span class="math display">\[\begin{align*}
+\sin(\alpha + \beta) &amp;=  \quad \cos(\alpha)\sin(\beta) + \sin(\alpha)\cos(\beta) \\
+\sin(\alpha - \beta) &amp;=  \quad ???  \\
+\cos(\alpha + \beta) &amp;= \quad \cos(\alpha)\cos(\beta) - \sin(\alpha)\sin(\beta)   \\
+\cos(\alpha - \beta) &amp;= \quad \cos(\alpha)\cos(\beta)  + \sin(\alpha)\sin(\beta)
+\end{align*}\]</span></p>
+</div>
+<p>We’re not done! Eyes on the prize. We want to be able to find <span class="math inline">\(\sin\left(\frac{\pi}{12}\right)\)</span>. And in order to do that, we’ll need to find <span class="math inline">\(\sin\left(\frac{\pi}{3} - \frac{\pi}{4}\right)\)</span>, and in order to do <em>that</em>, we’ll need to have a formula for <span class="math inline">\(\sin(\alpha - \beta)\)</span>.</p>
+<p>We’re almost there! We can an argument that’s similar to the one we used to find <span class="math inline">\(\cos(\alpha+\beta)\)</span>. In this case, we know how to find <span class="math inline">\(\sin(\alpha+\beta)\)</span>, so we can just subtract negative <span class="math inline">\(\beta\)</span>, and that’ll do it!!</p>
+<p><span class="math display">\[\begin{align*}
+\sin(\alpha - \beta) &amp;= \sin\big(\alpha + (-\beta) \big) \quad\quad\text{(just algebra!!!)} \\ \\
+&amp;=\cos(\alpha)\sin(-\beta) +\sin(\alpha)\cos(-\beta) \quad\quad\text{(by the formula we just came up with)}  \\ \\
+&amp;=\cos(\alpha)\sin(-\beta) + \sin(\alpha)\cos(\beta) \quad\quad\quad\text{(we know $\cos(-\theta) = \cos(\theta)$)} \\ \\
+&amp;=\cos(\alpha)\big(-\sin(\beta)\big) + \sin(\alpha)\cos(\beta) \quad\quad\text{(and $\sin(-\theta) = -\sin(\theta)$)} \\ \\
+&amp;= -\cos(\alpha)\sin(\beta) + \sin(\alpha)\cos(\beta) \quad\quad\text{(distributing negative)}  \\ \\
+&amp;= \sin(\alpha)\cos(\beta) - \cos(\alpha)\sin(\beta) \quad\quad\text{(rearranging)}  \\ \\
+&amp; \includegraphics[scale=.25]{andrewproof.png}
+\end{align*}\]</span></p>
+<p>So there we have it: all of our sum and difference identities!!! Let’s summarize (<em>sum</em>marize):</p>
+<div class="callout-box">
+<p><strong>Sum and Difference Identities:</strong></p>
+<p><span class="math display">\[\begin{align*}
+\sin(\alpha + \beta) &amp;=  \sin(\alpha)\cos(\beta) + \cos(\alpha)\sin(\beta) \\
+\sin(\alpha - \beta) &amp;=  \sin(\alpha)\cos(\beta) - \cos(\alpha)\sin(\beta)  \\
+\cos(\alpha + \beta) &amp;= \cos(\alpha)\cos(\beta) - \sin(\alpha)\sin(\beta)  \\
+\cos(\alpha - \beta) &amp;= \cos(\alpha)\cos(\beta)  + \sin(\alpha)\sin(\beta)
+\end{align*}\]</span></p>
+</div>
+<p>Formulae that follow like a tedious argument… we still have this overwhelming question: what’s the sine of <span class="math inline">\(\pi/12\)</span>? Now we can figure it out!!! Using the same method that we used to find <span class="math inline">\(\cos(\pi/12)\)</span>, we can split <span class="math inline">\(\pi/12\)</span> up into <span class="math inline">\(\pi/3 - \pi/4\)</span>, and then apply the identity we just derived:</p>
+<p><span class="math display">\[\begin{align*}
+\sin\left(\frac{\pi}{12}\right) &amp;= \sin\left(\frac{\pi}{3} - \frac{\pi}{4}\right) \quad\quad\text{(fractions)} \\ \\
+&amp;= \sin\left(\frac{\pi}{3}\right)\cos\left(\frac{\pi}{4}\right) - \cos\left(\frac{\pi}{3}\right)\sin\left(\frac{\pi}{4}\right) \quad\quad \text{(by our equation!!!)} \\ \\
+&amp;= \frac{\sqrt{3}}{2}\cdot \! \frac{1}{\sqrt{2}} \,\,\,\,-\,\,\,\, \frac{1}{2}\cdot \! \frac{1}{\sqrt{2}} \quad\quad\text{(trig)}  \\ \\
+&amp;= \displaystyle \frac{-1+\sqrt{3}}{2\sqrt{2}} \quad\quad\text{(fractions)} 
+\end{align*}\]</span></p>
+<p>Whoopee!!!! Now we know both the sine and cosine of <span class="math inline">\(\displaystyle\frac{\pi}{12}\)</span>!</p>
+<div style="margin-top:4em;" />
+
+<p>But wait.</p>
+<div style="margin-top:4em;" />
+
+
+<p>Something’s interesting here. We know</p>
+<p><span class="math display">\[\cos\left(\frac{\pi}{12}\right) = \frac{1 + \sqrt{3}}{2\sqrt{2}} \hspace{1cm}\text{and}\hspace{1cm} \sin\left(\frac{\pi}{12}\right) = \frac{-1 + \sqrt{3}}{2\sqrt{2}}\]</span></p>
+<p>And we also know that, at least with angles between <span class="math inline">\(0\)</span> and <span class="math inline">\(\pi/2\)</span>, cosine and sine are the ratios of the adjacent and opposite sides of a right triangle to its hypotenuse!</p>
+<p><span class="math display">\[\cos\left(\frac{\pi}{12}\right) = \frac{1 + \sqrt{3}}{2\sqrt{2}} = \frac{\text{adj}}{\text{hyp}} \hspace{1cm}\text{and}\hspace{1cm} \sin\left(\frac{\pi}{12}\right) = \frac{-1 + \sqrt{3}}{2\sqrt{2}} = \frac{\text{opp}}{\text{hyp}}\]</span></p>
+<p>So we can construct a <em>new special right triangle</em>, whose<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> hypotenuse is <span class="math inline">\(2\sqrt{2}\)</span>, whose side adjacent to <span class="math inline">\(\pi/12\)</span> is <span class="math inline">\(1 + \sqrt{3}\)</span>, and whose side opposite <span class="math inline">\(\pi/12\)</span> is <span class="math inline">\(-1 + \sqrt{3}\)</span>! (Note, then, that the other angle in the triangle will be <span class="math inline">\(5\pi/12\)</span>, since the angles have to all add up to <span class="math inline">\(\pi/2\)</span>.) This is awesome!</p>
+<p><img src="piover12righttriangle-new.png" style="width:75.0%" /></p>
+<p>So <em>this is what all of our work comes down to</em>. We did this huge derivation to find the sum and difference identities, and then we used the sum and difference identities to evaluate the sine and cosine of <span class="math inline">\(\pi/12\)</span>, and then we used <em>that</em> to build this special right triangle. And now we can evaluate the sine/cosine/tangent of any multiple of <span class="math inline">\(\pi/12\)</span>. Just using this new special right triangle. Phew.</p>
+<p>This was fun.</p>
+<h2 id="problems">Problems</h2>
+<p>Using what you know about trigonometry, the unit circle, and special right triangles—including our brand-new special right triangle!—evaluate the following trig functions without a calculator:</p>
+<div style="column-width: 10em;  column-gap: 2em;  column-rule: 1px solid #ccc;">
+<ol class="problems">
+<li>
+<span class="math inline">\(\sin(\pi/12)\)</span>
+</li>
+<li>
+<span class="math inline">\(\cos(\pi/12)\)</span>
+</li>
+<li>
+<span class="math inline">\(\tan(\pi/12)\)</span>
+</li>
+<li>
+<span class="math inline">\(\sin(5\pi/12)\)</span>
+</li>
+<li>
+<span class="math inline">\(\cos(5\pi/12)\)</span>
+</li>
+<li>
+<span class="math inline">\(\tan(5\pi/12)\)</span>
+</li>
+<li>
+<span class="math inline">\(\sin(7\pi/12)\)</span>
+</li>
+<li>
+<span class="math inline">\(\cos(7\pi/12)\)</span>
+</li>
+<li>
+<span class="math inline">\(\tan(7\pi/12)\)</span>
+</li>
+<li>
+<span class="math inline">\(\sin(11\pi/12)\)</span>
+</li>
+<li>
+<span class="math inline">\(\cos(11\pi/12)\)</span>
+</li>
+<li>
+<span class="math inline">\(\tan(11\pi/12)\)</span>
+</li>
+<li>
+<span class="math inline">\(\sin(13\pi/12)\)</span>
+</li>
+<li>
+<span class="math inline">\(\cos(13\pi/12)\)</span>
+</li>
+<li>
+<span class="math inline">\(\tan(13\pi/12)\)</span>
+</li>
+<li>
+<span class="math inline">\(\sin(17\pi/12)\)</span>
+</li>
+<li>
+<span class="math inline">\(\cos(17\pi/12)\)</span>
+</li>
+<li>
+<span class="math inline">\(\tan(17\pi/12)\)</span>
+</li>
+<li>
+<span class="math inline">\(\sin(19\pi/12)\)</span>
+</li>
+<li>
+<span class="math inline">\(\cos(19\pi/12)\)</span>
+</li>
+<li>
+<span class="math inline">\(\tan(19\pi/12)\)</span>
+</li>
+<li>
+<span class="math inline">\(\sin(23\pi/12)\)</span>
+</li>
+<li>
+<span class="math inline">\(\cos(23\pi/12)\)</span>
+</li>
+<li>
+<span class="math inline">\(\tan(23\pi/12)\)</span>
+</li>
+<li>
+<span class="math inline">\(\sin(25\pi/12)\)</span>
+</li>
+<li>
+<span class="math inline">\(\cos(25\pi/12)\)</span>
+</li>
+<li>
+<span class="math inline">\(\tan(25\pi/12)\)</span>
+</li>
+</ol>
+</div>
+<ol class= 'problems'>
+<li>
+We have formulas for the sine and cosine of sums and differences… how ’bout tangent?!?
+<li>
+Can you double-check, using the Pythagorean Theorem, that the three side lengths of our new special right triangle, actually are viable (i.e., that they fit the Pythagorean Theorem)??
+<li>
+<p>In class, Emma Wang ’26 asked about what to do if we have the sine or cosine of not <em>two</em> things added together, but <em>three</em> things, e.g. <span class="math display">\[\sin(\alpha + \beta + \gamma) = \,\, ???\]</span> <span class="math display">\[\cos(\alpha + \beta + \gamma) = \,\, ???\]</span> Can you answer her question???</p>
+(That third angle is a <strong><a href="https://en.wikipedia.org/wiki/Gamma">gamma</a></strong>, note, the third letter of the Greek alphabet, which I write as a downwards-swimming fishy.)
+<li>
+Sometimes, on big lists of trig identities, people will write down what they often call the <strong>double angle identities</strong>, which are formulas like: <span class="math display">\[\sin(2\theta) = \text{ blah blah blah}\]</span> <span class="math display">\[\cos(2\theta) = \text{ blah blah blah}\]</span> Figure these formulas out! (Don’t look them up!)
+<li>
+<p>We’ve figured out how sine and cosine play with addition and subtraction… how do they play with multiplication and division??? <span class="math display">\[\begin{align*}
+\sin(\alpha \cdot \beta) &amp;=  \quad\quad ??? \\ \\
+\sin\left(\frac{\alpha}{\beta}\right) &amp;=  \quad\quad ??? \\ \\
+\cos(\alpha \cdot \beta) &amp;= \quad\quad ??? \\ \\
+\cos\left(\frac{\alpha}{\beta}\right) &amp;= \quad\quad ???
+\end{align*}\]</span></p>
+</ol>
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>The word <strong>modulo</strong> in this context means “they are the same except for a horizontal shift.” Another similar usage might be, “my blue 1999 minivan is the same as your blue 2001 minivan, modulo the model year.” I have been part of a small cult movement that has been trying, for the past few years, to introduce this word (originally from math) into the popular lexicon. Here’s another example, from an email my dad sent a few days before I originally typed up this proof: “Actually, life in Switzerland is not so different from life at home, modulo a few obvious things like living without a car, struggling to communicate with people on the street, and being dirt poor.”<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p>I know I should be writing “the hypotenuse of which is…”, but I’d rather anthropomorphize my triangles.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+</main>
+</body>
+</html>

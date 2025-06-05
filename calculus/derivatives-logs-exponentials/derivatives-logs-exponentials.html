@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Calculus With Logarithms and Exponentials</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="/main.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <script src="../highlight-toc.js" type="text/javascript"></script>
+</head>
+<body>
+<script>document.addEventListener('DOMContentLoaded', function(e) {
+  Scroller.init();
+})</script>
+<aside>
+<div class="tocLinks" >
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#the-derivative-of-an-exponential-function">The Derivative of an Exponential Function</a></li>
+<li><a href="#the-derivative-of-an-exponential-way-2">The Derivative of an Exponential (Way #2)</a>
+<ul>
+<li><a href="#theorem-displaystyle-fracddxax-lna-cdot-ax">Theorem: <span class="math inline">\(\displaystyle \frac{d}{dx}(a^x) = \ln(a) \cdot a^x\)</span></a></li>
+<li><a href="#proof">Proof:</a></li>
+</ul></li>
+<li><a href="#note">Note</a></li>
+<li><a href="#corollary">Corollary</a></li>
+<li><a href="#another-note">Another note</a></li>
+<li><a href="#the-derivative-of-a-logarithm">The Derivative of a Logarithm</a></li>
+<li><a href="#the-derivative-of-a-logarithm-second-attempt">The Derivative of a Logarithm (Second Attempt)</a></li>
+<li><a href="#for-example">For example…</a></li>
+<li><a href="#corollary-1">Corollary</a></li>
+<li><a href="#the-derivative-of-an-inverse-function">The Derivative of an Inverse Function</a>
+<ul>
+<li><a href="#theorem">Theorem:</a></li>
+<li><a href="#for-example-1">For example…</a></li>
+<li><a href="#another-example">Another example</a></li>
+</ul></li>
+<li><a href="#the-derivative-of-xx">The Derivative of <span class="math inline">\(x^x\)</span></a></li>
+<li><a href="#one-last-question-or-two">One Last Question (or two)</a></li>
+<li><a href="#actually-i-have-another-question">Actually, I Have Another Question</a></li>
+<li><a href="#problems">Problems</a></li>
+</ul>
+</nav>
+</div>
+</aside>
+<main>
+<header id="title-block-header">
+<h1 class="title">Calculus With Logarithms and Exponentials</h1>
+</header>
+<p>We know how to work with exponential functions. We know how to work with logarithms. But there are still two things we don’t know:</p>
+<ul>
+<li>
+<p>What is the derivative of an exponential function?</p>
+<span class="math inline">\(\left(\text{Answer: } \displaystyle \frac{d}{dx}(a^x) = \ln(a)\cdot a^x \,\right)\)</span>
+</li>
+<li>
+<p>What is the derivative of a logarithm?</p>
+<span class="math inline">\(\left(\text{Answer: } \displaystyle \frac{d}{dx}\log_a{x} = \frac{1}{x\ln(a)} \,\right)\)</span>
+</li>
+</ul>
+<p>In the rest of these notes, we’ll derive these two identites (and more). It might seem like a lot of details, and a lot of proofs, but don’t get bogged down in the formalism. All that is just details. Everything boils down to these two equations. All the stuff we already know about calculus, logarithms, and exponential functions still applies. This just gives us new toys to play with.</p>
+<p>That said, you want to know <em>why</em> these two things are true, right? Let’s go find out!</p>
+<h2 id="the-derivative-of-an-exponential-function">The Derivative of an Exponential Function</h2>
+<p>What if we have an exponential function like <span class="math inline">\(f(x) = a^x\)</span>, where <span class="math inline">\(a\)</span> is some greater-than-zero constant? What is its derivative?</p>
+We have no idea. This isn’t a polynomial like <span class="math inline">\(f(x) = x^a\)</span>. In that case, the <em>variable</em> is in the <em>base</em> and the <em>constant</em> is in the <em>exponent</em>. For example, <span class="math inline">\(x^2\)</span> and <span class="math inline">\(2^x\)</span> are very different functions:
+<p>We have long known what the derivative of something like <span class="math inline">\(x^2\)</span> is. But in this case—in the case of an exponential function like <span class="math inline">\(2^x\)</span>—the base is a constant, and the exponent is a variable. We don’t know how to find the derivative of that. And we don’t really know where to begin in our search for the derivative of an exponential function, so let’s get back to basics.</p>
+<p>We know that the definition of the derivative is <span class="math display">\[f&#39;(x) = \lim_{h \to 0} \frac{f(x+h) - f(x)}{h}\]</span>(Ages ago we constructed this definition using Fermat’s difference quotient.) Let’s use this. If we use some general exponential function <span class="math inline">\(f(x) = a^x\)</span>, then we have:</p>
+<p>But where to go from here? We’re kind of stuck with this nasty limit thing.</p>
+<p>But… notice that <span class="math inline">\(\displaystyle \lim_{h \to 0} \frac{a^h - 1}{h}\)</span> is <em>constant</em> with respect to <span class="math inline">\(x\)</span>. It’s just a fixed number (for some fixed <span class="math inline">\(a\)</span>). Hmm. For convenience, let’s call it <span class="math inline">\(L\)</span>. Then we have:</p>
+<p>This is cool! This means that the derivative of any exponential function is just the function again times some constant <span class="math inline">\(L\)</span>! Now, we have no idea how to actually compute <span class="math inline">\(L\)</span>—it’s a really scary-looking limit—but just be patient for a moment. Do you like taking derivatives? I do. If we take a whole bunch…</p>
+<p>The <span class="math inline">\(L\)</span>’s keep piling up! What a mess.</p>
+Anyway, back to what <span class="math inline">\(L\)</span> is. We don’t really know how to compute it. <span class="math inline">\(\displaystyle \lim_{h \to 0} \frac{a^h - 1}{h}\)</span> is a total mess. We can’t simplify it. But we <em>can</em> estimate it with a silicon slave. Don’t worry too much about how we came up with these numbers—you could, for example, graph <span class="math inline">\((2^x -1)/x\)</span>, look at the graph, and see what value it gets close to as <span class="math inline">\(x\)</span> gets close to <span class="math inline">\(0\)</span>—but, for example:
+<p>And so forth. Anyway, here’s an observation: if we could make <span class="math inline">\(L = 1\)</span>—i.e., if we could find some number such that <span class="math inline">\(\displaystyle \lim_{h \to 0} \frac{({\rm that \, number})^h - 1}{h} = 1\)</span>—we could have a function <strong><em>who is its own derivative!!!</em></strong><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> <strong>THAT WOULD BE AWESOME.</strong> Question is, what is that number? Based on the examples, it must be between <span class="math inline">\(2.5\)</span> and <span class="math inline">\(3\)</span>. If we estimate it more precisely, we get:</p>
+<p><span class="math display">\[\text{that number} \approx 2.718281828459045...\]</span></p>
+<p>Unfortunately, it’s not something nice like an integer. It’s an irrational, transcendental number that goes on forever, like <span class="math inline">\(\pi\)</span>. Which I guess in some ways makes it more beautiful.</p>
+<p>Anyway—this is <span class="math inline">\(e\)</span>! The base of all natural logarithms! “Euler’s Number”<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>, after Leonhard Euler (1707–1783)! This is how we define <span class="math inline">\(e\)</span>! It is the number such that <span class="math inline">\(\frac{d}{dx}(e^x) = e^x\)</span> (don’t worry about the self-referentiality there). Like with <span class="math inline">\(\pi\)</span>, which is the ratio of the circumference of a circle to its diameter, <span class="math inline">\(e\)</span> is the number whose exponential function is its own slope. It arises eerily out of mathematical nature.</p>
+<p>So, to recap. We know:</p>
+<p>Maybe we should also include the chain rule in these theorems—i.e., what if I want to raise a constant not just to <span class="math inline">\(x\)</span> but to some more complicated function of <span class="math inline">\(x\)</span>? Then these two formulas follow directly from the chain rule:</p>
+<p>But we still have this nasty limit expression in our formula for the derivative of a general exponential function <span class="math inline">\(a^x\)</span>. Is there a nicer way we can write the derivative of <span class="math inline">\(a^x\)</span>? <strong>Yes</strong>. Let’s do it.</p>
+<h2 id="the-derivative-of-an-exponential-way-2">The Derivative of an Exponential (Way #2)</h2>
+<p>Back when we started this unit, we showed that <span class="math display">\[\frac{d}{dx}(a^x) = a^x \cdot \lim_{h \to 0} \frac{a^h - 1}{h}\]</span> But unless <span class="math inline">\(a \approx 2.71828...\)</span>, this is a useless mess, because we have no idea how to compute this limit (i.e., approximate the number that it represents, as a decimal). So, let’s see a new way to write this derivative, which will be in terms of a natural log. </p>
+<h3 id="theorem-displaystyle-fracddxax-lna-cdot-ax">Theorem: <span class="math inline">\(\displaystyle \frac{d}{dx}(a^x) = \ln(a) \cdot a^x\)</span></h3>
+<h3 id="proof">Proof:</h3>
+<p>Because of the laws of logarithms, we can write <span class="math inline">\(a^x\)</span> as <span class="math inline">\(e^{\ln(a^x)}\)</span>, because <span class="math inline">\(e^\text{stuff}\)</span> and <span class="math inline">\(\ln(\text{stuff})\)</span> are inverse functions and will cancel each other out when composed. So then we can write <span class="math inline">\(a^x\)</span> as: <span class="math display">\[a^x = e^{\ln(a^x)}\]</span> And we can use laws of logarithms to simplify this even further. We can pull the exponent <span class="math inline">\(x\)</span> out and have: <span class="math display">\[a^x = e^{x\ln(a)}\]</span> If we differentiate this equation, we get: <span class="math display">\[\begin{align*}
+\frac{d}{dx}\left[a^x\right] &amp;= \frac{d}{dx}\left[ e^{x\ln(a)}\right]\\
+\intertext{But we already know how to take the derivative of $e^{x\ln a}$. It looks like $e^{g(x)}$, and we&#39;ve figured out how to differentiate that. Because of the chain rule, we must have:}
+&amp;= e^{x\ln(a)}\cdot\frac{d}{dx}\left[ x\ln(a)\right] \\
+\intertext{What&#39;s the derivative of $x\ln(a)$? Well, $\ln(a)$ is just a constant---it&#39;s a number, like $5$ or $\pi$ or three-sevenths. So the derivative of $x\ln(a)$ must just be $\ln(a)$ (in the same way that the derivative of $5x$ is $5$).}
+&amp;= e^{x\ln(a)} \cdot \ln(a)
+\intertext{and we already know that another way to write $e^{x\ln a}$ is $a^x$:}
+&amp;= a^x\cdot \ln(a) \\
+&amp;= \ln(a)\cdot a^x \\
+&amp; \includegraphics[scale=.25]{andrewproof.png}
+\end{align*}\]</span></p>
+
+<h2 id="note">Note</h2>
+<p>What if we have <span class="math inline">\(\frac{d}{dx}(e^x)\)</span>? This must just be <span class="math inline">\(\ln(e) \cdot e^x\)</span>, but since <span class="math inline">\(\ln(e) = \log_{e}(e^1) = 1\)</span>, we must have:<span class="math display">\[\frac{d}{dx}(e^x) = \ln(e) \cdot e^x = 1 \cdot e^x = e^x\]</span>Which we already knew. So thankfully, this is consistent.</p>
+<h2 id="corollary">Corollary</h2>
+<p>Notice how we needed to use the chain rule in that last example. Might it not be nice to come up with a version of this theorem that has a built-in chain rule? To wit:</p>
+<p><span class="math display">\[\frac{d}{dx}(a^{g(x)}) = \ln(a)\cdot a^{g(x)} \cdot g&#39;(x)\]</span> (where <span class="math inline">\(g(x)\)</span> is any function of <span class="math inline">\(x\)</span>)</p>
+<p>: Do it yourself! It’s basically the same as the proof we just did, but with <span class="math inline">\(g(x)\)</span> instead of <span class="math inline">\(x\)</span>. Or—even more easily—it’s just the last theorem, but with an application of the chain rule.</p>
+<h2 id="another-note">Another note</h2>
+<p>Then… these are just two different ways of writing the same derivative, so they must be equal. But then <span class="math inline">\(\displaystyle \lim_{h \to 0} \frac{a^h - 1}{h}\)</span> and <span class="math inline">\(\ln(a)\)</span> must be equal! Or: <span class="math display">\[ \lim_{h \to 0} \frac{a^h - 1}{h} = \ln(a) \]</span> Which is totally crazy and counterintuitive and doesn’t at all make visceral sense. Just by thinking about how limits work, or by thinking about how logarithms work, you would not at all expect these two things to be equal. But they are. We’ve proved it. This is, in a sense, one of the real powers of math—we are not constrained simply to what we {} is true, or think {} be true. We can use logic to discover new truths, or even truths that contradict our innate, not-neccesarily-rational beliefs.</p>
+<p>Of course, I am talking about mathematical truths. In a sense, it is much easier to discover truth in mathematics than truth in reality (whatever that is). In math, we start with explicit axioms and rules of logical inference; mathematical truths are only true relative to these axioms. They are not true in any universal, structure–of–the–cosmos sort of way.</p>
+<p>Anyway, back to logs. I have no idea when you would need to calculate <span class="math inline">\(\displaystyle \lim_{h \to 0} \frac{a^h - 1}{h}\)</span>, but if you did, you could use this formula: </p>
+
+<h2 id="the-derivative-of-a-logarithm">The Derivative of a Logarithm</h2>
+<p>This is tricky. We have no rule that will help us take the derivative of a log. What if we go back to basics and use the definition of a derivative? This, after all, is whence all of our other derivative laws came (e.g., <span class="math inline">\(\frac{d}{dx} x^n = nx^{n-1}\)</span>), and it’s how we came up with the derivative of <span class="math inline">\(a^x\)</span>.</p>
+<p>So let’s try that. Given a function <span class="math inline">\(f(x)\)</span>, the derivative is <span class="math inline">\(\displaystyle \lim_{h \to 0} \frac{f(x+h) - f(x)}{h}\)</span>. So if <span class="math inline">\(f(x) = \log_k(x)\)</span>… <span class="math display">\[\frac{d}{dx}(\log_k(x)) = \lim_{h \to 0} \frac{\log_k(x+h) - \log_k(x)}{h}\]</span> Maybe we could rewrite this using laws of logs: <span class="math display">\[\frac{d}{dx}(\log_k(x)) = \lim_{h \to 0}\left[ \frac{1}{h} \log_k\left(\frac{x+h}{x}\right)\right]\]</span> And maybe split the fraction up: <span class="math display">\[\frac{d}{dx}(\log_k(x)) = \lim_{h \to 0}\left[ \frac{1}{h} \log_k\left(1 +\frac{h}{x}\right)\right]\]</span> But where do we go from here? We can’t do much more to simplify this. Uh. Darn. We’ll need to use another method.</p>
+<h2 id="the-derivative-of-a-logarithm-second-attempt">The Derivative of a Logarithm (Second Attempt)</h2>
+<p>What else do we know about logarithms? We know they’re cool. We also know that, by definition, they cancel out with exponentials upon composition: <span class="math display">\[\log_k(k^x) = x \hspace{1cm}\text{and}\hspace{1cm} k^{\log_k(x)} = x\]</span> What if we try to take the derivative of that equation on the right? It has a log in it, but more importantly, it has an exponential—and we already know how to take the derivative of those.</p>
+<p>Yay! Now we know how to take the derivative of a logarithm!!! </p>
+<h2 id="for-example">For example…</h2>
+
+<h2 id="corollary-1">Corollary</h2>
+<p>Notice how we needed to use the chain rule in that last example. Perhaps we could come up with a formula for the derivative of a logarithm that has a built-in chain rule?</p>
+<p>Imagine we have a logarithm base <span class="math inline">\(a\)</span> and some function <span class="math inline">\(g(x)\)</span>. Then: <span class="math display">\[\frac{d}{dx}\left[\log_a(\,g(x)\,)\right] = \frac{1}{g(x) \ln(a)} \cdot g&#39;(x)\]</span></p>
+<p>{}: You can do it yourself! It’s basically the same as the proof we just did, but with <span class="math inline">\(g(x)\)</span> instead of <span class="math inline">\(x\)</span>.</p>
+<h2 id="the-derivative-of-an-inverse-function">The Derivative of an Inverse Function</h2>
+<p>Note that in order to take the derivative of a log, we used the property that logs and their inverses (exponentials) cancel out when we put them inside of each other. This is, of course, true about any pair of inverse functions—it’s the very {} of an inverse function. So the cool thing is, then, that we can use the same method to figure out the derivative of a logarithm to figure out the derivative of {} inverse function (at least in terms of some other stuff). </p>
+<h3 id="theorem">Theorem:</h3>
+<p><span class="math inline">\(\displaystyle \underbrace{f^{\text{inv}&#39;}(x)}_{\mathclap{\text{derivative of the inverse}}} = \frac{1}{f&#39;( \, f^\text{inv}(x) \, )}\)</span></p>
+<h3 id="for-example-1">For example…</h3>
+<p><span class="math inline">\(f(x) = x^3\)</span> and <span class="math inline">\(f^\text{inv}(x) = \sqrt[3]{x}\)</span> are inverses. And we know <span class="math inline">\(f&#39;(x) = 3x^2\)</span>. So by this theorem,</p>
+<p><span class="math display">\[f^{\text{inv}&#39;}(x) = \frac{1}{f&#39;( \sqrt[3]{x} )} = \frac{1}{3( \sqrt[3]{x} )^2} = \frac{1}{3(x^{1/3})^2} = \frac{1}{x^{2/3}} = \frac{1}{3} x^{-2/3}\]</span></p>
+<p>Of course, we already knew this—we know how to differentiate <span class="math inline">\(\sqrt[3]{x}\)</span> the normal way. (Just write it like <span class="math inline">\(x^{1/3}\)</span> and use the power rule.) This is just another way to do it. </p>
+<p>: By the definition of an inverse function, we must have <span class="math display">\[f( \, f^\text{inv}(x) \,) = x\]</span> So if we differentiate both sides: <span class="math display">\[\frac{d}{dx}\left[f( \, f^\text{inv}(x) \,)\right] = \frac{d}{dx}(x)\]</span> Which is just: <span class="math display">\[\frac{d}{dx}\left[f( \, f^\text{inv}(x) \,)\right] = 1\]</span> But on the left, we have the derivative of a function inside another function… which requires, like, THE CHAIN RULE! So if we use the chain rule we’ll get: <span class="math display">\[f&#39;\left( \, f^\text{inv}(x) \,\right)\cdot f^{\text{inv}&#39;}(x) = 1\]</span> But we can just use algebra to rearrange this: <span class="math display">\[f^{\text{inv}&#39;}(x) = \frac{1}{f&#39;( \, f^\text{inv}(x) \,)}\]</span> <span class="math display">\[ \includegraphics[scale=.25]{andrewproof.png} \]</span></p>
+<p>Whee!</p>
+<h3 id="another-example">Another example</h3>
+<p><span class="math inline">\(f(x) = \sin(x)\)</span> and <span class="math inline">\(f^\text{inv}(x) = \sin^\text{inv}(x)\)</span> are inverses. And <span class="math inline">\(\frac{d}{dx}(\sin x) = \cos(x)\)</span>. So then the derivative of <span class="math inline">\(\sin^\text{inv}(x)\)</span> is… <span class="math display">\[\left(\, \sin^\text{inv}(x)\,\right)&#39; = \frac{1}{\cos(\sin^\text{inv}(x))}\]</span></p>
+<h2 id="the-derivative-of-xx">The Derivative of <span class="math inline">\(x^x\)</span></h2>
+<p>We know how to take the derivative of a variable raised to a constant: <span class="math inline">\(\displaystyle \frac{d}{dx}(x^a) = ax^{a-1}\)</span> </p>
+<p>We know how to take the derivative of a constant raised to a variable: <span class="math inline">\(\displaystyle \frac{d}{dx}(a^x) = \ln(a) a^x\)</span></p>
+<p>But how do we take the derivative of a variable raised to a variable??? <span class="math inline">\(\displaystyle \frac{d}{dx}(x^x) = \,????\)</span></p>
+<p>(By the way, what is the derivative of a constant raised to a constant?)</p>
+<p>: <span class="math inline">\(\displaystyle \frac{d}{dx}(x^x) = x^x(1 + \ln(x))\)</span></p>
+<p>: By properties of logarithms, we can write <span class="math inline">\(x^x\)</span> as <span class="math inline">\(e^{\ln(x^x)}\)</span>: <span class="math display">\[x^x = e^{\ln(x^x)}\]</span> Which we can simplify by using another property of logs: <span class="math display">\[x^x = e^{x \ln(x)} \hspace{1cm} (*)\]</span> We’ll use this equation again, so let’s label it as <span class="math inline">\(*\)</span>. If we differentiate with respect to <span class="math inline">\(x\)</span>: <span class="math display">\[\frac{d}{dx}(x^x) = \frac{d}{dx}(e^{x\ln(x)})\]</span> But we know how to take the derivative of <span class="math inline">\(e^\text{stuff}\)</span>: <span class="math display">\[\frac{d}{dx}(x^x) = e^{x\ln(x)} \cdot \underbrace{\frac{d}{dx}(x \ln(x))}_\text{by chain rule}\]</span> Using the product rule, we get: <span class="math display">\[\begin{align*}
+\frac{d}{dx}(x^x) &amp;= e^{x\ln(x)} \cdot \left(x \frac{d}{dx}(\ln x) + \ln x \frac{d}{dx}(x) \, \right) \\
+&amp; = e^{x\ln(x)} \cdot \left(x \cdot \frac{1}{x} + \ln (x)  \cdot 1 \, \right) \\
+&amp;= e^{x\ln(x)} \cdot (1 + \ln x )
+\end{align*}\]</span> Almost there! By the identity we proved back in <span class="math inline">\(*\)</span>, we can write <span class="math inline">\(e^{x \ln x}\)</span> as <span class="math inline">\(x^x\)</span>, so this becomes: <span class="math display">\[\frac{d}{dx}(x^x) = x^x(1 + \ln x )\]</span> <span class="math display">\[\includegraphics[scale=.25]{andrewproof.png}\]</span></p>
+
+<p>BUT. This formula only tells us how to find the derivative of a variable raised to itself. What if we want, say, to find the derivative of <span class="math inline">\((3x + 2)^{\sin x}\)</span>? More generally, what if we want to find the derivative of one function of <span class="math inline">\(x\)</span> raised to another function of <span class="math inline">\(x\)</span>? </p>
+<p>: <span class="math inline">\(\displaystyle \frac{d}{dx}\left[g(x)^{h(x)}\right] = g(x)^{h(x)}\cdot \frac{d}{dx}\left[h(x) \ln (g(x)) \right]\)</span> </p>
+<p>: This is basically the same as the proof of <span class="math inline">\(\frac{d}{dx}(x^x)\)</span>, but with arbitrary functions (i.e., with <span class="math inline">\(f(x)\)</span> instead of <span class="math inline">\(x\)</span>). By laws of logarithms, we know:<span class="math display">\[g(x)^{h(x)} = e^{\ln\left(g(x)^{h(x)}\right)}\]</span> Also by log laws: <span class="math display">\[g(x)^{h(x)} = e^{h(x) \ln(g(x))}\hspace{1cm}(**)\]</span> differentiating… <span class="math display">\[\frac{d}{dx}\left[ g(x)^{h(x)} \right]  = \frac{d}{dx}\left[e^{h(x) \ln(g(x))}\right]\]</span> which is: <span class="math display">\[\frac{d}{dx}\left[ g(x)^{h(x)} \right]  = e^{h(x) \ln(g(x))} \cdot \frac{d}{dx}\left[h(x) \ln(\,g(x)\,) \right]\]</span> But we already know that <span class="math inline">\(e^{h(x) \ln(g(x))} = g(x)^{h(x)}\)</span> (from <span class="math inline">\(**\)</span>). So: <span class="math display">\[\frac{d}{dx}\left(g(x)^{h(x)}\right) = g(x)^{h(x)} \cdot \frac{d}{dx}\left(h(x) \ln(g(x) \right) \]</span> <span class="math display">\[\includegraphics[scale=.25]{andrewproof.png}\]</span></p>
+<p></p>
+<p>We’ve already proven that the derivative of <span class="math inline">\(x^n\)</span> is <span class="math inline">\(nx^{n-1}\)</span>… sort of. Our proof, which was rather excruciating and involved huge amounts of writing, only actually worked for <span class="math inline">\(n\)</span> being some positive integer. Some of you, for an extra credit problem, proved it for <span class="math inline">\(n\)</span> being a negative integer. But this still leaves out large numbers of numbers: what if <span class="math inline">\(n\)</span> is a rational number? for example, what if we want to take the derivative of <span class="math inline">\(x^{1/2}\)</span>? what if <span class="math inline">\(n\)</span> is a real number? what if we want to take the derivative of <span class="math inline">\(x^\pi\)</span>?</p>
+<p>As it turns out, the <span class="math inline">\((x^n)&#39;=nx^{n-1}\)</span> law {} true if <span class="math inline">\(n\)</span> is any real number (and not just an integer or a rational number). And, as it turns out, there’s a very simple and very clean proof. It doesn’t take any of the pain that our proof that only worked for natural numbers did; in fact, it doesn’t even use Fermat’s difference quotient. It simply relies of the derivatives of logs, exponentials, and the chain rule.</p>
+<p>The basic idea is that if we have <span class="math inline">\(x^n\)</span>, then we can rewrite it as <span class="math inline">\(e^{\ln(x^n)}\)</span>, just using properties of logs—the <span class="math inline">\(e^\text{stuff}\)</span> and <span class="math inline">\(\ln(\text{stuff})\)</span> will cancel out. But then using a different property of logs—the one about how you can pull exponents down—you can rewrite it as <span class="math inline">\(e^{n\ln(x)}\)</span>. (That works for any real number <span class="math inline">\(n\)</span>.) And {} we know how to take its derivative!</p>
+<p><span class="math display">\[\begin{align*}
+\frac{d}{dx}\left[x^n\right] &amp;= \frac{d}{dx}\left[ e^{\ln(x^n)}\right] &amp;\text{properties of logs} \\
+&amp;= \frac{d}{dx}\left[ e^{n\ln(x)}\right] &amp;\text{another property of logs}\\
+&amp;= e^{n\ln(x)}\cdot\frac{d}{dx}\left[ n\ln(x)\right] &amp;\text{chain rule}\\ 
+&amp;= e^{n\ln(x)}\cdot n\cdot\frac{1}{x} \\ 
+\intertext{But now we can rewrite $e^{n\ln(x)}$, since we know that&#39;s just equal to $e^{\ln(x^n)}$, or just $x^n$:}
+&amp;= x^n\cdot n\cdot\frac{1}{x} \\ 
+&amp;= \frac{nx^n}{x} \\
+&amp;= nx^{n-1} \\
+&amp;\includegraphics[scale=.25]{andrewproof.png}
+\end{align*}\]</span></p>
+<h2 id="one-last-question-or-two">One Last Question (or two)</h2>
+<p>What is the derivative of <span class="math inline">\(x^{x^x}\)</span>? What about of <span class="math inline">\(g(x)^{h(x)^{j(x)}}\)</span>? Remember how we can make <code>iterated sums'' with a giant $\Sigma$ and</code>iterated products’’ with a giant <span class="math inline">\(\Pi\)</span>? Can we make an ``iterated exponentiation’’ function, like <span class="math inline">\(\displaystyle {\rm Power}^n(x) = \underbrace{x^{x^{x^{\cdots ^x}}}}_{n \text{ times}}\)</span>? What is its derivative?</p>
+<p>One thing to be careful with is that—unlike with addition/subtraction and multiplication/division—exponentiation is not commutative: <span class="math inline">\(a^b \neq b^a\)</span>, or, in calculator notation, <span class="math inline">\(a\wedge b \neq b\wedge a\)</span>. (For example, <span class="math inline">\(2^5 \neq 5^2\)</span>.) Likewise, it’s not associative: <span class="math inline">\(a\wedge(b \wedge c)\neq (a\wedge b)\wedge c\)</span>. So if you have a teetering tower of things being exponentiated, you need to be clear where your parentheses are—the function <span class="math inline">\(x^{(x^2)}\)</span> isn’t the same as the function <span class="math inline">\((x^x)^2\)</span>.</p>
+<h2 id="actually-i-have-another-question">Actually, I Have Another Question</h2>
+<p>Throughout these notes, we’ve dealt exclusively with logarithms which bases are constants. The natural log (<span class="math inline">\(\ln\)</span>) has base <span class="math inline">\(e\)</span>; the <span class="math inline">\(\log_7\)</span> has base <span class="math inline">\(7\)</span>, <span class="math inline">\(\log_k\)</span> (which I use in proofs a lot) has a base of constant <span class="math inline">\(k\)</span>.</p>
+<p>But logarithms only exist as inverses of exponential functions. Usually we talk about exponential functions which bases are constants—<span class="math inline">\(e^x\)</span>, <span class="math inline">\(7^x\)</span>, <span class="math inline">\(k^x\)</span>. Sometimes we raise them to things that are more complicated than just <span class="math inline">\(x\)</span>: <span class="math inline">\(e^{\sin x}\)</span>, <span class="math inline">\(7^{x^2}\)</span>, <span class="math inline">\(k^{\log_k(5)}\)</span>. But there’s no reason why we couldn’t exponentiate them by something more complicated than a constant. There’s no reason why the base has to be constant. What’s wrong with the function <span class="math inline">\((\sin(x))^x\)</span>? What’s wrong with <span class="math inline">\((x^2+5x^3)^{\cos x}\)</span>? Absolutely nothing! We can take functions and raise them to other functions.</p>
+<p>So, ultimately my question is <code>what is the derivative of the log base $f(x)$ of $g(x)$''? $$\frac{d}{dx}\left[ \log_{f(x)}(g(x))\right] = \quad???$$ But to answer this question, we need to first ask the question:</code>what is a log base <span class="math inline">\(f(x)\)</span> of <span class="math inline">\(g(x)\)</span>’’?? Meaning: we’ve never seriously dealt with logarithms which bases are arbitrary functions and not constants. We’ve only seen them once in passing. On the logs quiz back in October (September?), I asked you: <span class="math display">\[\log_{a^3b^4}{\left(\frac{b^{-12}}{(\sqrt[4]{a^3})^{12}}\right)} = \quad???\]</span> Many of you were able to fiddle with this and get: <span class="math display">\[\log_{a^3b^4}{\left(\frac{b^{-12}}{(\sqrt[4]{a^3})^{12}}\right)} = \log_{a^3b^4}{\left(\left(a^3b^4\right)^{-3}\right)} = -3\]</span> But we don’t have a general theory of how logs to a variable base behave. We don’t have a list of properties of logs-base-<span class="math inline">\(f(x)\)</span>; we only have a list of properties of logs-base-<span class="math inline">\(k\)</span> (where <span class="math inline">\(k\)</span> is some constant). Before we start doing calculus with logs-base-<span class="math inline">\(f(x)\)</span>, we really ought to know how to do algebra with logs-base-<span class="math inline">\(f(x)\)</span>. (It might or might not be necessary as a prerequisite for calculus; if nothing else, it would probably be interesting.)</p>
+<p>I have no idea what such a theory would be; I haven’t thought about it very much. But I suppose I would start by thinking about general properties of exponential functions with variable bases. If we understand how things like <span class="math inline">\(f(x)=g(x)^{h(x)}\)</span> behave; maybe we can start thinking about how <span class="math inline">\(f^\text{inv}(x)\)</span> must behave.</p>
+<h2 id="problems">Problems</h2>
+<p>Differentiate the following functions, with respect to <span class="math inline">\(x\)</span>, <span class="math inline">\(\theta\)</span>, <span class="math inline">\(t\)</span>, etc., as appropriate. (As is my usual convention, <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span>, <span class="math inline">\(c\)</span>, <span class="math inline">\(k\)</span>, and <span class="math inline">\(n\)</span> represent constants.)</p>
+<p>\end{document}</p>
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>Notice how I’ve anthropomorphized derivatives here.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p><span class="math inline">\(e\)</span> roughly equals <span class="math inline">\(2.7 \,\, 1828 \,\, 1828 \,\, 45 \,\, 90 \,\, 45\)</span>, which is easy to remember, because then it’s just the year 1828, twice, and a 45-90-45 triangle. Of course, memorizing numbers like this is what gives math a bad name—math isn’t about numbers and certainly not about memorizing long strings of them, etc. etc., but this * is* kind of cool, and makes for a nice party trick.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+</main>
+</body>
+</html>

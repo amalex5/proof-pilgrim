@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>antiderivatives</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="/main.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <script src="../highlight-toc.js" type="text/javascript"></script>
+</head>
+<body>
+<script>document.addEventListener('DOMContentLoaded', function(e) {
+  Scroller.init();
+})</script>
+<aside>
+<div class="tocLinks" >
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#some-technical-notes">Some Technical Notes</a></li>
+<li><a href="#displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint"><span class="math display">\[\displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int\]</span></a></li>
+<li><a href="#displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-1"><span class="math display">\[\displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int\]</span></a></li>
+<li><a href="#displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-2"><span class="math display">\[\displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int\]</span></a></li>
+<li><a href="#displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-3"><span class="math display">\[\displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int\]</span></a></li>
+<li><a href="#displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-4"><span class="math display">\[\displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int\]</span></a></li>
+<li><a href="#displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-5"><span class="math display">\[\displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int\]</span></a></li>
+<li><a href="#displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-6"><span class="math display">\[\displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int\]</span></a></li>
+</ul>
+</nav>
+</div>
+</aside>
+<main>
+<header id="title-block-header">
+<h1 class="title">antiderivatives</h1>
+</header>
+<p><strong>The year is not over yet</strong>. We have one last thing to do. We have learned how to differentiate—now we must learn how to antidifferentiate. This problem is interesting enough in the context of differentiation. Now that we’ve learned that integration is really just the same thing as antidifferentiation, it has taken on added urgency.</p>
+<p>But perhaps I should be a bit clearer with my pronouns: <em>you</em> must learn how to antidifferentiate, since I am already fairly good at it. Here’s what we’ll do: I’ll give you 200–odd antiderivative problems (ranging widely in difficulty and generality), and you’ll figure out how to do them. All by yourselves. I will do nothing but sit and observe. And you will do this because during finals week, I will give you a very hard test on antidifferentiation.</p>
+<p>Now, in principle, each of you is more than capable of teaching yourselves how to antidifferentiate. You are all already quite good at taking derivatives, so with sufficient play you should be able to figure out how to move in the opposite direction. Put differently, you know how to do this: <span class="math display">\[\text{function} \longrightarrow \text{derivative}\]</span> and now you need to figure out how to do this: <span class="math display">\[\text{function} \longleftarrow \text{derivative}\]</span> so that you can understand the full correspondence: <span class="math display">\[\text{function} \longleftrightarrow \text{derivative}\]</span> Some of you may be able to do all of the problems I give you with little difficulty. Others might have more trouble. If you discover that you are good at this stuff, that doesn’t mean you can simply relax for the next week and a half while your colleagues flounder. You have the obligation to help your classmates who are struggling—to teach them and help them understand the material. If you do not, I will be very disappointed. And you may be disappointed, too, when you see your semester evaluation, because I will be evaluating you in this unit not simply on how well you do on the test, but on how well you operate as a class.</p>
+<p>Exactly how you organize the unit is up to you. You might want to split up the problems so you discuss some predetermined fraction of them each day, you might want to designate a few people each day to present problems and run the class, you might want to have a Hobbesian free-for-all… you are welcome to do whatever you feel will be most efficacious. The point is, you will need take the initiative yourselves. As I said <em>supra</em>, a large part of how I evaluate you will be on your ability to function as a cohesive and directed whole.</p>
+<p>My hope is that this short unit will be neither nasty nor brutish. I think it will be fun and challenging, and a good way to end the year.</p>
+<h2 id="some-technical-notes">Some Technical Notes</h2>
+<p>In the problems I give you, I’ll use the symbol <span class="math inline">\(\int\)</span> to represent an antiderivative. For example<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p><span class="math display">\[\int 2x \, dx = \text{&quot;the antiderivative of $2x$&quot;} = x^2\]</span></p>
+<p>Of course, <span class="math inline">\(\displaystyle \int 2x \,dx\)</span> could be <span class="math inline">\(x^2 + 5\)</span>, too, or even <span class="math inline">\(x^2 + 3,429,836.8345\)</span>. So really we should just write:</p>
+<p><span class="math display">\[\int 2x \,dx = x^2 + C\]</span></p>
+<p>where <span class="math inline">\(C\)</span> can be any real number (i.e., is some constant). That way we can capture <em>every</em> antiderivative, and not just one. Formally, I would define this notation as follows: given some function <span class="math inline">\(f(x)\)</span> and its derivative <span class="math inline">\(f&#39;(x)\)</span>, the following relationship holds:</p>
+<p><span class="math display">\[\displaystyle \int f&#39;(x) \, dx = f(x) + C\]</span></p>
+<p>Additionally, unless otherwise specified, I represent constant quantities in these problems with single letters (e.g. <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span>, <span class="math inline">\(n\)</span>) and functions with function-notation (e.g. <span class="math inline">\(a(x)\)</span>, <span class="math inline">\(b(t)\)</span>, <span class="math inline">\(f(x)\)</span>, <span class="math inline">\(r(\theta)\)</span>). Some of your answers may have to include arbitrary constants or functions—that’s OK. You are welcome to ask me if you have additional questions of this sort, but if you have questions on how to actually do the problems, I will probably be quite reticient.</p>
+<style>
+.spaced-antiderivatives li {
+  margin-bottom: 5em;
+}
+</style>
+<div style="height:10em;">
+
+</div>
+<h2 id="displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint"><span class="math display">\[\displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int\]</span></h2>
+<div style="column-width: 14em;  column-gap: 2em;  column-rule: 1px solid #ccc;">
+<ol class='problems spaced-antiderivatives'>
+<li>
+<span class="math inline">\(\displaystyle \int 2x \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int 3x^2 \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int 4x^3 \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int 17x^{16} \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int 0 \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int 1 \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int 332 \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int 5x \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int 6x^2 \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int 4x^5 \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int 22x^{47} \, dx\)</span>
+</li>
+<li>
+** <span class="math inline">\(\displaystyle \int ax^n \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int -x^{-2}\, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \frac{-1}{x^2} \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int -2x^{-3} \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \frac{-2}{x^3} \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int -3x^{-4} \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \frac{-3}{x^4} \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int x^{-n} \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \frac{1}{x^{n}} \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \frac{5}{x^3} \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \frac{7}{3x^4} \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \frac{b}{x^n} \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \frac{-12}{7x^6} \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \frac{9}{x^8} \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \frac{5}{67x^{98}} + x^5\, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \frac{1}{2}x^{-1/2}\, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \frac{1}{2\sqrt{x}} \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \frac{3}{\sqrt{x}}\, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \frac{3}{2}x^{1/2} \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \frac{3}{2}\sqrt{x} \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \frac{-1}{2}x^{-3/2} \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \frac{-3}{2}x^{-5/2} \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int 5\sqrt{x} \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \frac{1}{3}x^{-2/3} \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \frac{1}{3\sqrt[3]{x^2}} \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \frac{-1}{3}x^{-4/3} \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int x^{-3} + x^2 \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \sqrt{x} + \frac{1}{\sqrt{x}} \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int x^{-5} \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int ax^2 + bx + c \, dx\)</span> 
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int ax^3 - \frac{1}{ax} \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int af&#39;(x) \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int f&#39;(x) + g&#39;(x) \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int x^5 + 3x^8 - 12x^7 + 14 \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \left[ \sum_{k=0}^{k=n} a_k x^k\,\right] dx\)</span> (where all of the <span class="math inline">\(a_k\)</span>, i.e., <span class="math inline">\(a_0,a_1,a_2\)</span>, etc., are constants)
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int 5\sqrt{x} - 3x^6 + 23x^4 + \pi \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int x^3 + 3\sqrt[5]{x} + 8x^{2/3} + bx + a \, dx\)</span> 
+</ol>
+</div>
+<h2 id="displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-1"><span class="math display">\[\displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int\]</span></h2>
+<div style="column-width: 14em;  column-gap: 2em;  column-rule: 1px solid #ccc;">
+<ol class="problems spaced-antiderivatives">
+<li>
+**<span class="math inline">\(\displaystyle \int \cos(x) \, dx\)</span>
+</li>
+<li>
+**<span class="math inline">\(\displaystyle \int \sin(x) \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int -\pi\sin(\pi x) \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int 3\sin(x) \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \sin(3x) \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \sin(\pi x) - 3\sin(3x) \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \frac{\pi}{2}\cos\left(\frac{\pi}{2} x\right) \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \frac{1}{\cos^2{x}} \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \sin(x + 3\pi) \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \cos\left(x - \frac{2}{3}\pi\right) \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int 2x\cos(x^2)\,dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int 2x\cos(x)\,dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \frac{\sin(x)}{x} \, dx\)</span>
+</li>
+</ol>
+</div>
+<h2 id="displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-2"><span class="math display">\[\displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int\]</span></h2>
+<div style="column-width: 14em;  column-gap: 2em;  column-rule: 1px solid #ccc;">
+<ol class="problems spaced-antiderivatives">
+<li>
+<span class="math inline">\(\displaystyle \int 2x\cos(x^2) \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int 3x^2\cos(x^3) \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int -5x^4\sin(x^5) \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int 323(4x^3 + 3x^2)(x^4 + x^3)^{322} \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int 9(6x^5 + 2x)(x^6 + x^2)^{8}\, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int 15x^4(x^5 + 12)^{2} \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int 35x^6(x^7 + 3)^5 \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int 4x^3\cos(x^4 + 2\pi) \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int (k + 1) \cdot f&#39;(x)\cdot (\,f(x)\,)^k \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int f&#39;(x) \cdot (\, f(x) \,)^n \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int (4x^3 + 7x^6)f&#39;(x^4 + x^7) \, dx\)</span>
+</li>
+<li>
+**** <span class="math inline">\(\displaystyle \int g&#39;(x) \cdot f&#39;(\, g(x) \,) \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int x\sin(2x^2)\, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int (1- \cos(t/2))^2\sin(t/2)\, dt\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int 28(7x - 2)^{-5} \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int x^3(x^4 - 1)^2 \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \frac{9r}{\sqrt{1 - r^2}} \, dr\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int 12(y^4 + 4y^2 + 1)^2(y^3 + 2y) \, dy\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \frac{1}{\sqrt{5x + 8}} \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \sqrt{3 - 2s} \, ds\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int (2x + 1)^3 \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \frac{3}{(2 - x)^2} \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \theta\sqrt[4]{1 - \theta^2} \, d\theta\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int g(x)g&#39;(x) \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \frac{4y}{\sqrt{2y^2 + 1}} \, dy\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int x^{1/2}\sin(x^{3/2} + 1)\, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \sin^5\left(\frac{x}{3}\right)\cos\left(\frac{x}{3}\right)\, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int r^2\left(\frac{r^3}{18} - 1\right)^5\, dr\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int r^4\left(7 - \frac{r^5}{10}\right)\, dr\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int x^{1/3}\sin(x^{4/3} - 8)\, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \frac{3}{x^2}\left(1 - \frac{1}{x}\right)^3\, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \frac{(1 + \sqrt{x})^3}{\sqrt{x}} \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \frac{1}{t^2}\cos\left(\frac{1}{t} - 1\right)\, dt\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int x\sqrt{1 - x^2} \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int -5x^4\sin(x^4) \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \frac{10\sqrt{v}}{(1 + v^{3/2})^2} \, dv\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \frac{4x}{\sqrt{x^2 + 1}}\, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \frac{x^3}{\sqrt{x^4 - 9}} \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \frac{g(x)}{(g(x))^2} \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \frac{\cos(z)}{\sqrt{4 + 3\sin(z)}} \, dz\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \cos^{-3}(2\theta)\sin(2\theta)\, d\theta\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \tan^{-5}\left(\frac{\theta}{6}\right)\frac{1}{\cos^2(\frac{\theta}{6})} \, d\theta\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int (4y - y^2 +4y^3 +1)^{-2/3}(12y^2 - 2y +4)\, dy\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int (y^3 + 6y^2 - 12y +9)^{-1/2}(y^2 + 4y -4) \, dy\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \sqrt{x^4 + 1} \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \frac{b^3x^3}{\sqrt{1-a^4x^4}} \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \frac{x^{n-1}}{\sqrt{a + bx^n}} \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int y^2\left(1 - \frac{y^3}{a^2}\right)^{-2} \, dy\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \sqrt{1 + \sin(x)}\cos(x) \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int x\sin^3(x^2)\cos(x^2) \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int k&#39;(x)\cdot g&#39;(k(x))\cdot f&#39;(g(k(x))) \, dx\)</span>
+</li>
+</ol>
+</div>
+<h2 id="displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-3"><span class="math display">\[\displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int\]</span></h2>
+<div style="column-width: 14em;  column-gap: 2em;  column-rule: 1px solid #ccc;">
+<ol class="problems spaced-antiderivatives">
+<li>
+<span class="math inline">\(\displaystyle \int e^x \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int 2e^{2x} \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int 276e^{276x} \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \cos(x)e^{\sin(x)} \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int 2xe^{x^2} \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int (5x^4 + 3x^2)e^{x^5 + x^3} \, dx\)</span>
+</li>
+<li>
+** <span class="math inline">\(\displaystyle \int g&#39;(x)e^{g(x)} \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int 8e^{x+1} \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int e^{3x} + 5e^{-x} \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int 2e^{x} - 3e^{-2x} \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int 2te^{-t^2} \, dt\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int t^3e^{t^4} \, dt\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \frac{e^{\tan(\theta)}}{\cos^2(\theta)} \, d\theta\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int 5^x \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int 2^x \cos(x^3) \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \frac{1}{\ln(k)}k^x \, dx\)</span>
+</li>
+<li>
+**<span class="math inline">\(\displaystyle \int a^x \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int 1.3^x \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int x2^{x^2} \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int 7^{\cos(t)}\sin(t) \, dt\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \frac{{(\frac{1}{3}})^{\tan(t)}}{\cos^2(t)} \, dt\)</span>
+</li>
+<li>
+**<span class="math inline">\(\displaystyle \int \frac{1}{x} \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \frac{1}{2x}\, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \frac{1}{x + 4}\, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \frac{1}{x - 2}\, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \frac{1}{3x + 8}\, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \frac{1}{3x - 2}\, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \frac{2x}{x^2 - 25}\, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \frac{8x}{4x^2 - 5}\, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \frac{4\sin(\theta)}{1 - 4\cos(\theta)}\, d\theta\)</span>
+</li>
+<li>
+**<span class="math inline">\(\displaystyle \int \frac{f&#39;(x)}{f(x)} \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \frac{-\sin(\theta)}{\cos(\theta) - 2}\, d\theta\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \frac{\sin(\theta)}{\cos(\theta)}\, d\theta\)</span>
+</li>
+<li>
+** <span class="math inline">\(\displaystyle \int \tan(\theta) d\theta\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \tan\left(\frac{\pi t}{2}\right) dt\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \frac{5}{x}(8 + \ln(x))^4\, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int 19\frac{3x^2 + 2}{x}(x^3 + 2x + \ln(x))^{18}\, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \frac{1}{x}f&#39;(\ln(x))\,dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int f&#39;[(\, \ln(\, g(x)\,)\,]\frac{g&#39;(x)}{g(x)} \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \frac{1}{x}\cdot 2 \cdot \left(\ln(x)\right)^1\,dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \frac{\ln(x)}{x}\, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \frac{\ln(x)}{3x}\, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \frac{4}{x(\ln(x))^2}\, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \frac{(\ln(x))^2}{7x}\, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \frac{(\ln(x))^{2/3}}{x}\, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \frac{\log_7(x)}{\ln(7)}\,dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \frac{\log_k(x)}{\ln(k)}\,dx\)</span>
+</li>
+<li>
+** <span class="math inline">\(\displaystyle \int \log_k(x)\,dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \frac{e^r}{1 + e^r} \, dr\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \frac{\log_7(x)}{x} \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \frac{\log_k(x)}{x} \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int xe^{x} \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \ln(x) \, dx\)</span>
+</li>
+</ol>
+</div>
+<h2 id="displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-4"><span class="math display">\[\displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int\]</span></h2>
+<div style="column-width: 14em;  column-gap: 2em;  column-rule: 1px solid #ccc;">
+<ol class="problems spaced-antiderivatives">
+<li>
+<span class="math inline">\(\displaystyle \int 1 + 2x + 3x^2 + 4x^3 \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int x^3 + 4x^7 - 2x^4 + 6 \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int ax^n + x^n + 3x^b - g \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int 1/2 \cdot x^{-1/2} + 1/3 \cdot x^{-2/3} + 1/12 \cdot x^{-11/12} \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int x^{4/5} - x^{3/4} + x^{-1/3} + 5x^{2/7} \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \sqrt[5]{x^4} - \sqrt[4]{3} + \frac{1}{\sqrt[3]{x}} + 5\sqrt[7]{x^2} \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int g&#39;(x) \cdot f&#39;(\, g(x) \,) \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int 3x^2\cdot8(x^3 + 5)^7 \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \cos(x) \cdot 4(\, \sin(x) + 3)^3 \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int (3x^2 + 8x^7 - 1) \cdot 26(x^3 + x^8 - x)^{25} \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int (5x^4 - 9x^2 - 720x^{79})(x^5 - 3x^3 - 9x^{80})^{11} \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int 3(\cos(x) + 10x^9)(\sin(x) + x^{10})^4 \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int (2x + 5)(x^2 + 5x)^7 \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int (3 - x)^{10} \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int -2x\sqrt{4 - x^2} \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \sqrt{7x + 9} \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \frac{x^3}{(1 + x^4)^{1/3}} \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int e^{5x + 2} \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int 4\cos(3x) \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \frac{\sin(\ln(x)\,)}{x}s \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \frac{3x + 6}{x^2 + 4x - 3} \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int x 3^{x^2 + 1} \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int x^2e^{-4x^3} \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int (\cos(x)\,)^3\sin(x) \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int x^3\cos(5x^4) \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int (3x + 4)^{100} \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \frac{\cos(x)}{1 + \sin^2(x)} \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \frac{(2 - \sqrt{x})^5}{\sqrt{x}} \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \frac{1}{\cos^2(2x - 3)} \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \frac{x^{n-1}}{\sqrt{a + bx^n}} \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int x^3(x^2 + 1)^{1/8} \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int e^x e^x \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \frac{\ln(ax)}{x} \, dx\)</span>
+</li>
+</ol>
+</div>
+<h2 id="displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-5"><span class="math display">\[\displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int\]</span></h2>
+<div style="column-width: 14em;  column-gap: 2em;  column-rule: 1px solid #ccc;">
+<ol class="problems spaced-antiderivatives">
+<li>
+<span class="math inline">\(\displaystyle \int 325 + 4x^8 + 9x^34 + 7x^6 - \frac{3}{4}x^5 - 3 \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \sqrt[3]{x} - \frac{2}{x^2} + 5x^{3/2} - \frac{1}{\sqrt{4x}} + \frac{1}{5} \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \frac{1}{x} + \frac{1}{x^2} + \frac{1}{x^3} + \frac{1}{x^4} + \frac{1}{x^n} \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int g&#39;(x) \cdot f&#39;(\, g(x) \,) \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int (5x^4 + 12x^{11})\cdot37(x^5 + x^{12})^{36}\, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int (3x^2 + 16x)\cdot \frac{1}{x^3 + 8x^2 + 56} \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \cos(x + 3) \cdot 4(\, \sin(x + 3) \,)^{3} \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int (2x + 2) \cdot e^{x^2 + 2x + 3} \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \frac{3x^2 + 3}{x^3 + 3x} \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int (3x^2 + 8x^7 -1)\cdot 26(x^3 + x^8 - x)^{25} \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \frac{\sin(\ln(ax))}{x} \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int (x^4 + 2x^9)\sin(x^5 + x^{10})\cos(x^5 + x^{10}) \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \frac{2\sin(x) + 4x}{\cos(x) + x^2} \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int (x + 5)^{22} \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int (7x^6 + 20x^3)(x^7 + 5x^4)^{3/4} \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int e^{-x^2}\, dx\)</span>
+</li>
+</ol>
+</div>
+<h2 id="displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-6"><span class="math display">\[\displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int\]</span></h2>
+<div style="column-width: 14em;  column-gap: 2em;  column-rule: 1px solid #ccc;">
+<ol class="problems spaced-antiderivatives">
+<li>
+<span class="math inline">\(\displaystyle \int 2x\cos(x) \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int xe^x \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int 2x\ln(x) \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int f&#39;(x)g(x) \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int x^2e^x \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int \ln(x) \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int 1\cdot\ln(x) \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int x^5\sin(x) \, dx\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \int e^x\cos(x) \, dx\)</span>
+</li>
+</ol>
+</div>
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>For now, don’t worry about what the <span class="math inline">\(dx\)</span> means—we’ll talk plenty next year about it. Just think of it as being part of the notation and telling you to take the antiderivative with respect to <span class="math inline">\(x\)</span>. It’s the same <span class="math inline">\(dx\)</span> that shows up in a derivative <span class="math inline">\(\displaystyle \frac{dy}{dx}\)</span>—what it is, basically, is an infinitesimally small change in <span class="math inline">\(x\)</span>—some value of <span class="math inline">\(x\)</span> that is not equal to zero but is smaller than every other real number. This should seem paradoxical. After all, didn’t we say, when discussing limits, that you couldn’t do that? Well, yes, we did, and this is the paradox that haunted calculus for 200 years before Karl Weierstrass and his friends fixed it in the mid-to-late 19th century. They did this by purging the idea of the infinitesimal from calculus (but without destroying calculus in the process). Then in the late 1950s, a guy at UCLA named Abraham Robinson showed that these infinitely small numbers actually <em>do</em> exist—that what seems to be a paradox isn’t—and, anyway, for a good treatment of this, read David Foster Wallace’s <em>Everything and More: A Compact History of <span class="math inline">\(\infty\)</span></em> (one of my favorite popular math books) or “Infinitesimally Yours,” by Jim Holt, <em>New York Review of Books</em>, 20 May 1999.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+</main>
+</body>
+</html>

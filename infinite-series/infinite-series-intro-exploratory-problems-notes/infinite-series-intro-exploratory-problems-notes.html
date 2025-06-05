@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>A Whole Party of Infinite Friends (Commentary)</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="/main.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <script src="../highlight-toc.js" type="text/javascript"></script>
+</head>
+<body>
+<script>document.addEventListener('DOMContentLoaded', function(e) {
+  Scroller.init();
+})</script>
+<aside>
+<div class="tocLinks" >
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#displaystyle-sum_n0ninfty-frac12n"><span class="math inline">\(\displaystyle \sum_{n=0}^{n=\infty} \frac{1}{2^n} = \,\, ???\)</span></a></li>
+<li><a href="#displaystyle-sum_n3ninfty-frac12n"><span class="math inline">\(\displaystyle \sum_{n=3}^{n=\infty} \frac{1}{2^n} = \,\, ???\)</span></a></li>
+<li><a href="#displaystyle-sum_n0ninfty-2-n"><span class="math inline">\(\displaystyle \sum_{n=0}^{n=\infty} 2^{-n} = \,\, ???\)</span></a></li>
+<li><a href="#displaystyle-sum_n0ninfty-2n"><span class="math inline">\(\displaystyle \sum_{n=0}^{n=\infty} 2^{n} = \,\, ???\)</span></a></li>
+<li><a href="#displaystyle-sum_n0ninfty--1n"><span class="math inline">\(\displaystyle \sum_{n=0}^{n=\infty} (-1)^n\)</span></a></li>
+<li><a href="#displaystyle-sum_n0ninfty-3"><span class="math inline">\(\displaystyle \sum_{n=0}^{n=\infty} 3= \,\, ???\)</span></a></li>
+<li><a href="#displaystyle-sum_n0ninfty-frac13"><span class="math inline">\(\displaystyle \sum_{n=0}^{n=\infty} \frac{1}{3}= \,\, ???\)</span></a></li>
+<li><a href="#displaystyle-sum_n0ninfty-frac15n"><span class="math inline">\(\displaystyle \sum_{n=0}^{n=\infty} \frac{1}{5^n}= \,\, ???\)</span></a>
+<ul>
+<li><a href="#good-argument">good argument</a></li>
+<li><a href="#better-argument">better argument</a></li>
+<li><a href="#best-argument">best argument</a></li>
+</ul></li>
+<li><a href="#displaystyle-sum_n1ninfty-frac1n"><span class="math inline">\(\displaystyle \sum_{n=1}^{n=\infty} \frac{1}{n}= \,\, ???\)</span></a></li>
+<li><a href="#displaystyle-sum_n0ninfty-frac1n"><span class="math inline">\(\displaystyle \sum_{n=0}^{n=\infty} \frac{1}{n!}= \,\, ???\)</span></a></li>
+<li><a href="#displaystyle-sum_n0ninfty-frac1n-5n-200"><span class="math inline">\(\displaystyle \sum_{n=0}^{n=\infty} \frac{1}{n! + 5^n + 200}= \,\, ???\)</span></a></li>
+<li><a href="#displaystyle-sum_n1ninfty-frac1sqrtn"><span class="math inline">\(\displaystyle \sum_{n=1}^{n=\infty} \frac{1}{\sqrt{n}}= \,\, ???\)</span></a></li>
+<li><a href="#displaystyle-sum_n-4ninfty-frac12n"><span class="math inline">\(\displaystyle \sum_{n=-4}^{n=\infty} \frac{1}{2^n} = \,\, ???\)</span></a></li>
+<li><a href="#displaystyle-sum_n0ninfty-frac122n"><span class="math inline">\(\displaystyle \sum_{n=0}^{n=\infty} \frac{12}{2^n} = \,\, ???\)</span></a></li>
+<li><a href="#displaystyle-sum_n0ninfty-frac17.842n"><span class="math inline">\(\displaystyle \sum_{n=0}^{n=\infty} \frac{1}{7.842^n}= \,\, ???\)</span></a></li>
+<li><a href="#displaystyle-sum_n0ninfty-frac12n3"><span class="math inline">\(\displaystyle \sum_{n=0}^{n=\infty} \frac{1}{2^{n+3}} = \,\, ???\)</span></a>
+<ul>
+<li><a href="#argument-1">argument #1</a></li>
+<li><a href="#a-generalization">a generalization!</a></li>
+<li><a href="#argument-3">argument #3</a></li>
+</ul></li>
+<li><a href="#displaystyle-sum_n0ninfty-2n-1"><span class="math inline">\(\displaystyle \sum_{n=0}^{n=\infty} 2^{n} = \,\, ???\)</span></a></li>
+<li><a href="#displaystyle-sum_n0ninfty-frac12n-frac13n"><span class="math inline">\(\displaystyle \sum_{n=0}^{n=\infty} \frac{1}{2^n} + \frac{1}{3^n} = \,\, ???\)</span></a></li>
+<li><a href="#displaystyle-sum_n0ninfty-frac3n-24n"><span class="math inline">\(\displaystyle \sum_{n=0}^{n=\infty} \frac{3^n + 2}{4^n} = \,\, ???\)</span></a></li>
+<li><a href="#displaystyle-sum_n0ninfty-frac122n3"><span class="math inline">\(\displaystyle \sum_{n=0}^{n=\infty} \frac{1}{2^{2n+3}} = \,\, ???\)</span></a></li>
+<li><a href="#questions">Questions</a></li>
+</ul>
+</nav>
+</div>
+</aside>
+<main>
+<header id="title-block-header">
+<h1 class="title">A Whole Party of Infinite Friends (Commentary)</h1>
+</header>
+<p>We’ve seen the startling result that if we add up an infinite number of one-over-powers-of-two, we get just <span class="math inline">\(2\)</span>:</p>
+<p><span class="math display">\[1+\frac{1}{2}+\frac{1}{4}+\frac{1}{8}+\frac{1}{16}+\frac{1}{32}+\cdots = 2\]</span></p>
+<p>This perplexity should provoke our curiosity. If we can sometimes add up an infinite number of things and get some finite number, why does that happen? When does it happen? Who are these alien creatures, these <strong>infinite series</strong>? How do they behave? When do they <strong>converge</strong> (approach some finite number), and when do they <strong>diverge</strong> (not)?</p>
+<p>Sometimes in math, as in life, we have a master formula. If we want to factor any quadratic, we can just use the quadratic formula! No thinking involved. Plug ‘n’ chug. Follow the rules and get the answer! Sometimes that happens. It’s nice when it does. It makes the world simpler and more legible.</p>
+<p>But sometimes in math, as in life, there’s no formula. Think of how you treat your friends: do you treat them like they’re all identical, and just apply your interact-with-a-friend algorithm every time you hang out? Of course not! Friendship isn’t formulaic. Your friends aren’t cogs in a machine. They’re <em>individuals</em>. We think about <em>who they are</em>, as distinct individuals, and what they, <em>specifically</em>, need and want. If we make a lot of friends, then perhaps we’ll be able to discern general patterns of human behavior. But the general patterns that come out of the specific examples. Not the other way around.</p>
+<p>That’s the situation we’re in now. We’ve made first contact with these extrafinite extraterrestrials known as infinite series. We’ve met a whole bunch of them at a party. We’ve talked to them, asked them questions, listened to them, and tried to understand them better. There hasn’t been a master formula or a master algorithm. Rather, we’ve gained a better understanding slowly and intuitively, bit by bit, problem by problem, series by series.</p>
+<p>In class, after I showed you that this <span class="math inline">\((1/2)^n\)</span> series converges to <span class="math inline">\(2\)</span>, I gave us the following twenty-odd infinite series problems to ponder. We tried to figure out whether each of these infinite series converge or diverge, and if they do converge, to what they converge. We tried to do so without looking anything up, without giving away any spoilers, just using our minds. The point wasn’t just to get to answer. (If figuring out the convergence/divergence were our only goal, then flipping a coin would take us halfway there.) Rather, the point was to <em>think</em> and reason through these problems and <em>make an argument</em>.</p>
+<p>In what follows, I’ll sketch out some of the ways we can think through how all these series behave. There are general truths and trends and patterns, and maybe, in thinking through each of these series, those patterns can come into sharper focus.</p>
+<div class="callout-box" style="width:75%; text-align:left; padding:1em;">
+<div style="column-width: 14em;  column-gap: 2em;">
+<ol class="problems">
+<li>
+<span class="math inline">\(\displaystyle \sum_{n=0}^{n=\infty} \frac{1}{2^n}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \sum_{n=3}^{n=\infty} \frac{1}{2^n}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \sum_{n=0}^{n=\infty} 2^{-n}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \sum_{n=0}^{n=\infty} 2^{n}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \sum_{n=0}^{n=\infty} (-1)^n\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \sum_{n=0}^{n=\infty} 3\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \sum_{n=0}^{n=\infty} \frac{1}{3}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \sum_{n=0}^{n=\infty} \frac{1}{5^n}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \sum_{n=1}^{n=\infty} \frac{1}{n}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \sum_{n=0}^{n=\infty} \frac{1}{n!}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \sum_{n=0}^{n=\infty} \frac{1}{n! + 5^n + 200}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \sum_{n=1}^{n=\infty} \frac{1}{\sqrt{n}}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \sum_{n=-4}^{n=\infty} \frac{1}{2^n}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \sum_{n=0}^{n=\infty} \frac{12}{2^n}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \sum_{n=0}^{n=\infty} \frac{1}{7.842^n}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \sum_{n=0}^{n=\infty} \frac{1}{2^{n+3}}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \sum_{n=0}^{n=\infty} 2^{n}\)</span> revisited
+</li>
+<li>
+<span class="math inline">\(\displaystyle \sum_{n=0}^{n=\infty} \frac{1}{2^n} + \frac{1}{3^n}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \sum_{n=0}^{n=\infty} \frac{3^n + 2}{4^n}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \sum_{n=0}^{n=\infty} \frac{1}{2^{2n+3}}\)</span>
+</li>
+</ol>
+</div>
+</div>
+<div style="text-align:center;font-size:150%; margin-top:2em; margin-bottom:2em;">
+<span class="math display">\[{\color{lightgray} \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum  }\]</span>
+</div>
+<h2 id="displaystyle-sum_n0ninfty-frac12n"><span class="math inline">\(\displaystyle \sum_{n=0}^{n=\infty} \frac{1}{2^n} = \,\, ???\)</span></h2>
+<p>This was the first infinite series we saw! And we realized in class, through that remarkable proof, that it converges to just <span class="math inline">\(2\)</span>.</p>
+<p>I’ll recap our proof here. We have:</p>
+<p><span class="math display">\[\begin{align*}
+\sum_{n=0}^{n=\infty}\frac{1}{2^n} &amp;= \frac{1}{2^0} + \frac{1}{2^1} + \frac{1}{2^2} + \frac{1}{2^3} + \frac{1}{2^4} + \frac{1}{2^5} + \frac{1}{2^6} + \cdots \\ \\
+&amp;=  1 + \frac12 + \frac{1}{4} + \frac{1}{8} + \frac{1}{16} + \frac{1}{32} + \frac{1}{64} + \cdots
+\end{align*}\]</span></p>
+<p>For simplicity, let’s call this <span class="math inline">\(S\)</span>:</p>
+<p><span class="math display">\[ S = 1+\frac{1}{2}+\frac{1}{4}+\frac{1}{8}+\frac{1}{16}+\frac{1}{32}+\cdots \]</span></p>
+<p>So now we’ve got this delightful equation. What if we multiply both sides by <span class="math inline">\(1/2\)</span>? We’ll get:</p>
+<p><span class="math display">\[\frac{1}{2}S = \frac{1}{2}\left(1+\frac{1}{2}+\frac{1}{4}+\frac{1}{8}+\frac{1}{16}+\frac{1}{32}+\cdots \right)\]</span></p>
+<p>Or just:</p>
+<p><span class="math display">\[ \frac12S = \frac{1}{2}+\frac{1}{4}+\frac{1}{8}+\frac{1}{16}+ \cdots\]</span></p>
+<p>(Wait, what? Why <span class="math inline">\(1/2\)</span>? Where’s that coming from? I mean, what we did there was <em>true</em>—we can multiply both sides of an equation y <span class="math inline">\(1/2\)</span> and still get a true equation, but that doesn’t explain <em>why</em> we’d want to multiply it by <span class="math inline">\(1/2\)</span> instead of <span class="math inline">\(1/4\)</span> or <span class="math inline">\(1/7\)</span> or whatever, or, for that matter, why we’d want to multiply it by something in the first place. It’s <em>true</em>, but it’s also <em>deus ex machina</em>.)</p>
+<p>Anyway, let’s think now about the quantity <span class="math inline">\(S-(1/2)S\)</span>. We know what <span class="math inline">\(S\)</span> is, and we just figured out what <span class="math inline">\((1/2)S\)</span> is, so we should have:</p>
+<p><span class="math display">\[S-\frac{1}{2}S = \underbrace{\left(1 + \frac{1}{2} + \frac{1}{4} + \frac{1}{8} + \cdots\right)}_{S} - \underbrace{ \left(\frac{1}{2} + \frac{1}{4} + \frac{1}{8} + \frac{1}{16} \cdots\right)}_{(1/2)S}\]</span></p>
+<p>But now we can distribute that negative sign and combine these two parentheses. When we do so, almost everything cancels out: we have a <span class="math inline">\(+(1/2)\)</span> and a <span class="math inline">\(-(1/2)\)</span>; we have a <span class="math inline">\(+(1/4)\)</span> and a <span class="math inline">\(-(1/4)\)</span>, and so forth. The only thing that’s left is the <span class="math inline">\(+1\)</span>: <span class="math display">\[S-\frac{1}{2}S = 1 + \cancel{\frac{1}{2}} + \cancel{\frac{1}{4}} + \cancel{\frac{1}{8}} + \cdots - \cancel{\frac{1}{2}} - \cancel{\frac{1}{4}} - \cancel{\frac{1}{8}} - \cancel{\frac{1}{16}} \cdots\]</span> <span class="math display">\[S-\frac{1}{2}S = 1\]</span></p>
+<p>But of course we can easily rearrange this to solve for <span class="math inline">\(S\)</span>: <span class="math display">\[\begin{align*}
+S\left(1-\frac{1}{2}\right) &amp;= 1\\ \\
+\frac{1}{2}S &amp;= 1 \\ \\
+S &amp;= 2
+\end{align*}\]</span></p>
+<p>Wow!!!! So we have this infinitely-long infinite series, and it all just adds up to two: <span class="math display">\[\sum_{n=0}^{n=\infty} \left(\frac{1}{2}\right)^n = 1 + \frac{1}{2} + \frac{1}{4} + \frac{1}{8} + \frac{1}{16} + \cdots = 2\]</span></p>
+<p>Incredible. We have an infinite number of things, and yet when we add them all up, we don’t get infinity—we get <em>a finite number</em>. Totally nuts. Or, perhaps your philisophical views prevent you from believing that we can ever <em>actually</em> add up an infinite number of things (valid!); in which case, you might prefer to phrase this as this sum <strong>approaches</strong> <span class="math inline">\(2\)</span>. “The more and more terms of <span class="math inline">\(1/2^n\)</span> we add together, the closer and closer it becomes to <span class="math inline">\(2\)</span>,” or something like that.</p>
+<div style="text-align:center;font-size:150%; margin-top:2em; margin-bottom:2em;">
+<span class="math display">\[{\color{lightgray} \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum  }\]</span>
+</div>
+<h2 id="displaystyle-sum_n3ninfty-frac12n"><span class="math inline">\(\displaystyle \sum_{n=3}^{n=\infty} \frac{1}{2^n} = \,\, ???\)</span></h2>
+<p>This is… almost the same as what we have above. But in the above example, the counter starts at <span class="math inline">\(n=0\)</span>. Here it starts at <span class="math inline">\(n=3\)</span>. How does that change things?</p>
+<p>Wanna play doctor???</p>
+<p>Sometimes it’s time to <em>take out the scalpel</em> and <em>do some surgery</em>.</p>
+<p>Here’s our series:</p>
+<p><span class="math display">\[\sum_{n=3}^{n=\infty}\frac{1}{2^n} = \,\, ???\]</span></p>
+<p>Does it converge? Does it diverge? If it converges, what does it converge to??? It looks <em>kind of</em> like our <span class="math inline">\(1/2^n\)</span> series, which we’ve figured out equals <span class="math inline">\(2\)</span>, except that one starts at <span class="math inline">\(n=0\)</span>:</p>
+<p><span class="math display">\[\begin{align*}
+\sum_{n=0}^{n=\infty}\frac{1}{2^n} &amp;= \frac{1}{2^0} + \frac{1}{2^1} + \frac{1}{2^2} + \frac{1}{2^3} + \frac{1}{2^4} + \frac{1}{2^5} + \frac{1}{2^6} + \cdots \\ \\
+&amp;=  1 + \frac12 + \frac{1}{4} + \frac{1}{8} + \frac{1}{16} + \frac{1}{32} + \frac{1}{64} \cdots \\ \\
+&amp;= 2
+\end{align*}\]</span></p>
+<p>That’s a key difference! In both these series, we’re taking powers of <span class="math inline">\(2\)</span> (<span class="math inline">\(2^0\)</span>, <span class="math inline">\(2^1\)</span>, <span class="math inline">\(2^2\)</span>, etc.) reciprocal’ing them, and then adding them up. But we start at a different power!</p>
+<p>Let’s take our series starting at <span class="math inline">\(n=3\)</span> and write out the first few terms, to get some intuition. We have:</p>
+<p><span class="math display">\[\begin{align*}
+\sum_{n=3}^{n=\infty}\frac{1}{2^n} &amp;= \frac{1}{2^3} + \frac{1}{2^4} + \frac{1}{2^5} + \cdots \\ \\
+&amp;= \frac{1}{8} + \frac{1}{16} + \frac{1}{32} + \cdots \\  \\
+&amp;= \,\,\, ???
+\end{align*}\]</span></p>
+<p>It’s so close to the series that starts at <span class="math inline">\(n=0\)</span>! It… it’s just missing the first few terms. Actually, let’s rewrite our the series <span class="math inline">\(1/2^n\)</span> starting at <span class="math inline">\(n=0\)</span>:</p>
+<p><span class="math display">\[ \overbrace{1 + \frac12 + \frac{1}{4} + \frac{1}{8} + \frac{1}{16} + \frac{1}{32} + \frac{1}{64} + \cdots }^{\displaystyle\sum_{n=0}^{n=\infty}\frac{1}{2^n}}= 2 \]</span></p>
+<p>What we’re trying to find here is the series of all these terms, but starting at <span class="math inline">\(n=3\)</span>, i.e., not including the first few terms:</p>
+<p><span class="math display">\[ \overbrace{1 + \frac12 + \frac{1}{4} + \underbrace{\frac{1}{8} + \frac{1}{16} + \frac{1}{32} + \frac{1}{64} + \cdots}_{\displaystyle\sum_{n=3}^{n=\infty}\frac{1}{2^n}} }^{\displaystyle\sum_{n=0}^{n=\infty}\frac{1}{2^n}}= 2 \]</span></p>
+<p>So we can find the sum from <span class="math inline">\(n=3\)</span> just by subtracting off the first three terms!!! We’ll take <span class="math inline">\(2\)</span>, which is the entire sum from <span class="math inline">\(0\)</span> out to <span class="math inline">\(\infty\)</span>, and subtract off the terms when <span class="math inline">\(n=0\)</span>, <span class="math inline">\(n=1\)</span>, and <span class="math inline">\(n=2\)</span>. In other words:</p>
+<p><span class="math display">\[\begin{align*}
+\sum_{n=3}^{n=\infty}\frac{1}{2^n} &amp;= \left( \substack{\text{the full series}\\\text{starting at $n=0$}}\right) - \left(\substack{\text{the first}\\\text{three terms}}\right) \\ \\
+&amp;= \left( \sum_{n=0}^{n=\infty}\frac{1}{2^n} \right) - \left( 1 + \frac12 + \frac14\right) \\ \\
+&amp;= 2 - \left( 1 + \frac12 + \frac14\right) \\ \\
+&amp;= 2 - 1 - \frac12 - \frac14 \\ \\
+&amp;= \frac{1}{4}
+\end{align*}\]</span></p>
+<p>Yay! It just required a bit of surgery.</p>
+<div style="text-align:center;font-size:150%; margin-top:2em; margin-bottom:2em;">
+<span class="math display">\[{\color{lightgray} \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum  }\]</span>
+</div>
+<h2 id="displaystyle-sum_n0ninfty-2-n"><span class="math inline">\(\displaystyle \sum_{n=0}^{n=\infty} 2^{-n} = \,\, ???\)</span></h2>
+<p>Wait, how is this even a problem? This is just the same as <span class="math inline">\(1/2^n\)</span>. By exponent rules:</p>
+<p><span class="math display">\[\frac{1}{a^b} = a^{-b}\]</span></p>
+<p>So then:</p>
+<p><span class="math display">\[\begin{align*}
+\sum_{n=0}^{n=\infty} 2^{-n} &amp;= \sum_{n=0}^{n=\infty} \frac{1}{2^n} \\ \\
+&amp;= 2
+\end{align*}\]</span></p>
+<p>Okay. Fine.</p>
+<div style="text-align:center;font-size:150%; margin-top:2em; margin-bottom:2em;">
+<span class="math display">\[{\color{lightgray} \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum  }\]</span>
+</div>
+<h2 id="displaystyle-sum_n0ninfty-2n"><span class="math inline">\(\displaystyle \sum_{n=0}^{n=\infty} 2^{n} = \,\, ???\)</span></h2>
+<p>It’s the same thing, but… now it’s not a fraction! And it’s terrifying:</p>
+<p><span class="math display">\[\begin{align*}
+\sum_{n=0}^{n=\infty} 2^n &amp;= 2^0 + 2^1 + 2^2 + 2^3 + 2^4 + 2^5 + \cdots \\ \\
+&amp;= 1 + 2 + 4 + 8 + 16 + 32 + \cdots
+\end{align*}\]</span></p>
+<p>We’re adding together bigger and bigger numbers!!!! To use the inappropriately subdued mathematical term of art, this sum is <strong>increasing without bound</strong>!!! In other words, it’s zooming off to infinity. So this series diverges, to infinity.</p>
+<p><span class="math display">\[\sum_{n=0}^{n=\infty} 2^n  = \infty\]</span></p>
+<div style="text-align:center;font-size:150%; margin-top:2em; margin-bottom:2em;">
+<span class="math display">\[{\color{lightgray} \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum  }\]</span>
+</div>
+<h2 id="displaystyle-sum_n0ninfty--1n"><span class="math inline">\(\displaystyle \sum_{n=0}^{n=\infty} (-1)^n\)</span></h2>
+<p>Let’s write out a few terms:</p>
+<p><span class="math display">\[\begin{align*}
+\sum_{n=0}^{n=\infty} (-1)^n &amp;= (-1)^0 + (-1)^1 + (-1)^2 + (-1)^3 + (-1)^4 + \cdots \\ 
+&amp;= 1 + (-1) + 1 + (-1) + 1 + \cdots \\
+&amp;= 1 - 1 + 1 - 1 -1 + \cdots
+\end{align*}\]</span></p>
+<p>Uhhhh…</p>
+<p>I mean, it’s not zooming off to infinity. But… it’s definitely not settling down to one single finite number, either. It’s just bouncing back and forth between <span class="math inline">\(+1\)</span> and <span class="math inline">\(-1\)</span>. It’s tempting to say that it averages out to zero, I guess, but it doesn’t really actually average. There’s no asymptote! There’s no convergence! So… this doesn’t diverge by zooming up or down to <span class="math inline">\(\pm \infty\)</span>, but it does diverge.</p>
+<div style="text-align:center;font-size:150%; margin-top:2em; margin-bottom:2em;">
+<span class="math display">\[{\color{lightgray} \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum  }\]</span>
+</div>
+<h2 id="displaystyle-sum_n0ninfty-3"><span class="math inline">\(\displaystyle \sum_{n=0}^{n=\infty} 3= \,\, ???\)</span></h2>
+<p>This is… just a bunch of threes added up.</p>
+<p>There’s… no <span class="math inline">\(n\)</span> in the sum, in the formula that we’re iterating over. When <span class="math inline">\(n=0\)</span>, what’s <span class="math inline">\(3\)</span>? It’s three. When <span class="math inline">\(n=1\)</span>, what’s three? Still three. When <span class="math inline">\(n=2\)</span>, what’s three? …</p>
+<p>So… we add up an infinite number of threes. We just get infinity.</p>
+<p>So this is:</p>
+<p><span class="math display">\[\begin{align*}
+\sum_{n=0}^{n=\infty} 3 &amp; = 3 + 3 + 3 + 3 + \cdots \\
+&amp;= \infty
+\end{align*}\]</span></p>
+<p>So this series diverges, to infinity.</p>
+<div style="text-align:center;font-size:150%; margin-top:2em; margin-bottom:2em;">
+<span class="math display">\[{\color{lightgray} \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum  }\]</span>
+</div>
+<h2 id="displaystyle-sum_n0ninfty-frac13"><span class="math inline">\(\displaystyle \sum_{n=0}^{n=\infty} \frac{1}{3}= \,\, ???\)</span></h2>
+<p>Aha! Like last time, but this time, it’s <em>fractions</em>!!! And fractions get small!!!</p>
+<p>Or… not. This is just a bunch of <span class="math inline">\(1/3\)</span>s added up.</p>
+<p><span class="math display">\[\begin{align*}
+\sum_{n=0}^{n=\infty} \frac13 &amp; = \frac13 + \frac13 + \frac13 + \frac13 + \cdots \\
+&amp;= \infty
+\end{align*}\]</span></p>
+<p>Yeah.</p>
+<p>The general observation here is that if we want a series to converge, then, at a minimum, the underlying sequence has to go to <span class="math inline">\(0\)</span>. If the underlying sequence stays the same size—or worse, gets bigger—then the series definitely won’t converge. Just because the underlying sequence/the terms go to <span class="math inline">\(0\)</span> doesn’t mean that the series/sum always will converge. It might still diverge. It might not go to <span class="math inline">\(0\)</span> fast enough. But it at least has a <em>chance</em> of converging.</p>
+<div style="text-align:center;font-size:150%; margin-top:2em; margin-bottom:2em;">
+<span class="math display">\[{\color{lightgray} \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum  }\]</span>
+</div>
+<h2 id="displaystyle-sum_n0ninfty-frac15n"><span class="math inline">\(\displaystyle \sum_{n=0}^{n=\infty} \frac{1}{5^n}= \,\, ???\)</span></h2>
+<p>Hm! What’s going on here?</p>
+<p><span class="math display">\[\begin{align*}
+\sum_{n=0}^{n=\infty}\frac{1}{5^n} &amp;= \frac{1}{5^0} + \frac{1}{5^1} + \frac{1}{5^2} + \frac{1}{5^3} + \frac{1}{5^4} + \frac{1}{5^5} + \frac{1}{5^6} + \cdots \\ \\
+&amp;=  1 + \frac15 + \frac{1}{25} + \frac{1}{125} + \frac{1}{625} + \cdots
+\end{align*}\]</span></p>
+<p>It’s kind of like our <span class="math inline">\(1/2^n\)</span> series, except with fives!!! So what do we do?</p>
+<h3 id="good-argument">good argument</h3>
+<p>How is the <span class="math inline">\(1/5^n\)</span> series different from the <span class="math inline">\(1/2^n\)</span> series? Well, every term of this <span class="math inline">\(1/5^n\)</span> series is less than the corresponding term of the <span class="math inline">\(1/2^n\)</span> series:</p>
+<table>
+<thead>
+<td>
+</td>
+<td>
+<span class="math display">\[ \sum_{n=0}^{n=\infty} \frac{1}{5^n}\]</span>
+</td>
+<td>
+</td>
+<td>
+<span class="math display">\[ \sum_{n=0}^{n=\infty} \frac{1}{2^n}\]</span>
+</td>
+</thead>
+<tr>
+<td>
+<span class="math display">\[n=0\]</span>
+</td>
+<td>
+<span class="math display">\[1\]</span>
+</td>
+<td>
+<span class="math display">\[=\]</span>
+</td>
+<td>
+<span class="math display">\[1\]</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math display">\[n=1\]</span>
+</td>
+<td>
+<span class="math display">\[+\frac{1}{5}\]</span>
+</td>
+<td>
+<span class="math display">\[&lt;\]</span>
+</td>
+<td>
+<span class="math display">\[+\frac{1}{2}\]</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math display">\[n=1\]</span>
+</td>
+<td>
+<span class="math display">\[+\frac{1}{25}\]</span>
+</td>
+<td>
+<span class="math display">\[&lt;\]</span>
+</td>
+<td>
+<span class="math display">\[+\frac{1}{4}\]</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math display">\[n=1\]</span>
+</td>
+<td>
+<span class="math display">\[+\frac{1}{125}\]</span>
+</td>
+<td>
+<span class="math display">\[&lt;\]</span>
+</td>
+<td>
+<span class="math display">\[+\frac{1}{8}\]</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math display">\[n=1\]</span>
+</td>
+<td>
+<span class="math display">\[+\frac{1}{625}\]</span>
+</td>
+<td>
+<span class="math display">\[&lt;\]</span>
+</td>
+<td>
+<span class="math display">\[+\frac{1}{16}\]</span>
+</td>
+</tr>
+</table>
+<p>(Well, the first terms are equal, but that’s not going to make a big difference.) If all the terms of the <span class="math inline">\(1/5^n\)</span> series are less than all the corresponding terms of the <span class="math inline">\(1/2^n\)</span> series, then the total terms (the total sum) has to be less:</p>
+<p><span class="math display">\[  \sum_{n=0}^{n=\infty} \frac{1}{5^n} \quad&lt;\quad \sum_{n=0}^{n=\infty} \frac{1}{2^n}\]</span></p>
+<p>But we know that the <span class="math inline">\(1/2^n\)</span> series converges! It converges to <span class="math inline">\(2\)</span>. So the <span class="math inline">\(1/5^n\)</span> series can’t go zooming off to infinity—it has to be less than <span class="math inline">\(2\)</span>! Every term is less than in the <span class="math inline">\(1/2^n\)</span> series, and that doesn’t zoom off to infinity!</p>
+<p><span class="math display">\[ \sum_{n=0}^{n=\infty} \frac{1}{5^n} \quad&lt;\quad 2 \]</span></p>
+<p>So it has to converge. Well, actually, I guess it might potentially fly <em>down</em> to negative infinity, but we know that can’t happen, because all the terms are positive. So it has to converge to somewhere between <span class="math inline">\(0\)</span> and <span class="math inline">\(2\)</span>:</p>
+<p><span class="math display">\[  0 \quad&lt;\quad \sum_{n=0}^{n=\infty} \frac{1}{5^n} \quad&lt;\quad 2\]</span></p>
+<p>Yay! It’s like we’re <em>trapping</em> the series between two finite numbers. It can’t escape!</p>
+<h3 id="better-argument">better argument</h3>
+<p>We can do even better. It’s good to know and argue and figure out that the series converges—but it’s even better to figure out <em>what it converges to</em>. Which we can do! We can make basically the same argument that we made for the <span class="math inline">\(1/2^n\)</span> series. Let’s call this <span class="math inline">\(1/5^n\)</span> series <span class="math inline">\(S\)</span>:</p>
+<p><span class="math display">\[ S = 1+\frac{1}{5}+\frac{1}{25}+\frac{1}{625}+\frac{1}{3125}+\cdots \]</span></p>
+<p>So now we’ve got this delightful equation. What if we multiply both sides by <span class="math inline">\(1/5\)</span>? We’ll get:</p>
+<p><span class="math display">\[\frac{1}{5}S = \frac{1}{5}\left( 1+\frac{1}{5}+\frac{1}{25}+\frac{1}{625}+\frac{1}{3125}+\cdots\right)\]</span></p>
+<p>Or just:</p>
+<p><span class="math display">\[ \frac15S = \frac{1}{5}+\frac{1}{25}+\frac{1}{625}+\cdots\]</span></p>
+<p>Let’s think about the quantity <span class="math inline">\(S-(1/5)S\)</span>. We know what <span class="math inline">\(S\)</span> is, and we just figured out what <span class="math inline">\((1/5)S\)</span> is, so we should have:</p>
+<p><span class="math display">\[S-\frac{1}{5}S = \underbrace{\left( 1+\frac{1}{5}+\frac{1}{25}+\frac{1}{625}+\frac{1}{3125}+\cdots \right)}_{S} - \underbrace{ \left( \frac{1}{5}+\frac{1}{25}+\frac{1}{625}+\frac{1}{3125}+\cdots \right)}_{(1/5)S}\]</span></p>
+<p>But now we can distribute that negative sign and combine these two parentheses. When we do so, almost everything cancels out: we have a <span class="math inline">\(+(1/5)\)</span> and a <span class="math inline">\(-(1/5)\)</span>; we have a <span class="math inline">\(+(1/25)\)</span> and a <span class="math inline">\(-(1/25)\)</span>, and so forth. The only thing that’s left is the <span class="math inline">\(+1\)</span>: <span class="math display">\[S-\frac{1}{5}S = 1 + \cancel{\frac{1}{5}} + \cancel{\frac{1}{25}} + \cancel{\frac{1}{625}} + \cdots - \cancel{\frac{1}{5}} - \cancel{\frac{1}{25}} - \cancel{\frac{1}{625}} \cdots\]</span> <span class="math display">\[S-\frac{1}{5}S = 1\]</span></p>
+<p>But of course we can easily rearrange this to solve for <span class="math inline">\(S\)</span>: <span class="math display">\[\begin{align*}
+S\left(1-\frac{1}{5}\right) &amp;= 1\\ \\
+\frac{4}{5}S &amp;= 1 \\ \\
+S &amp;= \frac{5}{4}
+\end{align*}\]</span></p>
+<p>Woweeee!!! So we have:</p>
+<p><span class="math display">\[ \sum_{n=0}^{n=\infty} \frac{1}{5^n} = \frac{5}{4} \]</span></p>
+<p>So it converges, and it converges to <span class="math inline">\(5/4\)</span>! Which is, indeed, as we previously argued, between <span class="math inline">\(0\)</span> and <span class="math inline">\(2\)</span>:</p>
+<p><span class="math display">\[ 0 \quad&lt;\quad \sum_{n=0}^{n=\infty} \frac{1}{5^n} \quad&lt;\quad  \sum_{n=0}^{n=\infty} \frac{1}{2^n} \]</span></p>
+<p><span class="math display">\[  0 \quad&lt;\quad \frac54 \quad&lt;\quad 2\]</span></p>
+<p>Is this going to be a more general pattern??? In the arguments we’ve made for the <span class="math inline">\(1/2^n\)</span> and <span class="math inline">\(1/5^n\)</span> series, there’s been nothing special about <span class="math inline">\(2\)</span> or <span class="math inline">\(5\)</span>. What if we have a series like <span class="math inline">\(1/a^n\)</span>? Will it converge? I guess we’ll get to that soon…</p>
+<h3 id="best-argument">best argument</h3>
+<p>Actually, yeah, let’s see if we can derive the general formula. Suppose we have the infinite sum:</p>
+<p><span class="math display">\[\sum_{n=0}^{n=\infty} \frac{1}{b^n} = 1 + \frac1b + \frac{1}{b^2} + \frac{1}{b^3}+\frac{1}{b^4}+\cdots \]</span></p>
+<p>Let’s call it <span class="math inline">\(S\)</span>:</p>
+<p><span class="math display">\[S = 1 + \frac1b + \frac{1}{b^2} + \frac{1}{b^3}+\frac{1}{b^4}+\cdots \]</span></p>
+<p>Let’s multiply both sides by <span class="math inline">\(1/b\)</span>:</p>
+<p><span class="math display">\[\frac{1}{b}S = \frac{1}{b}\left(1 + \frac1b + \frac{1}{b^2} + \frac{1}{b^3}+\frac{1}{b^4}+\cdots \right)\]</span></p>
+<p>Distributing:</p>
+<p><span class="math display">\[\frac{1}{b}S  =  \frac1b + \frac{1}{b^2} + \frac{1}{b^3}+\frac{1}{b^4}+\cdots\]</span></p>
+<p>Meanwhile, we know what <span class="math inline">\(S\)</span> is, and we just figured out what <span class="math inline">\((1/b)S\)</span> is, so we should have:</p>
+<p><span class="math display">\[S-\frac{1}{b}S = \underbrace{\left( 1  \frac1b + \frac{1}{b^2} + \frac{1}{b^3}+\frac{1}{b^4}+\cdots \right)}_{S} - \underbrace{ \left(  \frac1b + \frac{1}{b^2} + \frac{1}{b^3}+\frac{1}{b^4}+\cdots  \right)}_{(1/b)S}\]</span></p>
+<p>So:</p>
+<p><span class="math display">\[S-\frac{1}{b}S = 1 + \cancel{\frac{1}{b}} + \cancel{\frac{1}{b^2}} + \cancel{\frac{1}{b^3}} + \cdots - \cancel{\frac{1}{b}} - \cancel{\frac{1}{b^2}} - \cancel{\frac{1}{b^3}} \cdots\]</span> <span class="math display">\[S-\frac{1}{b}S = 1\]</span></p>
+<p>But we can rearrange this to solve for <span class="math inline">\(S\)</span>: <span class="math display">\[\begin{align*}
+S\left(1-\frac{1}{b}\right) &amp;= 1\\ \\
+S &amp;= \frac{1}{1-\frac{1}{b}}
+\end{align*}\]</span></p>
+<p>So we have:</p>
+<p><span class="math display">\[ \sum_{n=0}^{n=\infty} \frac{1}{b^n}  = \frac{1}{\,\, 1-\frac{1}{b} \,\, } \]</span></p>
+<p>Or, if we write this slightly differently:</p>
+<p><span class="math display">\[\sum_{n=0}^{n=\infty} a^n = \frac{1}{\, 1-a\,\,}\]</span></p>
+<p>Yay! So now we have a formula for any series that looks like <span class="math inline">\((\text{some number})^n\)</span>. People call this type of series a <strong>geometric series</strong>.</p>
+<div class="callout-box" style="width: 50%;">
+<p>a <strong>geometric series</strong>: <span class="math display">\[\sum_{n=0}^{n=\infty} \left(\frac{1}{b}\right)^n = \frac{1}{\,\,1-\frac{1}{b}\,\,}\]</span> phrased differently: <span class="math display">\[ \sum_{n=0}^{n=\infty} a^n = \frac{1}{\, 1-a\,\,}\]</span></p>
+</div>
+<div style="text-align:center;font-size:150%; margin-top:2em; margin-bottom:2em;">
+<span class="math display">\[{\color{lightgray} \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum  }\]</span>
+</div>
+<h2 id="displaystyle-sum_n1ninfty-frac1n"><span class="math inline">\(\displaystyle \sum_{n=1}^{n=\infty} \frac{1}{n}= \,\, ???\)</span></h2>
+<p>Oooh! Here we have:</p>
+<p><span class="math display">\[\begin{align*}
+\sum_{n=1}^{n=\infty} \frac{1}{n} &amp;= 1 + \frac{1}{2} + \frac{1}{3} + \frac{1}{4} + \frac{1}{5} + \cdots
+\end{align*}\]</span></p>
+<p>(I started it at <span class="math inline">\(n=1\)</span>, note, because if <span class="math inline">\(n=0\)</span>, we’d have a divide-by-zero issue.)</p>
+<p>So!!! What’s going on here? The terms, considered individually, are all going to zero:</p>
+<p><span class="math display">\[1, \, \frac{1}{2}, \,  \frac{1}{3}, \, \frac{1}{4}, \, \frac{1}{5}, \, \cdots, \, \frac{1}{n}, \, \cdots \quad\xrightarrow[\quad \infty \quad]{ n }\quad 0\]</span></p>
+<p>But… does that mean that the series/sum will be finite? The terns are going to zero, so it <em>might</em> converge. But it might not. How can we figure it out?</p>
+<p>We can’t use the geometric series formula here (the one we figured out about <span class="math inline">\(\sum a^n\)</span>). The geometric series formula tells us what happens if we have a <em>constant</em> raised to a <em>variable</em>, like <span class="math inline">\(a^n\)</span>. But <span class="math inline">\(1/n\)</span>, which is just <span class="math inline">\(n^{-1}\)</span>, is a <em>variable</em> raised to a <em>constant</em>. It’s backwards from the geometric series formula:</p>
+<p><span class="math display">\[\underbrace{\sum_{n=0}^{n = \infty} (\text{constant})^\text{variable} \quad=\quad \frac{1}{1-(\text{constant})} }_{\text{the geometric series stuff}} \quad\neq\quad \underbrace{\sum (\text{variable})^\text{constant}}_{\text{totally different}}\]</span></p>
+<p>I’ll save you the suspense: this sum diverges:</p>
+<p><span class="math display">\[\sum_{n=1}^{n=\infty} \frac{1}{n} = 1+\frac{1}{2}+\frac13+\frac14+\frac15+\frac16+\frac17+\frac18+\cdots = \infty\]</span></p>
+<p>But <em>why</em>? We have to actually figure out <em>why</em>. It’s not enough to say “the terms aren’t getting smaller fast enough.” How do we <em>actually know that</em>???</p>
+<p>There’s a really nice proof/argument that uses calculus! But we don’t know calculus (… <em>yet</em>). So here’s a proof of its divergence that only uses algebra.</p>
+<p>Here’s the idea: we’ll strategically group together the terms and then compare them to a series we know diverges.</p>
+<ul>
+<li>We’ll take a bunch of terms and argue that they have to be greater than <span class="math inline">\(1/2\)</span>,</li>
+<li>take a few more terms, argue that <em>they</em> have to be greater than <span class="math inline">\(1/2\)</span>,</li>
+<li>take a few more terms, argue that <em>they</em> have to be greater than <span class="math inline">\(1/2\)</span>,</li>
+<li>et cetera, et cetera,</li>
+<li>and then argue that the entire series has to be greater than <span class="math inline">\(\frac12+\frac12+\frac12+\cdots\)</span>, which diverges to <span class="math inline">\(\infty\)</span>.</li>
+</ul>
+<p>OK, let’s actually make this argument, in detail! Consider the third and fourth terms:</p>
+<p><span class="math display">\[\cdots + \frac13 + \frac14 + \cdots\]</span></p>
+<p>What are they, added together?</p>
+<p><span class="math display">\[ \frac13 + \frac14 \quad=\quad ???\]</span></p>
+<p><span class="math inline">\(7/12\)</span> or something? Who knows! Adding fractions is hard! But whatever they are, they’re bigger than <span class="math inline">\(\frac14+\frac14\)</span>. Why? <span class="math inline">\(1/3\)</span> is greater than <span class="math inline">\(1/4\)</span>, and <span class="math inline">\(1/4\)</span> is <span class="math inline">\(1/4\)</span>, so <span class="math inline">\(1/3+1/4\)</span> is greater than <span class="math inline">\(1/4+1/4\)</span>, which is greater than <span class="math inline">\(2\cdot \frac14\)</span>, which is <span class="math inline">\(1/2\)</span>:</p>
+<p><span class="math display">\[\frac13+\frac14 \quad&gt;\quad\frac14+\frac14 \quad=\quad  2\cdot \frac 14 \quad=\quad \frac12\]</span></p>
+<p>Or, showing this in context of the entire sum:</p>
+<p><span class="math display">\[\quad \sum_{n=1}^{n=\infty} \frac{1}{n} = 1+\frac{1}{2}+\underbrace{\frac13+\frac14}_{\substack{\vee \\ \\ \frac14+\frac14 \\ \\ 2\cdot\frac14 \\ \\ \frac12}}+\frac15+\frac16+\frac17+\frac18+\frac{1}{9}+\frac{1}{10}+\frac{1}{11}+\frac{1}{12}+\frac{1}{13}+\frac{1}{14}+\frac{1}{15}+\frac{1}{16}+\cdots\]</span></p>
+<p>So we know that the <span class="math inline">\(3\)</span>rd and <span class="math inline">\(4\)</span>th terms have to be greater than <span class="math inline">\(1/2\)</span>.</p>
+<p>How about the terms from <span class="math inline">\(\frac15\)</span> to <span class="math inline">\(\frac 18\)</span>?</p>
+<p><span class="math display">\[ \cdots \frac15 + \frac 16 + \frac17 + \frac18 + \cdots\]</span></p>
+<p>What do we get when we add them up?</p>
+<p><span class="math display">\[\frac15 + \frac16 + \frac17 + \frac18 = ???\]</span></p>
+<p>Beats me! Adding fractions is hard! I sure don’t want to add <em>four</em> fractions with different denominators. But, whatever it is, it’s bigger than <span class="math inline">\(\frac18 + \frac18 + \frac18 + \frac18\)</span>! But that’s just four <span class="math inline">\(\frac18\)</span>s, or just <span class="math inline">\(\frac12\)</span>:</p>
+<p><span class="math display">\[\frac15 + \frac16 + \frac17 + \frac18 \quad&gt;\quad \frac18 + \frac18 + \frac18 + \frac18 \quad=\quad 4\cdot\frac18 \quad=\quad \frac12\]</span></p>
+<p>Showing this in the context of the whole sum:</p>
+<p><span class="math display">\[\quad \sum_{n=1}^{n=\infty} \frac{1}{n} = 1+\frac{1}{2}+\underbrace{\frac13+\frac14}_{\substack{\vee \\ \\ \frac14+\frac14 \\ \\ 2\cdot\frac14 \\ \\ \frac12}}+\underbrace{\frac15+\frac16+\frac17+\frac18}_{\substack{\vee \\ \\ \frac18+\frac18+\frac18+\frac18\\ 4 \cdot \frac 18 \\ \\ \frac12}}+\frac{1}{9}+\frac{1}{10}+\frac{1}{11}+\frac{1}{12}+\frac{1}{13}+\frac{1}{14}+\frac{1}{15}+\frac{1}{16}+\cdots\]</span></p>
+<p>So, again, we’ve bunched a few of the terms together, and we’ve gotten something that’s bigger than <span class="math inline">\(1/2\)</span>! Let’s keep going! What if we add up the next <em>eight</em> terms, down to <span class="math inline">\(1/16\)</span>? We definitely don’t want to actually add them all up:</p>
+<p><span class="math display">\[ \frac{1}{9}+\frac{1}{10}+\frac{1}{11}+\frac{1}{12}+\frac{1}{13}+\frac{1}{14}+\frac{1}{15}+\frac{1}{16} \quad=\quad ??? \quad \substack{\text{adding fractions}\\\text{is hard}}\]</span></p>
+<p>But, again, whatever they are all added up, they’re bigger than eight <span class="math inline">\(1/16\)</span>ths, i.e., they’re bigger than <span class="math inline">\(1/2\)</span>:</p>
+<p><span class="math display">\[\sum_{n=1}^{n=\infty} \frac{1}{n} = 1+\frac{1}{2}+\underbrace{\frac13+\frac14}_{\substack{\vee \\ \frac14+\frac14\\ \frac12}}+\underbrace{\frac15+\frac16+\frac17+\frac18}_{\substack{\vee \\ \frac18+\frac18+\frac18+\frac18\\ \frac12}}+\underbrace{\frac{1}{9}+\frac{1}{10}+\frac{1}{11}+\frac{1}{12}+\frac{1}{13}+\frac{1}{14}+\frac{1}{15}+\frac{1}{16}}_{\substack{\vee \\ \frac{1}{16}+\frac{1}{16}+\frac{1}{16}+\frac{1}{16}+\frac{1}{16}+\frac{1}{16}+\frac{1}{16}+\frac{1}{16}\\ \frac12}}+\cdots\]</span></p>
+<p>We can keep going! We can keep doing this procedure, <em>ad infinitum</em>, collecting together terms into buckets that are all bigger than <span class="math inline">\(1/2\)</span>. We collect together the next (power-of-two) terms, and show that they’re collectively equal to more than just <span class="math inline">\(1/2\)</span>. So, in other words, our series has to be bigger than a series of just a bunch of <span class="math inline">\(1/2\)</span>s added together (plus that initial <span class="math inline">\(1\)</span>):</p>
+<p><span class="math display">\[\sum_{n=1}^{n=\infty} \frac{1}{n} \quad&gt;\quad 1 + \frac12 + \frac12 + \frac12 + \frac12 + \cdots\]</span></p>
+<p>But then if our sum is greater than infinity, our sum must also be infinite! So <span class="math inline">\(\sum 1/n\)</span> diverges. </p>
+<p><span class="math display">\[\boxed{ \quad \sum_{n=1}^{n=\infty} \frac{1}{n} = \infty\quad}\]</span></p>
+<p>(The fancy name for this series, by the way, is the <strong>harmonic series</strong>.)</p>
+<p>Here’s a more vertical way of visualizing this argument:</p>
+<p><span class="math display">\[\begin{align*}
+\sum_{n=1}^{n=\infty} \frac{1}{n} = \\
+&amp;\, \, 1 &amp;\ge \frac12  \\ \\
+&amp;+ \frac{1}{2} &amp;\ge \frac12 \\ \\
+&amp;+ \frac13+\frac14 &amp;\ge \frac12 \\ \\
+&amp;+ \frac15+\frac16+\frac17+\frac18 &amp;\ge \frac12 \\ \\
+&amp;+ \frac{1}{9}+\frac{1}{10}+\frac{1}{11}+\frac{1}{12}+\frac{1}{13}+\frac{1}{14}+\frac{1}{15}+\frac{1}{16} &amp;\ge \frac12  \\ \\
+&amp;\quad \vdots \\ \\
+\end{align*}\]</span> So: <span class="math display">\[\begin{align*}
+\sum_{n=1}^{n=\infty} \frac{1}{n} \quad&amp;&gt;\quad \frac12 + \frac12 + \frac12 + \frac12 + \cdots \\ \\
+&amp;= \quad \infty
+\end{align*}\]</span></p>
+<p>Did we have to collect the series terms into buckets that are greater than <span class="math inline">\(1/2\)</span>? No! We could have grouped them differently. Zandra Feland ’22 suggested (back in like 2019) that we could group them into chunks that are always bigger than <span class="math inline">\(2/3\)</span>:</p>
+<p><span class="math display">\[ \sum_{n=1}^{n=\infty} \frac{1}{n} = 1+\underbrace{\frac12+ \frac13}_{\substack{\vee \\ \\ \frac13+\frac13\\ \\ \frac23}}+\underbrace{\frac14+\frac15+\frac16+\frac17+\frac18+\frac19}_{\substack{\vee \\ \\ \frac19+\frac19+\frac19+\frac19+\frac19+\frac19 \\ \\ \frac23}}+\frac{1}{10}+\frac{1}{11}+\frac{1}{12}+\cdots\]</span></p>
+<p>The next chunk would have to be <span class="math inline">\(18\)</span> terms long, and consist of terms that are greater than a bunch of <span class="math inline">\(1/27\)</span>ths. There’s not enough space to show that on this page! So I’ll abbreviate it a bit:</p>
+<p><span class="math display">\[\sum_{n=1}^{n=\infty} \frac{1}{n} = 1+\underbrace{\frac12+ \frac13}_{\substack{\vee \\ \\  \frac13+\frac13 \\ \\ \frac23}}+\underbrace{\frac14+\frac15+\frac16+\frac17+\frac18+\frac19}_{\substack{\vee \\ \\ \frac19+\frac19+\frac19+\frac19+\frac19+\frac19 \\ \\ \frac23}}+\underbrace{ \frac{1}{10}+\cdots + \frac{1}{27}}_{\substack{\vee \\  \\ \frac{1}{27}+\cdots+\frac{1}{27} \\ \\ \frac23}} + \cdots\]</span></p>
+<p>And so forth! So then we have:</p>
+<p><span class="math display">\[\begin{align*}\sum_{n=1}^{n=\infty} \frac{1}{n} &amp;&gt; 1 + \frac23 + \frac23 + \frac23 + \frac23 + \cdots \\
+&amp;= \infty
+\end{align*}\]</span></p>
+<p>And likewise, the sum still diverges, even though we’re using different numbers to prove that it does.</p>
+<p>Mia Luh, in 2024, suggested we could group the terms into chunks that were always bigger than <span class="math inline">\(1\)</span>. The fractional math is messier, but if you can make the argument, rigorously and in detail, it’s certainly valid! (… tautologically.) (<em>What if you want to prove that this series diverges by grouping the terms into chunks/buckets, all of which are greater than some number <span class="math inline">\(x\)</span>? Can you design the chunks and deal with the fractions to make that argument work???</em>)</p>
+<p>There’s a general point here. Even though the terms of this series are going to zero, the series still diverges. The terms are getting smaller:</p>
+<p><span class="math display">\[\text{the sequence $\frac{1}{n}$:} \quad 1,\, \frac{1}{2},\,\frac{1}{3},\,\frac{1}{4},\,\frac{1}{5},\, \cdots\xrightarrow[\quad \infty \quad]{ n } 0 \]</span></p>
+<p>They’re just not getting smaller fast enough.</p>
+<p>So what we’ve figured out is that just because the terms of a series (the underlying sequence) go to zero, that doesn’t neccesarily mean that the series itself converges. If the terms get bigger (like in our <span class="math inline">\(\sum 2^n\)</span> series), or even just stay the same size (like in our <span class="math inline">\(\sum 3\)</span> series), then it’ll definitely diverge. But having the underlying sequence go to zero means that we at least have a <em>hope</em> that it’ll converge. Not a certainty. But a hope.</p>
+<p><img src="series-convergence-underlying-sequence-going-to-zero.svg" /></p>
+<div style="text-align:center;font-size:150%; margin-top:2em; margin-bottom:2em;">
+<span class="math display">\[{\color{lightgray} \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum  }\]</span>
+</div>
+<h2 id="displaystyle-sum_n0ninfty-frac1n"><span class="math inline">\(\displaystyle \sum_{n=0}^{n=\infty} \frac{1}{n!}= \,\, ???\)</span></h2>
+<p>Ooooh! This is new. We have a bunch of fractions, but the denominators are now factorials!!!! So it’s something like:</p>
+<p><span class="math display">\[\begin{align*}
+\sum_{n=0}^{n=\infty}\frac{1}{n!} &amp;= \frac{1}{0!} + \frac{1}{1!} + \frac{1}{2!} + \frac{1}{3!} + \frac{1}{4!} + \cdots \\ \\
+&amp;= \frac{1}{1} + \frac{1}{1} + \frac{1}{2} + \frac{1}{6} + \frac{1}{24} + \cdots \\  \\
+&amp;= 1 + 1 + \frac{1}{2} + \frac{1}{6} + \frac{1}{24} + \cdots \\  \\
+&amp;= \,\,\, ???
+\end{align*}\]</span></p>
+<p>Hmm. The underlying sequence is definitely going to zero. (Note that <span class="math inline">\(0! = 1\)</span>, so we don’t have a divide-by-zero issue with the first (“first,” i.e. zeroth) term.) But is it going to zero fast enough to converge to some finite number???</p>
+<p>Let’s compare it to our <span class="math inline">\(1/2^n\)</span> series?</p>
+<table>
+<thead>
+<td>
+</td>
+<td>
+<span class="math display">\[ \sum_{n=0}^{n=\infty} \frac{1}{n!}\]</span>
+</td>
+<td>
+</td>
+<td>
+<span class="math display">\[ \sum_{n=0}^{n=\infty} \frac{1}{2^n}\]</span>
+</td>
+</thead>
+<tr>
+<td>
+<span class="math display">\[n=0\]</span>
+</td>
+<td>
+<span class="math display">\[1\]</span>
+</td>
+<td>
+<span class="math display">\[=\]</span>
+</td>
+<td>
+<span class="math display">\[1\]</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math display">\[n=1\]</span>
+</td>
+<td>
+<span class="math display">\[+\frac{1}{1}\]</span>
+</td>
+<td>
+<span class="math display">\[&gt;\]</span>
+</td>
+<td>
+<span class="math display">\[+\frac{1}{2}\]</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math display">\[n=2\]</span>
+</td>
+<td>
+<span class="math display">\[+\frac{1}{2}\]</span>
+</td>
+<td>
+<span class="math display">\[&gt;\]</span>
+</td>
+<td>
+<span class="math display">\[+\frac{1}{4}\]</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math display">\[n=3\]</span>
+</td>
+<td>
+<span class="math display">\[+\frac{1}{6}\]</span>
+</td>
+<td>
+<span class="math display">\[&gt;\]</span>
+</td>
+<td>
+<span class="math display">\[+\frac{1}{8}\]</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math display">\[n=4\]</span>
+</td>
+<td>
+<span class="math display">\[+\frac{1}{24}\]</span>
+</td>
+<td>
+<span class="math display">\[&lt;\]</span>
+</td>
+<td>
+<span class="math display">\[+\frac{1}{16}\]</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math display">\[n=5\]</span>
+</td>
+<td>
+<span class="math display">\[+\frac{1}{120}\]</span>
+</td>
+<td>
+<span class="math display">\[&lt;\]</span>
+</td>
+<td>
+<span class="math display">\[+\frac{1}{32}\]</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math display">\[n=6\]</span>
+</td>
+<td>
+<span class="math display">\[+\frac{1}{720}\]</span>
+</td>
+<td>
+<span class="math display">\[&lt;\]</span>
+</td>
+<td>
+<span class="math display">\[+\frac{1}{64}\]</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math display">\[n=7\]</span>
+</td>
+<td>
+<span class="math display">\[+\frac{1}{5040}\]</span>
+</td>
+<td>
+<span class="math display">\[&lt;\]</span>
+</td>
+<td>
+<span class="math display">\[+\frac{1}{128}\]</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math display">\[n=8\]</span>
+</td>
+<td>
+<span class="math display">\[+\frac{1}{40320}\]</span>
+</td>
+<td>
+<span class="math display">\[&lt;\]</span>
+</td>
+<td>
+<span class="math display">\[+\frac{1}{256}\]</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math display">\[n=9\]</span>
+</td>
+<td>
+<span class="math display">\[+\frac{1}{362880}\]</span>
+</td>
+<td>
+<span class="math display">\[&lt;\]</span>
+</td>
+<td>
+<span class="math display">\[+\frac{1}{512}\]</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math display">\[n=\text{etc}\]</span>
+</td>
+<td>
+<span class="math display">\[\vdots\]</span>
+</td>
+<td>
+<span class="math display">\[&lt;\]</span>
+</td>
+<td>
+<span class="math display">\[\vdots\]</span>
+</td>
+</tr>
+</table>
+<p>OK, the <span class="math inline">\(1/n!\)</span> series takes a while to get going, kind of like a train with a lot of mass and a lot of inertia that has to start very slowly, but, also like a train, once it gets going, it’s <em>really</em> going!!! The factorial function grows <em>really</em> fast. Faster even than <span class="math inline">\(2^n\)</span>!!! So, at least after <span class="math inline">\(n=4\)</span>, all of the terms of the <span class="math inline">\(1/n!\)</span> series are going to be less than the terms of the <span class="math inline">\(1/2^n\)</span> series. So then this definitely converges.</p>
+<p><span class="math display">\[\sum_{n=0}^{n=\infty} \frac{1}{n!} \quad&lt;\quad  \sum_{n=0}^{n=\infty} \frac{1}{2^n}\]</span></p>
+<p>It converges, I guess, to something less than <span class="math inline">\(2\)</span> (and greater than <span class="math inline">\(0\)</span>, since all these terms are positive):</p>
+<p><span class="math display">\[ 0 \quad&lt;\quad \sum_{n=0}^{n=\infty} \frac{1}{n!} \quad&lt;\quad 2\]</span></p>
+<p>But… what does it converge to? More precisely than just “somewhere between <span class="math inline">\(0\)</span> and <span class="math inline">\(2\)</span>”? Idk!!!! We’d have to think further about what’s going on here.</p>
+<p>Actually, if you remember the day we faked our way through Taylor series to figure out the Taylor series/infinite-polynomialization of <span class="math inline">\(e^x\)</span>, then you might be able to figure out what this converges to! Major props to Sylvia and Molly in Block 2, and Ellenor, Gracie, and Sebastian in Block 4, for making this connection! Of course, to <em>really</em> make the connection, we need to use calculus, so that we can <em>actually</em> understand how Taylor series work…</p>
+<h2 id="displaystyle-sum_n0ninfty-frac1n-5n-200"><span class="math inline">\(\displaystyle \sum_{n=0}^{n=\infty} \frac{1}{n! + 5^n + 200}= \,\, ???\)</span></h2>
+<p>Yeah, I dunno. This looks terrifying. I’m not even going to write out the first few terms. But, whatever it is, it’s clearly less than the <span class="math inline">\(1/n!\)</span> series. The denominator is, like, even bigger than <span class="math inline">\(1/n!\)</span>:</p>
+<p><span class="math display">\[\text{when $n&gt;0$:}\quad \left(n! + 5^n + 200 \right) &gt; \left(n!\right)\]</span> So: <span class="math display">\[\text{when $n&gt;0$:}\quad \frac{1}{n! + 5^n + 200} &lt; \frac{1}{n!}\]</span></p>
+<p>We could make the same argument even if there was just the <span class="math inline">\(5^n\)</span> in the denominator. That’s bigger than <span class="math inline">\(5^n\)</span>, and we know that series converges!</p>
+<p><span class="math display">\[\text{when $n&gt;0$:}\quad \left(n! + 5^n + 200 \right) &gt; \left(5^n\right)\]</span> So: <span class="math display">\[\text{when $n&gt;0$:}\quad \frac{1}{n! + 5^n + 200} &lt; \frac{1}{5^n}\]</span></p>
+<p>So this definitely has to converge! To what? Who knows! But at least it converges to <em>some</em> finite number:</p>
+<p><span class="math display">\[ \sum_{n=0}^{n=\infty} \frac{1}{n! + 5^n + 200} \quad=\quad \substack{\text{idk some}\\\text{finite number}}\]</span></p>
+<p>I mean, it has to be some finite number less than <span class="math inline">\(5/4\)</span>, since that’s what we figured out the <span class="math inline">\(1/5^n\)</span> series converges to:</p>
+<p><span class="math display">\[0 \quad&lt;\quad \sum_{n=0}^{n=\infty} \frac{1}{n! + 5^n + 200} \quad&lt;\quad \frac54\]</span></p>
+<div style="text-align:center;font-size:150%; margin-top:2em; margin-bottom:2em;">
+<span class="math display">\[{\color{lightgray} \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum  }\]</span>
+</div>
+<h2 id="displaystyle-sum_n1ninfty-frac1sqrtn"><span class="math inline">\(\displaystyle \sum_{n=1}^{n=\infty} \frac{1}{\sqrt{n}}= \,\, ???\)</span></h2>
+<p>Hrm. This is kinda like the <span class="math inline">\(1/n\)</span> series, but with <span class="math inline">\(n\)</span> raised to an exponent that’s not <span class="math inline">\(1\)</span>, but rather, is <span class="math inline">\(1/2\)</span>:</p>
+<p><span class="math display">\[ \sum_{n=1}^{n=\infty} \frac{1}{n^{1/2}} \quad \text{versus} \quad  \sum_{n=1}^{n=\infty} \frac{1}{n^{1}} \]</span></p>
+<p>Or, sans fractions:</p>
+<p><span class="math display">\[ \sum_{n=1}^{n=\infty} n^{-1/2} \quad \text{versus} \quad  \sum_{n=1}^{n=\infty} n^{-1} \]</span></p>
+<p>The <span class="math inline">\(1/n\)</span> series diverges. But what about this <span class="math inline">\(1/\sqrt{n}\)</span> series? Let’s write out a few terms?</p>
+<p><span class="math display">\[\begin{align*}
+\sum_{n=1}^{n=\infty} \frac{1}{\sqrt{n}} &amp;= \frac{1}{\sqrt{1}} + \frac{1}{\sqrt{2}} + \frac{1}{\sqrt{3}} + \frac{1}{\sqrt{4}} + \frac{1}{\sqrt{5}} + \cdots \\ \\
+\end{align*}\]</span></p>
+<p>We could simplify a few things there—<span class="math inline">\(\sqrt1\)</span> is <span class="math inline">\(1\)</span>; <span class="math inline">\(\sqrt{4}\)</span> is <span class="math inline">\(2\)</span>—but I’ll leave it like that.</p>
+<p>Here’s the insight: <em>square rooting makes things smaller</em>. (At least when we’re square-rooting numbers bigger than <span class="math inline">\(1\)</span>.) The square roots here are in the denominators. Meaning, we have <em>smaller denominators</em>. So the fractions themselves are… bigger than they’d be had we not square-rooted them.</p>
+<p><span class="math display">\[\begin{align*}
+2 &amp;&gt; \sqrt2 \\
+3 &amp;&gt; \sqrt3 \\
+4 &amp;&gt; \sqrt4 \\
+5 &amp;&gt; \sqrt5 \\
+6 &amp;&gt; \sqrt6 \\
+\,\,\vdots\,\, &amp;&lt; \,\,\vdots
+\end{align*}\]</span></p>
+<p>So then: <span class="math display">\[\begin{align*}
+\frac{1}{2} &amp;&lt; \frac{1}{\sqrt2} \\
+\frac{1}{3} &amp;&lt; \frac{1}{\sqrt3} \\
+\frac{1}{4} &amp;&lt; \frac{1}{\sqrt4} \\
+\frac{1}{5} &amp;&lt; \frac{1}{\sqrt5} \\
+\frac{1}{6} &amp;&lt; \frac{1}{\sqrt6} \\
+\,\,\vdots\,\, &amp;&lt; \,\,\vdots
+\end{align*}\]</span></p>
+<p>So then, we have to have:</p>
+<p><span class="math display">\[ \sum_{n=1}^{n=\infty} \frac{1}{n} \quad &lt; \quad \sum_{n=1}^{n=\infty} \frac{1}{\sqrt{n}} \]</span></p>
+<p>But… we already know that if we add up all of these <span class="math inline">\(1/n\)</span> terms, we get something that diverges. The terms are too big, and so they zoom off to infinity! And all the terms in the <span class="math inline">\(1/\sqrt{n}\)</span> series are bigger than the terms in the <span class="math inline">\(1/n\)</span> series!!!! (I mean, except for the <span class="math inline">\(n=1\)</span> term, because <span class="math inline">\(\sqrt1=1\)</span>, but that won’t make a difference here.) So then this has to diverge. <span class="math display">\[ \infty &lt; \quad \sum_{n=1}^{n=\infty} \frac{1}{\sqrt{n}} \]</span> So: <span class="math display">\[ \sum_{n=1}^{n=\infty} \frac{1}{\sqrt{n}} = \infty \]</span></p>
+<p>Kevin Shen made a similar, but slightly different argument, which I found delightful. If we look closely at this series, and look at only the terms for which <span class="math inline">\(n\)</span> is a perfect square, then we have something like:</p>
+<p><span class="math display">\[\begin{align*}
+\sum_{n=1}^{n=\infty} \frac{1}{\sqrt{n}} &amp;= \frac{1}{\sqrt{1}} +\cdots + \frac{1}{\sqrt4} + \cdots + \frac{1}{\sqrt9} + \cdots + \frac{1}{\sqrt{16}} + \cdots + \frac{1}{\sqrt{25}} + \cdots\\ \\
+&amp;= 1 +\cdots + \frac{1}{2} + \cdots + \frac{1}{3} + \cdots + \frac{1}{4} + \cdots + \frac{1}{5} + \cdots
+\end{align*}\]</span> But that’s just the <span class="math inline">\(1/n\)</span> series!!! It’s there, contained, <em>within</em> the <span class="math inline">\(1/\sqrt{n}\)</span> series! So the <span class="math inline">\(1/\sqrt{n}\)</span> series has everything the <span class="math inline">\(1/n\)</span> series has, <em>and more</em>!</p>
+<p><span class="math display">\[ \sum_{n=1}^{n=\infty} \frac{1}{\sqrt{n}} \,\,=\,\, \left(\sum_{n=1}^{n=\infty} \frac{1}{n} \right) + \left(\text{a buncha other stuff}\right)\]</span></p>
+<p>Since the <span class="math inline">\(1/n\)</span> series diverges (it zooms up to <span class="math inline">\(\infty\)</span>), then the <span class="math inline">\(1/\sqrt{n}\)</span> series has to diverge, too.</p>
+<p><span class="math display">\[\begin{align*}
+\sum_{n=1}^{n=\infty} \frac{1}{\sqrt{n}} \,\,&amp;=\,\, \left(\sum_{n=1}^{n=\infty} \frac{1}{n} \right) + \left(\text{a buncha other stuff}\right) \\ \\
+&amp;= \infty +  \left(\text{a buncha other stuff}\right) \\ \\
+&amp;= \infty
+\end{align*}\]</span></p>
+<div style="text-align:center;font-size:150%; margin-top:2em; margin-bottom:2em;">
+<span class="math display">\[{\color{lightgray} \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum  }\]</span>
+</div>
+<h2 id="displaystyle-sum_n-4ninfty-frac12n"><span class="math inline">\(\displaystyle \sum_{n=-4}^{n=\infty} \frac{1}{2^n} = \,\, ???\)</span></h2>
+<p>We need to do surgery, <em>but in the opposite direction</em>!!! Instead of <em>removing</em> things with our scalpel, we need to get out the sutures and the super-glue and <em>add things</em> to our series!!! Like Dr. Frankenstein!!!</p>
+<p>This is like our <span class="math inline">\(1/2^n\)</span> series, but it starts not at <span class="math inline">\(n=0\)</span>, nor even <span class="math inline">\(n=3\)</span>, but at <span class="math inline">\(n=-4\)</span>! So it’s something like:</p>
+<p><span class="math display">\[\begin{align*}
+\sum_{n=-4}^{n=\infty}\frac{1}{2^n} &amp;= \frac{1}{2^{-4}} + \frac{1}{2^{-3}}  + \frac{1}{2^{-2}}  + \frac{1}{2^{-1}} + \frac{1}{2^0} + \frac{1}{2^1} + \frac{1}{2^2} + \frac{1}{2^3} + \frac{1}{2^4} + \frac{1}{2^5} + \frac{1}{2^6} + \cdots \\ \\
+&amp;=  \frac{1}{\,\,\frac{1}{16}\,\,} + \frac{1}{\,\,\frac{1}{8}\,\,}  + \frac{1}{\,\,\frac{1}{4}\,\,} + \frac{1}{\,\,\frac{1}{2}\,\,}  +1 + \frac12 + \frac{1}{4} + \frac{1}{8} + \frac{1}{16} + \frac{1}{32} + \frac{1}{64} \cdots \\ \\
+&amp;\text{because of fractions, this is:} \\ \\
+&amp;= 16 + 8  + 4 + 2  + 1 + \frac12 + \frac{1}{4} + \frac{1}{8} + \frac{1}{16} + \frac{1}{32} + \frac{1}{64} \cdots \\ \\
+&amp;= ???
+\end{align*}\]</span></p>
+<p>So here, we’ve got just the <span class="math inline">\(1/2^n\)</span> series starting at <span class="math inline">\(n=0\)</span> contained in this bigger series:</p>
+<p><span class="math display">\[ \underbrace{ 16 + 8  + 4 + 2  + \overbrace{1 + \frac12 + \frac{1}{4} + \frac{1}{8} + \frac{1}{16} + \frac{1}{32} + \frac{1}{64} \cdots }^{\displaystyle\sum_{n=0}^{n=\infty}\frac{1}{2^n}}   }_{\displaystyle\sum_{n=-4}^{n=\infty}\frac{1}{2^n}}\]</span></p>
+<p>And we know the series starting at <span class="math inline">\(n=0\)</span> is just two:</p>
+<p><span class="math display">\[ \underbrace{ 16 + 8  + 4 + 2  + \overbrace{1 + \frac12 + \frac{1}{4} + \frac{1}{8} + \frac{1}{16} + \frac{1}{32} + \frac{1}{64} \cdots }^{=2}   }_{\displaystyle\sum_{n=-4}^{n=\infty}\frac{1}{2^n}}\]</span></p>
+<p>So really, we have just:</p>
+<p><span class="math display">\[ \underbrace{ 16 + 8  + 4 + 2  + 2 }_{\displaystyle\sum_{n=-4}^{n=\infty}\frac{1}{2^n}}\]</span></p>
+<p>Which, if we actually add that all up, gives us:</p>
+<p><span class="math display">\[ \underbrace{32}_{\displaystyle\sum_{n=-4}^{n=\infty}\frac{1}{2^n}}\]</span></p>
+<p>Or, written more normally:</p>
+<p><span class="math display">\[\displaystyle\sum_{n=-4}^{n=\infty}\frac{1}{2^n} = 32\]</span></p>
+<p>So this series converges, and it converges to <span class="math inline">\(32\)</span>! Yay! Surgery! (We’re, uh, adding filler, or something, here, rather than removing stuff… figure out your own plastic surgery metaphor.)</p>
+<div style="text-align:center;font-size:150%; margin-top:2em; margin-bottom:2em;">
+<span class="math display">\[{\color{lightgray} \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum  }\]</span>
+</div>
+<h2 id="displaystyle-sum_n0ninfty-frac122n"><span class="math inline">\(\displaystyle \sum_{n=0}^{n=\infty} \frac{12}{2^n} = \,\, ???\)</span></h2>
+<p><span class="math display">\[\begin{align*}
+\sum_{n=0}^{n=\infty}\frac{12}{2^n} &amp;= \frac{12}{2^0} + \frac{12}{2^1} + \frac{12}{2^2} + \frac{12}{2^3} + \frac{12}{2^4} + \frac{12}{2^5} + \frac{12}{2^6} + \cdots \\ \\
+&amp;=  12 + \frac{12}{2} + \frac{12}{4} + \frac{12}{8} + \frac{12}{16} + \frac{12}{32} + \frac{12}{64} \cdots \\ \\
+\end{align*}\]</span></p>
+<p>It’s tempting to simplify things:</p>
+<p><span class="math display">\[\begin{align*}
+&amp;=  12 + 6 + 3 + \frac{3}{2} + \frac{3}{4} + \frac{3}{8} + \frac{3}{16} \cdots \\ \\
+\end{align*}\]</span></p>
+<p>Are those… imperial bolt sizes??? I think simplifying the fractions makes things more obscure. Let’s leave the twelves alone! Because look! All those twelves! Everything is just multiplied by twelve… so we can factor out a twelve!</p>
+<p><span class="math display">\[\begin{align*}
+&amp;=  12\cdot\left(1 + \frac{1}{2} + \frac{1}{4} + \frac{1}{8} + \frac{1}{16} + \frac{1}{32} + \frac{1}{64} \cdots \right)
+\end{align*}\]</span></p>
+<p>And… now it just looks like the normal <span class="math inline">\(1/2^n\)</span> series!!! <span class="math display">\[\begin{align*}
+&amp;=  12\cdot\left( \sum_{n=0}^{n=\infty}\frac{1}{2^n}  \right)
+\end{align*}\]</span></p>
+<p>Which is just <span class="math inline">\(2\)</span>:</p>
+<p><span class="math display">\[\begin{align*}
+&amp;=  12\cdot\left(2 \right)
+\end{align*}\]</span></p>
+<p>So we have:</p>
+<p><span class="math display">\[\sum_{n=0}^{n=\infty}\frac{12}{2^n} = 24\]</span></p>
+<p>Yay!!!</p>
+<p>More generally, here’s the insight here: we can pull constants out of sums! In other words, what we did here was:</p>
+<p><span class="math display">\[\begin{align*}
+\sum_{n=0}^{n=\infty}\frac{12}{2^n} &amp;= \sum_{n=0}^{n=\infty}12\cdot\frac{1}{2^n} \\ \\
+&amp;= 12\cdot \sum_{n=0}^{n=\infty}\frac{1}{2^n} \\ \\
+&amp;= 12 \cdot 2 \\ \\
+&amp;= 24
+\end{align*}\]</span></p>
+<p>Phrased most generally (maybe you want to write this down on a list of summation Fun Facts?), if we have some iterated/infinite sum, using the variable <span class="math inline">\(n\)</span> as our counter, summing up some constant <span class="math inline">\(k\)</span> times some function of <span class="math inline">\(n\)</span>, then:</p>
+<p><span class="math display">\[\boxed{ \sum_n k\cdot f(n) = k\cdot \sum_n f(n) }\]</span></p>
+<p>Useful fact!</p>
+<div style="text-align:center;font-size:150%; margin-top:2em; margin-bottom:2em;">
+<span class="math display">\[{\color{lightgray} \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum  }\]</span>
+</div>
+<h2 id="displaystyle-sum_n0ninfty-frac17.842n"><span class="math inline">\(\displaystyle \sum_{n=0}^{n=\infty} \frac{1}{7.842^n}= \,\, ???\)</span></h2>
+<p>I do not want to compute powers of <span class="math inline">\(7.842\)</span>! Not even <em>integer</em> powers. But… maybe this is a moment where we can just plug-and-chug our geometric series formula:</p>
+<p><span class="math display">\[ \sum_{n=0}^{n=\infty} \left(\frac{1}{b}\right)^n = \frac{1}{\, 1-\frac{1}{b}\,\,}\]</span></p>
+<p>So then:</p>
+<p><span class="math display">\[\begin{align*}
+ \sum_{n=0}^{n=\infty} \frac{1}{7.842^n} &amp;= \sum_{n=0}^{n=\infty} \left(\frac{1}{7.842}\right)^n \\ \\
+ &amp;= \frac{1}{\,\,1-\frac{1}{7.842}\,\,} \\ \\
+ &amp;= \,\,\text{ugh} \\ \\
+ &amp;\text{okay I&#39;ll use a stupid calculator} \\ \\
+ &amp;\approx 1.1462\dots
+ \end{align*}\]</span></p>
+<p>Or, you know what? Calculators <em>are</em> stupid. We totally don’t need them here (even though I wrote this problem to sort of force that). Because <span class="math inline">\(7.842\)</span> is just:</p>
+<p><span class="math display">\[7.842 = \frac{7842}{1000}\]</span></p>
+<p>So then this series is:</p>
+<p><span class="math display">\[\begin{align*}
+ \sum_{n=0}^{n=\infty} \frac{1}{7.842^n} &amp;= \sum_{n=0}^{n=\infty} \left(\frac{1}{7.842}\right)^n \\ \\
+ &amp;= \frac{1}{\,\,1-\frac{1}{7.842}\,\,} \\ \\
+ &amp;= \frac{1}{\,\,1-\frac{1}{\,\, \frac{7842}{1000} \,\, }\,\,} \\ \\
+ &amp;= \frac{1}{\,\,1-\frac{1000}{7842} \,\,} \\ \\
+  &amp;= \frac{1}{\,\,\frac{7842}{7842}-\frac{1000}{7842} \,\,} \\ \\
+&amp;= \frac{1}{\,\,\frac{6842}{7842} \,\,} \\ \\
+&amp;= \frac{7842}{6842} \\ \\
+ \end{align*}\]</span></p>
+<p>Yay!! No calculator required!!!!!!!!!!</p>
+<div style="text-align:center;font-size:150%; margin-top:2em; margin-bottom:2em;">
+<span class="math display">\[{\color{lightgray} \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum  }\]</span>
+</div>
+<h2 id="displaystyle-sum_n0ninfty-frac12n3"><span class="math inline">\(\displaystyle \sum_{n=0}^{n=\infty} \frac{1}{2^{n+3}} = \,\, ???\)</span></h2>
+<h3 id="argument-1">argument #1</h3>
+<p>So here, we have something that looks a lot like our <span class="math inline">\(1/2^n\)</span> series:</p>
+<p><span class="math display">\[\begin{align*}
+\sum_{n=3}^{n=\infty}\frac{1}{2^n} &amp;= \frac{1}{2^3} + \frac{1}{2^4} + \frac{1}{2^5} + \frac{1}{2^6} + \frac{1}{2^7} + \frac{1}{2^8} + \frac{1}{2^9} + \cdots \\ \\
+&amp;= \frac{1}{8} + \frac{1}{16} + \frac{1}{32} + \frac{1}{64} + \frac{1}{128} + \frac{1}{256} + \frac{1}{512} \cdots \\ \\
+\end{align*}\]</span></p>
+<p>One way to think about this is to do some surgery! It looks like the <span class="math inline">\(1/2^n\)</span> series, but minus the first few terms:</p>
+<p><span class="math display">\[ \overbrace{1 + \frac12 + \frac{1}{4} + \underbrace{\frac{1}{8} + \frac{1}{16} + \frac{1}{32} + \frac{1}{64} + \cdots}_{\displaystyle\sum_{n=0}^{n=\infty}\frac{1}{2^{n+3}}} }^{\displaystyle\sum_{n=0}^{n=\infty}\frac{1}{2^n}}= 2 \]</span></p>
+<p>So we can find the sum from <span class="math inline">\(n=3\)</span> just by subtracting off the first three terms!!! We’ll take <span class="math inline">\(2\)</span>, which is the entire sum from <span class="math inline">\(0\)</span> out to <span class="math inline">\(\infty\)</span>, and subtract off the terms when <span class="math inline">\(n=0\)</span>, <span class="math inline">\(n=1\)</span>, and <span class="math inline">\(n=2\)</span>. In other words:</p>
+<p><span class="math display">\[\begin{align*}
+\sum_{n=0}^{n=\infty}\frac{1}{2^{n+3}} &amp;= \left( \sum_{n=0}^{n=\infty}\frac{1}{2^n} \right) - \left( 1 + \frac12 + \frac14\right) \\ \\
+&amp;= 2 - \left( 1 + \frac12 + \frac14\right) \\ \\
+&amp;= 2 - 1 - \frac12 - \frac14 \\ \\
+&amp;= \frac{1}{4}
+\end{align*}\]</span></p>
+<p>Yay!</p>
+<h3 id="a-generalization">a generalization!</h3>
+<p>Note that this was <em>actually a series we already thought about</em>. This series was, in fact, the same as the <span class="math inline">\(2^n\)</span> series starting from <span class="math inline">\(n=3\)</span>:</p>
+<p><span class="math display">\[\begin{align*}
+\sum_{n=0}^{n=\infty}\frac{1}{2^{n+3}} \quad&amp;=\quad \sum_{n=3}^{n=\infty}\frac{1}{2^{n}} \\ \\
+\frac{1}{8} + \frac{1}{16} + \frac{1}{32} + \frac{1}{64} + \cdots \quad&amp;=\quad \frac{1}{8} + \frac{1}{16} + \frac{1}{32} + \frac{1}{64} + \cdots
+\end{align*}\]</span></p>
+<p>This is a more general truth! If we’re shifting the counter, <span class="math inline">\(n\)</span>, around, we could shift it around in the statement of the sum (the big <span class="math inline">\(\sum\)</span>), or we could shift it around in the formula itself. Say we have some sum, starting from some random number <span class="math inline">\(m\)</span>, with some random function <span class="math inline">\(f(n)\)</span>:</p>
+<p><span class="math display">\[\sum_{n=m} f(n) = f(m) + f(m+1) + f(m+2) + f(m+3) + \cdots \]</span></p>
+<p>Then this is the same as starting from a different spot, say <span class="math inline">\(m+k\)</span>, but using a different function, in which instead of inputting <span class="math inline">\(n\)</span>, we input <span class="math inline">\(n-k\)</span>: <span class="math display">\[\begin{align*}
+\sum_{n=m+k} f(n-k) &amp;= f\Big( (m+k) - k \Big ) + f\Big( (m+k+1) - k \Big ) + f\Big( (m+k+ 2) - k\Big ) \\ \\
+&amp;= f\Big( m \Big ) + f\Big(  m+1\Big ) + f\Big( m + 2\Big ) + \cdots \\ \\
+&amp;= \sum_{n=m} f(n)
+\end{align*}\]</span> That’s an abstract way of putting it, which might be a bit confusing; the point is, we can shift the indices in the summation notation, or we can shift the indices in the formula.</p>
+<p><span class="math display">\[ \sum_{n=0}^{n=\infty}\frac{1}{2^{n+3}} \quad=\quad \sum_{n=0+3}^{n=\infty}\frac{1}{2^{(n+3)-3}} \quad=\quad \sum_{n=3}^{n=\infty}\frac{1}{2^{n}} \]</span></p>
+<h3 id="argument-3">argument #3</h3>
+<p>Here’s an alternate way we could think about this series. Instead of writing out the terms and doing surgery, we could do algebra! We can use properties of exponents to turn <span class="math inline">\(2^{n+3}\)</span> into <span class="math inline">\(2^n\cdot 2^3\)</span>, so this could become:</p>
+<p><span class="math display">\[\begin{align*}
+\sum_{n=0}^{n=\infty} \frac{1}{2^{n+3}} &amp;= \sum_{n=0}^{n=\infty} \frac{1}{2^n \cdot 2^3} \\ \\
+ &amp;= \sum_{n=0}^{n=\infty} \frac{1}{2^n\cdot 8} \\ \\
+ &amp;= \sum_{n=0}^{n=\infty} \frac{1}{8\cdot 2^n} \\ \\
+ &amp;= \sum_{n=0}^{n=\infty} \frac{1}{8}\cdot\frac{1}{2^n} \\ \\
+ &amp;\text{but we figured out we could pull constants out of sums, so this is:} \\
+ &amp;= \frac{1}{8}\sum_{n=0}^{n=\infty} \frac{1}{2^n} \\ \\
+ &amp;= \frac{1}{8} \cdot 2 \\ \\
+&amp;= \frac{2}{8} \\ \\
+ &amp;= \frac{1}{4}
+\end{align*}\]</span></p>
+<p>Yay! Algebra! I think the algebra method is nice and fast and easy.</p>
+<div style="text-align:center;font-size:150%; margin-top:2em; margin-bottom:2em;">
+<span class="math display">\[{\color{lightgray} \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum  }\]</span>
+</div>
+<h2 id="displaystyle-sum_n0ninfty-2n-1"><span class="math inline">\(\displaystyle \sum_{n=0}^{n=\infty} 2^{n} = \,\, ???\)</span></h2>
+<p>OK, we already figured this out, but now we have our fun fancy geometric series formula, so we can use that!!!</p>
+<p><span class="math display">\[ \sum_{n=0}^{n=\infty} a^n = \frac{1}{\, 1-a\,\,}\]</span></p>
+<p>So here we have:</p>
+<p><span class="math display">\[\begin{align*}
+\displaystyle \sum_{n=0}^{n=\infty} 2^{n} &amp;= \frac{1}{1-2} \\ \\
+&amp;= \frac{1}{-1} \\ \\
+&amp;= -1
+\end{align*}\]</span></p>
+<p>Yay! So this converges, to just <span class="math inline">\(-1\)</span>!</p>
+<p><span class="math display">\[\begin{align*}
+\sum_{n=0}^{n=\infty} 2^{n} &amp;= 1 + 2 + 4 + 8 + \cdots \\ \\
+&amp;= -1
+\end{align*}\]</span></p>
+<p>Uhhh…. wait.</p>
+<div style="text-align:center;font-size:150%; margin-top:2em; margin-bottom:2em;">
+<span class="math display">\[{\color{lightgray} \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum  }\]</span>
+</div>
+<h2 id="displaystyle-sum_n0ninfty-frac12n-frac13n"><span class="math inline">\(\displaystyle \sum_{n=0}^{n=\infty} \frac{1}{2^n} + \frac{1}{3^n} = \,\, ???\)</span></h2>
+<p>Okay, so this is:</p>
+<p><span class="math display">\[\displaystyle \sum_{n=0}^{n=\infty} \frac{1}{2^n} + \frac{1}{3^n} \quad=\quad \frac11 + \frac11 \quad+\quad \frac{1}{2}+\frac{1}{3} \quad+\quad \frac{1}{4}+\frac{1}{9} \quad+\quad \frac{1}{8}+\frac{1}{27} \quad+\quad \cdots\]</span></p>
+<p>But addition is commutative! We’re adding up all this stuff, but we can just rearrange it:</p>
+<p><span class="math display">\[\begin{align*}
+\sum_{n=0}^{n=\infty} \frac{1}{2^n} + \frac{1}{3^n} &amp;= \quad1+1 \quad+\quad \frac{1}{2}+\frac{1}{3} \quad+\quad \frac{1}{4}+\frac{1}{9} \quad+\quad \frac{1}{8}+\frac{1}{27} \quad+\quad \cdots \\ \\
+&amp;= \left(1+\frac12 + \frac14 + \frac18 + \cdots  \right) + \left(1 + \frac13 + \frac19 + \frac{1}{27} + \cdots \right) \\ \\
+&amp;\text{but these are just geometric series!} \\ \\
+&amp;= \left( \sum_{n=0}^{n=\infty} \frac{1}{2^n} \right) + \left( \sum_{n=0}^{n=\infty}\frac{1}{3^n}\right) \\ \\
+&amp;= \frac{1}{\,\,1-\frac12\,\,} + \frac{1}{\,\,1-\frac13\,\,} \\ \\
+&amp;= 2 + \frac32 \\
+&amp;= \frac72
+\end{align*}\]</span></p>
+<p>Yay! So apparently the lesson we’ve learned is that we can split sums across addition:</p>
+<p><span class="math display">\[\boxed{ \sum_n \Big( f(n) + g(n) \Big) = \left(\sum_n f(n) \right) + \left(\sum_n g(n)\right) }\]</span></p>
+<div style="text-align:center;font-size:150%; margin-top:2em; margin-bottom:2em;">
+<span class="math display">\[{\color{lightgray} \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum  }\]</span>
+</div>
+<h2 id="displaystyle-sum_n0ninfty-frac3n-24n"><span class="math inline">\(\displaystyle \sum_{n=0}^{n=\infty} \frac{3^n + 2}{4^n} = \,\, ???\)</span></h2>
+<p>Wow!!! This looks like a mess. Let’s write out some terms:</p>
+<p><span class="math display">\[\begin{align*}
+\displaystyle \sum_{n=0}^{n=\infty} \frac{3^n + 2}{4^n}  &amp;=  \frac{3^0+2}{4^0} + \frac{3^1+2}{4^1} + \frac{3^2+2}{4^2} + \frac{3^3+2}{4^3} + \frac{3^4+2}{4^4} + \cdots \\ \\
+&amp;= \frac{1+2}{1} + \frac{3+2}{4} + \frac{9+2}{16} + \frac{27+2}{64} + \frac{81+2}{256} + \cdots \\ \\
+&amp;= \frac{3}{1} + \frac{5}{4} + \frac{11}{16} + \frac{29}{64} + \frac{83}{256} + \cdots \\ \\
+\end{align*}\]</span></p>
+<p>Here’s the idea: it’s hideous, and if we were just trying to stare at the terms and make sense of them, we’d probably cry. But also, I see some <span class="math inline">\(3^n\)</span>s and <span class="math inline">\(4^n\)</span>s in there. That looks <em>kinda</em> like a geometric series!!! We know geometric series really well. So maybe we can algebra bash this complicated expression so that it looks like just some sort of geometric series, and so then we’d be able to use our geometric series formula!</p>
+<p><span class="math display">\[\sum \frac{3^n + 2}{4^n} \quad\overset{???}{=}\quad \sum \text{(something)}^n \quad=\quad \frac{1}{\,\, 1-\text{(something)} \,\,}\]</span></p>
+<p>So, let’s give this a shot. We have:</p>
+<p><span class="math display">\[\begin{align*}
+\sum_{n=0}^{n=\infty} \frac{3^n + 2}{4^n} &amp;= \sum_{n=0}^{n=\infty} \frac{3^n}{4^n} +\frac{2}{4^n} \quad\text{(fractions)} \\ \\
+&amp;=  \sum_{n=0}^{n=\infty} \left(\frac34\right)^n + 2\cdot\left(\frac14\right)^n \\ \\
+&amp;=  \sum_{n=0}^{n=\infty} \left(\frac34\right)^n +  \sum_{n=0}^{n=\infty} 2\cdot\left(\frac14\right)^n \quad\text{(we figured out we can split sums across addition)}\\ \\
+&amp;=  \sum_{n=0}^{n=\infty} \left(\frac34\right)^n +  2\cdot \sum_{n=0}^{n=\infty} \left(\frac14\right)^n  \text{(and that we can pull constants out)}\\ \\
+&amp;\text{now we can chonk in the geometric series formula!}\\ \\
+&amp;=  \frac{1}{1-\frac34} \,\,+\,\,  2\cdot \frac{1}{1-\frac14} \\ \\
+&amp;=  \frac{1}{\,\, \frac14 \,\,} \,\,+\,\,  2\cdot \frac{1}{\,\, \frac34 \,\,} \\ \\
+&amp;=  4 \,\,+\,\,  2\cdot \frac43 \\ \\
+&amp;=  4 + \frac83 \\ \\
+&amp;= \frac{20}{3} \\ \\
+&amp;= 6.\overline{6}
+\end{align*}\]</span></p>
+<p>Yay! So simple!!! So this series converges, and converges to <span class="math inline">\(20/3\)</span>:</p>
+<p><span class="math display">\[\boxed{ \sum_{n=0}^{n=\infty} \frac{3^n + 2}{4^n}  = \frac{20}{3} }\]</span></p>
+<div style="text-align:center;font-size:150%; margin-top:2em; margin-bottom:2em;">
+<span class="math display">\[{\color{lightgray} \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum  }\]</span>
+</div>
+<h2 id="displaystyle-sum_n0ninfty-frac122n3"><span class="math inline">\(\displaystyle \sum_{n=0}^{n=\infty} \frac{1}{2^{2n+3}} = \,\, ???\)</span></h2>
+<p>OK, similar deal here! We can write out a few terms:</p>
+<p><span class="math display">\[\begin{align*}
+ \sum_{n=0}^{n=\infty} \frac{1}{2^{2n+3}} &amp;= \frac{1}{2^{2\cdot 0 +3}}  + \frac{1}{2^{2\cdot 1 +3}}  + \frac{1}{2^{2\cdot 2+3}}  + \cdots \\ \\
+ &amp;= \frac{1}{2^{3}}  + \frac{1}{2^{5}}  + \frac{1}{2^{7}}  + \cdots \\ \\
+ &amp;= \frac{1}{8}  + \frac{1}{32}  + \frac{1}{128}  + \cdots \\ \\
+ \end{align*}\]</span></p>
+<p>Every other power of two, but starting a little ways in? Hmm.</p>
+<p>In the formula for this series, there’s something that looks like a constant raised to a variable (<span class="math inline">\(2^\text{stuff}\)</span>). So maybe this is also a disfigured geometric series! Maybe we can algebra-bash it to get it to look <em>something</em> like <span class="math inline">\(1/2^n\)</span>, maybe with some other junk. Let’s see:</p>
+<p><span class="math display">\[\begin{align*}
+\frac{1}{2^{2n+3}} &amp;= \frac{1}{2^{2n}\cdot 2^3} \\ \\
+&amp;= \frac{1}{2^3 \cdot 2^{2n}} \\ \\
+&amp;= \frac{1}{8\cdot 2^{2n}} \\ \\
+&amp;= \frac{1}{8\cdot \left(2^{2}\right)^n} \\ \\
+&amp;= \frac{1}{8\cdot 4^n} \\ \\
+&amp;= \frac{1}{8}\cdot\frac{1}{4^n} \\ \\
+\end{align*}\]</span></p>
+<p>OK, this looks more tractable!!!</p>
+<p>So we have:</p>
+<p><span class="math display">\[\begin{align*}
+\sum_{n=1}^{n=\infty} \frac{1}{2^{2n+3}} &amp;= \sum_{n=1}^{n=\infty} \frac{1}{8}\cdot\frac{1}{4^n} \\ \\
+&amp;= \frac{1}{8}\cdot \sum_{n=1}^{n=\infty} \frac{1}{4^n} \\ \\
+&amp;= \frac{1}{8}\cdot \frac{1}{1-\frac14} \\ \\
+&amp;= \frac{1}{8}\cdot \frac{1}{\,\,\frac34 \,\,} \\ \\
+&amp;= \frac{1}{8}\cdot \frac{4}{3} \\ \\
+&amp;= \frac{4}{24} \\ \\
+&amp;= \frac{1}{6}
+\end{align*}\]</span></p>
+<p>Yay! So this series converges, and converges to <span class="math inline">\(1/6\)</span>:</p>
+<p><span class="math display">\[ \sum_{n=0}^{n=\infty} \frac{1}{2^{2n+3}} = \frac16 \]</span></p>
+<h2 id="questions">Questions</h2>
+<ul>
+<li>What are some of the general facts/properties/algebraic rules about infinite/iterated sums that we’ve figured out?</li>
+<li>What are some of the general arguments we’ve used to figure out whether infinite sums converge or diverge (and, if they converge, what they converge to)?</li>
+</ul>
+</main>
+</body>
+</html>

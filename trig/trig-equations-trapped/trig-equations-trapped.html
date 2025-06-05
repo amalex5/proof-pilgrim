@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Trapped Inside Trig Equations (Aspirationally)</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="/main.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <script src="../highlight-toc.js" type="text/javascript"></script>
+</head>
+<body>
+<script>document.addEventListener('DOMContentLoaded', function(e) {
+  Scroller.init();
+})</script>
+<aside>
+<div class="tocLinks" >
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#anonymous-tips">Anonymous Tips</a></li>
+<li><a href="#suspicions">Suspicions</a></li>
+<li><a href="#dragnet">Dragnet</a></li>
+</ul>
+</nav>
+</div>
+</aside>
+<main>
+<header id="title-block-header">
+<h1 class="title">Trapped Inside Trig Equations (Aspirationally)</h1>
+</header>
+<p>One of the themes, as we solve trig equations, is that it’s not enough to just find one solution that works. We need <em>all</em> the solutions. It’s not enough to tell the truth—we need to tell <em>the whole truth</em>.</p>
+<p>Think of the typical oath one recites when being sworn in to give testimony:</p>
+<blockquote>
+<p>Do you solemnly swear that you will tell the truth, the whole truth, and nothing but the truth?</p>
+</blockquote>
+<p>What does this mean? You swear to tell <em>the truth</em>, which gets broken down into:</p>
+<ul>
+<li><em>… the whole truth…</em> (don’t leave out stuff that’s true!)</li>
+<li><em>… nothing but the truth…</em> (don’t say something that’s false!)</li>
+</ul>
+<p>When it comes to equations with trig functions, we usually have many many many many solutions! Finding one solution is good—but finding <em>all</em> the solutions is better, and is what we really want.</p>
+<p>We’ve seen how this plays out when we deal with certain types of equations inviolving trig functions. Here’s one type that we haven’t yet thought about: trig functions that have stuff <em>trapped inside them</em>.</p>
+<div style="height:5em">
+
+</div>
+<p>More concretely, suppose we have a ho-hum trig equation, and we want to solve it for <span class="math inline">\(\theta\)</span>: <span class="math display">\[\sin(3\theta) = \frac{\sqrt3}{2}\]</span> It’s kind of like the equation: <span class="math display">\[\sin (\theta)= \frac{\sqrt3}{2}\]</span> Except now there’s a <span class="math inline">\(3\)</span> as well, trapped inside the trig function! Maybe we’re smart, and we think, well, if we had just <span class="math inline">\(\sin(x)= \frac{\sqrt3}{2}\)</span>, then the answer would be <span class="math inline">\(\pi/3\)</span>: <span class="math display">\[\sin x= \frac{\sqrt3}{2} \quad\implies\quad x = \frac{\pi}{3}\]</span> Or, ack, I’m going to do this in degrees. I think I’m going to stick with degrees for the rest of these notes—you can make fun of me for doing so (and please do!), but for reasons that will become apparent, I think this story is going to me more lucid if we tell it in degrees rather than radians. Anyway, we have:</p>
+<p><span class="math display">\[\sin x= \frac{\sqrt3}{2} \quad\implies\quad x = 60^\circ\]</span> We can figure that out just by thinking about a basic <span class="math inline">\(30^\circ-60^\circ-90^\circ\)</span> right triangle:</p>
+<p><img src="30-60-90.svg" style="width:50.0%" /></p>
+<p>So then if we want to find the sine of THREE times <span class="math inline">\(x\)</span> (or theta or whatever), then we can just divide <span class="math inline">\(x\)</span> by three! So then, for <span class="math inline">\(\sin(3\theta) = \frac{\sqrt3}{2}\)</span>, we can just divide <span class="math inline">\(60^\circ\)</span> by <span class="math inline">\(3\)</span>, and that’s our answer: <span class="math display">\[\theta = 20^\circ\]</span> Indeed, that’s ONE of the answers!!! But it’s not all of them. <span class="math display">\[\boxed{ \sin(3\theta) = \frac{\sqrt3}{2} \quad\implies\quad  \theta = \begin{cases} \displaystyle 20^\circ \\ \\ \text{... and more!} \end{cases} }\]</span> So maybe we can be smarter, and think, well, trig functions repeat every <span class="math inline">\(360^\circ\)</span>, so we can add any multiple of <span class="math inline">\(360^\circ\)</span>. That’ll give us <em>more</em> of the solutions (an infinite number more), but still not all! <span class="math display">\[\boxed{ \sin(3\theta) = \frac{\sqrt3}{2} \quad\implies\quad  \theta = \begin{cases} 20^\circ + 360k^\circ \quad\text{for }k\in\mathbb{Z} \\ \\ \text{... and more!} \end{cases} }\]</span> Then you might be EVEN SMARTER. You might think, well, there are probably two solutions in a full circle—that’s often how trig works—often, but not always—so we can just divide each of THOSE by three, and add <span class="math inline">\(360^\circ\)</span>, and that’ll get us all the solutions!</p>
+<p>So let’s see if we can find two sets of solutions here within a single circle? Let’s sketch it visually. Let’s back up, too. Let’s imagine we have some angle “<span class="math inline">\(3\theta\)</span>”, which has a sine of <span class="math inline">\(\frac{\sqrt3}{2}\)</span>. That corresponds, visually, to a diagram on the unit circle like this:</p>
+<p><img src="initial-circle-calculations-1.svg" style="width:75.0%" /></p>
+<p>And that angle <span class="math inline">\(3\theta\)</span> is really just <span class="math inline">\(60^\circ\)</span>. So if we divide it by <span class="math inline">\(3\)</span>, we get just <span class="math inline">\(\theta\)</span>, or <span class="math inline">\(20^\circ\)</span>:</p>
+<p><img src="initial-circle-calculations-2.svg" style="width:75.0%" /></p>
+<p>Of course, if we have some angle <span class="math inline">\(3\theta\)</span> that has a sine of <span class="math inline">\(\sqrt{3}/2\)</span>, then <span class="math inline">\(60^\circ\)</span> isn’t the only possibility for <span class="math inline">\(3\theta\)</span>! There are <em>two</em> points on the unit circle with a <span class="math inline">\(y\)</span>-coordinate of <span class="math inline">\(\frac{\sqrt3}{2}\)</span>. There’s a point on the left side, too, which corresponds to an angle of <span class="math inline">\(120^\circ\)</span>:</p>
+<p><img src="initial-circle-calculations-3.svg" style="width:75.0%" /></p>
+<p>So if we divide that <span class="math inline">\(3\theta\)</span> by <span class="math inline">\(3\)</span>, we get that <span class="math inline">\(\theta=40^\circ\)</span>! And that’s a new angle!!!</p>
+<p><img src="initial-circle-calculations-4.svg" style="width:75.0%" /></p>
+<p>So, in summary: there are two solutions for <span class="math inline">\(\sin x = \frac{\sqrt3}{2}\)</span>: <span class="math inline">\(60^\circ\)</span> and <span class="math inline">\(120^\circ\)</span> (plus their multiples of <span class="math inline">\(360^\circ\)</span>). We can divide each of THOSE by three, and our two families of solutions for <span class="math inline">\(\sin(3x) = \frac{\sqrt3}{2}\)</span> are <span class="math inline">\(20^\circ\)</span> and <span class="math inline">\(40^\circ\)</span>, plus any multiples of <span class="math inline">\(360^\circ\)</span>. Which is great! And which indeed are all solutions! BUT THEY’RE STILL NOT ALL!!! <span class="math display">\[\boxed{ \sin(3\theta) = \frac{\sqrt3}{2} \quad\implies\quad  \theta = \begin{cases} 20^\circ + 360k^\circ, \\ \\ 
+40^\circ + 360k^\circ,  \\ \\
+\text{... and more!} \end{cases} }\]</span></p>
+<h2 id="anonymous-tips">Anonymous Tips</h2>
+<p>What’s really going on here is that we’re career prosecutors in the Department of Justice, and we’re trying to take down a vast criminal conspiracy, involving cartels and multinational corporations and corrupt petrostates. There’s not just one bad guy. There are a <em>lot</em> of bad guys. It’s not enough for us to throw the book at <em>one</em> gang member. We can indict and convinct and lock away one conspirator, and the criminal network will still keep operating as normal. We want to convict <em>all</em> the gang members. We want to take down the <em>entire</em> conspiracy. (We want to take full advantage of <a href="https://en.wikipedia.org/wiki/Racketeer_Influenced_and_Corrupt_Organizations_Act">RICO</a>.)</p>
+<p>Hmm. But how to nail down the remaining suspects?</p>
+<p>Sometimes, when you work in law enforcement, you get anonymous tips. What if we get an anonymous tip-off that <span class="math inline">\(\theta= 250^\circ\)</span> and <span class="math inline">\(\theta = 260^\circ\)</span> are solutions?</p>
+<p>If we get those anonymous tips, it’s easy for us to investigate. We can easily see whether those angles are guilty, or whether they’re innocent. We can just plug them into the formula to find out!</p>
+<p>If we try to investigate whether <span class="math inline">\(\theta= 250^\circ\)</span> is a solution, we can plug it into <span class="math inline">\(\sin(3\theta)\)</span> and see whether it works out to be <span class="math inline">\(\frac{\sqrt3}{2}\)</span>: <span class="math display">\[\begin{align*}
+\sin\left(3\cdot 250^\circ\right) &amp;= \sin\left(750^\circ\right) \\
+&amp;= \sin\left(2\cdot 360^\circ + 30^\circ\right) \\
+&amp;= \sin\left(30^\circ \right) \\
+&amp;= \frac{1}{2} \\
+&amp;\neq \frac{\sqrt3}{2} \\
+&amp;{\huge \times}
+\end{align*}
+\]</span> So <span class="math inline">\(250^\circ\)</span> is innocent!!!! Note that in American criminal law, we never declare suspects innocent—we declare them <em>not guilty</em>. The goal of a court is to prove whether someone is guilty (or fail to prove that), not to prove that someone is innocent. Math, here, has different epistimological standards. We actually <em>can</em> prove that angles are innocent! <span class="math inline">\(250^\circ\)</span> is, very definitively, <em>not</em> a solution to this equation. We plug it into <span class="math inline">\(\sin(3\theta)\)</span>, and what we get out is something that’s not <span class="math inline">\(\frac{\sqrt3}{2}\)</span>.</p>
+<p>Cross that one off the list!</p>
+<p>What about the other suspect? Is <span class="math inline">\(\theta = 260^\circ\)</span> one of the solutions??? Again, we can plug it into the equation to check: <span class="math display">\[\begin{align*}
+\sin\left(3\cdot 260^\circ\right) &amp;= \sin\left(780^\circ\right) \\
+&amp;= \sin\left(60^\circ + 2\cdot 360^\circ\right) \\
+&amp;= \sin\left(60^\circ \right) \\
+&amp;= \frac{\sqrt3}{2} \\
+&amp;{\huge \checkmark}
+\end{align*}
+\]</span> It is!!! <span class="math inline">\(260^\circ\)</span> is indeed another solution here!!! (Presumably its multiples of <span class="math inline">\(360k^\circ\)</span> are, too.) We plug it into <span class="math inline">\(\sin(3\theta)\)</span> and we get out <span class="math inline">\(\frac{\sqrt3}{2}\)</span>.</p>
+<p>So we have:</p>
+<p><span class="math display">\[\boxed{ \sin(3\theta) = \frac{\sqrt3}{2} \quad\implies\quad  \theta = \begin{cases} 20^\circ + 360k^\circ, \\ \\ 
+40^\circ + 360k^\circ,  \\ \\
+260^\circ + 360k^\circ,  \\ \\
+\text{... and more???} \end{cases} }\]</span></p>
+<p>But… why is <span class="math inline">\(260^\circ\)</span> a solution??? Like, if we’re handed that angle, we can check it to see if it works, but that’s doesn’t tell us that there aren’t yet <em>more</em> angles out there that would work. Nor is it a <em>procedure</em> that we can rely on to reliably give us all of the angles that work. We can’t rely on getting lucky and getting anonymous tips.</p>
+<p>Do we just check every possible angle, one by one?!? That sounds nuts! There are <span class="math inline">\(360\)</span> of them! Actually, no, there are even <em>more</em>, because angles can be fractions! There are an <em>infinite</em> number of angles we need to check!!!</p>
+<p>Hmmm.</p>
+<h2 id="suspicions">Suspicions</h2>
+<p>Lila Pastor and Grace Bishara are crack investigators. These gumptious gumshoes had an idea:</p>
+<ul>
+<li>in general, if we reflect an angle horizontally across the <span class="math inline">\(y\)</span>-axis, it’s <span class="math inline">\(y\)</span>-coordinate doesn’t change</li>
+<li>so if we reflect an angle horizontally across the <span class="math inline">\(y\)</span>-axis, it’s sine doesn’t change</li>
+<li>what if we take the guilty angles we already have and reflect them across the <span class="math inline">\(y\)</span>-axis? Maybe the new angles we get will <em>also</em> have the same sine, and thus <em>also</em> be guilty.</li>
+</ul>
+<p>The guilty angles we already have are <span class="math inline">\(20^\circ\)</span> and <span class="math inline">\(40^\circ\)</span>:</p>
+<p><img src="horizontal-reflection-idea-1.svg" style="width:75.0%" /></p>
+<p>If we reflect <span class="math inline">\(20^\circ\)</span> and <span class="math inline">\(40^\circ\)</span> horizontally across the <span class="math inline">\(y\)</span>-axis, then we get the angles <span class="math inline">\(160^\circ\)</span> and <span class="math inline">\(140^\circ\)</span>:</p>
+<p><img src="horizontal-reflection-idea-2.svg" style="width:75.0%" /></p>
+<p>Do those work as solutions??? We can check! If we see whether <span class="math inline">\(160^\circ\)</span> works, we’ll have: <span class="math display">\[\begin{align*}
+\sin\left(3\cdot 160^\circ\right) &amp;= \sin\left(480^\circ\right) \\
+&amp;= \sin\left(120^\circ + 360^\circ\right) \\
+&amp;= \sin\left(120^\circ \right) \\
+&amp;= \frac{\sqrt3}{2} \\
+&amp;{\huge \checkmark}
+\end{align*}
+\]</span> Yay! So indeed, <span class="math inline">\(160^\circ\)</span> works here as a solution!!!! What about <span class="math inline">\(140^\circ\)</span>? <span class="math display">\[\begin{align*}
+\sin\left(3\cdot 140^\circ\right) &amp;= \sin\left(420^\circ\right) \\
+&amp;= \sin\left(60^\circ + 360^\circ\right) \\
+&amp;= \sin\left(60^\circ \right) \\
+&amp;= \frac{\sqrt3}{2} \\
+&amp;{\huge \checkmark}
+\end{align*}
+\]</span> So <span class="math inline">\(140^\circ\)</span> is also a solution here!!! Let’s list all of the angles that we’re going to send to the grand jury: <span class="math display">\[\boxed{ \sin(3\theta) = \frac{\sqrt3}{2} \quad\implies\quad  \theta = \begin{cases} 20^\circ + 360k^\circ, \\ \\ 
+40^\circ + 360k^\circ,  \\ \\
+140^\circ + 360k^\circ,  \\ \\
+160^\circ + 360k^\circ,  \\ \\
+260^\circ + 360k^\circ,  \\ \\
+\text{... are there more???} \end{cases} }\]</span> OK. So that’s five angles (plus their multiples-of-more-circles) that are solutions to this equation. Excellent detective work.</p>
+<h2 id="dragnet">Dragnet</h2>
+<p>Look, if we want to actually take down all the gang members, we can’t be doing it haphazardly. We have to do it systematically. We need to do it algorithmically, procedurally—we need to have some <em>method</em> with which to find <em>every</em> answer. We need to set up a <strong><a href="https://en.wikipedia.org/wiki/Dragnet_(policing)">dragnet</a></strong>.</p>
+<p>But how?</p>
+<p>Let’s try to solve this algebraically. We haven’t really tried that as a strategy. We’ve just looked at <span class="math inline">\(\sin(3\theta) = \sqrt3 /2\)</span>, and intuited from there. So let’s take a more algebraic approach to isolating <span class="math inline">\(\theta\)</span>. If we try to solve this equation algebraically/symbolically, we’ll start with: <span class="math display">\[\sin(3\theta) = \frac{\sqrt3}{2}\]</span> Then we can take the inverse sine of both sides: <span class="math display">\[\sin^\text{inv}\Big(\, \sin(3\theta) \,\Big) = \sin^\text{inv}\left(\, \frac{\sqrt3}{2} \,\right)\]</span> <span class="math display">\[\cancel{\sin^\text{inv}}\Big(\, \cancel{\sin}(3\theta) \,\Big) = \sin^\text{inv}\left(\, \frac{\sqrt3}{2} \,\right)\]</span> <span class="math display">\[3\theta = \sin^\text{inv}\left(\, \frac{\sqrt3}{2} \,\right)\]</span></p>
+<p>We know how to find <span class="math inline">\(\sin^\text{inv}\left(\, \frac{\sqrt3}{2} \,\right)\)</span>. That’s just <span class="math inline">\(60^\circ\)</span> and <span class="math inline">\(120^\circ\)</span>, plus their multiples of <span class="math inline">\(360^\circ\)</span>: <span class="math display">\[3\theta = \Big\{\, 60^\circ + 360k^\circ \quad\text{and}\quad 120^\circ + 360k^\circ \,\Big\}\]</span> But… we’re solving for <span class="math inline">\(\theta\)</span> here, not <span class="math inline">\(3\theta\)</span>, so to solve for just <span class="math inline">\(\theta\)</span>, we divide by three: <span class="math display">\[\theta = \frac{\,\, \Big\{\, 60^\circ + 360k^\circ \quad\text{and}\quad 120^\circ + 360k^\circ \,\Big\} \,\,}{ 3}\]</span> That’s basically what we’ve already figured out, using our knowledge of trig-as-triangles, and some basic trig-as-circles thinking. Of course, we want to solve for <span class="math inline">\(3\theta\)</span>, not just <span class="math inline">\(\theta\)</span>. So there’s some dividing-by-three that needs to happen. <strong>Here’s the key insight</strong>: we have to divide <em>everything</em> by three. Not just the original angle—we have to divide the <span class="math inline">\(+360k^\circ\)</span> by three, too!!! <span class="math display">\[\theta = \left\{\, \frac{  60^\circ + 360k^\circ  }{3} \quad\text{and}\quad \frac{  120^\circ + 360k^\circ  }{3} \,\right\}\]</span> <span class="math display">\[\theta = \left\{\, \frac{  60^\circ}{3} + \frac{360k^\circ  }{3} \quad\text{and}\quad \frac{  120^\circ}{3} + \frac{360k^\circ  }{3} \,\right\}\]</span> Giving us: <span class="math display">\[\theta = \left\{\,  20^\circ + 120k^\circ \quad\text{and}\quad  40^\circ + 120k^\circ   \,\right\}\]</span> THE <span class="math inline">\(360^\circ\)</span> ALSO GETS DIVIDED BY THREE!!! So apparently, the solutions we get are: <span class="math display">\[\boxed{ \sin(3\theta) = \frac{\sqrt3}{2} \quad\implies\quad  \theta = \begin{cases} \displaystyle 20^\circ + 120k^\circ, \\ \\ 
+\displaystyle 40^\circ + 120k^\circ
+ \end{cases} }\]</span> This gives us a whole bunch of possibilities, depending on what <span class="math inline">\(k\)</span> is! Let’s list-slash-draw them all out, to get some intuition? We’ll need to loop through various integer values of <span class="math inline">\(k\)</span> to find them all (or rather, to find all the ones in a single circle).</p>
+<ul>
+<li>
+<p>When <span class="math inline">\(k=0\)</span>, what’s <span class="math inline">\(20^\circ + 120k^\circ\)</span>? <span class="math display">\[k=0 \quad\implies\quad 20 + 120\!\cdot\!0 = 20^\circ\]</span> So <span class="math inline">\(\theta = 20^\circ\)</span> is a solution:</p>
+<img src="all-solution-points-1.svg" style="width:50.0%" />
+</li>
+<li>
+<p>When <span class="math inline">\(k=1\)</span>, what’s <span class="math inline">\(20^\circ + 120k^\circ\)</span>? <span class="math display">\[k=1 \quad\implies\quad 20 + 120\!\cdot\!1 = 140^\circ\]</span> So <span class="math inline">\(\theta = 140^\circ\)</span> is a solution:</p>
+<img src="all-solution-points-2.svg" style="width:50.0%" />
+</li>
+<li>
+<p>When <span class="math inline">\(k=2\)</span>, what’s <span class="math inline">\(20^\circ + 120k^\circ\)</span>? <span class="math display">\[k=2 \quad\implies\quad 20 + 120\!\cdot\!2 = 260^\circ\]</span> So <span class="math inline">\(\theta = 260^\circ\)</span> is a solution:</p>
+<img src="all-solution-points-3.svg" style="width:50.0%" />
+</li>
+<li>
+When <span class="math inline">\(k=3\)</span>, what’s <span class="math inline">\(20^\circ + 120k^\circ\)</span>? <span class="math display">\[\begin{align*}k=3 \quad\implies\quad 20 + 120\!\cdot\!3 &amp;=  380^\circ\\
+&amp;= 360^\circ + 20^\circ \\
+&amp;\cong 20^\circ
+\end{align*}\]</span> So <span class="math inline">\(\theta = 20^\circ\)</span> is a solution… oh, but we already have that! So they’re going to start to repeat.
+</li>
+</ul>
+<p>If we want to list the whole infinitude of solutions we get from this family, we have something like: <span class="math display">\[\color{red} 20^\circ + 120k^\circ  = \begin{cases}\quad
+\begin{align*}
+&amp;\hfill \quad\vdots \hfill\hfill &amp;&amp; \quad\vdots &amp;&amp;\quad \vdots  \\
+&amp; 20 + 120\!\cdot\!(-3), &amp;&amp; -340^\circ &amp;&amp; 20^\circ,\\
+&amp; 20 + 120\!\cdot\!(-2), &amp;&amp; -220^\circ &amp;&amp; 140^\circ,\\
+&amp; 20 + 120\!\cdot\!(-1), &amp;&amp; -100^\circ &amp;&amp; 260^\circ,\\
+&amp; 20 + 120\!\cdot\!0, &amp;= \quad\ &amp; +20^\circ &amp; \cong \quad &amp; 20^\circ, \\
+&amp; 20 + 120\!\cdot\!1, &amp;&amp; +140^\circ &amp;&amp; 140^\circ, \\
+&amp;  20 + 120\!\cdot\!2, &amp;&amp; +260^\circ &amp;&amp; 260^\circ,\\
+&amp; 20 + 120\!\cdot\!3, &amp;&amp; +380^\circ &amp;&amp; 20^\circ,\\
+&amp; 20 + 120\!\cdot\!4, &amp;&amp; +500^\circ &amp;&amp; 140^\circ,\\
+&amp; \hfill \quad \vdots \hfill\hfill &amp;&amp; \hfill \quad\vdots \hfill\hfill &amp;&amp; \quad\vdots
+\end{align*}
+\end{cases}
+\]</span></p>
+<p>What about the solutions we get from this other branch of the family tree??</p>
+<ul>
+<li>
+<p>When <span class="math inline">\(k=0\)</span>, what’s <span class="math inline">\(40^\circ + 120k^\circ\)</span>? <span class="math display">\[k=0 \quad\implies\quad 40 + 120\!\cdot\!0 = 40^\circ\]</span> So <span class="math inline">\(\theta = 20^\circ\)</span> is a solution:</p>
+<img src="all-solution-points-4.svg" style="width:50.0%" />
+</li>
+<li>
+<p>When <span class="math inline">\(k=1\)</span>, what’s <span class="math inline">\(40^\circ + 120k^\circ\)</span>? <span class="math display">\[k=1 \quad\implies\quad 40 + 120\!\cdot\!1 = 160^\circ\]</span> So <span class="math inline">\(\theta = 160^\circ\)</span> is a solution:</p>
+<img src="all-solution-points-5.svg" style="width:50.0%" />
+</li>
+<li>
+<p>When <span class="math inline">\(k=2\)</span>, what’s <span class="math inline">\(40^\circ + 120k^\circ\)</span>? <span class="math display">\[k=2 \quad\implies\quad 40 + 120\!\cdot\!2 = 280^\circ\]</span> So <span class="math inline">\(\theta = 280^\circ\)</span> is a solution:</p>
+<img src="all-solution-points-6.svg" style="width:50.0%" />
+</li>
+<li>
+When <span class="math inline">\(k=3\)</span>, what’s <span class="math inline">\(40^\circ + 120k^\circ\)</span>? <span class="math display">\[\begin{align*}
+k=3 \quad\implies\quad 40 + 120\!\cdot\!3 &amp;= 400^\circ \\
+&amp;= 360^\circ + 40^\circ \\
+&amp;\cong 40^\circ
+\end{align*}\]</span> So <span class="math inline">\(\theta = 40^\circ\)</span> is a solution, but again, we already have that, so they’re starting to repeat!
+</li>
+</ul>
+<p>So the set of solutions we get from this angle and its multiples of <span class="math inline">\(120^\circ\)</span> is: <span class="math display">\[\color{blue} 40^\circ + 120k^\circ  = \begin{cases}\quad
+\begin{align*}
+&amp;\hfill \quad\vdots \hfill\hfill &amp;&amp; \quad\vdots &amp;&amp;\quad \vdots  \\
+&amp; 40 + 120\!\cdot\!(-3), &amp;&amp; -320^\circ &amp;&amp; 40^\circ,\\
+&amp; 40 + 120\!\cdot\!(-2), &amp;&amp; -200^\circ &amp;&amp; 160^\circ,\\
+&amp; 40 + 120\!\cdot\!(-1), &amp;&amp; -80^\circ &amp;&amp; 280^\circ,\\
+&amp; 40 + 120\!\cdot\!0, &amp;= \quad\ &amp; +40^\circ &amp; \cong \quad &amp; 40^\circ, \\
+&amp; 40 + 120\!\cdot\!1, &amp;&amp; +160^\circ &amp;&amp; 160^\circ, \\
+&amp; 40 + 120\!\cdot\!2, &amp;&amp; +280^\circ &amp;&amp; 280^\circ,\\
+&amp; 40 + 120\!\cdot\!3, &amp;&amp; +400^\circ &amp;&amp; 40^\circ,\\
+&amp; 40 + 120\!\cdot\!4, &amp;&amp; +520^\circ &amp;&amp; 160^\circ,\\
+&amp; \hfill \quad \vdots \hfill\hfill &amp;&amp; \hfill \quad\vdots \hfill\hfill &amp;&amp; \quad\vdots
+\end{align*}
+\end{cases}
+\]</span> So then, in total, our solutions are: <span class="math display">\[\boxed{ \sin(3\theta) = \frac{\sqrt3}{2} \quad\implies\quad  \theta = \begin{cases} \displaystyle 20^\circ + 120k^\circ \\ \\
+\quad\quad\text{and} \\ \\
+\displaystyle 40^\circ + 120k^\circ \\ \\
+\quad\quad\text{for }k\in\mathbb{Z}
+ \end{cases} \quad}\]</span> And they look like:</p>
+<p><img src="all-solution-points-7.svg" style="width:50.0%" /></p>
+<p>Those are all of our solutions!!! There are an infinite number, of course, and they’re organized into these two seperate families (the stuff that’s <span class="math inline">\(20^\circ\)</span> plus something and the stuff that’s <span class="math inline">\(40^\circ\)</span> plus something) And they repeat not every <span class="math inline">\(360^\circ\)</span>, but every <span class="math inline">\(120^\circ\)</span>. The full circle gets shrunk down to just a third of a circle.</p>
+</main>
+</body>
+</html>

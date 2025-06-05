@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Exactly Evaluating Even More Trig Functions</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="/main.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <script src="../highlight-toc.js" type="text/javascript"></script>
+</head>
+<body>
+<script>document.addEventListener('DOMContentLoaded', function(e) {
+  Scroller.init();
+})</script>
+<aside>
+<div class="tocLinks" >
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#problems">Problems</a></li>
+</ul>
+</nav>
+</div>
+</aside>
+<main>
+<header id="title-block-header">
+<h1 class="title">Exactly Evaluating Even More Trig Functions</h1>
+</header>
+<p>We know how to find trig functions of certain, special angles. Using our unit circle definition of the trig functions, as well as our knowledge of a couple special right triangles, we can find the sine/cosine/tangent of angles like <span class="math inline">\(\pi\)</span>, <span class="math inline">\(2\pi\)</span>, <span class="math inline">\(3\pi\)</span>, <span class="math inline">\(-\pi\)</span>, <span class="math inline">\(-2\pi\)</span>—all the multiples of <span class="math inline">\(\pi\)</span>—as well as all the multiples of <span class="math inline">\(\pi/2\)</span>, <span class="math inline">\(\pi/3\)</span>, etc. Really, we can find the sine/cosine/tangent of any multiple of any of these angles:</p>
+<p><span class="math display">\[\pi, \quad \frac{\pi}{2}, \quad \frac{\pi}{3}, \quad \frac{\pi}{4}, \quad \frac{\pi}{6}\]</span></p>
+<p>We can find them all without a calculator! No gross decimals! It’s great. We’ve liberated ourselves from the tyranny of technology!!!</p>
+<p>But… not completely. We still can’t find the sine/cosine/tangent of <em>any</em> angle. Not without a calculator, at least. And that should be our overriding goal! To attain complete command of trigonometry. And… well, I don’t know how we would do this in general. But let me suggest one way that maybe we could go about adding one more angle to our inventory. Here’s something I notice when I look at that list. What happens if we subtract <span class="math inline">\(\pi/3\)</span> and <span class="math inline">\(\pi/4\)</span>?</p>
+<p><span class="math display">\[\frac{\pi}{3} - \frac{\pi}{4} = \frac{4\pi - 3\pi}{12} = \frac{\pi}{12}\]</span></p>
+<p>We get a new angle, <span class="math inline">\(\pi/12\)</span>. That’s an angle that isn’t already on the list<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
+<p>So maybe… hmm. I think I have an idea. We don’t know what, like, <span class="math inline">\(\sin\left(\frac{\pi}{3} - \frac{\pi}{4}\right)\)</span> is:</p>
+<p><span class="math display">\[\sin\left(\frac{\pi}{12}\right) = \sin\left(\frac{\pi}{3} - \frac{\pi}{4}\right) = ???\]</span></p>
+<p>We don’t know any way to simplify that. It’s certainly not just <span class="math inline">\(\sin\left(\frac{\pi}{3}\right) - \sin\left(\frac{\pi}{4}\right)\)</span>:</p>
+<p><span class="math display">\[\underbrace{\sin\left(\frac{\pi}{3} - \frac{\pi}{4}\right) \neq    \sin\left(\frac{\pi}{3}\right) - \sin\left(\frac{\pi}{4}\right)}_{\text{noooooooo}}\]</span></p>
+<p>We can’t break trig functions up like that. <em>But what if we could?!?</em> Meaning, what if we could come up with some sort of formula for, like, the sine and cosine of <span class="math inline">\((\text{something} - \text{something else})\)</span>… maybe then we could be able to work out <span class="math inline">\(\sin(\pi/3 - \pi/4)\)</span>, and by extension, <span class="math inline">\(\sin(\pi/12)\)</span>. I guess what I mean, more formally, is: can we come up for a formula for <span class="math inline">\(\sin(\alpha - \beta)\)</span> (and <span class="math inline">\(\cos(\alpha - \beta)\)</span>) only using <span class="math inline">\(\sin(\alpha)\)</span>, <span class="math inline">\(\sin(\beta)\)</span>, <span class="math inline">\(\cos(\alpha)\)</span>, <span class="math inline">\(\cos(\beta)\)</span>, and other simple stuff we know?</p>
+<p><span class="math display">\[\begin{align*}
+\sin(\alpha + \beta) &amp;=  \quad ??? \\
+\sin(\alpha - \beta) &amp;=  \quad ???  \\
+\cos(\alpha + \beta) &amp;= \quad ???  \\
+\cos(\alpha - \beta) &amp;= \quad ???
+\end{align*}\]</span></p>
+<p>If we could do that, we could figure out the sine and cosine of <span class="math inline">\(\pi/12\)</span>. And that would be one little step towards our ultimate goal of being able to find the sine and cosine of any angle!!!</p>
+<p>Let’s do it. Let’s try to find a formula for <span class="math inline">\(\cos(\alpha - \beta)\)</span>. The basic idea of this derivation<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> is that we’ll draw the angle <span class="math inline">\(\alpha - \beta\)</span> in two different ways. Then we’ll use the Pythagorean theorem/distance formula to translate these two geometric pictures into algebraic sentences (i.e., equations). Then, because our two pictures are pictures of the same angle, we’ll be able to set these two equations equal to each other, do some algebra, and ultimately solve for <span class="math inline">\(\cos(\alpha - \beta)\)</span>.</p>
+<p>Here’s how we’ll start. Imagine we have Cartesian axes<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>, and we draw the angle <span class="math inline">\(\beta\)</span> on them:</p>
+<p><img src="exactly-evaluating-even-more-trig-functions-1.svg" style="width:50.0%" /></p>
+<p>And then, on the same axes, also starting from the right side of the <span class="math inline">\(x\)</span>-axis, we draw the angle <span class="math inline">\(\alpha\)</span>:</p>
+<p><img src="exactly-evaluating-even-more-trig-functions-2.svg" style="width:50.0%" /></p>
+<p>Obviously, <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> could be anything; they’re not specific angles. The cool observation here is that this picture contains the angle <span class="math inline">\(\alpha - \beta\)</span>! See it? It’s just the angle in between <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span>:</p>
+<p><img src="exactly-evaluating-even-more-trig-functions-3.svg" style="width:50.0%" /></p>
+<p>Meanwhile, we can also draw the angle <span class="math inline">\(\alpha - \beta\)</span> in the “normal” way, meaning that we can draw it starting from the <span class="math inline">\(x\)</span>-axis (rather than drawing it in the middle):</p>
+<p><img src="exactly-evaluating-even-more-trig-functions-4.svg" style="width:50.0%" /></p>
+<p>So then we have two different ways of drawing the same angle!</p>
+<table style="border-collapse: separate; border:0px;">
+<tr>
+<td>
+<img src="exactly-evaluating-even-more-trig-functions-3.svg" style="width:100%;" />
+</td>
+<td>
+<img src="exactly-evaluating-even-more-trig-functions-4.svg" style="width:100%;" />
+</td>
+</tr>
+</table>
+<p>Here’s the interesting thing. What if we draw the unit circle on these graphs, like so:</p>
+<table style="border-collapse: separate; border:0px;">
+<tr>
+<td>
+<img src="exactly-evaluating-even-more-trig-functions-5.svg" style="width:100%;" />
+</td>
+<td>
+<img src="exactly-evaluating-even-more-trig-functions-6.svg" style="width:100%;" />
+</td>
+</tr>
+</table>
+<p>Then we can notice that the following line (opposite the angle <span class="math inline">\(\alpha - \beta\)</span>)(the dotted one) is the same line in both drawings:</p>
+<table style="border-collapse: separate; border:0px;">
+<tr>
+<td>
+<img src="exactly-evaluating-even-more-trig-functions-7.svg" style="width:100%;" />
+</td>
+<td>
+<img src="exactly-evaluating-even-more-trig-functions-8.svg" style="width:100%;" />
+</td>
+</tr>
+</table>
+<p>The line is in a slightly different position, yes—but it must be the same length. The only difference in the two pictures is that we’ve rotated the angle <span class="math inline">\(\alpha - \beta\)</span>. The dotted line is just the other side of this triangle formed by these two radii of length <span class="math inline">\(1\)</span> and the angle <span class="math inline">\(\alpha - \beta\)</span> (side-angle-side, anyone?). So whatever the length of the line is, it must be the same for both drawings.</p>
+<p>If only we had a way to measure the length! But we do. Because this is a unit-circle setup, we know the coordinates of the two ends of the line:</p>
+<table style="border-collapse: separate; border:0px;">
+<tr>
+<td>
+<img src="exactly-evaluating-even-more-trig-functions-9.svg" style="width:100%;" />
+</td>
+<td>
+<img src="exactly-evaluating-even-more-trig-functions-10.svg" style="width:100%;" />
+</td>
+</tr>
+</table>
+<p>So we can use the distance formula to find the lengths of the line! The equations will look different, but we know that the triangles are the same, so they’ll have to work out to be the same thing (and then we’ll be able to set the two different equations for the length of the dotted line equal to each other, etc., and eventually solve for just <span class="math inline">\(\cos(\alpha - \beta)\)</span>).</p>
+<p>The distance formula, keep in mind, is just a modified version of the Pythagorean theorem:</p>
+<p><span class="math display">\[\substack{\text{the distance/length between}\\\text{$\left(x_1,y_1\right)$ and $\left(x_2,y_2\right)$}} = \sqrt{ \left(x_2 - x_1\right)^2 + \left(y_2 - y_1\right)^2\,\,}\]</span></p>
+<p>So let’s apply this to the diagram on the left. If we use the distance formula to find the length of the dotted line, we get:</p>
+<p><span class="math display">\[\text{length} = \sqrt{(\cos \alpha - \cos \beta)^2 + (\sin\beta - \sin\alpha)^2 \,\,} \]</span></p>
+<p>Then if we multiply out the first square, this becomes:</p>
+<p><span class="math display">\[= \sqrt{\cos^2\alpha - 2\cos\alpha\cos\beta + \cos^2\beta + (\sin\beta - \sin\alpha)^2 \,\,}\]</span></p>
+<p>And if we multiply out the next square, we get:</p>
+<p><span class="math display">\[\begin{align*}
+&amp;= \sqrt{\cos^2\alpha - 2\cos\alpha\cos\beta + \cos^2\beta + \sin^2\beta  - 2\sin\alpha\sin\beta + \sin^2\alpha \,\,}
+\end{align*}\]</span></p>
+<p>Messy, messy, messy. And long. But we can make it shorter! Remember that thing we proved the other day? The Pythagorean Identity? (The thing I love about this proof, by the way, is how long and intricate it is and how it pulls together so many different concepts.) Remember the Pythagorean identity? The one about <span class="math inline">\(\sin^2\theta + \cos^2\theta = 1\)</span>? We can use that here! Let’s rearrange this equation slightly:</p>
+<p><span class="math display">\[\begin{align*}
+ &amp;= \sqrt{\underbrace{\left(\cos^2\alpha + \sin^2\alpha\right)}_{=1} - 2\cos\alpha\cos\beta + \underbrace{\left(\cos^2\beta + \sin^2\beta\right)}_{=1}  - 2\sin\alpha\sin\beta \,\,} \\
+\end{align*}\]</span></p>
+<p>See? Parentheses? We have <span class="math inline">\(\cos^2\alpha + \sin^2\alpha\)</span>, which must be equal to just <span class="math inline">\(1\)</span>, and we also have <span class="math inline">\(\cos^2\beta + \sin^2\beta\)</span>, which must also be equal to <span class="math inline">\(1\)</span>. So we have:</p>
+<p><span class="math display">\[= \sqrt{1 - 2\cos\alpha\cos\beta + 1  - 2\sin\alpha\sin\beta \,\,}\]</span></p>
+<p>Or if we combine the <span class="math inline">\(1\)</span>’s:</p>
+<p><span class="math display">\[= \sqrt{2 - 2\cos\alpha\cos\beta  - 2\sin\alpha\sin\beta}\]</span></p>
+<p>So this is <em>one</em> way of writing the length of that dotted line. Phew.</p>
+<p><em>Alternatively</em>, we could find the length using the picture on the <em>right</em>. If we do that, and if we apply the distance formula, we get:</p>
+<p><span class="math display">\[\begin{align*}
+\text{length (other way)}&amp;= \sqrt{(\cos(\alpha - \beta) - 1)^2 + (\sin(\alpha - \beta) - 0)^2} \\
+\end{align*}\]</span></p>
+<p>You may want to glance back at the picture to convince yourself that this is true. Then, if we multiply out those squares, we get:</p>
+<p><span class="math display">\[\begin{align*}
+&amp;= \sqrt{\cos^2(\alpha - \beta) -2\cos(\alpha - \beta) + 1  + \sin^2(\alpha - \beta)}
+\end{align*}\]</span></p>
+<p>Kinda messy. But AGAIN, we can apply the Pythagorean Identity!!! We have <span class="math inline">\(\cos^2(\alpha - \beta)\)</span> and also <span class="math inline">\(\sin^2(\alpha - \beta)\)</span>, so when added together these must be <span class="math inline">\(1\)</span>. So we must have:</p>
+<p><span class="math display">\[\begin{align*}
+&amp;= \sqrt{-2\cos(\alpha - \beta) + 1 + 1} \\ \\
+&amp;= \sqrt{2 -2\cos(\alpha - \beta)}
+\end{align*}\]</span></p>
+<p>So we have two different ways to write the length of the same line. Let’s summarize:</p>
+<table style="border-collapse: separate; border:0px;">
+<tr>
+<td>
+<img src="exactly-evaluating-even-more-trig-functions-9.svg" style="width:100%;" />
+</td>
+<td>
+<img src="exactly-evaluating-even-more-trig-functions-10.svg" style="width:100%;" />
+</td>
+</tr>
+<tr style="text-align:center;">
+<td>
+Length of dotted line: <span class="math inline">\(\sqrt{2 - 2\cos\alpha\cos\beta - 2\sin\alpha\sin\beta}\)</span>
+</td>
+<td>
+Length of dotted line: <span class="math inline">\(\sqrt{2 -2\cos(\alpha - \beta)}\)</span>
+</td>
+</tr>
+</table>
+<p>Obviously, these two lines are the same lines. So their lengths must be equal. So we can set these two equations equal to each other, and (hopefully!) solve for <span class="math inline">\(\cos(\alpha - \beta)\)</span>!!!</p>
+<p><span class="math display">\[\begin{align*}
+\text{length} \,\, &amp;= \,\, \text{length} \\ \\
+\sqrt{2 - 2\cos\alpha\cos\beta  - 2\sin\alpha\sin\beta } \,\,&amp;=\,\, \sqrt{2 -2\cos(\alpha - \beta)} \\ \\
+2 - 2\cos\alpha\cos\beta  - 2\sin\alpha\sin\beta  \,\,&amp;=\,\, 2 -2\cos(\alpha - \beta) \quad\quad\text{(squaring both sides)} \\  \\
+- 2\cos\alpha\cos\beta  - 2\sin\alpha\sin\beta  \,\,&amp;=\,\, -2\cos(\alpha - \beta) \quad\quad\text{(subtracting 2)}\\ \\
+\cos\alpha\cos\beta  \sin\alpha\sin\beta  \,\,&amp;=\,\, \cos(\alpha - \beta) \quad\quad\text{(dividing by $-2$)} \\ \\
+\cos(\alpha - \beta) \,\,&amp;=\,\, \cos\alpha\cos\beta  + \sin\alpha\sin\beta
+\end{align*}\]</span></p>
+<p>There we go! We’ve done it! We’ve found an equation for <span class="math inline">\(\cos(\alpha - \beta)\)</span>! This means that we can now find <span class="math inline">\(\cos(\pi/12)\)</span>!!! We can use the equation that we just derived:</p>
+<p><span class="math display">\[\begin{align*}
+\cos\left(\frac{\pi}{12}\right) &amp;= \cos\left(\frac{\pi}{3} - \frac{\pi}{4}\right) \quad\quad\text{(fractions)}  \\ \\
+&amp;= \cos\left(\frac{\pi}{3}\right)\cos\left(\frac{\pi}{4}\right) + \sin\left(\frac{\pi}{3}\right)\sin\left(\frac{\pi}{4} \right) \quad\quad\text{(by our equation!!!)} \\ \\
+&amp;= \frac{1}{2}\cdot \! \frac{1}{\sqrt{2}} \,\,\,\,+\,\,\,\, \frac{\sqrt{3}}{2}\cdot\! \frac{1}{\sqrt{2}} \quad\quad\text{(trig)} \\ \\
+&amp;= \displaystyle \frac{1+\sqrt{3}}{2\sqrt{2}} \quad\quad\text{(fractions)}
+\end{align*}\]</span></p>
+<p>We’ve found the cosine!!!! Wahooooo!</p>
+<p><span class="math display">\[\boxed{ \cos\left(\frac{\pi}{12}\right) = \frac{1+\sqrt{3}}{2\sqrt{2}}}\]</span></p>
+<p>But there are still many questions unanswered. We know the cosine of <span class="math inline">\(\pi/12\)</span>—but what’s the sine of <span class="math inline">\(\pi/12\)</span>? Or the tangent? We know <span class="math inline">\(\cos(\alpha - \beta)\)</span>—but what about <span class="math inline">\(\cos(\alpha + \beta)\)</span>? Or <span class="math inline">\(\sin(\alpha + \beta)\)</span>? Or <span class="math inline">\(\sin(\alpha - \beta)\)</span>? We could make a whole list of related formulae:</p>
+<div class="callout-box">
+<p><strong>Sum and Difference Identities:</strong></p>
+<p><span class="math display">\[\begin{align*}
+\sin(\alpha + \beta) &amp;=  \quad ??? \\
+\sin(\alpha - \beta) &amp;=  \quad ???  \\
+\cos(\alpha + \beta) &amp;= \quad ???  \\
+\cos(\alpha - \beta) &amp;= \cos\alpha\cos\beta  + \sin\alpha\sin\beta
+\end{align*}\]</span></p>
+</div>
+<p>Hmmmm….</p>
+<h2 id="problems">Problems</h2>
+<p>For problems 1-4, write up your work neatly and turn it in. Use full sentences and give a complete explanation, as if you were explaining the problem/proof to a friend who’s never seen it before and is very confused.</p>
+<ol class="problems">
+<li>
+<p>It’s pretty cool that we know now how to find <span class="math inline">\(\cos(\alpha-\beta)\)</span>. But we’d really like to know how to find all of the similar formulae:</p>
+<div class="callout-box">
+<p><strong>Sum and Difference Identities:</strong></p>
+<p><span class="math display">\[\begin{align*}
+\sin(\alpha + \beta) &amp;=  \quad ??? \\
+\sin(\alpha - \beta) &amp;=  \quad ???  \\
+\cos(\alpha + \beta) &amp;= \quad ???  \\
+\cos(\alpha - \beta) &amp;= \cos\alpha\cos\beta  + \sin\alpha\sin\beta
+\end{align*}\]</span></p>
+</div>
+<p>So, come up with formulas for the first three. The hard way to do it would be to just repeat what we did here: construct two different ways of writing each angle, calculate the distance between the legs of the angle in two different ways, and do a bunch of algebra to back out the identities. And do that three times. Ugh. You can do that if you want. An easier way, though, would be combine our knowledge of <span class="math inline">\(\cos(\alpha - \beta)\)</span> with our existing knowledge of other trig identities.</p>
+So, do that. Come up with formulas for each of the three identities above only in terms of <span class="math inline">\(\sin(\alpha)\)</span>, <span class="math inline">\(\sin(\beta)\)</span>, <span class="math inline">\(\cos(\alpha)\)</span>, and <span class="math inline">\(\cos(\beta)\)</span>. Justify and explain each step. You can probably look up what the formulas are on the internet or something, and maybe you should to verify that you don’t get them wrong. The point in this problem isn’t to come up with the answer so much as it is to <strong>explain</strong> how to come up with the answer. Make a mathematical argument! Think like a mathematician!
+</li>
+<li>
+Using those identities, find <span class="math inline">\(\sin(\pi/12)\)</span>.
+</li>
+<li>
+Using those identities, find <span class="math inline">\(\cos(\pi/12)\)</span>.
+</li>
+<li>
+Look closely at your answers to problems 2 and 3. Do you see a new special right triangle we could construct? What are its angles and side lengths?
+</li>
+</ol>
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>In number-theory terms, the reason this happens is because <span class="math inline">\(4\)</span> and <span class="math inline">\(3\)</span> are “relatively prime”—they share no common factors. And so when we try to find a common denominator, we have to multiply them together.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p>Which is just a polysyllabic word for “proof,” or, more accurately, for a certain type of proof.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3" role="doc-endnote"><p>Just a fancy name for “a graph with <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> axes,” after Rene Descartes.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+</main>
+</body>
+</html>

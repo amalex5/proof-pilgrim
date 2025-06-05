@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>(implicit) differentiation</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="/main.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <script src="../highlight-toc.js" type="text/javascript"></script>
+</head>
+<body>
+<script>document.addEventListener('DOMContentLoaded', function(e) {
+  Scroller.init();
+})</script>
+<aside>
+<div class="tocLinks" >
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#example-1">Example #1</a></li>
+<li><a href="#example-2">Example #2</a></li>
+<li><a href="#example-3">Example #3</a></li>
+<li><a href="#example-2-again">Example #2, again</a></li>
+<li><a href="#so-what">So What?</a></li>
+<li><a href="#problems">Problems</a></li>
+</ul>
+</nav>
+</div>
+</aside>
+<main>
+<header id="title-block-header">
+<h1 class="title">(implicit) differentiation</h1>
+</header>
+<h2 id="example-1">Example #1</h2>
+<p>Imagine we have the equation <span class="math inline">\(y=x^2\)</span> and we want to find <span class="math inline">\(dy/dx\)</span> (that is, the derivative of <span class="math inline">\(y\)</span> with respect to <span class="math inline">\(x\)</span>). How do we do this? Easy. We just take the derivative of both sides: <span class="math display">\[\begin{align*}
+y &amp;=x^2\\
+\frac{d}{dx}\left[ y\right] &amp;= \frac{d}{dx}\left[ x^2 \right] \\ \\
+\frac{dy}{dx} &amp;= 2x
+\end{align*}\]</span> Not very interesting.</p>
+<h2 id="example-2">Example #2</h2>
+<p>What if we have a more complicated equation, like <span class="math inline">\(y^3 + x^2 = 5\)</span>? How do we find <span class="math inline">\(dy/dx\)</span>? Presumably we do some algebra first to solve for <span class="math inline">\(y\)</span>, and then take the derivative. To solve for <span class="math inline">\(y\)</span>, we get: <span class="math display">\[\begin{align*}
+y^3 + x^2 &amp;= 5 \\ \\
+y^3 &amp;= 5-x^2 \\ \\
+y &amp;= \sqrt[3]{5-x^2}
+\end{align*}\]</span> Then, differentiating, we get: <span class="math display">\[\begin{align*}
+\frac{d}{dx}\left[ y \right] &amp;= \frac{d}{dx}\left[ \sqrt[3]{5-x^2} \right] \\ \\
+\frac{dy}{dx} &amp;= \frac{d}{dx}\left[ (5-x^2)^{1/3} \right] \\ \\
+\frac{dy}{dx} &amp;=\frac{1}{3}(5-x^2)^{-2/3}\cdot\frac{d}{dx}\left[5-x^2 \right] \\ \\
+\frac{dy}{dx} &amp;=\frac{1}{3}(5-x^2)^{-2/3}\cdot(-2x)
+\end{align*}\]</span> Again, not particularly interesting.</p>
+<h2 id="example-3">Example #3</h2>
+<p>But what if we want to find <span class="math inline">\(dy/dx\)</span> of the following equation: <span class="math display">\[y^5 + y = x^2\]</span></p>
+<p>We’ll just solve for <span class="math inline">\(y\)</span> and then take the derivative… except… we can’t solve this equation for <span class="math inline">\(y\)</span>. This is a perfectly valid equation, and it <em>does</em> represent some function or some curve in a two-dimensional plane—but we can’t isolate <span class="math inline">\(y\)</span>. We can’t get a single <span class="math inline">\(y\)</span> alone, on one side<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
+<p>Can we still take its derivative? Can we still come up with an equation for its rate of change? Yes! The idea is this: we can still take the derivative with respect to <span class="math inline">\(x\)</span> of both sides. <span class="math inline">\(y\)</span> here is <em>some function</em> of <span class="math inline">\(x\)</span>—it somehow changes as <span class="math inline">\(x\)</span> changes—it’s just that we don’t know exactly <em>how</em> it changes. We don’t know exactly what its relationship to <span class="math inline">\(x\)</span> is.</p>
+<p>So just to remind ourselves that <span class="math inline">\(y\)</span> is a function of <span class="math inline">\(x\)</span>, and not a constant, we can write the <span class="math inline">\(y\)</span>’s as “<span class="math inline">\(y(x)\)</span>” and not “<span class="math inline">\(y\)</span>”. This doesn’t change anything; it’s just a clearer way of writing it.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. It’s exactly how we usually write functions as <span class="math inline">\(f(x) = \text{blah blah}\)</span>, and not <span class="math inline">\(f = \text{blah blah}\)</span>. It’s just that here we’re using the letter <span class="math inline">\(y\)</span> instead of <span class="math inline">\(f\)</span>. <span class="math display">\[\begin{align*}
+y^5 + y &amp;= x^2\\ \\
+\Big(\,y(x) \,\Big)^5 + y(x) &amp;= x^2
+\end{align*}\]</span> And then if we take the derivative of both sides with respect to <span class="math inline">\(x\)</span> (which means “considering <span class="math inline">\(x\)</span> as the variable”): <span class="math display">\[\frac{d}{dx}\Big[\, \left(y(x)\right)^5 + y(x) \,\Big] = \frac{d}{dx}\left[\, x^2 \,\right] \]</span> The right side is easy—that’s just <span class="math inline">\(2x\)</span>: <span class="math display">\[\frac{d}{dx}\Big[\, \left(y(x)\right)^5 + y(x) \,\Big]= 2x \]</span> And we know we can split the left side up: <span class="math display">\[\frac{d}{dx}\Big[ \, \big(\, y(x)\,\big)^5 \,\Big]  +\frac{d}{dx}\Big[\,  y(x) \,\Big] = 2x \]</span> To work out the first thing on the left side, we can use the chain rule. We have two functions: on the inside, we have <span class="math inline">\(y(x)\)</span>, and on the outside, we have <span class="math inline">\((\text{stuff})^5\)</span>. So by the chain rule, the derivative will be: <span class="math display">\[5\Big(\,y(x)\,\Big)^4\cdot y&#39;(x)  \,\,+\,\, \frac{d}{dx}\Big[  y(x) \Big] = 2x \]</span> Of course, we don’t know what <span class="math inline">\(y&#39;(x)\)</span> is, so we just have to leave it like that… except that’s actually a GOOD thing, because <span class="math inline">\(y&#39;(x)\)</span> is what we want to find, ultimately!!! It’s just different notation for <span class="math inline">\(dy/dx\)</span>. So eventually, we’ll be able to use algebra to solve for it! But we need to finish taking the derivative first. The derivative of <span class="math inline">\(y(x)\)</span>, clearly, is just <span class="math inline">\(y&#39;(x)\)</span> (whatever that is): <span class="math display">\[5\Big(\,y(x)\,\Big)^4\cdot y&#39;(x)  \,\,+\,\, y&#39;(x) = 2x \]</span> So now we have an equation that has the derivative inside of it! We just need to solve for it. First we’ll factor out the <span class="math inline">\(y&#39;(x)\)</span>: <span class="math display">\[y&#39;(x)\cdot\Big(\,5\big(\,y(x)\,\big)^4+1\,\Big)= 2x \]</span> and divide: <span class="math display">\[y&#39;(x)= \frac{2x}{\,\,5\big(\,y(x)\,\big)^4+1\,\,} \]</span> and there we go! We’ve found the derivative! If you want to write it in the other notation (and if you don’t need the “of <span class="math inline">\(x\)</span>” to remind you that <span class="math inline">\(y\)</span> is a function), you could write it like this: <span class="math display">\[\frac{dy}{dx} = \frac{2x}{\,\, 5y^4 + 1 \,\,}\]</span></p>
+<p>So there we go! We’ve found the derivative! Of course, the derivative is in terms of <span class="math inline">\(y\)</span>—in terms of the original function—and since we still don’t know explicitly what <span class="math inline">\(y\)</span> is, we can’t go much further. But, hey! It’s progress!</p>
+<h2 id="example-2-again">Example #2, again</h2>
+<p>We could have done this with our previous equation, too. Rather than rewriting <span class="math inline">\(y^3 + x^2 = 5\)</span> as <span class="math inline">\(y = \sqrt[3]{5-x^2}\)</span>, we could have kept it as: <span class="math display">\[y^3 + x^2 = 5\]</span> Or perhaps we could remind ourselves that <span class="math inline">\(y\)</span> is in fact <span class="math inline">\(y(x)\)</span>: <span class="math display">\[(y(x))^3 + x^2 = 5\]</span> And then we could have differentiated both sides, and <em>then</em> solved for <span class="math inline">\(y\)</span>: <span class="math display">\[\begin{align*}
+\frac{d}{dx}\Big[\, \big(\,y(x)\,\big)^3 + x^2 \,\Big] &amp;= \frac{d}{dx}\Big[\, 5 \,\Big] \\ \\
+3\Big(y(x)\Big)^2 \cdot y&#39;(x) + 2x &amp;= 0 \\ \\
+&amp;\text{so if we solve for $y&#39;(x)$:} \\
+3\Big(y(x)\Big)^2\cdot y&#39;(x) &amp;= -2x \\
+y&#39;(x) &amp;= \frac{-2x}{3(y(x))^2} \\ \\
+&amp;\text{written differently:} \\ \\
+\frac{dy}{dx} &amp;= \frac{-2x}{3y^2}
+\end{align*}\]</span> Yay! One thing, though. This might look a little bit different. When we found the derivative the first way (by doing algebra and then calculus), we found that the derivative was: <span class="math display">\[\frac{dy}{dx} =\frac{1}{3}(5-x^2)^{-2/3}\cdot(-2x)\]</span> Which doesn’t look the same as: <span class="math display">\[\frac{dy}{dx} = \frac{-2x}{3y^2}\]</span> Except they actually are the same! Because—remember that we found, by doing algebra, that <span class="math inline">\(y= \sqrt[3]{5-x^2}\)</span>. So if we plug that into our second version of the derivative, we get… <span class="math display">\[\begin{align*}
+\frac{-2x}{3y^2} &amp;= \frac{-2x}{\,\, 3\,left(\sqrt[3]{5-x^2}\right)^2 \,\,} \\ \\
+&amp;= \frac{-2x}{\,\, 3\left( \left(5-x^2\right)^{1/3} \right)^2 \,\,} \\ \\
+&amp;= \frac{-2x}{\,\, 3\left( 5-x^2 \right)^{2/3} \,\,} \\ \\
+&amp;= \frac{1}{3}\cdot \frac{1}{\,\, \left(5-x^2\right)^{2/3}\,\,}\cdot (-2x) \\ \\
+&amp;= \frac{1}{3}\cdot (5-x^2)^{-2/3}\cdot (-2x)
+\end{align*}\]</span> Which is exactly what we found by taking the derivative the first way.</p>
+<h2 id="so-what">So What?</h2>
+<p>In summary, then: if we have an equation and we want to find the derivative of one of the variables with respect to the other variable, we can either:</p>
+<ul>
+<li><p>do algebra to solve for the desired variable, then take its derivative, or</p></li>
+<li><p>take the derivative of both sides, and then solve for the desired derivative.</p></li>
+</ul>
+<p>We can either do algebra first and then calculus, or we can do calculus first and then algebra.</p>
+<p>In one sense, this is just a generalization of what we’ve been doing all along. Up until now, we’ve only taken the derivative of things that have been solved for <span class="math inline">\(y\)</span> (or <span class="math inline">\(f\)</span> or whatever). We’ve only taken the derivative of equations in which one side of the equation was a single, unique variable. But now, we can take the derivative of equations in which both sides can be anything. This is just the more general case (both sides can be anything) of a specific case (one side must be very clean).</p>
+<p>Incidentally, the name of this procedure (as you may have guessed from the title) is <strong>implicit differentiation</strong>. The idea is that we can have an equation that <strong>explicitly</strong> relates two variables (i.e., one variable is completely isolated): <span class="math display">\[y = \sqrt[3]{5-x^2}\]</span> or you can have an equation that, while it does relate two variables, does not explicitly show the relationship (it relates them <strong>implicitly</strong>): <span class="math display">\[y^3 + x^2 = 5\]</span> If you were a calculator plotting points to make a graph, it’d be easy to use the first equation to draw your graph. Just plug in a whole bunch of different <span class="math inline">\(x\)</span> values, and you get out a whole bunch of corresponding <span class="math inline">\(y\)</span>-values! But you can’t really do that with the second equation—you’d have to, like, pick random points in the plane (random <span class="math inline">\((x,y)\)</span> pairs), plug them into the equation, and see whether they work (whether <span class="math inline">\(y^3 + x^2\)</span> does, in fact, equal <span class="math inline">\(5\)</span>).</p>
+<h2 id="problems">Problems</h2>
+<p>Express <span class="math inline">\(\displaystyle \frac{dy}{dx}\)</span> (or <span class="math inline">\(y&#39;\)</span> or <span class="math inline">\(y&#39;(x)\)</span>, if you prefer one of those notations) in terms of <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>:</p>
+<div style="column-width: 14em;  column-gap: 2em;  column-rule: 1px solid #ccc;">
+<ol class="problems">
+<li>
+<span class="math inline">\(x^2 + y^2 = 4\)</span>
+</li>
+<li>
+<span class="math inline">\(x^3 + y^3 - 3xy = 0\)</span>
+</li>
+<li>
+<span class="math inline">\(x^2y + xy^2 = 6\)</span>
+</li>
+<li>
+<span class="math inline">\(2xy + y^2 = x+y\)</span>
+</li>
+<li>
+<span class="math inline">\(4x^2 + 9y^2 = 36\)</span>
+</li>
+<li>
+<span class="math inline">\(x^4 + 4x^3y + y^4 = 1\)</span>
+</li>
+<li>
+<span class="math inline">\(x^3-xy+y^3=1\)</span>
+</li>
+<li>
+<span class="math inline">\(\sqrt{x} + \sqrt{y} = 4\)</span>
+</li>
+<li>
+<span class="math inline">\(x^2 - x^2y + xy^2 + y^2 = 1\)</span>
+</li>
+<li>
+<span class="math inline">\(x^3-xy+y^3=1\)</span>
+</li>
+<li>
+<span class="math inline">\((x-y)^2 - y = 0\)</span>
+</li>
+<li>
+<span class="math inline">\((y+3x)^2 - 4x = 0\)</span>
+</li>
+<li>
+<span class="math inline">\(x^2(x-y)^2 = x^2 - y^2\)</span>
+</li>
+<li>
+<span class="math inline">\((3xy+7)^2 = 6y\)</span>
+</li>
+<li>
+<span class="math inline">\(\sin(x+y) = xy\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle x^2 = \frac{x-y}{x+y}\)</span>
+</li>
+<li>
+<span class="math inline">\(x = \sin(y)\)</span>
+</li>
+<li>
+<span class="math inline">\(x + \sin(y) = xy\)</span>
+</li>
+<li>
+<span class="math inline">\(y\sin(1/y) = 1-xy\)</span>
+</li>
+<li>
+<span class="math inline">\(y^2\cos(1/y) = 2x + 2y\)</span>
+</li>
+</ol>
+</div>
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>If you don’t believe me, try solving for <span class="math inline">\(y\)</span>. You should ask yourself: what does it mean for an equation to be solvable? can we solve every equation? why, or why not? under what conditions are equations solvable? is it possible to make equations solvable by creating new numbers? (“creating new numbers”?? does that make any sense? what am I talking about? what about <span class="math inline">\(x^2+1=0\)</span>? for what values of <span class="math inline">\(x\)</span> is that true?)<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p>Sometimes you might see mathematicians abbreviate all of this simply by writing, “<span class="math inline">\(y=y(x)\)</span>.”<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+</main>
+</body>
+</html>

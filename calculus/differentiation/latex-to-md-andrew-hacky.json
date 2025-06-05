@@ -1,0 +1,26 @@
+[
+    {
+        "find": "\\begin{center}\\includesvg\[.+\]{(.+\.svg)}\\end{center}",
+        "replace": "![]($1)"
+    },
+    {
+        "find": "{\\em ([^}]+)}",
+        "replace": "*$1*"
+    },
+    {
+        "find": "{\\bf ([^}]+)}",
+        "replace": "replacement2"
+    },
+    {
+        "find": "**$1**",
+        "replace": "replacement2"
+    },
+    {
+        "find": "``([^']+)''",
+        "replace": "“$1”"
+    },
+    {
+        "find": "\\footnote{([^}]+)}",
+        "replace": "^[$1]"
+    }
+]

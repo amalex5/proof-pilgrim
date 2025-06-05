@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>polynomials, their derivatives, and their roots</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="/main.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <script src="../highlight-toc.js" type="text/javascript"></script>
+</head>
+<body>
+<main>
+<header id="title-block-header">
+<h1 class="title">polynomials, their derivatives, and their roots</h1>
+</header>
+<p>a polynomial and its derivative</p>
+<p>the only roots a polynomial and its derivative have in common are repeated roots</p>
+<p>if a root of a polynomial has multiplicity 1, then the derivative doesn’t have a root there</p>
+<p>This is especially fun for me because it relates to 1VC problems I’ve tried to write where both some function and its derivative have nice integer-valued (or otherwise nice) roots!!! But it’s surprisingly tricky to do so, beyond having repeated roots (e.g., if we have a factor of <span class="math inline">\((x-\text{blah})^\text{even}\)</span> in a function, then <span class="math inline">\(\text{blah}\)</span> will be a root not just of the original function but also of the derivative.</p>
+<p>This isn’t a particularly linear algebra problem; it’s more of a calculus problem, but still! It’s in Axler. I DID ask Claude if there was a more linalg-themed proof, but Claude basically did what I did, except used words like <code>basis'' and</code>span’’ a few times.</p>
+<p>First of all, let’s think of this visually. VISUALLY, if we know what polynomials look like, this theorem is obvious. A polynomial with a bunch of linear factors looks like:</p>
+<p>PIC</p>
+<p>OK, this is a real-valued polynomial and Axler states this theorem as being over any complex-valued polynomial, but that doesn’t make a difference… eh. ANYWAY, we can clearly obviously trivially see that the derivative of that polynomial is never zero at any of the roots. The only way it’d be zero at a root would be if the root were flattish, i.e., if the root were repeated, like if it were an even-powered root or an odd-greater-than-one-powered root:</p>
+<p>PIC</p>
+<p>So, visually, a polynomial’s derivative can’t have roots at the roots of the original polynomial’s linear factors. Lots of ways we could phrase or state this theorem! The only way a polynomial can share roots with its derivative is if those roots are repeated! And so forth.</p>
+<p>But how do we prove this <em>algebraically</em> and * symbolically*? It’s going to involve the product rule! We need to think about a factored polynomial, and a factored polynomial is a bunch of stuff multiplied together… so time for the product rule!</p>
+<p>The product rule, if we’re thinking about two functions multiplied together, is: <span class="math display">\[(fg)&#39; = f&#39;g + fg&#39;\]</span> I’m dropping the “of <span class="math inline">\(x\)</span>” part there, to make it easier to read.</p>
+<p>It’s actually just TWO things multiplied together!!! It’s actually just: <span class="math display">\[\begin{align*}
+\Big(\, f(x)g(x)h(x) \,\Big) &amp;= \Big(\, \underbrace{\big(\, f(x)g(x) \,\big)}_{\text{one thing}} \cdot\underbrace{h(x)}_{\mathclap{\text{another thing}}} \,\Big)
+\end{align*}\]</span> So if we want to take the derivative of three things multiplied together, we just have to apply the product rule twice! <span class="math display">\[\begin{align*}
+\Big(\, f(x)g(x)h(x) \,\Big)&#39; &amp;= \Big(\, \underbrace{\big(\, f(x)g(x) \,\big)}_{\text{one thing}} \cdot\underbrace{h(x)}_{\mathclap{\text{another thing}}} \,\Big)&#39; \\ \\
+&amp;= \big(\, f(x)g(x) \,\big)&#39; h(x) + \big(\, f(x)g(x) \,\big) h&#39;(x)  \quad\quad\text{product rule!} \\ \\
+&amp;= \big(\, f&#39;(x)g(x) + f(x)g&#39;(x) \,\big)&#39; h(x) + \big(\, f(x)g(x) \,\big) h&#39;(x) \quad\quad\text{product rule again!} \\ \\
+&amp;= f&#39;(x)g(x)h(x) + f(x)g&#39;(x)h(x) + f(x)g(x) h&#39;(x)  \quad\quad\text{algebra}
+\end{align*}\]</span> Actually, you know what? All these “of <span class="math inline">\(x\)</span>”’s are making this cluttered and harder to see. Let’s drop the “<span class="math inline">\((x)\)</span>” part and redo this:</p>
+<p>cluttered</p>
+<p>If we have <em>three</em> things multiplied together, then we can think of those three things as really being two things, and recursively apply the product rule twice: <span class="math display">\[\begin{align*}
+    (fgh)&#39; &amp;= (fg)&#39;h + fg(h)&#39; \\
+    &amp;= (f&#39;g + fg&#39;)h + fgh&#39; \\
+    &amp;= f&#39;gh + fg&#39;h + fgh&#39;
+\end{align*}\]</span> If we have four things, we can do the same process: <span class="math display">\[\begin{align*}
+    (fghk)&#39; &amp;= (fgh)&#39;k + fgh(k)&#39; \\
+    &amp;= (f&#39;gh + fg&#39;h + fgh&#39;)k +  fgh(k)&#39; \\
+    &amp;= f&#39;ghk + fg&#39;hk + fgh&#39;k + fghk&#39; 
+\end{align*}\]</span> Five: <span class="math display">\[\begin{align*}
+    (fghkj)&#39; &amp;= (fghk)&#39;j + fghk(j)&#39; \\
+    &amp;= (f&#39;ghk + fg&#39;hk + fgh&#39;k + fghk&#39; )&#39;j + fghk(j)&#39; \\
+    &amp;= f&#39;ghkj + fg&#39;hkj + fgh&#39;kj + fghk&#39;j + fghkj&#39;
+\end{align*}\]</span> See what’s happening? We get as many terms as we have factors, and in each term one of the factors gets differentiated (and the last one stays the same). It’s like we take the derivative of this product, and it BLOOMS into a whole bunch of terms, like taking a deck of cards and splaying them out dramatically, or some other great metaphor/imagery, with the kaleidoscopic symmetry that each one of the blooms is identical to the original thing… EXCEPT that one of the factors gets differentiated!</p>
+<p>If you want to write this in a REALLY FORMAL and REALLY SCARY way, you could write it as: <span class="math display">\[\left( f_1f_2\cdots f_n \right)&#39; = \sum_{m=1}^{m=n} \left( f_m&#39;\prod_{\substack{k=1\\k\neq m}}^{k=n} f_k  \right)\]</span> Genuinely, this is not saying anything than what I just said above in English; it’s just the same pattern as we can see emerging… just written in scary computer code. Or, hey, let’s make it even scarier, by tossing in ANOTHER GODZILLA PI: <span class="math display">\[\left( \prod_{k=1}^{k=n} f_k \right)&#39; = \sum_{m=1}^{m=n} \left( f_m&#39; \prod_{\substack{k=1\\k\neq m}}^{k=n} f_k \right)\]</span> Scare your friends! Dress up as this for Halloween! Don’t dress up as the standard basis vectors—dress up as the product rule!!</p>
+<p>This is going to be helpful! Well, no, not these giant scary sigmas and pis… but a general knowledge and familiarity and facility with how the product rule works with arbitrary number of factors.</p>
+<p>If we have the slightly special case in which each of the constituent factors is a linear factor like <span class="math inline">\((x-5)\)</span>, rather than an arbitrary function, things get slightly simpler, because the derivative of a linear factor is just <span class="math inline">\(1\)</span>. So the formula (which, really, guys, doesn’t matter; I’m just putting it in for fun; I really do think that this formula is more obfuscatory than revelatory) becomes: <span class="math display">\[\begin{align*}
+    \left(\, \prod_{k=1}^{k=m} \left(x-r_k\right) \, \right)&#39; &amp;= \sum_{m=1}^{m=n} \left( \left(x-r_m\right)&#39; \prod_{\substack{k=1\\k\neq m}}^{k=n} \left(x-r_k\right) \right) \\ \\
+    &amp;= \sum_{m=1}^{m=n} \left( 1\cdot  \prod_{\substack{k=1\\k\neq m}}^{k=n} \left(x-r_k\right) \right) \\ \\
+    &amp;= \sum_{m=1}^{m=n} \left( \prod_{\substack{k=1\\k\neq m}}^{k=n} \left(x-r_k\right) \right)
+\end{align*}\]</span></p>
+<p>Let’s get into the actual proof. It has two directions. First one:</p>
+<p><span class="math display">\[\boxed{\big(\text{$p$ has $m$ distinct zeros}\big)\implies \big(\text{$p$ and its derivative $p&#39;$ have no zeros in common}\big)}\]</span></p>
+<p>OK, so if <span class="math inline">\(p\)</span> has <span class="math inline">\(m\)</span> distinct zeroes, and is of degree <span class="math inline">\(m\)</span>, that means we can write <span class="math inline">\(p\)</span> as the product of a bunch of linear factors (well, of exactly <span class="math inline">\(m\)</span> linear factors): <span class="math display">\[p(x) = \left(x-r_1\right)\left(x-r_2\right)\left(x-r_3\right)\cdots\left(x-r_m\right)\]</span> I guess I’m using “<span class="math inline">\(x\)</span>” rather than <span class="math inline">\(z\)</span> here even though <span class="math inline">\(p\)</span> is in <span class="math inline">\(\mathbb{C}\)</span>; it’s fine; it doesn’t make a difference. So anyway, we have <span class="math inline">\(m\)</span> roots, <span class="math inline">\(r_1\)</span>, <span class="math inline">\(r_2\)</span>, etc., through <span class="math inline">\(r_m\)</span>. None of the roots are repeated (they’re all multiplicity <span class="math inline">\(1\)</span>); equivalently, they’re all distinct (so <span class="math inline">\(r_1\neq r_2\)</span>, or, to but it really formally, <span class="math inline">\(i\neq j \implies r_i \neq r_j\)</span>.)</p>
+<p>Let’s take the derivative of <span class="math inline">\(p\)</span> and see where IT has roots! (Or rather, where it <em>doesn’t</em> have roots, which is what we’ll actually figure out.)</p>
+<p>Differentiating <span class="math inline">\(p\)</span>, we get:</p>
+<p><span class="math display">\[\begin{align*}
+p&#39;(x) \quad&amp;=\quad
+\begin{matrix}
+    {\color{red} \left(x-r_1\right)&#39;}\left(x-r_2\right)\left(x-r_3\right)\cdots\left(x-r_m\right) \\
+   + \\
+   \left(x-r_1\right){\color{red} \left(x-r_2\right)&#39;}\left(x-r_3\right)\cdots\left(x-r_m\right) \\
+   + \\
+      \left(x-r_1\right)\left(x-r_2\right){\color{red} \left(x-r_3\right)&#39;}\cdots\left(x-r_m\right) \\
+   + \\
+\vdots \\
+  +\\
+  \left(x-r_1\right)\left(x-r_2\right)\left(x-r_3\right)\cdots{\color{red} \left(x-r_m\right)&#39; }
+\end{matrix}  \\ \\ \\ \\
+&amp;=\quad 
+\begin{matrix}
+   {\color{red} 1} \cdot \left(x-r_2\right)\left(x-r_3\right)\cdots\left(x-r_m\right) \\
+   + \\
+   \left(x-r_1\right)\cdot \phantom{\left(x-r_2\right)}\llap{\color{red}1} \cdot \left(x-r_3\right)\cdots\left(x-r_m\right) \\
+   + \\
+      \left(x-r_1\right)\left(x-r_2\right)\cdot \phantom{\left(x-r_3\right)}\mathclap{\color{red}1}\cdots\left(x-r_m\right) \\
+   + \\
+\vdots \\
+  +\\
+  \left(x-r_1\right)\left(x-r_2\right)\left(x-r_3\right)\cdots \phantom{\left(x-r_m\right)}\mathclap{\color{red}1} 
+\end{matrix} \\ \\
+&amp;=\quad 
+\begin{matrix}
+    \left(x-r_2\right)\left(x-r_3\right)\cdots\left(x-r_m\right) \\
+   + \\
+   \left(x-r_1\right) \left(x-r_3\right)\cdots\left(x-r_m\right) \\
+   + \\
+      \left(x-r_1\right)\left(x-r_2\right)\cdots\left(x-r_m\right) \\
+   + \\
+\vdots \\
+  +\\
+  \left(x-r_1\right)\left(x-r_2\right)\left(x-r_3\right)\cdots
+\end{matrix}
+\end{align*}\]</span> It’s like we start with a function with a bunch of factors—say <span class="math inline">\(m\)</span> factors—and we differentiate it and it turns into a sum of <span class="math inline">\(m\)</span> terms, where each of those <span class="math inline">\(m\)</span> terms looks exactly like the original function, EXCEPT it’s missing one of the factors!!! (So the full derivative is <span class="math inline">\(m\)</span> terms, each of which has <span class="math inline">\(m-1\)</span> factors). <span class="math display">\[p&#39;(x) \quad=\quad 
+\left.
+\begin{array}{c}
+    \overbrace{\left(x-r_2\right)\left(x-r_3\right)\cdots\left(x-r_m\right)}^{m-1\text{ factors}} \\
+   + \\
+   \left(x-r_1\right) \left(x-r_3\right)\cdots\left(x-r_m\right) \\
+   + \\
+      \left(x-r_1\right)\left(x-r_2\right)\cdots\left(x-r_m\right) \\
+   + \\
+\vdots \\
+  +\\
+  \left(x-r_1\right)\left(x-r_2\right)\left(x-r_3\right)\cdots
+\end{array}
+\right\} \text{$m$ terms in total}
+\]</span> Or, put differently: <span class="math display">\[p&#39;\left(x\right)
+\quad=\quad 
+\begin{matrix}
+   (\text{the original $p(x)$ function, but missing one of the factors}) \\
+   + \\
+  (\text{the original $p(x)$ function, but missing a different factor}) \\
+   + \\
+     (\text{the original $p(x)$ function, but missing yet another factor}) \\
+   + \\
+\vdots \\
+  +\\
+  (\text{the original $p(x)$ function, but missing the last factor}) 
+\end{matrix}\]</span> Alternatively, since for simple linear factors like the ones we’re dealing with, they’re the same as the roots, we can describe the missing thing from each term as being one of the roots: <span class="math display">\[p&#39;\left(x\right)
+\quad=\quad 
+\begin{matrix}
+   (\text{the original $p(x)$ function, but missing the $r_1$ root}) \\
+   + \\
+  (\text{the original $p(x)$ function, but missing the $r_2$ root}) \\
+   + \\
+     (\text{the original $p(x)$ function, but missing the $r_3$ root}) \\
+   + \\
+\vdots \\
+  +\\
+  (\text{the original $p(x)$ function, but missing the $r_m$ root}) 
+\end{matrix}\]</span> OK, so we have our derivative. What happens when we plug the original roots <span class="math inline">\(r_1\)</span>, <span class="math inline">\(r_2\)</span>, <span class="math inline">\(r_3\)</span>, etc., in? We want to show/find out that we never get zero when we do so—that the <span class="math inline">\(r_i\)</span> aren’t roots of the derivative.</p>
+<p>Just for fun, let’s try plugging in <span class="math inline">\(r_1\)</span> and seeing what happens. We’ll get: <span class="math display">\[p&#39;\left(r_1\right)
+\quad=\quad 
+\begin{matrix}
+    \left(r_1-r_2\right)\left(r_1-r_3\right)\cdots\left(r_1-r_m\right) \\
+   + \\
+   {\color{blue} \left(r_1-r_1\right)} \left(r_1-r_3\right)\cdots\left(r_1-r_m\right) \\
+   + \\
+      {\color{blue} \left(r_1-r_1\right)}\left(r_1-r_2\right)\cdots\left(r_1-r_m\right) \\
+   + \\
+\vdots \\
+  +\\
+  {\color{blue} \left(r_1-r_1\right)}\left(r_1-r_2\right)\left(r_1-r_3\right)\cdots
+\end{matrix}\]</span> It looks like a bunch of junk. And it kinda is! Except, in almost all the terms, we’ll have an <span class="math inline">\(\left(r_1-r_1\right)\)</span> factor, which will just go to zero, and so will zero out that term: <span class="math display">\[\begin{align*}
+\quad=\quad 
+&amp;\begin{matrix}
+    \left(r_1-r_2\right)\left(r_1-r_3\right)\cdots\left(r_1-r_m\right) \\
+   + \\
+   {\color{blue} \cancel{\left(r_1-r_1\right)}} \left(r_1-r_3\right)\cdots\left(r_1-r_m\right) \\
+   + \\
+     {\color{blue} \cancel{\left(r_1-r_1\right)}}\left(r_1-r_2\right)\cdots\left(r_1-r_m\right) \\
+   + \\
+\vdots \\
+  +\\
+  {\color{blue} \cancel{\left(r_1-r_1\right)}}\left(r_1-r_2\right)\left(r_1-r_3\right)\cdots
+\end{matrix} \\ \\ \\ \\
+\quad=\quad 
+&amp;\begin{matrix}
+    \left(r_1-r_2\right)\left(r_1-r_3\right)\cdots\left(r_1-r_m\right) \\
+   + \\
+   {\color{blue} 0}\cdot \left(r_1-r_3\right)\cdots\left(r_1-r_m\right) \\
+   + \\
+    {\color{blue} 0} \cdot \left(r_1-r_2\right)\cdots\left(r_1-r_m\right) \\
+   + \\
+\vdots \\
+  +\\
+  {\color{blue} 0} \cdot \left(r_1-r_2\right)\left(r_1-r_3\right)\cdots
+\end{matrix} \\ \\ \\ \\
+\quad=\quad 
+&amp;\begin{matrix}
+    \left(r_1-r_2\right)\left(r_1-r_3\right)\cdots\left(r_1-r_m\right) \\
+   + \\
+   0 \\
+   + \\
+    0\\
+   + \\
+\vdots \\
+  +\\
+  0 
+\end{matrix}
+\\ \\ \\ \\
+\quad=\quad 
+&amp; \left(r_1-r_2\right)\left(r_1-r_3\right)\cdots\left(r_1-r_m\right)
+\end{align*}\]</span> There will be only one term that DOESN’T get zero’d out. It’s the term in which the <span class="math inline">\(\left(x-r_1\right)\)</span> factor got differentiated down to <span class="math inline">\(1\)</span> and disappeared! In other words, we have: <span class="math display">\[p&#39;\left(r_1\right)
+\quad=\quad 
+\begin{matrix}
+   (\text{the original $p(x)$ function, but missing the $r_1$ root, becomes NONzero}) \\
+   + \\
+  (\text{the original $p(x)$ function, but missing the $r_2$ root, becomes $0$}) \\
+   + \\
+     (\text{the original $p(x)$ function, but missing the $r_3$ root, becomes $0$}) \\
+   + \\
+\vdots \\
+  +\\
+  (\text{the original $p(x)$ function, but missing the $r_m$ root, becomes $0$}) 
+\end{matrix}\]</span> So we’re left with just: <span class="math display">\[p&#39;\left(r_1\right) = \left(r_1-r_2\right)\left(r_1-r_3\right)\cdots\left(r_1-r_m\right) \]</span> Are we sure that remaining term isn’t zero? Is there any way it could be zero??? Well, <span class="math inline">\(r_1\neq r_2\)</span>, so the first factor can’t be zero: <span class="math display">\[p&#39;\left(r_1\right) = \underbrace{\left(r_1-r_2\right)}_{\neq 0}\left(r_1-r_3\right)\cdots\left(r_1-r_m\right) \]</span> And <span class="math inline">\(r_2\neq r_3\)</span>, so the second factor can’t be zero: <span class="math display">\[p&#39;\left(r_1\right) = \underbrace{\left(r_1-r_2\right)}_{\neq 0}\underbrace{\left(r_1-r_3\right)}_{\neq 0}\cdots\left(r_1-r_m\right) \]</span> And so on and so forth, all the way through the last factor: <span class="math display">\[p&#39;\left(r_1\right) = \underbrace{\left(r_1-r_2\right)}_{\neq 0}\underbrace{\left(r_1-r_3\right)}_{\neq 0}\cdots\underbrace{\left(r_1-r_m\right)}_{\neq 0}\]</span> All of the <span class="math inline">\(r_i\)</span> are distinct, which means that they’re never equal, which means we can never subtract them and get zero! So whatever <span class="math inline">\(p&#39;\left(r_1\right)\)</span> is, it’s something that’s not zero!!! <span class="math display">\[p&#39;\left(r_1\right) = \text{(something that&#39;s not $0$)}\]</span> Or: <span class="math display">\[p&#39;\left(r_1\right) \neq 0\]</span> So: <span class="math display">\[r_1\text{ isn&#39;t a root of }p&#39;\]</span> <span class="math display">\[\begin{align*}
+    p&#39;\left(r_1\right) =&amp;\quad \text{(nonzero for the term where the $r_1$ root got differentiated away)} \\
+    &amp;+ \text{(zero for all the terms that still have a root at $r_1$)}
+\end{align*}\]</span> And there’s nothing special about <span class="math inline">\(r_1\)</span> here!!! We could have plugged in <span class="math inline">\(r_2\)</span>, or <span class="math inline">\(r_3\)</span>, or any of the <span class="math inline">\(r_i\)</span>, and we’d also have gotten something that’s nonzero!!! <span class="math display">\[\begin{align*}
+    p&#39;\left(r_i\right) =&amp;\quad \text{(nonzero for the term where the $r_i$ root got differentiated away)} \\
+    &amp;+ \text{(zero for all the terms that still have a root at $r_i$)}
+\end{align*}\]</span> So in other words: <span class="math display">\[p&#39;\left(r_i\right) = \text{(something that&#39;s not $0$)}\]</span> So: <span class="math display">\[r_i\text{ isn&#39;t a root of }p&#39;\]</span> So none of the <span class="math inline">\(r_i\)</span> are roots of <span class="math inline">\(p&#39;\)</span>.</p>
+<p><span class="math display">\[\boxed{\big(\text{$p$ has $m$ distinct zeros}\big) \impliedby \big(\text{$p$ and its derivative $p&#39;$ have no zeros in common}\big)}\]</span></p>
+<p>generalization</p>
+</main>
+</body>
+</html>

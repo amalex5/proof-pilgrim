@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>When It’s 64 solution notes!</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="/main.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <script src="../highlight-toc.js" type="text/javascript"></script>
+</head>
+<body>
+<script>document.addEventListener('DOMContentLoaded', function(e) {
+  Scroller.init();
+})</script>
+<aside>
+<div class="tocLinks" >
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#the-terrible-way">The terrible way:</a></li>
+<li><a href="#the-less-terrible-way">The less-terrible way</a></li>
+</ul>
+</nav>
+</div>
+</aside>
+<main>
+<header id="title-block-header">
+<h1 class="title">When It’s 64 solution notes!</h1>
+</header>
+<h2 id="the-terrible-way">The terrible way:</h2>
+<p>OK,</p>
+<p><span class="math display">\[\begin{align*}
+\sqrt[6]{64} &amp;= a+bi\\
+64 &amp;= (a+bi)^6 \\
+\text{... much expansion later ...} \\
+64 &amp;= a^6 + 6a^5bi + 15a^4b^2i^2 + 20a^3b^3i^3 + 15a^2b^4i^4 + 6ab^5i^5 + b^6i^6 \\
+\text{... dealing with the powers of $i$ ...} \\
+64 &amp;= a^6 + 6a^5bi - 15a^4b^2 - 20a^3b^3i + 15a^2b^4 + 6ab^5i - b^6 \\
+\text{... collecting into components ...} \\
+64 +0i &amp;= \left(a^6 - 15a^4b^2 + 15a^2b^4 - b^6\right) \,+\, \left(6a^5b - 20a^3b^3 + 6ab^5\right)i 
+\end{align*}\]</span> so we get: <span class="math display">\[\overbrace{64 = a^6 - 15a^4b^2 + 15a^2b^4 - b^6 }^{\text{from the real parts}} \quad\text{and}\quad \overbrace{0 =6a^5b - 20a^3b^3 + 6ab^5 }^{\text{from the imaginary parts}} \]</span> HAHAHA NOT SOLVING THAT.</p>
+<h2 id="the-less-terrible-way">The less-terrible way</h2>
+<p>Instead, let’s write this as: <span class="math display">\[64 = x^6\]</span> Or: <span class="math display">\[x^6 - 64 = 0\]</span> Which is: <span class="math display">\[\left(x^3\right)^2 - 8^2 = 0\]</span> That’s difference of squares!!! We know the fun difference-of-squares factoring foruma: <span class="math display">\[\boxed{\text{difference of squares: } a^2-b^2 = (a-b)(a+b)}\]</span> We can apply it here! So this is: <span class="math display">\[\left(x^3 - 8\right)\left(x^3 + 8\right) = 0\]</span> Now we have a sum and difference of cubes, <span class="math inline">\(a^3-b^3\)</span>: <span class="math display">\[\left(x^3 - 2^3\right)\left(x^3 + 2^3\right) = 0\]</span> There’s a formula for that, too! You probably don’t know it offhand (I certainly don’t have it memorized), but it’s good to know that there <em>is</em> such a formula and you could look it up if you like. There’s a sum of cubes formula, too <span class="math display">\[\boxed{\text{difference of cubes: }\quad a^3-b^3 = (a-b)\left(a^2 + ab + b^2\right)}\]</span> Applying difference of cubes to the leftmost factor, we get: <span class="math display">\[\left(x^3 - 2^3\right){\color{lightgray} \left(x^3 + 2^3\right) }= 0\]</span> <span class="math display">\[(x-2)\left(x^2 + 2x + 4\right) {\color{lightgray} \cdot \left(x^3 + 2^3\right) } = 0\]</span> Then, look, on the right, we have a <em>sum</em> of cubes! <span class="math inline">\(a^3+b^3\)</span>!!! There’s a formula for that, too: <span class="math display">\[\boxed{\text{sum of cubes: }\quad a^3+b^3 = (a+b)\left(a^2-ab+b^2\right)}\]</span> Applying sum of cubes to the rightmost factor, we get: <span class="math display">\[ {\color{lightgray}  (x-2)\left(x^2 + 2x + 4\right)\cdot } \left(x^3 + 2^3\right) = 0\]</span> <span class="math display">\[{\color{lightgray} (x-2)\left(x^2 + 2x + 4\right)} (x+2)\left(x^2 - 2x + 4\right) = 0\]</span> We still have these two gross quadratics! We can’t factor them by hand, but we <em>can</em> factor them with the quadratic equation: <span class="math display">\[{\color{lightgray}  (x-2)} \left(x^2 + 2x + 4\right) {\color{lightgray} (x+2)}\left(x^2 - 2x + 4\right) = 0\]</span> <span class="math display">\[{\color{lightgray}  (x-2)}\left( x - \frac{-2 \pm \sqrt{4 - 4\!\cdot\!1\!\cdot\!4}}{2} \right) {\color{lightgray}  (x+2) }\left(x - \frac{2 \pm \sqrt{4 - 4\!\cdot\!1\!\cdot\!4}}{2} \right) = 0\]</span> Simplifying, this is: <span class="math display">\[(x-2)\left( x - \left( 1 \pm i\sqrt{3} \right) \right) (x+2)\left(x -\left( -1 \pm i\sqrt{3} \right)   \right) = 0\]</span> And then if we blow up each plus-or-minus into two factors, we get: <span class="math display">\[(x-2)\left( x - \left( 1 + i\sqrt{3} \right) \right)\left( x - \left( 1 - i\sqrt{3} \right) \right) (x+2)\left(x -\left( -1 + i\sqrt{3} \right)   \right) \left(x -\left( -1 - i\sqrt{3} \right)   \right) = 0\]</span> I’ll show each root seperately under each corresponding factor: <span class="math display">\[\underbrace{(x-2)}_{x=2}\underbrace{\left( x - \left( 1 + i\sqrt{3} \right) \right)}_{x=1+i\sqrt3}\underbrace{\left( x - \left( 1 - i\sqrt{3} \right) \right)}_{x=1-i\sqrt3} \underbrace{(x+2)}_{x=-2}\underbrace{\left(x -\left( -1 + i\sqrt{3} \right) \right)}_{x=-1+i\sqrt3}  \underbrace{\left(x -\left( -1 - i\sqrt{3} \right) \right)}_{x=-1-i\sqrt3}   = 0\]</span> Yay! So we get: <span class="math display">\[\begin{align*}
+\text{all six sixth roots of $64$ } = \sqrt[6]{64} &amp;= \begin{cases} 2,\\
+ 1+i\sqrt3, \\ 
+ 1-i\sqrt3, \\ 
+ -2,\\ 
+ -1+i\sqrt3, \\
+ -1-i\sqrt3
+ \end{cases}
+ \end{align*}\]</span></p>
+<p>PICTURE</p>
+</main>
+</body>
+</html>

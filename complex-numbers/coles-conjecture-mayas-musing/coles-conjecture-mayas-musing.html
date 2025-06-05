@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Cole’s Conjecture; Maya’s Musing</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="/main.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <script src="../highlight-toc.js" type="text/javascript"></script>
+</head>
+<body>
+<script>document.addEventListener('DOMContentLoaded', function(e) {
+  Scroller.init();
+})</script>
+<aside>
+<div class="tocLinks" >
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#coles-conjecture">Cole’s Conjecture</a></li>
+<li><a href="#mayas-musing">Maya’s Musing</a>
+<ul>
+<li><a href="#update">Update!</a></li>
+</ul></li>
+</ul>
+</nav>
+</div>
+</aside>
+<main>
+<header id="title-block-header">
+<h1 class="title">Cole’s Conjecture; Maya’s Musing</h1>
+</header>
+<p>There are a couple things I like about Cole’s Conjecture and Maya’s Musing. One is that your classmates (albeit classmates from the class of 2022) came up with them just by being curious and making observations and asking questions! That’s awesome. Second is that both of these ideas are, in the strict sense, <em>wrong</em>. But they’re close to being correct. It’s easy, if you’re a pedantic intellectual, to just give a counterexample and shout, “WRONG!!!” It’s harder—but more important—to think about <em>the ways in which your interlocutor is right</em>. To think, in other words, not about what’s wrong about what they said (that’s easy), but to think about <em>what’s right</em> about what they said. That’s a lot harder. Most of the things we say are a mixture of truths and falsehoods. We should correct the falsehoods, but we should also look for the truths.</p>
+<p>You may recall the BBC documentary we watched on Fermat’s Last Theorem, and the way in which the Japanese mathematician Goro Shimura described his deceased colleague Yutaka Taniyama:</p>
+<blockquote>
+<p>Taniyama was not a very careful person as a mathematician. He made a lot of mistakes. But he made mistakes in a good direction. So eventually he got to the right answers. I tried to imitate him, but I found out that it is very difficult to make good mistakes.</p>
+</blockquote>
+<p>These problems are both good mistakes. They’re the kind of mistake we should all be striving to make!</p>
+<h2 id="coles-conjecture">Cole’s Conjecture</h2>
+<blockquote>
+<p>Cole Bregman was very excited to find that the (fraternal!) third cube root of <span class="math inline">\(i\)</span> is just <span class="math inline">\(-i\)</span>. He hypothesized that because of the cyclic nature of the powers of <span class="math inline">\(i\)</span>, any multiple-of-three’th root of <span class="math inline">\(i\)</span> will <em>also</em> have <span class="math inline">\(-i\)</span> as one of the possibilities. Was he correct? Prove or disprove. Clearly there are <em>some</em> multiple-of-three’th roots of <span class="math inline">\(i\)</span> that have <span class="math inline">\(-i\)</span> as a possibility (the cube root). Do all of them? Is there a similar true conjecture involving which roots of <span class="math inline">\(i\)</span> will have <span class="math inline">\(-i\)</span> as a solution?</p>
+</blockquote>
+<p><strong>This is a good observation, but it’s not precisely correct</strong>. It’s true that one of the cube roots of <span class="math inline">\(i\)</span> is <span class="math inline">\(-1\)</span>: <span class="math display">\[\sqrt[3]{i} = -i \quad\quad\text{(among others)}\]</span> But it’s not true that one of the <span class="math inline">\(6\)</span>th roots of <span class="math inline">\(i\)</span> is <span class="math inline">\(-i\)</span>: <span class="math display">\[\sqrt[6]{i} \neq -i \]</span> <span class="math display">\[\text{because:}\]</span> <span class="math display">\[(-i)^6 = (-1)^6i^6 = i^6 = -1 \neq i\]</span> But is there some relationship? Which roots of <span class="math inline">\(i\)</span> have <span class="math inline">\(-i\)</span> as one of their possibilities?</p>
+<p><span class="math display">\[\sqrt[???]{i} = -i\]</span></p>
+<p><span class="math display">\[(i)^{1/???} = -i\]</span></p>
+<p>This is the same as asking: <span class="math display">\[(-i)^n = i\]</span> There are a couple of ways we could work this out. One is to just brute force it, and start writing out all the powers of <span class="math inline">\(-i\)</span>: <span class="math display">\[(-i)^n = \underset{n=0}{+1},\, \underset{n=1}{-i},\, -1,\, +i,\, +1,\, -i,\, -1, +i,\,  +1,\, -i,\, -1,\, +i, \,\cdots\]</span> If you think about this geometrically, we’re adding <span class="math inline">\(270^\circ\)</span> at each iteration—not <span class="math inline">\(90^\circ\)</span>, like when we multiply by <span class="math inline">\(+i\)</span>. So, when do <span class="math inline">\(+i\)</span>’s show up? They show up when: <span class="math display">\[(-i)^n =+1,\, -i,\, -1,\, \underset{n=3}{+i},\, +1,\, -i,\, -1, \underset{n=7}{+i},\,  +1,\, -i,\, -1,\, \underset{n=11}{+i}, \,\cdots\]</span> <span class="math display">\[(-i)^n = i \text{ when } n=3, 7, 11, 15, \cdots\]</span> So it repeats every <span class="math inline">\(4\)</span> iterations, and in particular, it repeats when the remainder divided by <span class="math inline">\(4\)</span> is <span class="math inline">\(3\)</span>. So, in conclusion, any <span class="math inline">\(4k+3\)</span>’th root of <span class="math inline">\(i\)</span>, where <span class="math inline">\(k\)</span> is some integer (or, equivalently, any <span class="math inline">\(4k-1\)</span>’th root of <span class="math inline">\(i\)</span>) will have <span class="math inline">\(-i\)</span> as one of the solutions.</p>
+<p>So, that’s one way to solve it. Here’s another way. If you want to think about it a bit more algebraically, you could set up an equation. We want to solve this equation for <span class="math inline">\(n\)</span>: <span class="math display">\[i^n = -i\]</span> In polar form, this is: <span class="math display">\[\left(1\angle90^\circ\right)^n = 1\angle 270^\circ\]</span> Which is: <span class="math display">\[1^n\angle90n = 1\angle 270^\circ\]</span> Or just: <span class="math display">\[1\angle90n = 1\angle 270^\circ\]</span> The radii don’t really matter here, because no matter what we raise <span class="math inline">\(i\)</span> to, we’ll stay on the unit circle. (<span class="math inline">\(1^n\)</span> is always just <span class="math inline">\(1\)</span>.) So we only have to worry about the angles. So, we have: <span class="math display">\[90n = 270\]</span> But actually, we can have extra multiples of <span class="math inline">\(360^\circ\)</span>, so really this should be: <span class="math display">\[90n = 270 + 360k \quad\text{for any }k\in\mathbb{Z}\]</span> So: <span class="math display">\[n = \frac{270 + 360k}{90}\]</span> Or just: <span class="math display">\[n = 3+4k\]</span> So, in conclusion, we have: <span class="math display">\[\sqrt[3+4k]{i} =(i)^{1/(3+4k)} =  -i \quad\text{(among others)}\quad(k \in \mathbb{Z})\]</span> Note how this is in fact describing <em>multiples of four</em>. The linguistic way of rephrasing this would be that every (multiple-of-four)-plus-three’th root of <span class="math inline">\(i\)</span> has <span class="math inline">\(-i\)</span> as a solution.</p>
+<p><br><br><br></p>
+<p><strong>Many of you found and described a related—but less all-encompassing—pattern</strong>. Many of you approached this problem by listing all of the multiple-of-three’th powers of <span class="math inline">\(-i\)</span> to see which of them were <span class="math inline">\(i\)</span>, and thus when this conjecture was true. You came up with something like: <span class="math display">\[\begin{align*}
+\sqrt[3]{z} &amp;= -i  \\
+\sqrt[6]{z} &amp;\neq -i  \\
+\sqrt[9]{z} &amp;\neq -i  \\
+\sqrt[12]{z} &amp;\neq -i  \\
+\sqrt[15]{z} &amp;= -i \\
+\sqrt[18]{z} &amp;\neq -i  \\
+\sqrt[21]{z} &amp;\neq -i \\
+\sqrt[24]{z} &amp;\neq -i  \\
+\sqrt[27]{z} &amp;= -i  \\
+\sqrt[30]{z} &amp;\neq -i  \\
+&amp;\vdots
+\end{align*}\]</span> So, if you stare at this list for a minute or two, what you can conclude (as many of you did) is that it’s not every multiple-of-three’th root that is <span class="math inline">\(-i\)</span>. Rather, it’s <em>every other odd</em> multiple-of-three’th root has <span class="math inline">\(-i\)</span> as one of the solutions: <span class="math display">\[\begin{align*}
+\sqrt[3]{z} &amp;= -i  \quad\text{(works!)} \\
+\sqrt[6]{z} &amp;\neq -i \quad\text{(not odd)} \\
+\sqrt[9]{z} &amp;\neq -i \quad\text{(skip)} \\
+\sqrt[12]{z} &amp;\neq -i \quad\text{(not odd)} \\
+\sqrt[15]{z} &amp;= -i \quad\text{(works!)} \\
+\sqrt[18]{z} &amp;\neq -i \quad\text{(not odd)} \\
+\sqrt[21]{z} &amp;\neq -i \quad\text{(skip)} \\
+\sqrt[24]{z} &amp;\neq -i \quad\text{(not odd)} \\
+\sqrt[27]{z} &amp;= -i \quad\text{(works!)} \\
+\sqrt[30]{z} &amp;\neq -i \quad\text{(not odd)} \\
+&amp;\vdots
+\end{align*}\]</span> So your refined version of Cole’s conjecture then becomes: <span class="math display">\[\sqrt[\text{every other odd multiple of three}]{i} = (i)^{1/(\text{every other odd multiple of three})} = -i \quad\text{(among others)}\]</span> If you want to phrase this a little more compactly, you can let <span class="math inline">\(k\)</span> be any integer, and then you can describe every other odd multiple of three as <span class="math inline">\(12k+3\)</span>, so we get: <span class="math display">\[\sqrt[12k+3]{i} \quad=\quad  (i)^{1/(12k+3)} \quad=\quad -i \quad\text{(among others)}\quad(k \in \mathbb{Z})\]</span> This is true, and very interesting! But, here’s my criticism: it leaves out plenty of other roots of <span class="math inline">\(i\)</span> that have <span class="math inline">\(-i\)</span> as a solution! For example, it doesn’t describe the fact that <span class="math inline">\(\sqrt[7]{i} = -i\)</span>. Your conjecture is true… <em>but it’s not true enough</em>. In another sense, Cole’s conjecture is TOO aggressive in its truth-seeking: it says that things are true that are actually false! This conjecture doesn’t do that—everything it says is true is true—but there are true things that it leaves out. (I’m imagining dueling Venn diagrams or something, in which Cole’s conjecture is too large, and this conjecture is too small.)</p>
+<p>On the other hand, this conjecture deals with multiples of threes, like Cole’s original conjecture, whereas my version deals with multiples of <em>four</em>. So perhaps this version is closer to the spirit of what Cole was trying to describe? Or perhaps my pattern was? Unclear!</p>
+<h2 id="mayas-musing">Maya’s Musing</h2>
+<blockquote>
+<p>Maya Bodnick found two of the roots, <span class="math inline">\(\pm\frac{\sqrt{3}}{2}+\frac{1}{2}i\)</span> in the straightforward ordinary way. She found the third root, <span class="math inline">\(-i\)</span>, though, in a more novel method: by assuming that all three of the roots have to multiply together to create <span class="math inline">\(i\)</span>:</p>
+<p><span class="math display">\[(\text{the first root})\cdot(\text{the second root})\cdot(\text{the unknown third root}) = i\]</span></p>
+<p>And then assuming that the unknown root is another complex number in the form <span class="math inline">\(a+bi\)</span>, giving this equation:</p>
+<p><span class="math display">\[\left(\frac{\sqrt{3}}{2}+\frac{1}{2}i\right)\cdot\left(-\frac{\sqrt{3}}{2}+\frac{1}{2}i\right)\cdot(a+bi) = i\]</span></p>
+<p>And then solving for <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>. And indeed, she calculated that the third root should be <span class="math inline">\(-i\)</span>!</p>
+<p>Muse on this method. It worked in this case—will it always work? Clearly, if we take an <span class="math inline">\(n\)</span>’th root of <span class="math inline">\(z\)</span>, and multiply it by itself <span class="math inline">\(n\)</span> times, we get <span class="math inline">\(z\)</span>. That’s what a root is. But is the product of <em>all the distinct</em> <span class="math inline">\(n\)</span>’th roots of <span class="math inline">\(z\)</span> together always equal to <span class="math inline">\(z\)</span>? Prove or disprove. Can you find a counterexample? If it’s not always equal to <span class="math inline">\(z\)</span>, is it sometimes equal to <span class="math inline">\(z\)</span>? When?</p>
+</blockquote>
+<p><strong>This is a good observation, but it’s not precisely correct</strong>. It’s <em>not</em> true that the product of all the <span class="math inline">\(n\)</span> distinct <span class="math inline">\(n\)</span>’th roots of some complex number is always the original complex number. For example, <span class="math inline">\(+2\)</span> and <span class="math inline">\(-2\)</span> are the two distinct square roots of <span class="math inline">\(+4\)</span>, but: <span class="math display">\[(+2)(-2) = -4 \neq +4\]</span> However, it’s kind of cool that this appears to work at least for the cube roots of <span class="math inline">\(i\)</span>. So, was that just a totally random coincidence, or is there some deeper truth here? Is it sometimes the case that the product of all the <span class="math inline">\(n\)</span> distinct <span class="math inline">\(n\)</span>’th roots of some complex number is the original complex number? If so, when? What’s the pattern?</p>
+<p>If you play around with different examples, it’s not too hard to make a guess at what’s going on: <strong>Maya’s Musing seems to be true for odd roots</strong> (like the cube roots of <span class="math inline">\(i\)</span>) <strong>and false for even roots</strong> (like the square roots of <span class="math inline">\(4\)</span>). For even roots, moreover, it’s <em>almost</em> true: the product of all the even roots of a number is <em>negative</em> the original number.</p>
+<p>Writing a formal proof takes a bit of work, so I wasn’t really expecting any of you to do that here. I was hoping you’d be able to figure out the pattern, if not prove it. There’s probably a nice proof/argument you could make involving symmetries or geometry—that’s probably the cleanest, fastest, and most elegant proof. But I’m not totally sure how I’d phrase or argue it.</p>
+<p><strong>Here’s my attempt at a proof</strong>. We only need to worry about the angles here—we know (in part from the George Jemmott-inspired question) that if we multiply together distinct roots, the radii all multiply together properly. Basically what we want to prove or calculate or figure out is:</p>
+<ul>
+<li>if we take all the <span class="math inline">\(n\)</span> distinct <span class="math inline">\(n\)</span>th roots of some complex number and multiply them together</li>
+<li>i.e., if we add up all their angles</li>
+<li>do we get back to where we started?</li>
+</ul>
+<p>This doesn’t work for the two distinct roots of <span class="math inline">\(4\)</span> (angle <span class="math inline">\(0^\circ\)</span>), because the angle of <span class="math inline">\(+2\)</span> is <span class="math inline">\(0^\circ\)</span>, and the angle of <span class="math inline">\(-2\)</span> is <span class="math inline">\(180^\circ\)</span>. So we add them, and get <span class="math inline">\(180^\circ\)</span>, which is not the angle of <span class="math inline">\(4\)</span>.</p>
+<p>So, what if we think about this for all the <span class="math inline">\(n\)</span> distinct <span class="math inline">\(n\)</span>th roots of <span class="math inline">\(r\angle\theta\)</span>? The angles of those roots are: <span class="math display">\[\frac{\theta}{n},\,\, \frac{\theta + 2\pi}{n},\,\, \frac{\theta + 2\cdot 2\pi}{n},\,\, \frac{\theta + 3\cdot 2\pi}{n},\,\, \cdots,\,\, \frac{\theta + (n-1)\cdot 2\pi}{n}\]</span> If we add them all up, we get: <span class="math display">\[\frac{\theta + (\theta + 2\pi) + (\theta+ 4\pi) + (\theta+6\pi) + \dots + (\theta +(n-1)\cdot2\pi)}{n}\]</span> Or: <span class="math display">\[\frac{n\theta \,+\, 2\pi\cdot(1 + 2 + 3 + \cdots + (n-1)) }{n}\]</span> Can we simplify all those integers added up? Fun fact: the sum of the first <span class="math inline">\(n\)</span> <span class="math inline">\(\cancel{\text{integers}}\)</span> natural numbers is <span class="math inline">\(\frac{n(n+1)}{2}\)</span>, so then the sum of the first <span class="math inline">\(n-1\)</span> integers is <span class="math inline">\(\frac{n(n+1)}{2} - n\)</span>, so we can plug that in: <span class="math display">\[\frac{n\theta \,+\, 2\pi\cdot \left(\frac{n(n+1}{2} -n\right)}{n}\]</span> We can cancel out some <span class="math inline">\(n\)</span>’s: <span class="math display">\[\theta \,+\, 2\pi\cdot \left(\frac{n+1}{2} - 1\right)\]</span> So we have: <span class="math display">\[\text{the angle of the product of the $n$ distinct $n$th roots of $r\angle\theta$}: \quad = \quad \theta \,+\, 2\pi\cdot \left(\frac{n+1}{2} - 1\right)\]</span> Our question is, when is that equal to <span class="math inline">\(\theta\)</span> itself? What values of <span class="math inline">\(n\)</span> make Maya’s Musing true? <span class="math display">\[\text{for what $n$ is: }\theta =  \theta \,+\, 2\pi\cdot \left(\frac{n+1}{2} - 1\right)\]</span> This is the same as asking: <span class="math display">\[\text{for what $n$ is: }0 =  2\pi\cdot \left(\frac{n+1}{2} - 1\right)\]</span> Well, <span class="math inline">\(2\pi\)</span> will be the same (“the same”) as <span class="math inline">\(0\)</span> whenever it’s multiplied by an integer! So our question becomes: <span class="math display">\[\text{when is }\frac{n+1}{2} - 1 \text{ an integer?}\]</span> But subtracting <span class="math inline">\(1\)</span> won’t change whether it’s an integer, so we have just: <span class="math display">\[\text{when is }\frac{n+1}{2} \text{ an integer?}\]</span> When is it? Whenever <span class="math inline">\(n\)</span> is odd! If <span class="math inline">\(n\)</span> is even, then this will be a fraction; if <span class="math inline">\(n\)</span> is odd, we can divide <span class="math inline">\(2\)</span> and get an integer.</p>
+<p>So the somewhat more refined and accurate version of Maya’s Musing is:</p>
+<div class="callout-box">
+<p><strong>The product of all the <span class="math inline">\(n\)</span> distinct <span class="math inline">\(n\)</span>th roots of <span class="math inline">\(r\angle\theta\)</span> is:</strong></p>
+<p>if <span class="math inline">\(n\)</span> is odd: <span class="math inline">\(\quad r\angle\theta\)</span></p>
+<p>if <span class="math inline">\(n\)</span> is even: <span class="math inline">\(\quad r\angle\left( \theta + 180^\circ\right)\)</span></p>
+</div>
+<h3 id="update">Update!</h3>
+<p>Syliva Larsen, in Spring 2024, had some brilliant geometric intuition for this problem. Here’s how she wrote it up:</p>
+<blockquote>
+<p><img src="sylvia-larsen-odd-roots-matching-up-IMG_2217.png" /></p>
+<p>I misread the problem and focused on when <span class="math inline">\(z\)</span> is <span class="math inline">\(i\)</span>. This is what I found out about <span class="math inline">\(i\)</span>. Using this method does not work on even roots. You end up with <span class="math inline">\(-i\)</span> when you multiply odd roots together you get the correct answer: <span class="math inline">\(i\)</span>. When you try to solve for that <span class="math inline">\(n\)</span>th root, it also does work. This is because odd roots have a pair reflected across the <span class="math inline">\(y\)</span>-axis. See examples of the <span class="math inline">\(3\)</span>rd, <span class="math inline">\(5\)</span>th, and <span class="math inline">\(7\)</span>th roots of <span class="math inline">\(i\)</span> above. When you multiply these two roots, the product is <span class="math inline">\(-1\)</span>. Therefore, depending on how many of those pairs there are, odd roots of <span class="math inline">\(i\)</span> will end up with the equation <span class="math inline">\(-1\cdot x = i\)</span> or <span class="math inline">\(1\cdot x = i\)</span>, where <span class="math inline">\(x\)</span> is the last root, the <span class="math inline">\(i\)</span> or <span class="math inline">\(-i\)</span>. When you solve this equation you get the correct last root. If you try solving for another one of those roots, you will get the answer: <span class="math inline">\(\sin\theta + i\cos\theta\)</span>. When I tried to put this in Euler’s form to see if it would simplify down to the last root, I was unsuccessful. So it seems that you can only use this method if solving for odd roots, possibly only the <span class="math inline">\(i\)</span> or <span class="math inline">\(-i\)</span>.</p>
+</blockquote>
+</main>
+</body>
+</html>

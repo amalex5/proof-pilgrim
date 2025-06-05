@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>systems integration</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="/main.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <script src="../highlight-toc.js" type="text/javascript"></script>
+</head>
+<body>
+<script>document.addEventListener('DOMContentLoaded', function(e) {
+  Scroller.init();
+})</script>
+<aside>
+<div class="tocLinks" >
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#lets-use-an-antiderivative-to-find-an-area">Let’s Use an Antiderivative To Find an Area!</a></li>
+<li><a href="#lets-use-an-antiderivative-to-find-a-more-complicated-area">Let’s Use an Antiderivative To Find a More Complicated Area!</a></li>
+<li><a href="#lets-make-some-notation-for-the-area-function">Let’s Make Some Notation For the “Area” Function</a>
+<ul>
+<li><a href="#problems">Problems</a></li>
+</ul></li>
+</ul>
+</nav>
+</div>
+</aside>
+<main>
+<header id="title-block-header">
+<h1 class="title">systems integration</h1>
+</header>
+<p><strong>For all the formulas and the formalism</strong>, despite the rigors of the difference quotient and the difficulties of the quotient rule, calculus is about just two ideas: slopes and areas. These are two ideas that seem to have nothing in common with each other. And yet—as Newton and Leibniz discovered—these two operations are not only related, <em>they are the same operation</em>. Or, rather, they are inverses of each other: if we have a function, and we take its derivative, we get its slope. If we have a function and we take an antiderivative, we get its area. It makes sense that “slope” and “derivative” should be equivalent, since that was our very purpose in coming up with the formal idea of the derivative, but Newton and Leibniz’s remarkable realization was that <em>area is just an antiderivative</em>.</p>
+<p>Let me try to show you why. Imagine we have some function <span class="math inline">\(f(x)\)</span>:</p>
+<p><img src="integration-ftc-1.svg" /></p>
+<p>And imagine that the area beneath this function, from the origin out to some point <span class="math inline">\(x\)</span>, is given by the function <span class="math inline">\(A(x)\)</span>:</p>
+<p><img src="integration-ftc-2.svg" /></p>
+<p>Obviously, we don’t yet know what <span class="math inline">\(A(x)\)</span> is; our goal is to find some sort of formula for it. So bear with me. What if we want to find not the area underneath <span class="math inline">\(f(x)\)</span> from <span class="math inline">\(0\)</span> to <span class="math inline">\(x\)</span>, but just the area of a little sliver—from <span class="math inline">\(x\)</span> to a point, say, <span class="math inline">\(h\)</span> units beyond it, <span class="math inline">\(x+h\)</span>.</p>
+<p><img src="integration-ftc-3.svg" /></p>
+<p>We can actually come up with a formula for this little sliver using our function <span class="math inline">\(A(x)\)</span>. We know that the area from <span class="math inline">\(0\)</span> to <span class="math inline">\(x\)</span> is <span class="math inline">\(A(x)\)</span>. But <span class="math inline">\(x\)</span> could be anything—it could be <span class="math inline">\(5\)</span>, it could be <span class="math inline">\(6\)</span>, it could even be <span class="math inline">\(x+h\)</span>. So the area from <span class="math inline">\(0\)</span> to <span class="math inline">\(x+h\)</span> must be <span class="math inline">\(A(x+h)\)</span>. But we don’t want to find the area from <span class="math inline">\(0\)</span> to <span class="math inline">\(x+h\)</span>—we want to find the area from <span class="math inline">\(x\)</span> to <span class="math inline">\(x+h\)</span>. So all we need to do is take the area from <span class="math inline">\(0\)</span> to <span class="math inline">\(x+h\)</span>, and subtract that big chunk we don’t want—subtract the area of the region from <span class="math inline">\(0\)</span> to <span class="math inline">\(x\)</span>.</p>
+<p><img src="area-subtraction.svg" /></p>
+<p>So then the area of our little sliver is <span class="math inline">\(A(x+h)-A(x)\)</span>:</p>
+<p><img src="integration-ftc-4.svg" /></p>
+<p>But there’s another way that we can find this area. Namely: this is a little sliver, not a giant plank. <span class="math inline">\(h\)</span> is pretty small. So then the region from <span class="math inline">\(x\)</span> to <span class="math inline">\(x+h\)</span> is probably pretty close to a rectangle. Sure, there’s that curvy bit at the top, but because <span class="math inline">\(h\)</span> is reasonably small, that doesn’t make that much of a difference.</p>
+<p>But we already know how to find the area of a rectangle: width times height. The width of this little sliver is <span class="math inline">\(h\)</span>, and the height is approximately <span class="math inline">\(f(x)\)</span>:</p>
+<p><img src="integration-ftc-5.svg" /></p>
+<p>So then the area must be roughly <span class="math inline">\(f(x)\cdot h\)</span>:</p>
+<p><img src="integration-ftc-6.svg" /></p>
+<p>But then we have two different ways of writing the area of this sliver: the area is <span class="math inline">\(A(x+h)-A(x)\)</span>, and the area is also (approximately) <span class="math inline">\(f(x)\cdot h\)</span>. So we must have:</p>
+<p><span class="math display">\[\begin{align*}
+\text{approximate area } &amp;\approx \text{  exact area}\\ \\
+f(x)\cdot h \,\,&amp;\approx \,\,A(x+h)-A(x)
+\end{align*}\]</span></p>
+<p>Or just:</p>
+<p><span class="math display">\[\begin{align*}
+f(x) \,\,&amp;\approx\,\, \frac{A(x+h)-A(x)}{h}
+\end{align*}\]</span></p>
+<p>Moreover, as <span class="math inline">\(h\)</span> gets smaller and smaller, this approximation gets better and better—as <span class="math inline">\(h\)</span> goes to zero, these two things become <em>equal</em>:</p>
+<p><span class="math display">\[\begin{align*}
+\hspace{1in}\text{as }h \text{ gets}\, &amp;\Bigg\downarrow\, \text{really small...} \\ \\
+f(x) \,\,&amp;=\,\, \lim_{h \rightarrow 0} \frac{A(x+h)-A(x)}{h}
+\end{align*}\]</span></p>
+<div style="height:10em;">
+
+</div>
+<p>(One of the things I dislike about writing, as opposed to teaching in person, is that it’s harder to toy with the timing. Because what I really want you to do right now is stare at that equation and let it sink in and realize what just happened.)</p>
+<div style="height:5em;">
+
+</div>
+<p>This looks horrifyingly familiar. We tried to find the area of this shape—and we ended up with Fermat’s difference quotient. What this is telling us is that if we take the derivative of this equation for the area, <span class="math inline">\(A(x)\)</span>, we get the equation for the curve, <span class="math inline">\(f(x)\)</span>. Conversely, if we had the equation for the curve, and took an antiderivative, we’d get the equation for the area. Or: <em>the area beneath a curve is just the antiderivative of the curve.</em></p>
+<p>This is startling.</p>
+<p><img src="area-function-slope.svg" style="width:75%;margin-top:10em;margin-bottom:10em;" /></p>
+<h2 id="lets-use-an-antiderivative-to-find-an-area">Let’s Use an Antiderivative To Find an Area!</h2>
+<p>Let’s do a specific example of using an antiderivative to find an area! What we just found is that if we want to know the area underneath some curvy function, we can take an antiderivative: <span class="math display">\[\substack{\text{the area between $f(x)$,}\\\text{the $x$-axis,}\\\text{and a vertical line at some point $x$}}\quad=\quad \text{the antiderivative of }f(x)\]</span> So, let’s use that to find a curvy area! In particular, let’s find the area underneath <span class="math inline">\(x^2\)</span> from <span class="math inline">\(x=0\)</span> out to <span class="math inline">\(x=4\)</span>. The area looks like this: <img src="area-under-x2-zero-to-four-1.svg" /> It’s a curvy shape! It’s kinda triangular—and we know how to find the areas of triangles; we’ve known that for <em>years</em>—but it’s not a triangle! It’s curvy!</p>
+<p>We just learned that if we want to find the area underneath <span class="math inline">\(f(x)\)</span> from <span class="math inline">\(0\)</span> out to <span class="math inline">\(x\)</span>, it’s just the antiderivative of <span class="math inline">\(f(x)\)</span>. Here we want to find not the area from <span class="math inline">\(0\)</span> out to <span class="math inline">\(x\)</span>, but from <span class="math inline">\(0\)</span> out to <span class="math inline">\(4\)</span>. So we’ll take the antiderivative of <span class="math inline">\(x^2\)</span>, and then plug in <span class="math inline">\(4\)</span> for <span class="math inline">\(x\)</span>. The antiderivative is: <span class="math display">\[\big(\text{antiderivative of }x^2\big) \,\,=\,\, \frac{1}{3}x^3\]</span> So then, for the area underneath <span class="math inline">\(x^2\)</span>, we have: <span class="math display">\[\begin{align*}
+\big( \text{area underneath $x^2$ from $0$ to $x$}\big) \,\, &amp;=\,\, \frac{1}{3}x^3 \\ \\
+\text{And when $x$ is $4$, this becomes:} \\
+\big( \text{area underneath $x^2$ from $0$ to $4$}\big) \,\,&amp;=\,\, \frac{1}{3}4^3 \\ \\
+&amp;= \frac1364 \\ \\
+&amp;= \frac{64}{3}\\ \\
+&amp;=21.\overline{3}
+\end{align*}\]</span> So we have: <img src="area-under-x2-zero-to-four-2.svg" /> Yay! It’s a curvy area! We calculated our first curvy area!!!</p>
+<p>So, to summarize and generalize what we just did:</p>
+<p><span class="math display">\[\boxed{  \substack{\text{the area between $f(x)$ and the $x$-axis}\\\text{from $x=0$ out to $x=b$}} \quad=\quad \substack{\text{the antiderivative of }f(x)\\\text{but with  }b\text{ plugged in for }x} }\]</span></p>
+<h2 id="lets-use-an-antiderivative-to-find-a-more-complicated-area">Let’s Use an Antiderivative To Find a More Complicated Area!</h2>
+<p>What if we want to find the area beneath <span class="math inline">\(x^2\)</span>, not from <span class="math inline">\(x=0\)</span> out to <span class="math inline">\(x=4\)</span>, but from (say) <span class="math inline">\(x=1\)</span> out to <span class="math inline">\(x=4\)</span>?</p>
+<p><img src="area-under-x2-one-to-four-1.svg" /></p>
+<p>We know how to find the areas under curvy shapes from <span class="math inline">\(0\)</span> out to some number, but how do we find the areas from some non-zero number out to some other number?? We can figure it out just using basic geometry! After all, the total area from from <span class="math inline">\(x=0\)</span> to <span class="math inline">\(x=4\)</span> is just the area from <span class="math inline">\(x=0\)</span> to <span class="math inline">\(x=1\)</span>, plus the area from <span class="math inline">\(x=1\)</span> to <span class="math inline">\(x=4\)</span>:</p>
+<p><img src="splitting-up-integrals-one.svg" /></p>
+<p><span class="math display">\[\Big(\substack{\text{the total area between $x^2$ and the $x$-axis}\\\text{between the vertical lines $x=0$ and $x=4$}}\Big) \quad=\quad \Big(\substack{\text{the area between $x^2$ and the $x$-axis }\\\text{between $0$ and $1$  }}\Big) \quad+\quad \Big(\substack{\text{the area between $x^2$ and the $x$-axis }\\\text{between $1$ and $4$  }}\Big)\]</span></p>
+<p>So then, to find <em>just</em> the area between <span class="math inline">\(x=1\)</span> and <span class="math inline">\(x=4\)</span>, we can rearrange and subtract:</p>
+<p><img src="splitting-up-integrals-two.svg" /></p>
+<p><span class="math display">\[\begin{align*}
+\Big(\substack{\text{the area between $x^2$ and the $x$-axis}\\\text{between the vertical lines $x=1$ and $x=4$}}\Big) &amp;= \Big(\substack{\text{the area between $x^2$ and the $x$-axis }\\\text{between $0$ and $4$  }}\Big) - \Big(\substack{\text{the area between $x^2$ and the $x$-axis }\\\text{between $0$ and $1$  }}\Big) \\ \\
+&amp;= \Big(\substack{\text{the antiderivative of }x^2\\\text{but with  }4\text{ plugged in for }x}\Big) - \Big(\substack{\text{the antiderivative of }x^2\\\text{but with  }1\text{ plugged in for }x}\Big) \\ \\
+&amp;= \frac{1}{3}(4)^3 -\frac13(1)^3 \\ \\
+&amp;= \frac{1}{3}64 - \frac13 \\ \\
+&amp;= \displaystyle\frac{63}{3} \\ \\
+&amp;= 21
+\end{align*}\]</span></p>
+<p>Yay! So the area is just <span class="math inline">\(21\)</span>!</p>
+<p><img src="area-under-x2-one-to-four-2.svg" /></p>
+<p>So, let’s summarize and generalize what we did here! We wanted to find the area of some curvy shape, between two points on the <span class="math inline">\(x\)</span>-axis (or two vertical lines), and we did that by subtracting antiderivatives:</p>
+<p><span class="math display">\[\boxed{\substack{\text{the area between $f(x)$ and the $x$-axis}\\\text{between the vertical lines $x=a$ and $x=b$}} \quad=\quad \substack{\text{the antiderivative of }f(x)\\\text{but with  }b\text{ plugged in for }x} \quad-\quad  \substack{\text{the antiderivative of }f(x)\\\text{but with  }a\text{ plugged in for }x}}\]</span></p>
+<h1 id="lets-make-some-notation-for-the-area-function">Let’s Make Some Notation For the “Area” Function</h1>
+<p>Since we’re talking about these areas, let’s make some notation to make our lives a little easier. Let’s call this function for the area an <strong>integral</strong>, and define it thusly:</p>
+<div class="callout-box" style="width:auto;">
+<p><span class="math display">\[\begin{align*}\int_a^b \! f(x)\,dx \,\,&amp;=\,\, \substack{\text{the area between $f(x)$ and the $x$-axis,}\\\text{between $x=a$ and $x=b$}} \\ \\
+&amp;= \Big( \substack{\text{the antiderivative of }f(x)\\\text{but with  }b\text{ plugged in for }x} \Big) \quad-\quad \Big( \substack{\text{the antiderivative of }f(x)\\\text{but with  }a\text{ plugged in for }x} \Big)\end{align*}\]</span></p>
+<p><img src="integral-notation.svg" /></p>
+</div>
+<p>We pronounce this as “the integral from <span class="math inline">\(a\)</span> to <span class="math inline">\(b\)</span>, of <span class="math inline">\(f(x) \, dx\)</span>.” This is just a fancy notation for a very simple idea: the idea of area. So, for example, in the first example, to find the area of <span class="math inline">\(x^2\)</span> from <span class="math inline">\(0\)</span> out to <span class="math inline">\(4\)</span>, we found: <span class="math display">\[\int_0^4 x^2\,dx = 21.\overline{3}\]</span> In the second example, to find the area of <span class="math inline">\(x^2\)</span> from <span class="math inline">\(0\)</span> out to <span class="math inline">\(4\)</span>, we found: <span class="math display">\[\int_1^4 x^2\,dx = 21\]</span> Don’t worry about the “<span class="math inline">\(dx\)</span>” part. For now, you can just think of it as being like a closing parentheses, telling us what’s inside the content of the integral and what’s not (as well as telling us what the variable is).</p>
+<h2 id="problems">Problems</h2>
+<p>For each of the following: sketch the area, describe it using integral notation, and then calculate it (using antiderivatives).</p>
+<ol class="problems">
+<li>
+The area between the <span class="math inline">\(x\)</span>-axis, the function <span class="math inline">\(f(x)=x^2\)</span>, and the vertical lines <span class="math inline">\(x=0\)</span> and <span class="math inline">\(x=5\)</span>.
+</li>
+<li>
+The area between the <span class="math inline">\(x\)</span>-axis, the function <span class="math inline">\(f(x)=x^2\)</span>, and the vertical lines <span class="math inline">\(x=2\)</span> and <span class="math inline">\(x=5\)</span>.
+</li>
+<li>
+The area between the <span class="math inline">\(x\)</span>-axis, the function <span class="math inline">\(f(x)=x^2+7\)</span>, and the vertical lines <span class="math inline">\(x=0\)</span> and <span class="math inline">\(x=5\)</span>.
+</li>
+<li>
+The area between the <span class="math inline">\(x\)</span>-axis, the function <span class="math inline">\(f(x)= 4x^3\)</span>, and the vertical lines <span class="math inline">\(x=0\)</span> and <span class="math inline">\(x=2\)</span>.
+</li>
+<li>
+The area between the <span class="math inline">\(x\)</span>-axis, the function <span class="math inline">\(f(x)= 4x^3+2\)</span>, and the vertical lines <span class="math inline">\(x=0\)</span> and <span class="math inline">\(x=3\)</span>.
+</li>
+<li>
+The area between the <span class="math inline">\(x\)</span>-axis, the function <span class="math inline">\(f(x)= 4x^3+2\)</span>, and the vertical lines <span class="math inline">\(x=1\)</span> and <span class="math inline">\(x=3\)</span>.
+</li>
+<li>
+The area between the <span class="math inline">\(x\)</span>-axis, the function <span class="math inline">\(x^4\)</span>, and the vertical lines <span class="math inline">\(x=2\)</span> and <span class="math inline">\(x=10\)</span>
+</li>
+<li>
+The area between the <span class="math inline">\(x\)</span>-axis, the function <span class="math inline">\(f(x)=5\)</span>, and the vertical lines <span class="math inline">\(x=0\)</span> and <span class="math inline">\(x=7\)</span>. (You can do this one using calculus, but you can also do it without using calculus—explain!)
+</li>
+<li>
+The area between the <span class="math inline">\(x\)</span>-axis, the function <span class="math inline">\(f(x)=2x+1\)</span>, and the vertical lines <span class="math inline">\(x=3\)</span> and <span class="math inline">\(x=6\)</span>. (You can do this one using calculus, but you can also do it without using calculus—explain!)
+</li>
+<li>
+The area between the <span class="math inline">\(x\)</span>-axis, the function <span class="math inline">\(f(x) = -(x-5)^2+9\)</span>, and the vertical lines <span class="math inline">\(x=2\)</span> and <span class="math inline">\(x=8\)</span>
+</li>
+<li>
+The area between the <span class="math inline">\(x\)</span>-axis, the function <span class="math inline">\(f(x) = \sin x\)</span>, <span class="math inline">\(x=0\)</span>, and <span class="math inline">\(x=\pi\)</span>.
+</li>
+<li>
+The area between the <span class="math inline">\(x\)</span>-axis, the function <span class="math inline">\(f(x) = \cos (x) + 4\)</span>, <span class="math inline">\(x=0\)</span>, and <span class="math inline">\(x=2\pi\)</span>.
+</li>
+<li>
+The area between the <span class="math inline">\(x\)</span>-axis, the function <span class="math inline">\(f(x)=1/x^2\)</span>, and the vertical lines <span class="math inline">\(x=1\)</span> and <span class="math inline">\(x=3\)</span>
+</li>
+<li>
+The area between the <span class="math inline">\(x\)</span>-axis, the function <span class="math inline">\(f(x)=-\frac{1}{x^2} + 5\)</span>, and the vertical lines <span class="math inline">\(x=1\)</span> and <span class="math inline">\(x=10\)</span>
+</li>
+</ol>
+</main>
+</body>
+</html>

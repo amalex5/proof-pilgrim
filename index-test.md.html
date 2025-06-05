@@ -1,0 +1,288 @@
+<button class="btn js-toggle-dark-mode">
+Preview dark color scheme
+</button>
+<script>
+const toggleDarkMode = document.querySelector('.js-toggle-dark-mode');
+
+jtd.addEvent(toggleDarkMode, 'click', function(){
+  if (jtd.getTheme() === 'dark') {
+    jtd.setTheme('light');
+    toggleDarkMode.textContent = 'Preview dark color scheme';
+  } else {
+    jtd.setTheme('dark');
+    toggleDarkMode.textContent = 'Return to the light side';
+  }
+});
+</script>
+<p><span class="math display"><em>x</em><sup>2</sup></span></p>
+<p>Text can be <strong>bold</strong>, <em>italic</em>, or <del>strikethrough</del>.</p>
+<p><a href="another-page">Link to another page</a>.</p>
+<p>There should be whitespace between paragraphs.</p>
+<p>There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.</p>
+<h1 id="header-1"><a href="#header-1"></a>Header 1</h1>
+<p>This is a normal paragraph following a header. GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.</p>
+<h2 id="header-2"><a href="#header-2"></a>Header 2</h2>
+<blockquote>
+<p>This is a blockquote following a header.</p>
+<p>When something is important enough, you do it even if the odds are not in your favor.</p>
+</blockquote>
+<h3 id="header-3"><a href="#header-3"></a>Header 3</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Javascript code with syntax highlighting.</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> fun <span class="op">=</span> <span class="kw">function</span> <span class="fu">lang</span>(l) {</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  dateformat<span class="op">.</span><span class="at">i18n</span> <span class="op">=</span> <span class="pp">require</span>(<span class="st">&#39;./lang/&#39;</span> <span class="op">+</span> l)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="kw">true</span><span class="op">;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ruby code with syntax highlighting</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="dt">GitHubPages</span><span class="kw">::</span><span class="dt">Dependencies</span><span class="at">.gems.each</span> <span class="cf">do</span> <span class="kw">|</span>gem, version<span class="kw">|</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  s<span class="at">.add_dependency</span>(gem, <span class="st">&quot;= </span><span class="sc">#{</span>version<span class="sc">}</span><span class="st">&quot;</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="cf">end</span></span></code></pre></div>
+<h4 id="header-4-with-code-not-transformed"><a href="#header-4"></a>Header 4 <code>with code not transformed</code></h4>
+<ul>
+<li>This is an unordered list following a header.</li>
+<li>This is an unordered list following a header.</li>
+<li>This is an unordered list following a header.</li>
+</ul>
+<h5 id="header-5"><a href="#header-5"></a>Header 5</h5>
+<ol type="1">
+<li>This is an ordered list following a header.</li>
+<li>This is an ordered list following a header.</li>
+<li>This is an ordered list following a header.</li>
+</ol>
+<h6 id="header-6"><a href="#header-6"></a>Header 6</h6>
+<p><a href=".">This is a very long link which wraps and therefore doesn’t overflow even when it comes at the beginning</a> of the line.</p>
+<ul>
+<li><a href=".">This is a very long link which wraps and therefore doesn’t overflow the line when used first in an item</a> in a list.</li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">head1</th>
+<th style="text-align: left;">head two</th>
+<th style="text-align: left;">three</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">ok</td>
+<td style="text-align: left;">good swedish fish</td>
+<td style="text-align: left;">nice</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">out of stock</td>
+<td style="text-align: left;">good and plenty</td>
+<td style="text-align: left;">nice</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ok</td>
+<td style="text-align: left;">good <code>oreos</code></td>
+<td style="text-align: left;">hmm</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ok</td>
+<td style="text-align: left;">good <code>zoute</code> drop</td>
+<td style="text-align: left;">yumm</td>
+</tr>
+</tbody>
+</table>
+<h3 id="theres-a-horizontal-rule-below-this.">There’s a horizontal rule below this.</h3>
+<hr />
+<h3 id="here-is-an-unordered-list">Here is an unordered list:</h3>
+<ul>
+<li>Item foo</li>
+<li>Item bar</li>
+<li>Item baz</li>
+<li>Item zip</li>
+</ul>
+<h3 id="and-an-ordered-list">And an ordered list:</h3>
+<ol type="1">
+<li>Item one</li>
+<li>Item two</li>
+<li>Item three</li>
+<li>Item four</li>
+</ol>
+<h3 id="and-an-ordered-list-continued">And an ordered list, continued:</h3>
+<ol type="1">
+<li>Item one</li>
+<li>Item two</li>
+</ol>
+<p>Some text</p>
+<p>{:style=“counter-reset:none”} 1. Item three 1. Item four</p>
+<h3 id="and-an-ordered-list-starting-from-42">And an ordered list starting from 42:</h3>
+<p>{:style=“counter-reset:step-counter 41”} 1. Item 42 1. Item 43 1. Item 44</p>
+<h3 id="and-a-nested-list">And a nested list:</h3>
+<ul>
+<li>level 1 item
+<ul>
+<li>level 2 item</li>
+<li>level 2 item
+<ul>
+<li>level 3 item</li>
+<li>level 3 item</li>
+</ul></li>
+</ul></li>
+<li>level 1 item
+<ul>
+<li>level 2 item</li>
+<li>level 2 item</li>
+<li>level 2 item</li>
+</ul></li>
+<li>level 1 item
+<ul>
+<li>level 2 item</li>
+<li>level 2 item</li>
+</ul></li>
+<li>level 1 item</li>
+</ul>
+<h3 id="nesting-an-ol-in-ul-in-an-ol">Nesting an ol in ul in an ol</h3>
+<ul>
+<li>level 1 item (ul)
+<ol type="1">
+<li>level 2 item (ol)</li>
+<li>level 2 item (ol)</li>
+</ol>
+<ul>
+<li>level 3 item (ul)</li>
+<li>level 3 item (ul)</li>
+</ul></li>
+<li>level 1 item (ul)
+<ol type="1">
+<li>level 2 item (ol)</li>
+<li>level 2 item (ol)</li>
+</ol>
+<ul>
+<li>level 3 item (ul)</li>
+<li>level 3 item (ul)</li>
+</ul>
+<ol type="1">
+<li>level 4 item (ol)</li>
+<li>level 4 item (ol)</li>
+</ol>
+<ul>
+<li>level 3 item (ul)</li>
+<li>level 3 item (ul)</li>
+</ul></li>
+<li>level 1 item (ul)</li>
+</ul>
+<h3 id="and-a-task-list">And a task list</h3>
+<ul class="task-list">
+<li><input type="checkbox" disabled="" />
+Hello, this is a TODO item</li>
+<li><input type="checkbox" disabled="" />
+Hello, this is another TODO item</li>
+<li><input type="checkbox" disabled="" checked="" />
+Goodbye, this item is done</li>
+</ul>
+<h3 id="nesting-task-lists">Nesting task lists</h3>
+<ul class="task-list">
+<li><input type="checkbox" disabled="" />
+level 1 item (task)<ul class="task-list">
+<li><input type="checkbox" disabled="" />
+level 2 item (task)</li>
+<li><input type="checkbox" disabled="" />
+level 2 item (task)</li>
+</ul></li>
+<li><input type="checkbox" disabled="" />
+level 1 item (task)</li>
+<li><input type="checkbox" disabled="" />
+level 1 item (task)</li>
+</ul>
+<h3 id="nesting-a-ul-in-a-task-list">Nesting a ul in a task list</h3>
+<ul class="task-list">
+<li><input type="checkbox" disabled="" />
+level 1 item (task)<ul>
+<li>level 2 item (ul)</li>
+<li>level 2 item (ul)</li>
+</ul></li>
+<li><input type="checkbox" disabled="" />
+level 1 item (task)</li>
+<li><input type="checkbox" disabled="" />
+level 1 item (task)</li>
+</ul>
+<h3 id="nesting-a-task-list-in-a-ul">Nesting a task list in a ul</h3>
+<ul>
+<li>level 1 item (ul)
+<ul class="task-list">
+<li><input type="checkbox" disabled="" />
+level 2 item (task)</li>
+<li><input type="checkbox" disabled="" />
+level 2 item (task)</li>
+</ul></li>
+<li>level 1 item (ul)</li>
+<li>level 1 item (ul)</li>
+</ul>
+<h3 id="small-image">Small image</h3>
+<p><img src="../../assets/images/small-image.jpg" /></p>
+<h3 id="large-image">Large image</h3>
+<p><img src="../../assets/images/large-image.jpg" /></p>
+<p>“<a href="https://www.flickr.com/photos/97810305@N08/9401451269">Wroclaw University Library digitizing rare archival texts</a>” by <a href="https://www.flickr.com/photos/97810305@N08">j_cadmus</a> is marked with <a href="https://creativecommons.org/licenses/by/2.0/?ref=openverse">CC BY 2.0</a>.</p>
+<h3 id="labels">Labels</h3>
+<p>I’m a label {: .label }</p>
+<p>blue {: .label .label-blue } green {: .label .label-green } purple {: .label .label-purple } yellow {: .label .label-yellow } red {: .label .label-red }</p>
+<p><strong>bold</strong> {: .label } <em>italic</em> {: .label } <strong><em>bold + italic</em></strong> {: .label }</p>
+<h3 id="definition-lists-can-be-used-with-html-syntax.">Definition lists can be used with HTML syntax.</h3>
+<dl>
+<dt>
+Name
+</dt>
+<dd>
+Godzilla
+</dd>
+<dt>
+Born
+</dt>
+<dd>
+1952
+</dd>
+<dt>
+Birthplace
+</dt>
+<dd>
+Japan
+</dd>
+<dt>
+Color
+</dt>
+<dd>
+Green
+</dd>
+</dl>
+<h4 id="multiple-description-terms-and-values">Multiple description terms and values</h4>
+<dl>
+<dt>Term</dt>
+<dd>Brief description of Term
+</dd>
+<dt>Longer Term</dt>
+<dd>Longer description of Term, possibly more than one line
+</dd>
+<dt>Term</dt>
+<dd>First description of Term, possibly more than one line
+</dd>
+<dd><p>Second description of Term, possibly more than one line</p>
+</dd>
+</dl>
+<p>Term1 Term2 : Single description of Term1 and Term2, possibly more than one line</p>
+<p>Term1 Term2 : First description of Term1 and Term2, possibly more than one line</p>
+<p>: Second description of Term1 and Term2, possibly more than one line</p>
+<h3 id="more-code">More code</h3>
+<p>```python{% raw %} def dump_args(func): “This decorator dumps out the arguments passed to a function before calling it” argnames = func.func_code.co_varnames[:func.func_code.co_argcount] fname = func.func_name def echo_func(*args,**kwargs): print fname, “:”, ‘,’.join( ‘%s=%r’ % entry for entry in zip(argnames,args) + kwargs.items()) return func(*args, **kwargs) return echo_func</p>
+<p><span class="citation" data-cites="dump_args">@dump_args</span> def f1(a,b,c): print a + b + c</p>
+<p>f1(1, 2, 3)</p>
+<p>def precondition(precondition, use_conditions=DEFAULT_ON): return conditions(precondition, None, use_conditions)</p>
+<p>def postcondition(postcondition, use_conditions=DEFAULT_ON): return conditions(None, postcondition, use_conditions)</p>
+<p>class conditions(object): <strong>slots</strong> = (’__precondition’, ’__postcondition’)</p>
+<pre><code>def __init__(self, pre, post, use_conditions=DEFAULT_ON):
+    if not use_conditions:
+        pre, post = None, None
+
+    self.__precondition  = pre
+    self.__postcondition = post</code></pre>
+<p>{% endraw %}```</p>
+<pre><code>Long, single-line code blocks should not wrap. They should horizontally scroll if they are too long. This line should be long enough to demonstrate this.</code></pre>
+<h3 id="mermaid-diagrams">Mermaid Diagrams</h3>
+<p>The following code is displayed as a diagram only when a <code>mermaid</code> key supplied in <code>_config.yml</code>.</p>
+<pre class="mermaid"><code>graph TD;
+    A--&gt;B;
+    A--&gt;C;
+    B--&gt;D;
+    C--&gt;D;</code></pre>
+<pre><code>The final element.</code></pre>

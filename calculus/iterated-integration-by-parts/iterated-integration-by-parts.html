@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Integrating By Parts By Parts By Parts By Parts By Parts By Parts By Parts By Parts By Parts</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="/main.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <script src="../highlight-toc.js" type="text/javascript"></script>
+</head>
+<body>
+<main>
+<header id="title-block-header">
+<h1 class="title">Integrating By Parts By Parts By Parts By Parts By Parts By Parts By Parts By Parts By Parts</h1>
+</header>
+<p>Here’s an antiderivative: <span class="math display">\[\int\! x^5 \sin(x)\,dx\]</span> Looks hard! We probably can’t immediately see how to antidifferentiate it… which means that we should pull out our all-purpose, use-when-all-else-fails integration tool: integration by parts! Integration by parts, after all, is the <em>machine gun</em> of integration techniques—sometimes it’s overkill, but even when it is, you know it’ll get the job done!</p>
+<p>I never remember the integration-by-parts formula, so here it is, for our reference:</p>
+<p><span class="math display">\[\int\! f&#39;(x)g(x)\, dx \quad=\quad f(x)\cdot g(x) \,-\, \int\! f(x)g&#39;(x) \,dx\]</span></p>
+<p>So, if we integrate this by parts, we’ll have:</p>
+<p><span class="math display">\[\begin{align*}
+    \int\! x^5 \sin(x)\,dx &amp;= \int\! \underbrace{x^5}_{g(x)} \underbrace{\sin(x)}_{f&#39;(x)}\,dx \\
+    &amp;=  f(x)\cdot g(x) \,-\, \int\! f(x)g&#39;(x) \,dx \\
+    &amp;=  (-\cos x)x^5 \,-\, \int\! (-\cos x)\!\cdot\! 5x^4 \,dx \\
+    &amp;=  -x^5\cos x \,-\, \int\! (-\cos x)\!\cdot\! 5x^4 \,dx
+\end{align*}\]</span></p>
+<p>Okay, well, this is nice, but we still have another integral we need to work out. This looks like something ELSE to work out by parts. So let’s do it again—let’s integrate by parts again!!! We have:</p>
+<p><span class="math display">\[\begin{align*}
+    &amp;=  -x^5\cos x \,-\, \int\! \underbrace{(-\cos x)}_{f&#39;(x)}\!\cdot\! \underbrace{5x^4}_{g(x)} \,dx \\
+    &amp;=  -x^5\cos x - \left( f(x) g(x) \,-\, \int\! f(x)g&#39;(x) \,dx \right)\\
+    &amp;=  -x^5\cos x - (-\sin x)5x^4 + \int\! (-\sin x)20x^3 \,dx \\
+    &amp;=  -x^5\cos x + 5x^4\sin x+ \int\! (-\sin x)20x^3 \,dx
+    \end{align*}\]</span></p>
+<p>Okay, we seem to be making some progress—the exponents on the <span class="math inline">\(x\)</span>’s are trending in a hopeful direction—but we’re not done! There’s ANOTHER integral to work out by parts. Here we go:</p>
+<p><span class="math display">\[\begin{align*}
+    &amp;=  -x^5\cos x + 5x^4\sin x + \int\! \underbrace{(-\sin x)}_{f&#39;(x)} \cdot \underbrace{20x^3}_{g(x)} \,dx \\
+    &amp;=  -x^5\cos x + 5x^4\sin x + \left( f(x) g(x) \,-\, \int\! f(x)g&#39;(x) \,dx \right) \\
+    &amp;=  -x^5\cos x + 5x^4\sin x + \left( \cos(x)\cdot 20x^3 \,-\, \int\! \cos(x)\!\cdot\!60x^2 \,dx \right) \\
+    &amp;=  -x^5\cos x + 5x^4\sin x + 20x^3\cos(x)- \int\! \cos(x)\!\cdot\!60x^2 \,dx 
+    \end{align*}\]</span></p>
+<p>AND AGAIN!</p>
+<p><span class="math display">\[\begin{align*}
+    &amp;=  -x^5\cos x + 5x^4\sin x + 20x^3\cos(x)- \int\! \underbrace{\cos(x)}_{f&#39;(x)}\!\cdot\!\underbrace{60x^2}_{g(x)} \,dx \\
+    &amp;=  -x^5\cos x + 5x^4\sin x + 20x^3\cos(x)- \left( f(x) g(x) \,-\, \int\! f(x)g&#39;(x) \,dx \right)\\
+    &amp;=  -x^5\cos x + 5x^4\sin x + 20x^3\cos(x)- \left( \sin(x)\!\cdot\! 60x^2 \,-\, \int\! \sin(x)\!\cdot\!120x \,dx \right)\\
+    &amp;=  -x^5\cos x + 5x^4\sin x + 20x^3\cos(x)- 60x^2  \sin(x) + \int\! \sin(x)\!\cdot\!120x \,dx
+    \end{align*}\]</span></p>
+<p>AGAIN!!!</p>
+<p><span class="math display">\[\begin{align*}
+    &amp;=  -x^5\cos x + 5x^4\sin x + 20x^3\cos(x)- 60x^2  \sin(x) + \int\! \underbrace{\sin(x)}_{f&#39;(x)}\!\cdot\!\underbrace{120x}_{g(x)} \,dx \\
+    &amp;=  -x^5\cos x + 5x^4\sin x + 20x^3\cos(x)- 60x^2  \sin(x) + \left( f(x) g(x) \,-\, \int\! f(x)g&#39;(x) \,dx \right) \\
+    &amp;=  -x^5\cos x + 5x^4\sin x + 20x^3\cos(x)- 60x^2  \sin(x) + \left( (-\cos x) 120x \,-\, \int\! (-\cos x)\cdot 120 \,dx \right) \\
+    &amp;=  -x^5\cos x + 5x^4\sin x + 20x^3\cos(x)- 60x^2  \sin(x) -120x \cos x - \int\! -120\cos x \,dx
+ \end{align*}\]</span></p>
+<p>Okay, wait, this is now an integral we can do without integrating by parts! I mean, we <em>could</em> integrate it by parts—we <em>always</em> can integrate by parts—but we can just do this by hand, as it were, from knowing how to antidifferentiate cosine. We have:</p>
+<p><span class="math display">\[\begin{align*}
+    &amp;=  -x^5\cos x + 5x^4\sin x + 20x^3\cos(x)- 60x^2  \sin(x) -120x \cos x -\left(-120\sin x \right) \\
+    &amp;=  -x^5\cos x + 5x^4\sin x + 20x^3\cos(x)- 60x^2  \sin(x) -120x \cos x + 120\sin x
+\end{align*}\]</span></p>
+<p>We’re done! We’re done! We’re finally done!!! What a huge pain that was! But it looks like we have, as our final answer:</p>
+<p><span class="math display">\[\boxed{ \int\! x^5 \sin(x)\,dx \,=\, -x^5\cos x + 5x^4\sin x + 20x^3\cos(x)- 60x^2  \sin(x) -120x \cos x + 120\sin x }\]</span></p>
+<p>I guess we could check it by differentiating. But that seems like a pain, so let’s just assume that we did this all correctly.</p>
+<p>Was there an easier way to do this? All that algebra was clunky and gross. And fundamentally, what we were doing was repetitive and simple. We were just pairing up derivatives of <span class="math inline">\(x^5\)</span> with antiderivatives of <span class="math inline">\(\sin x\)</span>. So we just need to find the precise pattern of how they pair up. Oh, and we need to pay attention to the sign—there’s that negative in the integration-by-parts formula, so the sign keeps flipping. So, in principle, we could just make a table/chart, listing all three of these things, and use that to build each term!</p>
+<p>I’m not going to motivate this particularly extensively, because (a) I don’t have that much time to write this, and (b) I don’t think it’s <em>that</em> hard to figure out, but anyway, we can list all the derivatives of <span class="math inline">\(g(x)\)</span> and all the antiderivatives of <span class="math inline">\(f&#39;(x)\)</span>:</p>
+<table style="text-align:center;">
+<thead>
+<td>
+<span class="math inline">\(g\)</span> and its derivatives
+</td>
+<td>
+<span class="math inline">\(f&#39;\)</span> and its antiderivatives
+</td>
+</thead>
+<tr>
+<td>
+<span class="math inline">\(x^5\)</span>
+</td>
+<td>
+<span class="math inline">\(\sin(x)\)</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(5x^4\)</span>
+</td>
+<td>
+<span class="math inline">\(-\cos(x)\)</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(20x^3\)</span>
+</td>
+<td>
+<span class="math inline">\(-\sin(x)\)</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(60x^2\)</span>
+</td>
+<td>
+<span class="math inline">\(\cos(x)\)</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(120x\)</span>
+</td>
+<td>
+<span class="math inline">\(\sin(x)\)</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(120\)</span>
+</td>
+<td>
+<span class="math inline">\(-\cos(x)\)</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(0\)</span>
+</td>
+<td>
+<span class="math inline">\(-\sin(x)\)</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(0\)</span>
+</td>
+<td>
+<span class="math inline">\(-\cos(x)\)</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(\vdots\)</span>
+</td>
+<td>
+<span class="math inline">\(\vdots\)</span>
+</td>
+</tr>
+<tr>
+<td>
+etc.
+</td>
+<td>
+etc.
+</td>
+</tr>
+</table>
+<p>There are some alternating signs, too, from the negative in the integration by parts formula:</p>
+<table style="text-align:center;">
+<thead>
+<td>
+sign
+</td>
+<td>
+<span class="math inline">\(g\)</span> and its derivatives
+</td>
+<td>
+<span class="math inline">\(f&#39;\)</span> and its antiderivatives
+</td>
+</thead>
+<tr>
+<td>
+<span class="math inline">\(+\)</span>
+</td>
+<td>
+<span class="math inline">\(x^5\)</span>
+</td>
+<td>
+<span class="math inline">\(\sin(x)\)</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(-\)</span>
+</td>
+<td>
+<span class="math inline">\(5x^4\)</span>
+</td>
+<td>
+<span class="math inline">\(-\cos(x)\)</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(+\)</span>
+</td>
+<td>
+<span class="math inline">\(20x^3\)</span>
+</td>
+<td>
+<span class="math inline">\(-\sin(x)\)</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(-\)</span>
+</td>
+<td>
+<span class="math inline">\(60x^2\)</span>
+</td>
+<td>
+<span class="math inline">\(\cos(x)\)</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(+\)</span>
+</td>
+<td>
+<span class="math inline">\(120x\)</span>
+</td>
+<td>
+<span class="math inline">\(\sin(x)\)</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(-\)</span>
+</td>
+<td>
+<span class="math inline">\(120\)</span>
+</td>
+<td>
+<span class="math inline">\(-\cos(x)\)</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(+\)</span>
+</td>
+<td>
+<span class="math inline">\(0\)</span>
+</td>
+<td>
+<span class="math inline">\(-\sin(x)\)</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(-\)</span>
+</td>
+<td>
+<span class="math inline">\(0\)</span>
+</td>
+<td>
+<span class="math inline">\(-\cos(x)\)</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(+\)</span>
+</td>
+<td>
+<span class="math inline">\(0\)</span>
+</td>
+<td>
+
+</td>
+</tr>
+<tr>
+</td>
+<td>
+
+</td>
+<td>
+
+</td>
+</tr>
+</table>
+<p>How do we combine these all to get our result? Well, the first term of integration by parts is <span class="math inline">\(f(x)g(x)\)</span>, so we need to take <span class="math inline">\(x^5\)</span>, with the first antiderivative of <span class="math inline">\(\sin x\)</span>, and multiply them together. Oh, and there’s a <span class="math inline">\(+\)</span> sign in front. (Well, not exactly, because the antiderivative of <span class="math inline">\(\sin x\)</span> has a negative… but there’s not an additional negative.) So, I’ll label that stuff in blue, and write the corresponding term:</p>
+<table style="text-align:center;">
+<thead>
+<td>
+sign
+</td>
+<td>
+<span class="math inline">\(g\)</span> and its derivatives
+</td>
+<td>
+<span class="math inline">\(f&#39;\)</span> and its antiderivatives
+</td>
+<td>
+corresponding term
+</td>
+</thead>
+<tr>
+<td>
+<span class="math inline">\(\color{blue} +\)</span>
+</td>
+<td>
+<span class="math inline">\(\color{blue} x^5\)</span>
+</td>
+<td>
+<span class="math inline">\(\sin(x)\)</span>
+</td>
+<td>
+(n/a)
+</td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(-\)</span>
+</td>
+<td>
+<span class="math inline">\(5x^4\)</span>
+</td>
+<td>
+<span class="math inline">\(\color{blue} -\cos(x)\)</span>
+</td>
+<td>
+<span class="math inline">\(+x^5\cdot(-\cos x)\)</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(+\)</span>
+</td>
+<td>
+<span class="math inline">\(20x^3\)</span>
+</td>
+<td>
+<span class="math inline">\(-\sin(x)\)</span>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(-\)</span>
+</td>
+<td>
+<span class="math inline">\(60x^2\)</span>
+</td>
+<td>
+<span class="math inline">\(\cos(x)\)</span>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(+\)</span>
+</td>
+<td>
+<span class="math inline">\(120x\)</span>
+</td>
+<td>
+<span class="math inline">\(\sin(x)\)</span>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(-\)</span>
+</td>
+<td>
+<span class="math inline">\(120\)</span>
+</td>
+<td>
+<span class="math inline">\(-\cos(x)\)</span>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(+\)</span>
+</td>
+<td>
+<span class="math inline">\(0\)</span>
+</td>
+<td>
+<span class="math inline">\(-\sin(x)\)</span>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(-\)</span>
+</td>
+<td>
+<span class="math inline">\(0\)</span>
+</td>
+<td>
+<span class="math inline">\(-\cos(x)\)</span>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(\vdots\)</span>
+</td>
+<td>
+<span class="math inline">\(\vdots\)</span>
+</td>
+<td>
+<span class="math inline">\(\vdots\)</span>
+</td>
+</tr>
+</table>
+<p>Great! Note that this is a little weird: we’re not multiplying together things from the exact same row. You could set this up differently if you want. This is just a procedure—it’s just a way of making repeated integration by parts easier.</p>
+<p>For the next term, we’ll multiply together the next set of things. I’ll label them in red:</p>
+<table style="text-align:center;">
+<thead>
+<td>
+sign
+</td>
+<td>
+<span class="math inline">\(g\)</span> and its derivatives
+</td>
+<td>
+<span class="math inline">\(f&#39;\)</span> and its antiderivatives
+</td>
+<td>
+corresponding term
+</td>
+</thead>
+<tr>
+<td>
+<span class="math inline">\(\color{blue} +\)</span>
+</td>
+<td>
+<span class="math inline">\(\color{blue} x^5\)</span>
+</td>
+<td>
+<span class="math inline">\(\sin(x)\)</span>
+</td>
+<td>
+(n/a)
+</td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(\color{red}-\)</span>
+</td>
+<td>
+<span class="math inline">\(\color{red} 5x^4\)</span>
+</td>
+<td>
+<span class="math inline">\(\color{blue} -\cos(x)\)</span>
+</td>
+<td>
+<span class="math inline">\(+x^5(-\cos x)\)</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(+\)</span>
+</td>
+<td>
+<span class="math inline">\(20x^3\)</span>
+</td>
+<td>
+<span class="math inline">\(\color{red}-\sin(x)\)</span>
+</td>
+<td>
+<span class="math inline">\(-5x^4\left(-\sin x\right)\)</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(-\)</span>
+</td>
+<td>
+<span class="math inline">\(60x^2\)</span>
+</td>
+<td>
+<span class="math inline">\(\cos(x)\)</span>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(+\)</span>
+</td>
+<td>
+<span class="math inline">\(120x\)</span>
+</td>
+<td>
+<span class="math inline">\(\sin(x)\)</span>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(-\)</span>
+</td>
+<td>
+<span class="math inline">\(120\)</span>
+</td>
+<td>
+<span class="math inline">\(-\cos(x)\)</span>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(+\)</span>
+</td>
+<td>
+0
+</td>
+<td>
+<span class="math inline">\(-\sin(x)\)</span>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(-\)</span>
+</td>
+<td>
+0
+</td>
+<td>
+<span class="math inline">\(-\cos(x)\)</span>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td>
+<span class="math inline">\(\vdots\)</span>
+</td>
+<td>
+<span class="math inline">\(\vdots\)</span>
+</td>
+</tr>
+</table>
+<p>Let’s keep going! I’ll label the next set in green:</p>
+<table style="text-align:center;">
+<thead>
+<td>
+sign
+</td>
+<td>
+<span class="math inline">\(g\)</span> and its derivatives
+</td>
+<td>
+<span class="math inline">\(f&#39;\)</span> and its antiderivatives
+</td>
+<td>
+corresponding term
+</td>
+</thead>
+<tr>
+<td>
+<span class="math inline">\(\color{blue} +\)</span>
+</td>
+<td>
+<span class="math inline">\(\color{blue} x^5\)</span>
+</td>
+<td>
+<span class="math inline">\(\sin(x)\)</span>
+</td>
+<td>
+(n/a)
+</td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(\color{red} -\)</span>
+</td>
+<td>
+<span class="math inline">\(\color{red} 5x^4\)</span>
+</td>
+<td>
+<span class="math inline">\(\color{blue} -\cos(x)\)</span>
+</td>
+<td>
+<span class="math inline">\(\color{blue} +x^5\cdot(-\cos x)\)</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(\color{green} +\)</span>
+</td>
+<td>
+<span class="math inline">\(\color{green} 20x^3\)</span>
+</td>
+<td>
+<span class="math inline">\(\color{red} -\sin(x)\)</span>
+</td>
+<td>
+<span class="math inline">\(\color{red} -5x^4\left(-\sin x\right)\)</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(-\)</span>
+</td>
+<td>
+<span class="math inline">\(60x^2\)</span>
+</td>
+<td>
+<span class="math inline">\(\color{green} \cos(x)\)</span>
+</td>
+<td>
+<span class="math inline">\(\color{green} +20x^3\cos(x)\)</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(+\)</span>
+</td>
+<td>
+<span class="math inline">\(120x\)</span>
+</td>
+<td>
+<span class="math inline">\(\sin(x)\)</span>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(-\)</span>
+</td>
+<td>
+<span class="math inline">\(120\)</span>
+</td>
+<td>
+<span class="math inline">\(-\cos(x)\)</span>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(+\)</span>
+</td>
+<td>
+0
+</td>
+<td>
+<span class="math inline">\(-\sin(x)\)</span>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(-\)</span>
+</td>
+<td>
+0
+</td>
+<td>
+<span class="math inline">\(-\cos(x)\)</span>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(\vdots\)</span>
+</td>
+<td>
+<span class="math inline">\(\vdots\)</span>
+</td>
+</tr>
+</table>
+<p>You get the idea. Ultimately, this looks like:</p>
+<table style='text-align:center;'>
+<thead>
+<td>
+sign
+</td>
+<td>
+<span class="math inline">\(g\)</span> and its derivatives
+</td>
+<td>
+<span class="math inline">\(f&#39;\)</span> and its antiderivatives
+</td>
+<td>
+corresponding term
+</td>
+</thead>
+<tr>
+<td>
+<span class="math inline">\(+\)</span>
+</td>
+<td>
+<span class="math inline">\(x^5\)</span>
+</td>
+<td>
+<span class="math inline">\(\sin(x)\)</span>
+</td>
+<td>
+(n/a)
+</td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(-\)</span>
+</td>
+<td>
+<span class="math inline">\(5x^4\)</span>
+</td>
+<td>
+<span class="math inline">\(-\cos(x)\)</span>
+</td>
+<td>
+<span class="math inline">\(+x^5\cdot(-\cos x)\)</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(+\)</span>
+</td>
+<td>
+<span class="math inline">\(20x^3\)</span>
+</td>
+<td>
+<span class="math inline">\(-\sin(x)\)</span>
+</td>
+<td>
+<span class="math inline">\(-5x^4 \cdot (-\sin x)\)</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(-\)</span>
+</td>
+<td>
+<span class="math inline">\(60x^2\)</span>
+</td>
+<td>
+<span class="math inline">\(\cos(x)\)</span>
+</td>
+<td>
+<span class="math inline">\(+20x^3\cdot(\cos x)\)</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(+\)</span>
+</td>
+<td>
+<span class="math inline">\(120x\)</span>
+</td>
+<td>
+<span class="math inline">\(\sin(x)\)</span>
+</td>
+<td>
+<span class="math inline">\(-60x^2 \cdot (\sin x)\)</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(-\)</span>
+</td>
+<td>
+<span class="math inline">\(120\)</span>
+</td>
+<td>
+<span class="math inline">\(-\cos(x)\)</span>
+</td>
+<td>
+<span class="math inline">\(+120x \cdot (-\cos x)\)</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(+\)</span>
+</td>
+<td>
+0
+</td>
+<td>
+<span class="math inline">\(-\sin(x)\)</span>
+</td>
+<td>
+<span class="math inline">\(-120 \cdot (-\sin x)\)</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(-\)</span>
+</td>
+<td>
+0
+</td>
+<td>
+<span class="math inline">\(-\cos(x)\)</span>
+</td>
+<td>
+<span class="math inline">\(+0\cdot (-\cos x)\)</span>
+</td>
+</tr>
+<tr>
+<td>
+
+</td>
+<td>
+<span class="math inline">\(\vdots\)</span>
+</td>
+<td>
+<span class="math inline">\(\vdots\)</span>
+</td>
+<td>
+<span class="math inline">\(\vdots\)</span>
+<tr>
+<td>
+etc.
+</td>
+<td>
+<span class="math inline">\(0\)</span>
+</td>
+<td>
+etc.
+</td>
+<td>
+<span class="math inline">\(0\)</span>
+</td>
+</tr>
+</table>
+<p>So, from adding together and simplifying all these things, we get the same answer:</p>
+<p><span class="math display">\[\int\! x^5 \sin(x)\,dx \,=\, -x^5\cos x + 5x^4\sin x + 20x^3\cos(x)- 60x^2  \sin(x) -120x \cos x + 120\sin x \]</span></p>
+<p>People often call this <strong>tabular integration</strong>; sometimes I refer to it as <strong>the table method</strong>, but it’s really not an actual theorem so much as an organizational strategy that makes iterated integration by parts less tedious. If integration by parts is like a <em>machine gun</em> for integration, using a table to integrate by parts over and over and over is like <em>an anti-aircraft gun</em>!!!</p>
+</main>
+</body>
+</html>

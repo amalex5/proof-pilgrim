@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Complex roots, in a Cartesian sense</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="/main.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <script src="../highlight-toc.js" type="text/javascript"></script>
+</head>
+<body>
+<main>
+<header id="title-block-header">
+<h1 class="title">Complex roots, in a Cartesian sense</h1>
+</header>
+<p>So we figured out how to take the square root of <span class="math inline">\(i\)</span>. We did this by assuming that the square root of <span class="math inline">\(i\)</span> was <em>some</em> complex number, and thus we could write it in the form <span class="math inline">\(a+bi\)</span>, and thus we got an equation, and solved it for <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>:</p>
+<p><span class="math display">\[\begin{align*}
+\sqrt{i} &amp;= a+bi \\
+&amp;\quad\vdots\\
+&amp;\text{lots of algebra later...}\\
+&amp;\quad\vdots \\
+&amp;=\frac{\pm1}{\sqrt{2}} + \frac{\pm1}{\sqrt{2}}i
+\end{align*}\]</span></p>
+<p>This method seemed to work, but the result is weird. We still don’t have a good understanding of what the square root of a complex number <em>is</em>. I mean, by definition, a square root of any number is just the number that, when you multiply it by itself, you get the original number back. And that’s what we found here. But it’s still so <em>weird</em>. Where are the fractions coming from? The <span class="math inline">\(\sqrt{2}\)</span>? We know <em>what</em> it is, but we don’t know <em>why</em> it is.</p>
+<p>Contrast this with taking the square roots of real numbers (positive real numbers). We have a pretty good idea about how that works. For example, we don’t know exactly what <span class="math inline">\(\sqrt{17}\)</span> is, but it’s definitely something less than <span class="math inline">\(17\)</span>. Square roots make things smaller (at least when we’re talking about real numbers). Or, I guess they actually make them bigger if it’s less than <span class="math inline">\(1\)</span>. So I guess we should say that when we’re taking the square root of a real number, that makes it closer to <span class="math inline">\(1\)</span>.</p>
+<p><span class="math display">\[1 &lt; \sqrt{17} &lt; 17\]</span></p>
+<p>And we know more than this. We know <span class="math inline">\(\sqrt{17}\)</span> is a little bigger than <span class="math inline">\(\sqrt{16}\)</span>, which is <span class="math inline">\(4\)</span>, so <span class="math inline">\(\sqrt{17}\)</span> must be a little bigger than <span class="math inline">\(4\)</span>. And it has to be less than <span class="math inline">\(\sqrt{25}\)</span>, which is <span class="math inline">\(5\)</span>:</p>
+<p><span class="math display">\[4&lt;\sqrt{17}&lt;5\]</span></p>
+<p>So we’ve got some basic intuition and ideas for how square roots work with positive real numbers. <em>But with complex numbers?!?!</em> No clue. If we were together in class last semester, you got to watch that wonderful short documentary on the proof of Fermat’s Last Theorem, and Andrew Wiles describes doing mathematics as feeling like:</p>
+<blockquote>
+<p>Perhaps I could best describe my experience of doing mathematics in terms of entering a dark mansion. One goes into the first room, and it’s dark, completely dark. One stumbles around bumping into the furniture, and gradually, you learn where each piece of furniture is, and finally, after six months or so, you find the light switch. You turn it on, and suddenly, it’s all illuminated. You can see exactly where you were.</p>
+</blockquote>
+<p>Right now, we’re stumbling around in the dark. We’ve bumped into one piece of furniture—the square root of <span class="math inline">\(i\)</span>. Let’s bump into some more furniture!</p>
+<ol type="1">
+<li><p>Can you figure out what <span class="math inline">\(\sqrt[3]{i}\)</span> is, using the same method as we did to find the square root of <span class="math inline">\(i\)</span>? (Quick question beforehand: we found that <span class="math inline">\(i\)</span> has two square roots. This should make sense: <span class="math inline">\(4\)</span> also has two square roots, <span class="math inline">\(+2\)</span> and <span class="math inline">\(-2\)</span>. How many cube roots do you think that <span class="math inline">\(i\)</span> has? Analogously, how many cube roots does <span class="math inline">\(8\)</span> have?)</p></li>
+<li><p>Likewise, can you find the fourth roots of <span class="math inline">\(i\)</span>?</p></li>
+<li><p>Graph all this stuff, too.</p></li>
+</ol>
+</main>
+</body>
+</html>

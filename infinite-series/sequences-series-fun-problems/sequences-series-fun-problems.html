@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>some fun sequence and series problems!!!!</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="/main.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <script src="../highlight-toc.js" type="text/javascript"></script>
+</head>
+<body>
+<main>
+<header id="title-block-header">
+<h1 class="title">some fun sequence and series problems!!!!</h1>
+</header>
+<ol class='problems'>
+<li>
+<p>The formula we came up with for a geometric series requires that the series starts at <span class="math inline">\(n=0\)</span>:</p>
+<p><span class="math display">\[\sum_{n=0}^{n=\infty}a^n = \text{(whatever the formula was)}\]</span></p>
+<ol type="a">
+<li><p>But what if we have a geometric series that starts not at <span class="math inline">\(n=0\)</span>, but <span class="math inline">\(n=1\)</span>, like <span class="math inline">\(\displaystyle\sum_{n=1}^{n=\infty}a^n\)</span>? Can you come up with a formula for it?</p></li>
+<li><p>What about <span class="math inline">\(\displaystyle\sum_{n=-2}^{n=\infty}a^n\)</span>? Can you come up with a formula?</p>
+</li></li>
+</ol>
+<li>
+<p>We’ve made up this cool <span class="math inline">\(\sum\)</span> notation for iterated (and possibly even infinite) sums! When we make up new notations, it’s helpful to figure out what algebraic properties they have, so we can, like, do algebra and simplify and transform and manupulate stuff.</p>
+<p>We’ve figured out that we can pull constants out of sums: <span class="math display">\[\sum_{n} c \cdot f(n) \, =\, c \cdot \sum_{n} f(n)\]</span></p>
+<ol>
+<li>
+Can we also split up sums along addition? <span class="math display">\[\sum_{n} f(n) + g(n) \,\stackrel{???}{=}\, \sum_{n} f(n) + \sum_{n}  g(n)\]</span>
+</li>
+<li>
+What about along multiplication? <span class="math display">\[\sum_{n} f(n) \cdot g(n) \,\stackrel{???}{=}\, \sum_{n} f(n) \cdot \sum_{n}  g(n)\]</span>
+</li>
+<li>
+What about division?
+</li>
+<li>
+Subtraction?
+</li>
+</ol>
+For all of these questions, give some examples to show that we either can or can’t, and then prove it. (To prove that we <em>can’t</em> do this, a single counter-example is enough.) (Is there a difference in how these theorems hold or don’t hold if the sum is finite or infinite?)
+</li>
+<li>
+Remind yourself, or go look up, how to do a “partial fraction decomposition” (a fancy method for turning <em>one</em> fraction into <em>two</em> fractions). Then use it to help determine whether this series converges: <span class="math display">\[\displaystyle\sum_{n=1}^{n=\infty} \frac{3+2n}{n^2+3n+2}\]</span>
+</li>
+<li>
+Do the same for this series: <span class="math display">\[\displaystyle\sum_{n=2}^{n=\infty} \frac{1}{n^3-n}\]</span>
+</li>
+<li>
+For what values of <span class="math inline">\(p\)</span> does the series <span class="math inline">\(\displaystyle\sum_{k=1}^{k=\infty} k^p\)</span> converge? for what values of <span class="math inline">\(p\)</span> does it diverge?
+</li>
+<li>
+Decide how to properly pluralize “series.”
+</li>
+<li>
+<p>Here’s a fun series:</p>
+<p><span class="math display">\[\sum_{n=0}^{n=\infty} \frac{(-1)^n}{2n+1} \]</span></p>
+<p>Does it converge? Does it diverge? Can you figure out what it converges to? (If you can’t figure out analytically (i.e., symbolically) what it converges to, can you try to estimate it using a computer?)</p>
+<li>
+You want to measure how tall a particular skyscraper in downtown San Francisco is, and for some reason you lack conventional measuring instruments, but you do have a giant bouncy rubber ball, equipped with some fancy sensors. You know that the ball rebounds <span class="math inline">\(75\%\)</span> after each bounce. So you drop it off the very top of the skyscraper, and it bounces a bunch, and eventually settles down, and the sensors tell you that the total vertical distance the ball travelled is <span class="math inline">\(3,412\)</span> feet. (Why the sensors can tell you this, and not how long the initial drop was, I have no idea.) How tall is the skyscraper? Which skyscraper are you atop?
+</li>
+<li>
+<p>The following is a sketch of a fractal, constructed by taking a square, drawing a square inside of it using the midpoints as corners, drawing a square inside of that using the midpoints as corners, and so forth, <em>ad infinitum</em>. Find a) the total area enclosed by all the squares, and b) the total perimeter of all the squares.</p>
+<p><img src="rotated-square-fractal.svg" style="width:50.0%" /></p>
+</li>
+<li>
+<p>Here are the first six iterations of a beautiful fractal I laser-cut in the i-Lab:</p>
+<p><img src="koch-snowflakes-IMG_2213.jpg" style="width:75.0%" /></p>
+<p>This fractal is Helge von Koch’s snowflake curve, known generally as the <strong>Koch curve</strong> or <strong>Koch snowflake</strong>. It is drawn by taking an equilateral triangle, then pasting on three equilateral triangles in the center-third of each side, then pasting on equilateral triangles into the center-third of the sides of the triangles constructed in the previous step, and so forth.</p>
+<ol>
+<li>
+When I cut these out on the laser-cutter, the first iteration had a side length of seven inches. The sixth and final iteration, with tiny triangle nubs just a few hundredths of an inch wide, took about <span class="math inline">\(20\)</span> minutes for the laser cutter to completely cut out. How fast was the laser cutter moving during that final iteration?
+</li>
+<li>
+What’s the total area enclosed by a Koch snowflake? (By this I mean in the limiting case; the snowflake as the numer of iterations becomes infinite.)
+</li>
+<li>
+What’s the perimeter of a Koch snowflake?
+</li>
+<li>
+Here’s a better way to phrase the previous two questions: suppose you go to the i-Lab and laser-cut the actual, infinite version of the Koch snowflake. How long would it take to cut it out? How much material would it take?
+</ol>
+</li>
+<li>
+Just like we can make iterated and infinite sums with a giant <span class="math inline">\(\Sigma\)</span>, we can also make iterated and infinite products! In other words, rather than <em>adding</em> a whole bunch of things together, we can <em>multiply</em> a whole bunch of things! The notation we use for it is a giant <span class="math inline">\(\Pi\)</span>—it’s a giant <strong>p</strong>i for <strong>p</strong>roduct, contra the giant <strong>s</strong>igma for <strong>s</strong>um.
+<ol>
+<li>
+Write out all the terms—well, I guess we should say, <em>factors</em>—of <span class="math inline">\(\displaystyle \prod_{k=0}^{k=3}\left(2^k + 3\right)\)</span>
+</li>
+<li>
+Consider the iterated product <span class="math inline">\(\displaystyle \prod_{k=1}^{k=n}(k)\)</span>. Do we have another name for this function?
+</li>
+<li>
+Consider the infinite product <span class="math inline">\(\displaystyle \prod_{k=1}^{k=\infty}\frac{1}{k}\)</span>. Does it converge or diverge? If the former, to what does it converge? How about <span class="math inline">\(\displaystyle \prod_{k=1}^{k=\infty}\frac{2}{5k+70}\)</span>?
+</li>
+<li>
+What algebraic properties can we learn about iterated products (like the properties of iterated sums in problem 116)? Can we pull constants out? Can we split them up along addition? Can we split them up along multiplication?
+</li>
+</ol>
+</li>
+<li>
+<p>Here’s another infinite product:</p>
+<p><span class="math display">\[2 \cdot \left[ \left( \frac {2}{1}\cdot \frac {2}{3} \right) \cdot \left( \frac {4}{3}\cdot \frac {4}{5} \right) \cdot \left( \frac {6}{5}\cdot \frac {6}{7} \right) \cdot \left( \frac {8}{7}\cdot \frac {8}{9} \right) \cdots \right]\]</span></p>
+<p>So there’s a <span class="math inline">\(2\)</span> on the outside, but then the entire interior is this long infinite product. I’m using the square brackets instead of (round ones) just for clarity.</p>
+<ol>
+<li>
+Write this product in <span class="math inline">\(\Pi\)</span> notation.
+</li>
+<li>
+Calculate the first few products. In other words, see what happens when you calculate this product from <span class="math inline">\(n=1\)</span> to <span class="math inline">\(n=2\)</span>, then from <span class="math inline">\(n=1\)</span> to <span class="math inline">\(n=3\)</span>, then from <span class="math inline">\(n=1\)</span> to <span class="math inline">\(n=4\)</span>, then from <span class="math inline">\(n=1\)</span> to <span class="math inline">\(n=5\)</span>, etc., multiplying on a new factor each time. Does it look like the product is converging, or diverging? If it looks like it’s converging, what does it look like it’s converging to? Using a spreadsheet or writing a short computer program is helpful here, since it takes a long time to converge, slash for it to become apparent what it converges to. Note that you can solve this part even if you didn’t figure out how to write this product in <span class="math inline">\(\Pi\)</span> notation, as long as you can figure out in a more general sense what the pattern’s doing.)
+</li>
+</ol>
+</li>
+<li>
+Iterated sums, iterated products—what about <em>iterated exponents</em>?!?
+</li>
+<li>
+Look up another test for series convergence/divergence (on the internet or in a textbook or wherever, different from the ones we’ve discussed in these notes), figure out how and why it works, and explain it, both in writing and (potentially) to the class.
+<li>
+<p><strong>Percentages are nonlinear.</strong> Suppose it takes you six hours to drive from SF to LA going 60mph. If you increase your speed by <span class="math inline">\(100\%\)</span>—i.e., double it—then the time it takes to get to LA doesn’t go down by <span class="math inline">\(100\%\)</span>. You don’t get to LA in zero hours by driving 120mph. (Among other things, this would violate conservation of energy.) Even if you increase your speed by only <span class="math inline">\(50\%\)</span>, you don’t decrease the amount of time it takes to get to LA by <span class="math inline">\(50\%\)</span>.</p>
+<ol type="a">
+<li>Why not? How long would it take? Figure it out.</li>
+</ol>
+<p>On the other hand, if you’re dealing only with <em>small</em> differences in speed, increasing your speed by <span class="math inline">\(x\%\)</span> <em>will</em> decrease your travel time by <span class="math inline">\(x\%\)</span> (roughly, approximately).</p>
+<ol start="2" type="a">
+<li><p>Verify that this is true in this specific example. For instance, if you increase your speed by <span class="math inline">\(2\%\)</span>, how long will it take to get to LA? How does that compare to <span class="math inline">\(98\%\)</span> of six hours? (You can use a small percentage other than <span class="math inline">\(2\%\)</span> if you like!)</p></li>
+<li><p>Most importantly, <em>why</em> is this true? Make an argument for why, as long as <span class="math inline">\(x\)</span> is reasonably small, if you increase your speed by <span class="math inline">\(x\%\)</span>, your travel time will decrease by about <span class="math inline">\(x\%\)</span>.</p></li>
+</ol>
+<em>(Inspired by a conversation on this topic, as reported to me, between Scott Kovach and Aamnah Khalid while driving from SF to Death Valley; the conversation apparently involved them trying to compute a particular Taylor series out loud, without pen or paper, while driving… which is sort of a hint, but then again, I originally wrote this as a calc problem, and Lachlan Chu pointed out that it could be solved only using Math 3 tools.)</em>
+</li>
+<li>
+Here’s a cool sequence: <span class="math display">\[ \sqrt{2}, \quad \sqrt{2+\sqrt{2}}, \quad \sqrt{2+\sqrt{2+\sqrt{2}}}, \quad \cdots\]</span>
+<ol>
+<li>
+Can you come up with a recursive definition for this sequence? That is, can you write a formula for the <span class="math inline">\((n+1)\)</span>st term, in terms of the <span class="math inline">\(n\)</span>th term?
+</li>
+<li>
+Compute the first few terms of this sequence. Does it seem to be converging, or diverging? If it seems to be converging, what does it seem to be converging to? Why?
+</li>
+<li>
+Call this sequence <span class="math inline">\(S\)</span>, i.e., let <span class="math display">\[S = \sqrt{2+ \sqrt{2+\sqrt{2 + \cdots}}}\]</span> Can you rewrite the right side of this equation so that it also has an <span class="math inline">\(S\)</span> in it? Having done that (and thus having <span class="math inline">\(S\)</span> on both sides of this equation), can you solve this equation for <span class="math inline">\(S\)</span>? What do you conclude?
+</li>
+<li>
+<strong>Liam’s problem</strong>: what if we ask these same questions, but with <em>cube</em> roots? I.e.: <span class="math display">\[\sqrt[3]{2},\quad \sqrt[3]{2 + \sqrt[3]{2},\,\, },\quad \sqrt[3]{ 2+ \sqrt[3]{2 + \sqrt[3]{2},\,\, }}, \quad \cdots\]</span>
+</li>
+</ol>
+</li>
+<li>
+<p>Suppose you want to balance a laptop on the edge of the table so that it’s partially hanging off the edge (or, to use a fancy word, so that it’s <em>cantilevered</em> off the edge). How far over the edge can you push it? It’s not that hard to figure out, either in practice or in theory, that you need to have at least half the laptop on the table:</p>
+<p>(<em>Imagine a picture here of a laptop balancing precariously half-off the edge of a table!</em>)</p>
+<p>The physics explanation is that then the torques balance out and whatnot. But what if you want to balance <em>two</em> laptops on top of each other, cantilevering over the edge?</p>
+<p>(<em>Imagine a picture here of</em> two <em>laptops balancing precariously on the edge of a table!</em>)</p>
+<p>Now we need to have at least half of their <em>combined</em> center of mass over the table. Which means that the top laptop we can push out further! So, how far? How far out can you get the stack of two laptops to go?</p>
+<p>What if we have three laptops? Four laptops? <span class="math inline">\(n\)</span> laptops? Is it possible to stack so many laptops so that the top laptop is, in fact, <em>not at all</em> over the table??? What if we want the edge of the top laptop to be, say, <span class="math inline">\(10\)</span> feet away from the edge of the table? How many laptops would we need to stack? (Probably it would help to define/instantiate some variables in here.) What if we want to have a giant stack of laptops, the topmost of which ends <span class="math inline">\(100\)</span> feet away from the edge of the table? Is it possible? How many laptops would it take?!?! Try to work this all out both theoretically (i.e., with math), and experimentally (i.e., with actual laptops or similarly-shaped objects).</p>
+<p>Here’s an photo of me attempting this demo in May 2024 in Block 4:</p>
+<p><img src="2024-05-16-block-stacking-demo-with-laptops-IMG_7573.jpg" style="width:100.0%" /></p>
+</li>
+<li>
+Pick an arbitrary positive integer. <span class="math inline">\(5\)</span>, <span class="math inline">\(37\)</span>, <span class="math inline">\(98543\)</span>, whatever. Then use it to create a sequence by doing the following: generate the next number in the sequence by either:
+<ul>
+<li>
+dividing the number by <span class="math inline">\(2\)</span>, if the initial number is even, or
+</li>
+<li>
+multiplying the number by <span class="math inline">\(3\)</span>, and then adding <span class="math inline">\(1\)</span>, if the initial number is odd
+</li>
+</ul>
+<p>and then repeat the process. In other words, if your first number is <span class="math inline">\(S(n)\)</span>, then: <span class="math display">\[S(n+1) = \begin{cases} S(n)/2 &amp;\text{if } n \text{ is even} \\ 3S(n)+1 &amp; \text{if } n \text{ is odd} \end{cases}\]</span> So, for instance, if your first number is <span class="math inline">\(7\)</span>, the sequence might start like: <span class="math display">\[7, \quad (3\cdot 7 + 1) = 22, \quad (22/2) = 11, \quad (11\cdot 3 + 1) = 34, \quad (34/2) = 17, \quad \cdots\]</span> or, without showing the work: <span class="math display">\[7, 22, 11, 34, 17, \cdots\]</span> So, pick some random number, and generate a bunch of terms of the sequence. Keep generating terms until something very boring starts happening. It might take a while. You might need to use a calculator; even better, write a short computer program or a spreadsheet, to save yourself the trouble of doing all that repetitive arithmetic. Try it starting with different numbers. What happens? Does the sequence converge, or diverge? If it converges, what does it converge to? Make a conjecture. Can you prove it?</p>
+<p>If you can prove that the sequence converges (for any initial starting number), I’ll buy you a box of donuts every single day for the rest of the time we’re both at Nueva together.</p>
+</li>
+</ol>
+</main>
+</body>
+</html>

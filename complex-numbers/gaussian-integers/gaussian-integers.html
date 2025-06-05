@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Prime Numbers Aren’t</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="/main.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <script src="../highlight-toc.js" type="text/javascript"></script>
+</head>
+<body>
+<main>
+<header id="title-block-header">
+<h1 class="title">Prime Numbers Aren’t</h1>
+</header>
+<p>Today, in “lies you’ve been told all your lives:” <em>not all prime numbers are prime</em>!!! Your teachers told you <span class="math inline">\(5\)</span> was prime. It’s not:</p>
+<p><span class="math display">\[5 = (2+i)(2-i)\]</span></p>
+<p>We can’t factor <span class="math inline">\(5\)</span> using integers—but using complex numbers, we can!!!</p>
+<p><span class="math display">\[\begin{align*}
+(2+i)(2-i) &amp;= 2^2 + 2i - 2i -i^2\\
+&amp;= 4 -(-1)\\
+&amp;= 4 + 1 \\
+&amp;= 5
+\end{align*}\]</span></p>
+<p>Are the prime numbers no longer prime? Can we all of a sudden factor every prime number using complex numbers? Now that we’ve gone so deep into our imagination, <em>is anything real anymore?!?</em></p>
+<p>What about non-real complex numbers? Are any of <em>them</em> prime? Or can we just keep factoring them into smaller and smaller factors? For example, here’s an non-real complex number:</p>
+<p><span class="math display">\[3+93i\]</span></p>
+<p>This isn’t prime, since we can factor out a <span class="math inline">\(3\)</span>:</p>
+<p><span class="math display">\[3 + 93i = (3)\cdot(1+31i)\]</span></p>
+<p>Can we factor it yet further? We know that <span class="math inline">\(3\)</span> is prime as an integer, but can we factor it further in the complex numbers? What about <span class="math inline">\(1+31i\)</span>? Can we factor that any further, or is it prime? We can’t factor out from it any normal integers, since <span class="math inline">\(1\)</span> and <span class="math inline">\(31\)</span> have no factors in common (<span class="math inline">\(1\)</span> doesn’t really count). Can we perhaps factor it into complex integers?</p>
+<p>We can!</p>
+<p><span class="math display">\[1+31i = (3+2i)(5+7i)\]</span></p>
+<p>Without explaining how we would <em>come up</em> with this factorization, we can check that it works:</p>
+<p><span class="math display">\[\begin{align*}
+(3+2i)(5+7i) &amp;= 3\cdot5 + 3\cdot7i + 5\cdot2i + (2i)(7i)\\
+&amp;= 15 + 21i + 10i + 14i^2\\
+&amp;= 15 + 31i - 14\\
+&amp;= (1 + 31i)
+\end{align*}\]</span></p>
+<p>So, I guess that <span class="math inline">\(1+31i\)</span> isn’t prime! What about its factors, <span class="math inline">\(3+2i\)</span> and <span class="math inline">\(5+7i\)</span>? Are they prime? Can we factor them any more? <span class="math inline">\(2\)</span>, <span class="math inline">\(3\)</span>, <span class="math inline">\(5\)</span>, and <span class="math inline">\(7\)</span> are all prime among the integers, but apparently that doesn’t mean that <span class="math inline">\(3+2i\)</span> and <span class="math inline">\(5+7i\)</span> must also be prime.</p>
+<p>So we have:</p>
+<p><span class="math display">\[\begin{align*}
+\underbrace{3+93i}_{\text{not prime}} \,\, &amp;= (3)\cdot(1+31i) \\
+&amp;= \underbrace{(3)\cdot(3+2i)\cdot(5+7i)}_{\text{are any of these prime???}}
+\end{align*}\]</span></p>
+<p>Before we go totally off the deep end, let’s be a bit more clear about our definitions. When we normally talk about factoring numbers into primes, we’re talking about factoring integers. For any (positive) integer, there’s only one way to factor it into a product of prime numbers (ignoring things like negatives, extra <span class="math inline">\(1\)</span>s, and ordering the factors differently). So, for example, as an integer, <span class="math inline">\(5\)</span> is prime, because we can’t factor it into smaller integers. <span class="math inline">\(12\)</span> isn’t prime (it’s <strong>composite</strong>), because we can factor it into a bunch of primes:</p>
+<p><span class="math display">\[\begin{align*}
+12 &amp;= 2\cdot 2\cdot3 \\
+&amp;= 2^2\cdot 3
+\end{align*}\]</span></p>
+<p>What about when we start talking about complex numbers? Let’s define a <strong>complex integer</strong> as a number of the form <span class="math inline">\(a+bi\)</span>, where <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are both integers:</p>
+<p><span class="math display">\[\text{a complex integer} = a + bi, \quad a,b\in \mathbb{Z}\]</span></p>
+<p>So these are like the complex versions of integers (as opposed to the complex versions of real numbers, which is most of what we’ve been talking about). Most people call these the <strong>Gaussian integers</strong>, and while Gauss was a great guy, I think <strong>complex integer</strong> is a more evocative name.</p>
+<p>So, for example, here are some complex integers:</p>
+<p><span class="math display">\[5+2i\]</span></p>
+<p><span class="math display">\[3-4i\]</span></p>
+<p><span class="math display">\[7\quad \text{(it&#39;s also a normal integer!)}\]</span></p>
+<p><span class="math display">\[12i\quad \text{(it&#39;s also a normal imaginary number!)}\]</span></p>
+<p>Every complex integer is also a normal integer:</p>
+<p>VENN DIAGRAM PICTURE</p>
+<p>Here are some complex numbers that aren’t complex integers:</p>
+<p><span class="math display">\[1.6 + 2.4i\]</span></p>
+<p><span class="math display">\[8 - \pi i\]</span></p>
+<p><span class="math display">\[11.46\]</span></p>
+<p><span class="math display">\[-17.9i\]</span></p>
+<p>Here are two overwhelming questions:</p>
+<ul>
+<li>Which complex integers are prime? Which are not prime?</li>
+<li>Of the numbers that are prime when considered as integers, which are still prime as complex integers?</li>
+<li><em>Why?!?</em></li>
+</ul>
+<p>And here are some more specific questions:</p>
+<ul>
+<li>FACTOR SOME STUFF</li>
+<li>Is every number that’s prime among the integers also prime among the complex integers? Why, or why not? Can you come up with examples or counterexamples? Can you prove it?</li>
+<li>Suppose we have a normal integer. If it’s nonprime/composite among the integers, is it always nonprime/composite among the complex integers? Why, or why not?</li>
+<li>Suppose we have a normal integer. If it’s prime among the integers, is it always prime among the complex integers? Which numbers that are prime as integers are also prime as complex integers?</li>
+<li>Try making a list of the normal primes (well, some of them). Which of them can you factor as complex integers? We already know that we can factor <span class="math inline">\(5\)</span> in the complex integers—is it the only integer prime for which we can do that? Are there others? Do they have anything in common? Why is it, by the way, that we can factor <span class="math inline">\(5\)</span> in the complex integers? What’s the underlying reason?</li>
+<li>The powers of <span class="math inline">\(i\)</span> repeat every four. [REDACTED HINT!] <!-- In other words, if we want to simplify $i^n$, all we have to do is find the remainder of $n$ when it's divided by $4$. Think about the primes that aren't prime as complex integers---what's their remainder when divided by $4$? --></li>
+<li>Triangles?!?</li>
+<li>Suppose we have a complex integer, <span class="math inline">\(a+bi\)</span>, with <span class="math inline">\(a\)</span> and <span class="math inline">\(b\in \mathbb{Z}\)</span>. When is it prime?</li>
+</ul>
+</main>
+</body>
+</html>
