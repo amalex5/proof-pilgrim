@@ -14,7 +14,12 @@ text-align:left;
 padding:0
 
 }
+li {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
 </style>
+
 
 <div style='display:block; width:100%; background-color: gainsboro;'> </div>
 

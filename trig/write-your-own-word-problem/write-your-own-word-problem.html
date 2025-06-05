@@ -19,12 +19,40 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
   <script src="../highlight-toc.js" type="text/javascript"></script>
+
+  <script> 
+      // disappearing header, from dynomight.net'
+      var prevScrollpos = window.pageYOffset;
+
+      window.onscroll = function() {
+        var currentScrollPos = Math.max(0,window.pageYOffset);
+
+        if (Math.abs(currentScrollPos - prevScrollpos) > 10){
+          if (prevScrollpos > currentScrollPos) {
+            document.querySelector('header').style.top = "0";
+            document.querySelector('header').style.opacity = "75%";
+          } else {
+            document.querySelector('header').style.top = "-60px";
+          }
+          prevScrollpos = currentScrollPos;
+        }
+        if(currentScrollPos==0){
+          document.querySelector('header').style.top = "0";
+          document.querySelector('header').style.opacity = "100%";
+        }
+      }
+    </script>
+
 </head>
 <body>
-<main>
-<header id="title-block-header">
-<h1 class="title">Write Your Own Adventure</h1>
+  <header>
+    <span id="header-name">the natural history <span style="font-weight:normal;">of abstract objects</span></span> <span id="linkback"><a href=http://www.andrusia.com><img src="/andrew-logo.svg" id='header-logo' style='width: auto;'/></a></span>
 </header>
+ -->
+<main>
+<div id="title-block">
+<h1 class="title">Write Your Own Adventure</h1>
+</div>
 <p>Imagine this scenario: you’re a student at an academically-demanding school in the foothills of the California Coast Ranges, and you’ve been doing word problems with trigonometry for the last month or so, except the word problems are really rather bland, and you’re good enough at the fundamental mathematics that you can do all of them without much trouble. They’re so boring and so tedious that whenever you sit down to do them, you always end up zoning out. You sit at your desk, idly tapping your pencil and staring at the wall, all while wishing: <em>if only this stuff could be harder and more interesting!</em></p>
 <p>This is not a hypothetical situation! This is, in fact, your final project for the semester: I want you to write and solve a word problem. It might sound easy, but in many ways is quite a bit harder than just solving a word problem. Often in classes I have spent several days designing a single word problem (and I can do most of the symbol-manipulation in my head). The math in your problem needs to be all correct. But that’s just the basics. When you write an English essay, the language needs to be sensible and syntactical. You have plenty of time at home to check your algebra and trig. You shouldn’t get any of it wrong. What I’m really looking for is for you to do two things: one, <em>create a reality that induces a challenging, non-trivial math problem</em>, and two, <em>solve it</em>. Put differently, <em>I want you to write and solve a very creative word problem that requires difficult mathematics</em>.</p>
 <p>As examples, consider the following four word problems:</p>

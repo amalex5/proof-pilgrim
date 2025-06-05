@@ -19,12 +19,39 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
   <script src="../highlight-toc.js" type="text/javascript"></script>
+
+  <script> 
+      // disappearing header, from dynomight.net'
+      var prevScrollpos = window.pageYOffset;
+
+      window.onscroll = function() {
+        var currentScrollPos = Math.max(0,window.pageYOffset);
+
+        if (Math.abs(currentScrollPos - prevScrollpos) > 10){
+          if (prevScrollpos > currentScrollPos) {
+            document.querySelector('header').style.top = "0";
+            document.querySelector('header').style.opacity = "75%";
+          } else {
+            document.querySelector('header').style.top = "-60px";
+          }
+          prevScrollpos = currentScrollPos;
+        }
+        if(currentScrollPos==0){
+          document.querySelector('header').style.top = "0";
+          document.querySelector('header').style.opacity = "100%";
+        }
+      }
+    </script>
+
 </head>
 <body>
+  <header>
+    <span id="header-name">the natural history <span style="font-weight:normal;">of abstract objects</span></span> <span id="linkback"><a href=http://www.andrusia.com><img src="/andrew-logo.svg" id='header-logo' style='width: auto;'/></a></span>
+</header>
 <script>document.addEventListener('DOMContentLoaded', function(e) {
   Scroller.init();
 })</script>
-<aside>
+<!-- <aside>
 <div class="tocLinks" >
 <nav id="TOC" role="doc-toc">
 <ul>
@@ -39,10 +66,11 @@
 </nav>
 </div>
 </aside>
+ -->
 <main>
-<header id="title-block-header">
+<div id="title-block">
 <h1 class="title">some example radians problems!</h1>
-</header>
+</div>
 <p>Important note here: please DON’T just try to speedrun these. Please don’t mechanically go through them as fast as possible—e.g., don’t try to blaze through all 44 problems, all at once! Yes, I know that the radians to-and-from degrees conversion is mechanical and formulaic, but I want us to do a bunch of conversions, <em>spread out over time</em>, not all at once—that’s how we learn the best! Not by doing six hours of soccer drills once a week—but by doing an hour of drills once a day. Or something like that. In other words, we want more repetition, over time! So even though these problems are “easy,” please don’t just burn through them as quick as possible! Our goal is to be able to convert between radians and degrees in our heads, totally fluently and fluidly and intuitively. We want to <em>feel</em> this stuff! And for that we need lots of practice!</p>
 <h2 id="radians-3-2pi">Radians #3: <span class="math inline">\(2\pi\)</span></h2>
 <p><span class="math inline">\(2\pi\)</span>! That’s a whole circle! <span class="math inline">\(360^\circ\)</span>!!! Yay! (Note here how I’m NOT just plugging things into the formula—I could, but I’m not—I’m trying to really FEEL how many degrees <span class="math inline">\(2\pi\)</span> radians is!)</p>

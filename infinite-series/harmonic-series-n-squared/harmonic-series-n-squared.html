@@ -19,12 +19,39 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
   <script src="../highlight-toc.js" type="text/javascript"></script>
+
+  <script> 
+      // disappearing header, from dynomight.net'
+      var prevScrollpos = window.pageYOffset;
+
+      window.onscroll = function() {
+        var currentScrollPos = Math.max(0,window.pageYOffset);
+
+        if (Math.abs(currentScrollPos - prevScrollpos) > 10){
+          if (prevScrollpos > currentScrollPos) {
+            document.querySelector('header').style.top = "0";
+            document.querySelector('header').style.opacity = "75%";
+          } else {
+            document.querySelector('header').style.top = "-60px";
+          }
+          prevScrollpos = currentScrollPos;
+        }
+        if(currentScrollPos==0){
+          document.querySelector('header').style.top = "0";
+          document.querySelector('header').style.opacity = "100%";
+        }
+      }
+    </script>
+
 </head>
 <body>
+  <header>
+    <span id="header-name">the natural history <span style="font-weight:normal;">of abstract objects</span></span> <span id="linkback"><a href=http://www.andrusia.com><img src="/andrew-logo.svg" id='header-logo' style='width: auto;'/></a></span>
+</header>
 <script>document.addEventListener('DOMContentLoaded', function(e) {
   Scroller.init();
 })</script>
-<aside>
+<!-- <aside>
 <div class="tocLinks" >
 <nav id="TOC" role="doc-toc">
 <ul>
@@ -39,10 +66,11 @@
 </nav>
 </div>
 </aside>
+ -->
 <main>
-<header id="title-block-header">
+<div id="title-block">
 <h1 class="title">Does <span class="math inline">\(\displaystyle \sum^{\infty} \frac{1}{n^2}\)</span> converge?</h1>
-</header>
+</div>
 <p>We’ve figured out that <span class="math inline">\(1/n\)</span> diverges. But what about <span class="math inline">\(1/n^2\)</span>?</p>
 <p><span class="math display">\[\sum_{n=1}^{n=\infty} \frac{1}{n^2} = 1 + \frac{1}{4} + \frac{1}{9} + \frac{1}{16} + \frac{1}{25} + \frac{1}{36} + \cdots\]</span></p>
 <p>Its terms are going to <span class="math inline">\(0\)</span>. They’re going to <span class="math inline">\(0\)</span> much faster than the terms of <span class="math inline">\(1/n\)</span> do. (They’re squared!). But that doesn’t mean the series converges. <span class="math inline">\(1/n^2\)</span> is less than <span class="math inline">\(1/n\)</span>, but all that tells us is that <span class="math inline">\(1/n^2\)</span> is less than <span class="math inline">\(\infty\)</span>. It could be less than <span class="math inline">\(1/n\)</span>, and still be infinite. It could be less than <span class="math inline">\(1/n\)</span>, but be finite (it’d have to be waaaaay less).</p>

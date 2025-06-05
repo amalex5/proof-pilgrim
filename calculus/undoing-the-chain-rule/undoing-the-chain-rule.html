@@ -19,12 +19,39 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
   <script src="../highlight-toc.js" type="text/javascript"></script>
+
+  <script> 
+      // disappearing header, from dynomight.net'
+      var prevScrollpos = window.pageYOffset;
+
+      window.onscroll = function() {
+        var currentScrollPos = Math.max(0,window.pageYOffset);
+
+        if (Math.abs(currentScrollPos - prevScrollpos) > 10){
+          if (prevScrollpos > currentScrollPos) {
+            document.querySelector('header').style.top = "0";
+            document.querySelector('header').style.opacity = "75%";
+          } else {
+            document.querySelector('header').style.top = "-60px";
+          }
+          prevScrollpos = currentScrollPos;
+        }
+        if(currentScrollPos==0){
+          document.querySelector('header').style.top = "0";
+          document.querySelector('header').style.opacity = "100%";
+        }
+      }
+    </script>
+
 </head>
 <body>
+  <header>
+    <span id="header-name">the natural history <span style="font-weight:normal;">of abstract objects</span></span> <span id="linkback"><a href=http://www.andrusia.com><img src="/andrew-logo.svg" id='header-logo' style='width: auto;'/></a></span>
+</header>
 <script>document.addEventListener('DOMContentLoaded', function(e) {
   Scroller.init();
 })</script>
-<aside>
+<!-- <aside>
 <div class="tocLinks" >
 <nav id="TOC" role="doc-toc">
 <ul>
@@ -37,10 +64,11 @@
 </nav>
 </div>
 </aside>
+ -->
 <main>
-<header id="title-block-header">
+<div id="title-block">
 <h1 class="title">putting humpty-dumpty back together</h1>
-</header>
+</div>
 <p>One of the things we occasionally do when we take derivatives is use the chain rule. The chain rule <em>explodes</em> things. So sometimes, when we take anti-derivatives, we need to <em>implode</em> things. We need to take the scattered pieces of something that’s been exploded by the chain rule, and carefully, delicately, put them back together.</p>
 <p>exploded remanents of the chain rule</p>
 <p>pieces lying on the floor</p>

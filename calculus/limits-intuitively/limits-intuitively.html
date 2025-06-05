@@ -19,12 +19,39 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
   <script src="../highlight-toc.js" type="text/javascript"></script>
+
+  <script> 
+      // disappearing header, from dynomight.net'
+      var prevScrollpos = window.pageYOffset;
+
+      window.onscroll = function() {
+        var currentScrollPos = Math.max(0,window.pageYOffset);
+
+        if (Math.abs(currentScrollPos - prevScrollpos) > 10){
+          if (prevScrollpos > currentScrollPos) {
+            document.querySelector('header').style.top = "0";
+            document.querySelector('header').style.opacity = "75%";
+          } else {
+            document.querySelector('header').style.top = "-60px";
+          }
+          prevScrollpos = currentScrollPos;
+        }
+        if(currentScrollPos==0){
+          document.querySelector('header').style.top = "0";
+          document.querySelector('header').style.opacity = "100%";
+        }
+      }
+    </script>
+
 </head>
 <body>
+  <header>
+    <span id="header-name">the natural history <span style="font-weight:normal;">of abstract objects</span></span> <span id="linkback"><a href=http://www.andrusia.com><img src="/andrew-logo.svg" id='header-logo' style='width: auto;'/></a></span>
+</header>
 <script>document.addEventListener('DOMContentLoaded', function(e) {
   Scroller.init();
 })</script>
-<aside>
+<!-- <aside>
 <div class="tocLinks" >
 <nav id="TOC" role="doc-toc">
 <ul>
@@ -33,10 +60,11 @@
 </nav>
 </div>
 </aside>
+ -->
 <main>
-<header id="title-block-header">
+<div id="title-block">
 <h1 class="title">limits, intuitively</h1>
-</header>
+</div>
 <p>So far, we have been quite good at finding the derivatives of functions by plugging the functions into Fermat’s difference quotient, rearranging, and then letting <span class="math inline">\(h=0\)</span>. This is how we found the derivative of <span class="math inline">\(x^2\)</span> and <span class="math inline">\(1/x\)</span>; in fact, our proof of the formula <span class="math inline">\(\displaystyle \frac{d}{dx}x^n = nx^{n-1}\)</span> told us that this general method works for any rational function, insofar as we had to do nothing special about the <span class="math inline">\(h\)</span> in that proof.</p>
 <p>So let’s move on to other functions. What about trig functions? We can see, just by sketching it, that the derivative of <span class="math inline">\(\sin(x)\)</span> looks kind of like <span class="math inline">\(\cos(x)\)</span> (potentially with a vertical expansion/compression):</p>
 <p>But can we calculate it? Presumably it’s not too hard. We’ll just plug it into Fermat’s little machine, and then see what happens when <span class="math inline">\(h\)</span> gets small: <span class="math display">\[\frac{\sin(x+h) - \sin(x)}{h}\]</span> But, well, this looks kind of nasty. Unlike with, say, <span class="math inline">\(x^2\)</span>, we can’t ``multiply out’’ the <span class="math inline">\(\sin(x+h)\)</span>, or distribute it. It’s certainly not equal to <span class="math inline">\(\sin(x) + \sin(h)\)</span>. But we can simplify it using that formula we proved in trig: <span class="math display">\[\sin(\alpha + \beta) =  \cos(\alpha)\sin(\beta) + \sin(\alpha)\cos(\beta)\]</span> If we apply that here, we’ll get: <span class="math display">\[\begin{align*}

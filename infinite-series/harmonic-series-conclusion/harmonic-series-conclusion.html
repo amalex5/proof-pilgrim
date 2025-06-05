@@ -19,12 +19,40 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
   <script src="../highlight-toc.js" type="text/javascript"></script>
+
+  <script> 
+      // disappearing header, from dynomight.net'
+      var prevScrollpos = window.pageYOffset;
+
+      window.onscroll = function() {
+        var currentScrollPos = Math.max(0,window.pageYOffset);
+
+        if (Math.abs(currentScrollPos - prevScrollpos) > 10){
+          if (prevScrollpos > currentScrollPos) {
+            document.querySelector('header').style.top = "0";
+            document.querySelector('header').style.opacity = "75%";
+          } else {
+            document.querySelector('header').style.top = "-60px";
+          }
+          prevScrollpos = currentScrollPos;
+        }
+        if(currentScrollPos==0){
+          document.querySelector('header').style.top = "0";
+          document.querySelector('header').style.opacity = "100%";
+        }
+      }
+    </script>
+
 </head>
 <body>
-<main>
-<header id="title-block-header">
-<h1 class="title">When is <span class="math inline">\(\displaystyle \sum^{\infty} n^p\)</span> finite? When is it infinite?!?</h1>
+  <header>
+    <span id="header-name">the natural history <span style="font-weight:normal;">of abstract objects</span></span> <span id="linkback"><a href=http://www.andrusia.com><img src="/andrew-logo.svg" id='header-logo' style='width: auto;'/></a></span>
 </header>
+ -->
+<main>
+<div id="title-block">
+<h1 class="title">When is <span class="math inline">\(\displaystyle \sum^{\infty} n^p\)</span> finite? When is it infinite?!?</h1>
+</div>
 <p>Lots of the sums we’ve been talking about have been of the form <span class="math inline">\(\displaystyle \sum_{n=1}^{n=\infty}n^p\)</span>. Sometimes they converge (they’re finite), and sometimes they diverge (they’re infinite). Sometimes it’s been easy to figure this out; other times, it’s been harder. We can summarize what we’ve learned so far:</p>
 <table style="border-collapse: separate; border:0px;">
 <tr>

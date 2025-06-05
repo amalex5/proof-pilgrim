@@ -19,12 +19,39 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
   <script src="../highlight-toc.js" type="text/javascript"></script>
+
+  <script> 
+      // disappearing header, from dynomight.net'
+      var prevScrollpos = window.pageYOffset;
+
+      window.onscroll = function() {
+        var currentScrollPos = Math.max(0,window.pageYOffset);
+
+        if (Math.abs(currentScrollPos - prevScrollpos) > 10){
+          if (prevScrollpos > currentScrollPos) {
+            document.querySelector('header').style.top = "0";
+            document.querySelector('header').style.opacity = "75%";
+          } else {
+            document.querySelector('header').style.top = "-60px";
+          }
+          prevScrollpos = currentScrollPos;
+        }
+        if(currentScrollPos==0){
+          document.querySelector('header').style.top = "0";
+          document.querySelector('header').style.opacity = "100%";
+        }
+      }
+    </script>
+
 </head>
 <body>
+  <header>
+    <span id="header-name">the natural history <span style="font-weight:normal;">of abstract objects</span></span> <span id="linkback"><a href=http://www.andrusia.com><img src="/andrew-logo.svg" id='header-logo' style='width: auto;'/></a></span>
+</header>
 <script>document.addEventListener('DOMContentLoaded', function(e) {
   Scroller.init();
 })</script>
-<aside>
+<!-- <aside>
 <div class="tocLinks" >
 <nav id="TOC" role="doc-toc">
 <ul>
@@ -40,10 +67,11 @@
 </nav>
 </div>
 </aside>
+ -->
 <main>
-<header id="title-block-header">
+<div id="title-block">
 <h1 class="title">antiderivatives</h1>
-</header>
+</div>
 <p><strong>The year is not over yet</strong>. We have one last thing to do. We have learned how to differentiate—now we must learn how to antidifferentiate. This problem is interesting enough in the context of differentiation. Now that we’ve learned that integration is really just the same thing as antidifferentiation, it has taken on added urgency.</p>
 <p>But perhaps I should be a bit clearer with my pronouns: <em>you</em> must learn how to antidifferentiate, since I am already fairly good at it. Here’s what we’ll do: I’ll give you 200–odd antiderivative problems (ranging widely in difficulty and generality), and you’ll figure out how to do them. All by yourselves. I will do nothing but sit and observe. And you will do this because during finals week, I will give you a very hard test on antidifferentiation.</p>
 <p>Now, in principle, each of you is more than capable of teaching yourselves how to antidifferentiate. You are all already quite good at taking derivatives, so with sufficient play you should be able to figure out how to move in the opposite direction. Put differently, you know how to do this: <span class="math display">\[\text{function} \longrightarrow \text{derivative}\]</span> and now you need to figure out how to do this: <span class="math display">\[\text{function} \longleftarrow \text{derivative}\]</span> so that you can understand the full correspondence: <span class="math display">\[\text{function} \longleftrightarrow \text{derivative}\]</span> Some of you may be able to do all of the problems I give you with little difficulty. Others might have more trouble. If you discover that you are good at this stuff, that doesn’t mean you can simply relax for the next week and a half while your colleagues flounder. You have the obligation to help your classmates who are struggling—to teach them and help them understand the material. If you do not, I will be very disappointed. And you may be disappointed, too, when you see your semester evaluation, because I will be evaluating you in this unit not simply on how well you do on the test, but on how well you operate as a class.</p>

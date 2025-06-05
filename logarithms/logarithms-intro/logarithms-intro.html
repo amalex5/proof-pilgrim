@@ -19,12 +19,39 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
   <script src="../highlight-toc.js" type="text/javascript"></script>
+
+  <script> 
+      // disappearing header, from dynomight.net'
+      var prevScrollpos = window.pageYOffset;
+
+      window.onscroll = function() {
+        var currentScrollPos = Math.max(0,window.pageYOffset);
+
+        if (Math.abs(currentScrollPos - prevScrollpos) > 10){
+          if (prevScrollpos > currentScrollPos) {
+            document.querySelector('header').style.top = "0";
+            document.querySelector('header').style.opacity = "75%";
+          } else {
+            document.querySelector('header').style.top = "-60px";
+          }
+          prevScrollpos = currentScrollPos;
+        }
+        if(currentScrollPos==0){
+          document.querySelector('header').style.top = "0";
+          document.querySelector('header').style.opacity = "100%";
+        }
+      }
+    </script>
+
 </head>
 <body>
+  <header>
+    <span id="header-name">the natural history <span style="font-weight:normal;">of abstract objects</span></span> <span id="linkback"><a href=http://www.andrusia.com><img src="/andrew-logo.svg" id='header-logo' style='width: auto;'/></a></span>
+</header>
 <script>document.addEventListener('DOMContentLoaded', function(e) {
   Scroller.init();
 })</script>
-<aside>
+<!-- <aside>
 <div class="tocLinks" >
 <nav id="TOC" role="doc-toc">
 <ul>
@@ -48,10 +75,11 @@
 </nav>
 </div>
 </aside>
+ -->
 <main>
-<header id="title-block-header">
+<div id="title-block">
 <h1 class="title">Logarithms!</h1>
-</header>
+</div>
 <p><strong>Arizona. August 2036</strong>. It’s 145 degrees. Wave after wave of photons crashes down on you as you stroll along the shore of Tempe Town Flats. It used to be a lake, but that was before—before it all evaporated. The water, the town, the people, their souls, your bank account—gone. All gone. They evaporated into a humid human mist that hung in the air briefly, like a firework at the apex of its flight, and then dispersed, constrained by the second law of thermodynamics to forever increase the entropy of the universe.</p>
 <p>It’s so hot you can’t even ride your bike. The rubber tires crumble the instant they meet UV. Forget about driving. Car tires are just as bad. Prices have reached $10,000 for a set, and even then, you can only drive between 1 and 2 AM. Your buddy stole a tank from the abandoned army base—no rubber on that thing!—but you wouldn’t want to be sealed into a hermetic steel chamber in this heat. You no longer need superheated gases to weld your metal sculptures together. You just use a magnifying glass.</p>
 <p>You’ve got to get out of Tempe. Luckily, you’ve saved up $3,000 over the past few years by running a textbook-smuggling ring. New editions of glossy books, delivered in crates by your contacts at print shops in Dallas and Sacramento, resold at a tenth of retail to impoverished ASU students. Somehow the university still operates, despite what’s happened to the rest of the Valley. Quality doesn’t seem to have gone down.</p>

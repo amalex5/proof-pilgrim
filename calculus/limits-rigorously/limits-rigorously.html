@@ -19,12 +19,39 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
   <script src="../highlight-toc.js" type="text/javascript"></script>
+
+  <script> 
+      // disappearing header, from dynomight.net'
+      var prevScrollpos = window.pageYOffset;
+
+      window.onscroll = function() {
+        var currentScrollPos = Math.max(0,window.pageYOffset);
+
+        if (Math.abs(currentScrollPos - prevScrollpos) > 10){
+          if (prevScrollpos > currentScrollPos) {
+            document.querySelector('header').style.top = "0";
+            document.querySelector('header').style.opacity = "75%";
+          } else {
+            document.querySelector('header').style.top = "-60px";
+          }
+          prevScrollpos = currentScrollPos;
+        }
+        if(currentScrollPos==0){
+          document.querySelector('header').style.top = "0";
+          document.querySelector('header').style.opacity = "100%";
+        }
+      }
+    </script>
+
 </head>
 <body>
+  <header>
+    <span id="header-name">the natural history <span style="font-weight:normal;">of abstract objects</span></span> <span id="linkback"><a href=http://www.andrusia.com><img src="/andrew-logo.svg" id='header-logo' style='width: auto;'/></a></span>
+</header>
 <script>document.addEventListener('DOMContentLoaded', function(e) {
   Scroller.init();
 })</script>
-<aside>
+<!-- <aside>
 <div class="tocLinks" >
 <nav id="TOC" role="doc-toc">
 <ul>
@@ -39,10 +66,11 @@
 </nav>
 </div>
 </aside>
+ -->
 <main>
-<header id="title-block-header">
+<div id="title-block">
 <h1 class="title"><span class="math inline">\(\forall \epsilon\!&gt;\!0 \,\, \exists \delta\!&gt;\!0 \,\,(|x - c| \!&lt;\! \delta \,\Rightarrow \,|f(x) - L| \!&lt; \!\epsilon)\)</span></h1>
-</header>
+</div>
 <h2 id="a-brief-history-of-the-calculus">A Brief History of The Calculus:</h2>
 <ul>
 <li><p>Late 1660s. Isaac Newton (1643-1727) and Gottfried Leibniz (1646-1716) invent calculus, more-or-less simultaneously. Though their methods have some differences, they are both essentially based on the idea of the infinitesimal—of making the <span class="math inline">\(h\)</span> in Fermat’s difference quotient infinitely small. Calculus immediately proves to be immensely useful, but there is nervousness over the question of “aren’t we just dividing by zero?”. The philosopher George Berkeley (1685-1783), better known for his metaphysical positions, writes an entire treatise (c. 1734) attacking the foundations of calculus, famously calling infinitesimals “ghosts of departed quantities.”</p>

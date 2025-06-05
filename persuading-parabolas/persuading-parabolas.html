@@ -19,12 +19,39 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
   <script src="../highlight-toc.js" type="text/javascript"></script>
+
+  <script> 
+      // disappearing header, from dynomight.net'
+      var prevScrollpos = window.pageYOffset;
+
+      window.onscroll = function() {
+        var currentScrollPos = Math.max(0,window.pageYOffset);
+
+        if (Math.abs(currentScrollPos - prevScrollpos) > 10){
+          if (prevScrollpos > currentScrollPos) {
+            document.querySelector('header').style.top = "0";
+            document.querySelector('header').style.opacity = "75%";
+          } else {
+            document.querySelector('header').style.top = "-60px";
+          }
+          prevScrollpos = currentScrollPos;
+        }
+        if(currentScrollPos==0){
+          document.querySelector('header').style.top = "0";
+          document.querySelector('header').style.opacity = "100%";
+        }
+      }
+    </script>
+
 </head>
 <body>
+  <header>
+    <span id="header-name">the natural history <span style="font-weight:normal;">of abstract objects</span></span> <span id="linkback"><a href=http://www.andrusia.com><img src="/andrew-logo.svg" id='header-logo' style='width: auto;'/></a></span>
+</header>
 <script>document.addEventListener('DOMContentLoaded', function(e) {
   Scroller.init();
 })</script>
-<aside>
+<!-- <aside>
 <div class="tocLinks" >
 <nav id="TOC" role="doc-toc">
 <ul>
@@ -38,10 +65,11 @@
 </nav>
 </div>
 </aside>
+ -->
 <main>
-<header id="title-block-header">
+<div id="title-block">
 <h1 class="title">Persuading Parabolas into Vertex Form (A.K.A. “Completing the ■”)</h1>
-</header>
+</div>
 <p><em>Okay, everyone! We’re about to start talking about </em><strong>rational functions</strong><em>, which are like polynomials, but way cooler—but before we do, I want to do one last thing with parabolas. I’m generally not a huge fan of completing the square, but if we learn how to do it, there are two fun and useful proofs about parabolas that we’ll be able to do. You know the results of both the proofs—one is the fact that the vertex of a parabola is halfway in between its roots; the other is the quadratic equation—but I want us to be able to really </em>feel <em>why these two things are true. In order to do that, we’ll need to prove them, and in order to do that, we’ll need to be able to complete the square—and likewise, to really </em>feel <em>why completing the square as a method works.</em></p>
 <p><br><br><br></p>
 <p>In our efforts so far at becoming algebraic synæsthetes, we’ve encountered parabolas in two different contexts:</p>

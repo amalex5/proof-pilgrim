@@ -19,12 +19,40 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
   <script src="../highlight-toc.js" type="text/javascript"></script>
+
+  <script> 
+      // disappearing header, from dynomight.net'
+      var prevScrollpos = window.pageYOffset;
+
+      window.onscroll = function() {
+        var currentScrollPos = Math.max(0,window.pageYOffset);
+
+        if (Math.abs(currentScrollPos - prevScrollpos) > 10){
+          if (prevScrollpos > currentScrollPos) {
+            document.querySelector('header').style.top = "0";
+            document.querySelector('header').style.opacity = "75%";
+          } else {
+            document.querySelector('header').style.top = "-60px";
+          }
+          prevScrollpos = currentScrollPos;
+        }
+        if(currentScrollPos==0){
+          document.querySelector('header').style.top = "0";
+          document.querySelector('header').style.opacity = "100%";
+        }
+      }
+    </script>
+
 </head>
 <body>
-<main>
-<header id="title-block-header">
-<h1 class="title">Logarithms, more!!! MORE!!!!</h1>
+  <header>
+    <span id="header-name">the natural history <span style="font-weight:normal;">of abstract objects</span></span> <span id="linkback"><a href=http://www.andrusia.com><img src="/andrew-logo.svg" id='header-logo' style='width: auto;'/></a></span>
 </header>
+ -->
+<main>
+<div id="title-block">
+<h1 class="title">Logarithms, more!!! MORE!!!!</h1>
+</div>
 <p>So far, we’ve learned some pretty properties of logarithms. But nearly all of our logarithm properties/theorems have involved what’s going on <em>inside</em> the logarithm. In other words, they’ve been about the <strong>argument</strong> rather than the base<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. For example:</p>
 <ul>
 <li>We have a theorem about <span class="math inline">\(\log_a(b\cdot c)\)</span></li>

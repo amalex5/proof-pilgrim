@@ -18,12 +18,40 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
   <script src="../highlight-toc.js" type="text/javascript"></script>
+
+  <script> 
+      // disappearing header, from dynomight.net'
+      var prevScrollpos = window.pageYOffset;
+
+      window.onscroll = function() {
+        var currentScrollPos = Math.max(0,window.pageYOffset);
+
+        if (Math.abs(currentScrollPos - prevScrollpos) > 10){
+          if (prevScrollpos > currentScrollPos) {
+            document.querySelector('header').style.top = "0";
+            document.querySelector('header').style.opacity = "75%";
+          } else {
+            document.querySelector('header').style.top = "-60px";
+          }
+          prevScrollpos = currentScrollPos;
+        }
+        if(currentScrollPos==0){
+          document.querySelector('header').style.top = "0";
+          document.querySelector('header').style.opacity = "100%";
+        }
+      }
+    </script>
+
 </head>
 <body>
-<main>
-<header id="title-block-header">
-<h1 class="title">It’s Time To Party</h1>
+  <header>
+    <span id="header-name">the natural history <span style="font-weight:normal;">of abstract objects</span></span> <span id="linkback"><a href=http://www.andrusia.com><img src="/andrew-logo.svg" id='header-logo' style='width: auto;'/></a></span>
 </header>
+ -->
+<main>
+<div id="title-block">
+<h1 class="title">It’s Time To Party</h1>
+</div>
 <p>Hello everyone! This is Andrew, Sunday 1/12/2025, a rainy afternoon here in Seattle (… wait, Seattle?), all excited for our class to start tomorrow.</p>
 <p>Here are some problems to start our semester off with! I’m just throwing these at you—don’t try to look up how to do these! It’s fine if you don’t know how to solve all of them—for that matter, I don’t EXPECT you to know how to be able to solve all of them—I just want you to think deeply and work hard and see if you can make any progress figuring any of them out! That’s our goal. Not to memorize formulas, but to explore. Later, perhaps, we’ll learn some formulas, but for now, let’s see what we can figure out ourselves.</p>
 <p>Oh! And if you already know how to figure out any of these problems, don’t give away any spoilers to your classmates! It’s about the <em>process</em>, not the <em>result</em>. We’re trying to learn math here not a as a bunch of individuals, but as a <em>team</em>. (We’re <em>soccer</em>, not cross-country) (sorry runners) (I’m a runner!)</p>

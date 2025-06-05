@@ -19,12 +19,40 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
   <script src="../highlight-toc.js" type="text/javascript"></script>
+
+  <script> 
+      // disappearing header, from dynomight.net'
+      var prevScrollpos = window.pageYOffset;
+
+      window.onscroll = function() {
+        var currentScrollPos = Math.max(0,window.pageYOffset);
+
+        if (Math.abs(currentScrollPos - prevScrollpos) > 10){
+          if (prevScrollpos > currentScrollPos) {
+            document.querySelector('header').style.top = "0";
+            document.querySelector('header').style.opacity = "75%";
+          } else {
+            document.querySelector('header').style.top = "-60px";
+          }
+          prevScrollpos = currentScrollPos;
+        }
+        if(currentScrollPos==0){
+          document.querySelector('header').style.top = "0";
+          document.querySelector('header').style.opacity = "100%";
+        }
+      }
+    </script>
+
 </head>
 <body>
-<main>
-<header id="title-block-header">
-<h1 class="title">Andrew’s Favorite Mathematical Writing Tip</h1>
+  <header>
+    <span id="header-name">the natural history <span style="font-weight:normal;">of abstract objects</span></span> <span id="linkback"><a href=http://www.andrusia.com><img src="/andrew-logo.svg" id='header-logo' style='width: auto;'/></a></span>
 </header>
+ -->
+<main>
+<div id="title-block">
+<h1 class="title">Andrew’s Favorite Mathematical Writing Tip</h1>
+</div>
 <p>One of my favorite math writing tricks is to <strong>keep big chunks of math on their own lines</strong>. It can be hard to read math when it’s in-line with English prose. Plus, when the math is on its own lines, it’s easy to scan down the page and see how equations and formulas evolve.</p>
 <p>As an example, here’s a narrative description of solving a quadratic equation, involving both mathematical symbols and also English sentences, but with the math and the English all in-line:</p>
 <div class="callout-box" style="text-align:left">

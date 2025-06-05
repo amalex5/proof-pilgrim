@@ -19,12 +19,39 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
   <script src="../highlight-toc.js" type="text/javascript"></script>
+
+  <script> 
+      // disappearing header, from dynomight.net'
+      var prevScrollpos = window.pageYOffset;
+
+      window.onscroll = function() {
+        var currentScrollPos = Math.max(0,window.pageYOffset);
+
+        if (Math.abs(currentScrollPos - prevScrollpos) > 10){
+          if (prevScrollpos > currentScrollPos) {
+            document.querySelector('header').style.top = "0";
+            document.querySelector('header').style.opacity = "75%";
+          } else {
+            document.querySelector('header').style.top = "-60px";
+          }
+          prevScrollpos = currentScrollPos;
+        }
+        if(currentScrollPos==0){
+          document.querySelector('header').style.top = "0";
+          document.querySelector('header').style.opacity = "100%";
+        }
+      }
+    </script>
+
 </head>
 <body>
+  <header>
+    <span id="header-name">the natural history <span style="font-weight:normal;">of abstract objects</span></span> <span id="linkback"><a href=http://www.andrusia.com><img src="/andrew-logo.svg" id='header-logo' style='width: auto;'/></a></span>
+</header>
 <script>document.addEventListener('DOMContentLoaded', function(e) {
   Scroller.init();
 })</script>
-<aside>
+<!-- <aside>
 <div class="tocLinks" >
 <nav id="TOC" role="doc-toc">
 <ul>
@@ -36,10 +63,11 @@
 </nav>
 </div>
 </aside>
+ -->
 <main>
-<header id="title-block-header">
+<div id="title-block">
 <h1 class="title">Trigonomatically Quadrettic</h1>
-</header>
+</div>
 <p>We’ve been getting <em>real good</em> at solving equations. Basic algebra we’re great at. Linear equations, quadratic equations, you name it. We’re probably not going to memorize the cubic or quartic formulas, but they’re there if we wanted to use them. We’ve tossed tricky logarithms and exponentials into the mix. We can jailbreak variables out of functions by using inverses. Et cetera! But what if we start including <em>trig functions</em> in the fun?!? In principle, we don’t need to learn anything new. We know trig, we know algebra; we just need to combine them! That’s why I’ve been giving you these equations on the homework without telling you how to solve them. You haven’t needed any new information! You don’t need me!</p>
 <p>Here, though, I’ll write up some solutions for some of the tricky trig equations we’ve tackled, just for your reference. I’ll walk through, step by step, how we can solve each of these equations for <span class="math inline">\(\theta\)</span> (and find <em>all</em> the values of <span class="math inline">\(\theta\)</span> that work, which, because it’s trig, is probably an infinite amount!):</p>
 <div class="callout-box">

@@ -19,12 +19,40 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
   <script src="../highlight-toc.js" type="text/javascript"></script>
+
+  <script> 
+      // disappearing header, from dynomight.net'
+      var prevScrollpos = window.pageYOffset;
+
+      window.onscroll = function() {
+        var currentScrollPos = Math.max(0,window.pageYOffset);
+
+        if (Math.abs(currentScrollPos - prevScrollpos) > 10){
+          if (prevScrollpos > currentScrollPos) {
+            document.querySelector('header').style.top = "0";
+            document.querySelector('header').style.opacity = "75%";
+          } else {
+            document.querySelector('header').style.top = "-60px";
+          }
+          prevScrollpos = currentScrollPos;
+        }
+        if(currentScrollPos==0){
+          document.querySelector('header').style.top = "0";
+          document.querySelector('header').style.opacity = "100%";
+        }
+      }
+    </script>
+
 </head>
 <body>
-<main>
-<header id="title-block-header">
-<h1 class="title">Trig Derivatives (Trust Me)</h1>
+  <header>
+    <span id="header-name">the natural history <span style="font-weight:normal;">of abstract objects</span></span> <span id="linkback"><a href=http://www.andrusia.com><img src="/andrew-logo.svg" id='header-logo' style='width: auto;'/></a></span>
 </header>
+ -->
+<main>
+<div id="title-block">
+<h1 class="title">Trig Derivatives (Trust Me)</h1>
+</div>
 <p>What are the derivatives of trig functions? From drawing pictures, you’ve probably now figured out: <span class="math display">\[\sin&#39;(x) = \cos(x)\]</span> <span class="math display">\[\cos&#39;(x) = -\sin(x)\]</span> The proofs take a bit more work and a bit more machinery than I think we have time for at the moment. Oh well! By the way, what’s the derivative of a tangent? <span class="math display">\[\tan&#39;(x) = \left(\frac{\sin(x)}{\cos(x)}\right)&#39; = \text{guess we could work this out with quotient rule???}\]</span></p>
 <p>Here’s something cool: the derivatives of trig functions cycle! Imagine we want to take the <em>second</em> derivative of sine. This works out to be: <span class="math display">\[\begin{align*}
 \left(\sin x\right)&#39;&#39; &amp;= \left(\cos x\right)&#39;\\

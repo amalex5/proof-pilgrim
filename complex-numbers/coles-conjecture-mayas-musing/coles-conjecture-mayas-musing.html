@@ -19,12 +19,39 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
   <script src="../highlight-toc.js" type="text/javascript"></script>
+
+  <script> 
+      // disappearing header, from dynomight.net'
+      var prevScrollpos = window.pageYOffset;
+
+      window.onscroll = function() {
+        var currentScrollPos = Math.max(0,window.pageYOffset);
+
+        if (Math.abs(currentScrollPos - prevScrollpos) > 10){
+          if (prevScrollpos > currentScrollPos) {
+            document.querySelector('header').style.top = "0";
+            document.querySelector('header').style.opacity = "75%";
+          } else {
+            document.querySelector('header').style.top = "-60px";
+          }
+          prevScrollpos = currentScrollPos;
+        }
+        if(currentScrollPos==0){
+          document.querySelector('header').style.top = "0";
+          document.querySelector('header').style.opacity = "100%";
+        }
+      }
+    </script>
+
 </head>
 <body>
+  <header>
+    <span id="header-name">the natural history <span style="font-weight:normal;">of abstract objects</span></span> <span id="linkback"><a href=http://www.andrusia.com><img src="/andrew-logo.svg" id='header-logo' style='width: auto;'/></a></span>
+</header>
 <script>document.addEventListener('DOMContentLoaded', function(e) {
   Scroller.init();
 })</script>
-<aside>
+<!-- <aside>
 <div class="tocLinks" >
 <nav id="TOC" role="doc-toc">
 <ul>
@@ -37,10 +64,11 @@
 </nav>
 </div>
 </aside>
+ -->
 <main>
-<header id="title-block-header">
+<div id="title-block">
 <h1 class="title">Cole’s Conjecture; Maya’s Musing</h1>
-</header>
+</div>
 <p>There are a couple things I like about Cole’s Conjecture and Maya’s Musing. One is that your classmates (albeit classmates from the class of 2022) came up with them just by being curious and making observations and asking questions! That’s awesome. Second is that both of these ideas are, in the strict sense, <em>wrong</em>. But they’re close to being correct. It’s easy, if you’re a pedantic intellectual, to just give a counterexample and shout, “WRONG!!!” It’s harder—but more important—to think about <em>the ways in which your interlocutor is right</em>. To think, in other words, not about what’s wrong about what they said (that’s easy), but to think about <em>what’s right</em> about what they said. That’s a lot harder. Most of the things we say are a mixture of truths and falsehoods. We should correct the falsehoods, but we should also look for the truths.</p>
 <p>You may recall the BBC documentary we watched on Fermat’s Last Theorem, and the way in which the Japanese mathematician Goro Shimura described his deceased colleague Yutaka Taniyama:</p>
 <blockquote>

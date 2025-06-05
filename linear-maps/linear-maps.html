@@ -19,12 +19,39 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
   <script src="../highlight-toc.js" type="text/javascript"></script>
+
+  <script> 
+      // disappearing header, from dynomight.net'
+      var prevScrollpos = window.pageYOffset;
+
+      window.onscroll = function() {
+        var currentScrollPos = Math.max(0,window.pageYOffset);
+
+        if (Math.abs(currentScrollPos - prevScrollpos) > 10){
+          if (prevScrollpos > currentScrollPos) {
+            document.querySelector('header').style.top = "0";
+            document.querySelector('header').style.opacity = "75%";
+          } else {
+            document.querySelector('header').style.top = "-60px";
+          }
+          prevScrollpos = currentScrollPos;
+        }
+        if(currentScrollPos==0){
+          document.querySelector('header').style.top = "0";
+          document.querySelector('header').style.opacity = "100%";
+        }
+      }
+    </script>
+
 </head>
 <body>
+  <header>
+    <span id="header-name">the natural history <span style="font-weight:normal;">of abstract objects</span></span> <span id="linkback"><a href=http://www.andrusia.com><img src="/andrew-logo.svg" id='header-logo' style='width: auto;'/></a></span>
+</header>
 <script>document.addEventListener('DOMContentLoaded', function(e) {
   Scroller.init();
 })</script>
-<aside>
+<!-- <aside>
 <div class="tocLinks" >
 <nav id="TOC" role="doc-toc">
 <ul>
@@ -44,10 +71,11 @@
 </nav>
 </div>
 </aside>
+ -->
 <main>
-<header id="title-block-header">
+<div id="title-block">
 <h1 class="title">Linear maps: what they send to zero and what they do to linear independence!</h1>
-</header>
+</div>
 <h2 id="whats-up-with-the-stuff-that-gets-sent-to-the-zero-veckkie">What’s up with the stuff that gets sent to the zero veckkie?</h2>
 <p>Suppose we have some linear transformation. Can it take the zero veckkie to something that’s not the zero veckkie? <img src="linear-transformations-null-space-provocation-1.svg" /> It’d be cool if it could! Think back to when we were talking about groups and fields and whatnot: we had all sorts of psychedelic questions like, can we have algebraic structures in which there are multiple identities? Or in which an element has multiple inverses? Or in which inverses don’t commute? Crazy creatures we’d sought but never seen! The Loch Ness Monster of mathematics! An Abominable Snowman of algebra! Tragically, just like with Nessie and the Yeti, we had to resolve in the negative. It’s the same here: if we have a linear transformation, the zero vecckie HAS to get sent to the zero vecckie.</p>
 <p>Why? Let’s formalize this. Suppose, like in our picture, we have some vector space <span class="math inline">\(V\)</span>, and a linear map <span class="math inline">\(T\)</span> that sends elements of <span class="math inline">\(V\)</span> to elements of the vector space <span class="math inline">\(W\)</span>. What does <span class="math inline">\(T\)</span> send the zero vector to? <span class="math display">\[\underbrace{T(\text{the zero vector}) = T0 = T\vec{0} = T\left(\vec{0}\right)}_{\text{just different notations}} \quad=\quad \text{(some vector)}\]</span> Let’s write that more compactly, and call whatever vector the zero vecckie gets mapped to <span class="math inline">\(\vec{x}\)</span>: <span class="math display">\[T\left(\vec{0}\right)= \vec{x}\]</span> So, what’s <span class="math inline">\(\vec{x}\)</span>??? Hmm. Well, because the zero vecckie is its own additive identity, this equation is the same as: <span class="math display">\[T\left(\vec{0} + \vec{0}\right)  = \vec{x}\]</span> But because <span class="math inline">\(T\)</span> is linear, this is the same as: <span class="math display">\[T\left(\vec{0}\right) + T\left(\vec{0}\right)= \vec{x}\]</span> But each of those guys are INDIVIDUALLY <span class="math inline">\(\vec{x}\)</span>: <span class="math display">\[\underbrace{T\left(\vec{0}\right)}_{=\vec{x}} + \underbrace{T\left(\vec{0}\right)}_{=\vec{x}}= \vec{x}\]</span> So we get: <span class="math display">\[\vec{x} + \vec{x}= \vec{x}\]</span> <span class="math display">\[\vec{x} = 0\]</span> So <span class="math inline">\(\vec{x}\)</span> MUST be the zero vector! HUZZAH!!! <span class="math display">\[\left(\, T\left(\vec{0}\right)=\vec{x}  \,\right) \quad\implies\quad \Big(\, \vec{x}=\vec{0} \,\Big)\]</span> Great. So then a linear transformation HAS to send the zero veckkie to the zero veckkie.</p>
