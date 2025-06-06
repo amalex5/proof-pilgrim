@@ -4,20 +4,30 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-$for(author-meta)$
-  <meta name="author" content="$author-meta$" />
-$endfor$
-$if(date-meta)$
-  <meta name="dcterms.date" content="$date-meta$" />
-$endif$
-$if(keywords)$
-  <meta name="keywords" content="$for(keywords)$$keywords$$sep$, $endfor$" />
-$endif$
-$if(description-meta)$
-  <meta name="description" content="$description-meta$" />
-$endif$
-  <title>$if(title-prefix)$$title-prefix$ – $endif$$pagetitle$</title>
-  <style>
+
+
+<!-- Primary Meta Tags -->
+<title>the natural history of abstract objects</title>
+<meta name="title" content="the natural history of abstract objects" />
+<meta name="description" content="thoughtful notes and problems on mathematics through calculus" />
+  <meta name="author" content="Andrew M.H. Alexander" />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://metatags.io/" />
+<meta property="og:title" content="the natural history of abstract objects" />
+<meta property="og:description" content="thoughtful notes and problems on mathematics through calculus" />
+<meta property="og:image" content="https://metatags.io/images/meta-tags.png" />
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content="https://metatags.io/" />
+<meta property="twitter:title" content="the natural history of abstract objects" />
+<meta property="twitter:description" content="thoughtful notes and problems on mathematics through calculus" />
+<meta property="twitter:image" content="https://metatags.io/images/meta-tags.png" />
+
+
+<style>
     $styles.html()$
   </style>
 $for(css)$
@@ -49,5 +59,8 @@ $for(include-after)$
 $include-after$
 $endfor$
 </main>
+<footer style='margin-top:10em; margin-bottom:2em; text-align: center;'>
+<a href="http://www.andrusia.com"><img src="andrew-logo.svg" style="width:3em;"></a>
+</footer>
 </body>
 </html>

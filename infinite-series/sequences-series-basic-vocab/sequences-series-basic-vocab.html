@@ -46,7 +46,7 @@
 </head>
 <body>
   <header>
-    <span id="header-name">the natural history <span style="font-weight:normal;">of abstract objects</span></span> <span id="linkback"><a href=http://www.andrusia.com><img src="/andrew-logo.svg" id='header-logo' style='width: auto;'/></a></span>
+  <span id="header-name"> <a href='/'>the natural history <span style="font-weight:normal;">of abstract objects</span></a></span> <span id="linkback"><a href=http://www.andrusia.com><img src="/andrew-logo.svg" id='header-logo' style='width: auto;'/></a></span>
 </header>
 <script>document.addEventListener('DOMContentLoaded', function(e) {
   Scroller.init();
@@ -616,9 +616,10 @@
 <p><span class="math display">\[\sum_{n=0}^{n=\infty}a^n = \text{(whatever the formula was)}\]</span></p>
 <ol type="a">
 <li><p>But what if we have a geometric series that starts not at <span class="math inline">\(n=0\)</span>, but <span class="math inline">\(n=1\)</span>, like <span class="math inline">\(\displaystyle\sum_{n=1}^{n=\infty}a^n\)</span>? Can you come up with a formula for it?</p></li>
-<li><p>What about <span class="math inline">\(\displaystyle\sum_{n=-2}^{n=\infty}a^n\)</span>? Can you come up with a formula?</p>
-</li></li>
+<li><p>What about <span class="math inline">\(\displaystyle\sum_{n=-2}^{n=\infty}a^n\)</span>? Can you come up with a formula?</p></li>
+<li><p>How about, more generally, if we have a series that starts at some random index <span class="math inline">\(k\)</span> (where <span class="math inline">\(k\)</span> could be any integer)? Can you come up with a formula??? <span class="math display">\[\displaystyle \sum_{n=k}^{n=\infty}a^n \quad=\quad ???\]</span></p></li>
 </ol>
+</li>
 <li>
 <p>We’ve made up this cool <span class="math inline">\(\sum\)</span> notation for iterated (and possibly even infinite) sums! When we make up new notations, it’s helpful to figure out what algebraic properties they have, so we can, like, do algebra and simplify and transform and manupulate stuff.</p>
 <p>We’ve figured out that we can pull constants out of sums: <span class="math display">\[\sum_{n} c \cdot f(n) \, =\, c \cdot \sum_{n} f(n)\]</span></p>
@@ -653,6 +654,16 @@ For what values of <span class="math inline">\(p\)</span> does the series <span 
 <li>
 Decide how to properly pluralize “series.”
 </li>
+<li>
+<p>Lizzy S. was thinking about all this series stuff, and about the classic proof that: <span class="math display">\[0.\overline{9}=1\]</span> Probably many of you have seen that proof (indeed, I have a <em>vivid</em> memory of seeing it myself first in Mrs. Richards’ math class in 7th grade). You say that <span class="math inline">\(x=0.\overline{9}\)</span>, then multiply <span class="math inline">\(x\)</span> by <span class="math inline">\(10\)</span>, getting: <span class="math display">\[\begin{align*}
+x &amp;= 0.9999\overline{9} \\
+10x &amp;= 9.9999\overline{9}
+\end{align*}\]</span> And then you subtract <span class="math inline">\(x\)</span> from both sides, getting: <span class="math display">\[\begin{align*}
+10x - x &amp;= 9.9999\overline{9} - x \\
+10x - x &amp;= 9.9999\overline{9} - 0.\overline{9} \\
+9x &amp;= 9 \\
+x &amp;= 1
+\end{align*}\]</span> So: <span class="math display">\[0.\overline{9} = 1\]</span> Voila. But, anyway, Lizzy was thinking about how <span class="math inline">\(0.\overline{9}\)</span> feels kinda like a series! It feels like: <span class="math display">\[0.\overline{9} = 0.9 + 0.09 + 0.009 + 0.0009 + \cdots\]</span> So… can you link up these ideas? Can you use these ideas of infinite geometric series to come up with a <em>second</em> proof that <span class="math inline">\(0.\overline{9}=1\)</span>???</p>
 <li>
 <p>Here’s a fun series:</p>
 <p><span class="math display">\[\sum_{n=0}^{n=\infty} \frac{(-1)^n}{2n+1} \]</span></p>
@@ -770,8 +781,6 @@ multiplying the number by <span class="math inline">\(3\)</span>, and then addin
 <p>If you can prove that the sequence converges (for any initial starting number), I’ll buy you a box of donuts every single day for the rest of the time we’re both at Nueva together.</p>
 </li>
 </ol>
-<p>MORE STUFF</p>
-<p>Come up with a formula for <span class="math inline">\(\displaystyle \sum_{n=k}^{n=\infty}a^n\)</span>, for any integer <span class="math inline">\(k\)</span>.</p>
 <section class="footnotes" role="doc-endnotes">
 <hr />
 <ol>

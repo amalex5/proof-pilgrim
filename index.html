@@ -4,8 +4,30 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>the natural history of abstract objects</title>
-  <style>
+
+
+<!-- Primary Meta Tags -->
+<title>the natural history of abstract objects</title>
+<meta name="title" content="the natural history of abstract objects" />
+<meta name="description" content="thoughtful notes and problems on mathematics through calculus" />
+  <meta name="author" content="Andrew M.H. Alexander" />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://metatags.io/" />
+<meta property="og:title" content="the natural history of abstract objects" />
+<meta property="og:description" content="thoughtful notes and problems on mathematics through calculus" />
+<meta property="og:image" content="https://metatags.io/images/meta-tags.png" />
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content="https://metatags.io/" />
+<meta property="twitter:title" content="the natural history of abstract objects" />
+<meta property="twitter:description" content="thoughtful notes and problems on mathematics through calculus" />
+<meta property="twitter:image" content="https://metatags.io/images/meta-tags.png" />
+
+
+<style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     span.underline{text-decoration: underline;}
@@ -31,13 +53,19 @@ the natural history
 <div style="font-size: 175%; font-style: italic; font-family: sans-serif; text-align:left; padding:0;">
 of abstract objects
 </div>
-<style> h2 {font-size: 150%; 
-font-weight: bold; 
-font-family: sans-serif; 
-text-align:left; 
-padding:0
-
+<style> 
+h2 {
+    font-size: 150%; 
+    font-weight: bold; 
+    font-family: sans-serif; 
+    text-align:left; 
+    padding: 0;
 }
+
+ul{
+    margin-top: 0em;
+}
+
 li {
     margin-top: 0.5em;
     margin-bottom: 0.5em;
@@ -46,35 +74,68 @@ li {
 <div style="display:block; width:100%; background-color: gainsboro;">
 
 </div>
+<!-- 
+<style>        /* Diamond separators */
+        .diamond-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        .diamond-list li {
+            display: inline;
+        }
+
+        .diamond-list li:not(:last-child)::after {
+            content: " ◆ ";
+            color: #8b4513;
+            margin: 0 8px;
+        }
+    </style>
+<div style="width:75%; font-size: 90%; text-align: center; font-family: sans-serif; background-color: whitesmoke;">
+<ul class='diamond-list'>
+    <li><a href="#combinatorics">combinatorics</a></li>
+    <li><a href="#algsynth">algebraic synæsthesia</a></li>
+    <li><a href="#logs">logarithms</a></li>
+    <li><a href="#trig">trig</a></li>
+    <li><a href="#complex">complex nummies</a></li>
+    <li><a href="#series">sequences and serieseses</a></li>
+    <li><a href="#calc">calculus!!!</a></li>
+</ul>
+</div> -->
+<blockquote style="margin-top:2em; margin-bottom: 2em; background-color: transparent; font-style: italic;">
+<p>My book will no doubt be flawed in many ways of which I am not yet aware, but there is one “sin” that I have intentionally committed, and for which I shall not repent: many of the arguments are not rigorous, at least as they stand. This is a serious crime if one believes that our mathematical theories are merely elaborate metal constructs, precariously hoisted aloft. Then rigor becomes the nerve-racking balancing act that prevents the entire structure from crashing down around us. But suppose one believes, as I do, that our mathematical theories are attempting to capture aspects of a robust Platonic world that is not of our making. I would the contend that an initial lack of rigor is a small price to pay if it allows the reader to see into this world more directly and pleasurably than would otherwise be possible.</p>
+<span style="display:block; text-align:right; font-style: normal;">—Tristan Needham, <em>Visual Complex Analysis</em> xi</span>
+</blockquote>
 <h2 id="combinatorics">combinatorics</h2>
 <ul>
-<li><a href="combinatorics/its-time-to-party/its-time-to-party.html">it’s time to party</a> (intro motivational problems)</li>
+<li><a href="combinatorics/its-time-to-party/its-time-to-party.html">it’s time to party</a> (<em>intro motivational problems</em>)</li>
 <li><a href="combinatorics/combinatorics-intro-notes.html">counting: orderly versus disorderly</a></li>
 <li><a href="combinatorics/combinatorics-to-polynomials-segue/combinatorics-to-polynomials-segue.html">combinatorics to polynomials segue</a></li>
 <li><a href="combinatorics/binomial-example-problems/binomial-example-problems.html">some miscellaneous example problems with binomial expansions, etc.</a></li>
 </ul>
-<h2 id="algebraic-synæsthesia">algebraic synæsthesia</h2>
+<h2 id="algsynth">algebraic synæsthesia</h2>
 <ul>
-<li><a href="parent-functions-linear-transformations/parent-functions-linear-transformations.html">parent functions and their linear transformations</a></li>
-<li><a href="polynomials/polynomials.html">Polynomials (and sketching them!)</a>
+<li><a href="algsynth/parent-functions-linear-transformations/parent-functions-linear-transformations.html">parent functions and their linear transformations</a></li>
+<li><a href="algsynth/polynomials/polynomials.html">Polynomials (and sketching them!)</a>
 <ul>
 <li>some fun factoring problems, as review</li>
-<li><a href="persuading-parabolas/persuading-parabolas.html">Persuading Parabolas into Vertex Form</a> (<em>completing the square as a path to enlightenment</em>)</li>
-<li><a href="perfecting-parabola-perception/perfecting-parabola-perception.html">Perfecting our Perception of Parabolas</a> (<em>writing assignment to derive some cool parabola theorems</em>) and related: <a href="andrews-favorite-math-writing-tip/andrews-favorite-math-writing-tip.html">Andrew’s favorite mathematical writing tip</a></li>
-<li><a href="taylor-series-math-3/taylor-series-math-3.html">Taylor’s Theorem (Math 3 version)</a> (<em>what if we had infinitely-long polynomials?!?</em>)</li>
-<li><a href="solving-all-polynomials/solving-all-polynomials.html">Finding the roots of all polynomials</a> (<em>the linear, quadratic, and cubic formulas, and a soupçon of what’s beyond!</em>)</li>
-<li><a href="">the QUARTIC formula!!!!</a> (<em>a tiniest-font 72-inch wide PDF generated by LaTeX with</em>)</li>
+<li><a href="algsynth/persuading-parabolas/persuading-parabolas.html">Persuading Parabolas into Vertex Form</a> (<em>completing the square as a path to enlightenment</em>)</li>
+<li><a href="algsynth/perfecting-parabola-perception/perfecting-parabola-perception.html">Perfecting our Perception of Parabolas</a> (<em>writing assignment to derive some cool parabola theorems</em>) and related: <a href="andrews-favorite-math-writing-tip/andrews-favorite-math-writing-tip.html">Andrew’s favorite mathematical writing tip</a></li>
+<li><a href="algsynth/taylor-series-math-3/taylor-series-math-3.html">Taylor’s Theorem (Math 3 version)</a> (<em>what if we had infinitely-long polynomials?!?</em>)</li>
+<li><a href="algsynth/solving-all-polynomials/solving-all-polynomials.html">Finding the roots of all polynomials</a> (<em>the linear, quadratic, and cubic formulas, and a soupçon of what’s beyond!</em>)</li>
+<li><a href="algsynth/quartic-formula/quartic-formula.pdf">the QUARTIC formula!!!!</a> (<em>a tiniest-font 72-inch wide PDF generated by LaTeX with</em>)</li>
 </ul></li>
-<li><a href="rationals/rationals.html">Rational functions</a> (<em>what if we could</em> divide <em>polynomials?</em>)
+<li><a href="algsynth/rationals/rationals.html">Rational functions</a> (<em>what if we could</em> divide <em>polynomials?</em>)
 <ul>
-<li><a href="blowing-up-fractions/blowing-up-fractions.html">Blowing up fractions!</a> (<em>a fun algebraic technique, more blandly known as partial fraction decomposition</em>)</li>
+<li><a href="algsynth/blowing-up-fractions/blowing-up-fractions.html">Blowing up fractions!</a> (<em>a fun algebraic technique, more blandly known as partial fraction decomposition</em>)</li>
 <li>some fun rational function sketching problems</li>
 </ul></li>
 </ul>
-<h2 id="logarithms">logarithms</h2>
+<h2 id="logs">logarithms</h2>
 <ul>
 <li><a href="inverse-functions/inverse-functions.html">The World Made From Modular Machines</a> (<em>notes on inverse functions, as a primer</em>)</li>
-<li><a href="">exponent rules reference sheet</a></li>
+<li><a href="logarithms/exponent-rules-reference/exponent-rules-reference.svg">exponent rules reference sheet</a></li>
 <li><a href="logarithms/logs-intro-problems/logs-intro-problems.html">fun intro exploratory logs problems</a></li>
 <li><a href="logarithms/logarithms-intro/logarithms-intro.html">Logarithms!</a> (<em>intro lengthy exposition and proofs of some basic properties</em>)</li>
 <li><a href="https://www.andrusia.com/logs.html">Andrew’s online visual logarithms calculator/pun</a></li>
@@ -89,13 +150,13 @@ li {
 <ul>
 <li><a href="trig/radians/radians.html">Radians</a>
 <ul>
-<li><a href="">printable fun-fun radians reference poster</a></li>
+<li>printable fun-fun radians reference poster: <a href="trig/radians/radians-graphic.svg">svg</a>, <a href="trig/radians/radians-graphic.pdf">pdf</a></li>
 <li><a href="trig/radians-example-problems/radians-example-problems.html">some example radians to-and-from degrees conversions</a></li>
 </ul></li>
-<li><a href="">printable fun-fun right-triangle trig function reference poster</a></li>
-<li><a href="trig/unit-circle-trig-definitions/unit-circle-trig-definitions.html">Trig Functions, <em>Turbocharged</em></a> (the unit circle definition of trig functions)
+<li>printable fun-fun right-triangle trig functions reference poster: <a href="trig/unit-circle-trig-definitions/all-of-trigonometry-right-triangle.svg">svg</a>, <a href="trig/unit-circle-trig-definitions/all-of-trigonometry-right-triangle.pdf">pdf</a></li>
+<li><a href="trig/unit-circle-trig-definitions/unit-circle-trig-definitions.html">Trig Functions, <em>Turbocharged</em></a> (<em>the unit circle definition of trig functions</em>)
 <ul>
-<li><a href="">printable fun-fun unit circle trig function reference poster</a></li>
+<li>printable fun-fun unit circle trig functions reference poster: <a href="trig/unit-circle-trig-definitions/all-of-trigonometry-unit-circle.svg">svg</a>, <a href="trig/unit-circle-trig-definitions/all-of-trigonometry-unit-circle.pdf">pdf</a></li>
 <li><a href="trig/unit-circle-example-problems/unit-circle-example-problems.html">some example unit circle-based calculations</a></li>
 </ul></li>
 <li><a href="trig/pythagorean-theorem-proof/pythagorean-theorem-proof.html">the pythagorean theorem</a></li>
@@ -105,11 +166,11 @@ li {
 <li><a href="trig/trig-word-problems-example-solutions/trig-word-problems-example-solutions.html">trig word problems example solutions</a></li>
 <li><a href="trig/quadratic-trig-equations/quadratic-trig-equations.html">examples of quadratic trig equations</a></li>
 <li><a href="trig/trig-equations-trapped/trig-equations-trapped.html">examples of trig equations with stuff inside the argument</a></li>
-<li>the super pythagorean theorem: <a href="trig/super-pythagorean-theorem-inducement/super-pythagorean-theorem-inducement.html">inducement</a>, <a href="trig/super-pythagorean-theorem/super-pythagorean-theorem.html">notes</a></li>
+<li>the super-pythagorean theorem: <a href="trig/super-pythagorean-theorem-inducement/super-pythagorean-theorem-inducement.html">inducement</a>, <a href="trig/super-pythagorean-theorem/super-pythagorean-theorem.html">notes</a></li>
 <li>Sum and difference identities: <a href="trig/sum-and-difference-identities-one/sum-and-difference-identities-one.html">Part I</a>, <a href="trig/sum-and-difference-identities-part-two/sum-and-difference-identities-part-two.html">Part II</a></li>
 <li><a href="trig/write-your-own-word-problem/write-your-own-word-problem.html">Write Your Own Word Problem</a></li>
 </ul>
-<h2 id="complex-nummies">complex nummies</h2>
+<h2 id="complex">complex nummies</h2>
 <ul>
 <li><a href="complex-numbers/complex-numbers-intro/complex-numbers-intro.html">Numbers, Complicated</a> (<em>introductory notes on complex numbers</em>)</li>
 <li><a href="complex-numbers/multiplication-by-i-as-rotation-motivation/multiplication-by-i-as-rotation-motivation.html">Let’s multiply things by <span class="math inline">\(i\)</span>!</a> (<em>exploratory problems</em>)</li>
@@ -123,28 +184,28 @@ li {
 <li><a href="complex-numbers/eulers-identity/eulers-identity.html">Exponential Improvements</a> (<em>notes on the exponential form and Euler’s Identity</em>)</li>
 <li><a href="complex-numbers/complex-roots-motivation/complex-roots-motivation.html"><span class="math inline">\(\sqrt{\text{Complex!}}\)</span></a> (<em>exploratory problems to figure out complex roots</em>)</li>
 <li><a href="complex-numbers/complex-roots/complex-roots.html">Numbers, Spinning and Unspinning</a> (<em>notes on complex roots</em>)</li>
-<li><a href="complex-numbers/complex-exponentiation/complex-exponentiation.html">Complex<sup>Complex<sup>Complex<sup>…</sup></sup></sup></a> (<em>notes on complex exponentiation</em>) (also available in zine form)</li>
+<li><a href="complex-numbers/complex-exponentiation/complex-exponentiation.html">Complex<sup>Complex<sup>Complex<sup>…</sup></sup></sup></a> (<em>notes on complex exponentiation</em>) (<a href="https://andrusia.com/2023/01/15/complex-exponentiation-zine.html">also available in zine form</a>)</li>
 <li><a href="complex-numbers/coles-conjecture-mayas-musing/coles-conjecture-mayas-musing.html">Cole’s Conjecture and Maya’s Musing (solution notes)</a></li>
 <li><a href="complex-numbers/gaussian-integers/gaussian-integers.html">Prime numbers aren’t prime</a> (<em>exploratory problems on Gaussian integers</em>)</li>
 </ul>
-<h2 id="sequences-and-serieseses">sequences and serieseses</h2>
+<h2 id="series">sequences and serieseses</h2>
 <ul>
 <li><a href="infinite-series/sequences-series-cold-open/sequences-series-cold-open.html">sequences and series cold open</a></li>
-<li><a href="infinite-series/sequences-series-basic-vocab/sequences-series-basic-vocab.html">sequences and series basic vocab</a></li>
-<li><a href="infinite-series/series-convergence/series-convergence.html">series convergence</a></li>
-<li>some very fun very diverse exploratory intro series problems: <a href="infinite-series/infinite-series-intro-exploratory-problems/infinite-series-intro-exploratory-problems.html">problems</a>, <a href="infinite-series/infinite-series-intro-exploratory-problems-notes/infinite-series-intro-exploratory-problems-notes.html">notes</a></li>
-<li><a href="infinite-series/sequences-series-fun-problems/sequences-series-fun-problems.html">some fun sequence and series word-ish problems</a></li>
-<li><a href="infinite-series/sequence-problems/sequence-problems.html">a bunch of sequence problems!</a></li>
-<li><a href="infinite-series/series-problems/series-problems.html">a bunch of series problems!</a></li>
+<li><a href="infinite-series/sequences-series-basic-vocab/sequences-series-basic-vocab.html">sequences and series basic vocabulary and some fun problems</a></li>
+<li>A Whole Party of Infinite Friends <em>(some very fun very diverse exploratory intro series problems)</em>:
+<ul>
+<li><a href="infinite-series/infinite-series-intro-exploratory-problems/infinite-series-intro-exploratory-problems.html">problems</a></li>
+<li><a href="infinite-series/infinite-series-intro-exploratory-problems-notes/infinite-series-intro-exploratory-problems-notes.html">detailed solution notes</a></li>
+</ul></li>
 <li><a href="infinite-series/harmonic-series-n-squared/harmonic-series-n-squared.html">does <span class="math inline">\(1/n^2\)</span> converge?</a></li>
 <li><a href="infinite-series/harmonic-series-conclusion/harmonic-series-conclusion.html">when does <span class="math inline">\(n^p\)</span> converge?</a></li>
 </ul>
-<h2 id="calculus">calculus!!!</h2>
+<h2 id="calc">calculus!!!</h2>
 <ul>
 <li><a href="calculus/calculus-intro/calculus-intro.html">In the Beginning Was The Derivative</a></li>
 <li><a href="calculus/derivative-of-x%5En/derivative-of-x%5En.html">the derivative of <span class="math inline">\(x^n\)</span></a>
 <ul>
-<li>poster version</li>
+<li><a href="calculus/derivative-of-x%5En/derivative-of-x%5En-poster-draft.pdf">poster version</a></li>
 </ul></li>
 <li><a href="calculus/differentiation/differentiation.html">Dffrntn Shrtcts</a> (<em>differentiation laws</em>)
 <ul>
@@ -172,12 +233,12 @@ li {
 <li><a href="calculus/integration-by-parts/integration-by-parts.html">Undoing the product rule</a> (<em>integration by parts </em>)
 <ul>
 <li><a href="calculus/integration-by-parts-examples/integration-by-parts-examples.html">Integration by parts: some fun examples</a></li>
-<li><a href="calculus/iterated-integration-by-parts/iterated-integration-by-parts.html">Integrating By Parts By Parts By Parts By Parts…</a> (iterated integration by parts)</li>
+<li><a href="calculus/iterated-integration-by-parts/iterated-integration-by-parts.html">Integrating By Parts By Parts By Parts By Parts…</a> (<em>iterated integration by parts</em>)</li>
 </ul></li>
-<li><a href="calculus/taylor-series-intro/taylor-series-intro.html">taylor series intro!</a>
+<li><a href="calculus/taylor-series/taylor-series-intro/taylor-series-intro.html">taylor series intro!</a>
 <ul>
-<li><a href="calculus/taylor-series-derivation/taylor-series-derivation.html">taylor series derivation!</a></li>
-<li><a href="">taylor series, more algorithmically</a></li>
+<li><a href="calculus/taylor-series/taylor-series-derivation/taylor-series-derivation.html">taylor series derivation!</a></li>
+<li><a href="calculus/taylor-series/taylor-series-as-procedure/taylor-series-as-procedure.html">taylor series, more algorithmically</a></li>
 <li><a href="">but sometimes you can only polynomialize functions over finite ranges</a></li>
 <li><a href="">can we think about the error term?</a></li>
 </ul></li>
@@ -188,11 +249,9 @@ li {
 <ul>
 <li><a href="linear-maps/linear-maps.html">linear maps</a></li>
 </ul>
-<p>lockhart, needham, strogatz and ted</p>
-<blockquote>
-<p>My book will no doubt be flawed in many ways of which I am not yet aware, but there is one “sin” that I have intentionally committed, and for which I shall not repent: many of the arguments are not rigorous, at least as they stand. This is a serious crime if one believes that our mathematical theories are merely elaborate metal constructs, precariously hoisted aloft. Then rigor becomes the nerve-racking balancing act that prevents the entire structure from crashing down around us. But suppose one believes, as I do, that our mathematical theories are attempting to capture aspects of a robust Platonic world that is not of our making. I would the contend that an initial lack of rigor is a small price to pay if it allows the reader to see into this world more directly and pleasurably than would otherwise be possible.</p>
-<p><span style="display:block; text-align:right;">—Tristan Needham, <em>Visual Complex Analysis</em> xi</span></p>
-</blockquote>
 </main>
+<footer style='margin-top:10em; margin-bottom:2em; text-align: center;'>
+<a href="http://www.andrusia.com"><img src="andrew-logo.svg" style="width:3em;"></a>
+</footer>
 </body>
 </html>

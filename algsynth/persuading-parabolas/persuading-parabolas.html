@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Persuading Parabolas into Vertex Form (A.K.A. “Completing the ■”)</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="/main.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <script src="../highlight-toc.js" type="text/javascript"></script>
+
+  <script> 
+      // disappearing header, from dynomight.net'
+      var prevScrollpos = window.pageYOffset;
+
+      window.onscroll = function() {
+        var currentScrollPos = Math.max(0,window.pageYOffset);
+
+        if (Math.abs(currentScrollPos - prevScrollpos) > 10){
+          if (prevScrollpos > currentScrollPos) {
+            document.querySelector('header').style.top = "0";
+            document.querySelector('header').style.opacity = "75%";
+          } else {
+            document.querySelector('header').style.top = "-60px";
+          }
+          prevScrollpos = currentScrollPos;
+        }
+        if(currentScrollPos==0){
+          document.querySelector('header').style.top = "0";
+          document.querySelector('header').style.opacity = "100%";
+        }
+      }
+    </script>
+
+</head>
+<body>
+  <header>
+    <span id="header-name">the natural history <span style="font-weight:normal;">of abstract objects</span></span> <span id="linkback"><a href=http://www.andrusia.com><img src="/andrew-logo.svg" id='header-logo' style='width: auto;'/></a></span>
+</header>
+<script>document.addEventListener('DOMContentLoaded', function(e) {
+  Scroller.init();
+})</script>
+<!-- <aside>
+<div class="tocLinks" >
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#some-parabolas-are-in-both-factored-and-vertex-form">Some parabolas are in <em>both</em> factored and vertex form!</a></li>
+<li><a href="#but-what-if-its-not-a-perfect-square-example-1">But what if it’s not a perfect square??? (Example #1)</a></li>
+<li><a href="#example-2">Example #2</a></li>
+<li><a href="#example-3">Example #3</a></li>
+<li><a href="#example-4">Example #4</a></li>
+<li><a href="#problems">Problems</a></li>
+</ul>
+</nav>
+</div>
+</aside>
+ -->
+<main>
+<div id="title-block">
+<h1 class="title">Persuading Parabolas into Vertex Form (A.K.A. “Completing the ■”)</h1>
+</div>
+<p><em>Okay, everyone! We’re about to start talking about </em><strong>rational functions</strong><em>, which are like polynomials, but way cooler—but before we do, I want to do one last thing with parabolas. I’m generally not a huge fan of completing the square, but if we learn how to do it, there are two fun and useful proofs about parabolas that we’ll be able to do. You know the results of both the proofs—one is the fact that the vertex of a parabola is halfway in between its roots; the other is the quadratic equation—but I want us to be able to really </em>feel <em>why these two things are true. In order to do that, we’ll need to prove them, and in order to do that, we’ll need to be able to complete the square—and likewise, to really </em>feel <em>why completing the square as a method works.</em></p>
+<p><br><br><br></p>
+<p>In our efforts so far at becoming algebraic synæsthetes, we’ve encountered parabolas in two different contexts:</p>
+<ul>
+<li>We’ve seen parabolas as being the parent function <span class="math inline">\(f(x)=x^2\)</span> with various linear transformations, like <span class="math inline">\(f(x)=(x+1)^2-9\)</span></li>
+<li>We’ve seen parabolas as being polynomials of degree <span class="math inline">\(2\)</span>, like <span class="math inline">\(f(x) = (x+4)(x-2)\)</span></li>
+</ul>
+<p>These are two different ways of thinking about parabolas. They both have pros and cons!</p>
+<ul>
+<li>
+<p>If we think of parabolas as being polynomials of degree <span class="math inline">\(2\)</span>, and write them in factored form, then it’s really easy to see where the roots/zeroes/<span class="math inline">\(x\)</span>-intercepts are:</p>
+<div class="callout-box" style="width:75%">
+<p>A parabola with roots/<span class="math inline">\(x\)</span>-intercepts at <span class="math inline">\(x=+r\)</span> and <span class="math inline">\(x=+s\)</span>: <span class="math display">\[f(x) = (x-r)(x-s)\]</span></p>
+<p>PICTURE</p>
+</div>
+</li>
+<li>
+<p>If we think of parabolas as being parent functions transformed, then it’s really easy to see where the vertex/minimum/maximum is:</p>
+<div class="callout-box" style="width:75%">
+<p>The parabola <span class="math inline">\(f(x)=x^2\)</span>, but shifted right by <span class="math inline">\(h\)</span> and up by <span class="math inline">\(k\)</span>: <span class="math display">\[f(x) = (x-h)^2 + k\]</span></p>
+<p>PICTURE</p>
+</div>
+<p>We know that <span class="math inline">\(f(x)=x^2\)</span> has a minimum at <span class="math inline">\((0,0)\)</span>, so if we move it around—say right by <span class="math inline">\(h\)</span> and up by <span class="math inline">\(k\)</span>—then its vertex will move, too!</p>
+<div class="callout-box" style="width:75%">
+<p>An upwards-opening parabola, with a vertex at <span class="math inline">\((+h,+k)\)</span>: <span class="math display">\[f(x) = (x-h)^2 + k\]</span></p>
+</div>
+<p>Likewise, if we were to flip it vertically over the <span class="math inline">\(x\)</span>-axis, then its minimum would become a maximum.</p>
+You might have seen this in previous math classes called the <strong>vertex form</strong> of a parabola. Since we’re talking about parent functions and their linear transformations in this class, you might also call them <strong>transformed-parent-function form</strong> of a parabola (a somewhat less mellifluous moniker).
+</li>
+</ul>
+<p>But, here’s the problem. We want parabolas to be our best friends. We want to know <em>everything about them</em>. We don’t want to have to choose between knowing the vertex of <em>some</em> parabolas, and the roots of others. We want to know the vertex of <em>every</em> parabola. We want to know the roots of <em>every parabola</em>. We want to know it <em>all</em>.</p>
+<p>We already have a way of figuring out the roots of any parabola. We have the quadratic equation! That tells us the roots of any parabola. But what about the vertex? We don’t know how to find that, in general, unless we’re lucky and get a parabola as a transformed parent function. And besides—do we <em>really</em> know the quadratic equation? We don’t know where it comes from. We just found it etched onto some stone tablets in our archæological dig.</p>
+<p>In these notes, I’m going to outline a method for finding the vertex of any parabola. You may already have seen it—people call this method <strong>completing the square</strong>—but we’re going to try to <em>really understand</em> and <em>really feel</em> how it works.</p>
+<h2 id="some-parabolas-are-in-both-factored-and-vertex-form">Some parabolas are in <em>both</em> factored and vertex form!</h2>
+<p>There’s a class of special parabolas which are <em>both</em> in factored form and in vertex form at the same time! In other words, we know their roots, <em>and</em> their vertex! Here’s an example:</p>
+<p><span class="math display">\[\begin{align*}
+    f(x) &amp;= x^2-4x+4
+\end{align*}\]</span> If we factor this, we get: <span class="math display">\[\begin{align*}
+    &amp;= (x-2)(x-2) \\
+    &amp;= (x-2)^2
+\end{align*}\]</span></p>
+<p>So this is fully factored! It looks like a polynomial of degree <span class="math inline">\(2\)</span>, with a single root of multiplicity <span class="math inline">\(2\)</span> at <span class="math inline">\(x=+2\)</span>. But we could also think of this as being:</p>
+<p><span class="math display">\[\begin{align*}
+    &amp;= (x-2)^2 + 0
+\end{align*}\]</span></p>
+<p>In other words, we could think of this as the parent function <span class="math inline">\(f(x)=x^2\)</span>, but shifted right by <span class="math inline">\(2\)</span>, and up <span class="math inline">\(0\)</span>. So the we know it has a minimum at <span class="math inline">\(x=+2\)</span> and <span class="math inline">\(y=0\)</span>.</p>
+<p><img src="completing-the-square-example-1.svg" style="width:50.0%" /></p>
+<p>The fancy name for this sort of parabola is that it’s a <strong>perfect square factorization</strong>. In other words, we can factor it into a <em>single</em> factor, of degree <span class="math inline">\(2\)</span>! Making it look <em>simultaneously</em> like a transformed parent function, and a fully-factored polynomial.</p>
+<p>There are others like it. For example: <span class="math display">\[\begin{align*}
+    f(x) &amp;= x^2 - 10x + 25 \\
+    &amp;= (x-5)(x-5) \\
+    &amp;= (x-5)^2
+\end{align*}\]</span></p>
+<p>Or:</p>
+<p><span class="math display">\[\begin{align*}
+    f(x) &amp;= x^2 + 14x + 49 \\
+    &amp;= (x+7)(x+7) \\
+    &amp;= (x+7)^2
+\end{align*}\]</span></p>
+<p>Or:</p>
+<p><span class="math display">\[\begin{align*}
+    f(x) &amp;= x^2 + 2\!\cdot\!(\text{blaargh})\!\cdot\!x + (\text{blaargh})^2 \\
+    &amp;= (x+\text{blaargh})(x+\text{blaargh}) \\
+    &amp;= (x+\text{blaargh})^2
+\end{align*}\]</span></p>
+<p>And so forth! The point is, there’s this special group of parabolas for which it’s really easy to <em>both</em> know their vertex, <em>and also</em> know their roots (… because they’re identical). These are really nice! It’s easy for us to know <em>everything</em> about them—the roots <em>and</em> the vertex!</p>
+<h2 id="but-what-if-its-not-a-perfect-square-example-1">But what if it’s not a perfect square??? (Example #1)</h2>
+<p>Let’s suppose we have something a little different. I just showed you the perfect-square parabola:</p>
+<p><span class="math display">\[\begin{align*}
+    f(x) &amp;= x^2 - 10x + 25 \\
+    &amp;= (x-5)(x-5) \\
+    &amp;= (x-5)^2
+\end{align*}\]</span></p>
+<p>Suppose we have a parabola/quadratic a little different, like:</p>
+<p><span class="math display">\[g(x) = x^2 - 10x + 23\]</span></p>
+<p>Let’s draw a picture of it! To draw a picture, we’ll need to factor it. Can we do that by hand? Not easily!!! It <em>almost</em> looks like that beautiful perfect square we just saw. Buuuuut not quite. Instead of having a <span class="math inline">\(+25\)</span> as the constant/<span class="math inline">\(y\)</span>-intercept, now we have <span class="math inline">\(+23\)</span>. We can try to factor it by hand; we’d probably fail. So, if we resort to the quadratic equation, we get:</p>
+<p><span class="math display">\[\begin{align*}
+    g(x) &amp;= x^2 - 10x + 23 \\ \\
+        &amp;= \left(x - \frac{-b+\sqrt{b^2-4ac}}{2a}\right)\left(x - \frac{-b-\sqrt{b^2-4ac}}{2a}\right) \\ \\
+        &amp;= \left(x-\frac{-(-10)+\sqrt{(-10)^2-4\!\cdot\!1\!\cdot\!23}}{2\!\cdot\!1}\right)\left(x - \frac{-(-10)-\sqrt{(-10)^2-4\!\cdot\!1\!\cdot\!23}}{2\!\cdot\!1}\right) \\ \\
+        &amp;\quad \vdots \\ \\
+        &amp; \text{... much simplification later ...}\\ \\
+        &amp;\quad \vdots \\ \\
+        &amp; \text{... dum de dum...}\\ \\
+        &amp;\quad \vdots \\ \\
+        &amp;= \Bigg(x- \left(5+\sqrt2\right)\Bigg)\Bigg(x- \left(5-\sqrt2\right)\Bigg)
+\end{align*}\]</span></p>
+<p>So, now we can sketch it. It has two roots, at <span class="math inline">\(x=5+\sqrt2\)</span> and <span class="math inline">\(5-\sqrt2\)</span>. We know from the original unfactored equation that it’s opening upwards (because it was <span class="math inline">\(+x^2\)</span>) and that it has a <span class="math inline">\(y\)</span>-intercept of <span class="math inline">\(23\)</span>:</p>
+<p><img src="completing-the-square-example-2-1.svg" style="width:50.0%" /></p>
+<p>But this leaves us with the question: WHERE IS ITS VERTEX/MINIMUM???? We really, <em>really</em>, want to know. We want to be <em>best friends</em> with this parabola. We want to know <em>everything about it</em>.</p>
+<p>If we knew calculus, we’d be able to find where the vertex/minimum is. The minimum happens where the slope is zero, so if we could use calculus to find an equation for the slope, then we could set that equal to zero, solve for <span class="math inline">\(x\)</span>, and ta-da! We’d have the minimum.</p>
+<p>But we don’t know calculus. Darn.</p>
+<p>But that’s OK. Here’s my proposal. This <em>almost</em> looks like a perfect square. It <em>almost</em> looks like <span class="math inline">\(x^2 - 10 + 25\)</span>, which factors so so beautifully to just <span class="math inline">\((x- 5)^2\)</span>. So what if we just… pretend that it is <span class="math inline">\(x^2 - 10 + 25\)</span>? Namely, what if we write it as:</p>
+<p><span class="math display">\[\begin{align*}
+    g(x) &amp;= x^2 - 10x + 23 \\
+    &amp;=  x^2 - 10x + \overbrace{25 -2}^{=23} \\
+    &amp;=  x^2 - 10x + 25 \quad-2 \\
+    &amp;=  x^2 - 10x + 25 \quad\quad-2 \\
+    &amp;=  x^2 - 10x + 25 \quad\quad\quad-2 \\
+    &amp;=  x^2 - 10x + 25 \quad\quad\quad\quad-2
+    \end{align*}\]</span></p>
+<p>See?!?! It BASICALLY looks like this beautiful perfect square quadratic parabola… just with this extra <span class="math inline">\(-2\)</span> hanging out at the end. We’ll just ignore that and pretend it’s not there. That’s part of the bullying. And now we can factor it!!!! <span class="math display">\[\begin{align*}
+    &amp;= (x-5)^2\quad\quad\quad\quad\underbrace{-2}_{\text{sad and lonely}} \\
+    &amp;= (x-5)^2-2
+\end{align*}\]</span></p>
+<p>BUT WAIT!!! Now it looks like something that’s in transformed-parent-function form (aka vertex form)!!!! It looks like we just took <span class="math inline">\(x^2\)</span>, moved it right by <span class="math inline">\(5\)</span>, and down by <span class="math inline">\(2\)</span>!!!! AND THAT MEANS WE KNOW WHERE THE VERTEX/MINIMUM IS!!!!</p>
+<p><img src="completing-the-square-example-2-2.svg" style="width:50.0%" /></p>
+<p>So we’ve managed to take this quadratic/parabola, and write it BOTH in factored form, AND in transformed-parent-function form!!! The factored form lets us see the roots; the transformed-parent-function form lets us see where the vertex is!!!!</p>
+<p><span class="math display">\[\underbrace{x^2 - 10x + 23}_{\substack{\text{unfactored form}\\\text{(easy to see $y$-int)}}} \quad=\quad \underbrace{\Bigg(x- \left(5+\sqrt2\right)\Bigg)\Bigg(x- \left(5-\sqrt2\right)\Bigg)}_{\substack{\text{factored form}\\\text{(easy to see $x$-ints)}}} \quad=\quad \underbrace{(x-5)^2 -2}_{\mathclap{\substack{\text{transformed-parent-function}\\\text{form, a/k/a vertex form}\\\text{(easy to see min/max)}}}}  \]</span></p>
+<p>SO NOW WE KNOW EVERYTHING ABOUT THIS PARABOLA!!!!!!!</p>
+<h2 id="example-2">Example #2</h2>
+<p>Okay, let’s actually figure out how to force things into vertex form. In that last example, we just happened to notice that it looked <em>almost</em> like a perfect square factorization, and so we were able to persuade it to get into transformed-parent-function form. But we might not always be so lucky!</p>
+<p>Here’s an example. Here’s another quadratic/parabola: <span class="math display">\[f(x) = x^2-6x+8\]</span> It’s very pretty! We want to look at it! To look at it, we’ll need to factor it, so that we can find its roots, and draw it. What are the roots? <span class="math display">\[f(x) = (x+\quad)(x+\quad)\]</span> So, to factor it, we need two numbers that:</p>
+<ul>
+<li>multiply to be <span class="math inline">\(+8\)</span></li>
+<li>add to be <span class="math inline">\(-6\)</span></li>
+</ul>
+<p>Hmm. Let’s list the (integer) factors of <span class="math inline">\(+8\)</span>: <span class="math display">\[+8,+1\]</span> <span class="math display">\[-8,-1\]</span> <span class="math display">\[+4,+2\]</span> <span class="math display">\[-4,-2\]</span> The last one works! <span class="math inline">\(-4\)</span> and <span class="math inline">\(-2\)</span> multiply to be <span class="math inline">\(+8\)</span>, and add to be <span class="math inline">\(-6\)</span>. So our factorization is:</p>
+<p><span class="math display">\[(x-4)(x-2)\]</span></p>
+<p>So then, we have roots/<span class="math inline">\(x\)</span>-intercepts/solutions/zeroes at <span class="math inline">\(x=+4\)</span> and <span class="math inline">\(x=+2\)</span>. Let’s draw a picture! (Also, note that we have a <span class="math inline">\(y\)</span>-intercept at <span class="math inline">\(+8\)</span>):</p>
+<p><img src="completing-the-square-example-3-1.svg" style="width:50.0%" /></p>
+<p>But where’s the minimum???? We don’t know! And if only this equation were in transformed-parent-function/vertex form, we’d be able to figure it out!!!</p>
+<p>It’s not. Drat. <em>But maybe we can convince it to get into vertex form</em>!!! Namely: we have this:</p>
+<p><span class="math display">\[x^2-6x+8\]</span></p>
+<p><span class="math display">\[\underbrace{x^2-6x}_\text{some $x$&#39;s}\quad\quad+\underbrace{8}_{\mathclap{\text{a constant}}}\]</span></p>
+<p>But if we could just make it look something like this:</p>
+<p><span class="math display">\[\left(x - \text{something}\right)^2 \quad\quad+8\quad\]</span></p>
+<p>… then we’d know where the minimum was. It’d be at:</p>
+<p><span class="math display">\[(\text{something},\,8)\]</span></p>
+<p>So, perhaps we can use our tools of algebra to somehow persuade/convince/cajole/bully the equation to get into vertex form? After all, this parabola is our friend. And what do we do with friends? Bully them!!!</p>
+<p>Here’s my idea. We need to somehow figure out what this magic number “something” is. We’ll use some algebraic trickery to do that. What we wrote above is the same as:</p>
+<p><span class="math display">\[\left(x + \text{something}\right)\left(x + \text{something}\right) \quad\quad+8\quad\]</span></p>
+<p>If we multiply this out, it becomes:</p>
+<p><span class="math display">\[x^2 \,+\,(\text{something})\!\cdot\!x \,+\,(\text{something})\!\cdot\!x \,+\, (\text{something})^2 \quad\quad+8\quad\]</span></p>
+<p>Or just:</p>
+<p><span class="math display">\[x^2 \,+\, 2\!\cdot\!(\text{something})\!\cdot\!x \,+\, (\text{something})^2 \quad\quad+8\quad\]</span></p>
+<p>But this needs to look like <span class="math inline">\(x^2-6x+8\)</span>, which means that the “<span class="math inline">\(b\)</span>” term—i.e., the term with the <span class="math inline">\(x\)</span> in it—needs to be <span class="math inline">\(-6x\)</span>:</p>
+<p><span class="math display">\[x^2 \,+\, \underbrace{2\!\cdot\!(\text{something})\!\cdot\!x}_{=6x} \,+\, (\text{something})^2 \quad\quad+8\quad\]</span></p>
+<p>So, in other words, whatever this magic number “something” is, we need to have:</p>
+<p><span class="math display">\[ 2\!\cdot\!(\text{something})\!\cdot\!x = -6x\]</span></p>
+<p>Anyway, back to this sorta-factored-into-vertex-form form:</p>
+<p><span class="math display">\[\left(x^2 - 6x + (\text{something})^2\right) \quad\quad+8\quad\]</span></p>
+<p>So, let’s think about how we might factor this forced-into-vertex-form of the equation? We have:</p>
+<p><span class="math display">\[\left(x - \text{something}\right)\left(x - \text{something}\right) \quad\quad+8\quad\]</span></p>
+<p>What does “something” need to be? Well:</p>
+<ul>
+<li>“something” plus “something” needs to be <span class="math inline">\(-6\)</span></li>
+<li>“something” time “something” needs to be… well, I guess it can be whatever</li>
+</ul>
+<p>So, we can do some algebra to think about what it might be! We need a number, that when added to itself, equals <span class="math inline">\(-6\)</span>:</p>
+<p><span class="math display">\[(\text{something})+ (\text{something}) = -6\]</span></p>
+<p>I.e., a number that, when multiplied by two, is <span class="math inline">\(-6\)</span>:</p>
+<p><span class="math display">\[2\cdot \text{something} = -6\]</span></p>
+<p>So then that something must be:</p>
+<p><span class="math display">\[\text{something} = -3\]</span></p>
+<p>So then, our factorization must be:</p>
+<p><span class="math display">\[\left(x - 3 \right)(x-3) \quad\quad+8\quad\]</span></p>
+<p><span class="math display">\[\left(x - 3 \right)^2 \quad\quad+8\quad\]</span></p>
+<p>That’s in vertex form!!! Yay!!! So I guess we have a minimum at <span class="math inline">\((+3, +8)\)</span>??!?</p>
+<p>PICTURE</p>
+<p>Well, no. <strong>We can’t actually do all this.</strong> We can’t willy-nilly change around the equation and add things. If we multiply this out, we get:</p>
+<p><span class="math display">\[\left(x^2 - 6x + 9\right) \quad\quad+8\quad\]</span></p>
+<p><span class="math display">\[x^2 - 6x + 17 =0\]</span></p>
+<p>Which is <em>totally different than what we had in the first place!</em></p>
+<p><span class="math display">\[\underbrace{\left(x^2 - 6x + 9\right) + 8}_{\text{forced into vertex form}} \quad \neq \quad \underbrace{\left(x^2 - 6x \right) +8}_{\text{the original equation}}\]</span></p>
+<p><span class="math display">\[x^2 - 6x + 17 \quad\neq\quad x^2-6x+8\]</span></p>
+<p>There’s that extra <span class="math inline">\(+9\)</span>! We can’t just randomly add nine to things!</p>
+<p>… <em>except we can</em>. It’s totally fine to randomly add nine to something—as long as we also randomly subtract nine from that same thing. In other words, it’s fine for me to steal $100 from you—as long as I also give you $100. Maybe you don’t have your original $100 bill (now it’s in my wallet!), and maybe I don’t have my original $100 bill either (now it’s in your wallet), but that’s fine, because money is (to use the fancy economic word) <strong>fungible</strong>. The specific representations of money are interchangeable. And same with numbers: numbers are fungible.</p>
+<p>So, the point is, we randomly added <span class="math inline">\(9\)</span> to force this into vertex form. That’s fine—we just need to randomly subtract nine:</p>
+<p><span class="math display">\[\big(x^2 - 6x \overbrace{+ 9}^{\mathclap{\text{randomly add $9$}}}\big)\underbrace{- 9}_{\mathclap{\text{randomly subtract $9$}}} \quad\quad+8\]</span></p>
+<p>So, if we re-factor this, but leave the <span class="math inline">\(-9\)</span> in place, we have:</p>
+<p><span class="math display">\[\left(x - 3 \right)^2\underbrace{- 9}_{\mathclap{\substack{\text{still randomly}\\\text{subtracting $9$}}}} \quad\quad+8\]</span></p>
+<p>And then we can combine the <span class="math inline">\(-9\)</span> and the <span class="math inline">\(+8\)</span>, and get just <span class="math inline">\(-1\)</span>:</p>
+<p><span class="math display">\[\left(x - 3 \right)^2-1\]</span></p>
+<p>Now these two things ARE the same! We’ve forced this parabola into vertex form!!! So, to summarize, we did this:</p>
+<p><span class="math display">\[\begin{align*}
+x^2 - 6x  +8 \quad &amp;=\quad \left(x^2 - 6x + 9\right) - 9 + 8  \\
+    x^2 - 6x  +8  \quad &amp;= \quad \left(x - 3\right)^2 - 9 + 8\\
+   \underbrace{x^2 - 6x +8\quad}_{\mathclap{{\text{the original equation}}}} \quad &amp;= \quad \underbrace{\left(x - 3\right)^2 -1}_{\mathclap{{\text{forced into vertex form}}}}
+\end{align*}\]</span></p>
+<p>Yay! So now we’ve forced this equation into transformed-parent-functon/vertex form!!!</p>
+<p><span class="math display">\[\boxed{f(x) = \left(x - 3\right)^2 -1}\]</span></p>
+<p>So this means we’ve taken <span class="math inline">\(x^2\)</span>, and moved it right by <span class="math inline">\(3\)</span> and down by <span class="math inline">\(1\)</span>. And that means we have a minimum at <span class="math inline">\((+3,-1)\)</span>!</p>
+<p><span class="math display">\[\boxed{\text{vertex/minimum at: }(+3,-1)}\]</span></p>
+<p><img src="completing-the-square-example-3-2.svg" style="width:50.0%" /></p>
+<p>It also means we now have this original equation written in <em>three</em> separate pretty algebraic forms:</p>
+<p><span class="math display">\[\underbrace{\left(x^2 - 6x + 8\right)}_{\substack{\text{unfactored form}\\\text{(easy to see $y$-int)}}} \quad=\quad \underbrace{(x-4)(x-2)}_{\substack{\text{factored form}\\\text{(easy to see $x$-ints)}}} \quad=\quad \underbrace{(x-3)^2 -1}_{\mathclap{\substack{\text{transformed-parent-function}\\\text{form, a/k/a vertex form}\\\text{(easy to see min/max)}}}}  \]</span></p>
+<h2 id="example-3">Example #3</h2>
+<p>Here’s another parabola:</p>
+<p><span class="math display">\[f(x) = x^2 - 7x + 6\]</span></p>
+<p>It’s pretty! Let’s factor it so we can look at it:</p>
+<p><span class="math display">\[f(x) = (x-6)(x-1)\]</span></p>
+<p>So it has roots at <span class="math inline">\(x=+6\)</span> and <span class="math inline">\(x=+1\)</span>. And it also has a <span class="math inline">\(y\)</span>-intercept at <span class="math inline">\(y=+6\)</span>. So it looks something like this:</p>
+<p><img src="completing-the-square-example-4-1.svg" style="width:50.0%" /></p>
+<p>But where is its vertex?!?! Like in the last example, let’s try to convince it to transform into vertex form.</p>
+<p>If we shove the <span class="math inline">\(6\)</span> over, and only think about the <span class="math inline">\(x^2\)</span> and the <span class="math inline">\(-7x\)</span>, this parabola looks like:</p>
+<p><span class="math display">\[x^2 - 7x \quad\quad\quad+ 6\]</span></p>
+<p>So, our idea is, can we somehow turn <span class="math inline">\(x^2-7x\)</span> into some factored perfect square???</p>
+<p><span class="math display">\[(x + \text{something})^2\quad\quad+ 6\]</span></p>
+<p>I.e., showing both the factors:</p>
+<p><span class="math display">\[(x + \text{something})(x + \text{something})\quad\quad+ 6\]</span></p>
+<p><strong>Here’s the key step:</strong> we need to figure out what that “something” is!</p>
+<p><span class="math display">\[\underbrace{(x + \text{something})(x + \text{something})}_{\text{has to equal $x^2-7x + \text{(something else)}$}}\quad\quad+ 6\]</span></p>
+<p>We need “something” to be some number, such that:</p>
+<ul>
+<li>“something” plus “something” is equal to <span class="math inline">\(-7\)</span></li>
+<li>“something” times “something” is equal to… anything; we don’t care what it is.</li>
+</ul>
+<p>In other words, we need:</p>
+<ul>
+<li>“something” times <span class="math inline">\(2\)</span> is equal to <span class="math inline">\(-7\)</span></li>
+</ul>
+<p>So what can that “something” be? It has to be <span class="math inline">\(-3.5\)</span>!</p>
+<p><span class="math display">\[\text{``something&#39;&#39;} = -3.5 = -\frac72\]</span></p>
+<p>So then our in-vertex-form, perfect-square version of this parabola becomes:</p>
+<p><span class="math display">\[\left(x - \frac72\right)^2\quad\quad+ 6\]</span></p>
+<p><span class="math display">\[\left(x - \frac72\right)\left(x - \frac72\right)\quad\quad+ 6\]</span></p>
+<p>EXCEPT NOT QUITE!!! I stole that cash from Charlie and Noah in class on Tuesday—but I had to make it up to them by giving them the same amount of cash back. Same thing here: we’ve added on some random number, so we need to balance that out by subtracting it away. What is that random number we’ve added on? If we multiply things out, we get:</p>
+<p><span class="math display">\[x^2 - 7x + \left(\frac72\right)^2 \quad\quad+ 6\]</span></p>
+<p><span class="math display">\[x^2 - 7x + \frac{49}{4} \quad\quad+ 6\]</span></p>
+<p>So, we’ve randomly added <span class="math inline">\(\frac{49}{4}\)</span>. To balance things out, we also need to randomly <em>subtract</em> <span class="math inline">\(\frac{49}{4}\)</span> to make up for it. (Written as a decimal, that’s the same as <span class="math inline">\(12.25\)</span>.) So really, we have:</p>
+<p><span class="math display">\[\left(x - \frac72\right)^2 - \frac{49}{4}+ 6\]</span></p>
+<p><span class="math display">\[\left(x - \frac72\right)\left(x - \frac72\right) - \frac{49}{4}+ 6\]</span></p>
+<p>Let’s do some arithmetic to combine the <span class="math inline">\(-49/4\)</span> and the <span class="math inline">\(+6\)</span>. Doing this by hand (no calculator!), we get:</p>
+<p><span class="math display">\[\begin{align*}
+-\frac{49}{4} + 6 &amp;\\
+&amp;= -\frac{49}{4} + \frac{24}{4} \\
+&amp;= \quad\frac{25}{4} \\
+&amp;= \quad6.25
+\end{align*}\]</span></p>
+<p>So then our parabola, in transformed-parent-function/vertex form, is:</p>
+<p><span class="math display">\[f(x) = \left(x - \frac72\right)^2 - \frac{25}{4}\]</span></p>
+<p>Or, with decimals:</p>
+<p><span class="math display">\[f(x) = \left(x - 3.5\right)^2 - 6.25\]</span></p>
+<p>So it looks like <span class="math inline">\(x^2\)</span>, but moved right by <span class="math inline">\(3.5\)</span> and down by <span class="math inline">\(6.25\)</span>! So it has a minimum at <span class="math inline">\(x=+3.5\)</span> and <span class="math inline">\(y=-6.25\)</span>!!</p>
+<p><span class="math display">\[\boxed{\text{vertex/minimum at: }(+3.5,-6.25)}\]</span></p>
+<p><img src="completing-the-square-example-4-2.svg" style="width:50.0%" /></p>
+<p>It also means we now have this original equation written in <em>three</em> separate pretty algebraic forms:</p>
+<p><span class="math display">\[\underbrace{\left(x^2 - 7x + 6\right)}_{\substack{\text{unfactored form}\\\text{(easy to see $y$-int)}}} \quad=\quad \underbrace{(x-6)(x-1)}_{\substack{\text{factored form}\\\text{(easy to see $x$-ints)}}} \quad=\quad \underbrace{\left(x - 3.5\right)^2 - 6.25}_{\mathclap{\substack{\text{transformed-parent-function}\\\text{form, a/k/a vertex form}\\\text{(easy to see min/max)}}}}\]</span></p>
+<h2 id="example-4">Example #4</h2>
+<p>Let’s do one last example! Here’s a pretty parabola:</p>
+<p><span class="math display">\[y= 3x^{2}-5x+1\]</span></p>
+<p>There’s a major way in which it’s different from the previous two examples: there’s that <span class="math inline">\(3\)</span> out in front! The coefficient on the <span class="math inline">\(x^2\)</span> isn’t <span class="math inline">\(1\)</span>! This will create a few complications.</p>
+<p>But first, let’s try to factor it. This ends up being way too hard to factor by hand (sad!), but if we use the quadratic equation, we get:</p>
+<p><span class="math display">\[3\left(x-\frac{5-\sqrt{13}}{6}\right)\left(x-\frac{5+\sqrt{13}}{6}\right)\]</span></p>
+<p><span class="math display">\[3\left(x-0.2324\text{ish}\right)\left(x-1.434\text{ish}\right)\]</span></p>
+<p>So them we have roots at <span class="math inline">\(x=+\frac{5-\sqrt{13}}{6}\)</span> and <span class="math inline">\(x=+\frac{5+\sqrt{13}}{6}\)</span>. Also, it’s opening upwards, and we have a <span class="math inline">\(y\)</span>-intercept of <span class="math inline">\(+1\)</span>. So it looks like this:</p>
+<p><img src="completing-the-square-example-5-1.svg" style="width:50.0%" /></p>
+<p>But where’s the vertex?? Let’s figure it out.</p>
+<p>Again, let’s focus on just these first two terms:</p>
+<p><span class="math display">\[3x^2-5x\quad\quad\quad+1\]</span></p>
+<p>Can we somehow turn <span class="math inline">\(3x^2 - 5\)</span> into some factored perfect square???</p>
+<p><span class="math display">\[(x + \text{something})^2\quad\quad +1\]</span></p>
+<p><span class="math display">\[(x + \text{something})(x + \text{something})\quad\quad+ 1\]</span></p>
+<p>The fact that there’s a <span class="math inline">\(3\)</span> in front of the <span class="math inline">\(x^2\)</span> will make this a bit trickier. Let’s make things easier: let’s factor out the <span class="math inline">\(3\)</span>, so that we just have something that just looks like <span class="math inline">\(x^2\)</span> minus something. This will be way, way easier if we can deal with just a <span class="math inline">\(1\cdot x^2\)</span>:</p>
+<p><span class="math display">\[3\left(x^2-\frac{5}{3}x\right)\quad\quad\quad+1\]</span></p>
+<p>Of course, we can’t nicely factor a <span class="math inline">\(3\)</span> out of the <span class="math inline">\(5\)</span>, because they have no common factors. So we end up with that <span class="math inline">\(\frac53\)</span>, which is a little ugly, but whatever. So, effectively then, we have:</p>
+<p><span class="math display">\[3(x + \text{something})^2\quad\quad+ 1\]</span></p>
+<p><span class="math display">\[3\cdot \underbrace{(x + \text{something})(x + \text{something})}_{\text{has to equal $x^2-\frac53x + \text{(something else)}$}}\quad\quad+ 1\]</span></p>
+<p>So for our “something,” we need:</p>
+<ul>
+<li>“something” plus “something” is equal to <span class="math inline">\(-\frac53\)</span></li>
+<li>“something” times “something” is equal to… whatever</li>
+</ul>
+<p>In other words:</p>
+<ul>
+<li>“something” times <span class="math inline">\(2\)</span> is equal to <span class="math inline">\(-\frac53\)</span></li>
+</ul>
+<p>So what can that “something” be? It has to be <span class="math inline">\(\displaystyle \frac{\quad-\frac53\quad}{2}\)</span>, which is just another way of writing <span class="math inline">\(-\frac{5}{6}\)</span>. So we have:</p>
+<p><span class="math display">\[\text{``something&#39;&#39;} = -\frac56\]</span></p>
+<p>So then our in-vertex-form, perfect-square version of this parabola becomes:</p>
+<p><span class="math display">\[3\left(x - \frac56\right)^2\quad\quad\quad+ 1\]</span></p>
+<p>Except, again, NOPE!!! We need to compensate for stealing Charlie and Noah’s cash. We’ve randomly added on some number, so we need to balance it out by subtracting it. What is that random number we’ve added on? Let’s multiply it out to see! First, let’s just multiply out the squared part, and deal with the <span class="math inline">\(3\)</span> later:</p>
+<p><span class="math display">\[3\left(x - \frac56\right)^2\quad\quad\quad+ 1\]</span></p>
+<p><span class="math display">\[3\left(x - \frac56\right)\left(x - \frac56\right)\quad\quad\quad+ 1\]</span></p>
+<p><span class="math display">\[3\left(x^2 \,- \frac56x \,- \frac56x \,+\, \frac56\cdot \frac56 \right) \quad\quad\quad+ 1\]</span></p>
+<p><span class="math display">\[3\left(x^2 -  2\cdot \frac56x + \left(\frac56\right)^2\right) \quad\quad\quad+ 1\]</span></p>
+<p><span class="math display">\[3\left(x^2 -  \frac53x + \frac{25}{36}\right) \quad\quad\quad+ 1\]</span></p>
+<p>Okay, now let’s distribute the <span class="math inline">\(3\)</span>:</p>
+<p><span class="math display">\[3x^2 - 3\cdot \frac53x + 3\cdot \frac{25}{36} \quad \quad\quad+ 1\]</span></p>
+<p><span class="math display">\[3x^2 - 3\cdot \frac53x + \cancel{3}\cdot \frac{25}{\cancel{3}\cdot 12} \quad \quad\quad+ 1\]</span></p>
+<p><span class="math display">\[3x^2 - 5x + \frac{25}{12} \quad\quad\quad + 1\]</span></p>
+<p>It’s <span class="math inline">\(25/12\)</span>! That’s the amount we stole from Charlie/Noah. So we’ll need to fix this by subtracting <span class="math inline">\(25/12\)</span>:</p>
+<p><span class="math display">\[3\left(x - \frac56\right)^2 - \frac{25}{12} \quad\quad\quad+ 1\]</span></p>
+<p><span class="math display">\[3\left(x - \frac56\right)^2 - \frac{25}{12} + 1\]</span></p>
+<p>And we can simplify this by combining <span class="math inline">\(- \frac{25}{12}\)</span> and <span class="math inline">\(+1\)</span>:</p>
+<p><span class="math display">\[\begin{align*}
+&amp;- \frac{25}{12} + 1 \\
+=&amp;- \frac{25}{12} + \frac{12}{12}\\ 
+=&amp; -\frac{13}{12}
+\end{align*}\]</span></p>
+<p>So then we get:</p>
+<p><span class="math display">\[f(x) = 3\left(x - \frac56\right)^2 - \frac{13}{12}\]</span></p>
+<p>And that’s our parabola, in transformed-parent-function/vertex form!!! It looks like <span class="math inline">\(x^2\)</span>, but shifted right by <span class="math inline">\(5/6\)</span>, vertically expanded by a factor of <span class="math inline">\(3\)</span>, and shifted down <span class="math inline">\(13/12\)</span>! So we have a minimum at <span class="math inline">\(x=+\frac56\)</span> and <span class="math inline">\(y=- \frac{13}{12}\)</span>!!!</p>
+<p><span class="math display">\[\boxed{\text{vertex/minimum at: }\left(+\frac56,- \frac{13}{12}\right)}\]</span></p>
+<p><img src="completing-the-square-example-5-2.svg" style="width:50.0%" /></p>
+<p>And like before, now we can write our parabola in all three forms:</p>
+<p><span class="math display">\[\underbrace{\left( 3x^{2}-5x+1 \right)}_{\substack{\text{unfactored form}\\\text{(easy to see $y$-int)}}} \quad=\quad \underbrace{3\left(x-\frac{5-\sqrt{13}}{6}\right)\left(x-\frac{5+\sqrt{13}}{6}\right)}_{\substack{\text{factored form}\\\text{(easy to see $x$-ints)}}} \quad=\quad \underbrace{3\left(x - \frac56\right)^2 - \frac{13}{12}}_{\mathclap{\substack{\text{transformed-parent-function}\\\text{form, a/k/a vertex form}\\\text{(easy to see min/max)}}}} \]</span></p>
+<h2 id="problems">Problems</h2>
+Force each of the parabolas below into vertex form! In particular:
+<ol class='lettered-list'>
+<li>
+Find the <span class="math inline">\(y\)</span>-intercept!
+<li>
+Find the roots/<span class="math inline">\(x\)</span>-intercepts! You might be able to do this by factoring by hand, or you might need the Q.E.
+<li>
+Finally, use the forcing-it-into-vertex-form method to find the vertex! (Is the vertex a max, or a min?)
+<li>
+(And of course, draw a picture of the parabola, labelling all these properties!)
+</ol>
+<p>You can look up formulas online for how to complete the square (or perhaps you know them from previous math classes), but <em>don’t</em> try to do this. Try to do it in the same way as in these notes—by getting up close and personal with the parabola.</p>
+<div style="column-width: 14em;  column-gap: 2em;  column-rule: 1px solid #ccc;">
+<ol class='problems'>
+<li>
+<span class="math inline">\(f(x) = x^2 - 6x + 9\)</span> <!-- % perfect square -->
+<li>
+<span class="math inline">\(f(x) = x^2 + 16x + 64\)</span>
+<li>
+<span class="math inline">\(f(x) = -x^2 + 24x - 144\)</span>
+<li>
+<span class="math inline">\(f(x) = x^2 - 6x + 7\)</span> <!-- % %=(x-3)^2 -2  -->
+<li>
+<span class="math inline">\(f(x) = x^2 + 12x + 24\)</span> <!-- % % =(x+6)^2 - 12  -->
+<li>
+<span class="math inline">\(f(x) = x^2 - 2x - 4\)</span> <!-- % % = (x-1)^2 -5  -->
+<li>
+<span class="math inline">\(f(x) = x^2 - 14x + 47\)</span> <!-- % % = (x-7)^2 - 2 -->
+<li>
+<span class="math inline">\(f(x) = -x^2 + 6x - 8\)</span> <!-- % %= (x+5)*(x-7) -->
+<li>
+<span class="math inline">\(f(x) = x^2 - 2x - 35\)</span> <!-- % % =(x+5)*(x-7) -->
+<li>
+<span class="math inline">\(f(x) = x^2+2x-24\)</span> <!-- % %=(x+4)(x-6) -->
+<li>
+<span class="math inline">\(f(x) = x^2 + 5x+3\)</span>
+<li>
+<span class="math inline">\(f(x) = 2x^2+4x+8\)</span>
+<li>
+<span class="math inline">\(f(x) = -5x^2-10x-15\)</span>
+<li>
+<span class="math inline">\(f(x) = 3x^2+27x+9\)</span>
+<li>
+<span class="math inline">\(f(x) = -7x^2+16x-100\)</span>
+<li>
+<span class="math inline">\(f(x) = 10x^2+4x-68\)</span>
+<li>
+<span class="math inline">\(f(x) = 5x^2 -7x+2\)</span>
+<li>
+<span class="math inline">\(f(x) = 7x^2 + 5x - 9\)</span>
+<li>
+<span class="math inline">\(f(x) = 5x^2-3x-11\)</span>
+<li>
+<span class="math inline">\(f(x) = 5x^2 - 7x + 13\)</span>
+</ol>
+</div>
+</main>
+</body>
+</html>

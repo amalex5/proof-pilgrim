@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>whence taylor series</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="/main.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <script src="../highlight-toc.js" type="text/javascript"></script>
+
+  <script> 
+      // disappearing header, from dynomight.net'
+      var prevScrollpos = window.pageYOffset;
+
+      window.onscroll = function() {
+        var currentScrollPos = Math.max(0,window.pageYOffset);
+
+        if (Math.abs(currentScrollPos - prevScrollpos) > 10){
+          if (prevScrollpos > currentScrollPos) {
+            document.querySelector('header').style.top = "0";
+            document.querySelector('header').style.opacity = "75%";
+          } else {
+            document.querySelector('header').style.top = "-60px";
+          }
+          prevScrollpos = currentScrollPos;
+        }
+        if(currentScrollPos==0){
+          document.querySelector('header').style.top = "0";
+          document.querySelector('header').style.opacity = "100%";
+        }
+      }
+    </script>
+
+</head>
+<body>
+  <header>
+    <span id="header-name">the natural history <span style="font-weight:normal;">of abstract objects</span></span> <span id="linkback"><a href=http://www.andrusia.com><img src="/andrew-logo.svg" id='header-logo' style='width: auto;'/></a></span>
+</header>
+<script>document.addEventListener('DOMContentLoaded', function(e) {
+  Scroller.init();
+})</script>
+<!-- <aside>
+<div class="tocLinks" >
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#whence-taylor-series-try-1">Whence Taylor Series, Try #1</a></li>
+<li><a href="#whence-taylor-series-try-2">Whence Taylor Series, Try #2</a></li>
+<li><a href="#finite-taylor-series-expansions-as-approximations">Finite Taylor series expansions as approximations</a></li>
+<li><a href="#polynomials-in-two-dimensions">Polynomials in two dimensions</a></li>
+<li><a href="#taylor-series-in-two-dimensions">Taylor series in two dimensions</a></li>
+</ul>
+</nav>
+</div>
+</aside>
+ -->
+<main>
+<div id="title-block">
+<h1 class="title">whence taylor series</h1>
+</div>
+<blockquote>
+<p>I’m writing these notes for you MVC’ers intended as your <em>second</em> exposure to Taylor series. I’m going to spend most of them talking about how to derive Taylor series, and not so much time motivating it. I’m guessing that in the excitement of Zoom learning last year, the actual proof/derivation/argument behind Taylor series didn’t quite get the appreciation it deserves.</p>
+</blockquote>
+<p><strong>You know Taylor series</strong>. We can take a function and turn it into a polynomial—albeit a possibly-infinitely-long one—using this formula:</p>
+<div class="callout-box">
+<p><span class="math display">\[\begin{align*}
+    p(x) &amp; \text{, polynomialized around $x=c$} \\ \\
+    &amp;= p(c) +(x-c)p&#39;(c) + \frac{(x-c)^2}{2}p&#39;&#39;(c) + \frac{(x-c)^3}{6}p&#39;&#39;&#39;(c) + \cdots \\ \\
+    &amp;= \sum_{k=0}^{k=\infty} \frac{p^{(k)}(c)}{k!}(x-c)^k
+\end{align*}\]</span></p>
+</div>
+<p>What’s cool about Taylor series is both the <strong>result</strong> and the <strong>reason</strong>.</p>
+<ul>
+<li>The <strong>result</strong> of Taylor series is remarkable: <em>everything is a polynomial</em>. Why is that cool? Well, because polynomials are <em>really nice functions</em>. They don’t spike up to infinity like rational functions do. They’re never infinitely-steep, like square/cube/<span class="math inline">\(n\)</span>th roots are. They don’t jump around or disappear. They’re continuous everywhere and differentiable everywhere. They’re just <em>really nice</em>, <em>really predictable</em> functions. So that fact that we can turn anything into a polynomial is really, really helpful.</li>
+<li>The <strong>reason</strong> behind Taylor series is cool, too. Why is everything a polynomial? Where does Taylor series come from? Well… Taylor series is just integration by parts. You just integrate an arbitrary function by parts, over and over, <em>ad infinitum</em>, and you get Taylor series.</li>
+</ul>
+<p>There are a lot of caveats to what I’ve just said.</p>
+<ul>
+<li><p>For one thing, it’s definitely not the case that we can turn <em>every</em> function into a polynomial. There are lots of details and fine print. Mathematicians have special names that they use for the subset of functions that we can think of as “basically polynomials”: they call them <strong><a href="https://en.wikipedia.org/wiki/Analytic_function">analytic</a></strong> or <strong><a href="https://en.wikipedia.org/wiki/Holomorphic_function">holomorphic</a></strong> or <strong><a href="https://en.wikipedia.org/wiki/Smoothness">smooth</a></strong> or <strong><a href="https://en.wikipedia.org/wiki/Entire_function">entire</a></strong>. (Those four words all have slight shades of meaning and subtle distinctions between them; I never remember the particulars.) Plus, even for polynomializable functions, sometimes you can only polynomialize them over a finite interval. (People call this the <strong>radius of convergence</strong>: for instance, if you try to polynomialize a logarithm, you can only do it within <span class="math inline">\(\pm1\)</span> unit of the point around which you expand/grow the Taylor series.)</p></li>
+<li><p>And, for another thing, even though I think it’s reasonable to say that Taylor series is “just” integration by parts, there are some subtle details in the way you need to set it up (“irritating” details would be another way to put it). The Taylor series formula is long and complicated and has lots of details—and that means that our derivation of it also has to be long and complicated and involve lots of details, necessarily, even if the core idea is very simple.</p></li>
+</ul>
+<p>So, as a result, we’ll do this proof in two steps. First, we’ll do a straightforward version of this argument, that gets the core ideas across. But it won’t really get us the precise result we want, in exactly the right form. So then, second, we’ll do the more detailed version, which will include all the <del>irritating details</del> subtle nuances, and which will get us the exact result we want.</p>
+<p>Think of how when you’re building something, you prototype first. You build a rough version of what you want. It’s not intended to be the final product—it’s just supposed to be a coarse approximation of the shape and the functionality. That gets you a feeling for how the thing should work, and lets you fill in the details in subsequent revisions (or, I guess, “iterations” is the design-thinking word). That’s what we’re doing here. We’re prototyping and design-thinking our way to a polished abstract argument (rather than to a polished physical object, like you might in an <span class="math inline">\(\sqrt{-1}\)</span>-Lab class).</p>
+<p>So that’s my rhetorical plan in these notes: we’ll make a rough argument that accomplishes the basic outline, and then we’ll make a more detailed argument that begets the final version.</p>
+<h2 id="whence-taylor-series-try-1">Whence Taylor Series, Try #1</h2>
+<p>There are lots of details involved in coming up with Taylor series. But the core idea is very simple: all we do is take a function, write it as the integral of its derivative, and then integrate by parts over and over and over again. In symbolic form, here’s the outline of the argument:</p>
+<ul>
+<li><p>We’re going to take some arbitrary function, <span class="math inline">\(p(x)\)</span>, and write it as <span class="math inline">\(\displaystyle\int\!p&#39;(x)\,dx\)</span> (i.e., as the integral of its derivative).</p></li>
+<li><p>Then we’re going to integrate that by parts, over and over and over and over, <em>ad infinitum</em></p></li>
+<li><p>From this a Taylor series will emerge!</p></li>
+</ul>
+More symbolically, our argument will look like:
+<div class="callout-box">
+<p><span class="math display">\[\begin{align*}
+\displaystyle p(x) &amp;= \int\! p&#39;(x) \, dx \\
+&amp;= \int\! 1\cdot p&#39;(x) \, dx \\
+&amp;\quad\quad\text{integrate this by parts} \\
+&amp;\quad\quad\quad\quad\vdots \\
+&amp;\quad\quad\text{keep integrating by parts, an infinite number of times...} \\
+&amp;\quad\quad\quad\quad\vdots \\
+&amp;= \text{the Taylor series formula/Taylor polynomial} \\
+&amp;\quad\quad\quad\text{(kinda)}
+\end{align*}\]</span></p>
+</div>
+<p>So, let’s start.</p>
+<div style="height:5em;">
+
+</div>
+<p>The theme of this proof is <em>stupidity</em>. That is not, note, a bad thing. Lots of the proofs we’ve done in math involve really stupid steps. The particular type of stupidity we’ll do here involves doing nothing. Yet this will result in actually doing something. And this is a strategy we’ve employed many times before in mathematics. For example:</p>
+<ul>
+<li>
+We can add zero! (But we can add zero in a special way that actually makes things look algebraically different, and which lets us cleverly manipulate things into a more useful form.)
+</li>
+<li>
+We can multiply by one! (But we can multiply by <span class="math inline">\(1\)</span> in a special way that actually makes things look algebraically different, and which lets us cleverly manipulate things into a more useful form. You might remember that we did this early in the year, in our derivation of the arc length formula, to make it nicer and more tractable.)
+</li>
+<li>
+In Math 3, when we proved logarithm rules, we did the logs/exponents version of this: if we have some lovely variable like <span class="math inline">\(x\)</span>, we can stupidly rewrite it and make it needlessly complicated by writing it as the log base something of something raised to it: <span class="math display">\[x = \log_a\left(a^x\right)\]</span> Or, alternatively, write it as something raised to the log base that thing of <span class="math inline">\(x\)</span>: <span class="math display">\[x = a^{\log_a(x)}\]</span>
+</li>
+</ul>
+<p>So, in other words, we’re <em>doing something by doing nothing.</em> Wittgenstein has some nice lines in the <em>Tractatus</em> about how if we were gods, the tautology of the world would resolve itself in an instant; that we can never actually <em>do anything</em> at all in mathematics, because math and logic always just <em>is</em>, eternally. (That’s my gloss/paraphrase, not his phrasing.) Yet, as finite and limited beings, we can still imagine we are doing things, as we come to understand the tautology of the world better.</p>
+<p>Anyway. Now we’re in calculus. What’s the calculus version of all this? What’s the calculus equivalent of <em>doing something by doing nothing</em>? What’s the calculus equivalent of a lovely pair of functions that cancel each other out, as inverses? Integrals and derivatives! Integration and differentiation are inverse operations, so they cancel out! A function is equal to the integral of its derivative!<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p>So. Let’s actually start to make this argument, and to create a Taylor series. Let’s say we have some lovely function <span class="math inline">\(p(x)\)</span>: <span class="math display">\[p(x)\]</span> (I’m using <span class="math inline">\(p\)</span> rather than <span class="math inline">\(f\)</span> because there’s an <span class="math inline">\(f\)</span> in the version of the integration by parts formula that I use, which will come up in a minute.)</p>
+<p>We can stupidly overcomplicate it by rewriting it as the derivative of its integral: <span class="math display">\[\displaystyle p(x) = \frac{d}{dx}\left[ \int\! p(x) \, dx \right]\]</span> Or as the integral of its derivative: <span class="math display">\[\displaystyle p(x) = \int\! p&#39;(x) \, dx\]</span> Let’s play with this second version for a bit. In fact, let’s <em>keep being stupid</em>, and do something <em>really ridiculous</em>: let’s integrate this by parts!!! I mean, I only see one “part” to the integral, but we can conjure up a second “part,” just by multiplying <span class="math inline">\(p(x)\)</span> by <span class="math inline">\(1\)</span>: <span class="math display">\[\displaystyle \int\! 1\cdot p&#39;(x) \, dx\]</span> This is basically the same as how we can compute the antiderivative for <span class="math inline">\(\ln(x)\)</span>: we write <span class="math inline">\(\int\!\ln x\)</span> as <span class="math inline">\(\int\!1\!\cdot\!\ln x\)</span>, and then hit it up with parts. (Hopefully you’ve done this at some point???)</p>
+<p>Let’s remind ourselves, by the way, of the integration by parts formula. I never can remember it, so I always have to write it down. Here it is: <span class="math display">\[\int f&#39;(x)g(x)\, dx \quad=\quad f(x) g(x) \,-\, \int\! f(x)g&#39;(x) \,dx\]</span> Anyway, back to the problem at hand. We want to integrate by parts, and as always when we integrate by parts, we have a choice to make. Which part is the <span class="math inline">\(f&#39;(x)\)</span> part, and which part is the <span class="math inline">\(g(x)\)</span> part? <span class="math display">\[\displaystyle \int\! 1\cdot p&#39;(x) \, dx \quad = \quad \int\! \underbrace{1}_{f&#39;(x)}\cdot \underbrace{p&#39;(x)}_{g(x)} \, dx \quad = \quad   \int\! \underbrace{1}_{g(x)}\cdot \underbrace{p&#39;(x)}_{f&#39;(x)} \, dx\]</span> The sensible way to integrate this by parts is to let <span class="math inline">\(1\)</span> be the <span class="math inline">\(f(x)\)</span> part, and <span class="math inline">\(p&#39;(x)\)</span> be the <span class="math inline">\(g&#39;(x)\)</span> part. Then we get just: <span class="math display">\[\begin{align*}
+  p(x) = \int\! \underbrace{1}_{g(x)}\cdot \underbrace{p&#39;(x)}_{f&#39;(x)} \, dx &amp;= f(x)\cdot g(x) \,\,-\,\, \int f(x)g&#39;(x) \,dx \\
+&amp;= p(x)\cdot 1 \,\,-\,\, \int p(x)\cdot  0 \,dx \\
+&amp;= p(x)
+\end{align*}\]</span> So <span class="math inline">\(p(x)\)</span> equals <span class="math inline">\(p(x)\)</span>. Very true! Very sensible! But… we’re trying to be stupid and ridiculous and completely over-the-top here. So what if we make the opposite choice? What if we let <span class="math inline">\(1\)</span> be the <span class="math inline">\(f&#39;(x)\)</span> part, and <span class="math inline">\(p(x)\)</span> be the <span class="math inline">\(g(x)\)</span> part??? Then we’ll get: <span class="math display">\[\begin{align*}
+  p(x) = \int\! \underbrace{1}_{f&#39;(x)}\cdot \underbrace{p&#39;(x)}_{g(x)} \, dx &amp;= f(x)\cdot g(x) - \int f(x)g&#39;(x) \,dx \\
+&amp;= xp&#39;(x) - \int x p&#39;&#39;(x) \,dx
+\end{align*}\]</span> Okay. We have indeed made our original, very simple function <span class="math inline">\(p(x)\)</span> far more complicated. But why not keep going? We have another integral—why not hit THAT with parts?!?! If we make the analogous choices for which part is the <span class="math inline">\(f\)</span> and which is the <span class="math inline">\(g&#39;\)</span>, we have: <span class="math display">\[\begin{align*}
+  p(x) = \int\! 1\cdot p(x) \, dx &amp;= xp&#39;(x) - \int x p&#39;&#39;(x) \,dx \\ \\
+&amp;= xp&#39;(x) - \int \underbrace{x}_{f&#39;(x)} \underbrace{p&#39;&#39;(x)}_{g(x)} \,dx \\ \\
+&amp;= xp&#39;(x) - \left( f(x)\cdot g(x) - \int f(x)g&#39;(x) \,dx \right) \\ \\
+&amp;= xp&#39;(x) - \left( \frac12x^2\cdot p&#39;&#39;(x) - \int \frac12x^2 p&#39;&#39;&#39;(x) \,dx \right) \\ \\
+&amp;= xp&#39;(x) - \frac12x^2 p&#39;&#39;(x) + \int \frac12x^2 p&#39;&#39;&#39;(x) \,dx
+\end{align*}\]</span> And let’s keep going!!! Why not CONTINUE integrating this by parts?!? <span class="math display">\[\begin{align*}
+    &amp;= xp&#39;(x) - \frac12x^2 p&#39;&#39;(x) + \int \underbrace{\frac12x^2}_{f&#39;(x)} \underbrace{p&#39;&#39;&#39;(x)}_{g(x)} \,dx \\ \\
+    &amp;= xp&#39;(x) - \frac12x^2 p&#39;&#39;(x) + \left( f(x)\cdot g(x) - \int f(x)g&#39;(x) \,dx \right) \\ \\
+    &amp;= xp&#39;(x) - \frac12x^2 p&#39;&#39;(x) + \left( \frac{1}{6}x^6\3p^{&#39;&#39;&#39;}(x) - \int \frac{1}{6}x^3p^{&#39;&#39;&#39;&#39;}(x) \,dx \right) \\ \\
+    &amp;= xp&#39;(x) - \frac12x^2 p&#39;&#39;(x) +  \frac{1}{6}x^3p^{&#39;&#39;&#39;}(x) - \int \frac{1}{6}x^3p^{&#39;&#39;&#39;&#39;}(x) \,dx 
+    \end{align*}\]</span></p>
+<p>More! MORE!!!!! <span class="math display">\[\begin{align*}
+    &amp;= xp&#39;(x) - \frac12x^2 p&#39;&#39;(x) +  \frac{1}{6}x^3p^{&#39;&#39;&#39;}(x) - \int \underbrace{\frac{1}{6}x^3}_{f&#39;(x)}\underbrace{p^{&#39;&#39;&#39;&#39;}(x)}_{g(x)} \,dx \\ \\
+    &amp;= xp&#39;(x) - \frac12x^2 p&#39;&#39;(x) +  \frac{1}{6}x^3p^{&#39;&#39;&#39;}(x) - \left( f(x)\cdot g(x) - \int f(x)g&#39;(x) \,dx \right) \\ \\
+    &amp;= xp&#39;(x) - \frac12x^2 p&#39;&#39;(x) +  \frac{1}{6}x^3p^{&#39;&#39;&#39;}(x) - \left( \frac{1}{24}x^4p^{&#39;&#39;&#39;&#39;}(x) - \int \frac{1}{24}x^4p^{&#39;&#39;&#39;&#39;&#39;}(x)  \,dx \right)
+    \end{align*}\]</span> Uh, let’s start using numbers to indicate how many derivatives we’re taking; tally marks get a bit inefficient… <span class="math display">\[\begin{align*}
+    &amp;= xp&#39;(x) - \frac12x^2 p&#39;&#39;(x) +  \frac{1}{6}x^3p^{&#39;&#39;&#39;}(x) - \left( \frac{1}{24}x^4p^{&#39;&#39;&#39;&#39;}(x) - \int \frac{1}{24}x^4p^{(5)}(x)  \,dx \right) \\ \\
+    &amp;= xp&#39;(x) - \frac12x^2 p&#39;&#39;(x) +  \frac{1}{6}x^3p^{&#39;&#39;&#39;}(x) - \frac{1}{24}x^4p^{&#39;&#39;&#39;&#39;}(x) + \int \frac{1}{24}x^4p^{(5)}(x)  \,dx 
+\end{align*}\]</span> Okay, you see where this is going!</p>
+<p>When you learned how to integrate by parts, you may have learned a fun technique for doing crazy repeated integration by parts like this. We can make a little table of the antiderivatives of <span class="math inline">\(f&#39;\)</span> and the derivatives of <span class="math inline">\(g\)</span>, and put them together, being sure to alternate signs appropriately. (People call this <strong>tabular integration</strong>; it’s just repeated/iterated integration by parts.) If we do something like that here, to make our work somewhat less messy, we’ll get a nice little table like:</p>
+<p>So, either way we calculate it, we have: <span class="math display">\[\begin{align*}
+    p(x) &amp;= xp&#39;(x) - \frac12x^2 p&#39;&#39;(x) +  \frac{1}{6}x^3p^{&#39;&#39;&#39;}(x) - \frac{1}{24}x^4p^{&#39;&#39;&#39;&#39;}(x) + \cdots \\ \\
+    &amp;= \sum_{k=1}^{k=\infty} \frac{(-1)^{k+1}x^kp^{(k)}(x)}{k!}
+\end{align*}\]</span> This is … almost the Taylor series formula we know and love. <em>But not quite.</em></p>
+There are a couple issues:
+<ol>
+<li>
+<p>The biggest is that <em>it’s not a polynomial</em>. Yes, we have all those lovely <span class="math inline">\(x\)</span>, <span class="math inline">\(x^2\)</span>, <span class="math inline">\(x^3\)</span> terms—but then we have those derivatives. We have <span class="math inline">\(p&#39;(x)\)</span>, <span class="math inline">\(p&#39;&#39;(x)\)</span>, and so forth. <em>Those are also functions of <span class="math inline">\(x\)</span></em>. And <span class="math inline">\(p\)</span>, along with its derivatives, is/are not necessarily polynomials!</p>
+<p>For instance, if we plug sine into this formula, it’ll give us: <span class="math display">\[\sin(x) = x\cos(x) - \frac12x^2(-\sin x) + \frac16x^3(-\cos x) -\frac{1}{24}x^4\sin(x)  + \cdots\]</span> It still has the trig functions. It isn’t really a polynomial.</p>
+In our actual version of Taylor series, we get around this by <em>evaluating</em> the derivative at the point <span class="math inline">\(x=c\)</span> around which we’re growing the Taylor series (i.e., plugging <span class="math inline">\(c\)</span> for <span class="math inline">\(x\)</span> into the derivatives), giving us just the instantaneous slope (or slope-of-the-slope-of-the-slope, etc.) at that point. But it’s not clear how we’d get to that from here. We can’t just plug <span class="math inline">\(x=c\)</span> into <em>some</em> of the <span class="math inline">\(x\)</span>’s, and leave the rest as <span class="math inline">\(x\)</span>. That’s definitely not allowed!
+</li>
+<li>
+Also, there’s no constant term. The formula we know and love for Taylor series includes a constant, a zeroth-order term with an <span class="math inline">\(x^0\)</span>. We don’t have that here. But that’s easier to fix. There’s no constant term because we took an indefinite integral/antiderivative. Those don’t have constants! If we take a definite integral (i.e., with bounds), or evaluate this from some lower bound to some upper bound, then we’ll get a definite constant. Doing so will actually be a bit irritating, but we’ll get to that later.
+</li>
+<li>
+Finally, as a third issue, there are all these negatives! The actual Taylor series formula doesn’t have negatives—all the terms are positive. Yet in this version, we have alternating negative and positive signs.
+</li>
+</ol>
+<p>Close—but no cigar!</p>
+<h2 id="whence-taylor-series-try-2">Whence Taylor Series, Try #2</h2>
+<p>Okay, so, that was our rough draft. We integrated by parts an infinite number of times, and we got something that looked an awful lot like a Taylor series! Great first try! But let’s iterate (or whatever John Feland would say).</p>
+<p>Here are some things we’re going to do differently this time:</p>
+<ul>
+<li>
+First, we’ve been using the variable <span class="math inline">\(x\)</span> to represent too many different things. (In CS parlance, we’ve been <strong>overloading our namespace</strong>.) It’s been part of our final answer, and it’s also been our variable of integration. That’s been the root of some of our maladies. So, to disambiguate things, we’re going to add a new dummy variable, <span class="math inline">\(t\)</span>, to our integral. Rather than integrate <span class="math inline">\(\int\!p&#39;(x)dx\)</span>, we’ll integrate: <span class="math display">\[\int\! p&#39;(t)dt\]</span>
+</li>
+<li>
+Second, we’re going to take a definite integral. That’ll give us the constant in the Taylor series expansion. (And it’ll require a tiny bit of algebra to get things in position for the subsequent integration by parts.) We’ll take a definite integral from <span class="math inline">\(t=c\)</span> to <span class="math inline">\(t=x\)</span>, i.e.: <span class="math display">\[\int_c^x \!p&#39;(t)dt\]</span> That’ll give us both the <span class="math inline">\(x\)</span> in our final Taylor polynomial, as well as the “origin” of our Taylor polynomial, around which we grow it (at <span class="math inline">\(c\)</span>).
+</li>
+<li>
+And third, we’re going to use a weird antiderivative in the integration by parts. The antiderivative of <span class="math inline">\(x^2\)</span> isn’t <em>just</em> <span class="math inline">\(\frac13x^3\)</span>—it’s also <span class="math inline">\(\frac13x^3+5\)</span>, <span class="math inline">\(\frac13x^3-7\)</span>, <span class="math inline">\(-\frac{-2x^3-47.8}{6}\)</span> and so forth. There’s going to be a special one that we’ll need to use to make the algebra work out nicely.
+</li>
+</ul>
+So, in a more symbolic form, our argument this time will look like:
+<div class="callout-box">
+<p><span class="math display">\[\begin{align*}
+\displaystyle p(x) &amp;= \int_c^x\! p&#39;(t) \, dt \\
+&amp;= \int_c^x \! 1\cdot p&#39;(t) \, dt \\ \\
+&amp;\quad\text{integrate this by parts an infinite number of times} \\
+&amp;\quad\text{but this time, plug in $x$ and $c$ and subtract} \\
+&amp;\quad\text{(also use a weird antiderivative for the integration by parts)} \\ \\
+&amp;= \text{the Taylor series formula/Taylor polynomial}\\
+&amp;\quad\quad\quad\text{(expanded around $x=c$)}
+\end{align*}\]</span></p>
+</div>
+<p>So, let’s start!</p>
+<div style='height:2em;'>
+
+<p>Let’s say we have a definite integral: <span class="math display">\[\int_{c}^{x}\! p&#39;(t)dt\]</span> So this is a definite integral from <span class="math inline">\(c\)</span> to <span class="math inline">\(x\)</span>, where <span class="math inline">\(c\)</span> is the constant around which we’re growing the Taylor series, and <span class="math inline">\(x\)</span> is the actual variable of our final, resulting Taylor series.</p>
+<p>Because of how integrals work, this is just <span class="math display">\[\int_{c}^{x}\! p&#39;(t)dt = \left(\substack{\text{the antiderivative of $p&#39;(t)$}\\\text{with $x$ plugged in for $t$}}\right) - \left(\substack{\text{the antiderivative of $p&#39;(t)$}\\\text{with $c$ plugged in for $t$}}\right)\]</span> But the antiderivative of <span class="math inline">\(p&#39;\)</span> is, of course, just <span class="math inline">\(p\)</span>. So we have: <span class="math display">\[\int_{c}^{x}\! p&#39;(t)dt = p(x) - p(c)\]</span> If we rearrange this slightly, we get: <span class="math display">\[p(x) - p(c) = \int_{c}^{x}\! p&#39;(t)dt \]</span> Or: <span class="math display">\[p(x) = p(c) +  \int_{c}^{x}\! p&#39;(t)dt\]</span> Okay, and NOW we have something on which we can go to town and integrate by parts!!! And you can see where the first, constant term of the Taylor series formula comes from, too.</p>
+<p>There’s another weird thing we’re going to do when we integrate this by parts. I’ll come to that in a second. If we’re trying to integrate this by parts, the obvious way to do it is to do basically what we just did before (but now with the added complication that we have a definite integral, so we have to subtract things after we antidifferentiate). So, we’ll get something like: <span class="math display">\[\begin{align*}
+    p(x) &amp;= p(c) +  \int_{c}^{x}\! p&#39;(t)dt \\
+    &amp;= p(c) +  \int_{c}^{x}\! \underbrace{1}_{f&#39;(t)}\cdot \underbrace{p&#39;(t)}_{g(t)}dt\\
+    &amp;= p(c) + \left[ f(t)g(t) - \int\!f(t)g&#39;(t)\,dt \right]_c^x \\
+    &amp;= p(c) + \left[ tp&#39;(t) - \int\!tp&#39;&#39;(t)\,dt \right]_c^x \\
+    &amp;= p(c) + xp&#39;(x) - cp&#39;(c) + \int_c^x\!tp&#39;&#39;(t)\,dt
+\end{align*}\]</span> But this… isn’t quite what we want. We still have <span class="math inline">\(p&#39;(x)\)</span> in there. We want our only <span class="math inline">\(x\)</span>’s to be part of the polynomial terms. We want the derivative parts to look more like <span class="math inline">\(p(c)\)</span>. That’s just a number. We want to have <span class="math inline">\(p&#39;(c)\)</span>, <span class="math inline">\(p&#39;&#39;(c)\)</span>, etc. But it doesn’t look like that’s what’s happening here. Hmmm. What to do.</p>
+<p>I know! Let’s try this again—but using a <em>different</em> antiderivative for <span class="math inline">\(g&#39;(t)\)</span>. And… this step is pretty weird, and I’m not sure I’d be able to come up with it myself, not unless I was really trying, and I knew what I wanted the ultimate answer to be. So, anyway, let’s back up. We had: <span class="math display">\[p(x) = p(c) +  \int_{c}^{x}\! \underbrace{1}_{f&#39;(t)}\cdot \underbrace{p&#39;(t)}_{g(t)}dt\]</span> We were trying to integrate this by parts: <span class="math display">\[\begin{align*}
+    g(t) &amp;= p&#39;(t) \quad\quad\quad &amp;f(t) =\quad \\
+    g&#39;(t) &amp;=  \quad\quad\quad &amp;f&#39;(t) = 1
+\end{align*}\]</span> The obvious antiderivative for <span class="math inline">\(f&#39;(t)=1\)</span> is <span class="math inline">\(f(t)=t\)</span>. But… that’s not the only antiderivative. Antidifferentiation isn’t unique! <span class="math inline">\(f&#39;(t)=1\)</span> has plenty of antiderivatives! <span class="math inline">\(f(t) = t + 7\)</span> is one of them. So is <span class="math inline">\(f(t)= t-2000\)</span>.</p>
+<p>And so is… <span class="math inline">\(f(t)=-(x-t)\)</span>. This is a little weird, so let’s linger on it for a moment. We normally think of <span class="math inline">\(x\)</span> as the variable, but if we’re anti/differentiating with respect to <span class="math inline">\(t\)</span>, then <span class="math inline">\(x\)</span> is just a constant. So if we differentiate this, we get: <span class="math display">\[\begin{align*}
+    \frac{d}{dt}\Big[ f(t) \Big] &amp;= \frac{d}{dt}\Big[ -(x-t)\Big] \\
+    &amp;= \frac{d}{dt}\Big[ -x+t \Big] \\
+    &amp;= \frac{d}{dt}\Big[ t- x \Big]  \\
+    &amp;= 1 - 0 \\
+    &amp;= 1 \\
+    &amp;= f&#39;(t)
+\end{align*}\]</span> So, let’s try integrating by parts with <em>that</em> antiderivative, and see what happens. We have: <span class="math display">\[\begin{align*}
+    g(t) = p&#39;(t) \quad\quad\quad f(t) = -(x-t) \\
+    g&#39;(t) = p&#39;&#39;(t)\quad  \quad\quad\quad f&#39;(t) = 1
+\end{align*}\]</span> So, antidifferentiating by parts, we’ll get: <span class="math display">\[\begin{align*}
+    p(x) &amp;= p(c) +  \int_{c}^{x}\! p&#39;(t)dt \\
+    &amp;= p(c) +  \int_{c}^{x}\! \underbrace{1}_{f&#39;(t)}\cdot \underbrace{p&#39;(t)}_{g(t)}dt \\
+    &amp;= p(c) + \left[ f(t)g(t) - \int\!f(t)g&#39;(t)\,dt \right]_c^x 
+    \end{align*}\]</span> Here comes the weird antiderivative: <span class="math display">\[\begin{align*}
+    &amp;= p(c) + \left[ -(x-t)p&#39;(t) - \int\!-(x-t)p&#39;&#39;(t)\,dt \right]_c^x 
+    \end{align*}\]</span> And let’s actually evaluate it from <span class="math inline">\(t=c\)</span> to <span class="math inline">\(t=x\)</span>: <span class="math display">\[\begin{align*}
+    &amp;= p(c) + -(x-x)p&#39;(x) - -(x-c)p&#39;(c) - \int_c^x\!-(x-t)p&#39;&#39;(t)\,dt\\
+    &amp;= p(c) -(x-x)p&#39;(x) +(x-c)p&#39;(c) - \int_c^x\!-(x-t)p&#39;&#39;(t)\,dt
+    \end{align*}\]</span> WAIT!!!! The <span class="math inline">\(p&#39;(x)\)</span> term goes away!!! ’Cuz it’s got a coefficient of just <span class="math inline">\((x-x)=0\)</span>!!! <span class="math display">\[\begin{align*}
+    &amp;= p(c) -\underbrace{(x-x)}_{=0}p&#39;(x) +(x-c)p&#39;(c) - \int_c^x\!-(x-t)p&#39;&#39;(t)\,dt \\
+    &amp;= p(c) -0p&#39;(x) +(x-c)p&#39;(c) - \int_c^x\!-(x-t)p&#39;&#39;(t)\,dt \\
+    &amp;= p(c) \,\,\cancel{-0p&#39;(x)}\,\, +(x-c)p&#39;(c) - \int_c^x\!-(x-t)p&#39;&#39;(t)\,dt \\
+    &amp;= p(c) +(x-c)p&#39;(c) - \int_c^x\!-(x-t)p&#39;&#39;(t)\,dt
+    \end{align*}\]</span> So now we can just keep integrating by parts! We have this weird antiderivative, but we can just keep antidifferentiating it “normally” (“boringly”). Let’s do the next term: <span class="math display">\[\begin{align*}
+    &amp;= p(c) +(x-c)p&#39;(c) - \int_c^x\!\underbrace{-(x-t)}_{f&#39;(t)}\underbrace{p&#39;&#39;(t)}_{g(t)}\,dt \\
+    &amp;= p(c) +(x-c)p&#39;(c) - \left[ f(t)g(t) - \int\!f(t)g&#39;(t)\,dt \right]_c^x \\
+    &amp;= p(c) +(x-c)p&#39;(c) - \left[ \frac{(x-t)^2}{2}p&#39;&#39;(t) - \int\!\frac{(x-t)^2}{2}p&#39;&#39;&#39;(t)\,dt \right]_c^x
+    \end{align*}\]</span> Note that the antiderivative is a little different there—it’s <span class="math inline">\(+\frac{(x-t)^2}{2}\)</span>, not <span class="math inline">\(-\frac{(x-t)^2}{2}\)</span>. We’ve lost the negative; it reappears when we take the derivative because of the <span class="math inline">\(-t\)</span> and the chain rule, etc.; if you’re uncertain about that, you can check. From here the antiderivatives will alternate between being <span class="math inline">\(+\)</span> or <span class="math inline">\(-\)</span>, because of the chain rule, but they’re perfectly matched to cancel out the negatives in the integration by parts formula. (Like destructive interference in physics/wave mechanics.) Anyway, this becomes: <span class="math display">\[\begin{align*}
+    &amp;= p(c) +(x-c)p&#39;(c) -\left(  \underbrace{\frac{(x-x)^2}{2}p&#39;&#39;(x)}_{=0} -  \frac{(x-c)^2}{2}p&#39;&#39;(c) - \int_c^x\!\frac{(x-t)^2}{2}p&#39;&#39;&#39;(t)\,dt \right) \\
+    &amp;= p(c) +(x-c)p&#39;(c) -\left(  0 - \frac{(x-c)^2}{2}p&#39;&#39;(c) - \int_c^x\!\frac{(x-t)^2}{2}p&#39;&#39;&#39;(t)\,dt \right)\\ \\
+    &amp;= p(c) +(x-c)p&#39;(c) + \frac{(x-c)^2}{2}p&#39;&#39;(c) + \int_c^x\!\frac{(x-t)^2}{2}p&#39;&#39;&#39;(t)\,dt\end{align*}\]</span> Okay! You can totally see where things are going! But to be thorough, let’s take one more term: <span class="math display">\[\begin{align*}
+    &amp;= p(c) +(x-c)p&#39;(c) + \frac{(x-c)^2}{2}p&#39;&#39;(c) + \int_c^x\!\underbrace{\frac{(x-t)^2}{2}}_{f&#39;(t)}\underbrace{p&#39;&#39;&#39;(t)}_{g(t)}\,dt \\ \\
+    &amp;= p(c) +(x-c)p&#39;(c) + \frac{(x-c)^2}{2}p&#39;&#39;(c) + \left[ f(t)g(t) - \int\!f(t)g&#39;(t)\,dt \right]_c^x \\ \\
+    &amp;= p(c) +(x-c)p&#39;(c) + \frac{(x-c)^2}{2}p&#39;&#39;(c) + \left[ -\frac{(x-t)^3}{6}p&#39;&#39;&#39;(t) - \int\!-\frac{(x-t)^3}{6}p&#39;&#39;&#39;&#39;(t)\,dt \right]_c^x \\ \\
+    &amp;= p(c) +(x-c)p&#39;(c) + \frac{(x-c)^2}{2}p&#39;&#39;(c) + \left( -\frac{(x-x)^3}{6}p&#39;&#39;&#39;(x) - -\frac{(x-c)^3}{6}p&#39;&#39;&#39;(c) - \int_c^x\!-\frac{(x-t)^3}{6}p&#39;&#39;&#39;&#39;(t)\,dt \right)\\ \\
+    &amp;= p(c) +(x-c)p&#39;(c) + \frac{(x-c)^2}{2}p&#39;&#39;(c) + \left( 0 + \frac{(x-c)^3}{6}p&#39;&#39;&#39;(c) - \int_c^x\!-\frac{(x-t)^3}{6}p&#39;&#39;&#39;&#39;(t)\,dt \right)\\ \\
+    &amp;= p(c) +(x-c)p&#39;(c) + \frac{(x-c)^2}{2}p&#39;&#39;(c) + \frac{(x-c)^3}{6}p&#39;&#39;&#39;(c) - \int_c^x\!-\frac{(x-t)^3}{6}p&#39;&#39;&#39;&#39;(t)\,dt
+\end{align*}\]</span> Yay!!! There’s our Taylor series/Taylor polynomial, out to the cubic term!!! So you can see what happens. That’s how Taylor series comes into being! We just do a bunch of stupid stuff—write something as the integral of its derivative, wildly integrate by parts like a lunatic, go all baroque on our antiderivatives—and, in doing so, we manage to turn any arbitrary function into a polynomial!</p>
+<div class="callout-box">
+<p><span class="math display">\[\begin{align*}
+    p(x) &amp;= p(c) +(x-c)p&#39;(c) + \frac{(x-c)^2}{2}p&#39;&#39;(c) + \frac{(x-c)^3}{6}p&#39;&#39;&#39;(c) + \cdots \\ \\
+    &amp;= \sum_{k=0}^{k=\infty} \frac{p^{(k)}(c)}{k!}(x-c)^k
+\end{align*}\]</span>  </p>
+</div>
+<h2 id="finite-taylor-series-expansions-as-approximations">Finite Taylor series expansions as approximations</h2>
+<p>Before we attempt to tackle higher-dimensional Taylor series, let’s remind ourselves of some more ways of thinking about 1D Taylor series.</p>
+<p>If we have a full, infinitely-long Taylor series, then I guess that’s just another way of writing the function. But what if we have only <em>part</em> of a Taylor series? Like, what if we have only the first few terms? How does that relate to the original function? Plus, given that we’re finite beings—we can never <em>actually</em> write out an infinite Taylor series—every Taylor series is just a finite truncation of the actual infinite one.</p>
+<p>So, we can think of a Taylor series with a finite number of terms as being an <em>approximation</em> of the original function. The more terms it has, the better the approximation becomes. We’re approximating the function increasingly better using increasingly complicated polynomials.</p>
+<p>So, for instance, we can approximate a function using just the first term of a Taylor series: <span class="math display">\[f(x) \approx f(c)\]</span> This is a bad approximation! Visually, it looks like a flat straight line, that intersects the function (at wherever we’re growing the Taylor series from).</p>
+<p>It’s not <em>totally horrible</em>—I mean, the function and the one-term Taylor series do have the same value, at <span class="math inline">\(x=c\)</span>. But it’s not great.</p>
+<p>So let’s add a second term, and make the approximation a bit better! We’ll have: <span class="math display">\[f(x) \quad\approx\quad f(c) + f&#39;(c)(x-c)\]</span> This is a straight line! If <span class="math inline">\(c=0\)</span> (if we’re growing the Taylor series around the origin), then it’s just a straight line with a <span class="math inline">\(y\)</span>-intercept of <span class="math inline">\(f(c)\)</span> and a slope of <span class="math inline">\(f&#39;(c)\)</span>. If <span class="math inline">\(c\)</span> is not <span class="math inline">\(0\)</span>, then we can do a bit more algebra to figure out the slope and <span class="math inline">\(y\)</span>-intercept. This is, note, exactly the same as <strong>tangent line approximation</strong> to a function at a point that you may have seen in 1VC!</p>
+<p>How about if we keep going? What if we approximate the function with a parabola (a second-order polynomial)? We’ll have: <span class="math display">\[f(x) \quad\approx\quad f(c) + f&#39;(c)(x-c) + \frac{f&#39;&#39;(c)}{2}(x-c)^2\]</span> Like in the linear/tangent line approximation, we could expand this and do some algebra if we wanted to see this in normal <span class="math inline">\(ax^2+bx+c\)</span> form. (Of course, if the <span class="math inline">\(c\)</span> in our original formula is <span class="math inline">\(0\)</span>, we already have this.)</p>
+<p>Note how here we’re starting to divide the higher-order terms. We have a <span class="math inline">\(2\)</span> in the denominator here. Each of the <span class="math inline">\(n\)</span>’th order terms has an <span class="math inline">\(n!\)</span> in the denominator; it’s just that <span class="math inline">\(0!\)</span> and <span class="math inline">\(1!\)</span> are both <span class="math inline">\(1\)</span>, so we didn’t show them explicitly.</p>
+<p>One way of thinking about these <span class="math inline">\(n!\)</span>’s in the denominator is that <em>the higher the power, the less and less it matters.</em> If we’re trying to approximate the function at <span class="math inline">\(x=c\)</span>, then the function’s value at <span class="math inline">\(x=c\)</span> matters A LOT. And the function’s slope at <span class="math inline">\(x=c\)</span> matters a lot, too. The slope of the slope matters somewhat less. And the slope of the slope of the slope even less. Once we’re out to the forty-seventh derivative, it’s just not going to make that big of a difference. So that’s one way of thinking about why there’s a <span class="math inline">\(n!\)</span> in the denominator of the <span class="math inline">\(n\)</span>’th term.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> It’s a way of making higher-order terms smaller. The higher-order the term, the less it matters.</p>
+<p>So, in summary, we can think of a Taylor series as being a way of approximating a function increasingly better using increasingly complicated polynomials: <span class="math display">\[f(x) \approx \underbrace{f(c)}_{\mathclap{\text{constant term}}} +\, \underbrace{f&#39;(c)(x-c)}_{\mathclap{\text{linear term}}} \,+\, \underbrace{\frac{f&#39;&#39;(c)}{2}(x-c)^2}_{\mathclap{\text{quadratic term}}} \,+\, \underbrace{\frac{f&#39;&#39;&#39;(c)}{6}(x-c)^3}_{\text{cubic term}} \,+ \cdots +\, \underbrace{\frac{f^{(n)}(c)}{n!}(x-c)^n}_{\text{$n$th-order term}} \,+ \cdots\]</span></p>
+<h2 id="polynomials-in-two-dimensions">Polynomials in two dimensions</h2>
+<p>Whoops! I meant for us to talk about this earlier this fall. But we didn’t. Oh well! Let’s briefly discuss this now.</p>
+<p>We spent a long time in Math 3 talking about polynomials in one dimension, and how their algebraic representation connects to what they look like, visually. Algebraically, a polynomial in 1D looks like a bunch of terms added together, where each term consists of the variable raised to some power (a positive integer power) and multiplied by some coefficient, e.g.: <span class="math display">\[a + bx + cx^2  + dx^3 + ex^4 + \cdots\]</span> What about a two-dimensional polynomial? Or, as people say, a "<strong>polynomial in two variables</strong>’’? What do they look like, visually and algebraically?</p>
+<p>A degree-zero 2D polynomial is easy. Here’s an example: <span class="math display">\[f(x,y) = 5\]</span> So this is just a flat plane at <span class="math inline">\(z=5\)</span>. It’s just like how a degree-zero 1D polynomial is a flat line.</p>
+<p>A first-degree 2D polynomial is a plane! Here’s an example: <span class="math display">\[f(x,y) = 3x - 7y + 2\]</span> So it’s a linear plane, with a slope of <span class="math inline">\(3\)</span> in the <span class="math inline">\(x\)</span>-direction, a slope of <span class="math inline">\(-7\)</span> in the <span class="math inline">\(y\)</span>-direction, and a “<span class="math inline">\(z\)</span>-intercept” of <span class="math inline">\(2\)</span>. Of course we could also have a first-degree 2D polynomial that’s flat in one of those directions, like: <span class="math display">\[\begin{align*}
+    g(x,y) &amp;= 3x + 0y + 2 \\
+    &amp;= 3x+2
+    \end{align*}\]</span> The first problem you did on the roofs problem set was basically like this. It was a 2D plane, flat in one direction and linear in the other. Either way, we don’t just have <em>one</em> linear term—we have <em>two</em> linear terms!</p>
+<p>What about when we move up to a degree-two/quadratic polynomial in 2D? Now things get a little messier! If we’re thinking about a quadratic in two dimensions, there are FOUR different ways we can multiply together <span class="math inline">\(x\)</span>’s and <span class="math inline">\(y\)</span>’s so that the total degree is two: <span class="math display">\[x^2,\quad yx,\quad xy,\quad\text{ and }y^2\]</span> In 1D, we only have one quadratic term we need to worry about. In 2D, we have four! Well, okay, not really, because <span class="math inline">\(xy\)</span> and <span class="math inline">\(yx\)</span> are the same. So I guess we really just have three possible quadratic terms in 2D: <span class="math display">\[x^2, \quad xy,\quad\text{ and }y^2\]</span> The shapes get way more complicated! We’ve seen 2D polynomials that look like two-dimensional parabolas: <span class="math display">\[x^2+y^2\]</span> We’ve discovered this weird new Pringles hyperbolic parabola shape: <span class="math display">\[x^2 - y^2\]</span> And, in general, the three quadratric terms of a 2D polynomial will look like: <span class="math display">\[\text{(SOMETHING)}x^2 + \text{(SOMETHING ELSE)}y^2 + \text{(SOMETHING ELSE ELSE)}xy\]</span> Those are just the quadratic terms! I’m not even including the two linear terms, or the constant term! And then when we’re talking about a polynomial out to the cubic terms, things get even more complicated!</p>
+<p>And I’d write more, but… it’s Tuesday night, and I’m desperately trying to get these finished up for tomorrow!</p>
+<h2 id="taylor-series-in-two-dimensions">Taylor series in two dimensions</h2>
+<p>So, we’re definitely not going to derive the formula for a Taylor series in two dimensions. Deriving the formula for a Taylor series in 1D was enough work itself! And—like many things in higher dimensions—Taylor series does not get easier or less complicated as we move into higher dimensions. Instead it gets messier. Way messier. So I’m just going to write out what the formula is, and try to motivate where it comes from. That’s enough!</p>
+What if we think about approximating a 2D surface (i.e., a surface from <span class="math inline">\(\mathbb{R}^2\)</span> to <span class="math inline">\(\mathbb{R}^1\)</span>) with a 2D polynomial? How can we do this?
+<p>Let’s get more specific. Let’s say we have some function: <span class="math display">\[f: \mathbb{R}^2 \rightarrow \mathbb{R}^1\]</span> And we want to approximate it/grow a 2D Taylor series around the point <span class="math inline">\((x=a, y=b)\)</span>.</p>
+<p>If we try to approximate it with just a single number (a constant, a flat plane), we have: <span class="math display">\[f(x,y) \approx f(a,b)\]</span> It’s just the value of the function at that point.</p>
+<p>If we want to approximate it with a plane (i.e., a not-necessarily flat, maybe-angled plane), well, now we have <em>two</em> linear terms. We have a linear term in the <span class="math inline">\(x\)</span>-direction, which will be <span class="math inline">\((x-a)\)</span>, times the slope/derivative/partial with respect to <span class="math inline">\(x\)</span>, evaluated at <span class="math inline">\((a,b)\)</span>: <span class="math display">\[\underbrace{f_x(a,b)(x-a)}_{\substack{\text{the linear term}\\\text{in the $x$-direction}}}\]</span> And we have the same thing (or rather, the analgous thing) for the <span class="math inline">\(y\)</span>-direction: <span class="math display">\[\underbrace{f_y(a,b)(y-b)}_{\substack{\text{the linear term}\\\text{in the $y$-direction}}}\]</span> So, to put these together, if we want to approximate <span class="math inline">\(f\)</span> with a (slanted) plane, we have: <span class="math display">\[f(x,y) \approx f(a,b) \,+\, \underbrace{f_x(a,b)(x-a) \,+\, f_y(a,b)(y-b)}_{\text{linear terms}}\]</span> What if we want to approximate it as a 2D paraboloidy shape? I.e., with a second-order 2D polynomial? Now we have FOUR terms to deal with!!! After all, if we’re thinking about what total combination of exponent degree gives us a quadratic, i.e., degree two, we have four choices: <span class="math display">\[x^2,\quad yx,\quad xy,\quad\text{ and }y^2\]</span> In 1D, we only have one quadratic term we need to worry about. In 2D, we have four! So each of these four terms has some coefficient. And, like with Taylor series in 1D, we can find those coefficients by scaling by the value of the derivative at that point, divided by the order of the term factorial’d. So our four quadratic terms are: <span class="math display">\[\frac12f_{xx}(a,b)(x-a)(x-a)\]</span> <span class="math display">\[\frac12f_{yy}(a,b)(y-b)(y-b)\]</span> <span class="math display">\[\frac12f_{xy}(a,b)(x-a)(y-b)\]</span> <span class="math display">\[\frac12f_{yx}(a,b)(y-b)(x-a)\]</span> Well, okay, this is a little silly—we don’t <em>really</em> have four quadratic terms. After all, <span class="math inline">\(xy\)</span> and <span class="math inline">\(yx\)</span> are the same. And likewise, the mixed partials <span class="math inline">\(f_{xy}\)</span> and <span class="math inline">\(f_{yx}\)</span> are the same: <span class="math display">\[\begin{align*}
+    &amp; \frac12f_{xx}(a,b)(x-a)^2  \\
+    &amp;\begin{rcases}
+        \!\displaystyle\frac12f_{xy}(a,b)(x-a)(y-b) \\
+        \!\displaystyle\frac12f_{yx}(a,b)(y-b)(x-a)
+    \end{rcases} \quad\text{ same} \\
+    &amp;\frac12f_{yy}(a,b)(y-b)^2
+\end{align*}\]</span> So really, we can combine them, and our three quadratic terms are actually just: <span class="math display">\[\begin{align*}
+    &amp; \frac12f_{xx}(a,b)(x-a)^2  \\
+    &amp; f_{xy}(a,b)(x-a)(y-b) \\
+    &amp;\frac12f_{yy}(a,b)(y-b)^2
+\end{align*}\]</span> Note how the fraction of the mixed partial is different—we had two of them divided by two, so we only have one divided by one. (That makes no sense in English.) So then, our Taylor series in 2D, out to the quadratic terms, is: <span class="math display">\[f(x) \approx \overbrace{f(a,b)}^{\text{constant term}} \,+\, \underbrace{f_x(a,b)(x-a) \,+\, f_y(a,b)(y-b)}_{\text{linear terms}} + \underbrace{\frac{f_{xx}(a,b)}{2}(x-a)^2 + \frac{f_{yy}(a,b)}{2}(y-b)^2 + f_{xy}(a,b)(x-a)(y-b)}_{\text{quadratic terms}}\]</span> Uhh, that’s running off the page. Let’s start listing these terms vertically: <span class="math display">\[\begin{align*}
+f(x,y) \approx&amp;\quad f(a,b)\quad\text{ constant term} \\ \\
+&amp;\begin{rcases}
++&amp;  f_{x}(a,b)(x-a)  \\
++&amp; f_{y}(a,b)(y-b) \\
+\end{rcases} \quad\text{ linear terms} \\ \\
+&amp;\begin{rcases}
++&amp;  \frac12f_{xx}(a,b)(x-a)^2  \\
++&amp; \frac12f_{yy}(a,b)(y-b)^2 \\
++&amp; f_{xy}(a,b)(x-a)(y-b)
+\end{rcases} \quad\text{ quadratic terms}
+\end{align*}\]</span> What about the cubic terms?!?! We now have EIGHT possibilities: eight different ways we can multiply together different numbers of <span class="math inline">\(x\)</span>’s and <span class="math inline">\(y\)</span>’s to get a degree-three thing. <span class="math display">\[x^3,\quad x^2y,\quad xyx, \quad yx^2,\quad xy^2,\quad yxy,\quad y^2x,\quad \text{ and } y^3\]</span> Or… well, again, not really, because multiplication is commutative, and so order doesn’t matter. Once we ignore that, there will only be four different cubic terms: <span class="math display">\[x^3,\quad x^2y,\quad xy^2,\quad \text{ and } y^3\]</span> Anyway… this is all getting very detailed. Let’s just put all these together with their relevant partials. It’s a cubic, so the denominator will be <span class="math inline">\(3!=6\)</span>. So our cubic terms are: <span class="math display">\[\begin{align*}
+    &amp; \frac16f_{xxx}(a,b)(x-a)^3  \\
+    &amp;\begin{rcases}
+        \!\frac16f_{xxy}(a,b)(x-a)^2(y-b) \\
+        \!\frac16f_{xyx}(a,b)(x-a)^2(y-b) \\
+        \!\frac16f_{yxx}(a,b)(x-a)^2(y-b)
+    \end{rcases} \text{ same} \\
+    &amp;\begin{rcases}
+        \!\frac16f_{xyy}(a,b)(x-a)(y-b)^2 \\
+        \!\frac16f_{yxy}(a,b)(x-a)(y-b)^2 \\
+        \!\frac16f_{yyx}(a,b)(x-a)(y-b)^2
+    \end{rcases} \text{ same} \\
+    &amp;\frac16f_{yyy}(a,b)(y-b)^3
+\end{align*}\]</span> So, if we account for the fact that multiplication and differentiation are commutative (order doesn’t matter), this reduces to just four terms. There are three of each of the “mixed” terms, and <span class="math inline">\(\frac16+\frac16+\frac16=\frac12\)</span>, so that’s what the coefficient on the two combined mixed terms will be. We get, as the four third-order/cubic terms: <span class="math display">\[\frac16f_{xxx}(a,b)(x-a)^3\]</span> <span class="math display">\[\frac12f_{xxy}(a,b)(x-a)^2(y-b)\]</span> <span class="math display">\[\frac12f_{xyy}(a,b)(x-a)(y-b)^2\]</span> <span class="math display">\[\frac16f_{yyy}(a,b)(y-b)^3\]</span> So then, our 2D Taylor series, out to the cubic terms, is: <span class="math display">\[\begin{align*}
+f(x,y)\quad \approx&amp; \quad f(a,b) \quad\text{ constant term} \\ \\
+&amp;\begin{rcases}
++&amp;  f_{x}(a,b)(x-a)  \\
++&amp; f_{y}(a,b)(y-b) \\
+\end{rcases} \quad\text{ linear terms} \\ \\
+&amp;\begin{rcases}
++&amp;  \frac12f_{xx}(a,b)(x-a)^2  \\
++&amp; \frac12f_{yy}(a,b)(y-b)^2 \\
++&amp; f_{xy}(a,b)(x-a)(y-b)
+\end{rcases} \quad\text{ quadratic terms} \\ \\
+&amp;\begin{rcases}
++&amp;  \frac16f_{xxx}(a,b)(x-a)^3 \\
++&amp; \frac12f_{xxy}(a,b)(x-a)^2(y-b)\\
++&amp; \frac12f_{xyy}(a,b)(x-a)(y-b)^2 \\
++&amp; \frac16f_{yyy}(a,b)(y-b)^3
+\end{rcases} \quad\text{ cubic terms} \\
+&amp;\quad\vdots
+\end{align*}\]</span> My gosh, what a mess. And we’re not even proving/deriving this! I’m just sketching it out and hand-waving and reasoning by analogy! And it keeps going!!!!</p>
+<p>If you want to see the whole formula, as an infinite sum, here’s one way to write it:</p>
+<p><span class="math display">\[\boxed{f(x,y) = \sum_{i=0}^{i=\infty} \sum_{j=0}^{j=\infty} \frac{1}{i!j!}\cdot f_{x^iy^j}(a,b)\cdot (x-a)^i(y-b)^j}\]</span></p>
+<p>A sum of a sum!!! My goodness. (If you actually wanted to apply this formula—which sounds dreadfully unpleasant—you could write it out as a table, with the values of <span class="math inline">\(i\)</span> varying in one direction, the values of <span class="math inline">\(j\)</span> varying in the other direction, and each cell as one of the terms of the double sum.)</p>
+<p>I’m out of space, but there’s so much more I want to say. This is all such a mess, but the ideas are so simple—that means we probably need to be coming up with a better notation! Also, those coefficients on the terms seem so familiar—do they remind you of Pascal’s triangle/the binomial coefficient/combinations at all?!? And why haven’t I mentioned the Hessian?!?!?</p>
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>Okay… that’s not <em>totally</em> true, since derivatives destroy constants. So it’s only true <em>up to a constant</em>. But that’s not that big of a deal.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p>Note that this isn’t an explanation for why the denominator of the <span class="math inline">\(n\)</span>’th term is <span class="math inline">\(n!\)</span>, as opposed to just <span class="math inline">\(n\)</span>, or <span class="math inline">\(n^2\)</span>, or something else that increases with <span class="math inline">\(n\)</span>; it’s just an argument for why the denominator should get bigger.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+</main>
+</body>
+</html>

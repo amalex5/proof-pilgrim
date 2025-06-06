@@ -49,7 +49,25 @@ In what follows, I'll sketch out some of the ways we can think through how all t
 </div>
 
 
-<div style='text-align:center;font-size:150%; margin-top:2em; margin-bottom:2em;'>$${\color{lightgray} \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum  }$$</div>
+<style>
+  hr.series-hr {
+    border: none;
+    height: auto;
+    background-color: transparent;
+    margin-top: 3em;
+    margin-bottom: 3em;
+  }
+  hr.series-hr::before {
+    content: "∑∑∑∑∑∑∑∑∑∑∑∑";
+    display: block;
+    text-align: center;
+    color: lightgray;
+    font-size: 300%;
+    background-color: transparent;
+}
+</style>
+
+<hr class='series-hr' />
 
 ## $\displaystyle \sum_{n=0}^{n=\infty} \frac{1}{2^n} = \,\, ???$
 
@@ -96,8 +114,7 @@ $$\sum_{n=0}^{n=\infty} \left(\frac{1}{2}\right)^n = 1 + \frac{1}{2} + \frac{1}{
 
 Incredible. We have an infinite number of things, and yet when we add them all up, we don't get infinity---we get *a finite number*. Totally nuts. Or, perhaps your philisophical views prevent you from believing that we can ever *actually* add up an infinite number of things (valid!); in which case, you might prefer to phrase this as this sum **approaches** $2$. "The more and more terms of $1/2^n$ we add together, the closer and closer it becomes to $2$," or something like that.
 
-<div style='text-align:center;font-size:150%; margin-top:2em; margin-bottom:2em;'>$${\color{lightgray} \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum  }$$</div>
-
+<hr class='series-hr' />
 
 ## $\displaystyle \sum_{n=3}^{n=\infty} \frac{1}{2^n} = \,\, ???$
 
@@ -149,8 +166,7 @@ So we can find the sum from $n=3$ just by subtracting off the first three terms!
 
 Yay! It just required a bit of surgery.
 
-<div style='text-align:center;font-size:150%; margin-top:2em; margin-bottom:2em;'>$${\color{lightgray} \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum  }$$</div>
-
+<hr class='series-hr' />
 
 ## $\displaystyle \sum_{n=0}^{n=\infty} 2^{-n} = \,\, ???$
 
@@ -167,7 +183,7 @@ So then:
 
 Okay. Fine.
 
-<div style='text-align:center;font-size:150%; margin-top:2em; margin-bottom:2em;'>$${\color{lightgray} \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum  }$$</div>
+<hr class='series-hr' />
 
 ## $\displaystyle \sum_{n=0}^{n=\infty} 2^{n} = \,\, ???$
 
@@ -182,7 +198,7 @@ We're adding together bigger and bigger numbers!!!! To use the inappropriately s
 
 $$\sum_{n=0}^{n=\infty} 2^n  = \infty$$
 
-<div style='text-align:center;font-size:150%; margin-top:2em; margin-bottom:2em;'>$${\color{lightgray} \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum  }$$</div>
+<hr class='series-hr' />
 
 ## $\displaystyle \sum_{n=0}^{n=\infty} (-1)^n$
 
@@ -198,8 +214,7 @@ Uhhhh...
 
 I mean, it's not zooming off to infinity. But... it's definitely not settling down to one single finite number, either. It's just bouncing back and forth between $+1$ and $-1$. It's tempting to say that it averages out to zero, I guess, but it doesn't really actually average. There's no asymptote! There's no convergence! So... this doesn't diverge by zooming up or down to $\pm \infty$, but it does diverge. 
 
-<div style='text-align:center;font-size:150%; margin-top:2em; margin-bottom:2em;'>$${\color{lightgray} \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum  }$$</div>
-
+<hr class='series-hr' />
 
 ## $\displaystyle \sum_{n=0}^{n=\infty} 3= \,\, ???$
 
@@ -218,8 +233,7 @@ So this is:
 
 So this series diverges, to infinity.
 
-<div style='text-align:center;font-size:150%; margin-top:2em; margin-bottom:2em;'>$${\color{lightgray} \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum  }$$</div>
-
+<hr class='series-hr' />
 
 ## $\displaystyle \sum_{n=0}^{n=\infty} \frac{1}{3}= \,\, ???$
 
@@ -236,9 +250,8 @@ Yeah.
 
 The general observation here is that if we want a series to converge, then, at a minimum, the underlying sequence has to go to $0$. If the underlying sequence stays the same size---or worse, gets bigger---then the series definitely won't converge. Just because the underlying sequence/the terms go to $0$ doesn't mean that the series/sum always will converge. It might still diverge. It might not go to $0$ fast enough. But it at least has a *chance* of converging. 
 
-<div style='text-align:center;font-size:150%; margin-top:2em; margin-bottom:2em;'>$${\color{lightgray} \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum  }$$</div>
 
-
+<hr class='series-hr' />
 
 ## $\displaystyle \sum_{n=0}^{n=\infty} \frac{1}{5^n}= \,\, ???$
 
@@ -376,9 +389,7 @@ $$ \sum_{n=0}^{n=\infty} a^n = \frac{1}{\, 1-a\,\,}$$
 
 
 
-<div style='text-align:center;font-size:150%; margin-top:2em; margin-bottom:2em;'>$${\color{lightgray} \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum  }$$</div>
-
-
+<hr class='series-hr' />
 
 ## $\displaystyle \sum_{n=1}^{n=\infty} \frac{1}{n}= \,\, ???$
 
@@ -515,9 +526,7 @@ So what we've figured out is that just because the terms of a series (the underl
 
 ![](series-convergence-underlying-sequence-going-to-zero.svg)
 
-<div style='text-align:center;font-size:150%; margin-top:2em; margin-bottom:2em;'>$${\color{lightgray} \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum  }$$</div>
-
-
+<hr class='series-hr' />
 
 ## $\displaystyle \sum_{n=0}^{n=\infty} \frac{1}{n!}= \,\, ???$
 
@@ -562,6 +571,7 @@ But... what does it converge to? More precisely than just "somewhere between $0$
 Actually, if you remember the day we faked our way through Taylor series to figure out the Taylor series/infinite-polynomialization of $e^x$, then you might be able to figure out what this converges to! Major props to Sylvia and Molly in Block 2, and Ellenor, Gracie, and Sebastian in Block 4, for making this connection! Of course, to *really* make the connection, we need to use calculus, so that we can *actually* understand how Taylor series work...
 
 
+<hr class='series-hr' />
 
 ## $\displaystyle \sum_{n=0}^{n=\infty} \frac{1}{n! + 5^n + 200}= \,\, ???$
 
@@ -587,8 +597,7 @@ $$0 \quad<\quad \sum_{n=0}^{n=\infty} \frac{1}{n! + 5^n + 200} \quad<\quad \frac
 
 
 
-<div style='text-align:center;font-size:150%; margin-top:2em; margin-bottom:2em;'>$${\color{lightgray} \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum  }$$</div>
-
+<hr class='series-hr' />
 
 ## $\displaystyle \sum_{n=1}^{n=\infty} \frac{1}{\sqrt{n}}= \,\, ???$
 
@@ -657,8 +666,7 @@ Since the $1/n$ series diverges (it zooms up to $\infty$), then the $1/\sqrt{n}$
 \end{align*}
 
 
-<div style='text-align:center;font-size:150%; margin-top:2em; margin-bottom:2em;'>$${\color{lightgray} \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum  }$$</div>
-
+<hr class='series-hr' />
 
 ## $\displaystyle \sum_{n=-4}^{n=\infty} \frac{1}{2^n} = \,\, ???$
 
@@ -697,7 +705,7 @@ $$\displaystyle\sum_{n=-4}^{n=\infty}\frac{1}{2^n} = 32$$
 So this series converges, and it converges to $32$! Yay! Surgery! (We're, uh, adding filler, or something, here, rather than removing stuff... figure out your own plastic surgery metaphor.)
 
 
-<div style='text-align:center;font-size:150%; margin-top:2em; margin-bottom:2em;'>$${\color{lightgray} \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum  }$$</div>
+<hr class='series-hr' />
 
 ## $\displaystyle \sum_{n=0}^{n=\infty} \frac{12}{2^n} = \,\, ???$
 
@@ -754,8 +762,7 @@ Useful fact!
 
 
 
-<div style='text-align:center;font-size:150%; margin-top:2em; margin-bottom:2em;'>$${\color{lightgray} \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum  }$$</div>
-
+<hr class='series-hr' />
 
 ## $\displaystyle \sum_{n=0}^{n=\infty} \frac{1}{7.842^n}= \,\, ???$
 
@@ -793,7 +800,7 @@ So then this series is:
 Yay!! No calculator required!!!!!!!!!!
 
 
-<div style='text-align:center;font-size:150%; margin-top:2em; margin-bottom:2em;'>$${\color{lightgray} \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum  }$$</div>
+<hr class='series-hr' />
 
 ## $\displaystyle \sum_{n=0}^{n=\infty} \frac{1}{2^{n+3}} = \,\, ???$
 
@@ -862,8 +869,7 @@ Here's an alternate way we could think about this series. Instead of writing out
 
 Yay! Algebra! I think the algebra method is nice and fast and easy.
 
-<div style='text-align:center;font-size:150%; margin-top:2em; margin-bottom:2em;'>$${\color{lightgray} \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum  }$$</div>
-
+<hr class='series-hr' />
 
 ## $\displaystyle \sum_{n=0}^{n=\infty} 2^{n} = \,\, ???$
 
@@ -888,8 +894,7 @@ Yay! So this converges, to just $-1$!
 
 Uhhh.... wait.
 
-<div style='text-align:center;font-size:150%; margin-top:2em; margin-bottom:2em;'>$${\color{lightgray} \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum  }$$</div>
-
+<hr class='series-hr' />
 
 ## $\displaystyle \sum_{n=0}^{n=\infty} \frac{1}{2^n} + \frac{1}{3^n} = \,\, ???$
 
@@ -913,7 +918,7 @@ Yay! So apparently the lesson we've learned is that we can split sums across add
 
 $$\boxed{ \sum_n \Big( f(n) + g(n) \Big) = \left(\sum_n f(n) \right) + \left(\sum_n g(n)\right) }$$
 
-<div style='text-align:center;font-size:150%; margin-top:2em; margin-bottom:2em;'>$${\color{lightgray} \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum  }$$</div>
+<hr class='series-hr' />
 
 ## $\displaystyle \sum_{n=0}^{n=\infty} \frac{3^n + 2}{4^n} = \,\, ???$
 
@@ -951,8 +956,7 @@ $$\boxed{ \sum_{n=0}^{n=\infty} \frac{3^n + 2}{4^n}  = \frac{20}{3} }$$
 
 
 
-<div style='text-align:center;font-size:150%; margin-top:2em; margin-bottom:2em;'>$${\color{lightgray} \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum  }$$</div>
-
+<hr class='series-hr' />
 
 ## $\displaystyle \sum_{n=0}^{n=\infty} \frac{1}{2^{2n+3}} = \,\, ???$
 

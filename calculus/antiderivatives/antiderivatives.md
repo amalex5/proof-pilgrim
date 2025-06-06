@@ -39,6 +39,20 @@ $$\displaystyle \int f'(x) \, dx = f(x) + C$$
 Additionally, unless otherwise specified, I represent constant quantities in these problems with single letters (e.g. $a$, $b$, $n$) and functions with function-notation (e.g. $a(x)$, $b(t)$, $f(x)$, $r(\theta)$). Some of your answers may have to include arbitrary constants or functions---that's OK. You are welcome to ask me if you have additional questions of this sort, but if you have questions on how to actually do the problems, I will probably be quite reticient. 
 
 <style>
+  hr.integral-hr {
+    border: none;
+    height: auto;
+    background-color: transparent;
+    margin-bottom: 2em;
+  }
+  hr.integral-hr::before {
+    content: "∫∫∫∫∫∫∫∫∫∫∫∫∫∫";
+    display: block;
+    text-align: center;
+    color: lightgray;
+    font-size: 300%;
+    background-color: transparent;
+}
 .spaced-antiderivatives li {
   margin-bottom: 5em;
 }
@@ -47,7 +61,7 @@ Additionally, unless otherwise specified, I represent constant quantities in the
 
 <div style='height:10em;'></div>
 
-##  $$\displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int$$
+<hr class="integral-hr" />
 
 <div style="column-width: 14em;  column-gap: 2em;  column-rule: 1px solid #ccc;">
 <ol class='problems spaced-antiderivatives'>
@@ -102,7 +116,7 @@ Additionally, unless otherwise specified, I represent constant quantities in the
 </ol>
 </div>
 
-##  $$\displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int$$
+<hr class="integral-hr" />
 
 <div style="column-width: 14em;  column-gap: 2em;  column-rule: 1px solid #ccc;">
 <ol class='problems spaced-antiderivatives'>
@@ -122,7 +136,7 @@ Additionally, unless otherwise specified, I represent constant quantities in the
 </ol>
 </div>
 
-##  $$\displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int$$
+<hr class="integral-hr" />
 
 <div style="column-width: 14em;  column-gap: 2em;  column-rule: 1px solid #ccc;">
 <ol class='problems spaced-antiderivatives'>
@@ -181,7 +195,7 @@ Additionally, unless otherwise specified, I represent constant quantities in the
 </ol>
 </div>
 
-##  $$\displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int$$
+<hr class="integral-hr" />
 
 <div style="column-width: 14em;  column-gap: 2em;  column-rule: 1px solid #ccc;">
 <ol class='problems spaced-antiderivatives'>
@@ -248,7 +262,7 @@ Additionally, unless otherwise specified, I represent constant quantities in the
 </ol>
 </div>
 
-##  $$\displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int$$
+<hr class="integral-hr" />
 
 <div style="column-width: 14em;  column-gap: 2em;  column-rule: 1px solid #ccc;">
 <ol class='problems spaced-antiderivatives'>
@@ -288,7 +302,7 @@ Additionally, unless otherwise specified, I represent constant quantities in the
 </ol>
 </div>
 
-##  $$\displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int$$
+<hr class="integral-hr" />
 
 <div style="column-width: 14em;  column-gap: 2em;  column-rule: 1px solid #ccc;">
 <ol class='problems spaced-antiderivatives'>
@@ -311,7 +325,7 @@ Additionally, unless otherwise specified, I represent constant quantities in the
 </ol>
 </div>
 
-##  $$\displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int$$
+<hr class="integral-hr" />
 
 <div style="column-width: 14em;  column-gap: 2em;  column-rule: 1px solid #ccc;">
 <ol class='problems spaced-antiderivatives'>

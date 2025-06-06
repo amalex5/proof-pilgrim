@@ -422,7 +422,11 @@ $$\sum_{n=0}^{n=\infty}a^n = \text{(whatever the formula was)}$$
 
 a. But what if we have a geometric series that starts not at $n=0$, but $n=1$, like $\displaystyle\sum_{n=1}^{n=\infty}a^n$? Can you come up with a formula for it?
 
-b. What about $\displaystyle\sum_{n=-2}^{n=\infty}a^n$? Can you come up with a formula? </li>
+b. What about $\displaystyle\sum_{n=-2}^{n=\infty}a^n$? Can you come up with a formula? 
+
+c. How about, more generally, if we have a series that starts at some random index $k$ (where $k$ could be any integer)? Can you come up with a formula???
+$$\displaystyle \sum_{n=k}^{n=\infty}a^n \quad=\quad ???$$
+</li>
 
 <li> We've made up this cool $\sum$ notation for iterated (and possibly even infinite) sums! When we make up new notations, it's helpful to figure out what algebraic properties they have, so we can, like, do algebra and simplify and transform and manupulate stuff.
 
@@ -454,6 +458,26 @@ $$\displaystyle\sum_{n=2}^{n=\infty} \frac{1}{n^2-n}$$ </li>
 <li>For what values of $p$ does the series $\displaystyle\sum_{k=1}^{k=\infty} k^p$ converge? for what values of $p$ does it diverge? </li>
 
 <li> Decide how to properly pluralize "series." </li>
+
+<li> Lizzy S. was thinking about all this series stuff, and about the classic proof that:
+$$0.\overline{9}=1$$
+Probably many of you have seen that proof (indeed, I have a *vivid* memory of seeing it myself first in Mrs. Richards' math class in 7th grade). You say that $x=0.\overline{9}$, then multiply $x$ by $10$, getting:
+\begin{align*}
+x &= 0.9999\overline{9} \\
+10x &= 9.9999\overline{9}
+\end{align*}
+And then you subtract $x$ from both sides, getting:
+\begin{align*}
+10x - x &= 9.9999\overline{9} - x \\
+10x - x &= 9.9999\overline{9} - 0.\overline{9} \\
+9x &= 9 \\
+x &= 1
+\end{align*}
+So:
+$$0.\overline{9} = 1$$
+Voila. But, anyway, Lizzy was thinking about how $0.\overline{9}$ feels kinda like a series! It feels like:
+$$0.\overline{9} = 0.9 + 0.09 + 0.009 + 0.0009 + \cdots$$
+So... can you link up these ideas? Can you use these ideas of infinite geometric series to come up with a *second* proof that $0.\overline{9}=1$???
 
 <li>Here's a fun series:
 
@@ -573,9 +597,3 @@ If you can prove that the sequence converges (for any initial starting number), 
 
 </li>
 </ol>
-
-
-
-MORE STUFF
-
-Come up with a formula for $\displaystyle \sum_{n=k}^{n=\infty}a^n$, for any integer $k$. 

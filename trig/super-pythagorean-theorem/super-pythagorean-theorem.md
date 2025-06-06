@@ -74,7 +74,7 @@ $$\cos(\gamma) = \frac{j}{a}$$
 Or, rearranging:
 $$a\cos(\gamma) = j$$
 $$j = a\cos\gamma$$
-Delightful! Let's delete $j$ and call is $a\cos\gamma$ instead:
+Delightful! Let's delete $j$ and call it $a\cos\gamma$ instead:
 ![](super-pythagorean-theorem-derivation-8.svg){width=75%}
 We can make the same argument to get rid of $k$. $k$ is the side opposite angle $\gamma$ in this right triangle with hypotenuse $a$, so we must have:
 $$\sin(\gamma) = \frac{k}{a}$$
@@ -119,7 +119,7 @@ So it's like the $-2ab\cos\gamma$ is the expansion pack that brings us to the XL
 
 Sometimes people call this the **law of cosines**, but that's such a dull name for a concept that's so much deeper and more exciting. Shouldn't we name things in ways that are evocative? This is just a broader version of the Pythagorean Theorem---so shouldn't its name reflect that? (Plus, there's only one cosine. So why "law of cosine**s**" plural?)
 
-Kelly Zhao '27 points out how spookily similar the $-2ab\cos\gamma$ correction term is to the cross-terms in our expansion of the binomial $(a+b)^2$:
+Kelly Z<!--hao '27--> points out how spookily similar the $-2ab\cos\gamma$ correction term is to the cross-terms in our expansion of the binomial $(a+b)^2$:
 \begin{align*}
 (a+b)^2 &= a^2 +b^2 \quad\quad +2ab \\
 c^2 &= a^2 + b^2\quad\quad -2ab\cos\gamma

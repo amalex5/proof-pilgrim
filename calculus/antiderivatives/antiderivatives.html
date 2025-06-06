@@ -46,7 +46,7 @@
 </head>
 <body>
   <header>
-    <span id="header-name">the natural history <span style="font-weight:normal;">of abstract objects</span></span> <span id="linkback"><a href=http://www.andrusia.com><img src="/andrew-logo.svg" id='header-logo' style='width: auto;'/></a></span>
+  <span id="header-name"> <a href='/'>the natural history <span style="font-weight:normal;">of abstract objects</span></a></span> <span id="linkback"><a href=http://www.andrusia.com><img src="/andrew-logo.svg" id='header-logo' style='width: auto;'/></a></span>
 </header>
 <script>document.addEventListener('DOMContentLoaded', function(e) {
   Scroller.init();
@@ -56,13 +56,6 @@
 <nav id="TOC" role="doc-toc">
 <ul>
 <li><a href="#some-technical-notes">Some Technical Notes</a></li>
-<li><a href="#displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint"><span class="math display">\[\displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int\]</span></a></li>
-<li><a href="#displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-1"><span class="math display">\[\displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int\]</span></a></li>
-<li><a href="#displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-2"><span class="math display">\[\displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int\]</span></a></li>
-<li><a href="#displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-3"><span class="math display">\[\displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int\]</span></a></li>
-<li><a href="#displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-4"><span class="math display">\[\displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int\]</span></a></li>
-<li><a href="#displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-5"><span class="math display">\[\displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int\]</span></a></li>
-<li><a href="#displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-6"><span class="math display">\[\displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int\]</span></a></li>
 </ul>
 </nav>
 </div>
@@ -86,6 +79,20 @@
 <p><span class="math display">\[\displaystyle \int f&#39;(x) \, dx = f(x) + C\]</span></p>
 <p>Additionally, unless otherwise specified, I represent constant quantities in these problems with single letters (e.g. <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span>, <span class="math inline">\(n\)</span>) and functions with function-notation (e.g. <span class="math inline">\(a(x)\)</span>, <span class="math inline">\(b(t)\)</span>, <span class="math inline">\(f(x)\)</span>, <span class="math inline">\(r(\theta)\)</span>). Some of your answers may have to include arbitrary constants or functions—that’s OK. You are welcome to ask me if you have additional questions of this sort, but if you have questions on how to actually do the problems, I will probably be quite reticient.</p>
 <style>
+  hr.integral-hr {
+    border: none;
+    height: auto;
+    background-color: transparent;
+    margin-bottom: 2em;
+  }
+  hr.integral-hr::before {
+    content: "∫∫∫∫∫∫∫∫∫∫∫∫∫∫";
+    display: block;
+    text-align: center;
+    color: lightgray;
+    font-size: 300%;
+    background-color: transparent;
+}
 .spaced-antiderivatives li {
   margin-bottom: 5em;
 }
@@ -93,7 +100,7 @@
 <div style="height:10em;">
 
 </div>
-<h2 id="displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint"><span class="math display">\[\displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int\]</span></h2>
+<hr class="integral-hr" />
 <div style="column-width: 14em;  column-gap: 2em;  column-rule: 1px solid #ccc;">
 <ol class='problems spaced-antiderivatives'>
 <li>
@@ -241,7 +248,7 @@
 <span class="math inline">\(\displaystyle \int x^3 + 3\sqrt[5]{x} + 8x^{2/3} + bx + a \, dx\)</span> 
 </ol>
 </div>
-<h2 id="displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-1"><span class="math display">\[\displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int\]</span></h2>
+<hr class="integral-hr" />
 <div style="column-width: 14em;  column-gap: 2em;  column-rule: 1px solid #ccc;">
 <ol class="problems spaced-antiderivatives">
 <li>
@@ -285,7 +292,7 @@
 </li>
 </ol>
 </div>
-<h2 id="displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-2"><span class="math display">\[\displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int\]</span></h2>
+<hr class="integral-hr" />
 <div style="column-width: 14em;  column-gap: 2em;  column-rule: 1px solid #ccc;">
 <ol class="problems spaced-antiderivatives">
 <li>
@@ -443,7 +450,7 @@
 </li>
 </ol>
 </div>
-<h2 id="displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-3"><span class="math display">\[\displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int\]</span></h2>
+<hr class="integral-hr" />
 <div style="column-width: 14em;  column-gap: 2em;  column-rule: 1px solid #ccc;">
 <ol class="problems spaced-antiderivatives">
 <li>
@@ -607,7 +614,7 @@
 </li>
 </ol>
 </div>
-<h2 id="displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-4"><span class="math display">\[\displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int\]</span></h2>
+<hr class="integral-hr" />
 <div style="column-width: 14em;  column-gap: 2em;  column-rule: 1px solid #ccc;">
 <ol class="problems spaced-antiderivatives">
 <li>
@@ -711,7 +718,7 @@
 </li>
 </ol>
 </div>
-<h2 id="displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-5"><span class="math display">\[\displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int\]</span></h2>
+<hr class="integral-hr" />
 <div style="column-width: 14em;  column-gap: 2em;  column-rule: 1px solid #ccc;">
 <ol class="problems spaced-antiderivatives">
 <li>
@@ -764,7 +771,7 @@
 </li>
 </ol>
 </div>
-<h2 id="displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-displaystyleint-6"><span class="math display">\[\displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int \displaystyle\int\]</span></h2>
+<hr class="integral-hr" />
 <div style="column-width: 14em;  column-gap: 2em;  column-rule: 1px solid #ccc;">
 <ol class="problems spaced-antiderivatives">
 <li>

@@ -46,7 +46,7 @@
 </head>
 <body>
   <header>
-    <span id="header-name">the natural history <span style="font-weight:normal;">of abstract objects</span></span> <span id="linkback"><a href=http://www.andrusia.com><img src="/andrew-logo.svg" id='header-logo' style='width: auto;'/></a></span>
+  <span id="header-name"> <a href='/'>the natural history <span style="font-weight:normal;">of abstract objects</span></a></span> <span id="linkback"><a href=http://www.andrusia.com><img src="/andrew-logo.svg" id='header-logo' style='width: auto;'/></a></span>
 </header>
 <script>document.addEventListener('DOMContentLoaded', function(e) {
   Scroller.init();
@@ -169,9 +169,24 @@
 </ol>
 </div>
 </div>
-<div style="text-align:center;font-size:150%; margin-top:2em; margin-bottom:2em;">
-<span class="math display">\[{\color{lightgray} \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum  }\]</span>
-</div>
+<style>
+  hr.series-hr {
+    border: none;
+    height: auto;
+    background-color: transparent;
+    margin-top: 3em;
+    margin-bottom: 3em;
+  }
+  hr.series-hr::before {
+    content: "∑∑∑∑∑∑∑∑∑∑∑∑";
+    display: block;
+    text-align: center;
+    color: lightgray;
+    font-size: 300%;
+    background-color: transparent;
+}
+</style>
+<hr class='series-hr' />
 <h2 id="displaystyle-sum_n0ninfty-frac12n"><span class="math inline">\(\displaystyle \sum_{n=0}^{n=\infty} \frac{1}{2^n} = \,\, ???\)</span></h2>
 <p>This was the first infinite series we saw! And we realized in class, through that remarkable proof, that it converges to just <span class="math inline">\(2\)</span>.</p>
 <p>I’ll recap our proof here. We have:</p>
@@ -196,9 +211,7 @@ S &amp;= 2
 \end{align*}\]</span></p>
 <p>Wow!!!! So we have this infinitely-long infinite series, and it all just adds up to two: <span class="math display">\[\sum_{n=0}^{n=\infty} \left(\frac{1}{2}\right)^n = 1 + \frac{1}{2} + \frac{1}{4} + \frac{1}{8} + \frac{1}{16} + \cdots = 2\]</span></p>
 <p>Incredible. We have an infinite number of things, and yet when we add them all up, we don’t get infinity—we get <em>a finite number</em>. Totally nuts. Or, perhaps your philisophical views prevent you from believing that we can ever <em>actually</em> add up an infinite number of things (valid!); in which case, you might prefer to phrase this as this sum <strong>approaches</strong> <span class="math inline">\(2\)</span>. “The more and more terms of <span class="math inline">\(1/2^n\)</span> we add together, the closer and closer it becomes to <span class="math inline">\(2\)</span>,” or something like that.</p>
-<div style="text-align:center;font-size:150%; margin-top:2em; margin-bottom:2em;">
-<span class="math display">\[{\color{lightgray} \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum  }\]</span>
-</div>
+<hr class='series-hr' />
 <h2 id="displaystyle-sum_n3ninfty-frac12n"><span class="math inline">\(\displaystyle \sum_{n=3}^{n=\infty} \frac{1}{2^n} = \,\, ???\)</span></h2>
 <p>This is… almost the same as what we have above. But in the above example, the counter starts at <span class="math inline">\(n=0\)</span>. Here it starts at <span class="math inline">\(n=3\)</span>. How does that change things?</p>
 <p>Wanna play doctor???</p>
@@ -231,9 +244,7 @@ S &amp;= 2
 &amp;= \frac{1}{4}
 \end{align*}\]</span></p>
 <p>Yay! It just required a bit of surgery.</p>
-<div style="text-align:center;font-size:150%; margin-top:2em; margin-bottom:2em;">
-<span class="math display">\[{\color{lightgray} \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum  }\]</span>
-</div>
+<hr class='series-hr' />
 <h2 id="displaystyle-sum_n0ninfty-2-n"><span class="math inline">\(\displaystyle \sum_{n=0}^{n=\infty} 2^{-n} = \,\, ???\)</span></h2>
 <p>Wait, how is this even a problem? This is just the same as <span class="math inline">\(1/2^n\)</span>. By exponent rules:</p>
 <p><span class="math display">\[\frac{1}{a^b} = a^{-b}\]</span></p>
@@ -243,9 +254,7 @@ S &amp;= 2
 &amp;= 2
 \end{align*}\]</span></p>
 <p>Okay. Fine.</p>
-<div style="text-align:center;font-size:150%; margin-top:2em; margin-bottom:2em;">
-<span class="math display">\[{\color{lightgray} \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum  }\]</span>
-</div>
+<hr class='series-hr' />
 <h2 id="displaystyle-sum_n0ninfty-2n"><span class="math inline">\(\displaystyle \sum_{n=0}^{n=\infty} 2^{n} = \,\, ???\)</span></h2>
 <p>It’s the same thing, but… now it’s not a fraction! And it’s terrifying:</p>
 <p><span class="math display">\[\begin{align*}
@@ -254,9 +263,7 @@ S &amp;= 2
 \end{align*}\]</span></p>
 <p>We’re adding together bigger and bigger numbers!!!! To use the inappropriately subdued mathematical term of art, this sum is <strong>increasing without bound</strong>!!! In other words, it’s zooming off to infinity. So this series diverges, to infinity.</p>
 <p><span class="math display">\[\sum_{n=0}^{n=\infty} 2^n  = \infty\]</span></p>
-<div style="text-align:center;font-size:150%; margin-top:2em; margin-bottom:2em;">
-<span class="math display">\[{\color{lightgray} \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum  }\]</span>
-</div>
+<hr class='series-hr' />
 <h2 id="displaystyle-sum_n0ninfty--1n"><span class="math inline">\(\displaystyle \sum_{n=0}^{n=\infty} (-1)^n\)</span></h2>
 <p>Let’s write out a few terms:</p>
 <p><span class="math display">\[\begin{align*}
@@ -266,9 +273,7 @@ S &amp;= 2
 \end{align*}\]</span></p>
 <p>Uhhhh…</p>
 <p>I mean, it’s not zooming off to infinity. But… it’s definitely not settling down to one single finite number, either. It’s just bouncing back and forth between <span class="math inline">\(+1\)</span> and <span class="math inline">\(-1\)</span>. It’s tempting to say that it averages out to zero, I guess, but it doesn’t really actually average. There’s no asymptote! There’s no convergence! So… this doesn’t diverge by zooming up or down to <span class="math inline">\(\pm \infty\)</span>, but it does diverge.</p>
-<div style="text-align:center;font-size:150%; margin-top:2em; margin-bottom:2em;">
-<span class="math display">\[{\color{lightgray} \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum  }\]</span>
-</div>
+<hr class='series-hr' />
 <h2 id="displaystyle-sum_n0ninfty-3"><span class="math inline">\(\displaystyle \sum_{n=0}^{n=\infty} 3= \,\, ???\)</span></h2>
 <p>This is… just a bunch of threes added up.</p>
 <p>There’s… no <span class="math inline">\(n\)</span> in the sum, in the formula that we’re iterating over. When <span class="math inline">\(n=0\)</span>, what’s <span class="math inline">\(3\)</span>? It’s three. When <span class="math inline">\(n=1\)</span>, what’s three? Still three. When <span class="math inline">\(n=2\)</span>, what’s three? …</p>
@@ -279,9 +284,7 @@ S &amp;= 2
 &amp;= \infty
 \end{align*}\]</span></p>
 <p>So this series diverges, to infinity.</p>
-<div style="text-align:center;font-size:150%; margin-top:2em; margin-bottom:2em;">
-<span class="math display">\[{\color{lightgray} \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum  }\]</span>
-</div>
+<hr class='series-hr' />
 <h2 id="displaystyle-sum_n0ninfty-frac13"><span class="math inline">\(\displaystyle \sum_{n=0}^{n=\infty} \frac{1}{3}= \,\, ???\)</span></h2>
 <p>Aha! Like last time, but this time, it’s <em>fractions</em>!!! And fractions get small!!!</p>
 <p>Or… not. This is just a bunch of <span class="math inline">\(1/3\)</span>s added up.</p>
@@ -291,9 +294,7 @@ S &amp;= 2
 \end{align*}\]</span></p>
 <p>Yeah.</p>
 <p>The general observation here is that if we want a series to converge, then, at a minimum, the underlying sequence has to go to <span class="math inline">\(0\)</span>. If the underlying sequence stays the same size—or worse, gets bigger—then the series definitely won’t converge. Just because the underlying sequence/the terms go to <span class="math inline">\(0\)</span> doesn’t mean that the series/sum always will converge. It might still diverge. It might not go to <span class="math inline">\(0\)</span> fast enough. But it at least has a <em>chance</em> of converging.</p>
-<div style="text-align:center;font-size:150%; margin-top:2em; margin-bottom:2em;">
-<span class="math display">\[{\color{lightgray} \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum  }\]</span>
-</div>
+<hr class='series-hr' />
 <h2 id="displaystyle-sum_n0ninfty-frac15n"><span class="math inline">\(\displaystyle \sum_{n=0}^{n=\infty} \frac{1}{5^n}= \,\, ???\)</span></h2>
 <p>Hm! What’s going on here?</p>
 <p><span class="math display">\[\begin{align*}
@@ -440,9 +441,7 @@ S &amp;= \frac{1}{1-\frac{1}{b}}
 <div class="callout-box" style="width: 50%;">
 <p>a <strong>geometric series</strong>: <span class="math display">\[\sum_{n=0}^{n=\infty} \left(\frac{1}{b}\right)^n = \frac{1}{\,\,1-\frac{1}{b}\,\,}\]</span> phrased differently: <span class="math display">\[ \sum_{n=0}^{n=\infty} a^n = \frac{1}{\, 1-a\,\,}\]</span></p>
 </div>
-<div style="text-align:center;font-size:150%; margin-top:2em; margin-bottom:2em;">
-<span class="math display">\[{\color{lightgray} \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum  }\]</span>
-</div>
+<hr class='series-hr' />
 <h2 id="displaystyle-sum_n1ninfty-frac1n"><span class="math inline">\(\displaystyle \sum_{n=1}^{n=\infty} \frac{1}{n}= \,\, ???\)</span></h2>
 <p>Oooh! Here we have:</p>
 <p><span class="math display">\[\begin{align*}
@@ -520,9 +519,7 @@ S &amp;= \frac{1}{1-\frac{1}{b}}
 <p>They’re just not getting smaller fast enough.</p>
 <p>So what we’ve figured out is that just because the terms of a series (the underlying sequence) go to zero, that doesn’t neccesarily mean that the series itself converges. If the terms get bigger (like in our <span class="math inline">\(\sum 2^n\)</span> series), or even just stay the same size (like in our <span class="math inline">\(\sum 3\)</span> series), then it’ll definitely diverge. But having the underlying sequence go to zero means that we at least have a <em>hope</em> that it’ll converge. Not a certainty. But a hope.</p>
 <p><img src="series-convergence-underlying-sequence-going-to-zero.svg" /></p>
-<div style="text-align:center;font-size:150%; margin-top:2em; margin-bottom:2em;">
-<span class="math display">\[{\color{lightgray} \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum  }\]</span>
-</div>
+<hr class='series-hr' />
 <h2 id="displaystyle-sum_n0ninfty-frac1n"><span class="math inline">\(\displaystyle \sum_{n=0}^{n=\infty} \frac{1}{n!}= \,\, ???\)</span></h2>
 <p>Ooooh! This is new. We have a bunch of fractions, but the denominators are now factorials!!!! So it’s something like:</p>
 <p><span class="math display">\[\begin{align*}
@@ -707,6 +704,7 @@ S &amp;= \frac{1}{1-\frac{1}{b}}
 <p><span class="math display">\[ 0 \quad&lt;\quad \sum_{n=0}^{n=\infty} \frac{1}{n!} \quad&lt;\quad 2\]</span></p>
 <p>But… what does it converge to? More precisely than just “somewhere between <span class="math inline">\(0\)</span> and <span class="math inline">\(2\)</span>”? Idk!!!! We’d have to think further about what’s going on here.</p>
 <p>Actually, if you remember the day we faked our way through Taylor series to figure out the Taylor series/infinite-polynomialization of <span class="math inline">\(e^x\)</span>, then you might be able to figure out what this converges to! Major props to Sylvia and Molly in Block 2, and Ellenor, Gracie, and Sebastian in Block 4, for making this connection! Of course, to <em>really</em> make the connection, we need to use calculus, so that we can <em>actually</em> understand how Taylor series work…</p>
+<hr class='series-hr' />
 <h2 id="displaystyle-sum_n0ninfty-frac1n-5n-200"><span class="math inline">\(\displaystyle \sum_{n=0}^{n=\infty} \frac{1}{n! + 5^n + 200}= \,\, ???\)</span></h2>
 <p>Yeah, I dunno. This looks terrifying. I’m not even going to write out the first few terms. But, whatever it is, it’s clearly less than the <span class="math inline">\(1/n!\)</span> series. The denominator is, like, even bigger than <span class="math inline">\(1/n!\)</span>:</p>
 <p><span class="math display">\[\text{when $n&gt;0$:}\quad \left(n! + 5^n + 200 \right) &gt; \left(n!\right)\]</span> So: <span class="math display">\[\text{when $n&gt;0$:}\quad \frac{1}{n! + 5^n + 200} &lt; \frac{1}{n!}\]</span></p>
@@ -716,9 +714,7 @@ S &amp;= \frac{1}{1-\frac{1}{b}}
 <p><span class="math display">\[ \sum_{n=0}^{n=\infty} \frac{1}{n! + 5^n + 200} \quad=\quad \substack{\text{idk some}\\\text{finite number}}\]</span></p>
 <p>I mean, it has to be some finite number less than <span class="math inline">\(5/4\)</span>, since that’s what we figured out the <span class="math inline">\(1/5^n\)</span> series converges to:</p>
 <p><span class="math display">\[0 \quad&lt;\quad \sum_{n=0}^{n=\infty} \frac{1}{n! + 5^n + 200} \quad&lt;\quad \frac54\]</span></p>
-<div style="text-align:center;font-size:150%; margin-top:2em; margin-bottom:2em;">
-<span class="math display">\[{\color{lightgray} \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum  }\]</span>
-</div>
+<hr class='series-hr' />
 <h2 id="displaystyle-sum_n1ninfty-frac1sqrtn"><span class="math inline">\(\displaystyle \sum_{n=1}^{n=\infty} \frac{1}{\sqrt{n}}= \,\, ???\)</span></h2>
 <p>Hrm. This is kinda like the <span class="math inline">\(1/n\)</span> series, but with <span class="math inline">\(n\)</span> raised to an exponent that’s not <span class="math inline">\(1\)</span>, but rather, is <span class="math inline">\(1/2\)</span>:</p>
 <p><span class="math display">\[ \sum_{n=1}^{n=\infty} \frac{1}{n^{1/2}} \quad \text{versus} \quad  \sum_{n=1}^{n=\infty} \frac{1}{n^{1}} \]</span></p>
@@ -761,9 +757,7 @@ S &amp;= \frac{1}{1-\frac{1}{b}}
 &amp;= \infty +  \left(\text{a buncha other stuff}\right) \\ \\
 &amp;= \infty
 \end{align*}\]</span></p>
-<div style="text-align:center;font-size:150%; margin-top:2em; margin-bottom:2em;">
-<span class="math display">\[{\color{lightgray} \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum  }\]</span>
-</div>
+<hr class='series-hr' />
 <h2 id="displaystyle-sum_n-4ninfty-frac12n"><span class="math inline">\(\displaystyle \sum_{n=-4}^{n=\infty} \frac{1}{2^n} = \,\, ???\)</span></h2>
 <p>We need to do surgery, <em>but in the opposite direction</em>!!! Instead of <em>removing</em> things with our scalpel, we need to get out the sutures and the super-glue and <em>add things</em> to our series!!! Like Dr. Frankenstein!!!</p>
 <p>This is like our <span class="math inline">\(1/2^n\)</span> series, but it starts not at <span class="math inline">\(n=0\)</span>, nor even <span class="math inline">\(n=3\)</span>, but at <span class="math inline">\(n=-4\)</span>! So it’s something like:</p>
@@ -785,9 +779,7 @@ S &amp;= \frac{1}{1-\frac{1}{b}}
 <p>Or, written more normally:</p>
 <p><span class="math display">\[\displaystyle\sum_{n=-4}^{n=\infty}\frac{1}{2^n} = 32\]</span></p>
 <p>So this series converges, and it converges to <span class="math inline">\(32\)</span>! Yay! Surgery! (We’re, uh, adding filler, or something, here, rather than removing stuff… figure out your own plastic surgery metaphor.)</p>
-<div style="text-align:center;font-size:150%; margin-top:2em; margin-bottom:2em;">
-<span class="math display">\[{\color{lightgray} \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum  }\]</span>
-</div>
+<hr class='series-hr' />
 <h2 id="displaystyle-sum_n0ninfty-frac122n"><span class="math inline">\(\displaystyle \sum_{n=0}^{n=\infty} \frac{12}{2^n} = \,\, ???\)</span></h2>
 <p><span class="math display">\[\begin{align*}
 \sum_{n=0}^{n=\infty}\frac{12}{2^n} &amp;= \frac{12}{2^0} + \frac{12}{2^1} + \frac{12}{2^2} + \frac{12}{2^3} + \frac{12}{2^4} + \frac{12}{2^5} + \frac{12}{2^6} + \cdots \\ \\
@@ -821,9 +813,7 @@ S &amp;= \frac{1}{1-\frac{1}{b}}
 <p>Phrased most generally (maybe you want to write this down on a list of summation Fun Facts?), if we have some iterated/infinite sum, using the variable <span class="math inline">\(n\)</span> as our counter, summing up some constant <span class="math inline">\(k\)</span> times some function of <span class="math inline">\(n\)</span>, then:</p>
 <p><span class="math display">\[\boxed{ \sum_n k\cdot f(n) = k\cdot \sum_n f(n) }\]</span></p>
 <p>Useful fact!</p>
-<div style="text-align:center;font-size:150%; margin-top:2em; margin-bottom:2em;">
-<span class="math display">\[{\color{lightgray} \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum  }\]</span>
-</div>
+<hr class='series-hr' />
 <h2 id="displaystyle-sum_n0ninfty-frac17.842n"><span class="math inline">\(\displaystyle \sum_{n=0}^{n=\infty} \frac{1}{7.842^n}= \,\, ???\)</span></h2>
 <p>I do not want to compute powers of <span class="math inline">\(7.842\)</span>! Not even <em>integer</em> powers. But… maybe this is a moment where we can just plug-and-chug our geometric series formula:</p>
 <p><span class="math display">\[ \sum_{n=0}^{n=\infty} \left(\frac{1}{b}\right)^n = \frac{1}{\, 1-\frac{1}{b}\,\,}\]</span></p>
@@ -848,9 +838,7 @@ S &amp;= \frac{1}{1-\frac{1}{b}}
 &amp;= \frac{7842}{6842} \\ \\
  \end{align*}\]</span></p>
 <p>Yay!! No calculator required!!!!!!!!!!</p>
-<div style="text-align:center;font-size:150%; margin-top:2em; margin-bottom:2em;">
-<span class="math display">\[{\color{lightgray} \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum  }\]</span>
-</div>
+<hr class='series-hr' />
 <h2 id="displaystyle-sum_n0ninfty-frac12n3"><span class="math inline">\(\displaystyle \sum_{n=0}^{n=\infty} \frac{1}{2^{n+3}} = \,\, ???\)</span></h2>
 <h3 id="argument-1">argument #1</h3>
 <p>So here, we have something that looks a lot like our <span class="math inline">\(1/2^n\)</span> series:</p>
@@ -896,9 +884,7 @@ S &amp;= \frac{1}{1-\frac{1}{b}}
  &amp;= \frac{1}{4}
 \end{align*}\]</span></p>
 <p>Yay! Algebra! I think the algebra method is nice and fast and easy.</p>
-<div style="text-align:center;font-size:150%; margin-top:2em; margin-bottom:2em;">
-<span class="math display">\[{\color{lightgray} \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum  }\]</span>
-</div>
+<hr class='series-hr' />
 <h2 id="displaystyle-sum_n0ninfty-2n-1"><span class="math inline">\(\displaystyle \sum_{n=0}^{n=\infty} 2^{n} = \,\, ???\)</span></h2>
 <p>OK, we already figured this out, but now we have our fun fancy geometric series formula, so we can use that!!!</p>
 <p><span class="math display">\[ \sum_{n=0}^{n=\infty} a^n = \frac{1}{\, 1-a\,\,}\]</span></p>
@@ -914,9 +900,7 @@ S &amp;= \frac{1}{1-\frac{1}{b}}
 &amp;= -1
 \end{align*}\]</span></p>
 <p>Uhhh…. wait.</p>
-<div style="text-align:center;font-size:150%; margin-top:2em; margin-bottom:2em;">
-<span class="math display">\[{\color{lightgray} \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum  }\]</span>
-</div>
+<hr class='series-hr' />
 <h2 id="displaystyle-sum_n0ninfty-frac12n-frac13n"><span class="math inline">\(\displaystyle \sum_{n=0}^{n=\infty} \frac{1}{2^n} + \frac{1}{3^n} = \,\, ???\)</span></h2>
 <p>Okay, so this is:</p>
 <p><span class="math display">\[\displaystyle \sum_{n=0}^{n=\infty} \frac{1}{2^n} + \frac{1}{3^n} \quad=\quad \frac11 + \frac11 \quad+\quad \frac{1}{2}+\frac{1}{3} \quad+\quad \frac{1}{4}+\frac{1}{9} \quad+\quad \frac{1}{8}+\frac{1}{27} \quad+\quad \cdots\]</span></p>
@@ -932,9 +916,7 @@ S &amp;= \frac{1}{1-\frac{1}{b}}
 \end{align*}\]</span></p>
 <p>Yay! So apparently the lesson we’ve learned is that we can split sums across addition:</p>
 <p><span class="math display">\[\boxed{ \sum_n \Big( f(n) + g(n) \Big) = \left(\sum_n f(n) \right) + \left(\sum_n g(n)\right) }\]</span></p>
-<div style="text-align:center;font-size:150%; margin-top:2em; margin-bottom:2em;">
-<span class="math display">\[{\color{lightgray} \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum  }\]</span>
-</div>
+<hr class='series-hr' />
 <h2 id="displaystyle-sum_n0ninfty-frac3n-24n"><span class="math inline">\(\displaystyle \sum_{n=0}^{n=\infty} \frac{3^n + 2}{4^n} = \,\, ???\)</span></h2>
 <p>Wow!!! This looks like a mess. Let’s write out some terms:</p>
 <p><span class="math display">\[\begin{align*}
@@ -960,9 +942,7 @@ S &amp;= \frac{1}{1-\frac{1}{b}}
 \end{align*}\]</span></p>
 <p>Yay! So simple!!! So this series converges, and converges to <span class="math inline">\(20/3\)</span>:</p>
 <p><span class="math display">\[\boxed{ \sum_{n=0}^{n=\infty} \frac{3^n + 2}{4^n}  = \frac{20}{3} }\]</span></p>
-<div style="text-align:center;font-size:150%; margin-top:2em; margin-bottom:2em;">
-<span class="math display">\[{\color{lightgray} \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum \quad \sum  }\]</span>
-</div>
+<hr class='series-hr' />
 <h2 id="displaystyle-sum_n0ninfty-frac122n3"><span class="math inline">\(\displaystyle \sum_{n=0}^{n=\infty} \frac{1}{2^{2n+3}} = \,\, ???\)</span></h2>
 <p>OK, similar deal here! We can write out a few terms:</p>
 <p><span class="math display">\[\begin{align*}
