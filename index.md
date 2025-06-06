@@ -132,7 +132,7 @@ li {
 * [Exponential Improvements](complex-numbers/eulers-identity/eulers-identity.html) (*notes on the exponential form and Euler's Identity*)
 * [$\sqrt{\text{Complex!}}$](complex-numbers/complex-roots-motivation/complex-roots-motivation.html) (*exploratory problems to figure out complex roots*)
 * [Numbers, Spinning and Unspinning](complex-numbers/complex-roots/complex-roots.html) (*notes on complex roots*)
-* [Complex<sup>Complex<sup>Complex<sup>...</sup></sup></sup>](complex-numbers/complex-exponentiation/complex-exponentiation.html) (*notes on complex exponentiation*) ([also available in zine form](https://andrusia.com/2023/01/15/complex-exponentiation-zine.html))
+* [Complex<sup>Complex<sup>Complex<sup>...</sup></sup></sup>](complex-numbers/complex-exponentiation/complex-exponentiation.html) (*notes on complex exponentiation*) (*[also available in zine form](https://andrusia.com/2023/01/15/complex-exponentiation-zine.html)*)
 * [Cole's Conjecture and Maya's Musing (solution notes)](complex-numbers/coles-conjecture-mayas-musing/coles-conjecture-mayas-musing.html)
 * [Prime numbers aren't prime](complex-numbers/gaussian-integers/gaussian-integers.html) (*exploratory problems on Gaussian integers*)
 

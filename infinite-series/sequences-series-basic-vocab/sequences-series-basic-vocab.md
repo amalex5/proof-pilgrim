@@ -459,7 +459,7 @@ $$\displaystyle\sum_{n=2}^{n=\infty} \frac{1}{n^2-n}$$ </li>
 
 <li> Decide how to properly pluralize "series." </li>
 
-<li> Lizzy S. was thinking about all this series stuff, and about the classic proof that:
+<li> Elizabeth S. was thinking about all this series stuff, and about the classic proof that:
 $$0.\overline{9}=1$$
 Probably many of you have seen that proof (indeed, I have a *vivid* memory of seeing it myself first in Mrs. Richards' math class in 7th grade). You say that $x=0.\overline{9}$, then multiply $x$ by $10$, getting:
 \begin{align*}
@@ -475,7 +475,7 @@ x &= 1
 \end{align*}
 So:
 $$0.\overline{9} = 1$$
-Voila. But, anyway, Lizzy was thinking about how $0.\overline{9}$ feels kinda like a series! It feels like:
+Voila. But, anyway, Elizabeth was thinking about how $0.\overline{9}$ feels kinda like a series! It feels like:
 $$0.\overline{9} = 0.9 + 0.09 + 0.009 + 0.0009 + \cdots$$
 So... can you link up these ideas? Can you use these ideas of infinite geometric series to come up with a *second* proof that $0.\overline{9}=1$???
 
