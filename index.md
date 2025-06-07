@@ -7,6 +7,23 @@ layout: post
 <div style='font-size:200%; font-weight:bold; font-family: sans-serif; text-align:left; padding: 0'>the natural history</div>
 <div style='font-size: 175%; font-style: italic; font-family: sans-serif; text-align:left; padding:0;'>of abstract objects</div>
 
+<style>
+    .byline{
+        text-align:right;
+        font-style: italic; 
+        font-family: sans-serif; 
+        color: gray
+    }
+    .byline a {
+       color: gray;
+       text-decoration: none;
+    }
+    .byline a:hover{
+            color: black;
+        }
+</style>
+<div class='byline'><a href='http://www.andrusia.com' class='byline'>andrew m.h. alexander</a></div>
+
 <style> 
 h2 {
     font-size: 150%; 
@@ -26,8 +43,15 @@ li {
 }
 </style>
 
-<div style='display:block; width:100%; background-color: gainsboro;'> </div>
-<!-- 
+
+
+
+
+<blockquote style="margin-top:2em; margin-bottom: 4em; background-color: transparent; font-style: italic;">My book will no doubt be flawed in many ways of which I am not yet aware, but there is one "sin" that I have intentionally committed, and for which I shall not repent: many of the arguments are not rigorous, at least as they stand. This is a serious crime if one believes that our mathematical theories are merely elaborate metal constructs, precariously hoisted aloft. Then rigor becomes the nerve-racking balancing act that prevents the entire structure from crashing down around us. But suppose one believes, as I do, that our mathematical theories are attempting to capture aspects of a robust Platonic world that is not of our making. I would the contend that an initial lack of rigor is a small price to pay if it allows the reader to see into this world more directly and pleasurably than would otherwise be possible.
+
+<span style='display:block; text-align:right; font-style: normal;'>---Tristan Needham, *Visual Complex Analysis* xi</span>
+</blockquote>
+
 <style>        /* Diamond separators */
         .diamond-list {
             list-style: none;
@@ -45,7 +69,7 @@ li {
             margin: 0 8px;
         }
     </style>
-<div style="width:75%; font-size: 90%; text-align: center; font-family: sans-serif; background-color: whitesmoke;">
+<div style="font-size: 90%; text-align: left; font-family: sans-serif; font-weight: 400;">
 <ul class='diamond-list'>
     <li><a href="#combinatorics">combinatorics</a></li>
     <li><a href="#algsynth">algebraic synæsthesia</a></li>
@@ -55,12 +79,7 @@ li {
     <li><a href="#series">sequences and serieseses</a></li>
     <li><a href="#calc">calculus!!!</a></li>
 </ul>
-</div> -->
-
-<blockquote style="margin-top:2em; margin-bottom: 2em; background-color: transparent; font-style: italic;">My book will no doubt be flawed in many ways of which I am not yet aware, but there is one "sin" that I have intentionally committed, and for which I shall not repent: many of the arguments are not rigorous, at least as they stand. This is a serious crime if one believes that our mathematical theories are merely elaborate metal constructs, precariously hoisted aloft. Then rigor becomes the nerve-racking balancing act that prevents the entire structure from crashing down around us. But suppose one believes, as I do, that our mathematical theories are attempting to capture aspects of a robust Platonic world that is not of our making. I would the contend that an initial lack of rigor is a small price to pay if it allows the reader to see into this world more directly and pleasurably than would otherwise be possible.
-
-<span style='display:block; text-align:right; font-style: normal;'>---Tristan Needham, *Visual Complex Analysis* xi</span>
-</blockquote>
+</div>
 
 ## combinatorics {#combinatorics}
 
