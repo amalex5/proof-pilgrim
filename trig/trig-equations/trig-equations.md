@@ -58,6 +58,7 @@ Using what you know about algebra (factoring, the quadratic formula, etc., etc.)
 <li> $\sin(\theta)\cos(\theta) - \frac{1}{\sqrt{2}}\cos(\theta) + \frac{\sqrt{3}}{2}\sin(\theta) - \frac{\sqrt{3}}{2\sqrt{2}} = 0$ </li>
 <li> $\tan(\theta)\sin(\theta) - \tan(\theta) + \sin(\theta) - 1 = 0$ </li>
 <li> $\cos^2(\theta) - \cos(\theta) - \frac{1}{\sqrt{2}}\cos(\theta) + \frac{1}{\sqrt{2}} = 0$ </li>
+<li> $\tan(\theta)\sin(\theta)\cos(4\theta) - \frac{\sqrt3}{2}\cos(4\theta)\tan(\theta) + \frac{1}{2}\frac{\sin^2(\theta)}{\cos(\theta)} - \frac{\sqrt3}{4}\tan(\theta) = 0$
 <li> $\ln\left(\cos \theta \right) - \frac12\ln(2) = 0$ </li>
 <li> $\ln\left(\sin x\right) + \frac12\ln(3) = 0$ </li>
 <li> $5e^{\sin t} - 5 = 0$ </li>

@@ -393,6 +393,7 @@ Put visually:
 
 Linear independence is fragile. It's easy to destroy. It's low-entropy. Linear DEpendence, by contrast, is the default state of chaotic unorganized dissonant high-entropy nature. Linear transformations can't create linear independence. But they can destroy it.
 
+<!-- 
 ##
 
 one of the useful ideas with functiosn is injectivity/one-to-one-ness
@@ -469,4 +470,4 @@ if we have something in $V$ that maps to $0$ in $W$, that means that that origin
 ## What if we have a linear function that's injective---does *that* preserve linear independence?
 
 it seems like it should?
-
+ -->

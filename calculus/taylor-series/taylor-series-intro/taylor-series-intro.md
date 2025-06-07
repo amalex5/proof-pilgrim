@@ -5,20 +5,39 @@ layout: post
 ---
 
 
+> *We shall not cease from exploration,* <br>
+> *And the end of all our exploring,* <br>
+> *Will be to arrive where we started* <br>
+> *And know the place for the first time.* <br>
+> <span style='text-align:right;'>---T.S. Eliot, *Little Gidding*</span>
+
+<div style='height:5em'></div>
+
+
+The English philosopher/mathematician Alfred North Whitehead^[He's really cool. 1861--1947.] once remarked that "all of Western philosophy is a series of footnotes to Plato."^[I hate using quotes without citation, but I don't actually know what this is from. It might well be apocryphal.] My feelings about Taylor series are similar, but the chronology is reversed. In a sense, all of the math we've done up until now---all of the complicated proofs and convoluted arguments---we could have done much more simply, and much more cleanly, using Taylor series.  If you glance at the problems in the back, you should get an idea of their wide-ranging versatility and utility. If the world is made only of polynomials, it really is a much simpler place.
+
+
+
+
+growing polynomials
+approximating functions
+generalizing ideas of straightness
+safety
+
 
 
 The core assertion/paradox/weirdness/etc. behind calculus is:
 
 $$\begin{array}{l}
-\text{if we zoom in infinitely far, everything becomes straight}
+\text{if we zoom in {\color{blue}infinitely far}, everything becomes {\color{blue}straight}}
 \end{array}$$
 Or, put differently:
 $$\begin{array}{l}
-\text{if we zoom in far enough, everything becomes straight}
+\text{if we zoom in {\color{blue}far enough}, everything becomes {\color{blue}straight}}
 \end{array}$$
 Or:
 $$\begin{array}{l}
-\text{if we zoom in far enough, everything becomes a first-degree polynomial}
+\text{if we zoom in {\color{blue}far enough}, everything becomes {\color{blue}a first-degree polynomial}}
 \end{array}$$
 In a sense, Taylor's theorem generalizes this paradox/assertion/conclusion/observation. It generalizes it from just about lines to about arbitrary-degree polynomials. Taylor's theorem says:
 $$\begin{array}{l}
@@ -48,22 +67,13 @@ $$
 $$
 I.e., just:
 $$\begin{array}{l}
-\text{if we zoom in far enough, everything becomes an $n$th-degree polynomial} \\
-\hfill \text{for any/all $n$} \hfill
+\text{if we zoom in {\color{blue}far enough}, everything becomes {\color{blue}an $n$th-degree polynomial}} \\
+\hfill \text{(for any/all $n$)} \hfill
 \end{array}$$
 
 
 
-> *We shall not cease from exploration,* <br>
-> *And the end of all our exploring,* <br>
-> *Will be to arrive where we started* <br>
-> *And know the place for the first time.* <br>
-> <span style='text-align:right;'>---T.S. Eliot, *Little Gidding*</span>
 
-<div style='height:5em'></div>
-
-
-The English philosopher/mathematician Alfred North Whitehead^[He's really cool. 1861--1947.] once remarked that "all of Western philosophy is a series of footnotes to Plato."^[I hate using quotes without citation, but I don't actually know what this is from. It might well be apocryphal.] My feelings about Taylor series are similar, but the chronology is reversed. In a sense, all of the math we've done up until now---all of the complicated proofs and convoluted arguments---we could have done much more simply, and much more cleanly, using Taylor series.  If you glance at the problems in the back, you should get an idea of their wide-ranging versatility and utility. If the world is made only of polynomials, it really is a much simpler place.
 
 I've built up lots of anticipation for Taylor series---too much, I worry, since I don't want to make it seem anticlimactic---but we're finally here. Let's go.
 
@@ -276,13 +286,9 @@ So, as you can see, a Taylor polynomial is forming! We are growing a Taylor seri
 }
 
 
-\vspace{5pc}
+## Problems
 
-\centerline{\bf \Large Problems}
-
-\vspace{.5pc}
-
-\noindent Use Taylor's formula (the formula) to find the Taylor series of the following functions. (Write them out to at least the 5th nonzero term and also express them in $\Sigma$ form. If I don't give you a value for $a$, choose one yourself.)
+Use Taylor's formula (the formula) to find the Taylor series of the following functions. (Write them out to at least the 5th nonzero term and also express them in $\Sigma$ form. If I don't give you a value for $a$, choose one yourself.)
 \begin{multicols}{2}
 \setlength{\columnseprule}{.5pt}
 \begin{problems}

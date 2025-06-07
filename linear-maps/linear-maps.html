@@ -46,7 +46,7 @@
 </head>
 <body>
   <header>
-    <span id="header-name">the natural history <span style="font-weight:normal;">of abstract objects</span></span> <span id="linkback"><a href=http://www.andrusia.com><img src="/andrew-logo.svg" id='header-logo' style='width: auto;'/></a></span>
+  <span id="header-name"> <a href='/'>the natural history <span style="font-weight:normal;">of abstract objects</span></a></span> <span id="linkback"><a href=http://www.andrusia.com><img src="/andrew-logo.svg" id='header-logo' style='width: auto;'/></a></span>
 </header>
 <script>document.addEventListener('DOMContentLoaded', function(e) {
   Scroller.init();
@@ -65,8 +65,6 @@
 <li><a href="#do-linear-transformations-preserve-linear-independence">Do linear transformations preserve linear independence?</a></li>
 <li><a href="#do-linear-transformations-preserve-linear-dependence">Do linear transformations preserve linear DEpendence?</a></li>
 <li><a href="#in-conclusion">In conclusion!</a></li>
-<li><a href="#section"></a></li>
-<li><a href="#what-if-we-have-a-linear-function-thats-injectivedoes-that-preserve-linear-independence">What if we have a linear function that’s injective—does <em>that</em> preserve linear independence?</a></li>
 </ul>
 </nav>
 </div>
@@ -233,32 +231,84 @@ h(b) \overset{\text{supposedly}}{=} h(0) &amp;= (0-2)(0+3)^3 \\
 <p>Put visually:</p>
 <p><img src="linear-transformations-linear-independence-conclusion.svg" /></p>
 <p>Linear independence is fragile. It’s easy to destroy. It’s low-entropy. Linear DEpendence, by contrast, is the default state of chaotic unorganized dissonant high-entropy nature. Linear transformations can’t create linear independence. But they can destroy it.</p>
-<h2 id="section"></h2>
-<p>one of the useful ideas with functiosn is injectivity/one-to-one-ness</p>
-<p>eg with x^2 vs x^3</p>
-<p>invertible</p>
-<p>maybe we send 0 to 0, but then a bunch of other stuff maps onto the same elements</p>
-<p>PICTURE</p>
-<p>can this happen?</p>
-<p>nope!</p>
-<p>as it turns out</p>
-<p>being invertible/injective/one to one is equiv to having kernel being 0</p>
-<p>as a FUNCTION this is fine, but it breaks linearity but it’d be no longer linear</p>
-<p>prove that the kernel being just zero is equivalent to injectivity</p>
-<p>injective maps preserve linear independnece</p>
-<p>injective maps?</p>
-<p>suppose we have some linear map <span class="math inline">\(T\)</span> that only maps the zero vector to zero, but does map other vectors to the same vector. in other words, perhaps it looks like this:</p>
-<p>PIC</p>
-<p>So the only thing that gets sent to <span class="math inline">\(\vec{0}\)</span> in <span class="math inline">\(W\)</span> is <span class="math inline">\(\vec{0}\)</span> in <span class="math inline">\(V\)</span> but we have <span class="math inline">\(x,y\)</span> in <span class="math inline">\(V\)</span> that both get sent to <span class="math inline">\(w\)</span> in <span class="math inline">\(W\)</span>.</p>
-<p><span class="math inline">\(T(x) = w\)</span> <span class="math inline">\(T(y) = w\)</span></p>
-<p>adding these two eqns</p>
-<p><span class="math inline">\(T(x) + T(y) = w + w\)</span></p>
-<p><span class="math inline">\(T(x+y) = w+w\)</span></p>
-<p>let’s SUBTRACT</p>
-<p><span class="math inline">\(T(x) - T(y) = w - w\)</span> <span class="math inline">\(T(x) - T(y) = 0\)</span> <span class="math inline">\(T(x-y) = 0\)</span> but bc the kernel is zero we must have <span class="math inline">\(x- y = 0\)</span> <span class="math inline">\(x = y\)</span> so in fact, <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> are the same</p>
-<p>moreover <span class="math inline">\(T(v) = 0 \implies v=0\)</span> if we have something in <span class="math inline">\(V\)</span> that maps to <span class="math inline">\(0\)</span> in <span class="math inline">\(W\)</span>, that means that that original thing also has to be <span class="math inline">\(0\)</span> in <span class="math inline">\(V\)</span>.</p>
-<h2 id="what-if-we-have-a-linear-function-thats-injectivedoes-that-preserve-linear-independence">What if we have a linear function that’s injective—does <em>that</em> preserve linear independence?</h2>
-<p>it seems like it should?</p>
+<!-- 
+##
+
+one of the useful ideas with functiosn is injectivity/one-to-one-ness
+
+eg with x^2 vs x^3
+
+invertible
+
+maybe we send 0 to 0, but then a bunch of other stuff maps onto the same elements
+
+PICTURE
+
+can this happen?
+
+nope! 
+
+as it turns out
+
+being invertible/injective/one to one is equiv to having kernel being 0
+
+
+as a FUNCTION this is fine, but it breaks linearity
+but it'd be no longer linear
+
+
+
+
+prove that the kernel being just zero is equivalent to injectivity
+
+injective maps preserve linear independnece
+
+injective maps?
+
+
+
+
+suppose we have some linear map $T$ that only maps the zero vector to zero, but does map other vectors to the same vector. in other words, perhaps it looks like this:
+
+PIC
+
+So the only thing that gets sent to $\vec{0}$ in $W$ is $\vec{0}$ in $V$
+but we have $x,y$ in $V$ that both get sent to $w$ in $W$. 
+
+$T(x) = w$
+$T(y) = w$
+
+adding these two eqns
+
+$T(x) + T(y) = w + w$
+
+$T(x+y) = w+w$
+
+let's SUBTRACT
+
+$T(x) - T(y) = w - w$
+$T(x) - T(y) = 0$
+$T(x-y) = 0$
+but bc the kernel is zero
+we must have
+$x- y = 0$
+$x = y$
+so in fact, $x$ and $y$ are the same
+
+
+
+
+moreover $T(v) = 0 \implies v=0$
+if we have something in $V$ that maps to $0$ in $W$, that means that that original thing also has to be $0$ in $V$.
+
+
+
+
+
+## What if we have a linear function that's injective---does *that* preserve linear independence?
+
+it seems like it should?
+ -->
 </main>
 </body>
 </html>

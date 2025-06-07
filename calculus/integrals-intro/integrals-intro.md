@@ -141,7 +141,7 @@ $$\boxed{\substack{\text{the area between $f(x)$ and the $x$-axis}\\\text{betwee
 \noindent Since we're talking about these areas, let's make some notation to make our lives a little easier. Let's call this function for the area an **integral**, and define it thusly:
 
 <div class='callout-box' style='width:auto;'>
-\begin{align*}\int_a^b \! f(x)\,dx \,\,&=\,\, \substack{\text{the area between $f(x)$ and the $x$-axis,}\\\text{between $x=a$ and $x=b$}} \\ \\
+\begin{align*}\Large \int_a^b \! f(x)\,dx \,\,&=\quad \substack{\text{\Large the area between $f(x)$ and the $x$-axis,}\\\text{\Large between $x=a$ and $x=b$}} \\ \\
 &= \Big( \substack{\text{the antiderivative of }f(x)\\\text{but with  }b\text{ plugged in for }x} \Big) \quad-\quad \Big( \substack{\text{the antiderivative of }f(x)\\\text{but with  }a\text{ plugged in for }x} \Big)\end{align*}
 
 ![](integral-notation.svg)

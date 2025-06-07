@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>\sin'(x) = \cos(x)</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="/main.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <script src="../highlight-toc.js" type="text/javascript"></script>
+
+  <script> 
+      // disappearing header, from dynomight.net'
+      var prevScrollpos = window.pageYOffset;
+
+      window.onscroll = function() {
+        var currentScrollPos = Math.max(0,window.pageYOffset);
+
+        if (Math.abs(currentScrollPos - prevScrollpos) > 10){
+          if (prevScrollpos > currentScrollPos) {
+            document.querySelector('header').style.top = "0";
+            document.querySelector('header').style.opacity = "75%";
+          } else {
+            document.querySelector('header').style.top = "-60px";
+          }
+          prevScrollpos = currentScrollPos;
+        }
+        if(currentScrollPos==0){
+          document.querySelector('header').style.top = "0";
+          document.querySelector('header').style.opacity = "100%";
+        }
+      }
+    </script>
+
+</head>
+<body>
+  <header>
+  <span id="header-name"> <a href='/'>the natural history <span style="font-weight:normal;">of abstract objects</span></a></span> <span id="linkback"><a href=http://www.andrusia.com><img src="/andrew-logo.svg" id='header-logo' style='width: auto;'/></a></span>
+</header>
+<script>document.addEventListener('DOMContentLoaded', function(e) {
+  Scroller.init();
+})</script>
+<!-- <aside>
+<div class="tocLinks" >
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#problem">Problem</a></li>
+</ul>
+</nav>
+</div>
+</aside>
+ -->
+<main>
+<div id="title-block">
+<h1 class="title"><span class="math inline">\(\sin&#39;(x) = \cos(x)\)</span></h1>
+</div>
+<p>We have long suspected, based on the visuals alone, that the derivative of <span class="math inline">\(\sin(x)\)</span> looks kind of like <span class="math inline">\(\cos(x)\)</span> (potentially with a vertical expansion/compression):</p>
+<p><img src="derivativeofsine.png" style="width:75.0%" /></p>
+<p>And I’ve assured you that, in fact, the derivative of <span class="math inline">\(\sin(x)\)</span> <em>is</em> <span class="math inline">\(\cos(x)\)</span>. But how do we prove this? We tried to do this back in November<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, but we ran into a stumbling block—one that caused us to trip and fall not onto the ground, but into a weird alternate universe of limits and epsilons and deltas and <span class="math inline">\(h\)</span>’s going to zero. It gave us a whole new perspective—a fuller perspective—on what derivatives are.</p>
+<p>Now that we’re back in the main universe (the one that has derivatives), let’s see if we can actually prove this to be true. (That is, let’s see if we can see <em>why</em> this is true.) We want to calculate <span class="math inline">\(\sin&#39;(x)\)</span>, and since we have no other rules that we can apply (can’t use the product rule, can’t use the chain rule, etc.), we may as well start with first principles: plug it into Fermat’s difference quotient. <span class="math display">\[\sin&#39;(x) = \lim_{h\rightarrow 0}\left[ \frac{\sin(x+h) - \sin(x)}{h} \right]\]</span> But this looks kind of nasty. Unlike with, e.g., <span class="math inline">\(x^2\)</span>, we can’t “multiply out” the <span class="math inline">\(\sin(x+h)\)</span>, or distribute it. It’s certainly not equal to <span class="math inline">\(\sin(x) + \sin(h)\)</span>. But we can simplify it using that formula we proved in trig: <span class="math display">\[\text{helpful formula: }\quad \sin(\alpha + \beta) =  \cos(\alpha)\sin(\beta) + \sin(\alpha)\cos(\beta)\]</span> If we apply that here, we’ll get: <span class="math display">\[\begin{align*}
+\sin&#39;(x) &amp;= \lim_{h\rightarrow 0}\left[ \frac{\sin(x+h) - \sin(x)}{h} \right]\\ \\
+&amp;= \lim_{h\rightarrow 0}\left[ \frac{\cos(x)\sin(h) + \sin(x)\cos(h) \quad-\quad \sin(x)}{h}\right]
+\end{align*}\]</span> Which, if we do some rearranging, is: <span class="math display">\[\begin{align*}
+&amp;= \lim_{h\rightarrow 0}\left[ \frac{\cos(x)\sin(h)}{h} + \frac{\sin(x)\cos(h)- \sin(x)}{h}\right]\\
+&amp;= \lim_{h\rightarrow 0}\left[ \cos(x)\frac{\sin(h)}{h} + \sin(x)\frac{\cos(h)- 1}{h}\right]\\
+&amp;= \lim_{h\rightarrow 0}\left[ \cos(x)\frac{\sin(h)}{h} - \sin(x)\frac{ -\cos(h)+1}{h}\right] \quad\text{(factoring out a } -1)\\
+&amp;= \lim_{h\rightarrow 0}\left[ \cos(x)\frac{\sin(h)}{h} - \sin(x)\frac{1 - \cos(h)}{h}\right] \\
+&amp;= \lim_{h\rightarrow 0}\left[ \cos(x)\frac{\sin(h)}{h}\right] - \lim_{h\rightarrow 0}\left[\sin(x)\frac{1 - \cos(h)}{h}\right] \\
+&amp;= \cos(x)\cdot\lim_{h\rightarrow 0}\left[ \frac{\sin(h)}{h}\right] - \sin(x)\cdot\lim_{h\rightarrow 0}\left[\frac{1 - \cos(h)}{h}\right]
+\end{align*}\]</span> So now we’re basically at the place where we had to stop when we tried to do this in November. Because: what <em>are</em> these limits? It’s not clear how we work out <span class="math inline">\(\lim_{h\rightarrow 0} \sin(h)/h\)</span> and <span class="math inline">\(\lim_{h \rightarrow 0} (1-\cos h)/h\)</span>. <span class="math display">\[\begin{align*}
+\lim_{h\rightarrow 0}\left[ \frac{\sin(h)}{h}\right] \quad&amp;=\quad ??? \\ \\
+\lim_{h \rightarrow 0}\left[ \frac{1-\cos h}{h}\right] \quad&amp;=\quad ???
+\end{align*}\]</span> If we simply plug <span class="math inline">\(0\)</span> in, we get <span class="math inline">\(0/0\)</span>, for both of these. Each of these functions has a hole at <span class="math inline">\(h=0\)</span>. So we need some way of finding the presumptive <span class="math inline">\(y\)</span>-value of that hole—of finding what <span class="math inline">\(\sin(0)/0\)</span> <em>should</em> be, if it existed.</p>
+<p>With rational functions, this is no big deal—we simply cancel out the offending/hole-creating factor, and then act as if it never existed. But we can’t do that here, because sine and cosine aren’t polynomials. So. Um.</p>
+<p>Geometry to the rescue! (I have this image of Mr. Austin swooping in with a cape.) We need to figure out what those two limits are. So we’ll go on a bit of a tangent, and build some triangles. What we’re going to do, in a sentence, is use geometry to build some algebraic relationships, and then use those to find our limit. We’re going to construct an inequality that has <span class="math inline">\(\sin(x)/x\)</span> in the middle (like <span class="math inline">\(\text{stuff} &lt; \sin(x)/x &lt; \text{more stuff}\)</span>), and then we’re going to (more or less) crush <span class="math inline">\(\sin(x)/x\)</span> between the two things on the outside. We’ll be able to find the limit as <span class="math inline">\(h\rightarrow 0\)</span> of both of the things on the outside—they’ll both go to <span class="math inline">\(1\)</span>—and since we know that <span class="math inline">\(\sin(x)/x\)</span> is always between them, we’ll know that the limit as <span class="math inline">\(h\rightarrow 0\)</span> of <span class="math inline">\(\sin(x)/x\)</span> will be <span class="math inline">\(1\)</span>, too. This is the general idea.</p>
+<p>So. Imagine we draw a right triangle with an angle of <span class="math inline">\(x\)</span>, legs of length <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>, and hypotenuse of <span class="math inline">\(1\)</span>:</p>
+<p><img src="sinexoverx_1.png" style="width:50.0%" /> so then, just using trig, we know that <span class="math display">\[\sin(x) = \frac{\text{opp}}{\text{hyp}} = \frac{a}{1} = a\]</span> and <span class="math display">\[\cos(x)= \frac{\text{adj}}{\text{hyp}} = \frac{b}{1} = b\]</span> So rather than using two new variables, <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>, I can just label the legs with <span class="math inline">\(\sin(x)\)</span> and <span class="math inline">\(\cos(x)\)</span>, since that’s how long each of them are:</p>
+<p><img src="sinexoverx_2.png" style="width:50.0%" /> The bottom side has length <span class="math inline">\(\cos(x)\)</span> and the right side has length <span class="math inline">\(\sin(x)\)</span>. Then, what if I extend this to make a slightly bigger triangle? I’ll extend the bottom side such that it’s <span class="math inline">\(1\)</span> unit long and I no longer have a right triangle:</p>
+<p><img src="sinexoverx_3.png" style="width:50.0%" /> (This triangle will be important. For reference, let’s call this triangle “little triangle.” Which might seem a bit odd, because it’s <em>bigger</em> than the triangle we started with, but later in the proof we’re going to make an even bigger triangle. So this is our “little one.”)</p>
+<p>Then, what if I imagine that the far right side of the triangle were not a straight line but a curvy arc—than instead of having a triangle, we have a wedge, a pizza slice, a fraction of a larger circle:</p>
+<p><img src="sinexoverx_4.png" style="width:50.0%" /> This is another shape we’ll refer to again. Let’s call this wedge-shaped area our “pizza slice.”</p>
+<p>THEN, let’s build another triangle! What if I turn this shape into a (larger) right triangle, like so:</p>
+<p><img src="sinexoverx_5.png" style="width:50.0%" /> Let’s call this the “big triangle.” I’ve labelled the side opposite <span class="math inline">\(x\)</span> as <span class="math inline">\(\gamma\)</span>, but we can write this solely in terms of <span class="math inline">\(x\)</span>: <span class="math display">\[\tan(x) = \frac{\text{opp}}{\text{adj}} = \frac{\gamma}{1} = \gamma\]</span> So then rather than calling the far-right side <span class="math inline">\(\gamma\)</span>, let’s call it <span class="math inline">\(\tan(x)\)</span>:</p>
+<p><img src="sinexoverx_6.png" style="width:50.0%" /></p>
+<p>Why are we doing all of this? We have three overlapping shapes: a small triangle, a pizza slice, and a big triangle. They’re stacked on top of each other. We know that the little triangle is smaller than the pizza slice, and we know that the pizza slice is smaller than the big triangle. So we know: <span class="math display">\[\text{area of little triangle} &lt; \text{area of pizza slice} &lt; \text{area of big triangle}\]</span> But we also know what each of their areas are. The little triangle we know has a base of <span class="math inline">\(1\)</span>, and a height of <span class="math inline">\(\sin(x)\)</span> (from what we started with), so we can find its area. The big triangle has a base of <span class="math inline">\(1\)</span>, and a height of <span class="math inline">\(\tan x\)</span>. And the pizza slice—well, we know that it’s a slice out of a pizza with radius <span class="math inline">\(1\)</span>, and so the entire pizza will have area <span class="math inline">\(\pi\cdot(1)^2\)</span>. But it’s only a percentage of the entire pizza. It’s <span class="math inline">\(x\)</span> radians of the entire pizza, and the entire pizza has <span class="math inline">\(2\pi\)</span> radians. So the pizza slice’s area will be <span class="math inline">\((\pi\cdot1^2)\cdot(x/\,2\pi)\)</span>. In summary: <span class="math display">\[\begin{align*}
+\text{\bf area of little triangle} &amp;= \frac{1}{2}\cdot \text{base}\cdot\text{height} = \frac{1}{2}\cdot1\cdot\sin x =\frac{1}{2}\sin x \\
+\text{\bf area of pizza slice} &amp; = \text{(area of full circle)}\cdot \text{(percentage of the circle it is)} = (\pi\cdot 1^2) \cdot\left(\frac{x}{2\pi}\right) = \frac{1}{2}x \\
+\text{\bf area of big triangle} &amp;= \frac{1}{2}\cdot\text{base}\cdot\text{height} = \frac{1}{2}\cdot1\cdot\tan x = \frac{1}{2}\tan x =  \frac{1}{2} \frac{\sin x}{\cos x}
+\end{align*}\]</span> So because we know: <span class="math display">\[\text{area of little triangle} &lt; \text{area of pizza slice} &lt; \text{area of big triangle}\]</span> if we plug in the areas, we must have: <span class="math display">\[\frac{1}{2}\sin(x) &lt; \frac{1}{2}x &lt; \frac{1}{2} \frac{\sin x}{\cos x} \]</span> Let’s clean this up a bit. We want to get <span class="math inline">\(\sin(x)/x\)</span> in the middle there, so that we can CRUSH it. If I get rid of the <span class="math inline">\(1/2\)</span>s… <span class="math display">\[\sin x &lt; x &lt; \frac{\sin x}{\cos x} \]</span> and divide by <span class="math inline">\(\sin(x)\)</span>… <span class="math display">\[\frac{\sin x }{\sin x} &lt; \frac{x}{\sin x} &lt; \frac{\sin x}{\cos x \sin x} \]</span> <span class="math display">\[1 &lt; \frac{x}{\sin x} &lt; \frac{1}{\cos x} \]</span> and then take the reciprocal (which will flip the direction of the inequalities<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>): <span class="math display">\[\frac{1}{1} &gt; \frac{\sin x}{x} &gt; \frac{\cos x}{1} \]</span> <span class="math display">\[1 &gt; \frac{\sin x}{x} &gt; \cos x \]</span> So I get a <span class="math inline">\(\sin(x)/x\)</span>! This is the thing whose limit as <span class="math inline">\(h\rightarrow 0\)</span> we want to figure out. Here’s the trick: we know that <span class="math inline">\(\sin(x)/x\)</span> is always between <span class="math inline">\(1\)</span> and <span class="math inline">\(\cos x\)</span>. And we know what happens to <span class="math inline">\(\cos x\)</span> and <span class="math inline">\(1\)</span> as <span class="math inline">\(x\rightarrow 0\)</span>. Both of them just become <span class="math inline">\(1\)</span>. (Well, <span class="math inline">\(1\)</span> already is <span class="math inline">\(1\)</span>): <span class="math display">\[\begin{align*}\cos(x) \,\, &amp; \xrightarrow[\quad0 \quad]{x} \,\, 1\\
+1 \,\, &amp;\xrightarrow[\quad0 \quad]{x} \,\, 1\end{align*}\]</span> And since we know that <span class="math inline">\(\sin(x)/x\)</span> is always <em>between</em> <span class="math inline">\(\cos(x)\)</span> and <span class="math inline">\(1\)</span>, then we know that <span class="math inline">\(\sin(x)/x\)</span> must also go to <span class="math inline">\(1\)</span> as well!! (Which, by the way, obviously tells us what <span class="math inline">\(\displaystyle \lim_{h \rightarrow 0}\frac{\sin h}{h}\)</span> is, since they’re the same thing—just with the letter <span class="math inline">\(h\)</span> instead of the letter <span class="math inline">\(x\)</span>.) <span class="math display">\[\lim_{h\rightarrow 0}\frac{\sin h}{h} = 1\]</span></p>
+<p>That’s kind of a cool technique. We don’t know how to take the limit of <span class="math inline">\(\sin(x)/x\)</span> directly, so instead we take the limit of two of its best friends—friends that we know <span class="math inline">\(\sin(x)/x\)</span> <em>always</em> hangs out with. And since we know <span class="math inline">\(\sin(x)/x\)</span> is always hanging out with <span class="math inline">\(1\)</span> and <span class="math inline">\(\cos(x)\)</span>, if we know where <span class="math inline">\(1\)</span> and <span class="math inline">\(\cos x\)</span> are, we know where <span class="math inline">\(\sin(x)/x\)</span> is.</p>
+<p>This technique is an example of what is called the <strong>sandwich theorem</strong> (if you’re a high school teacher), the <strong>pinching theorem</strong> (if you’re a mathematician), or the <strong>two policeman theorem</strong> (if you’re a Russian mathematician). Also sometimes the <strong>squeeze theorem</strong>. The idea is simple enough: if you put some mozzarella between two pieces of bread, and then press the two pieces of bread together and put it in your mouth, the mozzarella will go in your mouth, too. Or, put differently, if you get arrested, and there’s one cop in front of you and one cop behind you, and the front cop walks to the precinct, and the rear cop walks to the precinct, you’ll get walked to the precinct, too. (This assumes you are walking on a one-dimensional path; given the width of European streets, this is not an bad assumption.) Were we doing calculus totally rigorously (totally formally), we’d need to prove this theorem. But it’s pretty intuitive, and for us limits are a tool, not an end, and to prove it requires some other fancy techniques that you don’t know and that are sort of extraneous, so we won’t prove it. But feel free to look it up online or in a book if you’re curious.</p>
+<p>So now we know what <span class="math inline">\(\displaystyle \lim_{h \rightarrow 0}\frac{\sin h}{h}\)</span> is. But our original formula for the derivative of <span class="math inline">\(\sin(x)\)</span> had two limits in it—not just <span class="math inline">\(\displaystyle\lim_{h \rightarrow 0}\frac{\sin h}{h}\)</span>, but also <span class="math inline">\(\displaystyle\lim_{h \rightarrow 0}\frac{1-\cos h}{h}\)</span>. So we need to figure that out, too.</p>
+<p>Unfortunately, the procedure isn’t quite as interesting. All we need to do is a little bit of algebra to write it in a more convenient form, and then it’ll be obvious what the limit is. First, the algebra: <span class="math display">\[\begin{align*}
+\frac{1-\cos(x)}{x} &amp;= \left( \frac{1-\cos(x)}{x}\right)\cdot \underbrace{\left( \frac{1+\cos x}{1+\cos x} \right)}_{=1} &amp; \text{multiplying by } 1 \\
+&amp; = \frac{1-\cos^2(x)}{x(1+\cos x)}
+\end{align*}\]</span> But because of the Pythagorean theorem from trig, we know that <span class="math inline">\(\sin^2x + \cos^2x = 1\)</span>, and thus that <span class="math inline">\(1-\cos^2(x)=\sin^2x\)</span>: <span class="math display">\[\begin{align*}
+&amp;= \frac{\sin^2(x)}{x(1+\cos x)} \\
+&amp;= \frac{\sin(x)\cdot\sin(x)}{x(1+\cos x)} \\
+&amp;= \frac{\sin(x)}{x}\cdot\frac{\sin(x)}{1+\cos x} \\
+\end{align*}\]</span> So we know, then, how to rewrite <span class="math inline">\(1-\cos(x)\,/\,x\)</span>: <span class="math display">\[\frac{1-\cos x}{x} =  \frac{\sin(x)}{x}\cdot\frac{\sin(x)}{1+\cos x}\]</span> But we also know that we can split limits up along multiplication, and we know how to take the limit of both of those things! We just found out that as <span class="math inline">\(h\rightarrow 0\)</span>, <span class="math inline">\(\sin(x)/x\)</span> goes to <span class="math inline">\(1\)</span>, and as <span class="math inline">\(h\rightarrow 0\)</span>, <span class="math inline">\(\sin(x)/(1+\cos x)\)</span> should just go to <span class="math inline">\(0/(1+1)\)</span>, or just <span class="math inline">\(0\)</span>. <span class="math display">\[\begin{align*}
+\lim_{x \rightarrow 0}\left[ \frac{1-\cos x}{x} \right] &amp;=  \lim_{x \rightarrow 0}\left[ \frac{\sin(x)}{x}\cdot\frac{\sin(x)}{1+\cos x} \right] \\
+&amp;=  \underbrace{\lim_{x \rightarrow 0}\left[ \frac{\sin(x)}{x}\right]}_{=1}\cdot \underbrace{\lim_{x\rightarrow 0}\left[\frac{\sin(x)}{1+\cos x}\right]}_{=0}  \\
+&amp; = 1\cdot 0 \\
+&amp;= 0
+\end{align*}\]</span></p>
+<p>So we’ve calculated both of the limits! We know: <span class="math display">\[\displaystyle \lim_{h \rightarrow 0}\frac{\sin h}{h} = 1Ê\quad\text{and}\quad \displaystyle\lim_{h \rightarrow 0}\frac{1-\cos h}{h} = 0\]</span></p>
+<p>So with these limits both calculated, we can return to our original argument, and <strong>finally prove that the derivative of sine is cosine</strong>! When we left off, we had: <span class="math display">\[\begin{align*}
+\sin&#39;(x) &amp;= \cos(x)\cdot\lim_{h\rightarrow 0}\left[ \frac{\sin(h)}{h}\right] - \sin(x)\cdot\lim_{h\rightarrow 0}\left[\frac{1 - \cos(h)}{h}\right]
+\end{align*}\]</span> And if we plug in what we just found out about these limits…: <span class="math display">\[\begin{align*}
+&amp;= \cos(x)\cdot\underbrace{\lim_{h\rightarrow 0}\left[ \frac{\sin(h)}{h}\right]}_{=1} - \sin(x)\cdot\underbrace{\lim_{h\rightarrow 0}\left[\frac{1 - \cos(h)}{h}\right]}_{=0} \\
+&amp;= \cos(x)\!\cdot \!1\,- \,\sin(x)\!\cdot\!0 \\
+&amp;= \cos(x) \\ \\
+&amp; \includegraphics[scale=.5]{andrewproof.png}  
+\end{align*}\]</span></p>
+<h2 id="problem">Problem</h2>
+<p>Prove that: <span class="math display">\[\cos&#39;(x) = -\sin(x)\]</span> There are a couple ways you could do this. One way would be to follow the method we used here—to plug <span class="math inline">\(\cos(x)\)</span> into the FDQ, do the trig addition identity, rearrange, and figure out the limits. You can probably get it just in terms of the two limits we evaluated here, so no need to do anything new to figure out what they are. Another way would be to first rewrite cosine using a trig identity, and <em>then</em> take its derivative. Try it both ways. Write them up nicely and turn it in.</p>
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>see the original limits notes<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p>since (for example) <span class="math inline">\(2&lt;3\)</span> and <span class="math inline">\(\displaystyle \frac{1}{2} &gt; \frac{1}{3}\)</span><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+</main>
+</body>
+</html>

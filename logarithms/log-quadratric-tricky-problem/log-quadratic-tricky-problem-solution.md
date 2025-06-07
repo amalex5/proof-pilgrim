@@ -68,7 +68,7 @@ $$10^{\log_{10}(a) }= 10^{\log_a(100) - 1}$$
 $$a= 10^{\log_a(100) - 1}$$
 So we have an equation for $a$... but $a$ is also on the right side. We haven't really solved for $a$. Aaaagh. How do we get rid of that $\log_a$ on the right side?!?? No clue. 
 
-We wanted to make an end run around the gods. Instead we made an Enron around the gods^[I thank Zach Moss for inspiring this wordplay.]
+We wanted to make an end run around the gods. Instead we made an Enron around the gods.^[I thank Zach Moss for inspiring this wordplay.]
 
 
 <div style='height:3em'></div>

@@ -46,7 +46,7 @@
 </head>
 <body>
   <header>
-    <span id="header-name">the natural history <span style="font-weight:normal;">of abstract objects</span></span> <span id="linkback"><a href=http://www.andrusia.com><img src="/andrew-logo.svg" id='header-logo' style='width: auto;'/></a></span>
+  <span id="header-name"> <a href='/'>the natural history <span style="font-weight:normal;">of abstract objects</span></a></span> <span id="linkback"><a href=http://www.andrusia.com><img src="/andrew-logo.svg" id='header-logo' style='width: auto;'/></a></span>
 </header>
 <script>document.addEventListener('DOMContentLoaded', function(e) {
   Scroller.init();
@@ -57,6 +57,7 @@
 <ul>
 <li><a href="#antidifferentiation-awesomeness">Antidifferentiation Awesomeness</a></li>
 <li><a href="#whence-taylor-series-the-proof">Whence Taylor Series: The Proof</a></li>
+<li><a href="#problems">Problems</a></li>
 </ul>
 </nav>
 </div>
@@ -66,13 +67,21 @@
 <div id="title-block">
 <h1 class="title">Everything Is Polynomic: Adventures With Taylor Series</h1>
 </div>
+<blockquote>
+<p><em>We shall not cease from exploration,</em> <br> <em>And the end of all our exploring,</em> <br> <em>Will be to arrive where we started</em> <br> <em>And know the place for the first time.</em> <br> <span style="text-align:right;">—T.S. Eliot, <em>Little Gidding</em></span></p>
+</blockquote>
+<div style="height:5em">
+
+</div>
+<p>The English philosopher/mathematician Alfred North Whitehead<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> once remarked that “all of Western philosophy is a series of footnotes to Plato.”<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> My feelings about Taylor series are similar, but the chronology is reversed. In a sense, all of the math we’ve done up until now—all of the complicated proofs and convoluted arguments—we could have done much more simply, and much more cleanly, using Taylor series. If you glance at the problems in the back, you should get an idea of their wide-ranging versatility and utility. If the world is made only of polynomials, it really is a much simpler place.</p>
+<p>growing polynomials approximating functions generalizing ideas of straightness safety</p>
 <p>The core assertion/paradox/weirdness/etc. behind calculus is:</p>
 <p><span class="math display">\[\begin{array}{l}
-\text{if we zoom in infinitely far, everything becomes straight}
+\text{if we zoom in {\color{blue}infinitely far}, everything becomes {\color{blue}straight}}
 \end{array}\]</span> Or, put differently: <span class="math display">\[\begin{array}{l}
-\text{if we zoom in far enough, everything becomes straight}
+\text{if we zoom in {\color{blue}far enough}, everything becomes {\color{blue}straight}}
 \end{array}\]</span> Or: <span class="math display">\[\begin{array}{l}
-\text{if we zoom in far enough, everything becomes a first-degree polynomial}
+\text{if we zoom in {\color{blue}far enough}, everything becomes {\color{blue}a first-degree polynomial}}
 \end{array}\]</span> In a sense, Taylor’s theorem generalizes this paradox/assertion/conclusion/observation. It generalizes it from just about lines to about arbitrary-degree polynomials. Taylor’s theorem says: <span class="math display">\[\begin{array}{l}
 \text{\small if we zoom in far enough, everything becomes a zeroth-degree polynomial} \\
 \text{\small if we zoom in far enough, everything becomes a first-degree polynomial} \\
@@ -96,16 +105,9 @@
 \end{array}
 \right\} \substack{\text{\large  if we zoom in far enough,}\\\text{\large  everything becomes an}\\\text{\large $n$th-degree polynomial}\\\text{\large  for any/all $n$}}
 \]</span> I.e., just: <span class="math display">\[\begin{array}{l}
-\text{if we zoom in far enough, everything becomes an $n$th-degree polynomial} \\
-\hfill \text{for any/all $n$} \hfill
+\text{if we zoom in {\color{blue}far enough}, everything becomes {\color{blue}an $n$th-degree polynomial}} \\
+\hfill \text{(for any/all $n$)} \hfill
 \end{array}\]</span></p>
-<blockquote>
-<p><em>We shall not cease from exploration,</em> <br> <em>And the end of all our exploring,</em> <br> <em>Will be to arrive where we started</em> <br> <em>And know the place for the first time.</em> <br> <span style="text-align:right;">—T.S. Eliot, <em>Little Gidding</em></span></p>
-</blockquote>
-<div style="height:5em">
-
-</div>
-<p>The English philosopher/mathematician Alfred North Whitehead<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> once remarked that “all of Western philosophy is a series of footnotes to Plato.”<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> My feelings about Taylor series are similar, but the chronology is reversed. In a sense, all of the math we’ve done up until now—all of the complicated proofs and convoluted arguments—we could have done much more simply, and much more cleanly, using Taylor series. If you glance at the problems in the back, you should get an idea of their wide-ranging versatility and utility. If the world is made only of polynomials, it really is a much simpler place.</p>
 <p>I’ve built up lots of anticipation for Taylor series—too much, I worry, since I don’t want to make it seem anticlimactic—but we’re finally here. Let’s go.</p>
 <div style="height:5em">
 
@@ -179,6 +181,7 @@ h(x) &amp; = h(a) + (x-a)h&#39;(a)  + \left[ -\frac{1}{2}(x-t)^2h&#39;&#39;(t) -
 <p><span class="math display">\[h(x)= h(a) + (x-a)h&#39;(a)  + \frac{1}{2}(x-a)^2h&#39;&#39;(a) +\left[ -\frac{1}{2\cdot3}(x-t)^3h&#39;&#39;&#39;(t) -  \int \! -\frac{1}{2\cdot3}(x-t)^3f&#39;(t) = h&#39;&#39;&#39;&#39;(t) \right]_a^x \]</span> I’m sort of running out of space on the page, but you get the idea: I plug in <span class="math inline">\(x\)</span> and <span class="math inline">\(a\)</span>, I get an <span class="math inline">\((x-x)\)</span> term that goes away, I blast through a bunch of negatives, and end up with something like: <span class="math display">\[h(x)= h(a) + (x-a)h&#39;(a)  + \frac{1}{2}(x-a)^2h&#39;&#39;(a) + \frac{1}{2\cdot3}(x-a)^3h&#39;&#39;&#39;(a) -  \int_a^x \! -\frac{1}{2\cdot3}(x-t)^3h&#39;&#39;&#39;&#39;(t)\,dt \]</span> So, as you can see, a Taylor polynomial is forming! We are growing a Taylor series, bit by bit. Instead of giving it sun and water, we are giving it integration by parts. All we do is integrate by parts forever, and we get a Taylor series! So this shows you where the formula comes from, which as far as I am concerned is sufficient proof. </p>
 {
 <p>}</p>
+<h2 id="problems">Problems</h2>
 Use Taylor’s formula (the formula) to find the Taylor series of the following functions. (Write them out to at least the 5th nonzero term and also express them in <span class="math inline">\(\Sigma\)</span> form. If I don’t give you a value for <span class="math inline">\(a\)</span>, choose one yourself.)
 Find the Taylor series of each of the following rational functions:
 <p>In 1974, the philosopher Thomas Nagel published a seminal essay on the philosophy of mind entitled <code>What is it like to be a bat?''\footnote{Google it! Read it!} His thesis, simply put, was that we cannot know what it is like to be a bat, because if we did, we would either be a strange bat-human hybrid (and thus not really a bat) or a bat (and thus we wouldn't be ourselves). In the following problems, I would like you to ask yourselves:</code>What is it like to be a calculator?’’</p>

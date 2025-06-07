@@ -5,7 +5,7 @@ layout: post
 ---
 
 
-We've been calculating slopes. Or, to use a fancier word, we've been taking derivatives. What do we know about how these creatures behave?
+**We've been calculating slopes**. Or, to use a fancier word, we've been taking derivatives. What do we know about how these creatures behave?
 
 For starters, we know Fermat's difference quotient:
 

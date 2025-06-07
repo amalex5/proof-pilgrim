@@ -188,7 +188,7 @@ One nice little trick is that if we have a factored polynomial, and we just want
 
 \begin{align*}
 f(x) &= (x+1)(x-7)(x+4)^2(x-5)^3 \\ \\
-&\text{..multiply it all out}\\
+&\text{...multiply it all out}\\
 &\quad\quad\text{combining every combination of the first and second term of each factor...}\\ \\
 &= \Big(\substack{\text{all of the first}\\\text{terms of each factor}}\Big) + \,\, \cdots \quad \substack{\text{a bunch of cross-terms, coming }\\\text{from different combinations}\\\text{of the first and second term}\\\text{of each factor}}\quad \cdots \,\, + \Big(\substack{\text{all of the last}\\\text{terms of each factor}}\Big) \\ \\
 &= x\!\cdot\!x\!\cdot\!x^2\!\cdot\!x^3 \quad+ \,\, \cdots \quad \text{cross-terms}\quad \cdots \,\, +\quad (1)(-7)(4)^2(-5)^3 \\ \\

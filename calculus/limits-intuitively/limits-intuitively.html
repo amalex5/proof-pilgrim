@@ -46,7 +46,7 @@
 </head>
 <body>
   <header>
-    <span id="header-name">the natural history <span style="font-weight:normal;">of abstract objects</span></span> <span id="linkback"><a href=http://www.andrusia.com><img src="/andrew-logo.svg" id='header-logo' style='width: auto;'/></a></span>
+  <span id="header-name"> <a href='/'>the natural history <span style="font-weight:normal;">of abstract objects</span></a></span> <span id="linkback"><a href=http://www.andrusia.com><img src="/andrew-logo.svg" id='header-logo' style='width: auto;'/></a></span>
 </header>
 <script>document.addEventListener('DOMContentLoaded', function(e) {
   Scroller.init();
@@ -67,13 +67,20 @@
 </div>
 <p>So far, we have been quite good at finding the derivatives of functions by plugging the functions into Fermat’s difference quotient, rearranging, and then letting <span class="math inline">\(h=0\)</span>. This is how we found the derivative of <span class="math inline">\(x^2\)</span> and <span class="math inline">\(1/x\)</span>; in fact, our proof of the formula <span class="math inline">\(\displaystyle \frac{d}{dx}x^n = nx^{n-1}\)</span> told us that this general method works for any rational function, insofar as we had to do nothing special about the <span class="math inline">\(h\)</span> in that proof.</p>
 <p>So let’s move on to other functions. What about trig functions? We can see, just by sketching it, that the derivative of <span class="math inline">\(\sin(x)\)</span> looks kind of like <span class="math inline">\(\cos(x)\)</span> (potentially with a vertical expansion/compression):</p>
+<p><img src="derivativeofsine.png" style="width:75.0%" /></p>
 <p>But can we calculate it? Presumably it’s not too hard. We’ll just plug it into Fermat’s little machine, and then see what happens when <span class="math inline">\(h\)</span> gets small: <span class="math display">\[\frac{\sin(x+h) - \sin(x)}{h}\]</span> But, well, this looks kind of nasty. Unlike with, say, <span class="math inline">\(x^2\)</span>, we can’t ``multiply out’’ the <span class="math inline">\(\sin(x+h)\)</span>, or distribute it. It’s certainly not equal to <span class="math inline">\(\sin(x) + \sin(h)\)</span>. But we can simplify it using that formula we proved in trig: <span class="math display">\[\sin(\alpha + \beta) =  \cos(\alpha)\sin(\beta) + \sin(\alpha)\cos(\beta)\]</span> If we apply that here, we’ll get: <span class="math display">\[\begin{align*}
-\frac{\sin(x+h) - \sin(x)}{h} &amp;= \frac{\cos(x)\sin(h) + \sin(x)\cos(h) - \sin(x)}{h}\\
-\intertext{which, if I do some rearranging, is}
+\frac{\sin(x+h) - \sin(x)}{h} &amp;= \frac{\cos(x)\sin(h) + \sin(x)\cos(h) - \sin(x)}{h}
+\end{align*}\]</span> Which, if we do some rearranging, is <span class="math display">\[\begin{align*}
 &amp;= \cos(x)\frac{\sin(h)}{h} - \sin(x)\frac{1 - \cos(h)}{h}\\
-\end{align*}\]</span> But then what do we do? As <span class="math inline">\(h\)</span> gets really small, <span class="math inline">\(\sin(h)/h\)</span> gets close to… <span class="math inline">\(0/0\)</span>? And <span class="math inline">\((1-\cos h)/h\)</span> also approaches <span class="math inline">\(0/0\)</span>? What does that mean? <span class="math inline">\(0/0\)</span> is undefined. It isn’t anything. It’s a divide-by-zero error. Um. This is bad. </p>
+\end{align*}\]</span> But then what do we do? As <span class="math inline">\(h\)</span> gets really small, <span class="math inline">\(\sin(h)/h\)</span> gets close to… <span class="math inline">\(0/0\)</span>? And <span class="math inline">\((1-\cos h)/h\)</span> also approaches <span class="math inline">\(0/0\)</span>? What does that mean? <span class="math inline">\(0/0\)</span> is undefined. It isn’t anything. It’s a divide-by-zero error. Um. This is bad.</p>
+<div style="height:3em">
+
+</div>
 <p>Really, really, really bad.</p>
-<p>We want to take the derivative of sine. We want to find its slope. But, uh. This is the equivalent of going to the grocery store and accidentally running over someone with your car. It was just a quick trip to the store! Nothing bad was supposed to happen! We were supposed to find the derivative of <span class="math inline">\(\sin(x)\)</span> as easily as we found the derivative of <span class="math inline">\(x^2\)</span>!</p>
+<div style="height:3em">
+
+</div>
+<p>We want to take the derivative of sine. We want to find its slope. But, uh. This is the equivalent of going to the grocery store and accidentally running over someone with your car. It was just a quick trip to the store! Nothing bad was supposed to happen! No one was supposed to get hurt! We were supposed to find the derivative of <span class="math inline">\(\sin(x)\)</span> as easily as we found the derivative of <span class="math inline">\(x^2\)</span>!</p>
 <p>We are faced with a grave problem: we cannot get the <span class="math inline">\(\sin(h)/h\)</span> and the <span class="math inline">\((1-\cos h)/h\)</span> to go away! We can find the <em>average</em> slope of sine between <span class="math inline">\(x\)</span> and <span class="math inline">\(x+h\)</span>, but if we want to find the <em>exact</em> slope–the <strong>derivative</strong>—we get this divide-by-zero error. Both the top and the bottom go to zero. This is bizarre. What sort of exotic derivative could result? What strange creature could it be? And yet we can see, from our sketch, that the derivative should not be exotic at all—it should be just cosine, or some variant thereof.</p>
 <p>Maybe it’s just that sine doesn’t have a derivative. That it’s weird? That, for some reason, there’s something about it that prevents us from taking its derivative? But it’s not that weird. It just goes up and down and up and down and up and down <em>ad infinitum</em>. What could be more boring? Surely it must have a derivative. I mean, we have a picture of it! The derivative <em>should</em> be cosine, or at least some close relative of cosine! And yet…</p>
 <p>Maybe the problem is more fundamental. Consider Fermat’s difference quotient. It gives us the average slope of a function between two points, <span class="math inline">\(x\)</span> and <span class="math inline">\(x+h\)</span>. What happens as <span class="math inline">\(h\)</span> gets really small? <span class="math display">\[\frac{f(x+h)-f(x)}{h} \xrightarrow[\text{gets really small}]{\text{as }h\text{ gets}} \frac{f(x) - f(x)}{0} = \frac{0}{0}\]</span> WE GET A DIVIDE-BY-ZERO ERROR. Always. Whenever we use Fermat’s difference quotient. This is not a problem specific to sine. IT WAS THERE ALL ALONG! With the other functions we dealt with, were able to shove this problem under the carpet, behind the couch, into the closet—with <span class="math inline">\(x^2\)</span> and <span class="math inline">\(1/x\)</span> and whatnot we were able to cancel things out and fiddle with it so that we could make <span class="math inline">\(h=0\)</span> without creating any divide-by-zero problems. BUT WE WERE DIVIDING BY ZERO ALL ALONG. Our very fundamental formulation of a derivative creates a divide-by-zero error. This is bad. Extremely bad. We can’t make it zero, because then we’d be dividing by zero, and we can’t <em>not</em> make it zero, because then we wouldn’t have the precise derivative—we’d just have the average slope between two points on the function.</p>
@@ -81,18 +88,22 @@
 <p>Clearly we need to better understand what we actually are doing when we say “as <span class="math inline">\(h\)</span> gets small” or “as <span class="math inline">\(h\)</span> goes to <span class="math inline">\(0\)</span>.” Obviously we can’t just be plugging in zero. But then what? Can we never take derivatives? That would be bad. Is everything we know wrong? That, too, would be bad.</p>
 <p>Perhaps we should first ask ourselves: what <em>does</em> happen when we divide by zero? Recall that there are two possibilities.</p>
 <p>Usually what happens is that things become bizzare—we get vertical asymptotes. Consider, for example, <span class="math inline">\(1/x^2\)</span>.</p>
+<p><img src="1overxsquared.png" style="width:50.0%" /></p>
 <p>What’s happening to <span class="math inline">\(1/x^2\)</span> doing at <span class="math inline">\(x=0\)</span>? Nothing. It doesn’t exist at <span class="math inline">\(0\)</span>. But really near <span class="math inline">\(x=0\)</span>, it’s getting really big. The closer and closer we get to <span class="math inline">\(x=0\)</span>, the bigger and bigger <span class="math inline">\(1/x^2\)</span> gets. It doesn’t really exist at <span class="math inline">\(0\)</span>, unless you want to say that’s infinity, but we do have a sense of what it’s doing <em>near</em> <span class="math inline">\(0\)</span>. And this is the general trend—if, in the course of some function, we have <span class="math inline">\((\text{some number})/0\)</span>, we get a vertical asymptote.</p>
 <p>But that’s not the only option. Consider, for example: <span class="math display">\[f(x) = \frac{5x^2-3x-2}{x-1}\]</span> This doesn’t exist at <span class="math inline">\(x=1\)</span>. But it doesn’t have a vertical asymptote at <span class="math inline">\(x=1\)</span>. Instead, it has a hole, because if we factor it, we get: <span class="math display">\[f(x) = \frac{5x^2-3x-2}{x-1} = \frac{(5x+2)(x-1)}{(x-1)}\]</span></p>
-<p>What’s going on is that 99% of the time, this function looks exactly like <span class="math inline">\(y=5x+2\)</span>. Everywhere other than <span class="math inline">\(x=1\)</span>, the <span class="math inline">\((x-1)\)</span> factors will cancel out and go away and we’ll just have <span class="math inline">\(5x+2\)</span>. But {} <span class="math inline">\(x=1\)</span>, the <span class="math inline">\((x-1)\)</span> factors will give us <span class="math inline">\(0/0\)</span>—and that’s certainly not <span class="math inline">\(1\)</span>. <span class="math inline">\(0/0\)</span> doesn’t cancel out. It causes the universe to explode. So we get a hole at that point. At that instant that <span class="math inline">\(x=1\)</span>, the function blips out of existence, due to the divide-by-zero error. It {} to exist at <span class="math inline">\(x=1\)</span>. It {} exist at <span class="math inline">\(x=1\)</span>. We can make it {}, so long as we don’t make it actually <span class="math inline">\(1\)</span>.</p>
-<p>And this is {} what is going on with our derivative. <span class="math inline">\(\sin(h)/h\)</span> turns into <span class="math inline">\(0/0\)</span> when <span class="math inline">\(h=0\)</span>; <span class="math inline">\((1-\cos h)/h\)</span> also turns into <span class="math inline">\(0/0\)</span> when <span class="math inline">\(h=0\)</span>. They both have holes. Which, in a sense, is a good thing. See, it would be a problem if they had, like, vertical asymptotes, because then what would the derivative be? infinite? undefined? But the thing about a hole is that… all it does is affect that one tiny point. With a vertical asymptote, not only is the function undefined at that point, it’s shooting up to infinity (or <span class="math inline">\(-\infty\)</span>, or something) nearby. The divide-by-zero error affects a whole region of the function. But with a hole, we can put it back when no one’s looking, and pretend that it never was a hole. With <span class="math inline">\(f(x) = \frac{5x^2-3x-2}{x-1}\)</span>, we can just cancel out the <span class="math inline">\((x-1)\)</span>’s, get <span class="math inline">\(f(x) = 5x +2\)</span>, and {}. You’ve read the <em>Inferno</em>, right? Does Dante assign to a circle of hell the people who fix removable discontinuities in functions (which is the technical name for ``pretending a function with a hole doesn’t have a hole’’)? Of course not.</p>
-<p>Anyway. Let’s talk about <span class="math inline">\(\sin(h)/h\)</span> first. It has a hole at <span class="math inline">\(h=0\)</span>. It doesn’t exist when <span class="math inline">\(h=0\)</span>. But it <em>wants</em> to exist at <span class="math inline">\(h=0\)</span>. It {} exist there. The only question is, what should it be? It wants to be something at <span class="math inline">\(h=0\)</span>, but what?</p>
+<p><img src="graphwithhole.png" style="width:50.0%" /></p>
+<p>What’s going on is that 99% of the time, this function looks exactly like <span class="math inline">\(y=5x+2\)</span>. Everywhere other than <span class="math inline">\(x=1\)</span>, the <span class="math inline">\((x-1)\)</span> factors will cancel out and go away and we’ll just have <span class="math inline">\(5x+2\)</span>. But <em>at</em> <span class="math inline">\(x=1\)</span>, the <span class="math inline">\((x-1)\)</span> factors will give us <span class="math inline">\(0/0\)</span>—and that’s certainly not <span class="math inline">\(1\)</span>. <span class="math inline">\(0/0\)</span> doesn’t cancel out. It causes the universe to explode. So we get a hole at that point. At that instant that <span class="math inline">\(x=1\)</span>, the function blips out of existence, due to the divide-by-zero error. It <em>wants</em> to exist at <span class="math inline">\(x=1\)</span>. It <em>should</em> exist at <span class="math inline">\(x=1\)</span>. We can make it <em>as close to <span class="math inline">\(x=1\)</span> as we want</em>, so long as we don’t make it actually <span class="math inline">\(1\)</span>.</p>
+<p>And this is <em>exactly</em> what is going on with our derivative. <span class="math inline">\(\sin(h)/h\)</span> turns into <span class="math inline">\(0/0\)</span> when <span class="math inline">\(h=0\)</span>; <span class="math inline">\((1-\cos h)/h\)</span> also turns into <span class="math inline">\(0/0\)</span> when <span class="math inline">\(h=0\)</span>. They both have holes. Which, in a sense, is a good thing. See, it would be a problem if they had, like, vertical asymptotes, because then what would the derivative be? infinite? undefined? But the thing about a hole is that… all it does is affect that one tiny point. With a vertical asymptote, not only is the function undefined at that point, it’s shooting up to infinity (or <span class="math inline">\(-\infty\)</span>, or something) nearby. The divide-by-zero error affects a whole region of the function. But with a hole, we can put it back when no one’s looking, and pretend that it never was a hole. With <span class="math inline">\(f(x) = \frac{5x^2-3x-2}{x-1}\)</span>, we can just cancel out the <span class="math inline">\((x-1)\)</span>’s, get <span class="math inline">\(f(x) = 5x +2\)</span>, and {}. You’ve read the <em>Inferno</em>, right? Does Dante assign to a circle of hell the people who fix removable discontinuities in functions (which is the technical name for “pretending a function with a hole doesn’t have a hole”)? Of course not.</p>
+<p>Anyway. Let’s talk about <span class="math inline">\(\sin(h)/h\)</span> first. It has a hole at <span class="math inline">\(h=0\)</span>. It doesn’t exist when <span class="math inline">\(h=0\)</span>. But it <em>wants</em> to exist at <span class="math inline">\(h=0\)</span>. It <em>should</em> exist there. The only question is, what should it be? It wants to be something at <span class="math inline">\(h=0\)</span>, but what?</p>
 <p>We’re already comitting one sin, so we may as well commit another. Let’s use a calc***tor. If we graph <span class="math inline">\(\sin(h)/h\)</span>, we get something like this:</p>
+<p><img src="sinxoverx.png" style="width:75.0%" /></p>
 <p>(Using the calculator is going to be our little secret, OK? Don’t tell your parents about it.) So as <span class="math inline">\(h\)</span> gets closer and closer to <span class="math inline">\(0\)</span>, <span class="math inline">\(\sin(h)/h\)</span> gets closer and closer to some number. That number, in fact, though I haven’t labelled it on this graph, is <span class="math inline">\(1\)</span>. It gets closer and closer to <span class="math inline">\(1\)</span>. It doesn’t actually reach <span class="math inline">\(1\)</span>, but it does get close (infinitesimally close?)</p>
 <p>Thus, if we’re trying to find the derivative of <span class="math inline">\(\sin(x)\)</span>—which we are—we can say that as <span class="math inline">\(h\)</span> gets smaller and smaller, <span class="math inline">\(\sin(h)/h\)</span> gets closer and closer to <span class="math inline">\(1\)</span>, and so the first half of our derivative will be: <span class="math display">\[\begin{align*}
 &amp; = \cos(x)\cdot\frac{\sin(h)}{h} - \sin(x)\cdot\frac{1-\cos (h)}{h} \\
 &amp; \quad \text{as }h \downarrow \text{gets small} \\
 &amp;  \cos(x) \cdot 1 - (\text{etc.})
 \end{align*}\]</span> But we still need to figure out what <span class="math inline">\((1-\cos h)/h\)</span> turns into as <span class="math inline">\(h\)</span> gets really, really small. If we look at a graph of it, we see:</p>
+<p><img src="coshoverh.png" style="width:75.0%" /></p>
 <p><span class="math inline">\((1-\cos h)/h\)</span> does not actually exist when <span class="math inline">\(h=0\)</span>. But as <span class="math inline">\(h\)</span> gets closer and closer to <span class="math inline">\(0\)</span>, <span class="math inline">\((1-\cos h)/h\)</span> gets closer and closer to <span class="math inline">\(0\)</span>. So then we can say:</p>
 <p><span class="math display">\[\begin{align*}
 (\sin x)&#39; &amp; = \frac{\sin(x+h) - \sin(x)}{h} \\
@@ -112,41 +123,251 @@
 <p>That’s what we need to do now. We’re still trying to get to this wonderful world where we can see derivatives in their full glory. But we can’t go up this canyon any further. We’d never make it to the top of the mesa. We need to go back and take a different route. We need to figure out what’s actually going on when we take a derivative. And I guess we should start here:</p>
 <p>The usual gloss on calculus is that despite all the formulas and the formalism, it’s about just two ideas: slopes and areas. But in a more fundamental sense, calculus is about just one idea: what happens when we tangle with the infinite?</p>
 <p>Slopes and areas, you see, are just applications of that tangling. We find the slope of a curvy line by considering it as an infinite number of infinitely-short straight lines; we find the area of a curvy shape by splitting it up into an infinite number of infinitely-small rectangles. The idea underlying all of this is the idea of the infinite.</p>
-<p>This gives us two interwoven questions: * What happens to things as they become infinite? * What happens to things as they become infinitesimal?</p>
+<p>This gives us two interwoven questions:</p>
+<ul>
+<li>What happens to things as they become infinite?</li>
+<li>What happens to things as they become infinitesimal?</li>
+</ul>
 <p>The somewhat less dangerous way to phrase this—because if you start using the word “infinite,” certain theologians and philosophers get upset—is:</p>
 <ul>
 <li>What happens to things as they get really, really big?</li>
 <li>What happens to things as they get really, really small?</li>
 </ul>
-I could ask:
-or analogously:
+<p>We could ask:</p>
+<blockquote>
+<p>What is the largest number<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> smaller than 2?<br />
+</p>
+</blockquote>
+<p>or analogously:</p>
+<blockquote>
+<p>What is the largest number greater than 2?</p>
+</blockquote>
 <p>These two questions seem different. But they’re not.</p>
+<div style="height:5em">
+
+</div>
 <p>Implicitly, we have been talking about this all year. That’s all we talk about with when we talk about asymptotes. Consider, for instance, <span class="math inline">\(1/x^2\)</span>. This has both a vertical asymptote (at <span class="math inline">\(x=0\)</span>) and a horizontal asymptote (at <span class="math inline">\(y=0\)</span>):</p>
-By <code>it has a vertical asymptote at $x=0$'', all we really mean is: \begin{quotation}</code>as <span class="math inline">\(x\)</span> gets closer and closer to <span class="math inline">\(0\)</span>, <span class="math inline">\(1/x^2\)</span> gets bigger and bigger.’’\end{quotation} Or, put differently
-<p>This is not new; this is what we have been talking about all year. But the word a mathematician would use to describe this would be <code>limit.'' As in: \begin{quotation}</code>the limit of <span class="math inline">\(1/x^2\)</span> as <span class="math inline">\(x\)</span> approaches <span class="math inline">\(0\)</span> is <span class="math inline">\(\infty\)</span>.’’ \end{quotation} Which we would write using the following notation: <span class="math display">\[\text{either }\lim_{x\rightarrow 0}\frac{1}{x^2} = \infty \hspace{1cm}\text{or: \quad} \frac{1}{x^2} \,\, \xrightarrow[\quad 0 \quad]{x} \,\, \infty\]</span> This is just a more formal notation and name for stuff we’ve been doing all along. (Another way to say this would be that as <span class="math inline">\(x\)</span> goes to <span class="math inline">\(0\)</span>, <span class="math inline">\(1/x^2\)</span> ``increases without bound’’.)</p>
-<p>As to the horizontal asymptote… all we really mean when we say that <span class="math inline">\(1/x^2\)</span> has a horizontal asymptote at <span class="math inline">\(y=0\)</span> is that as <span class="math inline">\(x\)</span> gets bigger and bigger, <span class="math inline">\(1/x^2\)</span> gets closer and closer to <span class="math inline">\(0\)</span>. It might or might not actually get there at some point, but it <em>wants</em> to be <span class="math inline">\(0\)</span>. We could say this using a limit, too: <span class="math display">\[\text{either }\lim_{x\rightarrow \infty}\frac{1}{x^2} = 0 \hspace{1cm}\text{or: \quad} \frac{1}{x^2} \,\, \xrightarrow[\quad\infty \quad]{x} \,\, 0\]</span> These two notations (the ``lim’’ and the arrow) are equivalent; depending on the context, one might be more useful than the other.</p>
-<p>Here’s another example. What about <span class="math inline">\(\displaystyle \lim_{x\rightarrow 5} x^3\)</span>? This is just another way of asking, ``as <span class="math inline">\(x\)</span> gets closer and closer to <span class="math inline">\(5\)</span>, what does <span class="math inline">\(x^3\)</span> get closer and closer to?’’ Obviously the answer is <span class="math inline">\(125\)</span>: <span class="math display">\[\lim_{x\rightarrow 5} x^3 = 125\hspace{1cm}\text{or, written differently:}\hspace{1cm} x^3 \,\, \xrightarrow[\quad 5 \quad]{x} \,\, 125\]</span> Moreover, when <span class="math inline">\(x\)</span> actually {} <span class="math inline">\(5\)</span>, <span class="math inline">\(x^3\)</span> actually {} <span class="math inline">\(125\)</span>. But that last part is irrelevent—the limit doesn’t care about what the function {} at that point. It cares about what the function {} at that point. Which might or might not be the same as what it actually is. <span class="math inline">\(x^3\)</span> wants to be <span class="math inline">\(125\)</span> when <span class="math inline">\(x=5\)</span>, and it actually is <span class="math inline">\(125\)</span> when <span class="math inline">\(x=5\)</span>. It is successful in its quest.</p>
+<p><img src="1overxsquared.png" style="width:50.0%" /></p>
+<p>By “it has a vertical asymptote at <span class="math inline">\(x=0\)</span>,” all we really mean is:</p>
+<blockquote>
+<p>“as <span class="math inline">\(x\)</span> gets closer and closer to <span class="math inline">\(0\)</span>, <span class="math inline">\(1/x^2\)</span> gets bigger and bigger.”</p>
+</blockquote>
+<p>Or, put differently</p>
+<blockquote>
+<p>“as <span class="math inline">\(x\)</span> gets infinitesimally close to <span class="math inline">\(0\)</span>, <span class="math inline">\(1/x^2\)</span> gets infinitely big.”</p>
+</blockquote>
+<p>This is not new; this is what we have been talking about all year. But the word a mathematician would use to describe this would be ``limit.’’ As in:</p>
+<blockquote>
+<p>the limit of <span class="math inline">\(1/x^2\)</span> as <span class="math inline">\(x\)</span> approaches <span class="math inline">\(0\)</span> is <span class="math inline">\(\infty\)</span>."</p>
+</blockquote>
+<p>Which we would write using the following notation: <span class="math display">\[\text{either }\lim_{x\rightarrow 0}\frac{1}{x^2} = \infty \hspace{1cm}\text{or: \quad} \frac{1}{x^2} \,\, \xrightarrow[\quad 0 \quad]{x} \,\, \infty\]</span> This is just a more formal notation and name for stuff we’ve been doing all along. (Another way to say this would be that as <span class="math inline">\(x\)</span> goes to <span class="math inline">\(0\)</span>, <span class="math inline">\(1/x^2\)</span> “increases without bound.”)</p>
+<p>As to the horizontal asymptote… all we really mean when we say that <span class="math inline">\(1/x^2\)</span> has a horizontal asymptote at <span class="math inline">\(y=0\)</span> is that as <span class="math inline">\(x\)</span> gets bigger and bigger, <span class="math inline">\(1/x^2\)</span> gets closer and closer to <span class="math inline">\(0\)</span>. It might or might not actually get there at some point, but it <em>wants</em> to be <span class="math inline">\(0\)</span>. We could say this using a limit, too: <span class="math display">\[\text{either }\lim_{x\rightarrow \infty}\frac{1}{x^2} = 0 \hspace{1cm}\text{or: \quad} \frac{1}{x^2} \,\, \xrightarrow[\quad\infty \quad]{x} \,\, 0\]</span> These two notations (the “lim” and the arrow) are equivalent; depending on the context, one might be more useful than the other.</p>
+<p>Here’s another example. What about <span class="math inline">\(\displaystyle \lim_{x\rightarrow 5} x^3\)</span>? This is just another way of asking, “as <span class="math inline">\(x\)</span> gets closer and closer to <span class="math inline">\(5\)</span>, what does <span class="math inline">\(x^3\)</span> get closer and closer to?” Obviously the answer is <span class="math inline">\(125\)</span>: <span class="math display">\[\lim_{x\rightarrow 5} x^3 = 125\hspace{1cm}\text{or, written differently:}\hspace{1cm} x^3 \,\, \xrightarrow[\quad 5 \quad]{x} \,\, 125\]</span> Moreover, when <span class="math inline">\(x\)</span> actually <em>is</em> <span class="math inline">\(5\)</span>, <span class="math inline">\(x^3\)</span> actually <em>is</em> <span class="math inline">\(125\)</span>. But that last part is irrelevent—the limit doesn’t care about what the function <em>actually is</em> at that point. It cares about what the function <em>wants to be</em> at that point. Which might or might not be the same as what it actually is. <span class="math inline">\(x^3\)</span> wants to be <span class="math inline">\(125\)</span> when <span class="math inline">\(x=5\)</span>, and it actually is <span class="math inline">\(125\)</span> when <span class="math inline">\(x=5\)</span>. It is successful in its quest.</p>
 <p>Contrast this with the function <span class="math display">\[f(x) = \frac{x^3(x-5)}{x-5}\]</span> This looks almost exactly the same as <span class="math inline">\(x^3\)</span>. They are identical in every respect—except that, at <span class="math inline">\(x=5\)</span>, this function doesn’t exist. It just blips out of existence for a moment. It has a hole at <span class="math inline">\(x=5\)</span>. At every other value of <span class="math inline">\(x\)</span>, the <span class="math inline">\(x-5\)</span> on top and the <span class="math inline">\(x-5\)</span> on the bottom will cancel out and the function will look like <span class="math inline">\(x^3\)</span>, except at <span class="math inline">\(x=5\)</span>, because then we’ll have <span class="math inline">\(0/0\)</span>, and that certainly doesn’t cancel out. It’s not equal to <span class="math inline">\(1\)</span>—it’s not equal to anything. It’s undefined.</p>
 <p>However, when we’re really close to <span class="math inline">\(x=5\)</span>, the function still looks like <span class="math inline">\(x^3\)</span>. And so the closer and closer we get to <span class="math inline">\(x=5\)</span>, the closer and closer this function will get to being <span class="math inline">\(125\)</span>. It never actually <em>is</em> <span class="math inline">\(125\)</span>—it has a hiccup, and so just skips over that point. But it <em>wants</em> to be <span class="math inline">\(125\)</span>. It wants to be <span class="math inline">\(125\)</span> so, so, so badly. And so, just like with <span class="math inline">\(x^3\)</span>, the limit of this function as <span class="math inline">\(x\)</span> approaches <span class="math inline">\(5\)</span> is <span class="math inline">\(125\)</span>:</p>
 <p><span class="math display">\[\lim_{x\rightarrow 5} \frac{x^3(x-5)}{x-5} = 125\hspace{1cm}\text{or, written differently:}\hspace{1cm} \frac{x^3(x-5)}{x-5} \,\, \xrightarrow[\quad 5 \quad]{x} \,\, 125\]</span></p>
 <p>Appropos of <span class="math inline">\(x^3\)</span>: what’s the limit of <span class="math inline">\(x^3\)</span> as <span class="math inline">\(x\)</span> goes to <span class="math inline">\(\infty\)</span>? Put differently, as <span class="math inline">\(x\)</span> gets bigger and bigger and bigger, what happens to <span class="math inline">\(x^3\)</span>? Obviously, <span class="math inline">\(x^3\)</span> also gets bigger and bigger. It spikes up to <span class="math inline">\(\infty\)</span>. We know this already. Back when we were talking about polynomials, we called this the “end behavior.” But we can state it just as well with limits:</p>
 <p><span class="math display">\[\lim_{x\rightarrow \infty} x^3 = \infty \hspace{1cm}\text{written differently:} \hspace{1cm} x^3 \,\, \xrightarrow[\quad \infty \quad]{x} \,\, \infty\]</span></p>
-<p>Again, {}. It’s just applying the name ``limit’’ and giving some new symbols for {}.</p>
-<p>Here’s another example. Consider the end behavior of a rational function (which we called, for the most part, an ``end asymptote’’). We could formulate our entire theory of end aymptotes in this language of limits. We know that if we have a rational function, its end asymptote will be the ratio of the leading terms. So imagine we have a rational function composed of an <span class="math inline">\(n\)</span>-degree polynomial on top and <span class="math inline">\(m\)</span>-degree polynomial on the bottom: <span class="math display">\[\frac{a_nx^n + a_{n-1}x^{n-1} + a_{n-2}x^{n-2} + \cdots}{b_mx^m + b_{m-1}x^{m-1} + b_{m-2}x^{m-2} + \cdots}\]</span> Then we know it will have an end asymptote at <span class="math display">\[y = \frac{a_nx^n}{b_mx^m}\]</span> Or, put differently: as <span class="math inline">\(x\)</span> gets bigger and bigger, this function will get closer and closer to <span class="math display">\[y = \frac{a_nx^n}{b_mx^m}\]</span> Using the notation of a limit, we could say this as: <span class="math display">\[ \lim_{x\rightarrow \pm \infty} \left[ \frac{a_nx^n + a_{n-1}x^{n-1} + a_{n-2}x^{n-2} + \cdots}{b_mx^m + b_{m-1}x^{m-1} + b_{m-2}x^{m-2} + \cdots} \right] = \frac{a_nx^n}{b_mx^m} = \frac{a_n}{b_m}x^{n-m}\]</span> Or, using the other limit notation, that <span class="math display">\[\frac{a_nx^n + a_{n-1}x^{n-1} + a_{n-2}x^{n-2} + \cdots}{b_mx^m + b_{m-1}x^{m-1} + b_{m-2}x^{m-2} + \cdots}  \quad \xrightarrow[\quad \pm \infty \quad]{x} \quad \frac{a_nx^n}{b_mx^m} = \frac{a_n}{b_m}x^{n-m}\]</span> (Note that here I’ve really compressed two limits into one—I’ve said that this is true either as <span class="math inline">\(x\)</span> goes to <span class="math inline">\(+\infty\)</span> or <span class="math inline">\(-\infty\)</span>.)</p>
+<p>Again, <em>none of this is new</em>. It’s just applying the name “limit” and giving some new symbols for <em>things we’ve already talked about</em>.</p>
+<div style="height:5em">
+
+</div>
+<p>Here’s another example. Consider the end behavior of a rational function (which we called, for the most part, an “end asymptote”). We could formulate our entire theory of end aymptotes in this language of limits. We know that if we have a rational function, its end asymptote will be the ratio of the leading terms. So imagine we have a rational function composed of an <span class="math inline">\(n\)</span>-degree polynomial on top and <span class="math inline">\(m\)</span>-degree polynomial on the bottom: <span class="math display">\[\frac{a_nx^n + a_{n-1}x^{n-1} + a_{n-2}x^{n-2} + \cdots}{b_mx^m + b_{m-1}x^{m-1} + b_{m-2}x^{m-2} + \cdots}\]</span> Then we know it will have an end asymptote at <span class="math display">\[y = \frac{a_nx^n}{b_mx^m}\]</span> Or, put differently: as <span class="math inline">\(x\)</span> gets bigger and bigger, this function will get closer and closer to <span class="math display">\[y = \frac{a_nx^n}{b_mx^m}\]</span> Using the notation of a limit, we could say this as: <span class="math display">\[ \lim_{x\rightarrow \pm \infty} \left[ \frac{a_nx^n + a_{n-1}x^{n-1} + a_{n-2}x^{n-2} + \cdots}{b_mx^m + b_{m-1}x^{m-1} + b_{m-2}x^{m-2} + \cdots} \right] = \frac{a_nx^n}{b_mx^m} = \frac{a_n}{b_m}x^{n-m}\]</span> Or, using the other limit notation, that <span class="math display">\[\frac{a_nx^n + a_{n-1}x^{n-1} + a_{n-2}x^{n-2} + \cdots}{b_mx^m + b_{m-1}x^{m-1} + b_{m-2}x^{m-2} + \cdots}  \quad \xrightarrow[\quad \pm \infty \quad]{x} \quad \frac{a_nx^n}{b_mx^m} = \frac{a_n}{b_m}x^{n-m}\]</span> (Note that here I’ve really compressed two limits into one—I’ve said that this is true either as <span class="math inline">\(x\)</span> goes to <span class="math inline">\(+\infty\)</span> or <span class="math inline">\(-\infty\)</span>.)</p>
+<div style="height:5em">
+
+</div>
 <p>Oh! Here’s something else. Consider the function <span class="math inline">\(1/x\)</span>:</p>
-What happens to this function as <span class="math inline">\(x\)</span> goes to <span class="math inline">\(0\)</span>? Put differently, what is: <span class="math display">\[\lim_{x \rightarrow 0} \frac{1}{x} = ???\]</span> On the one hand, it’s spiking up to <span class="math inline">\(+\infty\)</span> on the right side. But on the other hand, it’s also dropping down into the abyss of <span class="math inline">\(-\infty\)</span> on the left side. Which is it? Do we have to choose? Can we say that the limit is <span class="math inline">\(\pm \infty\)</span>? If we did that, we’d no longer be able to consider a limit as being a function. Let’s deal with this by making the distinction between:
-In this case, as we get really, really close to <span class="math inline">\(x=0\)</span> from the left side, <span class="math inline">\(1/x\)</span> gets really, really negative (it goes down to <span class="math inline">\(-\infty\)</span>). But as we get really, really close to <span class="math inline">\(x=0\)</span> from the right side, <span class="math inline">\(1/x\)</span> gets really, really big (it goes to <span class="math inline">\(\infty\)</span>). So let’s make the distinction in this way:
-<p>Of course, in many cases the left- and right-handed limits will be the same, and in those cases it makes sense to talk about the limit, without differentiating between the chirality<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
+<p><img src="1overx.png" style="width:50.0%" /></p>
+<p>What happens to this function as <span class="math inline">\(x\)</span> goes to <span class="math inline">\(0\)</span>? Put differently, what is: <span class="math display">\[\lim_{x \rightarrow 0} \frac{1}{x} = ???\]</span> On the one hand, it’s spiking up to <span class="math inline">\(+\infty\)</span> on the right side. But on the other hand, it’s also dropping down into the abyss of <span class="math inline">\(-\infty\)</span> on the left side. Which is it? Do we have to choose?<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> Can we say that the limit is <span class="math inline">\(\pm \infty\)</span>? If we did that, we’d no longer be able to consider a limit as being a function<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>. Let’s deal with this by making the distinction between:</p>
+<ul>
+<li>getting really, really close to a certain <span class="math inline">\(x\)</span> value from the <strong>left</strong> side, and</li>
+<li>getting really, really close to a certain <span class="math inline">\(x\)</span> value from the <strong>right</strong> side.</li>
+</ul>
+<p>In this case, as we get really, really close to <span class="math inline">\(x=0\)</span> from the left side, <span class="math inline">\(1/x\)</span> gets really, really negative (it goes down to <span class="math inline">\(-\infty\)</span>). But as we get really, really close to <span class="math inline">\(x=0\)</span> from the right side, <span class="math inline">\(1/x\)</span> gets really, really big (it goes to <span class="math inline">\(\infty\)</span>). So let’s make the distinction in this way:</p>
+<ul>
+<li><p>When we get really, really close to an <span class="math inline">\(x\)</span>-value from the <strong>left</strong> side, let’s call that the <strong>left-handed limit</strong>, and symbolize it with a little superscript negative sign (because the left side is the negative side of the graph). So in this case: <span class="math display">\[\lim_{x \rightarrow 0^-} \frac{1}{x} = -\infty\]</span></p></li>
+<li><p>When we get really, really close to an <span class="math inline">\(x\)</span>-value from the <strong>right</strong> side, let’s call that the <strong>right-handed limit</strong>, and symbolize it with a little superscript positive sign (because the right side of the graph is the positive side). So in this case: <span class="math display">\[\lim_{x \rightarrow 0^+} \frac{1}{x} = +\infty\]</span></p></li>
+</ul>
+<p>Of course, in many cases the left- and right-handed limits will be the same, and in those cases it makes sense to talk about the limit, without differentiating between the chirality<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>.</p>
+<div style="height:2em">
+
+</div>
 <p>Anyway, there are a bunch of problems at the end of these notes that will give you practice computing limits. I’ll leave you with one last example of a limit, drawn from a different field of mathematics. See if you can figure out what’s going on in this picture:</p>
-<p>Anyway. Obviously none of what we have been doing has been particularly formal. <code>As $x$ gets closer and closer to $5$, $x^3$ gets closer and closer to $125$.''</code>As <span class="math inline">\(x\)</span> gets bigger and bigger, <span class="math inline">\(1/x\)</span> gets smaller and smaller.’’ What does all of this mean? <code>Closer and closer''?</code>Bigger and bigger’’? This does not seem particularly mathematical. It sounds qualitative and subjective, not rigorous and logical. This is a valid criticism. However, this reasoning <em>can</em> be made logical and rigorous. It is not fundamentally unsound. We <em>will</em> make it logical and rigorous. But that is for next time.</p>
-<p>(For a quick historical overview of the history of calculus—which is essentially the history of the resolution of the problems we’ve described here—read ``Infinitesimally Yours,’’ by Jim Holt, {}, May 20, 1999.)</p>
+<p><img src="geometriclimit.png" style="width:100.0%" /></p>
+<div style="height:5em">
+
+</div>
+<p>Anyway. Obviously none of what we have been doing has been particularly formal. “As <span class="math inline">\(x\)</span> gets closer and closer to <span class="math inline">\(5\)</span>, <span class="math inline">\(x^3\)</span> gets closer and closer to <span class="math inline">\(125\)</span>.” “As <span class="math inline">\(x\)</span> gets bigger and bigger, <span class="math inline">\(1/x\)</span> gets smaller and smaller.” What does all of this mean? “Closer and closer”? “Bigger and bigger”? This does not seem particularly mathematical. It sounds qualitative and subjective, not rigorous and logical. This is a valid criticism. However, this reasoning <em>can</em> be made logical and rigorous. It is not fundamentally unsound. We <em>will</em> make it logical and rigorous. But that is for next time.</p>
+<div style="height:2em">
+
+</div>
+<p>(For a quick historical overview of the history of calculus—which is essentially the history of the resolution of the problems we’ve described here—read “Infinitesimally Yours,” by Jim Holt, <em>The New York Review of Books</em>, May 20, 1999.)</p>
 <h2 id="problems">Problems</h2>
 <p>Evaluate the following limits:</p>
-<p>\end{document}</p>
+<div style="column-width: 14em;  column-gap: 2em;  column-rule: 1px solid #ccc;">
+<ol class="problems">
+<li>
+<span class="math inline">\(\displaystyle \lim_{x\rightarrow \infty} 1/x\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \lim_{x\rightarrow -\infty} 1/x\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \lim_{x\rightarrow 2} 1/x\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \lim_{x\rightarrow 0} 1/x^2\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \lim_{x\rightarrow \infty} 1/x^2\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \lim_{x\rightarrow -\infty} 1/x^2\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \lim_{x\rightarrow 7} 1/x^2\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \lim_{x\rightarrow 7} \frac{5x^2-3x-2}{x-1}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \lim_{x\rightarrow 1} \frac{5x^2-3x-2}{x-1}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \lim_{x\rightarrow \infty} \frac{5x^2-3x-2}{x-1}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \lim_{x\rightarrow -\infty} \frac{5x^2-3x-2}{x-1}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \lim_{x\rightarrow -\infty} e^x\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \lim_{x\rightarrow \infty} e^x\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \lim_{x\rightarrow 0} e^x\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \lim_{x\rightarrow 3} e^x\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \lim_{x\rightarrow 8} x^2\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \lim_{x\rightarrow -\infty} x^2\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \lim_{x\rightarrow -12} x^2\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \lim_{x\rightarrow 0} \tan(x)\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \lim_{x\rightarrow .5\pi^+} \tan(x)\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \lim_{x\rightarrow .5\pi^-} \tan(x)\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \lim_{x\rightarrow .25\pi} \tan(x)\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \lim_{x\rightarrow 3} \frac{5}{(x-1)^2}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \lim_{x\rightarrow 1} \frac{5}{(x-1)^2}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \lim_{x\rightarrow 0} \frac{5}{(x-1)^2}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle\lim_{x\rightarrow 0}\frac{x+4}{(x+3)^3}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \lim_{x\rightarrow -3^-} \frac{x+4}{(x+3)^3}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \lim_{x\rightarrow -3^+} \frac{x+4}{(x+3)^3}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \lim_{x\rightarrow -4} \frac{x+4}{(x+3)^3}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \lim_{x\rightarrow \infty} \frac{x+4}{(x+3)^3}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \lim_{x\rightarrow -\infty} \frac{x+4}{(x+3)^3}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \lim_{x\rightarrow -4} \frac{x^2 + 11x + 18 }{x^2 - 4}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \lim_{x\rightarrow 2} \frac{x^2 + 11x + 18 }{x^2 - 4}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \lim_{x\rightarrow -2} \frac{x^2 + 11x + 18 }{x^2 - 4}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \lim_{x\rightarrow -9} \frac{x^2 + 11x + 18 }{x^2 - 4}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \lim_{x\rightarrow +\infty} \frac{x^2 + 11x + 18 }{x^2 - 4}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \lim_{x\rightarrow -\infty} \frac{x^2 + 11x + 18 }{x^2 - 4}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \lim_{x\rightarrow -\infty} \frac{(x - 4)(x - 5)}{(x - 4)^2}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \lim_{x\rightarrow +\infty} \frac{(x - 4)(x - 5)}{(x - 4)^2}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \lim_{x\rightarrow 4} \frac{(x - 4)(x - 5)}{(x - 4)^2}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \lim_{x\rightarrow 5} \frac{(x - 4)(x - 5)}{(x - 4)^2}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \lim_{x\rightarrow 12} \frac{(x - 4)(x - 5)}{(x - 4)^2}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \lim_{x\rightarrow 3} 2x+1\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \lim_{x\rightarrow \infty} 2x+1\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \lim_{x\rightarrow -\infty} 2x+1\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \lim_{x\rightarrow 0^+} 1/x\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \lim_{x\rightarrow 0^-} 1/x\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \lim_{x\rightarrow 0^-} \sqrt{x}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \lim_{x\rightarrow 0^+} \sqrt{x}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \lim_{x\rightarrow 9} \sqrt{x}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \lim_{h\rightarrow o} \frac{(x+h)^2 - x^2}{h}\)</span>
+</li>
+</ol>
+</div>
 <section class="footnotes" role="doc-endnotes">
 <hr />
 <ol>
-<li id="fn1" role="doc-endnote"><p>Oh man. Awesome word. It just means “handedness,” essentially. Which clearly comes from the Greek. Also, did I not just rock that pun with “differentiating”?<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1" role="doc-endnote"><p>By “number” here I mean “real number.” Had I meant, say, “integer,” the answer would be obvious—<span class="math inline">\(1\)</span>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p>Note that this is why I was using <span class="math inline">\(1/x^2\)</span> as the example earlier—it doesn’t have this problem.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3" role="doc-endnote"><p>Which, note, it basically is—I plug a function into this “take the limit as <span class="math inline">\(x\)</span> goes to blah” function, and get some answer.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4" role="doc-endnote"><p>Oh man. Awesome word. It just means “handedness,” essentially. Which clearly comes from the Greek. Also, did I not just rock that pun with “differentiating”?<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 </main>

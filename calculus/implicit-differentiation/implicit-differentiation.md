@@ -86,13 +86,13 @@ $$\frac{dy}{dx} =\frac{1}{3}(5-x^2)^{-2/3}\cdot(-2x)$$
 Which doesn't look the same as:
 $$\frac{dy}{dx} = \frac{-2x}{3y^2}$$
 Except they actually are the same! Because---remember that we found, by doing algebra, that $y= \sqrt[3]{5-x^2}$. So if we plug that into our second version of the derivative, we get...
-\begin{align*}
-\frac{-2x}{3y^2} &= \frac{-2x}{\,\, 3\,left(\sqrt[3]{5-x^2}\right)^2 \,\,} \\ \\
+$$\begin{align*}
+\frac{-2x}{3y^2} &= \frac{-2x}{\,\, 3\,\left(\sqrt[3]{5-x^2}\right)^2 \,\,} \\ \\
 &= \frac{-2x}{\,\, 3\left( \left(5-x^2\right)^{1/3} \right)^2 \,\,} \\ \\
 &= \frac{-2x}{\,\, 3\left( 5-x^2 \right)^{2/3} \,\,} \\ \\
 &= \frac{1}{3}\cdot \frac{1}{\,\, \left(5-x^2\right)^{2/3}\,\,}\cdot (-2x) \\ \\
 &= \frac{1}{3}\cdot (5-x^2)^{-2/3}\cdot (-2x)
-\end{align*}
+\end{align*}$$
 Which is exactly what we found by taking the derivative the first way.
 
 ## So What?
