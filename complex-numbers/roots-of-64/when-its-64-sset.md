@@ -6,16 +6,15 @@ layout: post
 
 
 ## The terrible way:
-OK, 
-
+OK, here's the *terrible* way to attempt to find all the six sixth roots of $64$. We can assume the sixth roots of $64$ are some complex number $a+bi$ (much like we assumed that the cube root of $i$ was some complex number $a+bi$), and do the algebra. Without showing all the work---let alone the ending of this argument---we might have something like:
 \begin{align*}
 \sqrt[6]{64} &= a+bi\\
-64 &= (a+bi)^6 \\
-\text{... much expansion later ...} \\
-64 &= a^6 + 6a^5bi + 15a^4b^2i^2 + 20a^3b^3i^3 + 15a^2b^4i^4 + 6ab^5i^5 + b^6i^6 \\
-\text{... dealing with the powers of $i$ ...} \\
-64 &= a^6 + 6a^5bi - 15a^4b^2 - 20a^3b^3i + 15a^2b^4 + 6ab^5i - b^6 \\
-\text{... collecting into components ...} \\
+64 &= (a+bi)^6 \\ \\
+\text{... much expansion later ...} \\ \\
+64 &= a^6 + 6a^5bi + 15a^4b^2i^2 + 20a^3b^3i^3 + 15a^2b^4i^4 + 6ab^5i^5 + b^6i^6 \\ \\
+\text{... dealing with the powers of $i$ ...} \\ \\
+64 &= a^6 + 6a^5bi - 15a^4b^2 - 20a^3b^3i + 15a^2b^4 + 6ab^5i - b^6 \\ \\
+\text{... collecting into components ...} \\ \\
 64 +0i &= \left(a^6 - 15a^4b^2 + 15a^2b^4 - b^6\right) \,+\, \left(6a^5b - 20a^3b^3 + 6ab^5\right)i 
 \end{align*}
 so we get:
@@ -53,9 +52,9 @@ $${\color{lightgray}  (x-2)}\left( x - \frac{-2 \pm \sqrt{4 - 4\!\cdot\!1\!\cdot
 Simplifying, this is:
 $$(x-2)\left( x - \left( 1 \pm i\sqrt{3} \right) \right) (x+2)\left(x -\left( -1 \pm i\sqrt{3} \right)   \right) = 0$$
 And then if we blow up each plus-or-minus into two factors, we get:
-$$(x-2)\left( x - \left( 1 + i\sqrt{3} \right) \right)\left( x - \left( 1 - i\sqrt{3} \right) \right) (x+2)\left(x -\left( -1 + i\sqrt{3} \right)   \right) \left(x -\left( -1 - i\sqrt{3} \right)   \right) = 0$$
+$$\Big(x-{\color{red}2}\Big)\Big( x - {\color{red} ( 1 + i\sqrt{3} )} \Big)\Big( x - {\color{red} ( 1 - i\sqrt{3} )} \Big) \Big(x+{\color{red} 2} \Big)\Big(x -{\color{red} ( -1 + i\sqrt{3} )}   \Big) \Big(x -{\color{red} ( -1 - i\sqrt{3} )}   \Big) = 0$$
 I'll show each root seperately under each corresponding factor:
-$$\underbrace{(x-2)}_{x=2}\underbrace{\left( x - \left( 1 + i\sqrt{3} \right) \right)}_{x=1+i\sqrt3}\underbrace{\left( x - \left( 1 - i\sqrt{3} \right) \right)}_{x=1-i\sqrt3} \underbrace{(x+2)}_{x=-2}\underbrace{\left(x -\left( -1 + i\sqrt{3} \right) \right)}_{x=-1+i\sqrt3}  \underbrace{\left(x -\left( -1 - i\sqrt{3} \right) \right)}_{x=-1-i\sqrt3}   = 0$$
+$$\underbrace{\Big(x- 2\Big)}_{x=+2}\underbrace{\Big( x -  ( 1 + i\sqrt{3} ) \Big)}_{x=1+i\sqrt3}\underbrace{\Big( x - ( 1 - i\sqrt{3} ) \Big)}_{x=1-i\sqrt3} \underbrace{\Big(x+2\Big)}_{x=-2}\underbrace{\Big(x - ( -1 + i\sqrt{3} ) \Big)}_{x=-1+i\sqrt3}  \underbrace{\Big(x -( -1 - i\sqrt{3} ) \Big)}_{x=-1-i\sqrt3}   = 0$$
 Yay! So we get:
 \begin{align*}
 \text{all six sixth roots of $64$ } = \sqrt[6]{64} &= \begin{cases} 2,\\

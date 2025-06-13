@@ -119,7 +119,7 @@ Hmmm.
 
 ## Suspicions
 
-Lila Pastor and Grace Bishara are crack investigators. These gumptious gumshoes had an idea:
+Lila P.<!-- astor --> and Grace B.<!-- ishara--> are crack investigators. These gumptious gumshoes had an idea:
 
 * in general, if we reflect an angle horizontally across the $y$-axis, it's $y$-coordinate doesn't change
 * so if we reflect an angle horizontally across the $y$-axis, it's sine doesn't change

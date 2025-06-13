@@ -94,13 +94,13 @@ $$\frac{1}{x^2-x}$$
 Can we BLOW THIS UP into two fractions??? Is it, in fact, already, secretly, privately, two fractions that have been added together??
 $$\frac{???}{???} +\frac{???}{???} \quad\overset{???}{=}\quad \frac{1}{x^2-x}$$
 
-There are some boring ways we could do this. Skye Calegari-Buster split it up into "two" fractions like this:
+There are some boring ways we could do this. Skye <!-- Calegari-Buster --> split it up into "two" fractions like this:
 \begin{align*}
 \frac{1}{x^2-x} \quad&= \underbrace{\frac{1}{x^2-x} \quad+\quad \frac{0}{1}}_{\text{"two" fractions}} \\ \\
 &= \frac{1}{x^2-x} + 0\\ \\
 &= \frac{1}{x^2-x}
 \end{align*}
-Which is... really pushing the limits of what "two" means. Eli Wee simply divided it in half and then added the two halves together:
+Which is... really pushing the limits of what "two" means. Eli <!-- Wee --> simply divided it in half and then added the two halves together:
 \begin{align*}
 \frac{1}{x^2-x} \quad&= \frac{\quad\frac{1}{x^2-x}\quad}{2} + \frac{\quad\frac{1}{x^2-x}\quad}{2} \\ \\
 &= \frac{1}{2\left(x^2-x\right)} + \frac{1}{2\left(x^2-x\right)}

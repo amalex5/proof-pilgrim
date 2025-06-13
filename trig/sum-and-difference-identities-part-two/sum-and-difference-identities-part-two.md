@@ -239,7 +239,7 @@ Using what you know about trigonometry, the unit circle, and special right trian
 <ol class= 'problems'>
 <li> We have formulas for the sine and cosine of sums and differences... how 'bout tangent?!?
 <li> Can you double-check, using the Pythagorean Theorem, that the three side lengths of our new special right triangle, actually are viable (i.e., that they fit the Pythagorean Theorem)??
-<li> In class, Emma Wang '26 asked about what to do if we have the sine or cosine of not *two* things added together, but *three* things, e.g.
+<li> In class, Emma <!-- Wang '26 --> asked about what to do if we have the sine or cosine of not *two* things added together, but *three* things, e.g.
 	$$\sin(\alpha + \beta + \gamma) = \,\, ???$$
 	$$\cos(\alpha + \beta + \gamma) = \,\, ???$$
 Can you answer her question???

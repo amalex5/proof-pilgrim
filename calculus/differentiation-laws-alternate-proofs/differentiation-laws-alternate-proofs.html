@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>some alternate proofs of basic derivative rules</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="/main.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <script src="../highlight-toc.js" type="text/javascript"></script>
+
+  <script> 
+      // disappearing header, from dynomight.net'
+      var prevScrollpos = window.pageYOffset;
+
+      window.onscroll = function() {
+        var currentScrollPos = Math.max(0,window.pageYOffset);
+
+        if (Math.abs(currentScrollPos - prevScrollpos) > 10){
+          if (prevScrollpos > currentScrollPos) {
+            document.querySelector('header').style.top = "0";
+            document.querySelector('header').style.opacity = "75%";
+          } else {
+            document.querySelector('header').style.top = "-60px";
+          }
+          prevScrollpos = currentScrollPos;
+        }
+        if(currentScrollPos==0){
+          document.querySelector('header').style.top = "0";
+          document.querySelector('header').style.opacity = "100%";
+        }
+      }
+    </script>
+
+</head>
+<body>
+  <header>
+  <span id="header-name"> <a href='/'>the natural history <span style="font-weight:normal;">of abstract objects</span></a></span> <span id="linkback"><a href=http://www.andrusia.com><img src="/andrew-logo.svg" id='header-logo' style='width: auto;'/></a></span>
+</header>
+<script>document.addEventListener('DOMContentLoaded', function(e) {
+  Scroller.init();
+})</script>
+<!-- <aside>
+<div class="tocLinks" >
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#problem">Problem</a></li>
+</ul>
+</nav>
+</div>
+</aside>
+ -->
+<main>
+<div id="title-block">
+<h1 class="title">some alternate proofs of basic derivative rules</h1>
+</div>
+<p>Probably our most basic derivative rule is the additive rule—the theorem that says that <span class="math inline">\(\displaystyle \frac{d}{dx}\left[ f(x)+g(x)\right] = f&#39;(x)+g&#39;(x)\)</span>. Sensibly enough, we proved this by starting with Fermat’s difference quotient. The FDQ is our fundamental definition of a derivative, and it’s not too hard to plug <span class="math inline">\(f(x)+g(x)\)</span> into it, rearrange things a bit, and get <span class="math inline">\(f&#39;(x)+g&#39;(x)\)</span>. But—as we discovered during one 11th grade class—we can prove it entirely differently. We can prove it using <em>only</em> our knowledge of the derivatives of logs and exponentials, and the chain rule. The idea is that <span class="math inline">\(f(x)+g(x)\)</span> is equal to <span class="math inline">\(\ln\left(e^{f(x)+g(x)}\right)\)</span>, by basic properties of logs, so if I want to take the derivative of the former, I can just take the derivative of the latter: <span class="math display">\[\begin{align*}
+\frac{d}{dx}\left[ f(x)+g(x)\right] &amp;= \frac{d}{dx}\left[ \ln(e^{f(x)+g(x)})\right]
+\end{align*}\]</span> But we can use properties of exponents to rewrite this as: <span class="math display">\[\begin{align*}
+&amp;= \frac{d}{dx}\left[ \ln\left(e^{f(x)}e^{g(x)}\right)\right]
+\end{align*}\]</span> So we just do the derivative of a log: <span class="math display">\[\begin{align*}
+&amp;=  \frac{1}{e^{f(x)}e^{g(x)}}\cdot\frac{d}{dx}\left[ e^{f(x)}e^{g(x)}\right]
+\end{align*}\]</span> And the chain rule “derivative of the inside” part we can evaluate using the product rule: <span class="math display">\[\begin{align*}
+&amp;=  \frac{1}{e^{f(x)}e^{g(x)}}\cdot\left( f&#39;(x)e^{f(x)}e^{g(x)}+g&#39;(x)e^{g(x)}e^{f(x)}\right)
+\end{align*}\]</span> But then we can factor out the <span class="math inline">\(f&#39;(x)+g&#39;(x)\)</span>: <span class="math display">\[\begin{align*}
+&amp;=   \frac{1}{e^{f(x)}e^{g(x)}}\cdot\left(f&#39;(x)+g&#39;(x)\right)\cdot\left( e^{f(x)}e^{g(x)}\right)
+\end{align*}\]</span> And then everything else cancels: <span class="math display">\[\begin{align*}
+&amp;=  f&#39;(x)+g&#39;(x)\\
+&amp; \includegraphics[scale=.25]{andrewproof.png}
+\end{align*}\]</span> Woah! So we’ve used a couple of derivative laws in here—we’ve used the laws about the derivative of an exponential, the derivative of a log, the chain rule, and the product rule. None of those rules are proved using the addditive rule, so our logic isn’t circular. So from just two or three applications of the FDQ, we can get all these other things! We don’t have to keep using the FDQ! Think of it as analagous to the two different ways in which we derived the derivative of <span class="math inline">\(x^n\)</span>: we did it using the FDQ (which required that nasty binomial expansion), and we did it using logs and exponentials. Or compare to the two ways of proving the quotient rule: we proved it first using the FDQ, and then using a combination of the product rule and the chain rule. We can base all of our shortcuts on the FDQ, or we can try to base our shortcuts on other shortcuts based on shortcuts based on the FDQ.</p>
+<h2 id="problem">Problem</h2>
+<p>Without using Fermat’s difference quotient, prove the product rule. Then prove the constant multiple rule. For some extra credit, write the proofs up nicely and turn them in before break.</p>
+<p>Another fun thing to do would be to draw a “dependency chart” for our various theorems: can you visually represent which derivative rules are based on which other derivative rules (like a family tree, but a family in which Fermat’s difference quotient is the ultimate patriarch and everyone else is related through incestuous logic that spans and skips generations)?</p>
+</main>
+</body>
+</html>

@@ -7,6 +7,14 @@ layout: post
 
 Please DON'T just blaze through all of these problems---please do these thoughtfully and slowly. What I mean by that is: I want you do to try to work out these trig functions from the basics, in the same sort of procedural way that I outline and give an example of in the notes. I *don't* want you to just "memorize the unit circle." Please please don't do that---math isn't about memorization! Rather, we want to understand, deeply, how these things work. To use a CS/Silicon Valley phrase: we want to go down to the bare metal!
 
+<div class='callout-box'>
+**compute the following fun trig values: **
+\large $$\sin(0),\quad \cos\left(\frac{5\pi}{6}\right),\quad \sin\left(\frac{7\pi}{4}\right),\quad \cos\left(\frac{5\pi}{3}\right)$$
+</div>
+
+
+
+
 ## $\sin(0) = \,\,???$ 
 
 
@@ -19,7 +27,7 @@ Sine is the $y$-coordinate... and here the $y$-coordinate is obviously zero. Not
 $$\boxed{ \sin(0) =0 }$$
 
 
-## $\cos(5\pi/6) = \,\,???$
+## $\cos\left(\frac{5\pi}{6}\right) = \,\,???$
 
 
 Here's an angle whose trig functions we wouldn't be able to figure out if we just defined trig functions using triangles!!! $5\pi/6$ is a little less than $6\pi/6$, i.e. a little less than $\pi$, i.e. a little less than $180^\circ$. In particular, it's like $150^\circ$. Do you know any right triangles with an angle of $150^\circ$? No! Of course not!!! Thus the utility of our broader, expanded definition of trig functions: we can evaluate the trig functions of angles BIGGER than $90^\circ$, or less than $0^\circ$! Anyway, drawing the angle $5\pi/6$, we have:
@@ -43,7 +51,7 @@ Yay!
 $$\boxed{ \cos(5\pi/6) = -\frac{\sqrt{3}}{2} }$$
 
 
-## $\sin(7\pi/4) = \,\,???$
+## $\sin\left(\frac{7\pi}{4}\right) = \,\,???$
 
 OK, once again we have an angle whose trig functions we can't evaluate without using a unit circle! $7\pi/4$ is a little less than $8\pi/4$, which is $2\pi$, which is $360^\circ$, and $\pi/4$ is $45^\circ$, so then $7\pi/4$ is $315^\circ$. Halfway between the $x$- and $y$-axes in the lower-right quadrant! Let's draw it:
 ![](unit-circle-49-1.svg){width=50%}
@@ -61,7 +69,7 @@ Yay! So then the sine of $7\pi/4$ is $-1/\sqrt2$.
 $$\boxed{ \sin(7\pi/4) = -\frac{1}{\sqrt{2}}} $$
 
 
-## $\cos(5\pi/3) = \,\,???$
+## $\cos\left(\frac{5\pi}{3}\right) = \,\,???$
 
 OK, another fun angle!!!  Let's draw it:
 ![](unit-circle-68-1.svg){width=50%}

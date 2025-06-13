@@ -19,104 +19,6 @@ The English philosopher/mathematician Alfred North Whitehead^[He's really cool. 
 
 
 
-growing polynomials
-approximating functions
-generalizing ideas of straightness
-safety
-
-
-
-The core assertion/paradox/weirdness/etc. behind calculus is:
-
-$$\begin{array}{l}
-\text{if we zoom in {\color{blue}infinitely far}, everything becomes {\color{blue}straight}}
-\end{array}$$
-Or, put differently:
-$$\begin{array}{l}
-\text{if we zoom in {\color{blue}far enough}, everything becomes {\color{blue}straight}}
-\end{array}$$
-Or:
-$$\begin{array}{l}
-\text{if we zoom in {\color{blue}far enough}, everything becomes {\color{blue}a first-degree polynomial}}
-\end{array}$$
-In a sense, Taylor's theorem generalizes this paradox/assertion/conclusion/observation. It generalizes it from just about lines to about arbitrary-degree polynomials. Taylor's theorem says:
-$$\begin{array}{l}
-\text{\small if we zoom in far enough, everything becomes a zeroth-degree polynomial} \\
-\text{\small if we zoom in far enough, everything becomes a first-degree polynomial} \\
-\text{\small if we zoom in far enough, everything becomes a quadratic polynomial} \\
-\text{\small if we zoom in far enough, everything becomes a cubic polynomial} \\
-\text{\small if we zoom in far enough, everything becomes a quartic polynomial} \\
-\text{\small if we zoom in far enough, everything becomes a fifth-degree polynomial} \\
-\text{\small if we zoom in far enough, everything becomes a sixth-degree polynomial} \\
-\hfill \vdots \hfill
-\end{array}$$
-Or, put more simply:
-$$
-\left.
-\begin{array}{r}
-\text{\small if we zoom in far enough, everything becomes a zeroth-degree polynomial} \\
-\text{\small if we zoom in far enough, everything becomes a first-degree polynomial} \\
-\text{\small if we zoom in far enough, everything becomes a quadratic polynomial} \\
-\text{\small if we zoom in far enough, everything becomes a cubic polynomial} \\
-\text{\small if we zoom in far enough, everything becomes a quartic polynomial} \\
-\text{\small if we zoom in far enough, everything becomes a fifth-degree polynomial} \\
-\text{\small if we zoom in far enough, everything becomes a sixth-degree polynomial} \\
-\hfill \vdots \hfill
-\end{array}
-\right\} \substack{\text{\large  if we zoom in far enough,}\\\text{\large  everything becomes an}\\\text{\large $n$th-degree polynomial}\\\text{\large  for any/all $n$}}
-$$
-I.e., just:
-$$\begin{array}{l}
-\text{if we zoom in {\color{blue}far enough}, everything becomes {\color{blue}an $n$th-degree polynomial}} \\
-\hfill \text{(for any/all $n$)} \hfill
-\end{array}$$
-
-
-
-
-
-I've built up lots of anticipation for Taylor series---too much, I worry, since I don't want to make it seem anticlimactic---but we're finally here. Let's go.
-
-<div style='height:5em'></div>
-
-
-
-We can turn ANY FUNCTION into an INFINITELY-LONG POLYNOMIAL, by using this formula:
-\begin{align*}
-\text{a polynomialized function} =& \text{   (the value of the function, when $x=0$)}\\ \\
-&+(\text{the slope of the function, at $x=0$})\cdot x \\ \\
-&+\left(\frac{\text{the slope of the slope of the function, at $x=0$}}{2}\right)\cdot x^2  \\ \\
-&+\left(\frac{\text{the slope of the slope of the slope of the function, at $x=0$}}{6}\right)\cdot x^3 \\ \\
-&+\left(\frac{\substack{\text{the slope of the slope of}\\\text{the slope of the function}}\text{ at $x=0$}}{24}\right)\cdot x^4 \\ \\
-&\quad\vdots \\ \\
-&+\left(\frac{\overbrace{\text{the slope of the slope of the slope of }\cdots}^{n\text{ times}} \text{ the function}\text{, at }x=0}{n!}\right)\cdot x^n \\ \\
-&\quad\vdots \\ \\
-&\quad\text{ON AND ON INFINITELY!}
-\end{align*}
-
-If you want to write this with fancy big-sigma $\Sigma$ sum notation, you can write it all as:
-
-$$\sum_{n=0}^{n=\infty}\frac{\overbrace{\text{the slope of the slope of the slope of }\cdots}^{n\text{ times}} \text{ the function}\text{, at }x=0}{n!}\,\cdot\, x^n$$
-
-In this formula $x=a$ is some $x$-value of the function. It's kind of like we're *growing* the polynomial around that point---the more and more terms we add, the more and more this longer and longer polynomial looks like the function. 
-
-So, in class, we saw that if we want to write sine as polynomial, we can write it like:
-$$\sin x = x - \frac{x^3}{3!} + \frac{x^5}{5!} - \frac{x^7}{7!} + \frac{x^9}{9!} -\cdots$$
-And we saw that the more and more terms we added on, it was like we were *growing* the polynomial! We were growing it outward from the origin!
-
-If we wanted to grow it outwards from somewhere else, we could just shift it left or right. So, for example, if you wanted to turn sine into a polynomial, but grow it outwards from, say, $3\pi$, you could write:
-$$\sin x = (x-3\pi) - \frac{(x-3\pi)^3}{3!} + \frac{(x-3\pi)^5}{5!} - \frac{(x-3\pi)^7}{7!} + \frac{(x-3\pi)^9}{9!} -\cdots$$
-
-The big formula---**Taylor's Formula** or **Taylor's Theorem** if you want to look it up---for polynomializing a function by growing it outwards from $x=a$ would then look like:
-
-$$\sum_{n=0}^{n=\infty}\frac{\overbrace{\text{the slope of the slope of the slope of }\cdots}^{n\text{ times}} \text{ the function}\text{, at }x=a}{n!}\,\cdot\, (x-a)^n$$
-
-
-
-By the way, it's not strictly true that we can turn *any* function into a polynomial; there are some caveats. But that's the big idea! *Everything is a polynomial*.
-
-
-
 Given some function $f(x)$ (of which we can take derivatives and such), and some $x$-value of the function $a$, then we can write $f(x)$ as a (possibly-infinitely-long) polynomial in this way:
 $$f(x) = f(a) + f'(a)(x-a) + \frac{f''(a)}{2!}(x-a)^2 + \frac{f'''(a)}{3!}(x-a)^3 + \frac{f''''(a)}{4!}(x-a)^4 + \cdots$$
 or, written in $\Sigma$-form:
@@ -150,8 +52,7 @@ $$\sin(x) = x- \frac{1}{3!}x^3 + \frac{1}{5!}x^5 -\frac{1}{7!}x^7 +\frac{1}{9!}x
 There it is! We can write $\sin(x)$ as this infinitely-long polynomial, with alternating adding and substracting odd polynomials. If we like, we can represent in $\Sigma$-form:
 $$\sin(x) = \sum_{k=0}^{\infty} \frac{(-1)^{n+1}}{(2n+1)!}x^{2n+1}$$
 
-\vspace{2pc}
-\noindent {\bf \large Save Yourself The Trouble}
+## Save Yourself The Trouble
 
 What if I want to write the Taylor series of, say, $x^{20}\sin(x)$? The obvious way to do it would be to plug things into Taylor's formula. But that will get real nasty real fast, since we'll have to do the product rule (to find the first derivative), and then to find the second derivative we'll have to do the product rule twice (because we get two terms), and then for the third derivative we'll have to do the product rule four times, and so on. Once we're past the 20th derivative the $x^{20}$ remnants will start to go away and we'll be fine, but until then, it'll be a huge mess. 
 \begin{longtable}{l | l}
@@ -272,169 +173,151 @@ I'm sort of running out of space on the page, but you get the idea: I plug in $x
 $$h(x)= h(a) + (x-a)h'(a)  + \frac{1}{2}(x-a)^2h''(a) + \frac{1}{2\cdot3}(x-a)^3h'''(a) -  \int_a^x \! -\frac{1}{2\cdot3}(x-t)^3h''''(t)\,dt $$
 So, as you can see, a Taylor polynomial is forming! We are growing a Taylor series, bit by bit. Instead of giving it sun and water, we are giving it integration by parts. All we do is integrate by parts forever, and we get a Taylor series! So this shows you where the formula comes from, which as far as I am concerned is sufficient proof\footnote{One note: strictly speaking, we haven't proven that this pattern actually continues---I mean, obviously it does, but saying ``obviously it does!'' isn't a {\em proof}. If we were to prove that this pattern {\em does} continue indefinitely/infinitely, we'd have to use a technique known as {\em induction} (or {\em mathematical induction}). Look it up on the internet or in a book if you're curious.}. \includegraphics[scale=.25]{andrewproof.png} 
 
-\vspace{5pc}
 
-\centerline{\bf \Large Taylor Series Quick Reference}
-{\Large
-\begin{itemize}
-\item $\displaystyle \sin(x)= $
-\item $\displaystyle \cos(x) = $
-\item $\displaystyle e^x= $
-\item $\displaystyle \ln(x) = $
-\item $\displaystyle (1+x)^p = $
-\end{itemize}
-}
+<div class='callout-box'>
+<div style='font-size: 150%; font-weight: bold'>Taylor Series Quick Reference!</div>
+
+\begin{align*} 
+\displaystyle \large\sin(x) &= \hfill \\ \\
+\displaystyle \large\cos(x) &= \\ \\
+\displaystyle \large e^x &= \\ \\
+\displaystyle \large\ln(x) &= \\ \\
+\displaystyle \large(1+x)^p &= \\ \\
+\end{align*}
+</div>
 
 
 ## Problems
 
 Use Taylor's formula (the formula) to find the Taylor series of the following functions. (Write them out to at least the 5th nonzero term and also express them in $\Sigma$ form. If I don't give you a value for $a$, choose one yourself.)
-\begin{multicols}{2}
-\setlength{\columnseprule}{.5pt}
-\begin{problems}
 
-\item $f(x) = \cos(x)$, with $a=0$
-\item $f(x) = \sqrt{x}$, around $a=2$
-\item $f(x) = e^x$, with $a=0$
-\item $f(x) = \ln(x)$, around $x=1$
-\item $f(x) = (1+x)^p$, with $a=0$
-
-\item $f(x) = e^{2x}$
-\item $f(x) = \sin(2x)$
-\item $f(x) = \ln(1+x)$
-\item $f(x) = e^x + x + \sin(x)$
-\item $f(x) = e^{-3x}$
-\item $f(x) = \sqrt{x}$, around $a=4$
-\item $f(x) = \sqrt{1+x}$
-\item $\displaystyle f(x) = \frac{1}{(1+x)^2}$
-
-\item $f(x) = \cos(x)$, with $a=\pi$
-\item $f(x) = \cos(\pi x)$, with $a=1/2$
-\item $f(x) = \sin(x)$, with $a=\pi$
-\item $f(x) = \sin(x)$, with $a=\pi/6$
-
-\item$f(x) = e^x$, with $a=1$
-\item$f(x) = e^{x^2}$
-\item $f(x) = x^2$, with $a=0$
-\item $f(x) =  x^2$, with $a=1$
-\item $f(x) = 1 + x^2 + x^3$
-\item $f(x) = 2 - x + 3x^2 - x^3$, $a=-1$
-\item $f(x) = 2x^5 + x^2 - 3x - 5$, with $a=1$
-\item $f(x) = x^{-1}$, around $x=-1$
-\item $\displaystyle f(x) = \frac{x}{(1+x)^2}$
-\item $\displaystyle f(x) = \frac{x+5}{(1+x)^2}$
-
-\item $f(x) = e^{kx}$
-\item $f(x) = \cos(kx)$
-
-\item $f(x) = x\sin(x)$
-\item $f(x) = xe^x$
-\item $f(x) = 2xe^{x^2}$
-\item $f(x) = x^2\cos(x^3)$
-
-\end{problems}
-\end{multicols}
-
-\vspace{1pc}
+<ol class='problems'>
+<li> $f(x) = \cos(x)$, with $a=0$ </li>
+<li> $f(x) = \sqrt{x}$, around $a=2$ </li>
+<li> $f(x) = e^x$, with $a=0$ </li>
+<li> $f(x) = \ln(x)$, around $x=1$ </li>
+<li> $f(x) = (1+x)^p$, with $a=0$ </li>
+<li> $f(x) = e^{2x}$ </li>
+<li> $f(x) = \sin(2x)$ </li>
+<li> $f(x) = \ln(1+x)$ </li>
+<li> $f(x) = e^x + x + \sin(x)$ </li>
+<li> $f(x) = e^{-3x}$ </li>
+<li> $f(x) = \sqrt{x}$, around $a=4$ </li>
+<li> $f(x) = \sqrt{1+x}$ </li>
+<li> $\displaystyle f(x) = \frac{1}{(1+x)^2}$ </li>
+<li> $f(x) = \cos(x)$, with $a=\pi$ </li>
+<li> $f(x) = \cos(\pi x)$, with $a=1/2$ </li>
+<li> $f(x) = \sin(x)$, with $a=\pi$ </li>
+<li> $f(x) = \sin(x)$, with $a=\pi/6$ </li>
+<li>$f(x) = e^x$, with $a=1$ </li>
+<li>$f(x) = e^{x^2}$ </li>
+<li> $f(x) = x^2$, with $a=0$ </li>
+<li> $f(x) =  x^2$, with $a=1$ </li>
+<li> $f(x) = 1 + x^2 + x^3$ </li>
+<li> $f(x) = 2 - x + 3x^2 - x^3$, $a=-1$ </li>
+<li> $f(x) = 2x^5 + x^2 - 3x - 5$, with $a=1$ </li>
+<li> $f(x) = x^{-1}$, around $x=-1$ </li>
+<li> $\displaystyle f(x) = \frac{x}{(1+x)^2}$ </li>
+<li> $\displaystyle f(x) = \frac{x+5}{(1+x)^2}$ </li>
+<li> $f(x) = e^{kx}$ </li>
+<li> $f(x) = \cos(kx)$ </li>
+<li> $f(x) = x\sin(x)$ </li>
+<li> $f(x) = xe^x$ </li>
+<li> $f(x) = 2xe^{x^2}$ </li>
+<li> $f(x) = x^2\cos(x^3)$ </li>
+</ol>
 
 
-
-\setlength{\columnseprule}{.5pt}
-\begin{problems} \setcounter{enumi}{33}
-\item We've already seen that we can use our geometric series theorem to write the Taylor series of $1/(1+x)$. That is to say, we've seen:
+<ol class='problems'>
+<li> We've already seen that we can use our geometric series theorem to write the Taylor series of $1/(1+x)$. That is to say, we've seen:
 $$ \frac{1}{1-x}= \sum_{k=0}^{\infty} x^n =1+x+x^2+x^3+x^4+\cdots $$
-Show that you get the same result using Taylor's formula (i.e., the formula for a Taylor series). That is to say, use the function $f(x) = 1/(1-x)$ and see what the formula gives you as its Taylor series.
-\item Find the Taylor series of $\displaystyle f(x) = \frac{1}{1+x}$ How does this relate to the Taylor series expalnsion of $\ln(1+x)$? (How does $\ln(1+x)$ relate to $\frac{1}{1+x}$?)
-\end{problems}
+Show that you get the same result using Taylor's formula (i.e., the formula for a Taylor series). That is to say, use the function $f(x) = 1/(1-x)$ and see what the formula gives you as its Taylor series.</li>
+<li> Find the Taylor series of $\displaystyle f(x) = \frac{1}{1+x}$ How does this relate to the Taylor series expalnsion of $\ln(1+x)$? (How does $\ln(1+x)$ relate to $\frac{1}{1+x}$?) </li>
+</ol>
 
-\vspace{1pc}
 
-\noindent Find the Taylor series of each of the following rational functions:
-\begin{multicols}{3}
-\setlength{\columnseprule}{.5pt}
-\begin{problems}\setcounter{enumi}{35}
+
+Find the Taylor series of each of the following rational functions:
+<ol class='problems'>
 \item $\displaystyle f(x) = \frac{1}{1-x^2}$
 \item $\displaystyle f(x) = \frac{1}{1-x^3}$
 \item $\displaystyle f(x) = \frac{1}{(1-x)^2}$ (ooh)
-\end{problems}
-\end{multicols}
+</ol>
 
-\vspace{2pc}
 
-\noindent In 1974, the philosopher Thomas Nagel published a seminal essay on the philosophy of mind entitled ``What is it like to be a bat?''\footnote{Google it! Read it!} His thesis, simply put, was that we cannot know what it is like to be a bat, because if we did, we would either be a strange bat-human hybrid (and thus not really a bat) or a bat (and thus we wouldn't be ourselves). In the following problems, I would like you to ask yourselves: ``What is it like to be a calculator?''
+<div style='height:3em;'></div>
 
-\begin{problems}\setcounter{enumi}{38}
+In 1974, the philosopher Thomas Nagel published a seminal essay on the philosophy of mind entitled "What is it like to be a bat?^[Google it! Read it!] His thesis, simply put, was that we cannot know what it is like to be a bat, because if we did, we would either be a strange bat-human hybrid (and thus not really a bat) or a bat (and thus we wouldn't be ourselves). In the following problems, I would like you to ask yourselves: "What is it like to be a calculator?" 
 
-\item Come up with an approximation (to, say, three decimal places) of $\sin(\pi/60)$. (Suggestion: you know how to write $\sin(x)$... what if $x$ is a specific number and not just ``$x$''? Use a calculator to do the arithmetic.)
+<ol class='problems'>
+<li>Come up with an approximation (to, say, three decimal places) of $\sin(\pi/60)$. (Suggestion: you know how to write $\sin(x)$... what if $x$ is a specific number and not just ``$x$''? Use a calculator to do the arithmetic.)</li>
 
-\item Similarly, use a Taylor series to approximate $\cos(62\degree)$. (Note that this is just $\cos(\pi/3 + \pi/90)$, so do you think that you would get a better approximation using $\cos(x)$ expanded around $0$ or around $\pi/3$?)
+<li> Similarly, use a Taylor series to approximate $\cos(62\degree)$. (Note that this is just $\cos(\pi/3 + \pi/90)$, so do you think that you would get a better approximation using $\cos(x)$ expanded around $0$ or around $\pi/3$?)</li>
 
-\item Estimate $\sin(35\degree)$
+<li> Estimate $\sin(35\degree)$ </li>
 
-\item Here's a similar question: what's $e$? As in, what is its decimal approximation? Rather than just punching ``$e$'' into your calculator and having it tell you, estimate it yourself! Use a Taylor series to approximate it; write it out to at least a half-dozen terms and then find the decimal.
+<li> Here's a similar question: what's $e$? As in, what is its decimal approximation? Rather than just punching ``$e$'' into your calculator and having it tell you, estimate it yourself! Use a Taylor series to approximate it; write it out to at least a half-dozen terms and then find the decimal. </li>
 
-\item Can you approximate $e^2$ (to, say, three significant figures)?
+<li> Can you approximate $e^2$ (to, say, three significant figures)? </li>
 
-\item Approximate $\sqrt{38}$ (again, to three or four decimal places).
+<li> Approximate $\sqrt{38}$ (again, to three or four decimal places). </li>
 
-\item Estimate $\ln(1.4)$.
+<li> Estimate $\ln(1.4)$. </li>
 
-\item Use a Taylor series to estimate $\sin(0)$. (Obviously, you know that this is $0$---but I want you to see what the Taylor series tells you.) Do the same for $\cos(0)$.
+<li> Use a Taylor series to estimate $\sin(0)$. (Obviously, you know that this is $0$---but I want you to see what the Taylor series tells you.) Do the same for $\cos(0)$.</li>
 
-\item On a similar but somewhat more interesting note, try using a Taylor series to estimate $\sin(\pi)$. Do the same for $\cos(\pi)$. How close to the exact answers do you get after one term? two terms? three terms? four terms? ten terms?
+<li> On a similar but somewhat more interesting note, try using a Taylor series to estimate $\sin(\pi)$. Do the same for $\cos(\pi)$. How close to the exact answers do you get after one term? two terms? three terms? four terms? ten terms? </li>
+</ol>
 
-\end{problems}
 
-\vspace{1pc}
+<div style='height:3em;'></div>
 
-\noindent More fun with Taylor series!
-\begin{problems}\setcounter{enumi}{47}
-\item It is a well-known trig identity that $\cos(-x) = \cos(x)$ (i.e., that a horizontal reflection of a cosine gives you just a cosine---that cosine is symmetric around the $y$-axis). Prove this using a Taylor series. (You could prove it in other ways, but I want you to prove it using a T.S.)
-\item Likewise, use a Taylor series to prove that $-\sin(x) = \sin(-x)$ (i.e., that a vertical reflection of sine is equivalent to a horizontal reflection).  
-\end{problems}
+More fun with Taylor series!
+<ol class='problems'>
+<li> It is a well-known trig identity that $\cos(-x) = \cos(x)$ (i.e., that a horizontal reflection of a cosine gives you just a cosine---that cosine is symmetric around the $y$-axis). Prove this using a Taylor series. (You could prove it in other ways, but I want you to prove it using a T.S.)</li>
+<li> Likewise, use a Taylor series to prove that $-\sin(x) = \sin(-x)$ (i.e., that a vertical reflection of sine is equivalent to a horizontal reflection).  </li>
+</ol>
 
-\vspace{1pc}
 
-\noindent Even more fun with Taylor series! Below are two limits which you can't do just by plugging in $0$, since you'd get a divide-by-zero error. Ordinarily our workaround would be to use L'Hopital's rule. But we can do a Taylor series, too! Evaluate the following limits using both 1) L'Hopital's rule and 2) a Taylor series.
-\begin{multicols}{2}
-\setlength{\columnseprule}{.5pt}
-\begin{problems}\setcounter{enumi}{49}
+<div style='height:3em;'></div>
+
+Even more fun with Taylor series! Below are two limits which you can't do just by plugging in $0$, since you'd get a divide-by-zero error. Ordinarily our workaround would be to use L'Hopital's rule. But we can do a Taylor series, too! Evaluate the following limits using both 1) L'Hopital's rule and 2) a Taylor series.
+<ol class='problems'>
 \item $\displaystyle \lim_{x\rightarrow 0} \frac{1-\cos x}{x^2}$
 \item $\displaystyle \lim_{x\rightarrow 0} \frac{\sin(x) - x}{x^2}$
-\end{problems}
-\end{multicols}
+</ol>
 
 
-\vspace{1pc}
-\begin{problems}\setcounter{enumi}{51}
-\item A few weeks ago, when we were talking about series, I told you that it was far harder to figure out what a series converges to than to figure out whether it converges. Like with antiderivatives, all we have are a smattering of {\em ad hoc}, particular formulas---there is no general method. So in this problem, I'm going to give you another equation for what a certain series converges to, and you're going to prove why it's true. Here's the formula:
+
+<div style='height:3em;'></div>
+
+<ol class='problems'>
+<li> A few weeks ago, when we were talking about series, I told you that it was far harder to figure out what a series converges to than to figure out whether it converges. Like with antiderivatives, all we have are a smattering of {\em ad hoc}, particular formulas---there is no general method. So in this problem, I'm going to give you another equation for what a certain series converges to, and you're going to prove why it's true. Here's the formula:
 $$\sum_{n=1}^\infty \frac{n}{(n+1)!} = 1$$
-It takes a little bit of work to do this. My suggestion is to find the Taylor series of $\displaystyle f(x) = \frac{e^x-1}{x}$, take a derivative, and play with it a bit. Keep in mind that you have three ways to write this function---you can write it as $(e^x-1)/x$, you can write it as a written-out polynomial, and you can write it in $\Sigma$-form. This is a cool proof, but don't give up if you can't do it in thirty seconds. Muse about it! (Also, don't let it escape your notice that the formula starts with $n=1$, whereas our Taylor series usually start with $n=0$.)
-
-\item Here's another weird, unexpected, and counterintuitive series formula: 
+It takes a little bit of work to do this. My suggestion is to find the Taylor series of $\displaystyle f(x) = \frac{e^x-1}{x}$, take a derivative, and play with it a bit. Keep in mind that you have three ways to write this function---you can write it as $(e^x-1)/x$, you can write it as a written-out polynomial, and you can write it in $\Sigma$-form. This is a cool proof, but don't give up if you can't do it in thirty seconds. Muse about it! (Also, don't let it escape your notice that the formula starts with $n=1$, whereas our Taylor series usually start with $n=0$.)</li>
+<li> Here's another weird, unexpected, and counterintuitive series formula: 
 $$\sum_{n=1}^\infty \frac{1}{n!(n+2)} = \frac{1}{2}$$
-I want you to prove this, too. Try finding the Taylor series of $f(x) = xe^x$, taking an integral, and playing with it for a bit.
-\end{problems}
-
-\vspace{3pc}
-
-\begin{problems}\setcounter{enumi}{53}
-\item Differentiate the Taylor series for $\sin(x)$, $\cos(x)$, and $e^x$ term-by-term, and compare your results with the Taylor series for $\cos(x)$, $-\sin(x)$, and $e^x$, respectively. 
-\item Integrate the Taylor series for $\sin(x)$, $\cos(x)$, and $e^x$ term-by-term, and compare your results with the Taylor series for $-\cos(x)$, $\sin(x)$, and $e^x$, respectively. 
-\end{problems}
-
-\vspace{2pc}
-
-\noindent Making antiderivatives with Taylor series!
-\begin{problems}\setcounter{enumi}{55}
-\item Integrate $\displaystyle\int \! \sin(x^2)\,dx$. Then estimate $\displaystyle\int_0^1 \sin(x^2)\,dx$. (Do it to at least three significant figures---just keep adding up the terms until they settle down to at least three sig. figs.)
-\item Likewise, estimate $\displaystyle\int_0^{0.1} \! \frac{\sin x}{x}\,dx$
-\item Estimate $\displaystyle\int_0^{0.1} \sqrt{1+x^4}\,dx$
-\item Estimate $\displaystyle\int_0^{0.1} x^2e^{-x^2}\,dx$
-\item Estimate $\displaystyle\int_0^1 \! \frac{1-\cos x}{x^2}\,dx$
-\end{problems}
+I want you to prove this, too. Try finding the Taylor series of $f(x) = xe^x$, taking an integral, and playing with it for a bit. </li>
+</ol>
 
 
+<div style='height:3em;'></div>
+
+<ol class='problems'>
+<li> Differentiate the Taylor series for $\sin(x)$, $\cos(x)$, and $e^x$ term-by-term, and compare your results with the Taylor series for $\cos(x)$, $-\sin(x)$, and $e^x$, respectively.  </li>
+<li> Integrate the Taylor series for $\sin(x)$, $\cos(x)$, and $e^x$ term-by-term, and compare your results with the Taylor series for $-\cos(x)$, $\sin(x)$, and $e^x$, respectively.  </li>
+</ol>
 
 
-\end{document}
+<div style='height:3em;'></div>
+
+Making antiderivatives with Taylor series!
+<ol class='problems'>
+<li> Integrate $\displaystyle\int \! \sin(x^2)\,dx$. Then estimate $\displaystyle\int_0^1 \sin(x^2)\,dx$. (Do it to at least three significant figures---just keep adding up the terms until they settle down to at least three sig. figs.) </li>
+<li>  Likewise, estimate $\displaystyle\int_0^{0.1} \! \frac{\sin x}{x}\,dx$ </li>
+<li>  Estimate $\displaystyle\int_0^{0.1} \sqrt{1+x^4}\,dx$ </li>
+<li>  Estimate $\displaystyle\int_0^{0.1} x^2e^{-x^2}\,dx$ </li>
+<li>  Estimate $\displaystyle\int_0^1 \! \frac{1-\cos x}{x^2}\,dx$ </li>
+</ol>
+
+

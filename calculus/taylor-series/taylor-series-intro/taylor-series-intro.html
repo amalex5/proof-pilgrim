@@ -55,6 +55,7 @@
 <div class="tocLinks" >
 <nav id="TOC" role="doc-toc">
 <ul>
+<li><a href="#save-yourself-the-trouble">Save Yourself The Trouble</a></li>
 <li><a href="#antidifferentiation-awesomeness">Antidifferentiation Awesomeness</a></li>
 <li><a href="#whence-taylor-series-the-proof">Whence Taylor Series: The Proof</a></li>
 <li><a href="#problems">Problems</a></li>
@@ -74,68 +75,11 @@
 
 </div>
 <p>The English philosopher/mathematician Alfred North Whitehead<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> once remarked that “all of Western philosophy is a series of footnotes to Plato.”<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> My feelings about Taylor series are similar, but the chronology is reversed. In a sense, all of the math we’ve done up until now—all of the complicated proofs and convoluted arguments—we could have done much more simply, and much more cleanly, using Taylor series. If you glance at the problems in the back, you should get an idea of their wide-ranging versatility and utility. If the world is made only of polynomials, it really is a much simpler place.</p>
-<p>growing polynomials approximating functions generalizing ideas of straightness safety</p>
-<p>The core assertion/paradox/weirdness/etc. behind calculus is:</p>
-<p><span class="math display">\[\begin{array}{l}
-\text{if we zoom in {\color{blue}infinitely far}, everything becomes {\color{blue}straight}}
-\end{array}\]</span> Or, put differently: <span class="math display">\[\begin{array}{l}
-\text{if we zoom in {\color{blue}far enough}, everything becomes {\color{blue}straight}}
-\end{array}\]</span> Or: <span class="math display">\[\begin{array}{l}
-\text{if we zoom in {\color{blue}far enough}, everything becomes {\color{blue}a first-degree polynomial}}
-\end{array}\]</span> In a sense, Taylor’s theorem generalizes this paradox/assertion/conclusion/observation. It generalizes it from just about lines to about arbitrary-degree polynomials. Taylor’s theorem says: <span class="math display">\[\begin{array}{l}
-\text{\small if we zoom in far enough, everything becomes a zeroth-degree polynomial} \\
-\text{\small if we zoom in far enough, everything becomes a first-degree polynomial} \\
-\text{\small if we zoom in far enough, everything becomes a quadratic polynomial} \\
-\text{\small if we zoom in far enough, everything becomes a cubic polynomial} \\
-\text{\small if we zoom in far enough, everything becomes a quartic polynomial} \\
-\text{\small if we zoom in far enough, everything becomes a fifth-degree polynomial} \\
-\text{\small if we zoom in far enough, everything becomes a sixth-degree polynomial} \\
-\hfill \vdots \hfill
-\end{array}\]</span> Or, put more simply: <span class="math display">\[
-\left.
-\begin{array}{r}
-\text{\small if we zoom in far enough, everything becomes a zeroth-degree polynomial} \\
-\text{\small if we zoom in far enough, everything becomes a first-degree polynomial} \\
-\text{\small if we zoom in far enough, everything becomes a quadratic polynomial} \\
-\text{\small if we zoom in far enough, everything becomes a cubic polynomial} \\
-\text{\small if we zoom in far enough, everything becomes a quartic polynomial} \\
-\text{\small if we zoom in far enough, everything becomes a fifth-degree polynomial} \\
-\text{\small if we zoom in far enough, everything becomes a sixth-degree polynomial} \\
-\hfill \vdots \hfill
-\end{array}
-\right\} \substack{\text{\large  if we zoom in far enough,}\\\text{\large  everything becomes an}\\\text{\large $n$th-degree polynomial}\\\text{\large  for any/all $n$}}
-\]</span> I.e., just: <span class="math display">\[\begin{array}{l}
-\text{if we zoom in {\color{blue}far enough}, everything becomes {\color{blue}an $n$th-degree polynomial}} \\
-\hfill \text{(for any/all $n$)} \hfill
-\end{array}\]</span></p>
-<p>I’ve built up lots of anticipation for Taylor series—too much, I worry, since I don’t want to make it seem anticlimactic—but we’re finally here. Let’s go.</p>
-<div style="height:5em">
-
-</div>
-<p>We can turn ANY FUNCTION into an INFINITELY-LONG POLYNOMIAL, by using this formula: <span class="math display">\[\begin{align*}
-\text{a polynomialized function} =&amp; \text{   (the value of the function, when $x=0$)}\\ \\
-&amp;+(\text{the slope of the function, at $x=0$})\cdot x \\ \\
-&amp;+\left(\frac{\text{the slope of the slope of the function, at $x=0$}}{2}\right)\cdot x^2  \\ \\
-&amp;+\left(\frac{\text{the slope of the slope of the slope of the function, at $x=0$}}{6}\right)\cdot x^3 \\ \\
-&amp;+\left(\frac{\substack{\text{the slope of the slope of}\\\text{the slope of the function}}\text{ at $x=0$}}{24}\right)\cdot x^4 \\ \\
-&amp;\quad\vdots \\ \\
-&amp;+\left(\frac{\overbrace{\text{the slope of the slope of the slope of }\cdots}^{n\text{ times}} \text{ the function}\text{, at }x=0}{n!}\right)\cdot x^n \\ \\
-&amp;\quad\vdots \\ \\
-&amp;\quad\text{ON AND ON INFINITELY!}
-\end{align*}\]</span></p>
-<p>If you want to write this with fancy big-sigma <span class="math inline">\(\Sigma\)</span> sum notation, you can write it all as:</p>
-<p><span class="math display">\[\sum_{n=0}^{n=\infty}\frac{\overbrace{\text{the slope of the slope of the slope of }\cdots}^{n\text{ times}} \text{ the function}\text{, at }x=0}{n!}\,\cdot\, x^n\]</span></p>
-<p>In this formula <span class="math inline">\(x=a\)</span> is some <span class="math inline">\(x\)</span>-value of the function. It’s kind of like we’re <em>growing</em> the polynomial around that point—the more and more terms we add, the more and more this longer and longer polynomial looks like the function.</p>
-<p>So, in class, we saw that if we want to write sine as polynomial, we can write it like: <span class="math display">\[\sin x = x - \frac{x^3}{3!} + \frac{x^5}{5!} - \frac{x^7}{7!} + \frac{x^9}{9!} -\cdots\]</span> And we saw that the more and more terms we added on, it was like we were <em>growing</em> the polynomial! We were growing it outward from the origin!</p>
-<p>If we wanted to grow it outwards from somewhere else, we could just shift it left or right. So, for example, if you wanted to turn sine into a polynomial, but grow it outwards from, say, <span class="math inline">\(3\pi\)</span>, you could write: <span class="math display">\[\sin x = (x-3\pi) - \frac{(x-3\pi)^3}{3!} + \frac{(x-3\pi)^5}{5!} - \frac{(x-3\pi)^7}{7!} + \frac{(x-3\pi)^9}{9!} -\cdots\]</span></p>
-<p>The big formula—<strong>Taylor’s Formula</strong> or <strong>Taylor’s Theorem</strong> if you want to look it up—for polynomializing a function by growing it outwards from <span class="math inline">\(x=a\)</span> would then look like:</p>
-<p><span class="math display">\[\sum_{n=0}^{n=\infty}\frac{\overbrace{\text{the slope of the slope of the slope of }\cdots}^{n\text{ times}} \text{ the function}\text{, at }x=a}{n!}\,\cdot\, (x-a)^n\]</span></p>
-<p>By the way, it’s not strictly true that we can turn <em>any</em> function into a polynomial; there are some caveats. But that’s the big idea! <em>Everything is a polynomial</em>.</p>
 <p>Given some function <span class="math inline">\(f(x)\)</span> (of which we can take derivatives and such), and some <span class="math inline">\(x\)</span>-value of the function <span class="math inline">\(a\)</span>, then we can write <span class="math inline">\(f(x)\)</span> as a (possibly-infinitely-long) polynomial in this way: <span class="math display">\[f(x) = f(a) + f&#39;(a)(x-a) + \frac{f&#39;&#39;(a)}{2!}(x-a)^2 + \frac{f&#39;&#39;&#39;(a)}{3!}(x-a)^3 + \frac{f&#39;&#39;&#39;&#39;(a)}{4!}(x-a)^4 + \cdots\]</span> or, written in <span class="math inline">\(\Sigma\)</span>-form: <span class="math display">\[f(x) = \sum_{k=0}^{\infty}\frac{f^{(k)}(a)}{k!}(x-a)^k\]</span> This is called the <strong>Taylor series</strong> or <strong>Taylor expansion</strong> of <span class="math inline">\(f(x)\)</span>. Sometimes it is also called the Taylor series/expansion <strong>around <span class="math inline">\(a\)</span></strong> or <strong>in terms of <span class="math inline">\(x-a\)</span></strong>. Taylor series where <span class="math inline">\(a=0\)</span> (which is a common choice for <span class="math inline">\(a\)</span>, since it tends to make the algebra easier) are often called <strong>Maclaurin series</strong>. If we approximate a function using a Taylor series of finite length—i.e., if we have a function that should be an infinitely-long polynomial, but we approximate it with a finitely-long one—we call that the <strong>Taylor approximation</strong> of <span class="math inline">\(f(x)\)</span>, or the <strong>Taylor polynomial of order <span class="math inline">\(n\)</span></strong>, where <span class="math inline">\(n\)</span> is the number of terms in the Taylor series we’ve written out.</p>
 <p>(Note that in these notes, when I write something like <span class="math inline">\(f^{(2)}(x)\)</span> (or <span class="math inline">\(f^{(n)}(x)\)</span>), I mean the second (or <span class="math inline">\(n\)</span>th) derivative of <span class="math inline">\(f(x)\)</span>.)</p>
 <p>Let’s use this to try writing <span class="math inline">\(\sin x\)</span> as a polynomial. For <span class="math inline">\(a\)</span>, let’s choose <span class="math inline">\(a=0\)</span>. (The choice of <span class="math inline">\(a\)</span> doesn’t matter; it could be any number. I’m choosing <span class="math inline">\(0\)</span> because we’ll have to plug <span class="math inline">\(a\)</span> into the various derivatives of <span class="math inline">\(\sin x\)</span>—i.e., we’ll have to plug <span class="math inline">\(a\)</span> into $x $ and <span class="math inline">\(\cos x\)</span>—and it’s a lot easier to find <span class="math inline">\(\sin(0)\)</span> and <span class="math inline">\(\cos(0)\)</span> than it is to find, say, <span class="math inline">\(\sin(43\pi/13.2)\)</span> (were I to choose <span class="math inline">\(a=43\pi/13.2\)</span>.) The formula is a tad messy, so to make things a bit clearer, let’s build it term-by-term. We’ve got a lot of derivatives to take and plug things into and compile, so I’m going to show things step-by-step in a table. In this table, I’ve listed the term index (on the left-hand column), the relevant derivative, the derivative with <span class="math inline">\(a\)</span> plugged in, and finally, the term itself.</p>
 <p>So then, if I just add together all the terms in the rightmost column, I’ll get the Taylor series for <span class="math inline">\(\sin x\)</span>! I’ll have: <span class="math display">\[\sin(x) = 0 + x+0- \frac{1}{3!}x^3 +0 + \frac{1}{5!}x^5 + 0 -\frac{1}{7!}x^7 + 0 +\frac{1}{9!}x^9 - \cdots\]</span> or just: <span class="math display">\[\sin(x) = x- \frac{1}{3!}x^3 + \frac{1}{5!}x^5 -\frac{1}{7!}x^7 +\frac{1}{9!}x^9 - \cdots\]</span> There it is! We can write <span class="math inline">\(\sin(x)\)</span> as this infinitely-long polynomial, with alternating adding and substracting odd polynomials. If we like, we can represent in <span class="math inline">\(\Sigma\)</span>-form: <span class="math display">\[\sin(x) = \sum_{k=0}^{\infty} \frac{(-1)^{n+1}}{(2n+1)!}x^{2n+1}\]</span></p>
-<p></p>
+<h2 id="save-yourself-the-trouble">Save Yourself The Trouble</h2>
 What if I want to write the Taylor series of, say, <span class="math inline">\(x^{20}\sin(x)\)</span>? The obvious way to do it would be to plug things into Taylor’s formula. But that will get real nasty real fast, since we’ll have to do the product rule (to find the first derivative), and then to find the second derivative we’ll have to do the product rule twice (because we get two terms), and then for the third derivative we’ll have to do the product rule four times, and so on. Once we’re past the 20th derivative the <span class="math inline">\(x^{20}\)</span> remnants will start to go away and we’ll be fine, but until then, it’ll be a huge mess.
 <p>Why go to all that work? We know how to write <span class="math inline">\(\sin(x)\)</span> as a series—why don’t we just multiply the whole thing by <span class="math inline">\(x^{20}\)</span>? <span class="math display">\[\begin{align*}
 x^{20}\sin(x) &amp;=x^{20}\cdot \left(x - \frac{1}{3!}x^3 + \frac{1}{5!}x^5 - \frac{1}{7!}x^7 + \frac{1}{9!}x^9 + \cdots \right) \\
@@ -179,21 +123,237 @@ h(x) &amp; = h(a) + (x-a)h&#39;(a)  + \left[ -\frac{1}{2}(x-t)^2h&#39;&#39;(t) -
 &amp;= h(a) + (x-a)h&#39;(a)  + \frac{1}{2}(x-a)^2h&#39;&#39;(a) + \int_a^x\! \frac{1}{2}(x-t)^2h&#39;&#39;&#39;(t) \,dt 
 \end{align*}\]</span> I guess one of the annoying things about this proof is all the nested negatives—negatives of negatives of negatives. So be sure you keep track of those. Anyway, roll on! Let’s integrate the NEXT integral by parts!!! <span class="math display">\[h(x)= h(a) + (x-a)h&#39;(a)  + \frac{1}{2}(x-a)^2h&#39;&#39;(a) + \int_a^x\! \underbrace{\frac{1}{2}(x-t)^2}_{g&#39;(t)}\cdot\underbrace{h&#39;&#39;&#39;(t)}_{f(t)} \,dt \]</span>
 <p><span class="math display">\[h(x)= h(a) + (x-a)h&#39;(a)  + \frac{1}{2}(x-a)^2h&#39;&#39;(a) +\left[ -\frac{1}{2\cdot3}(x-t)^3h&#39;&#39;&#39;(t) -  \int \! -\frac{1}{2\cdot3}(x-t)^3f&#39;(t) = h&#39;&#39;&#39;&#39;(t) \right]_a^x \]</span> I’m sort of running out of space on the page, but you get the idea: I plug in <span class="math inline">\(x\)</span> and <span class="math inline">\(a\)</span>, I get an <span class="math inline">\((x-x)\)</span> term that goes away, I blast through a bunch of negatives, and end up with something like: <span class="math display">\[h(x)= h(a) + (x-a)h&#39;(a)  + \frac{1}{2}(x-a)^2h&#39;&#39;(a) + \frac{1}{2\cdot3}(x-a)^3h&#39;&#39;&#39;(a) -  \int_a^x \! -\frac{1}{2\cdot3}(x-t)^3h&#39;&#39;&#39;&#39;(t)\,dt \]</span> So, as you can see, a Taylor polynomial is forming! We are growing a Taylor series, bit by bit. Instead of giving it sun and water, we are giving it integration by parts. All we do is integrate by parts forever, and we get a Taylor series! So this shows you where the formula comes from, which as far as I am concerned is sufficient proof. </p>
-{
-<p>}</p>
+<div class="callout-box">
+<div style="font-size: 150%; font-weight: bold">
+Taylor Series Quick Reference!
+</div>
+<p><span class="math display">\[\begin{align*} 
+\displaystyle \large\sin(x) &amp;= \hfill \\ \\
+\displaystyle \large\cos(x) &amp;= \\ \\
+\displaystyle \large e^x &amp;= \\ \\
+\displaystyle \large\ln(x) &amp;= \\ \\
+\displaystyle \large(1+x)^p &amp;= \\ \\
+\end{align*}\]</span></p>
+</div>
 <h2 id="problems">Problems</h2>
-Use Taylor’s formula (the formula) to find the Taylor series of the following functions. (Write them out to at least the 5th nonzero term and also express them in <span class="math inline">\(\Sigma\)</span> form. If I don’t give you a value for <span class="math inline">\(a\)</span>, choose one yourself.)
+<p>Use Taylor’s formula (the formula) to find the Taylor series of the following functions. (Write them out to at least the 5th nonzero term and also express them in <span class="math inline">\(\Sigma\)</span> form. If I don’t give you a value for <span class="math inline">\(a\)</span>, choose one yourself.)</p>
+<ol class="problems">
+<li>
+<span class="math inline">\(f(x) = \cos(x)\)</span>, with <span class="math inline">\(a=0\)</span>
+</li>
+<li>
+<span class="math inline">\(f(x) = \sqrt{x}\)</span>, around <span class="math inline">\(a=2\)</span>
+</li>
+<li>
+<span class="math inline">\(f(x) = e^x\)</span>, with <span class="math inline">\(a=0\)</span>
+</li>
+<li>
+<span class="math inline">\(f(x) = \ln(x)\)</span>, around <span class="math inline">\(x=1\)</span>
+</li>
+<li>
+<span class="math inline">\(f(x) = (1+x)^p\)</span>, with <span class="math inline">\(a=0\)</span>
+</li>
+<li>
+<span class="math inline">\(f(x) = e^{2x}\)</span>
+</li>
+<li>
+<span class="math inline">\(f(x) = \sin(2x)\)</span>
+</li>
+<li>
+<span class="math inline">\(f(x) = \ln(1+x)\)</span>
+</li>
+<li>
+<span class="math inline">\(f(x) = e^x + x + \sin(x)\)</span>
+</li>
+<li>
+<span class="math inline">\(f(x) = e^{-3x}\)</span>
+</li>
+<li>
+<span class="math inline">\(f(x) = \sqrt{x}\)</span>, around <span class="math inline">\(a=4\)</span>
+</li>
+<li>
+<span class="math inline">\(f(x) = \sqrt{1+x}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle f(x) = \frac{1}{(1+x)^2}\)</span>
+</li>
+<li>
+<span class="math inline">\(f(x) = \cos(x)\)</span>, with <span class="math inline">\(a=\pi\)</span>
+</li>
+<li>
+<span class="math inline">\(f(x) = \cos(\pi x)\)</span>, with <span class="math inline">\(a=1/2\)</span>
+</li>
+<li>
+<span class="math inline">\(f(x) = \sin(x)\)</span>, with <span class="math inline">\(a=\pi\)</span>
+</li>
+<li>
+<span class="math inline">\(f(x) = \sin(x)\)</span>, with <span class="math inline">\(a=\pi/6\)</span>
+</li>
+<li>
+<span class="math inline">\(f(x) = e^x\)</span>, with <span class="math inline">\(a=1\)</span>
+</li>
+<li>
+<span class="math inline">\(f(x) = e^{x^2}\)</span>
+</li>
+<li>
+<span class="math inline">\(f(x) = x^2\)</span>, with <span class="math inline">\(a=0\)</span>
+</li>
+<li>
+<span class="math inline">\(f(x) = x^2\)</span>, with <span class="math inline">\(a=1\)</span>
+</li>
+<li>
+<span class="math inline">\(f(x) = 1 + x^2 + x^3\)</span>
+</li>
+<li>
+<span class="math inline">\(f(x) = 2 - x + 3x^2 - x^3\)</span>, <span class="math inline">\(a=-1\)</span>
+</li>
+<li>
+<span class="math inline">\(f(x) = 2x^5 + x^2 - 3x - 5\)</span>, with <span class="math inline">\(a=1\)</span>
+</li>
+<li>
+<span class="math inline">\(f(x) = x^{-1}\)</span>, around <span class="math inline">\(x=-1\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle f(x) = \frac{x}{(1+x)^2}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle f(x) = \frac{x+5}{(1+x)^2}\)</span>
+</li>
+<li>
+<span class="math inline">\(f(x) = e^{kx}\)</span>
+</li>
+<li>
+<span class="math inline">\(f(x) = \cos(kx)\)</span>
+</li>
+<li>
+<span class="math inline">\(f(x) = x\sin(x)\)</span>
+</li>
+<li>
+<span class="math inline">\(f(x) = xe^x\)</span>
+</li>
+<li>
+<span class="math inline">\(f(x) = 2xe^{x^2}\)</span>
+</li>
+<li>
+<span class="math inline">\(f(x) = x^2\cos(x^3)\)</span>
+</li>
+</ol>
+<ol class="problems">
+<li>
+We’ve already seen that we can use our geometric series theorem to write the Taylor series of <span class="math inline">\(1/(1+x)\)</span>. That is to say, we’ve seen: <span class="math display">\[ \frac{1}{1-x}= \sum_{k=0}^{\infty} x^n =1+x+x^2+x^3+x^4+\cdots \]</span> Show that you get the same result using Taylor’s formula (i.e., the formula for a Taylor series). That is to say, use the function <span class="math inline">\(f(x) = 1/(1-x)\)</span> and see what the formula gives you as its Taylor series.
+</li>
+<li>
+Find the Taylor series of <span class="math inline">\(\displaystyle f(x) = \frac{1}{1+x}\)</span> How does this relate to the Taylor series expalnsion of <span class="math inline">\(\ln(1+x)\)</span>? (How does <span class="math inline">\(\ln(1+x)\)</span> relate to <span class="math inline">\(\frac{1}{1+x}\)</span>?)
+</li>
+</ol>
 Find the Taylor series of each of the following rational functions:
-<p>In 1974, the philosopher Thomas Nagel published a seminal essay on the philosophy of mind entitled <code>What is it like to be a bat?''\footnote{Google it! Read it!} His thesis, simply put, was that we cannot know what it is like to be a bat, because if we did, we would either be a strange bat-human hybrid (and thus not really a bat) or a bat (and thus we wouldn't be ourselves). In the following problems, I would like you to ask yourselves:</code>What is it like to be a calculator?’’</p>
+<ol class="problems">
+<span class="math inline">\(\displaystyle f(x) = \frac{1}{1-x^2}\)</span>
+<span class="math inline">\(\displaystyle f(x) = \frac{1}{1-x^3}\)</span>
+<span class="math inline">\(\displaystyle f(x) = \frac{1}{(1-x)^2}\)</span> (ooh)
+</ol>
+<div style="height:3em;">
+
+</div>
+<p>In 1974, the philosopher Thomas Nagel published a seminal essay on the philosophy of mind entitled “What is it like to be a bat?<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> His thesis, simply put, was that we cannot know what it is like to be a bat, because if we did, we would either be a strange bat-human hybrid (and thus not really a bat) or a bat (and thus we wouldn’t be ourselves). In the following problems, I would like you to ask yourselves:”What is it like to be a calculator?"</p>
+<ol class="problems">
+<li>
+Come up with an approximation (to, say, three decimal places) of <span class="math inline">\(\sin(\pi/60)\)</span>. (Suggestion: you know how to write <span class="math inline">\(\sin(x)\)</span>… what if <span class="math inline">\(x\)</span> is a specific number and not just ``<span class="math inline">\(x\)</span>’’? Use a calculator to do the arithmetic.)
+</li>
+<li>
+Similarly, use a Taylor series to approximate <span class="math inline">\(\cos(62\degree)\)</span>. (Note that this is just <span class="math inline">\(\cos(\pi/3 + \pi/90)\)</span>, so do you think that you would get a better approximation using <span class="math inline">\(\cos(x)\)</span> expanded around <span class="math inline">\(0\)</span> or around <span class="math inline">\(\pi/3\)</span>?)
+</li>
+<li>
+Estimate <span class="math inline">\(\sin(35\degree)\)</span>
+</li>
+<li>
+Here’s a similar question: what’s <span class="math inline">\(e\)</span>? As in, what is its decimal approximation? Rather than just punching ``<span class="math inline">\(e\)</span>’’ into your calculator and having it tell you, estimate it yourself! Use a Taylor series to approximate it; write it out to at least a half-dozen terms and then find the decimal.
+</li>
+<li>
+Can you approximate <span class="math inline">\(e^2\)</span> (to, say, three significant figures)?
+</li>
+<li>
+Approximate <span class="math inline">\(\sqrt{38}\)</span> (again, to three or four decimal places).
+</li>
+<li>
+Estimate <span class="math inline">\(\ln(1.4)\)</span>.
+</li>
+<li>
+Use a Taylor series to estimate <span class="math inline">\(\sin(0)\)</span>. (Obviously, you know that this is <span class="math inline">\(0\)</span>—but I want you to see what the Taylor series tells you.) Do the same for <span class="math inline">\(\cos(0)\)</span>.
+</li>
+<li>
+On a similar but somewhat more interesting note, try using a Taylor series to estimate <span class="math inline">\(\sin(\pi)\)</span>. Do the same for <span class="math inline">\(\cos(\pi)\)</span>. How close to the exact answers do you get after one term? two terms? three terms? four terms? ten terms?
+</li>
+</ol>
+<div style="height:3em;">
+
+</div>
 More fun with Taylor series!
+<ol class="problems">
+<li>
+It is a well-known trig identity that <span class="math inline">\(\cos(-x) = \cos(x)\)</span> (i.e., that a horizontal reflection of a cosine gives you just a cosine—that cosine is symmetric around the <span class="math inline">\(y\)</span>-axis). Prove this using a Taylor series. (You could prove it in other ways, but I want you to prove it using a T.S.)
+</li>
+<li>
+Likewise, use a Taylor series to prove that <span class="math inline">\(-\sin(x) = \sin(-x)\)</span> (i.e., that a vertical reflection of sine is equivalent to a horizontal reflection).
+</li>
+</ol>
+<div style="height:3em;">
+
+</div>
 Even more fun with Taylor series! Below are two limits which you can’t do just by plugging in <span class="math inline">\(0\)</span>, since you’d get a divide-by-zero error. Ordinarily our workaround would be to use L’Hopital’s rule. But we can do a Taylor series, too! Evaluate the following limits using both 1) L’Hopital’s rule and 2) a Taylor series.
+<ol class="problems">
+<span class="math inline">\(\displaystyle \lim_{x\rightarrow 0} \frac{1-\cos x}{x^2}\)</span>
+<span class="math inline">\(\displaystyle \lim_{x\rightarrow 0} \frac{\sin(x) - x}{x^2}\)</span>
+</ol>
+<div style="height:3em;">
+
+</div>
+<ol class="problems">
+<li>
+A few weeks ago, when we were talking about series, I told you that it was far harder to figure out what a series converges to than to figure out whether it converges. Like with antiderivatives, all we have are a smattering of {}, particular formulas—there is no general method. So in this problem, I’m going to give you another equation for what a certain series converges to, and you’re going to prove why it’s true. Here’s the formula: <span class="math display">\[\sum_{n=1}^\infty \frac{n}{(n+1)!} = 1\]</span> It takes a little bit of work to do this. My suggestion is to find the Taylor series of <span class="math inline">\(\displaystyle f(x) = \frac{e^x-1}{x}\)</span>, take a derivative, and play with it a bit. Keep in mind that you have three ways to write this function—you can write it as <span class="math inline">\((e^x-1)/x\)</span>, you can write it as a written-out polynomial, and you can write it in <span class="math inline">\(\Sigma\)</span>-form. This is a cool proof, but don’t give up if you can’t do it in thirty seconds. Muse about it! (Also, don’t let it escape your notice that the formula starts with <span class="math inline">\(n=1\)</span>, whereas our Taylor series usually start with <span class="math inline">\(n=0\)</span>.)
+</li>
+<li>
+Here’s another weird, unexpected, and counterintuitive series formula: <span class="math display">\[\sum_{n=1}^\infty \frac{1}{n!(n+2)} = \frac{1}{2}\]</span> I want you to prove this, too. Try finding the Taylor series of <span class="math inline">\(f(x) = xe^x\)</span>, taking an integral, and playing with it for a bit.
+</li>
+</ol>
+<div style="height:3em;">
+
+</div>
+<ol class="problems">
+<li>
+Differentiate the Taylor series for <span class="math inline">\(\sin(x)\)</span>, <span class="math inline">\(\cos(x)\)</span>, and <span class="math inline">\(e^x\)</span> term-by-term, and compare your results with the Taylor series for <span class="math inline">\(\cos(x)\)</span>, <span class="math inline">\(-\sin(x)\)</span>, and <span class="math inline">\(e^x\)</span>, respectively.
+</li>
+<li>
+Integrate the Taylor series for <span class="math inline">\(\sin(x)\)</span>, <span class="math inline">\(\cos(x)\)</span>, and <span class="math inline">\(e^x\)</span> term-by-term, and compare your results with the Taylor series for <span class="math inline">\(-\cos(x)\)</span>, <span class="math inline">\(\sin(x)\)</span>, and <span class="math inline">\(e^x\)</span>, respectively.
+</li>
+</ol>
+<div style="height:3em;">
+
+</div>
 Making antiderivatives with Taylor series!
-<p>\end{document}</p>
+<ol class="problems">
+<li>
+Integrate <span class="math inline">\(\displaystyle\int \! \sin(x^2)\,dx\)</span>. Then estimate <span class="math inline">\(\displaystyle\int_0^1 \sin(x^2)\,dx\)</span>. (Do it to at least three significant figures—just keep adding up the terms until they settle down to at least three sig. figs.)
+</li>
+<li>
+Likewise, estimate <span class="math inline">\(\displaystyle\int_0^{0.1} \! \frac{\sin x}{x}\,dx\)</span>
+</li>
+<li>
+Estimate <span class="math inline">\(\displaystyle\int_0^{0.1} \sqrt{1+x^4}\,dx\)</span>
+</li>
+<li>
+Estimate <span class="math inline">\(\displaystyle\int_0^{0.1} x^2e^{-x^2}\,dx\)</span>
+</li>
+<li>
+Estimate <span class="math inline">\(\displaystyle\int_0^1 \! \frac{1-\cos x}{x^2}\,dx\)</span>
+</li>
+</ol>
 <section class="footnotes" role="doc-endnotes">
 <hr />
 <ol>
 <li id="fn1" role="doc-endnote"><p>He’s really cool. 1861–1947.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2" role="doc-endnote"><p>I hate using quotes without citation, but I don’t actually know what this is from. It might well be apocryphal.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3" role="doc-endnote"><p>Google it! Read it!<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 </main>

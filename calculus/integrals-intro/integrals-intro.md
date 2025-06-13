@@ -98,7 +98,7 @@ Yay! It's a curvy area! We calculated our first curvy area!!!
 
 So, to summarize and generalize what we just did:
 
-$$\boxed{  \substack{\text{the area between $f(x)$ and the $x$-axis}\\\text{from $x=0$ out to $x=b$}} \quad=\quad \substack{\text{the antiderivative of }f(x)\\\text{but with  }b\text{ plugged in for }x} }$$
+$$\boxed{ \,\,\Large \substack{\text{the area between $f(x)$ and the $x$-axis}\\\text{from $x=0$ out to $x=b$}} \quad=\quad \substack{\text{the antiderivative of }f(x)\\\text{but with  }b\text{ plugged in for }x} \,\,}$$
 
 
 ## Let's Use an Antiderivative To Find a More Complicated Area!
@@ -132,7 +132,7 @@ Yay! So the area is just $21$!
 
 So, let's summarize and generalize what we did here! We wanted to find the area of some curvy shape, between two points on the $x$-axis (or two vertical lines), and we did that by subtracting antiderivatives:
 
-$$\boxed{\substack{\text{the area between $f(x)$ and the $x$-axis}\\\text{between the vertical lines $x=a$ and $x=b$}} \quad=\quad \substack{\text{the antiderivative of }f(x)\\\text{but with  }b\text{ plugged in for }x} \quad-\quad  \substack{\text{the antiderivative of }f(x)\\\text{but with  }a\text{ plugged in for }x}}$$
+$$\boxed{\,\, \large \substack{\text{the area between $f(x)$ and the $x$-axis}\\\text{between the vertical lines $x=a$ and $x=b$}} \quad=\quad \substack{\text{the antiderivative of }f(x)\\\text{but with  }b\text{ plugged in for }x} \,\,-\,\,  \substack{\text{the antiderivative of }f(x)\\\text{but with  }a\text{ plugged in for }x} \,\, }$$
 
 
 
@@ -142,7 +142,8 @@ $$\boxed{\substack{\text{the area between $f(x)$ and the $x$-axis}\\\text{betwee
 
 <div class='callout-box' style='width:auto;'>
 \begin{align*}\Large \int_a^b \! f(x)\,dx \,\,&=\quad \substack{\text{\Large the area between $f(x)$ and the $x$-axis,}\\\text{\Large between $x=a$ and $x=b$}} \\ \\
-&= \Big( \substack{\text{the antiderivative of }f(x)\\\text{but with  }b\text{ plugged in for }x} \Big) \quad-\quad \Big( \substack{\text{the antiderivative of }f(x)\\\text{but with  }a\text{ plugged in for }x} \Big)\end{align*}
+&= \,\, {\large \Big( \substack{\text{the antiderivative of }f(x)\\\text{but with  }b\text{ plugged in for }x} \Big) \,\,-\,\, \Big( \substack{\text{the antiderivative of }f(x)\\\text{but with  }a\text{ plugged in for }x} \Big) }
+\end{align*}
 
 ![](integral-notation.svg)
 </div>

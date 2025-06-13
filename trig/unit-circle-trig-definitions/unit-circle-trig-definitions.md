@@ -85,13 +85,13 @@ Wherever that line and the circle intersect, we'll define that to be sine and co
 
 <div class='callout-box' style='width:75%; padding:1em;'>
 
-**Trig functions, redefined in glory: **
+<span style='font-size:150%;'>**Trig functions, redefined in glory: **</span>
 
 ![](unit-circle-2.svg)
 
-  \begin{align*}
-\sin(\theta) &= \text{the }y\text{-coordinate on the unit circle, with angle }\theta \\
-\cos(\theta) &= \text{the }x\text{-coordinate on the unit circle, with angle }\theta \\
+\begin{align*}
+\sin(\theta) &= \text{the }y\text{-coordinate on the unit circle, with angle }\theta \\ \\
+\cos(\theta) &= \text{the }x\text{-coordinate on the unit circle, with angle }\theta \\ \\
 \tan(\theta) &= \text{still just } \frac{\sin(\theta)}{\cos(\theta)}
 \end{align*}
 </div>
@@ -128,7 +128,7 @@ This new, more general definition of trig functions doesn't solve all our proble
 
 
 
-![](trig-master-explanatory-diagram-unit-circle.svg){style='border:1px solid black; padding: 1em;'}
+![](all-of-trigonometry-unit-circle.svg){style='border:1px solid black; padding: 1em;'}
 
 ## Problems 
 

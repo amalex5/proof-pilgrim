@@ -27,8 +27,9 @@
       padding-bottom: 50px;
     }
 
-      .footnotes {
-    font-size: 85%;
+    .footnotes {
+      margin-top: 10em;
+      font-size: 85%;
   }
 
         .footnotes li::marker {
@@ -398,6 +399,7 @@ header{
 	}
 
 	.footnotes {
+    margin-top: 10em;
 		border-top: 0.25pt solid black;
 	}
 

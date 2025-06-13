@@ -32,9 +32,9 @@ So then if we want a beautiful, equilateral slice of pizza, in which all the sid
 This all relates back to thinking about how to measure angles. Namely: this is the system of angle-measurement that we will use. We'll create a measurement system in which the base unit is not $360\degree$ in a full revolution, or $100\%$, but rather, in which the base unit of measurement represents the angle needed to make the opposite arc of a circle equal to the length of its radius. We'll call it a **radian**:
 
 <div class='callout-box' style='width:75%; padding:1em;'>
-1 radian $=$  the angle needed to make all three sides of a slice of pizza the same length
+<span style='font-size:125%;'>**1 radian** $=$  the angle needed to make all three sides of a slice of pizza the same length</span>
 
-![](radian.svg){width=50%}
+![](radian.svg){width=75%}
 </div>
 
 That's  way of defining angles that is *natural to math*. It doesn't rely on something like the human-chosen number $360$. It's a way of *talking about math using math*.

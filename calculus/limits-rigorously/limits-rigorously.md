@@ -22,7 +22,7 @@ But there is a problem with all this. Namely, *we still don't know what a limit 
 
 In a very serious way, then, we are in no better a place than we were when we realized that our procedure for finding a derivative involves dividing by zero. *We haven't actually improved our situation*. We have a better grasp of what goes on when we take a derivative (the difference quotient has a hole at $h=0$, and so we find the presumptive $y$-value of the hole), but all we've really done to fix this problem---to find the $y$-value of the hole---is to make up this nonsense about ``closer and closer''. We've tried to talk around the problem---we've said "well, $h$ isn't actually zero, blah blah, but it gets close to $0$, and then the difference quotient gets close to the derivative"---but this is really no different than what we started our investigation of derivatives by saying. We are still saying that "$h$ gets closer to $0$," and it is totally unclear what this actually *means*, in a real, mathematical sense. It is totally unclear *whether we actually can do this*, or whether, like some interlocutor in a Socratic dialogue, we have simply been building a grander and grander rhetorical edifice in top of something that is, fundamentally, sophistry. We've given a fancy name to this procedure---we've called it a "limit"---but we don't actually understand it. Put differently: *we still don't know that all of calculus isn't a lie*. 
 
-We would like to have some certainty. We'd like to know whether calculus works or not (and if it works, why it works). As it turns out, calculus *does* work. There are two ways to explain it. One way is to say that\begin{enumerate}\setlength{\itemsep}{0cm}  
+We would like to have some certainty. We'd like to know whether calculus works or not (and if it works, why it works). As it turns out, calculus *does* work. There are two ways to explain it. One way is to say that
 
 * infinitesimal numbers exist,
 * the $h$ in the difference quotient is an infinitesimal number, and
@@ -36,7 +36,7 @@ The other way is to say that:
 
 The second method is the method we have already begun developing, and which we will continue. This is the method of the great 19th century mathematicians---Cauchy, Bolzano, Dedekind, Weierstrass---who solved the 200-year-old problem of calculus's foundations, and saved it from metaphysical gloom. We will follow their method, not because it is neccesarily better or worse than the first method---in fact, I actually believe that the first method---the method of developing calculus through infinitesimals---by the way, the formal name for that is "non-standard analysis" (because "analysis" is the mathy word for "calculus"---I actually believe that method is somewhat superior---we will develop calculus using the method of limits, because
 
-* Nearly every other calculus class uses that method, as does every advanced ``real analysis'' class. Thus, when you go on to take more calculus classes in college, you'll be familiar with the method of $\epsilon$-$\delta$ proofs, and already good at them.
+* Nearly every other calculus class uses that method, as does every advanced "real analysis" class. Thus, when you go on to take more calculus classes in college, you'll be familiar with the method of $\epsilon$-$\delta$ proofs, and already good at them.
 * To actually prove that infinitesimal numbers exist requires a substantial amount of mathematics---far more than what you guys know. However, to prove that limits exist is not as onerous---you are more than capable of understanding them. Thus, you can actually understand, for yourselves, how this remarkable problem was solved, whereas with the infinitesimal method, you'd have to be content with me assuring you that infinitesimals do, in fact, exist.
 * That said, to actually understand the deep, foundational, mathematical machinery of a limit (i.e., why and how limits actually exist) is not particularly easy. The level of abstraction involved in the formal definition of a limit is substantial. It will be difficult. It will be challenging. And this will be good for you---it will be a brutal mathematical workout, from which you will emerge much stronger. 
 
@@ -51,139 +51,124 @@ But we are not concerned with utility. We are concerned with truth---with the tr
 
 ## What We Talk About When We Talk About Limits
 
-What do we mean when we say\footnote{Where do I put the question mark? I've asked a question, but I can't put the question mark until the question is finished. Do I put it beneath the equations? to the right side of them? do I do the Spanish thing and start with an upside-down question mark???}: $$\lim_{x \rightarrow c} f(x) = L\hspace{.3in}\text{or equivalently:} \quad f(x) \,\, \xrightarrow[\quad c \quad]{x} \,\, L$$
+What do we mean when we say^[Where do I put the question mark? I've asked a question, but I can't put the question mark until the question is finished. Do I put it beneath the equations? to the right side of them? do I do the Spanish thing and start with an upside-down question mark???]: 
+$$\lim_{x \rightarrow c} f(x) = L\hspace{.3in}\text{or equivalently:} \quad f(x) \,\, \xrightarrow[\quad c \quad]{x} \,\, L$$
 We mean:
-\begin{quotation}
-``As $x$ gets closer and closer to $c$,
 
-\hspace{.3in}$f(x)$ gets closer and closer to $L$''
-\end{quotation}
+> As $x$ gets closer and closer to $c$,
+>
+> <div style='display:block; width:5em;'></div> $f(x)$ gets closer and closer to $L$
+
 or, put differently:
-\begin{quotation}
-``The closer that $x$ gets to $c$, 
 
-\hspace{.3in}the closer that $f(x)$ gets to $L$.''
-\end{quotation}
+> The closer that $x$ gets to $c$, 
+> <span style='width:5em;'></span> the closer that $f(x)$ gets to $L$.''
+
 or, yet differently:
-\begin{quotation}
-``We can make $f(x)$ as close to $L$ as we want, 
 
-\hspace{.5in}simply by making $x$ close enough to $c$.''
-\end{quotation}
+> We can make $f(x)$ as close to $L$ as we want, 
+>
+> simply by making $x$ close enough to $c$.
 
-The important thing is, we're never saying that $x$ is infinitesimally close to $c$---we're never using this idea of the infinite. If you're a 19th century mathematician, this is very important. But can we make this more mathematical? Let's start with the third definition. In many ways this is the worst of the lot, because we have agency in there (will the limit still exist if ``we'' aren't around to take it?) and desire (why should we ``want'' $f(x)$ to be anything?). 
+The important thing is, we're never saying that $x$ is infinitesimally close to $c$---we're never using this idea of the infinite. If you're a 19th century mathematician, this is very important. But can we make this more mathematical? Let's start with the third definition. In many ways this is the worst of the lot, because we have agency in there (will the limit still exist if "we" aren't around to take it?) and desire (why should we "want" $f(x)$ to be anything?). 
 
 We can note that this definition really has two parts. In order for something to be a limit, we need
-\begin{enumerate} \setlength{\itemsep}{0cm}%
-  \setlength{\parskip}{0cm}%
-\item to know how close we want $f(x)$ to be to $L$, and
-\item determine how close $x$ must be to $c$ to ensure this.
-\end{enumerate}
-But how can we say this more mathematically? We are still saying ``close,'' which is vague. Can we measure it? How do we measure closeness? Imagine the following dialogue: \medskip
 
-{\bf Ezra}: I live close to the Metropolitan Museum of Art.
+* to know how close we want $f(x)$ to be to $L$, and
+* determine how close $x$ must be to $c$ to ensure this.
 
-{\bf Cornelius}: That's kind of vague. How close?
+But how can we say this more mathematically? We are still saying "close," which is vague. Can we measure it? How do we measure closeness? Imagine the following dialogue:
 
-{\bf Ezra}: Really close.
-
-{\bf Cornelius}: Well, I live ``really close'' to the sun, compared to someone who lives in another galaxy. Seriously, how close are you to the Met?
-
-{\bf Ezra}: Three blocks. \medskip
+> **Ezra**: I live close to the Metropolitan Museum of Art.
+>
+> **Cornelius**: That's kind of vague. How close?
+>
+> **Ezra**: Really close.
+>
+> **Cornelius**: Well, I live "really close" to the sun, compared to someone who lives in another galaxy. Seriously, how close are you to the Met?
+>
+> **Ezra** : Three blocks.
 
 We measure closeness---i.e., distances---with numbers! In particular, we usually measure them with real numbers (since we think of distance as being a continual thing---distance (usually) doesn't jump in increments, like the integers do), and we usually have those real numbers be nonnegative (since if we're just talking about distance, we don't have a sense of direction, and thus negatives). Positive real numbers (or $0$). That's how we measure distance.
 
 So let's rephrase this, however awkwardly:
 
-\begin{quotation}
-\noindent No matter what positive real number we use in specifying how close we want $f(x)$ to be to $L$, 
+> No matter what positive real number we use in specifying how close we want $f(x)$ to be to $L$, 
+> 
+> we must be able to find how close $x$ must be to $c$ (measured as a positive real number), 
+>
+> in order to ensure that $f(x)$ is that close to $L$. 
 
-\hspace{.3in}we must be able to find how close $x$ must be to $c$ (measured as a positive real number), 
+But let's be a bit more clear here:
 
-\hspace{.6in}in order to ensure that $f(x)$ is that close to $L$. 
-\end{quotation}
-
-\noindent But let's be a bit more clear here:\begin{itemize}\setlength{\itemsep}{0cm}%
-  \setlength{\parskip}{0cm}%
-\item The small positive real number used in measuring how close we want $f(x)$ to be to $L$---let's call that $\epsilon$.
-\item And the small positive real number used in measuring how close $x$ needs to be to $c$---let's call that $\delta$.
-\end{itemize}
+* The small positive real number used in measuring how close we want $f(x)$ to be to $L$---let's call that $\epsilon$.
+* And the small positive real number used in measuring how close $x$ needs to be to $c$---let's call that $\delta$.
 
 
-\centerline{\includegraphics[scale=.8]{epsilondelta2.png} }
+![](epsilondelta2.png){width=50%}
 
-Presumably $\epsilon$ and $\delta$ are related to each other---presumably, as $\delta$ gets smaller, $\epsilon$ will get smaller, too. If we want $\epsilon$ to be smaller, we'll need to have a smaller $\delta$. And, of course, $\epsilon$ could be anything---we could want $f(x)$ to be within $10$ units of $L$, within $2.3$ units of $L$, or within $1/1,000,000$ of a unit of $L$. Whatever that distance is, is $\epsilon$. \medskip\medskip
+Presumably $\epsilon$ and $\delta$ are related to each other---presumably, as $\delta$ gets smaller, $\epsilon$ will get smaller, too. If we want $\epsilon$ to be smaller, we'll need to have a smaller $\delta$. And, of course, $\epsilon$ could be anything---we could want $f(x)$ to be within $10$ units of $L$, within $2.3$ units of $L$, or within $1/1,000,000$ of a unit of $L$. Whatever that distance is, is $\epsilon$.
 
-\noindent So we mean:
-\begin{quotation}\noindent For every positive real number $\epsilon$, 
+So we mean:
 
-\hspace{.3in}there is a positive real number $\delta$ (that depends on $\epsilon$), such that
+> For every positive real number $\epsilon$, 
+>
+> there is a positive real number $\delta$ (that depends on $\epsilon$), such that
+>
+> if $x$ is within $\delta$ of $c$, then $f(x)$ is within $\epsilon$ of $L$.
 
-\hspace{.6in}if $x$ is within $\delta$ of $c$, then $f(x)$ is within $\epsilon$ of $L$.
-\end{quotation}
+But again, can we phrase this more mathematically? How can we say "within such-and-such-distance of such-and-such" in a more formal way?
 
-\noindent But again, can we phrase this more mathematically? How can we say ``within such-and-such-distance of such-and-such'' in a more formal way? \medskip
+"$f(x)$ is within $\epsilon$ of $L$" means that
 
-``$f(x)$ is within $\epsilon$ of $L$'' means that
+the distance between $f(x)$ and $L$ is less than $\epsilon$,
 
-\hspace{.5in} the distance between $f(x)$ and $L$ is less than $\epsilon$,
+which means that $f(x) - L < \epsilon$, \medskip
 
-\hspace{1in} which means that $f(x) - L < \epsilon$, \medskip
+except when we talk about distance, we don't care about direction, and so we'll take an absolute value: $| f(x) - L | < \epsilon$
 
-\hspace{1.5in}\parbox{5in}{ except when we talk about distance, we don't care about direction, and so we'll take an absolute value: $| f(x) - L | < \epsilon$}
+Likewise...
 
-\noindent Likewise...
+$x$ is within $\delta$ of $c$ means that 
 
-``$x$ is within $\delta$ of $c$'' means that 
+the distance between $x$ and $c$ is less than $\delta$, 
 
-\hspace{.5in} the distance between $x$ and $c$ is less than $\delta$, 
+which means that $x- c < \delta$, 
 
-\hspace{1in} which means that $x- c < \delta$, 
-
-\hspace{1.5in}\parbox{5in}{ except with distance we don't care about direction, so let's absolute-value that: $| x - c | < \delta$}
-
-
-\medskip\medskip
+except with distance we don't care about direction, so let's absolute-value that: $| x - c | < \delta$
 
 
-\noindent So then, if we clean up our definition some more, what we mean by $\displaystyle \lim_{x \rightarrow c} f(x) = L$ is:
+ So then, if we clean up our definition some more, what we mean by $\displaystyle \lim_{x \rightarrow c} f(x) = L$ is:
 
-\begin{quotation}
-\noindent For every positive real number $\epsilon$, there is a positive real number $\delta$ (that depends on $\epsilon$), such that if $|x - c| < \delta$, then $|f(x) - L| < \epsilon$
-\end{quotation}
+> For every positive real number $\epsilon$, there is a positive real number $\delta$ (that depends on $\epsilon$), such that if $|x - c| < \delta$, then $|f(x) - L| < \epsilon$
+
 Put differently:
+
 $$\overbrace{\text{For every positive real number }\epsilon}^{\mathclap{\text{no matter how close we want} f(x) \text{ to be to }L}},  \,\, \underbrace{\text{there is a number } \delta}_{\mathclap{\text{we can find how close }x\text{ must be to }c}}, \,\,  \overbrace{\text{such that if }|x - c| < \delta\text{, then }|f(x) - L| < \epsilon}^{\mathclap{\text{so that }f(x)\text{ actually is that close to }L}}
 $$
 
 
 Let us state this formally:\medskip
 
-\begin{center}
-\frame{ \hspace{.1cm}
+<div class='callout-box'>
+**The Epsilon-Delta Definition of a Limit**
 
-\parbox{4in}{ \vspace{.2cm} \centerline{\bf The Epsilon-Delta Definition of a Limit} \vspace{.3cm} 
+The limit of $f(x)$ as $x$ approaches $c$ is $L$ if, for every positive real number $\epsilon$, there is a corresponding (positive real) number $\delta$ such that the following is true:
 
-The limit of $f(x)$ as $x$ approaches $c$ is $L$ if, for every positive real number $\epsilon$, there is a corresponding (positive real) number $\delta$ such that the following is true:\medskip
+$$\text{if }| \, x - c \, | < \delta\text{, then }| \, f(x) - L \, | < \epsilon$$
 
-\centerline{if $| \, x - c \, | < \delta$, then $| \, f(x) - L \, | < \epsilon$}\medskip\medskip
+And we write this as
 
-And we write this as\medskip
+$$\displaystyle \lim_{x \to c} f(x) = L \quad\text{ or }\quad f(x) \xrightarrow[\quad c \quad]{x}  L$$
 
-\hfill $\displaystyle \lim_{x \to c} f(x) = L$ \hspace{.6cm} or \hspace{.6cm}  $f(x) \xrightarrow[\quad c \quad]{x}  L$ \hfill \hfill
-
-
-\vspace{.3cm} 
-}
- \hspace{.1cm}
-
-}
-\end{center}
-
+</div>
 
 <ul>
-<li> First of all, it's hard. The $\epsilon$-$\delta$ definition of a limit, and resulting $\epsilon$-$\delta$ proofs are easily the hardest topic in first-year calculus---in fact, they are often skipped altogether (the "let's pretend dividing by zero isn't a problem" approach to calculus). The definition is abstract, abstruse, and hard to *feel*. I spent two pages (and an hour in class) simply explaining *where the definition comes from*. Most of the time, when we define mathematical objects, we just throw the definitions out there, because they're easy to understand. For instance, we define a rational function $f(x)$ as $$f(x) = \frac{p(x)}{q(x)},\,\text{where }p(x)\text{ and }q(x)\text{ are both polynomials.}$$That's totally simple. All this junk about epsilons and deltas... much less so. </li>
+<li> First of all, it's hard. The $\epsilon$-$\delta$ definition of a limit, and resulting $\epsilon$-$\delta$ proofs are easily the hardest topic in first-year calculus---in fact, they are often skipped altogether (the "let's pretend dividing by zero isn't a problem" approach to calculus). The definition is abstract, abstruse, and hard to *feel*. I spent two pages (and an hour in class) simply explaining *where the definition comes from*. Most of the time, when we define mathematical objects, we just throw the definitions out there, because they're easy to understand. For instance, we define a rational function $f(x)$ as 
+$$f(x) = \frac{p(x)}{q(x)},\,\text{where }p(x)\text{ and }q(x)\text{ are both polynomials.}$$
+That's totally simple. All this junk about epsilons and deltas... much less so. </li>
 
-<li> Note that this definition only works for a limit in which $x$ is approaching a finite number, and $f(x)$ is also approaching a finite number. If we had a limit either to or from $\pm \infty$, or where the function approaches $\pm \infty$, we'd have to make a slightly different definition. Because in those cases, we wouldn't have $x$ ``getting closer and closer'' to infinity; strictly speaking, what we'd have would be $x$ ``getting bigger and bigger.'' So we'd need to modify things a bit. </li>
+<li> Note that this definition only works for a limit in which $x$ is approaching a finite number, and $f(x)$ is also approaching a finite number. If we had a limit either to or from $\pm \infty$, or where the function approaches $\pm \infty$, we'd have to make a slightly different definition. Because in those cases, we wouldn't have $x$ "getting closer and closer" to infinity; strictly speaking, what we'd have would be $x$ "getting bigger and bigger." So we'd need to modify things a bit. </li>
 
 <li> Obviously $\epsilon$ and $\delta$, while they represent numbers, they are not explicit numbers *per se*. $\epsilon$ could be anything, and consequently, so could $\delta$. We want to simultaneously consider all the possible values of $\epsilon$---to account for letting $f(x)$ be within $2$ units of $L$, and $15$ units of $L$, and $1/3$ of a unit of $L$, and one-twenty-three-millionth of a unit of $L$---all at once. That we discuss $\epsilon$ and $\delta$ and not specific numbers is just one of the many layers of abstraction in this definition and these proofs.  </li>
 
@@ -209,9 +194,9 @@ What if we have $\displaystyle \lim_{x\rightarrow 2} 3x+1$? Obviously, we know t
 
 Because here is the thing: it is our obvious intuition that the limit is 7. But we want to be totally formal and totally symbolic. Not being formal/rigorous is what got us into this mess in the first place---it was a lack of formality that had us happily dividing by zero to take all those derivatives, and convinced that this was fine. 
 
-So if we want to prove that the limit is 7, we'll need to show that the statement ``$\displaystyle \lim_{x \rightarrow 1} 3x + 1 = 7$'' actually is in conformity/compliance with our rigorous, mathematical definition of a limit. Meaning we'll need to show that there *does* actually exist a number $\delta$, such that for every possible positive real number $\epsilon$, it is the case that if $|x - 2| < \delta$, then $| (3x + 1) - 7 | < \epsilon$.
+So if we want to prove that the limit is 7, we'll need to show that the statement "$\displaystyle \lim_{x \rightarrow 1} 3x + 1 = 7$" actually is in conformity/compliance with our rigorous, mathematical definition of a limit. Meaning we'll need to show that there *does* actually exist a number $\delta$, such that for every possible positive real number $\epsilon$, it is the case that if $|x - 2| < \delta$, then $| (3x + 1) - 7 | < \epsilon$.
 
-\centerline{\includegraphics[scale=1]{edlimit1_1.png} }
+![](edlimit1_1.png){width=50%}
 
 So in principle, all we need to do is show that if $x$ is within $\delta$ of $2$, then $3x+1$ is within $\epsilon$ of $6$. Put differently, we need to start with the statement $|x-2|<\delta$ and algebraically manipulate it to get $|3x+1 \,-\,7| < \epsilon$:
 \begin{center}
@@ -248,9 +233,10 @@ $|x - 2|$&$< \delta$&
 \end{center}
 We end up with $|x-2|<\epsilon/3$, which looks a lot like $|x-2|<\delta$! So perhaps the relationship between $\epsilon$ and $\delta$ is this: perhaps $\delta = \epsilon/3$. So this is suggesting (suggesting, not proving) that if we want $3x+1$ to be within $\epsilon$ units of $6$, then $x$ needs to be within $\epsilon/3$ units of $2$. 
 
-\centerline{\includegraphics[scale=1]{edlimit1_2.png} }
+![](edlimit1_2.png){width=50%}
 
 Put differently,
+
 * if we want the function to be within $3$ units of $7$ (between $4$ and $10$), then $x$ has to be within $1$ unit of $2$; 
 * if we want the function to be within $1$ units of $7$ (between 6 and 8), then $x$ has to be within $1/3$ of a unit of $2$ (between 1 and two-thirds and 2 and a third); 
 * if we want the function to be within $1/10$ of a unit of $7$, then $x$ has to be within $1/30$ of a unit of $2$. 
@@ -269,14 +255,15 @@ $| f(x) - L | $ &$< \epsilon$& (finished!) \smallskip \\
 & \includegraphics[scale=.25]{andrewproof.png} &
 \end{longtable}
 \end{center}
-YAY!!!! So the limit as $x$ approaches $2$ of $3x+1$ {\bf is} 7!!!
+YAY!!!! So the limit as $x$ approaches $2$ of $3x+1$ *is* 7!!!
 
-\vspace{1pc}
+<div style='height:3em;'></div>
+
 Here's a question: what if $\delta$ were even smaller than $\epsilon/3$? Meaning: we've shown that if $x$ is within $\epsilon/3$ of $2$, then $3x+1$ is within $\epsilon$ of $7$. But what if $x$ were within, say, $\epsilon/18$ of $2$? what if it were even closer to $2$? 
 
 Well, presumably if $x$ is even closer to $2$, then $3x+1$ will certainly still be within $\epsilon$ of $7$. Put differently: if we make the distance between $x$ and $2$ really really really small, presumably $f(x)$ will still be within the normal distance away from $L$.  ("Within" and the inequality are the key concepts here---we're *not* saying that $3x+1$ has to be *exactly* $\epsilon$ away from $7$; we're saying that it can be *at most* $\epsilon$ away from $7$, but if it's closer, more the better.)
 
-\centerline{\includegraphics[scale=1]{edlimit1_3.png} }
+![](edlimit1_3.png){width=50%}
 
 We can prove this:
 \begin{center}
@@ -298,33 +285,32 @@ $| f(x) - L | $ &$< \epsilon$& (finished!) \smallskip \\
 \end{center}
 Yay! So, $\epsilon/3$ is sort of like an upper bound for $\delta$---it's the largest that $\epsilon$ can be and still have $3x+1$ be within $\epsilon$ of $6$. If we were to try this with, say, $\delta = \epsilon/2$, it wouldn't work---$3x+1$ might be further than $\epsilon$ away from $6$. But it certainly can be closer. 
 
-You might think, ``aren't we doing the same thing twice here? didn't we just do all of this, but backwards?'' In a sense, this is true. But the direction in which we do this proof is very important. Here's what I mean by that: essentially, these types of very simple $\epsilon$-$\delta$ proofs have two steps. First, you find a relationship between $\epsilon$ and $\delta$; second, you prove that it works. Why isn't the first step sufficient for showing that it works?
+You might think, "aren't we doing the same thing twice here? didn't we just do all of this, but backwards?" In a sense, this is true. But the direction in which we do this proof is very important. Here's what I mean by that: essentially, these types of very simple $\epsilon$-$\delta$ proofs have two steps. First, you find a relationship between $\epsilon$ and $\delta$; second, you prove that it works. Why isn't the first step sufficient for showing that it works?
 
 Because as far as logic goes, direction *does* matter in if-then statements. Consider the two statements:
-\begin{quotation}
-If I kill someone, then I will go to jail.
-\end{quotation}
+
+> If I kill someone, then I will go to jail.
+
 and
-\begin{quotation}
-If I go to jail, then I killed someone.
-\end{quotation}
+
+> If I go to jail, then I killed someone.
+
 These are not equivalent! The former is (hopefully) true; the latter, false. There are other reasons I might go to jail. I might have committed tax fraud. Consider another example:
-\begin{quotation}
-If I'm in Ithaca, then it's cold outside.
-\end{quotation}
+
+> If I'm in Ithaca, then it's cold outside.
+
 and
-\begin{quotation}
-If it's cold outside, then I'm in Ithaca.
-\end{quotation}
+
+> If it's cold outside, then I'm in Ithaca.
+
 Again, these are clearly not the same statement---one is always true, and the other, always false. (Ithaca is not the only place that is cold. Chicago is cold, too. And Archangel^[the city in northern Russia, where that scene from *Frankenstein* takes place].) So in the case of our $\epsilon$-$\delta$ proofs, we are trying to prove
-\begin{quotation}
-if $| x-c | < \delta$, then $| f(x) - L | < \epsilon$.
-\end{quotation}
-which is NOT the same as proving that
-\begin{quotation}
-if $| f(x) - L | < \epsilon$, then if $| x-c | < \delta$.
-\end{quotation}
-Trying to use the fact that $| f(x) - L | \!<\! \epsilon \,\Rightarrow \,| x-c | \!<\! \delta$ to prove that $|x - c| \!<\! \delta \,\Rightarrow \,|f(x) - L| \!< \!\epsilon$ is like saying ``It is cold outside; therefore, I am in Ithaca!'' or ``I am in jail; therefore, I killed someone!'' It does not logically follow. (Remember that the double arrow $\Rightarrow$ is the way of writing if-then (a {\em conditional} or {\em implication}) in logical notation.)
+> if $| x-c | < \delta$, then $| f(x) - L | < \epsilon$.
+
+which is NOT the same as proving that:
+
+> if $| f(x) - L | < \epsilon$, then if $| x-c | < \delta$.
+
+Trying to use the fact that $| f(x) - L | \!<\! \epsilon \,\Rightarrow \,| x-c | \!<\! \delta$ to prove that $|x - c| \!<\! \delta \,\Rightarrow \,|f(x) - L| \!< \!\epsilon$ is like saying "It is cold outside; therefore, I am in Ithaca!" or "I am in jail; therefore, I killed someone!" It does not logically follow. (Remember that the double arrow $\Rightarrow$ is the way of writing if-then (a *conditional* or *implication*) in logical notation.)
 
 You might also want to remember the truth-table for implication:
 \begin{center}
@@ -341,15 +327,15 @@ $F$ & $F$ & $T$
 
 What if we want to prove that $\displaystyle \lim_{x \rightarrow 2}4$? Obviously this is just equal to $4$. The function $f(x) = 4$ is shockingly boring---no matter what $x$ is, it's always $4$.
 
-\centerline{\includegraphics[scale=.8]{edlimit2_1.png} }
+![](edlimit2_1.png){width=50%}
 
 But how do we prove that $\displaystyle \lim_{x \rightarrow 2}4 = 4$? The first step, of course, is finding a relationship between $\epsilon$ and $\delta$---of finding out, if we want $f(x)$ to be within $\epsilon$ of $4$, how close $x$ has to be to $2$.
 
-\centerline{\includegraphics[scale=.8]{edlimit2_2.png} }
+![](edlimit2_2.png){width=50%}
 
 But obviously, $x$ can be as close or far away from $2$ as we like. No matter how close $x$ is to $2$, $f(x)$ will always be within $\epsilon$ of $4$---because $f(x)$ always *is* $4$. Put differently: $\delta$ *can be absolutely anything*. It doesn't matter what $\delta$ is. 
 
-\centerline{\includegraphics[scale=.8]{edlimit2_3.png} }
+![](edlimit2_3.png){width=50%}
 
 
 How do we show this algebraically? Well, we know, by our construction of the $\epsilon$-$\delta$ definition, that $\epsilon$ must be greater than $0$. (Part of the definition is that $\epsilon$ is a positive real number.) But if $0 < \epsilon$, then surely 
@@ -363,7 +349,7 @@ $| f(x) - L|$&$< \epsilon$& \smallskip \\
 \end{center}
 We've proven it---surprisingly quickly! We never even had to use any knowledge of $x$ or $c$ or $\delta$. Because regardless of what $x$ and $c$ and $\delta$ are, $f(x) - L$ will *always* be less than $\epsilon$. Because $f(x) - L$ is *always* 0, and $\epsilon$ has to be a positive number. So then $|f(x) - L| = 0 < \epsilon$. Which is just what we showed up there.
 
-If you're skeptical about our lack of inclusion of $|x-c| <\delta$, think about the logic^[Logic in the real, LOGICAL sense---not in the sense of, ``Um, Mr. Alexander, can't we just do this problem using logic? Because it, like, makes sense. So it's logical. Right?'']. We want to show that $|x - c| < \delta \,\Rightarrow \,|f(x) - L| < \epsilon$, and the truth table for implication (``if-then'') looks like this: 
+If you're skeptical about our lack of inclusion of $|x-c| <\delta$, think about the logic^[Logic in the real, LOGICAL sense---not in the sense of, "Um, Mr. Alexander, can't we just do this problem using logic? Because it, like, makes sense. So it's logical. Right?"]. We want to show that $|x - c| < \delta \,\Rightarrow \,|f(x) - L| < \epsilon$, and the truth table for implication ("if-then") looks like this: 
 
 \begin{center}
 \begin{tabular}{ c c m{2.9cm}}
@@ -389,66 +375,64 @@ Earlier, I used a legal analogy to describe the $\epsilon$-$\delta$ definition o
 
 Now, occasionally, we might feel that the law doesn't accurately represent our intuition---that there is some loophole through which "bad guys" are, legally, doing the wrong thing. So then we might change the law such that the loophole is closed. Then what they are doing is illegal, and then they will go to jail. But even if we do that, we still have to rely on the law. We might be basing the law in intuition, but for the sake of consistency and due process, we must formalize it^[Of course---and this continues the analogy with morality---there are plenty of situations in which we *don't* have intuition about how things should be. If we are standing on a bridge next to a fat person, and see, below  the bridge, a train speeding out of control towards a half-dozen unsuspecting railworkers, should we push the fat guy off the bridge so that he falls onto the switch and diverts the runaway train onto a different track, saving the lives of the railworkers but losing the life of the fat guy? It is not clear. In this sort of situation we might want to revert to the formalism to develop our intuition---e.g., "I don't know, intuitively, what is right and wrong in this situation, but if we apply the laws..."].
 
-Allow me to assert, then, that our current $\epsilon$-$\delta$ definition of a limit does *not* capture our complete intuition about what we mean by a limit. Consider, for instance:$$\displaystyle \lim_{x\rightarrow c} f(x) = \infty$$(Such as in the case of a vertical asymptote) What do we mean when we say this? We do *not* mean literally the same thing as in the case of $\displaystyle \lim_{x\rightarrow c} f(x) = L$; we do not mean ``as $x$ gets closer and closer to $0$, $f(x)$ gets closer and closer to infinity.'' It is somewhat oxymoronic to talk about something getting ``closer'' to an infinite magnitude. Previously, we have only discussed the cases of limits approaching finite numbers and becoming finite numbers; what if we have a function that (again, using the math terminology), ``increases without bound''? What we mean is simply:
-\begin{quotation}
-``as $x$ gets closer and closer to $0$,
+Allow me to assert, then, that our current $\epsilon$-$\delta$ definition of a limit does *not* capture our complete intuition about what we mean by a limit. Consider, for instance:$$\displaystyle \lim_{x\rightarrow c} f(x) = \infty$$(Such as in the case of a vertical asymptote) What do we mean when we say this? We do *not* mean literally the same thing as in the case of $\displaystyle \lim_{x\rightarrow c} f(x) = L$; we do not mean ``as $x$ gets closer and closer to $0$, $f(x)$ gets closer and closer to infinity.'' It is somewhat oxymoronic to talk about something getting ``closer'' to an infinite magnitude. Previously, we have only discussed the cases of limits approaching finite numbers and becoming finite numbers; what if we have a function that (again, using the math terminology), "increases without bound"? What we mean is simply:
 
-\hspace{.3in}$f(x)$ gets bigger and bigger.''
-\end{quotation}
+> as $x$ gets closer and closer to $0$,
+>
+> <span style='margin-left: 3em; '>$f(x)$ gets bigger and bigger."</span>
+
 Or, put differently:
-\begin{quotation}
-``I can make $f(x)$ as big as I want,
 
-\hspace{.3in}simply by making $x$ close enough to $c$.''
-\end{quotation}
-But, as before, we can measure distance (i.e., ``big''ness and ``close''ness) using a number!
-\begin{quotation}
-``No matter what positive number I use in specifying how big I want $f(x)$ to be, 
+> I can make $f(x)$ as big as I want,
+>
+> <span style='margin-left: 3em; '>simply by making $x$ close enough to $c$."</span>
 
-\hspace{.3in}I can find how close $x$ has to be to $c$ (measured as a positive number)
+But, as before, we can measure distance (i.e., "big"ness and "close"ness) using a number!
 
-\hspace{.6in}such that $f(x)$ is, in fact, actually that big.''
-\end{quotation}
-\noindent See a pattern here in our definition-construction? Let's be slightly clearer:
-\begin{itemize}\setlength{\itemsep}{0cm}%
-  \setlength{\parskip}{0cm}%
-\item The positive real number used in measuring how big we want $f(x)$ to be---let's call that $M$.
-\item And the small positive real number used in measuring how close $x$ needs to be to $c$---let's call that $\delta$.
-\end{itemize}
+> "No matter what positive number I use in specifying how big I want $f(x)$ to be, 
+>
+> <span style='margin-left: 3em; '>I can find how close $x$ has to be to $c$ (measured as a positive number)
+>
+> <span style='margin-left: 6em; '>such that $f(x)$ is, in fact, actually that big."
+
+See a pattern here in our definition-construction? Let's be slightly clearer:
+
+*  The positive real number used in measuring how big we want $f(x)$ to be---let's call that $M$.
+* And the small positive real number used in measuring how close $x$ needs to be to $c$---let's call that $\delta$.
+
 So then we can say:
-\begin{quotation}\noindent For every positive real number $M$, 
 
-\hspace{.3in}there is a positive real number $\delta$ (that depends on $M$), such that
+>  For every positive real number $M$, 
+>
+> <span style='margin-left: 3em; '>there is a positive real number $\delta$ (that depends on $M$), such that
+>
+> <span style='margin-left: 6em; '>if $x$ is within $\delta$ of $c$, then $f(x)$ is greater than $M$.
 
-\hspace{.6in}if $x$ is within $\delta$ of $c$, then $f(x)$ is greater than $M$.
-\end{quotation}
+But again, let's phrase this more mathematically.
 
-\noindent But again, let's phrase this more mathematically.\medskip
+"$f(x)$ is greater than $M$" means that $f(x) > M$ 
 
-``$f(x)$ is greater than $M$'' means that $f(x) > M$ 
+And...
 
-\noindent And...
+"$x$ is within $\delta$ of $c$" means that 
 
-``$x$ is within $\delta$ of $c$'' means that 
+the distance between $x$ and $c$ is less than $\delta$, 
 
-\hspace{.5in} the distance between $x$ and $c$ is less than $\delta$, 
-
-\hspace{1in} which means that $|x- c| < \delta$.
-
-
-\medskip\medskip
+which means that $|x- c| < \delta$.
 
 
-\noindent So then what we mean by $\displaystyle \lim_{x \rightarrow c} f(x) = \infty$ is:
-\begin{quotation}
-\noindent For every positive real number $M$, there is a positive real number $\delta$ (that depends on $M$), such that if $|x - c| < \delta$, then $f(x) > M$.
-\end{quotation}
+
+So then what we mean by $\displaystyle \lim_{x \rightarrow c} f(x) = \infty$ is:
+
+> For every positive real number $M$, there is a positive real number $\delta$ (that depends on $M$), such that if $|x - c| < \delta$, then $f(x) > M$.
+
 Put differently:
 $$\overbrace{\text{For every positive real number }M}^{\mathclap{\text{no matter how big we want} f(x) \text{ to be}}},  \,\, \underbrace{\text{there is a number } \delta}_{\mathclap{\text{we can find how close }x\text{ must be to }c}}, \,\,  \overbrace{\text{such that if }|x - c| < \delta\text{, then }f(x) > M}^{\mathclap{\text{so that }f(x)\text{ is at least that big}}}
 $$
 
 
-\noindent We could come up with analogous definitions for $\displaystyle \lim_{x\rightarrow \infty} f(x) = L$ and $\displaystyle \lim_{x\rightarrow \infty} f(x) = \infty$. In fact, you'll do just that in the homework. In fact, you could come up with a whole table of various limit definitions for the various possible limits of $x$ and $f(x)$:
+We could come up with analogous definitions for $\displaystyle \lim_{x\rightarrow \infty} f(x) = L$ and $\displaystyle \lim_{x\rightarrow \infty} f(x) = \infty$. In fact, you'll do just that in the homework. In fact, you could come up with a whole table of various limit definitions for the various possible limits of $x$ and $f(x)$:
+
 \begin{center}
 \begin{tabular}{ m{2cm} |m{3cm}| m{3cm}|}
  &\vfill $f(x)\rightarrow$ finite & $f(x)\rightarrow$ infinite \\ \hline
@@ -463,82 +447,55 @@ $x \rightarrow$ infinite &  &\vspace{1.5cm}.  \\ \hline
 ## Problems
 
 For the following problems:
-\begin{enumerate}\setlength{\itemsep}{2pt}
 
-\item Find the value of the limit.
+*  Find the value of the limit.
+* Sketch the function, being sure to label the limit point (on the $x$) and a little $\delta$-neighborhood around it, and the limit value (on the $y$) and a little $\epsilon$-neighborhood around it.
+* Write down the $\epsilon$-$\delta$ definition of a limit. Seriously. I know it's on this sheet, but you'll need to have more-or-less memorized, so you may as well practice.
+* Using the  $\epsilon$-$\delta$ definition, find a feasible relationship between $\epsilon$ and $\delta$. (Graphically, does this make sense? does it seem, based on your sketch of the situation, that the relationship should be so?)
+* Then do the actual proof: show that if $| \, x - c \, | < \delta$, then $| \, f(x) - L \, | < \epsilon$. You can do this by starting with $| \, x - c \, | < \delta$ and then, via substitution and algebraic manipulation (possibly painful manipulation, and keeping in mind the various properties of absolute values that you'll need), ending up with $| \, f(x) - L \, | < \epsilon$.
 
-\item Sketch the function, being sure to label the limit point (on the $x$) and a little $\delta$-neighborhood around it, and the limit value (on the $y$) and a little $\epsilon$-neighborhood around it.
+<ol class='problems'>
+<li> $\displaystyle \lim_{x \rightarrow 3} (3x - 2)$ </li>
+<li> $\displaystyle \lim_{x\rightarrow 1} (4x + 2)$ </li>
+<li> $\displaystyle \lim_{x\rightarrow 5} (x)$ </li>
+<li> $\displaystyle \lim_{x\rightarrow 0} (-x + 2)$ </li>
+<li> $\displaystyle \lim_{x\rightarrow 4} \left(\frac{1}{2}x + 7\right)$ </li>
+<li> $\displaystyle \lim_{x\rightarrow 2} (6x + 3)$ </li>
+<li> $\displaystyle \lim_{x\rightarrow 7} (-2x + 19)$ </li>
+<li> $\displaystyle \lim_{x\rightarrow 0} \left(\frac{5}{2}x + 3\right)$ </li>
+<li> $\displaystyle \lim_{x\rightarrow 1} (4)$ </li>
+<li> $\displaystyle \lim_{x\rightarrow \pi} (\pi)$ </li>
+<li> $\displaystyle \lim_{x\rightarrow c} (k)$, where $c$ and $k$ are both constants. </li>
+<li> $\displaystyle \lim_{x\rightarrow 4} (x - 6)$ </li>
+<li> $\displaystyle \lim_{x\rightarrow 1} (2x - 7)$ </li>
+<li> $\displaystyle \lim_{x\rightarrow -3} \left(\frac{1}{3}x - 4\right)$ </li>
+<li> $\displaystyle \lim_{x\rightarrow c} (ax + b)$, where $a$, $b$, and $c$ are all constants. (This is the general case of the previous dozen or so problems... which, note, are all relatively simple linear functions. Epsilon-delta proofs get quite a bit tougher as the functions get more interesting. But, if you do an $\epsilon$-$\delta$ proof for this function, you've basically done it for every other linear function (and you can get the particular results by plugging in the appropriate values of $a$, $b$, and $c$.) </li>
+<li> $\displaystyle \lim_{x\rightarrow 0} \frac{1}{x^2}$ </li>
+<li> $\displaystyle \lim_{x\rightarrow 0} \frac{1}{x^4}$ </li>
+<li> $\displaystyle \lim_{x\rightarrow -7} \frac{1}{(x+7)^2}$ </li>
+<li> $\displaystyle \lim_{x\rightarrow 3} \sqrt{x+1}$ </li>
+<li> $\displaystyle \lim_{x\rightarrow 0} (x^2)$ </li>
+<li> $\displaystyle \lim_{x\rightarrow 0} (x^2 - 1)$ </li>
+<li> $\displaystyle \lim_{x\rightarrow 3} \sqrt{3-x}$ </li>
+<li> $\displaystyle \lim_{x\rightarrow 1} (x^2 + 3)$ </li>
+<li> $\displaystyle \lim_{x\rightarrow -1} (x^2 + 3)$ </li>
+<li> $\displaystyle \lim_{x\rightarrow 2} (3x^2 - x)$ </li>
+<li> $\displaystyle \lim_{x\rightarrow 0} (x^2 + x -2)$ </li>
+<li> $\displaystyle \lim_{x\rightarrow 0} (x^2 -4x - 5)$ </li>
+<li> $\displaystyle \lim_{x\rightarrow 0} (x^3)$  </li>
+<li> $\displaystyle \lim_{x\rightarrow c} (\, f(x) + g(x) \,) = \lim_{x\rightarrow c} f(x) +  \lim_{x\rightarrow c} g(x)$ (This is a fundamental property of limits! Hint: use the triangle inequality (one of the properties of absolute values).)
+<li> $\displaystyle \lim_{x\rightarrow c} kf(x) = k\lim_{x\rightarrow c} f(x)$, where $k$ is a constant. (Again, this is another important limit property!) </li>
+<li> $\displaystyle \lim_{x\rightarrow c} (\, f(x) - g(x) \,) = \lim_{x\rightarrow c} f(x) -  \lim_{x\rightarrow c} g(x)$  </li>
+<li> $\displaystyle \lim_{h\rightarrow 0} \frac{(x+h)^2-x^2}{h}$  </li>
+<li> $\displaystyle \lim_{h\rightarrow 0} \frac{(a(x+h) +b) -(ax+b)}{h}$ </li>
+</ol>
 
-\item Write down the $\epsilon$-$\delta$ definition of a limit. Seriously. I know it's on this sheet, but you'll need to have more-or-less memorized, so you may as well practice.
-
-\item Using the  $\epsilon$-$\delta$ definition, find a feasible relationship between $\epsilon$ and $\delta$. (Graphically, does this make sense? does it seem, based on your sketch of the situation, that the relationship should be so?)
-
-\item Then do the actual proof: show that if $| \, x - c \, | < \delta$, then $| \, f(x) - L \, | < \epsilon$. You can do this by starting with $| \, x - c \, | < \delta$ and then, via substitution and algebraic manipulation (possibly painful manipulation, and keeping in mind the various properties of absolute values that you'll need), ending up with $| \, f(x) - L \, | < \epsilon$.
-
-\end{enumerate}
-
-\vspace{1pc}
-
-\begin{multicols}{2}
-\setlength{\columnseprule}{.5pt}
-\begin{problems}
-
-\item $\displaystyle \lim_{x \rightarrow 3} (3x - 2)$
-\item $\displaystyle \lim_{x\rightarrow 1} (4x + 2)$
-\item $\displaystyle \lim_{x\rightarrow 5} (x)$
-\item $\displaystyle \lim_{x\rightarrow 0} (-x + 2)$
-\item $\displaystyle \lim_{x\rightarrow 4} \left(\frac{1}{2}x + 7\right)$
-\item $\displaystyle \lim_{x\rightarrow 2} (6x + 3)$
-\item $\displaystyle \lim_{x\rightarrow 7} (-2x + 19)$
-\item $\displaystyle \lim_{x\rightarrow 0} \left(\frac{5}{2}x + 3\right)$
-\item $\displaystyle \lim_{x\rightarrow 1} (4)$
-\item $\displaystyle \lim_{x\rightarrow \pi} (\pi)$
-\item $\displaystyle \lim_{x\rightarrow c} (k)$, where $c$ and $k$ are both constants.
-\item $\displaystyle \lim_{x\rightarrow 4} (x - 6)$
-\item $\displaystyle \lim_{x\rightarrow 1} (2x - 7)$
-\item $\displaystyle \lim_{x\rightarrow -3} \left(\frac{1}{3}x - 4\right)$
-\item $\displaystyle \lim_{x\rightarrow c} (ax + b)$, where $a$, $b$, and $c$ are all constants. (This is the general case of the previous dozen or so problems... which, note, are all relatively simple linear functions. Epsilon-delta proofs get quite a bit tougher as the functions get more interesting. But, if you do an $\epsilon$-$\delta$ proof for this function, you've basically done it for every other linear function (and you can get the particular results by plugging in the appropriate values of $a$, $b$, and $c$.)
-\item $\displaystyle \lim_{x\rightarrow 0} \frac{1}{x^2}$
-\item $\displaystyle \lim_{x\rightarrow 0} \frac{1}{x^4}$
-\item $\displaystyle \lim_{x\rightarrow -7} \frac{1}{(x+7)^2}$
-\item $\displaystyle \lim_{x\rightarrow 3} \sqrt{x+1}$
-\item $\displaystyle \lim_{x\rightarrow 0} (x^2)$
-\item $\displaystyle \lim_{x\rightarrow 0} (x^2 - 1)$
-\item $\displaystyle \lim_{x\rightarrow 3} \sqrt{3-x}$
-\item $\displaystyle \lim_{x\rightarrow 1} (x^2 + 3)$
-\item $\displaystyle \lim_{x\rightarrow -1} (x^2 + 3)$
-\item $\displaystyle \lim_{x\rightarrow 2} (3x^2 - x)$
-\item $\displaystyle \lim_{x\rightarrow 0} (x^2 + x -2)$
-\item $\displaystyle \lim_{x\rightarrow 0} (x^2 -4x - 5)$
-\item $\displaystyle \lim_{x\rightarrow 0} (x^3)$ 
-
-\item $\displaystyle \lim_{x\rightarrow c} (\, f(x) + g(x) \,) = \lim_{x\rightarrow c} f(x) +  \lim_{x\rightarrow c} g(x)$ (This is a fundamental property of limits! Hint: use the triangle inequality (one of the properties of absolute values).)
-
-\item $\displaystyle \lim_{x\rightarrow c} kf(x) = k\lim_{x\rightarrow c} f(x)$, where $k$ is a constant. (Again, this is another important limit property!)
-
-\item $\displaystyle \lim_{x\rightarrow c} (\, f(x) - g(x) \,) = \lim_{x\rightarrow c} f(x) -  \lim_{x\rightarrow c} g(x)$ 
-
-\item $\displaystyle \lim_{h\rightarrow 0} \frac{(x+h)^2-x^2}{h}$ 
-
-\item $\displaystyle \lim_{h\rightarrow 0} \frac{(a(x+h) +b) -(ax+b)}{h}$ 
+<div style='height:5em;'></div>
 
 
-\end{problems}
-\end{multicols}
-
-\vspace{1pc}
-
-\begin{problems}
-\setcounter{enumi}{33}
-\item In the same manner in which we constructed the definitions for $\displaystyle \lim_{x\rightarrow c} f(x) = L$ and $\displaystyle \lim_{x\rightarrow c} f(x) = \infty$, come up with a suitable definition for $\displaystyle \lim_{x \rightarrow \infty}f(x) = L$. (Explain your reasoning!)
-
-\item Using the definition you constructed above, prove that $\displaystyle \lim_{x \rightarrow \infty} \frac{1}{x} = 0$. 
-
-\item Likewise, construct a definition for $\displaystyle \lim_{x\rightarrow c} f(x) = -\infty$, and then prove that $\displaystyle \lim_{x\rightarrow 5} \frac{-1}{(x - 5)^2} = -\infty$
-
-\item Now come up with a definition for $\displaystyle \lim_{x\rightarrow \infty} f(x) = \infty$ (i.e., the case in which $x$ and $f(x)$ both get bigger and bigger), and then show that $\displaystyle \lim_{x\rightarrow \infty} x^2 = \infty$
-
-\end{problems}
-
-
-\end{document}
+<ol class='problems'>
+<li> In the same manner in which we constructed the definitions for $\displaystyle \lim_{x\rightarrow c} f(x) = L$ and $\displaystyle \lim_{x\rightarrow c} f(x) = \infty$, come up with a suitable definition for $\displaystyle \lim_{x \rightarrow \infty}f(x) = L$. (Explain your reasoning!)</li>
+<li> Using the definition you constructed above, prove that $\displaystyle \lim_{x \rightarrow \infty} \frac{1}{x} = 0$. 
+<li> Likewise, construct a definition for $\displaystyle \lim_{x\rightarrow c} f(x) = -\infty$, and then prove that $\displaystyle \lim_{x\rightarrow 5} \frac{-1}{(x - 5)^2} = -\infty$ </li>
+<li> Now come up with a definition for $\displaystyle \lim_{x\rightarrow \infty} f(x) = \infty$ (i.e., the case in which $x$ and $f(x)$ both get bigger and bigger), and then show that $\displaystyle \lim_{x\rightarrow \infty} x^2 = \infty$ </li>
+</ol>

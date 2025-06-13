@@ -132,7 +132,7 @@ $$ {\color{blue} nx^{n-1} } \,\,+\underbrace{{\color{red} \sum\limits_{k=2}^{k=n
 So we have just:
 $$ {\color{blue} nx^{n-1} } $$
 Yes! That's it! We've proven it!!!!
-$$\boxed{ \left(x^n\right)' = nx^{n-1} }$$
+$$\boxed{\Large \,\, \left(x^n\right)' = nx^{n-1} \,\, }$$
 So, there we have it. This is a long proof! It requires a lot of familiarity and flexibility with iterated sums, as well as familiarity with the binomial theorem.
 
 
@@ -155,7 +155,7 @@ $$\displaystyle\frac{d}{dx}\left(\frac{1}{x^n}\right) = \frac{-n}{x^{n+1}} = -nx
 And that seems like something we might know how to do! If $n$ is now a positive integer, we can use the binomial theorem. So, by the definition of a derivative, the derivative of $1/x^n$ is:
 $$\displaystyle\frac{d}{dx}\left(\frac{1}{x^n}\right) =  \frac{\,\,\frac{1}{(x+h)^n} - \frac{1}{x^n}\,\,}{h}$$
 which, plugging in the binomial theorem, is
-$$\large = \displaystyle\frac{\quad \displaystyle\frac{1}{\quad \displaystyle\sum_{k=0}^{k=n}  {n \choose n-k}x^{n-k}h^{k}\quad} \,\,-\,\, \displaystyle\frac{1}{\quad x^n\quad}\quad}{\huge h}$$
+$$\large =\quad \displaystyle\frac{\quad\quad \displaystyle\frac{1}{\quad \displaystyle\sum_{k=0}^{k=n}  {n \choose n-k}x^{n-k}h^{k}\quad} \,\,-\,\, \displaystyle\frac{1}{\quad x^n\quad} \quad\quad }{\huge h}$$
 Can you keep going, and finish this proof??? It'll get messy---*fractions*, man---but you can do it!
 
 When your relatives ask during Thanksgiving dinner what you're doing in school ("What grade are you in now? 9th?"), you can pause for a moment, as if to wonder how to explain your work to the laity, and then say, "I'm trying to use the binomial theorem to differentiate $x^n$ for negative $n$." And you will sound like a graduate-student-in-the-making.

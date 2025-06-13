@@ -46,7 +46,7 @@
 </head>
 <body>
   <header>
-    <span id="header-name">the natural history <span style="font-weight:normal;">of abstract objects</span></span> <span id="linkback"><a href=http://www.andrusia.com><img src="/andrew-logo.svg" id='header-logo' style='width: auto;'/></a></span>
+  <span id="header-name"> <a href='/'>the natural history <span style="font-weight:normal;">of abstract objects</span></a></span> <span id="linkback"><a href=http://www.andrusia.com><img src="/andrew-logo.svg" id='header-logo' style='width: auto;'/></a></span>
 </header>
 <script>document.addEventListener('DOMContentLoaded', function(e) {
   Scroller.init();
@@ -57,6 +57,7 @@
 <ul>
 <li><a href="#a-brief-history-of-the-calculus">A Brief History of The Calculus:</a></li>
 <li><a href="#some-more-background">Some More Background</a></li>
+<li><a href="#what-we-talk-about-when-we-talk-about-limits">What We Talk About When We Talk About Limits</a></li>
 <li><a href="#example">Example</a></li>
 <li><a href="#weird-example">Weird Example</a></li>
 <li><a href="#weirder-example">Weirder Example</a></li>
@@ -83,36 +84,114 @@
 <h2 id="some-more-background">Some More Background</h2>
 <p>Let’s remind ourselves of where we are. We wanted to find a way of finding the slopes of smooth curves. So we derived Fermat’s difference quotient (<span class="math inline">\(f(x+h)-f(x) \,\, /h\)</span>), and then said that as <span class="math inline">\(h\)</span> gets smaller, the difference quotient (the approximate slope) approaches the derivative (the exact slope). But it wasn’t quite clear what we meant by “as <span class="math inline">\(h\)</span> gets smaller,” because we were basically just plugging in <span class="math inline">\(0\)</span> for <span class="math inline">\(h\)</span>. And we soon realized that this was quite terrible, because it meant we were dividing by zero. So we tried to fix this by elaborating on what we meant by “as <span class="math inline">\(h\)</span> gets smaller.” We generalized this by considering what a function <span class="math inline">\(f(x)\)</span> gets close to as <span class="math inline">\(x\)</span> gets close to something else, and we called this a “limit.” Thus, we decided that we could formalize this concept of a derivative by including a limit in it; i.e., if we were to take the limit of the difference quotient, we would have the derivative: <span class="math display">\[f&#39;(x) = \lim_{h\rightarrow 0}\frac{f(x+h)-f(x)}{h}\]</span> But there is a problem with all this. Namely, <em>we still don’t know what a limit is</em>. I mean, we “know” what it is, in an intuitive sense—<span class="math inline">\(\displaystyle \lim_{x\rightarrow c}f(x)\)</span> is what <span class="math inline">\(f(x)\)</span> gets close to, as <span class="math inline">\(x\)</span> gets close to <span class="math inline">\(c\)</span>—but this is not a particularly rigorous/formal/mathematical definition. We are still saying “close to,” and what does that mean???</p>
 <p>In a very serious way, then, we are in no better a place than we were when we realized that our procedure for finding a derivative involves dividing by zero. <em>We haven’t actually improved our situation</em>. We have a better grasp of what goes on when we take a derivative (the difference quotient has a hole at <span class="math inline">\(h=0\)</span>, and so we find the presumptive <span class="math inline">\(y\)</span>-value of the hole), but all we’ve really done to fix this problem—to find the <span class="math inline">\(y\)</span>-value of the hole—is to make up this nonsense about ``closer and closer’’. We’ve tried to talk around the problem—we’ve said “well, <span class="math inline">\(h\)</span> isn’t actually zero, blah blah, but it gets close to <span class="math inline">\(0\)</span>, and then the difference quotient gets close to the derivative”—but this is really no different than what we started our investigation of derivatives by saying. We are still saying that “<span class="math inline">\(h\)</span> gets closer to <span class="math inline">\(0\)</span>,” and it is totally unclear what this actually <em>means</em>, in a real, mathematical sense. It is totally unclear <em>whether we actually can do this</em>, or whether, like some interlocutor in a Socratic dialogue, we have simply been building a grander and grander rhetorical edifice in top of something that is, fundamentally, sophistry. We’ve given a fancy name to this procedure—we’ve called it a “limit”—but we don’t actually understand it. Put differently: <em>we still don’t know that all of calculus isn’t a lie</em>.</p>
-We would like to have some certainty. We’d like to know whether calculus works or not (and if it works, why it works). As it turns out, calculus <em>does</em> work. There are two ways to explain it. One way is to say that
-<p>But how can we say this more mathematically? We are still saying ``close,’’ which is vague. Can we measure it? How do we measure closeness? Imagine the following dialogue: </p>
-<p>{}: I live close to the Metropolitan Museum of Art.</p>
-<p>{}: That’s kind of vague. How close?</p>
-<p>{}: Really close.</p>
-<p>{}: Well, I live ``really close’’ to the sun, compared to someone who lives in another galaxy. Seriously, how close are you to the Met?</p>
-<p>{}: Three blocks. </p>
+<p>We would like to have some certainty. We’d like to know whether calculus works or not (and if it works, why it works). As it turns out, calculus <em>does</em> work. There are two ways to explain it. One way is to say that</p>
+<ul>
+<li>infinitesimal numbers exist,</li>
+<li>the <span class="math inline">\(h\)</span> in the difference quotient is an infinitesimal number, and</li>
+<li>thus, calculus works.</li>
+</ul>
+<p>The other way is to say that:</p>
+<ul>
+<li>limits exist,</li>
+<li>the derivative is an example of a limit (the limit of F.’s D.Q. as <span class="math inline">\(h\rightarrow 0\)</span>), and</li>
+<li>thus, calculus works.</li>
+</ul>
+<p>The second method is the method we have already begun developing, and which we will continue. This is the method of the great 19th century mathematicians—Cauchy, Bolzano, Dedekind, Weierstrass—who solved the 200-year-old problem of calculus’s foundations, and saved it from metaphysical gloom. We will follow their method, not because it is neccesarily better or worse than the first method—in fact, I actually believe that the first method—the method of developing calculus through infinitesimals—by the way, the formal name for that is “non-standard analysis” (because “analysis” is the mathy word for “calculus”—I actually believe that method is somewhat superior—we will develop calculus using the method of limits, because</p>
+<ul>
+<li>Nearly every other calculus class uses that method, as does every advanced “real analysis” class. Thus, when you go on to take more calculus classes in college, you’ll be familiar with the method of <span class="math inline">\(\epsilon\)</span>-<span class="math inline">\(\delta\)</span> proofs, and already good at them.</li>
+<li>To actually prove that infinitesimal numbers exist requires a substantial amount of mathematics—far more than what you guys know. However, to prove that limits exist is not as onerous—you are more than capable of understanding them. Thus, you can actually understand, for yourselves, how this remarkable problem was solved, whereas with the infinitesimal method, you’d have to be content with me assuring you that infinitesimals do, in fact, exist.</li>
+<li>That said, to actually understand the deep, foundational, mathematical machinery of a limit (i.e., why and how limits actually exist) is not particularly easy. The level of abstraction involved in the formal definition of a limit is substantial. It will be difficult. It will be challenging. And this will be good for you—it will be a brutal mathematical workout, from which you will emerge much stronger.</li>
+</ul>
+<p>I guess there is actually a third way of developing calculus. Namely, we could:</p>
+<ul>
+<li>pretend that the <span class="math inline">\(h\)</span>-gets-smaller/division-by-zero problem isn’t actually a problem, and</li>
+<li>just continue finding formulas for derivatives and whatnot.</li>
+</ul>
+<p>This is how we started doing calculus. And we were able to get pretty far—we found a formula for the derivative of any polynomial, and we had an educated guess about the formulas for the derivative of sine and cosine. In fact, this is how people did calculus for 200 years. They pretended that these very basic, very foundational problems weren’t actually problems, and they plowed ahead, to much success. So in a sense, whether we develop calculus using infinitesimals or limits or sophistry is irrelevant—because when we actually <em>do</em> calculus, when we actually find formulas for derivatives and integrals and do word problems and whatnot, none of this will actually come into play. It is, in a sense, useless.</p>
+<p>But we are not concerned with utility. We are concerned with truth—with the truth of the calculus.</p>
+<h2 id="what-we-talk-about-when-we-talk-about-limits">What We Talk About When We Talk About Limits</h2>
+<p>What do we mean when we say<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>: <span class="math display">\[\lim_{x \rightarrow c} f(x) = L\hspace{.3in}\text{or equivalently:} \quad f(x) \,\, \xrightarrow[\quad c \quad]{x} \,\, L\]</span> We mean:</p>
+<blockquote>
+<p>As <span class="math inline">\(x\)</span> gets closer and closer to <span class="math inline">\(c\)</span>,</p>
+<div style="display:block; width:5em;">
+
+</div>
+<p><span class="math inline">\(f(x)\)</span> gets closer and closer to <span class="math inline">\(L\)</span></p>
+</blockquote>
+<p>or, put differently:</p>
+<blockquote>
+<p>The closer that <span class="math inline">\(x\)</span> gets to <span class="math inline">\(c\)</span>, <span style="width:5em;"></span> the closer that <span class="math inline">\(f(x)\)</span> gets to <span class="math inline">\(L\)</span>.’’</p>
+</blockquote>
+<p>or, yet differently:</p>
+<blockquote>
+<p>We can make <span class="math inline">\(f(x)\)</span> as close to <span class="math inline">\(L\)</span> as we want,</p>
+<p>simply by making <span class="math inline">\(x\)</span> close enough to <span class="math inline">\(c\)</span>.</p>
+</blockquote>
+<p>The important thing is, we’re never saying that <span class="math inline">\(x\)</span> is infinitesimally close to <span class="math inline">\(c\)</span>—we’re never using this idea of the infinite. If you’re a 19th century mathematician, this is very important. But can we make this more mathematical? Let’s start with the third definition. In many ways this is the worst of the lot, because we have agency in there (will the limit still exist if “we” aren’t around to take it?) and desire (why should we “want” <span class="math inline">\(f(x)\)</span> to be anything?).</p>
+<p>We can note that this definition really has two parts. In order for something to be a limit, we need</p>
+<ul>
+<li>to know how close we want <span class="math inline">\(f(x)\)</span> to be to <span class="math inline">\(L\)</span>, and</li>
+<li>determine how close <span class="math inline">\(x\)</span> must be to <span class="math inline">\(c\)</span> to ensure this.</li>
+</ul>
+<p>But how can we say this more mathematically? We are still saying “close,” which is vague. Can we measure it? How do we measure closeness? Imagine the following dialogue:</p>
+<blockquote>
+<p><strong>Ezra</strong>: I live close to the Metropolitan Museum of Art.</p>
+<p><strong>Cornelius</strong>: That’s kind of vague. How close?</p>
+<p><strong>Ezra</strong>: Really close.</p>
+<p><strong>Cornelius</strong>: Well, I live “really close” to the sun, compared to someone who lives in another galaxy. Seriously, how close are you to the Met?</p>
+<p><strong>Ezra</strong> : Three blocks.</p>
+</blockquote>
 <p>We measure closeness—i.e., distances—with numbers! In particular, we usually measure them with real numbers (since we think of distance as being a continual thing—distance (usually) doesn’t jump in increments, like the integers do), and we usually have those real numbers be nonnegative (since if we’re just talking about distance, we don’t have a sense of direction, and thus negatives). Positive real numbers (or <span class="math inline">\(0\)</span>). That’s how we measure distance.</p>
 <p>So let’s rephrase this, however awkwardly:</p>
-But let’s be a bit more clear here:
-<p>Presumably <span class="math inline">\(\epsilon\)</span> and <span class="math inline">\(\delta\)</span> are related to each other—presumably, as <span class="math inline">\(\delta\)</span> gets smaller, <span class="math inline">\(\epsilon\)</span> will get smaller, too. If we want <span class="math inline">\(\epsilon\)</span> to be smaller, we’ll need to have a smaller <span class="math inline">\(\delta\)</span>. And, of course, <span class="math inline">\(\epsilon\)</span> could be anything—we could want <span class="math inline">\(f(x)\)</span> to be within <span class="math inline">\(10\)</span> units of <span class="math inline">\(L\)</span>, within <span class="math inline">\(2.3\)</span> units of <span class="math inline">\(L\)</span>, or within <span class="math inline">\(1/1,000,000\)</span> of a unit of <span class="math inline">\(L\)</span>. Whatever that distance is, is <span class="math inline">\(\epsilon\)</span>. </p>
-So we mean:
-<p>But again, can we phrase this more mathematically? How can we say ``within such-and-such-distance of such-and-such’’ in a more formal way? </p>
-<p>``<span class="math inline">\(f(x)\)</span> is within <span class="math inline">\(\epsilon\)</span> of <span class="math inline">\(L\)</span>’’ means that</p>
+<blockquote>
+<p>No matter what positive real number we use in specifying how close we want <span class="math inline">\(f(x)\)</span> to be to <span class="math inline">\(L\)</span>,</p>
+<p>we must be able to find how close <span class="math inline">\(x\)</span> must be to <span class="math inline">\(c\)</span> (measured as a positive real number),</p>
+<p>in order to ensure that <span class="math inline">\(f(x)\)</span> is that close to <span class="math inline">\(L\)</span>.</p>
+</blockquote>
+<p>But let’s be a bit more clear here:</p>
+<ul>
+<li>The small positive real number used in measuring how close we want <span class="math inline">\(f(x)\)</span> to be to <span class="math inline">\(L\)</span>—let’s call that <span class="math inline">\(\epsilon\)</span>.</li>
+<li>And the small positive real number used in measuring how close <span class="math inline">\(x\)</span> needs to be to <span class="math inline">\(c\)</span>—let’s call that <span class="math inline">\(\delta\)</span>.</li>
+</ul>
+<p><img src="epsilondelta2.png" style="width:50.0%" /></p>
+<p>Presumably <span class="math inline">\(\epsilon\)</span> and <span class="math inline">\(\delta\)</span> are related to each other—presumably, as <span class="math inline">\(\delta\)</span> gets smaller, <span class="math inline">\(\epsilon\)</span> will get smaller, too. If we want <span class="math inline">\(\epsilon\)</span> to be smaller, we’ll need to have a smaller <span class="math inline">\(\delta\)</span>. And, of course, <span class="math inline">\(\epsilon\)</span> could be anything—we could want <span class="math inline">\(f(x)\)</span> to be within <span class="math inline">\(10\)</span> units of <span class="math inline">\(L\)</span>, within <span class="math inline">\(2.3\)</span> units of <span class="math inline">\(L\)</span>, or within <span class="math inline">\(1/1,000,000\)</span> of a unit of <span class="math inline">\(L\)</span>. Whatever that distance is, is <span class="math inline">\(\epsilon\)</span>.</p>
+<p>So we mean:</p>
+<blockquote>
+<p>For every positive real number <span class="math inline">\(\epsilon\)</span>,</p>
+<p>there is a positive real number <span class="math inline">\(\delta\)</span> (that depends on <span class="math inline">\(\epsilon\)</span>), such that</p>
+<p>if <span class="math inline">\(x\)</span> is within <span class="math inline">\(\delta\)</span> of <span class="math inline">\(c\)</span>, then <span class="math inline">\(f(x)\)</span> is within <span class="math inline">\(\epsilon\)</span> of <span class="math inline">\(L\)</span>.</p>
+</blockquote>
+<p>But again, can we phrase this more mathematically? How can we say “within such-and-such-distance of such-and-such” in a more formal way?</p>
+<p>“<span class="math inline">\(f(x)\)</span> is within <span class="math inline">\(\epsilon\)</span> of <span class="math inline">\(L\)</span>” means that</p>
 <p>the distance between <span class="math inline">\(f(x)\)</span> and <span class="math inline">\(L\)</span> is less than <span class="math inline">\(\epsilon\)</span>,</p>
 <p>which means that <span class="math inline">\(f(x) - L &lt; \epsilon\)</span>, </p>
+<p>except when we talk about distance, we don’t care about direction, and so we’ll take an absolute value: <span class="math inline">\(| f(x) - L | &lt; \epsilon\)</span></p>
 <p>Likewise…</p>
-<p>``<span class="math inline">\(x\)</span> is within <span class="math inline">\(\delta\)</span> of <span class="math inline">\(c\)</span>’’ means that</p>
+<p><span class="math inline">\(x\)</span> is within <span class="math inline">\(\delta\)</span> of <span class="math inline">\(c\)</span> means that</p>
 <p>the distance between <span class="math inline">\(x\)</span> and <span class="math inline">\(c\)</span> is less than <span class="math inline">\(\delta\)</span>,</p>
 <p>which means that <span class="math inline">\(x- c &lt; \delta\)</span>,</p>
+<p>except with distance we don’t care about direction, so let’s absolute-value that: <span class="math inline">\(| x - c | &lt; \delta\)</span></p>
 <p>So then, if we clean up our definition some more, what we mean by <span class="math inline">\(\displaystyle \lim_{x \rightarrow c} f(x) = L\)</span> is:</p>
-<p>Put differently: <span class="math display">\[\overbrace{\text{For every positive real number }\epsilon}^{\mathclap{\text{no matter how close we want} f(x) \text{ to be to }L}},  \,\, \underbrace{\text{there is a number } \delta}_{\mathclap{\text{we can find how close }x\text{ must be to }c}}, \,\,  \overbrace{\text{such that if }|x - c| &lt; \delta\text{, then }|f(x) - L| &lt; \epsilon}^{\mathclap{\text{so that }f(x)\text{ actually is that close to }L}}
+<blockquote>
+<p>For every positive real number <span class="math inline">\(\epsilon\)</span>, there is a positive real number <span class="math inline">\(\delta\)</span> (that depends on <span class="math inline">\(\epsilon\)</span>), such that if <span class="math inline">\(|x - c| &lt; \delta\)</span>, then <span class="math inline">\(|f(x) - L| &lt; \epsilon\)</span></p>
+</blockquote>
+<p>Put differently:</p>
+<p><span class="math display">\[\overbrace{\text{For every positive real number }\epsilon}^{\mathclap{\text{no matter how close we want} f(x) \text{ to be to }L}},  \,\, \underbrace{\text{there is a number } \delta}_{\mathclap{\text{we can find how close }x\text{ must be to }c}}, \,\,  \overbrace{\text{such that if }|x - c| &lt; \delta\text{, then }|f(x) - L| &lt; \epsilon}^{\mathclap{\text{so that }f(x)\text{ actually is that close to }L}}
 \]</span></p>
 <p>Let us state this formally:</p>
+<div class="callout-box">
+<p><strong>The Epsilon-Delta Definition of a Limit</strong></p>
+<p>The limit of <span class="math inline">\(f(x)\)</span> as <span class="math inline">\(x\)</span> approaches <span class="math inline">\(c\)</span> is <span class="math inline">\(L\)</span> if, for every positive real number <span class="math inline">\(\epsilon\)</span>, there is a corresponding (positive real) number <span class="math inline">\(\delta\)</span> such that the following is true:</p>
+<p><span class="math display">\[\text{if }| \, x - c \, | &lt; \delta\text{, then }| \, f(x) - L \, | &lt; \epsilon\]</span></p>
+<p>And we write this as</p>
+<p><span class="math display">\[\displaystyle \lim_{x \to c} f(x) = L \quad\text{ or }\quad f(x) \xrightarrow[\quad c \quad]{x}  L\]</span></p>
+</div>
 <ul>
 <li>
-First of all, it’s hard. The <span class="math inline">\(\epsilon\)</span>-<span class="math inline">\(\delta\)</span> definition of a limit, and resulting <span class="math inline">\(\epsilon\)</span>-<span class="math inline">\(\delta\)</span> proofs are easily the hardest topic in first-year calculus—in fact, they are often skipped altogether (the “let’s pretend dividing by zero isn’t a problem” approach to calculus). The definition is abstract, abstruse, and hard to <em>feel</em>. I spent two pages (and an hour in class) simply explaining <em>where the definition comes from</em>. Most of the time, when we define mathematical objects, we just throw the definitions out there, because they’re easy to understand. For instance, we define a rational function <span class="math inline">\(f(x)\)</span> as <span class="math display">\[f(x) = \frac{p(x)}{q(x)},\,\text{where }p(x)\text{ and }q(x)\text{ are both polynomials.}\]</span>That’s totally simple. All this junk about epsilons and deltas… much less so.
+First of all, it’s hard. The <span class="math inline">\(\epsilon\)</span>-<span class="math inline">\(\delta\)</span> definition of a limit, and resulting <span class="math inline">\(\epsilon\)</span>-<span class="math inline">\(\delta\)</span> proofs are easily the hardest topic in first-year calculus—in fact, they are often skipped altogether (the “let’s pretend dividing by zero isn’t a problem” approach to calculus). The definition is abstract, abstruse, and hard to <em>feel</em>. I spent two pages (and an hour in class) simply explaining <em>where the definition comes from</em>. Most of the time, when we define mathematical objects, we just throw the definitions out there, because they’re easy to understand. For instance, we define a rational function <span class="math inline">\(f(x)\)</span> as <span class="math display">\[f(x) = \frac{p(x)}{q(x)},\,\text{where }p(x)\text{ and }q(x)\text{ are both polynomials.}\]</span> That’s totally simple. All this junk about epsilons and deltas… much less so.
 </li>
 <li>
-Note that this definition only works for a limit in which <span class="math inline">\(x\)</span> is approaching a finite number, and <span class="math inline">\(f(x)\)</span> is also approaching a finite number. If we had a limit either to or from <span class="math inline">\(\pm \infty\)</span>, or where the function approaches <span class="math inline">\(\pm \infty\)</span>, we’d have to make a slightly different definition. Because in those cases, we wouldn’t have <span class="math inline">\(x\)</span> <code>getting closer and closer'' to infinity; strictly speaking, what we'd have would be $x$</code>getting bigger and bigger.’’ So we’d need to modify things a bit.
+Note that this definition only works for a limit in which <span class="math inline">\(x\)</span> is approaching a finite number, and <span class="math inline">\(f(x)\)</span> is also approaching a finite number. If we had a limit either to or from <span class="math inline">\(\pm \infty\)</span>, or where the function approaches <span class="math inline">\(\pm \infty\)</span>, we’d have to make a slightly different definition. Because in those cases, we wouldn’t have <span class="math inline">\(x\)</span> “getting closer and closer” to infinity; strictly speaking, what we’d have would be <span class="math inline">\(x\)</span> “getting bigger and bigger.” So we’d need to modify things a bit.
 </li>
 <li>
 Obviously <span class="math inline">\(\epsilon\)</span> and <span class="math inline">\(\delta\)</span>, while they represent numbers, they are not explicit numbers <em>per se</em>. <span class="math inline">\(\epsilon\)</span> could be anything, and consequently, so could <span class="math inline">\(\delta\)</span>. We want to simultaneously consider all the possible values of <span class="math inline">\(\epsilon\)</span>—to account for letting <span class="math inline">\(f(x)\)</span> be within <span class="math inline">\(2\)</span> units of <span class="math inline">\(L\)</span>, and <span class="math inline">\(15\)</span> units of <span class="math inline">\(L\)</span>, and <span class="math inline">\(1/3\)</span> of a unit of <span class="math inline">\(L\)</span>, and one-twenty-three-millionth of a unit of <span class="math inline">\(L\)</span>—all at once. That we discuss <span class="math inline">\(\epsilon\)</span> and <span class="math inline">\(\delta\)</span> and not specific numbers is just one of the many layers of abstraction in this definition and these proofs.
@@ -124,75 +203,253 @@ Obviously <span class="math inline">\(\epsilon\)</span> and <span class="math in
 <li><span class="math inline">\(e\)</span> is the number such that the function <span class="math inline">\(e^x\)</span> is its own derivative (i.e., that <span class="math inline">\((e^x)&#39; = e^x\)</span>).</li>
 <li><span class="math inline">\(\displaystyle e = \sum_{n = 0}^\infty \frac{1}{n!} = \frac{1}{0!} + \frac{1}{1!} + \frac{1}{2!} + \frac{1}{3!} + \frac{1}{4!} + \cdots\)</span></li>
 </ul>
-The second way<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> tells you how to actually <em>compute</em> <span class="math inline">\(e\)</span> as a decimal; the first way doesn’t. Put differently, the second way is an <em>explicit</em> definition (a <em>construction</em>); the first way is an <em>implicit</em> definition. (This is not a perfect analogy and a mathematician might quibble a bit, but it gets the idea across.)
+The second way<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> tells you how to actually <em>compute</em> <span class="math inline">\(e\)</span> as a decimal; the first way doesn’t. Put differently, the second way is an <em>explicit</em> definition (a <em>construction</em>); the first way is an <em>implicit</em> definition. (This is not a perfect analogy and a mathematician might quibble a bit, but it gets the idea across.)
 </li>
 </ul>
 <p>Having defined a limit, then, our next question is: can we use this definition to show that our intuitive calculations of limits are actually correct? that what we think are limits actually <em>are</em> limits, in accordance with this definition? Can we use this definition to show that <span class="math inline">\(\displaystyle \lim_{x\rightarrow 5}3x + 1\)</span> actually <em>does</em> equal <span class="math inline">\(16\)</span> (for example), or more importantly (for example) to show that <span class="math inline">\(\displaystyle \lim_{h \rightarrow 0}\frac{(x+h)^2 - x^2}{h}\)</span> actually does equal <span class="math inline">\(2x\)</span>?</p>
-<p>As an analogy: we feel<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>, intuitively, that murder is wrong. And we we write laws saying that if you murder someone, you go to jail. If you’re a judge, you can’t convict<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> a murderer because you “feel” they did something wrong. You can only convict them because they violated the law. We might base the law in intuition, but for the sake of consistency and due process, we must formalize it.</p>
+<p>As an analogy: we feel<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>, intuitively, that murder is wrong. And we we write laws saying that if you murder someone, you go to jail. If you’re a judge, you can’t convict<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> a murderer because you “feel” they did something wrong. You can only convict them because they violated the law. We might base the law in intuition, but for the sake of consistency and due process, we must formalize it.</p>
 <p>Likewise with a limit. We’ve developed, over the past few weeks, a strong intuition for what a limit is. We can compute them pretty well. But we want to formalize that: we want to put our intuition down on paper, and make it clear enough so that a computer, or a robot, (or a judge) with no sense of what “closer and closer” or “approaches” means could still understand a limit. We want to make it mathematically valid. We want to find a way of giving it a logical basis, because only if we do that can we be sure that limits actually work/exist, and that they’re not sophistical, and thus, that derivatives and the rest of calculus all work/exist, too. And we want to not just say “Here it is! This is the logical basis of a limit!” We want to connect it to our intuition—to show that it matches up with what our intuition for a limit is.</p>
 <h2 id="example">Example</h2>
 <p>What if we have <span class="math inline">\(\displaystyle \lim_{x\rightarrow 2} 3x+1\)</span>? Obviously, we know this limit is just <span class="math inline">\(7\)</span>… but do we? how do we really <em>know</em> that the limit is <span class="math inline">\(7\)</span>? Can we prove this? Using our definition of a limit?</p>
 <p>Because here is the thing: it is our obvious intuition that the limit is 7. But we want to be totally formal and totally symbolic. Not being formal/rigorous is what got us into this mess in the first place—it was a lack of formality that had us happily dividing by zero to take all those derivatives, and convinced that this was fine.</p>
-<p>So if we want to prove that the limit is 7, we’ll need to show that the statement ``<span class="math inline">\(\displaystyle \lim_{x \rightarrow 1} 3x + 1 = 7\)</span>’’ actually is in conformity/compliance with our rigorous, mathematical definition of a limit. Meaning we’ll need to show that there <em>does</em> actually exist a number <span class="math inline">\(\delta\)</span>, such that for every possible positive real number <span class="math inline">\(\epsilon\)</span>, it is the case that if <span class="math inline">\(|x - 2| &lt; \delta\)</span>, then <span class="math inline">\(| (3x + 1) - 7 | &lt; \epsilon\)</span>.</p>
+<p>So if we want to prove that the limit is 7, we’ll need to show that the statement “<span class="math inline">\(\displaystyle \lim_{x \rightarrow 1} 3x + 1 = 7\)</span>” actually is in conformity/compliance with our rigorous, mathematical definition of a limit. Meaning we’ll need to show that there <em>does</em> actually exist a number <span class="math inline">\(\delta\)</span>, such that for every possible positive real number <span class="math inline">\(\epsilon\)</span>, it is the case that if <span class="math inline">\(|x - 2| &lt; \delta\)</span>, then <span class="math inline">\(| (3x + 1) - 7 | &lt; \epsilon\)</span>.</p>
+<p><img src="edlimit1_1.png" style="width:50.0%" /></p>
 So in principle, all we need to do is show that if <span class="math inline">\(x\)</span> is within <span class="math inline">\(\delta\)</span> of <span class="math inline">\(2\)</span>, then <span class="math inline">\(3x+1\)</span> is within <span class="math inline">\(\epsilon\)</span> of <span class="math inline">\(6\)</span>. Put differently, we need to start with the statement <span class="math inline">\(|x-2|&lt;\delta\)</span> and algebraically manipulate it to get <span class="math inline">\(|3x+1 \,-\,7| &lt; \epsilon\)</span>:
 <p>Here is the difficulty: we start with <span class="math inline">\(\delta\)</span> on the right side of the inequality, but then at the end we need to end up with <span class="math inline">\(\epsilon\)</span> on the right side. How do we get from <span class="math inline">\(\delta\)</span> to <span class="math inline">\(\epsilon\)</span>? What is the relationship between <span class="math inline">\(\delta\)</span> and <span class="math inline">\(\epsilon\)</span>? That’s the algebraic way of putting that question; put graphically, this is the same as asking: if <span class="math inline">\(3x+1\)</span> is within <span class="math inline">\(\epsilon\)</span> of <span class="math inline">\(6\)</span>, how close must <span class="math inline">\(x\)</span> be to <span class="math inline">\(2\)</span>? (Because the distance from <span class="math inline">\(x\)</span> to <span class="math inline">\(2\)</span> is, by definition, <span class="math inline">\(\delta\)</span>.) Maybe the distance between <span class="math inline">\(x\)</span> and <span class="math inline">\(2\)</span> has to be a third of the distance between <span class="math inline">\(3x+1\)</span> and <span class="math inline">\(6\)</span> (i.e., maybe <span class="math inline">\(\delta = \epsilon/3\)</span>). Or maybe we’ll be okay if the distance between <span class="math inline">\(x\)</span> and <span class="math inline">\(2\)</span> is less than twice the distance between <span class="math inline">\(3x+1\)</span> and <span class="math inline">\(2\)</span> (i.e., if <span class="math inline">\(\delta = 2\epsilon\)</span>). We don’t know. We could guess, and then just try to do the proof for various random values of <span class="math inline">\(\delta\)</span>, but this wouldn’t be particularly efficient.</p>
 So here’s a method we can use, at least for relatively simply functions, to make an educated guess about the relationship between <span class="math inline">\(\epsilon\)</span> and <span class="math inline">\(\delta\)</span>. What if we, in a sense, work backwards? We want to prove <span class="math inline">\(|x-2|&lt;\delta \Rightarrow |3x+1 \,-\,7| &lt; \epsilon\)</span>; what if we start with <span class="math inline">\(|3x+1 \,-\,7| &lt; \epsilon\)</span> and try to manipulate it to get it to look like <span class="math inline">\(|x-2| &lt; (\text{epsilon and stuff})\)</span>? Then we could compare it to <span class="math inline">\(|x-2|&lt;\delta\)</span>, set <span class="math inline">\(\delta = (\text{epsilon and stuff})\)</span>, and see if that works in our proof.
 <p>We end up with <span class="math inline">\(|x-2|&lt;\epsilon/3\)</span>, which looks a lot like <span class="math inline">\(|x-2|&lt;\delta\)</span>! So perhaps the relationship between <span class="math inline">\(\epsilon\)</span> and <span class="math inline">\(\delta\)</span> is this: perhaps <span class="math inline">\(\delta = \epsilon/3\)</span>. So this is suggesting (suggesting, not proving) that if we want <span class="math inline">\(3x+1\)</span> to be within <span class="math inline">\(\epsilon\)</span> units of <span class="math inline">\(6\)</span>, then <span class="math inline">\(x\)</span> needs to be within <span class="math inline">\(\epsilon/3\)</span> units of <span class="math inline">\(2\)</span>.</p>
-<p>Put differently, * if we want the function to be within <span class="math inline">\(3\)</span> units of <span class="math inline">\(7\)</span> (between <span class="math inline">\(4\)</span> and <span class="math inline">\(10\)</span>), then <span class="math inline">\(x\)</span> has to be within <span class="math inline">\(1\)</span> unit of <span class="math inline">\(2\)</span>; * if we want the function to be within <span class="math inline">\(1\)</span> units of <span class="math inline">\(7\)</span> (between 6 and 8), then <span class="math inline">\(x\)</span> has to be within <span class="math inline">\(1/3\)</span> of a unit of <span class="math inline">\(2\)</span> (between 1 and two-thirds and 2 and a third); * if we want the function to be within <span class="math inline">\(1/10\)</span> of a unit of <span class="math inline">\(7\)</span>, then <span class="math inline">\(x\)</span> has to be within <span class="math inline">\(1/30\)</span> of a unit of <span class="math inline">\(2\)</span>.</p>
+<p><img src="edlimit1_2.png" style="width:50.0%" /></p>
+<p>Put differently,</p>
+<ul>
+<li>if we want the function to be within <span class="math inline">\(3\)</span> units of <span class="math inline">\(7\)</span> (between <span class="math inline">\(4\)</span> and <span class="math inline">\(10\)</span>), then <span class="math inline">\(x\)</span> has to be within <span class="math inline">\(1\)</span> unit of <span class="math inline">\(2\)</span>;</li>
+<li>if we want the function to be within <span class="math inline">\(1\)</span> units of <span class="math inline">\(7\)</span> (between 6 and 8), then <span class="math inline">\(x\)</span> has to be within <span class="math inline">\(1/3\)</span> of a unit of <span class="math inline">\(2\)</span> (between 1 and two-thirds and 2 and a third);</li>
+<li>if we want the function to be within <span class="math inline">\(1/10\)</span> of a unit of <span class="math inline">\(7\)</span>, then <span class="math inline">\(x\)</span> has to be within <span class="math inline">\(1/30\)</span> of a unit of <span class="math inline">\(2\)</span>.</li>
+</ul>
 Let’s see if this is actually true—let’s see if we can prove that if <span class="math inline">\(x\)</span> is within <span class="math inline">\(\epsilon/3\)</span> units of <span class="math inline">\(2\)</span>, then <span class="math inline">\(3x+1\)</span> will be within <span class="math inline">\(\epsilon\)</span> units of <span class="math inline">\(6\)</span>. If we can do so, then we’ll prove that no matter how close we want <span class="math inline">\(3x+1\)</span> to be to <span class="math inline">\(6\)</span>, we can make <span class="math inline">\(x\)</span> close enough to <span class="math inline">\(2\)</span> to make that the case. (We can make this jump because <span class="math inline">\(\epsilon\)</span> could be any number—hence “no matter how close…”)
-<p>YAY!!!! So the limit as <span class="math inline">\(x\)</span> approaches <span class="math inline">\(2\)</span> of <span class="math inline">\(3x+1\)</span> {} 7!!!</p>
+<p>YAY!!!! So the limit as <span class="math inline">\(x\)</span> approaches <span class="math inline">\(2\)</span> of <span class="math inline">\(3x+1\)</span> <em>is</em> 7!!!</p>
+<div style="height:3em;">
+
+</div>
 <p>Here’s a question: what if <span class="math inline">\(\delta\)</span> were even smaller than <span class="math inline">\(\epsilon/3\)</span>? Meaning: we’ve shown that if <span class="math inline">\(x\)</span> is within <span class="math inline">\(\epsilon/3\)</span> of <span class="math inline">\(2\)</span>, then <span class="math inline">\(3x+1\)</span> is within <span class="math inline">\(\epsilon\)</span> of <span class="math inline">\(7\)</span>. But what if <span class="math inline">\(x\)</span> were within, say, <span class="math inline">\(\epsilon/18\)</span> of <span class="math inline">\(2\)</span>? what if it were even closer to <span class="math inline">\(2\)</span>?</p>
 <p>Well, presumably if <span class="math inline">\(x\)</span> is even closer to <span class="math inline">\(2\)</span>, then <span class="math inline">\(3x+1\)</span> will certainly still be within <span class="math inline">\(\epsilon\)</span> of <span class="math inline">\(7\)</span>. Put differently: if we make the distance between <span class="math inline">\(x\)</span> and <span class="math inline">\(2\)</span> really really really small, presumably <span class="math inline">\(f(x)\)</span> will still be within the normal distance away from <span class="math inline">\(L\)</span>. (“Within” and the inequality are the key concepts here—we’re <em>not</em> saying that <span class="math inline">\(3x+1\)</span> has to be <em>exactly</em> <span class="math inline">\(\epsilon\)</span> away from <span class="math inline">\(7\)</span>; we’re saying that it can be <em>at most</em> <span class="math inline">\(\epsilon\)</span> away from <span class="math inline">\(7\)</span>, but if it’s closer, more the better.)</p>
+<p><img src="edlimit1_3.png" style="width:50.0%" /></p>
 We can prove this:
 <p>Yay! So, <span class="math inline">\(\epsilon/3\)</span> is sort of like an upper bound for <span class="math inline">\(\delta\)</span>—it’s the largest that <span class="math inline">\(\epsilon\)</span> can be and still have <span class="math inline">\(3x+1\)</span> be within <span class="math inline">\(\epsilon\)</span> of <span class="math inline">\(6\)</span>. If we were to try this with, say, <span class="math inline">\(\delta = \epsilon/2\)</span>, it wouldn’t work—<span class="math inline">\(3x+1\)</span> might be further than <span class="math inline">\(\epsilon\)</span> away from <span class="math inline">\(6\)</span>. But it certainly can be closer.</p>
-<p>You might think, ``aren’t we doing the same thing twice here? didn’t we just do all of this, but backwards?’’ In a sense, this is true. But the direction in which we do this proof is very important. Here’s what I mean by that: essentially, these types of very simple <span class="math inline">\(\epsilon\)</span>-<span class="math inline">\(\delta\)</span> proofs have two steps. First, you find a relationship between <span class="math inline">\(\epsilon\)</span> and <span class="math inline">\(\delta\)</span>; second, you prove that it works. Why isn’t the first step sufficient for showing that it works?</p>
-Because as far as logic goes, direction <em>does</em> matter in if-then statements. Consider the two statements:
-and
-These are not equivalent! The former is (hopefully) true; the latter, false. There are other reasons I might go to jail. I might have committed tax fraud. Consider another example:
-and
-Again, these are clearly not the same statement—one is always true, and the other, always false. (Ithaca is not the only place that is cold. Chicago is cold, too. And Archangel<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>.) So in the case of our <span class="math inline">\(\epsilon\)</span>-<span class="math inline">\(\delta\)</span> proofs, we are trying to prove
-which is NOT the same as proving that
-<p>Trying to use the fact that <span class="math inline">\(| f(x) - L | \!&lt;\! \epsilon \,\Rightarrow \,| x-c | \!&lt;\! \delta\)</span> to prove that <span class="math inline">\(|x - c| \!&lt;\! \delta \,\Rightarrow \,|f(x) - L| \!&lt; \!\epsilon\)</span> is like saying <code>It is cold outside; therefore, I am in Ithaca!'' or</code>I am in jail; therefore, I killed someone!’’ It does not logically follow. (Remember that the double arrow <span class="math inline">\(\Rightarrow\)</span> is the way of writing if-then (a {} or {}) in logical notation.)</p>
+<p>You might think, “aren’t we doing the same thing twice here? didn’t we just do all of this, but backwards?” In a sense, this is true. But the direction in which we do this proof is very important. Here’s what I mean by that: essentially, these types of very simple <span class="math inline">\(\epsilon\)</span>-<span class="math inline">\(\delta\)</span> proofs have two steps. First, you find a relationship between <span class="math inline">\(\epsilon\)</span> and <span class="math inline">\(\delta\)</span>; second, you prove that it works. Why isn’t the first step sufficient for showing that it works?</p>
+<p>Because as far as logic goes, direction <em>does</em> matter in if-then statements. Consider the two statements:</p>
+<blockquote>
+<p>If I kill someone, then I will go to jail.</p>
+</blockquote>
+<p>and</p>
+<blockquote>
+<p>If I go to jail, then I killed someone.</p>
+</blockquote>
+<p>These are not equivalent! The former is (hopefully) true; the latter, false. There are other reasons I might go to jail. I might have committed tax fraud. Consider another example:</p>
+<blockquote>
+<p>If I’m in Ithaca, then it’s cold outside.</p>
+</blockquote>
+<p>and</p>
+<blockquote>
+<p>If it’s cold outside, then I’m in Ithaca.</p>
+</blockquote>
+<p>Again, these are clearly not the same statement—one is always true, and the other, always false. (Ithaca is not the only place that is cold. Chicago is cold, too. And Archangel<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>.) So in the case of our <span class="math inline">\(\epsilon\)</span>-<span class="math inline">\(\delta\)</span> proofs, we are trying to prove &gt; if <span class="math inline">\(| x-c | &lt; \delta\)</span>, then <span class="math inline">\(| f(x) - L | &lt; \epsilon\)</span>.</p>
+<p>which is NOT the same as proving that:</p>
+<blockquote>
+<p>if <span class="math inline">\(| f(x) - L | &lt; \epsilon\)</span>, then if <span class="math inline">\(| x-c | &lt; \delta\)</span>.</p>
+</blockquote>
+<p>Trying to use the fact that <span class="math inline">\(| f(x) - L | \!&lt;\! \epsilon \,\Rightarrow \,| x-c | \!&lt;\! \delta\)</span> to prove that <span class="math inline">\(|x - c| \!&lt;\! \delta \,\Rightarrow \,|f(x) - L| \!&lt; \!\epsilon\)</span> is like saying “It is cold outside; therefore, I am in Ithaca!” or “I am in jail; therefore, I killed someone!” It does not logically follow. (Remember that the double arrow <span class="math inline">\(\Rightarrow\)</span> is the way of writing if-then (a <em>conditional</em> or <em>implication</em>) in logical notation.)</p>
 You might also want to remember the truth-table for implication:
 <h2 id="weird-example">Weird Example</h2>
 <p>What if we want to prove that <span class="math inline">\(\displaystyle \lim_{x \rightarrow 2}4\)</span>? Obviously this is just equal to <span class="math inline">\(4\)</span>. The function <span class="math inline">\(f(x) = 4\)</span> is shockingly boring—no matter what <span class="math inline">\(x\)</span> is, it’s always <span class="math inline">\(4\)</span>.</p>
+<p><img src="edlimit2_1.png" style="width:50.0%" /></p>
 <p>But how do we prove that <span class="math inline">\(\displaystyle \lim_{x \rightarrow 2}4 = 4\)</span>? The first step, of course, is finding a relationship between <span class="math inline">\(\epsilon\)</span> and <span class="math inline">\(\delta\)</span>—of finding out, if we want <span class="math inline">\(f(x)\)</span> to be within <span class="math inline">\(\epsilon\)</span> of <span class="math inline">\(4\)</span>, how close <span class="math inline">\(x\)</span> has to be to <span class="math inline">\(2\)</span>.</p>
+<p><img src="edlimit2_2.png" style="width:50.0%" /></p>
 <p>But obviously, <span class="math inline">\(x\)</span> can be as close or far away from <span class="math inline">\(2\)</span> as we like. No matter how close <span class="math inline">\(x\)</span> is to <span class="math inline">\(2\)</span>, <span class="math inline">\(f(x)\)</span> will always be within <span class="math inline">\(\epsilon\)</span> of <span class="math inline">\(4\)</span>—because <span class="math inline">\(f(x)\)</span> always <em>is</em> <span class="math inline">\(4\)</span>. Put differently: <span class="math inline">\(\delta\)</span> <em>can be absolutely anything</em>. It doesn’t matter what <span class="math inline">\(\delta\)</span> is.</p>
+<p><img src="edlimit2_3.png" style="width:50.0%" /></p>
 How do we show this algebraically? Well, we know, by our construction of the <span class="math inline">\(\epsilon\)</span>-<span class="math inline">\(\delta\)</span> definition, that <span class="math inline">\(\epsilon\)</span> must be greater than <span class="math inline">\(0\)</span>. (Part of the definition is that <span class="math inline">\(\epsilon\)</span> is a positive real number.) But if <span class="math inline">\(0 &lt; \epsilon\)</span>, then surely
 <p>We’ve proven it—surprisingly quickly! We never even had to use any knowledge of <span class="math inline">\(x\)</span> or <span class="math inline">\(c\)</span> or <span class="math inline">\(\delta\)</span>. Because regardless of what <span class="math inline">\(x\)</span> and <span class="math inline">\(c\)</span> and <span class="math inline">\(\delta\)</span> are, <span class="math inline">\(f(x) - L\)</span> will <em>always</em> be less than <span class="math inline">\(\epsilon\)</span>. Because <span class="math inline">\(f(x) - L\)</span> is <em>always</em> 0, and <span class="math inline">\(\epsilon\)</span> has to be a positive number. So then <span class="math inline">\(|f(x) - L| = 0 &lt; \epsilon\)</span>. Which is just what we showed up there.</p>
-<p>If you’re skeptical about our lack of inclusion of <span class="math inline">\(|x-c| &lt;\delta\)</span>, think about the logic^[Logic in the real, LOGICAL sense—not in the sense of, <code>Um, Mr. Alexander, can't we just do this problem using logic? Because it, like, makes sense. So it's logical. Right?'']. We want to show that $|x - c| &lt; \delta \,\Rightarrow \,|f(x) - L| &lt; \epsilon$, and the truth table for implication (</code>if-then’’) looks like this:</p>
+<p>If you’re skeptical about our lack of inclusion of <span class="math inline">\(|x-c| &lt;\delta\)</span>, think about the logic<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a>. We want to show that <span class="math inline">\(|x - c| &lt; \delta \,\Rightarrow \,|f(x) - L| &lt; \epsilon\)</span>, and the truth table for implication (“if-then”) looks like this:</p>
 <p>If <span class="math inline">\(|f(x) - L| &lt; \epsilon\)</span> is true, then <span class="math inline">\(|x - c| &lt; \delta \,\Rightarrow \,|f(x) - L| &lt; \epsilon\)</span> will always be true, regardless of whether <span class="math inline">\(|x-c|\)</span> is less than <span class="math inline">\(\delta\)</span> or not. And <span class="math inline">\(|f(x) - L| &lt; \epsilon\)</span> <em>is</em> true. That’s what we showed with algebra above. So it is true that <span class="math inline">\(|x - c| &lt; \delta \,\Rightarrow \,|f(x) - L| &lt; \epsilon\)</span>; thus, we have satisfied the definition of a limit, and thus, <span class="math inline">\(\displaystyle \lim_{x \rightarrow 2}4 = 4\)</span>.</p>
 <h2 id="weirder-example">Weirder Example</h2>
 <p>TO COME</p>
 <h2 id="we-mean-multiple-things-when-we-talk-about-limits">We Mean Multiple Things When We Talk About Limits</h2>
 <p>Earlier, I used a legal analogy to describe the <span class="math inline">\(\epsilon\)</span>-<span class="math inline">\(\delta\)</span> definition of a limit and <span class="math inline">\(\epsilon\)</span>-<span class="math inline">\(\delta\)</span> proofs. I said that the definition was an attempt to formalize our intuition—to give limits a solid basis outside of our human minds, in the same way that we codify laws in order to be consistent and give due process.</p>
-<p>Now, occasionally, we might feel that the law doesn’t accurately represent our intuition—that there is some loophole through which “bad guys” are, legally, doing the wrong thing. So then we might change the law such that the loophole is closed. Then what they are doing is illegal, and then they will go to jail. But even if we do that, we still have to rely on the law. We might be basing the law in intuition, but for the sake of consistency and due process, we must formalize it<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>.</p>
-<p>Allow me to assert, then, that our current <span class="math inline">\(\epsilon\)</span>-<span class="math inline">\(\delta\)</span> definition of a limit does <em>not</em> capture our complete intuition about what we mean by a limit. Consider, for instance:<span class="math display">\[\displaystyle \lim_{x\rightarrow c} f(x) = \infty\]</span>(Such as in the case of a vertical asymptote) What do we mean when we say this? We do <em>not</em> mean literally the same thing as in the case of <span class="math inline">\(\displaystyle \lim_{x\rightarrow c} f(x) = L\)</span>; we do not mean <code>as $x$ gets closer and closer to $0$, $f(x)$ gets closer and closer to infinity.'' It is somewhat oxymoronic to talk about something getting</code>closer’’ to an infinite magnitude. Previously, we have only discussed the cases of limits approaching finite numbers and becoming finite numbers; what if we have a function that (again, using the math terminology), <code>increases without bound''? What we mean is simply: \begin{quotation}</code>as <span class="math inline">\(x\)</span> gets closer and closer to <span class="math inline">\(0\)</span>,</p>
-<span class="math inline">\(f(x)\)</span> gets bigger and bigger.’’ \end{quotation} Or, put differently:
-But, as before, we can measure distance (i.e., <code>big''ness and</code>close’’ness) using a number!
-See a pattern here in our definition-construction? Let’s be slightly clearer:
-So then we can say:
+<p>Now, occasionally, we might feel that the law doesn’t accurately represent our intuition—that there is some loophole through which “bad guys” are, legally, doing the wrong thing. So then we might change the law such that the loophole is closed. Then what they are doing is illegal, and then they will go to jail. But even if we do that, we still have to rely on the law. We might be basing the law in intuition, but for the sake of consistency and due process, we must formalize it<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a>.</p>
+<p>Allow me to assert, then, that our current <span class="math inline">\(\epsilon\)</span>-<span class="math inline">\(\delta\)</span> definition of a limit does <em>not</em> capture our complete intuition about what we mean by a limit. Consider, for instance:<span class="math display">\[\displaystyle \lim_{x\rightarrow c} f(x) = \infty\]</span>(Such as in the case of a vertical asymptote) What do we mean when we say this? We do <em>not</em> mean literally the same thing as in the case of <span class="math inline">\(\displaystyle \lim_{x\rightarrow c} f(x) = L\)</span>; we do not mean <code>as $x$ gets closer and closer to $0$, $f(x)$ gets closer and closer to infinity.'' It is somewhat oxymoronic to talk about something getting</code>closer’’ to an infinite magnitude. Previously, we have only discussed the cases of limits approaching finite numbers and becoming finite numbers; what if we have a function that (again, using the math terminology), “increases without bound”? What we mean is simply:</p>
+<blockquote>
+<p>as <span class="math inline">\(x\)</span> gets closer and closer to <span class="math inline">\(0\)</span>,</p>
+<p><span style="margin-left: 3em; "><span class="math inline">\(f(x)\)</span> gets bigger and bigger."</span></p>
+</blockquote>
+<p>Or, put differently:</p>
+<blockquote>
+<p>I can make <span class="math inline">\(f(x)\)</span> as big as I want,</p>
+<p><span style="margin-left: 3em; ">simply by making <span class="math inline">\(x\)</span> close enough to <span class="math inline">\(c\)</span>."</span></p>
+</blockquote>
+<p>But, as before, we can measure distance (i.e., “big”ness and “close”ness) using a number!</p>
+<blockquote>
+<p>"No matter what positive number I use in specifying how big I want <span class="math inline">\(f(x)\)</span> to be,</p>
+<p><span style='margin-left: 3em; '>I can find how close <span class="math inline">\(x\)</span> has to be to <span class="math inline">\(c\)</span> (measured as a positive number)</p>
+<p><span style='margin-left: 6em; '>such that <span class="math inline">\(f(x)\)</span> is, in fact, actually that big."</p>
+</blockquote>
+<p>See a pattern here in our definition-construction? Let’s be slightly clearer:</p>
+<ul>
+<li>The positive real number used in measuring how big we want <span class="math inline">\(f(x)\)</span> to be—let’s call that <span class="math inline">\(M\)</span>.</li>
+<li>And the small positive real number used in measuring how close <span class="math inline">\(x\)</span> needs to be to <span class="math inline">\(c\)</span>—let’s call that <span class="math inline">\(\delta\)</span>.</li>
+</ul>
+<p>So then we can say:</p>
+<blockquote>
+<p>For every positive real number <span class="math inline">\(M\)</span>,</p>
+<p><span style='margin-left: 3em; '>there is a positive real number <span class="math inline">\(\delta\)</span> (that depends on <span class="math inline">\(M\)</span>), such that</p>
+<p><span style='margin-left: 6em; '>if <span class="math inline">\(x\)</span> is within <span class="math inline">\(\delta\)</span> of <span class="math inline">\(c\)</span>, then <span class="math inline">\(f(x)\)</span> is greater than <span class="math inline">\(M\)</span>.</p>
+</blockquote>
 <p>But again, let’s phrase this more mathematically.</p>
-<p>``<span class="math inline">\(f(x)\)</span> is greater than <span class="math inline">\(M\)</span>’’ means that <span class="math inline">\(f(x) &gt; M\)</span></p>
+<p>“<span class="math inline">\(f(x)\)</span> is greater than <span class="math inline">\(M\)</span>” means that <span class="math inline">\(f(x) &gt; M\)</span></p>
 <p>And…</p>
-<p>``<span class="math inline">\(x\)</span> is within <span class="math inline">\(\delta\)</span> of <span class="math inline">\(c\)</span>’’ means that</p>
+<p>“<span class="math inline">\(x\)</span> is within <span class="math inline">\(\delta\)</span> of <span class="math inline">\(c\)</span>” means that</p>
 <p>the distance between <span class="math inline">\(x\)</span> and <span class="math inline">\(c\)</span> is less than <span class="math inline">\(\delta\)</span>,</p>
 <p>which means that <span class="math inline">\(|x- c| &lt; \delta\)</span>.</p>
-So then what we mean by <span class="math inline">\(\displaystyle \lim_{x \rightarrow c} f(x) = \infty\)</span> is:
+<p>So then what we mean by <span class="math inline">\(\displaystyle \lim_{x \rightarrow c} f(x) = \infty\)</span> is:</p>
+<blockquote>
+<p>For every positive real number <span class="math inline">\(M\)</span>, there is a positive real number <span class="math inline">\(\delta\)</span> (that depends on <span class="math inline">\(M\)</span>), such that if <span class="math inline">\(|x - c| &lt; \delta\)</span>, then <span class="math inline">\(f(x) &gt; M\)</span>.</p>
+</blockquote>
 <p>Put differently: <span class="math display">\[\overbrace{\text{For every positive real number }M}^{\mathclap{\text{no matter how big we want} f(x) \text{ to be}}},  \,\, \underbrace{\text{there is a number } \delta}_{\mathclap{\text{we can find how close }x\text{ must be to }c}}, \,\,  \overbrace{\text{such that if }|x - c| &lt; \delta\text{, then }f(x) &gt; M}^{\mathclap{\text{so that }f(x)\text{ is at least that big}}}
 \]</span></p>
-We could come up with analogous definitions for <span class="math inline">\(\displaystyle \lim_{x\rightarrow \infty} f(x) = L\)</span> and <span class="math inline">\(\displaystyle \lim_{x\rightarrow \infty} f(x) = \infty\)</span>. In fact, you’ll do just that in the homework. In fact, you could come up with a whole table of various limit definitions for the various possible limits of <span class="math inline">\(x\)</span> and <span class="math inline">\(f(x)\)</span>:
+<p>We could come up with analogous definitions for <span class="math inline">\(\displaystyle \lim_{x\rightarrow \infty} f(x) = L\)</span> and <span class="math inline">\(\displaystyle \lim_{x\rightarrow \infty} f(x) = \infty\)</span>. In fact, you’ll do just that in the homework. In fact, you could come up with a whole table of various limit definitions for the various possible limits of <span class="math inline">\(x\)</span> and <span class="math inline">\(f(x)\)</span>:</p>
 <h2 id="problems">Problems</h2>
-For the following problems:
-<p>\end{document}</p>
+<p>For the following problems:</p>
+<ul>
+<li>Find the value of the limit.</li>
+<li>Sketch the function, being sure to label the limit point (on the <span class="math inline">\(x\)</span>) and a little <span class="math inline">\(\delta\)</span>-neighborhood around it, and the limit value (on the <span class="math inline">\(y\)</span>) and a little <span class="math inline">\(\epsilon\)</span>-neighborhood around it.</li>
+<li>Write down the <span class="math inline">\(\epsilon\)</span>-<span class="math inline">\(\delta\)</span> definition of a limit. Seriously. I know it’s on this sheet, but you’ll need to have more-or-less memorized, so you may as well practice.</li>
+<li>Using the <span class="math inline">\(\epsilon\)</span>-<span class="math inline">\(\delta\)</span> definition, find a feasible relationship between <span class="math inline">\(\epsilon\)</span> and <span class="math inline">\(\delta\)</span>. (Graphically, does this make sense? does it seem, based on your sketch of the situation, that the relationship should be so?)</li>
+<li>Then do the actual proof: show that if <span class="math inline">\(| \, x - c \, | &lt; \delta\)</span>, then <span class="math inline">\(| \, f(x) - L \, | &lt; \epsilon\)</span>. You can do this by starting with <span class="math inline">\(| \, x - c \, | &lt; \delta\)</span> and then, via substitution and algebraic manipulation (possibly painful manipulation, and keeping in mind the various properties of absolute values that you’ll need), ending up with <span class="math inline">\(| \, f(x) - L \, | &lt; \epsilon\)</span>.</li>
+</ul>
+<ol class='problems'>
+<li>
+<span class="math inline">\(\displaystyle \lim_{x \rightarrow 3} (3x - 2)\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \lim_{x\rightarrow 1} (4x + 2)\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \lim_{x\rightarrow 5} (x)\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \lim_{x\rightarrow 0} (-x + 2)\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \lim_{x\rightarrow 4} \left(\frac{1}{2}x + 7\right)\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \lim_{x\rightarrow 2} (6x + 3)\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \lim_{x\rightarrow 7} (-2x + 19)\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \lim_{x\rightarrow 0} \left(\frac{5}{2}x + 3\right)\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \lim_{x\rightarrow 1} (4)\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \lim_{x\rightarrow \pi} (\pi)\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \lim_{x\rightarrow c} (k)\)</span>, where <span class="math inline">\(c\)</span> and <span class="math inline">\(k\)</span> are both constants.
+</li>
+<li>
+<span class="math inline">\(\displaystyle \lim_{x\rightarrow 4} (x - 6)\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \lim_{x\rightarrow 1} (2x - 7)\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \lim_{x\rightarrow -3} \left(\frac{1}{3}x - 4\right)\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \lim_{x\rightarrow c} (ax + b)\)</span>, where <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span>, and <span class="math inline">\(c\)</span> are all constants. (This is the general case of the previous dozen or so problems… which, note, are all relatively simple linear functions. Epsilon-delta proofs get quite a bit tougher as the functions get more interesting. But, if you do an <span class="math inline">\(\epsilon\)</span>-<span class="math inline">\(\delta\)</span> proof for this function, you’ve basically done it for every other linear function (and you can get the particular results by plugging in the appropriate values of <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span>, and <span class="math inline">\(c\)</span>.)
+</li>
+<li>
+<span class="math inline">\(\displaystyle \lim_{x\rightarrow 0} \frac{1}{x^2}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \lim_{x\rightarrow 0} \frac{1}{x^4}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \lim_{x\rightarrow -7} \frac{1}{(x+7)^2}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \lim_{x\rightarrow 3} \sqrt{x+1}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \lim_{x\rightarrow 0} (x^2)\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \lim_{x\rightarrow 0} (x^2 - 1)\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \lim_{x\rightarrow 3} \sqrt{3-x}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \lim_{x\rightarrow 1} (x^2 + 3)\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \lim_{x\rightarrow -1} (x^2 + 3)\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \lim_{x\rightarrow 2} (3x^2 - x)\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \lim_{x\rightarrow 0} (x^2 + x -2)\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \lim_{x\rightarrow 0} (x^2 -4x - 5)\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \lim_{x\rightarrow 0} (x^3)\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \lim_{x\rightarrow c} (\, f(x) + g(x) \,) = \lim_{x\rightarrow c} f(x) + \lim_{x\rightarrow c} g(x)\)</span> (This is a fundamental property of limits! Hint: use the triangle inequality (one of the properties of absolute values).)
+<li>
+<span class="math inline">\(\displaystyle \lim_{x\rightarrow c} kf(x) = k\lim_{x\rightarrow c} f(x)\)</span>, where <span class="math inline">\(k\)</span> is a constant. (Again, this is another important limit property!)
+</li>
+<li>
+<span class="math inline">\(\displaystyle \lim_{x\rightarrow c} (\, f(x) - g(x) \,) = \lim_{x\rightarrow c} f(x) - \lim_{x\rightarrow c} g(x)\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \lim_{h\rightarrow 0} \frac{(x+h)^2-x^2}{h}\)</span>
+</li>
+<li>
+<span class="math inline">\(\displaystyle \lim_{h\rightarrow 0} \frac{(a(x+h) +b) -(ax+b)}{h}\)</span>
+</li>
+</ol>
+<div style="height:5em;">
+
+</div>
+<ol class='problems'>
+<li>
+In the same manner in which we constructed the definitions for <span class="math inline">\(\displaystyle \lim_{x\rightarrow c} f(x) = L\)</span> and <span class="math inline">\(\displaystyle \lim_{x\rightarrow c} f(x) = \infty\)</span>, come up with a suitable definition for <span class="math inline">\(\displaystyle \lim_{x \rightarrow \infty}f(x) = L\)</span>. (Explain your reasoning!)
+</li>
+<li>
+Using the definition you constructed above, prove that <span class="math inline">\(\displaystyle \lim_{x \rightarrow \infty} \frac{1}{x} = 0\)</span>.
+<li>
+Likewise, construct a definition for <span class="math inline">\(\displaystyle \lim_{x\rightarrow c} f(x) = -\infty\)</span>, and then prove that <span class="math inline">\(\displaystyle \lim_{x\rightarrow 5} \frac{-1}{(x - 5)^2} = -\infty\)</span>
+</li>
+<li>
+Now come up with a definition for <span class="math inline">\(\displaystyle \lim_{x\rightarrow \infty} f(x) = \infty\)</span> (i.e., the case in which <span class="math inline">\(x\)</span> and <span class="math inline">\(f(x)\)</span> both get bigger and bigger), and then show that <span class="math inline">\(\displaystyle \lim_{x\rightarrow \infty} x^2 = \infty\)</span>
+</li>
+</ol>
 <section class="footnotes" role="doc-endnotes">
 <hr />
 <ol>
-<li id="fn1" role="doc-endnote"><p>Note that <span class="math inline">\(0! = 1\)</span>, so the first term isn’t undefined or anything.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2" role="doc-endnote"><p>Meaning, “most of us.”<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn3" role="doc-endnote"><p>Granted, capital cases in the US are tried by jury. But some in some other countries (e.g., Japan) they are tried by judges. In any case, juries have to apply the law, too, rather than “feelings.”<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn4" role="doc-endnote"><p>the city in northern Russia, where that scene from <em>Frankenstein</em> takes place<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn5" role="doc-endnote"><p>Of course—and this continues the analogy with morality—there are plenty of situations in which we <em>don’t</em> have intuition about how things should be. If we are standing on a bridge next to a fat person, and see, below the bridge, a train speeding out of control towards a half-dozen unsuspecting railworkers, should we push the fat guy off the bridge so that he falls onto the switch and diverts the runaway train onto a different track, saving the lives of the railworkers but losing the life of the fat guy? It is not clear. In this sort of situation we might want to revert to the formalism to develop our intuition—e.g., “I don’t know, intuitively, what is right and wrong in this situation, but if we apply the laws…”<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1" role="doc-endnote"><p>Where do I put the question mark? I’ve asked a question, but I can’t put the question mark until the question is finished. Do I put it beneath the equations? to the right side of them? do I do the Spanish thing and start with an upside-down question mark???<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p>Note that <span class="math inline">\(0! = 1\)</span>, so the first term isn’t undefined or anything.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3" role="doc-endnote"><p>Meaning, “most of us.”<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4" role="doc-endnote"><p>Granted, capital cases in the US are tried by jury. But some in some other countries (e.g., Japan) they are tried by judges. In any case, juries have to apply the law, too, rather than “feelings.”<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5" role="doc-endnote"><p>the city in northern Russia, where that scene from <em>Frankenstein</em> takes place<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6" role="doc-endnote"><p>Logic in the real, LOGICAL sense—not in the sense of, “Um, Mr. Alexander, can’t we just do this problem using logic? Because it, like, makes sense. So it’s logical. Right?”<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn7" role="doc-endnote"><p>Of course—and this continues the analogy with morality—there are plenty of situations in which we <em>don’t</em> have intuition about how things should be. If we are standing on a bridge next to a fat person, and see, below the bridge, a train speeding out of control towards a half-dozen unsuspecting railworkers, should we push the fat guy off the bridge so that he falls onto the switch and diverts the runaway train onto a different track, saving the lives of the railworkers but losing the life of the fat guy? It is not clear. In this sort of situation we might want to revert to the formalism to develop our intuition—e.g., “I don’t know, intuitively, what is right and wrong in this situation, but if we apply the laws…”<a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 </main>

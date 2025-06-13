@@ -1,5 +1,5 @@
 ---
-title: Every Triangle Is The Right Triangles
+title: Every Triangle Is The Right Triangle
 usemathjax: true
 layout: post
 ---

@@ -121,7 +121,7 @@ f(x) \,\,&amp;=\,\, \lim_{h \rightarrow 0} \frac{A(x+h)-A(x)}{h}
 &amp;=21.\overline{3}
 \end{align*}\]</span> So we have: <img src="area-under-x2-zero-to-four-2.svg" /> Yay! It’s a curvy area! We calculated our first curvy area!!!</p>
 <p>So, to summarize and generalize what we just did:</p>
-<p><span class="math display">\[\boxed{  \substack{\text{the area between $f(x)$ and the $x$-axis}\\\text{from $x=0$ out to $x=b$}} \quad=\quad \substack{\text{the antiderivative of }f(x)\\\text{but with  }b\text{ plugged in for }x} }\]</span></p>
+<p><span class="math display">\[\boxed{ \,\,\Large \substack{\text{the area between $f(x)$ and the $x$-axis}\\\text{from $x=0$ out to $x=b$}} \quad=\quad \substack{\text{the antiderivative of }f(x)\\\text{but with  }b\text{ plugged in for }x} \,\,}\]</span></p>
 <h2 id="lets-use-an-antiderivative-to-find-a-more-complicated-area">Let’s Use an Antiderivative To Find a More Complicated Area!</h2>
 <p>What if we want to find the area beneath <span class="math inline">\(x^2\)</span>, not from <span class="math inline">\(x=0\)</span> out to <span class="math inline">\(x=4\)</span>, but from (say) <span class="math inline">\(x=1\)</span> out to <span class="math inline">\(x=4\)</span>?</p>
 <p><img src="area-under-x2-one-to-four-1.svg" /></p>
@@ -141,12 +141,13 @@ f(x) \,\,&amp;=\,\, \lim_{h \rightarrow 0} \frac{A(x+h)-A(x)}{h}
 <p>Yay! So the area is just <span class="math inline">\(21\)</span>!</p>
 <p><img src="area-under-x2-one-to-four-2.svg" /></p>
 <p>So, let’s summarize and generalize what we did here! We wanted to find the area of some curvy shape, between two points on the <span class="math inline">\(x\)</span>-axis (or two vertical lines), and we did that by subtracting antiderivatives:</p>
-<p><span class="math display">\[\boxed{\substack{\text{the area between $f(x)$ and the $x$-axis}\\\text{between the vertical lines $x=a$ and $x=b$}} \quad=\quad \substack{\text{the antiderivative of }f(x)\\\text{but with  }b\text{ plugged in for }x} \quad-\quad  \substack{\text{the antiderivative of }f(x)\\\text{but with  }a\text{ plugged in for }x}}\]</span></p>
+<p><span class="math display">\[\boxed{\,\, \large \substack{\text{the area between $f(x)$ and the $x$-axis}\\\text{between the vertical lines $x=a$ and $x=b$}} \quad=\quad \substack{\text{the antiderivative of }f(x)\\\text{but with  }b\text{ plugged in for }x} \,\,-\,\,  \substack{\text{the antiderivative of }f(x)\\\text{but with  }a\text{ plugged in for }x} \,\, }\]</span></p>
 <h1 id="lets-make-some-notation-for-the-area-function">Let’s Make Some Notation For the “Area” Function</h1>
 <p>Since we’re talking about these areas, let’s make some notation to make our lives a little easier. Let’s call this function for the area an <strong>integral</strong>, and define it thusly:</p>
 <div class="callout-box" style="width:auto;">
 <p><span class="math display">\[\begin{align*}\Large \int_a^b \! f(x)\,dx \,\,&amp;=\quad \substack{\text{\Large the area between $f(x)$ and the $x$-axis,}\\\text{\Large between $x=a$ and $x=b$}} \\ \\
-&amp;= \Big( \substack{\text{the antiderivative of }f(x)\\\text{but with  }b\text{ plugged in for }x} \Big) \quad-\quad \Big( \substack{\text{the antiderivative of }f(x)\\\text{but with  }a\text{ plugged in for }x} \Big)\end{align*}\]</span></p>
+&amp;= \,\, {\large \Big( \substack{\text{the antiderivative of }f(x)\\\text{but with  }b\text{ plugged in for }x} \Big) \,\,-\,\, \Big( \substack{\text{the antiderivative of }f(x)\\\text{but with  }a\text{ plugged in for }x} \Big) }
+\end{align*}\]</span></p>
 <p><img src="integral-notation.svg" /></p>
 </div>
 <p>We pronounce this as “the integral from <span class="math inline">\(a\)</span> to <span class="math inline">\(b\)</span>, of <span class="math inline">\(f(x) \, dx\)</span>.” This is just a fancy notation for a very simple idea: the idea of area. So, for example, in the first example, to find the area of <span class="math inline">\(x^2\)</span> from <span class="math inline">\(0\)</span> out to <span class="math inline">\(4\)</span>, we found: <span class="math display">\[\int_0^4 x^2\,dx = 21.\overline{3}\]</span> In the second example, to find the area of <span class="math inline">\(x^2\)</span> from <span class="math inline">\(0\)</span> out to <span class="math inline">\(4\)</span>, we found: <span class="math display">\[\int_1^4 x^2\,dx = 21\]</span> Don’t worry about the “<span class="math inline">\(dx\)</span>” part. For now, you can just think of it as being like a closing parentheses, telling us what’s inside the content of the integral and what’s not (as well as telling us what the variable is).</p>

@@ -46,7 +46,7 @@
 </head>
 <body>
   <header>
-    <span id="header-name">the natural history <span style="font-weight:normal;">of abstract objects</span></span> <span id="linkback"><a href=http://www.andrusia.com><img src="/andrew-logo.svg" id='header-logo' style='width: auto;'/></a></span>
+  <span id="header-name"> <a href='/'>the natural history <span style="font-weight:normal;">of abstract objects</span></a></span> <span id="linkback"><a href=http://www.andrusia.com><img src="/andrew-logo.svg" id='header-logo' style='width: auto;'/></a></span>
 </header>
 <script>document.addEventListener('DOMContentLoaded', function(e) {
   Scroller.init();
@@ -57,8 +57,7 @@
 <ul>
 <li><a href="#visually">visually</a></li>
 <li><a href="#algebraically">algebraically</a></li>
-<li><a href="#lets-generalize">let’s generalize!</a></li>
-<li><a href="#okay-cool-example">okay cool example?</a></li>
+<li><a href="#problems">Problems</a></li>
 </ul>
 </nav>
 </div>
@@ -68,40 +67,37 @@
 <div id="title-block">
 <h1 class="title">what’s the derivative of inverse tangent?</h1>
 </div>
-<p>what’s the derivative of inverse tangent?</p>
+<p>What’s the derivative of inverse tangent? Who knows?!?</p>
 <h2 id="visually">visually</h2>
-<p>sketch tanbgent</p>
-<p>sketch its inverse</p>
-<p>sketch its dericative</p>
-<p>sketch its derivative inverse</p>
+<p>OK, let’s see if we can think about this visually. (Of course we should <em>always</em> be thinking about derivatives visually!) Can we sketch tangent, sketch its inverse, and then sketch the slope of its inverse???</p>
+<p>Tangent looks like:</p>
+<p>PICTURE</p>
+<p>Visually, we can find/make inverses just by reflecting a function across the line <span class="math inline">\(y=x\)</span> (because that’s the same as making the input the output, which is what it means to take an inverse). So inverse tangent looks like:</p>
+<p>PICTURE</p>
+<p>Look at that! It’s not a function… it’s a <strong>multifunction</strong>! Each input <span class="math inline">\(x\)</span>-value has an infinite number of possible outputs! Of course, this isn’t surprising; tangent is a trig function, so its inverse is a whole family of stuff, all shifted by <span class="math inline">\(2\pi\)</span>. (Well, actually, just <span class="math inline">\(1\pi\)</span>—tangent repeats faster than sine or cosine.) It’s a bunch of geological strata!</p>
+<p>What about the derivative(s) of inverse tangent? What do those look like?</p>
+<p>PICTURE</p>
+<p>There’s only one of them! This is cool: tangent has a single output for each input, inverse tangent has an infinite number of values, but then the derivative of inverse tangent collapses everything back down to just one output! Each layer of inverse tangent has the same slope—inverse tangent is a bunch of identical curves, all raised up and down by multiples of <span class="math inline">\(1\pi\)</span>.</p>
 <h2 id="algebraically">algebraically</h2>
-<p><span class="math display">\[\tan^\text{inv}\big( \tan\theta) = \theta\]</span></p>
-<p><span class="math display">\[\frac{d}{d\theta} \left[\, \tan^\text{inv}\big( \tan\theta) \,\right] = \frac{d}{d\theta} \left[\, \theta \,\right]\]</span></p>
-<p><span class="math display">\[\frac{d}{d\theta} \left[\, \tan^\text{inv}\big( \tan\theta) \,\right] = 1 \]</span></p>
-<p><span class="math display">\[\, \tan^{\text{inv}&#39;}\big( \tan\theta) \cdot \frac{d}{d\theta}\left[ \tan\theta \right] = 1 \]</span></p>
-<p><span class="math display">\[\, \tan^{\text{inv}&#39;}\big( \tan\theta) \cdot \frac{1}{\cos^2(\theta)} = 1 \]</span></p>
-<p><span class="math display">\[\, \tan^{\text{inv}&#39;}\big( \tan\theta) = \cos^2\theta \]</span></p>
-<p><span class="math display">\[\, \tan^{\text{inv}&#39;}\big( \tan\theta) = \frac{1}{\tan^2(\theta) + 1}\]</span></p>
-<p><span class="math display">\[\, \tan^{\text{inv}&#39;}\big( \tan\theta) = \frac{1}{\left(\tan\theta\right)^2 + 1}\]</span></p>
-<p><span class="math display">\[\, \tan^{\text{inv}&#39;}( x) = \frac{1}{x^2 + 1}\]</span></p>
-<p>does this look basically like what we sketched? yeah!</p>
-<h2 id="lets-generalize">let’s generalize!</h2>
-<p>the ideas weren’t specific to tangent. well, the pytha</p>
-<p>we started out with just a general property of an inverse fxn</p>
-<p><span class="math display">\[f^\text{inv}\big(\, f(x) \, \big) = x\]</span></p>
-<p><span class="math display">\[\frac{d}{dx} \left[\, f^\text{inv}\big(\, f(x) \, \big) \,\right] = \frac{d}{dx} \left[\, x \,\right]\]</span></p>
-<p><span class="math display">\[\frac{d}{dx} \left[\, f^\text{inv}\big(\, f(x) \, \big) \,\right] = 1\]</span></p>
-<p><span class="math display">\[f^{\text{inv}&#39;}\big(\, f(x) \, \big) \cdot \frac{d}{dx}\Big[\, f(x) \,\Big] = 1\]</span></p>
-<p><span class="math display">\[f^{\text{inv}&#39;}\big(\, f(x) \, \big) \cdot f&#39;(x) = 1\]</span></p>
-<p><span class="math display">\[f^{\text{inv}&#39;}\big(\, f(x) \, \big) = \frac{1}{f&#39;(x)}\]</span></p>
-<p>not a heklpful form yet</p>
-<p>we want <span class="math inline">\(f^{\text{inv}&#39;}(x)\)</span>, not <span class="math inline">\(f^{\text{inv}&#39;}\big(\, f(x) \, \big)\)</span></p>
-<p>set <span class="math inline">\(x=f^\text{inv}(x)\)</span></p>
-<p><span class="math display">\[f^{\text{inv}&#39;}\big(\, f(\underbrace{x}_{=f^\text{inv}(x)}) \, \big) = \frac{1}{f&#39;(\underbrace{x}_{=f^\text{inv}(x)})}\]</span></p>
-<p><span class="math display">\[f^{\text{inv}&#39;}\big(\, f(f^\text{inv}(x)) \, \big) = \frac{1}{f&#39;(f^\text{inv}(x))}\]</span></p>
-<p><span class="math display">\[f^{\text{inv}&#39;}\big(\, x \, \big) = \frac{1}{\,\, f&#39;\big(\, f^\text{inv}(x) \,\big) \,\,}\]</span></p>
-<h2 id="okay-cool-example">okay cool example?</h2>
-<p>i think this is</p>
+<p>But what is the derivative, algebraically? How do we find an actual formula for the derivative of inverse tangent? That’s tough, given that we don’t even have an actual formula for inverse tangent itself. We don’t even know what inverse tangent <em>is</em>. All we know about inverse tangent is that it’s the thing that antimatter’s tangent! It’s the thing that, when we plug it into tangent, cancels out! Inverse tangent is just the mystery function that satisfies these equations" <span class="math display">\[\tan^\text{inv}\big( \tan\theta\, ) = \theta \quad\quad\text{and}\quad\quad \tan\left( \tan^\text{inv}\theta\,\right) = \theta \]</span> So what if we take one of these equations and see if we can do something with it? If we take the one on the left, we have: <span class="math display">\[\tan^\text{inv}\big( \tan\theta) = \theta\]</span> If we then take the derivative of both sides of this equation, we’ll have: <span class="math display">\[\frac{d}{d\theta} \left[\, \tan^\text{inv}\big( \tan\theta) \,\right] = \frac{d}{d\theta} \left[\, \theta \,\right]\]</span> On the right side, the derivative of theta with respect to itself is just <span class="math inline">\(1\)</span>: <span class="math display">\[\frac{d}{d\theta} \left[\, \tan^\text{inv}\big( \tan\theta) \,\right] = 1 \]</span> What about the left side? This is a chain rule situation! We have two functions, one inside the other. We have inverse tangent on the outside, and tangent on the inside. So we’ll get the derivative of the outside, with the same insides, times the derivative of the inside. But the derivative of the outside is the derivative of inverse tangent, and we don’t know what that is. Figuring it out is the whole point! But maybe we can just leave that in our equation and it’ll actually be a good thing? Like, maybe we can eventually use algebra to isolate/solve for it? So we have: <span class="math display">\[\, \tan^{\text{inv}&#39;}\big( \tan\theta) \cdot \frac{d}{d\theta}\left[ \tan\theta \right] = 1 \]</span> The derivative of tangent, meanwhile, we know is <span class="math inline">\(1/\cos^2\)</span>: <span class="math display">\[\, \tan^{\text{inv}&#39;}\big( \tan\theta) \cdot \frac{1}{\cos^2(\theta)} = 1 \]</span> We can move that around to make this a bit cleaner: <span class="math display">\[\, \tan^{\text{inv}&#39;}\big( \tan\theta) = \cos^2\theta \]</span> But what to do here? Ideally we’d end up with an expression for just the derivative of tangent of some number alone on one side, and that’s definitely not what we have here.</p>
+<p>Two cool tricks!!!</p>
+<p>Trick #1: remember the Pythagorean identity? <span class="math display">\[\sin^2x +\cos^2 x = 1\]</span> We can use it here. Not directly, but we can use it to rewrite <span class="math inline">\(\cos^2\theta\)</span> in terms of tangent. There isn’t a tangent in the normal form of the Pythaogrean identity, but if we take it and multiply both sides by <span class="math inline">\(\cos^2x\)</span>, we get: <span class="math display">\[\frac{1}{\cos^2x}\left(\sin^2x +\cos^2 x\right) = \frac{1}{\cos^2x} \cdot 1\]</span> <span class="math display">\[\frac{\sin^2x}{\cos^2x} +\frac{\cos^2x}{\cos^2x} = \frac{1}{\cos^2x}\]</span> <span class="math display">\[\frac{\sin^2x}{\cos^2x} + 1 = \frac{1}{\cos^2x}\]</span> <span class="math display">\[\tan^2x + 1 = \frac{1}{\cos^2x} \]</span> <span class="math display">\[\cos^2x = \frac{1}{\tan^2x + 1}\]</span> So if we plug that in here for <span class="math inline">\(\cos^2\theta\)</span>, we get: <span class="math display">\[\tan^{\text{inv}&#39;}\big( \tan\theta) = \cos^2\theta\]</span> <span class="math display">\[\tan^{\text{inv}&#39;}\big( \tan\theta) = \frac{1}{\tan^2(\theta) + 1}\]</span> <span class="math display">\[\tan^{\text{inv}&#39;}\big( \tan\theta) = \frac{1}{\left(\tan\theta\right)^2 + 1}\]</span> Now at we’re rid of the cosines! Now we only have tangents!</p>
+<p>But… we have a <span class="math inline">\(\tan\theta\)</span> on the left, and also a <span class="math inline">\(\tan\theta\)</span> on the right. And truthfully, we don’t actually really care about <span class="math inline">\(\tan\theta\)</span> here. We just want to find the derivative of inverse tangent. We don’t want to find the derivative of inverse tangent <em>of</em> tangent; we want to find the derivative of inverse tangent <em>of any random number</em>. And… really, here, in our equation, <span class="math inline">\(\tan\theta\)</span> could be anything. So… trick #2! Let’s say that <span class="math inline">\(\tan\theta\)</span> is some unknown variable <span class="math inline">\(x\)</span>??? <span class="math display">\[\text{let }\tan\theta = x\]</span> So then this will simplify to just: <span class="math display">\[\tan^{\text{inv}&#39;}\big( \tan\theta) = \frac{1}{\left(\tan\theta\right)^2 + 1}\]</span> <span class="math display">\[\tan^{\text{inv}&#39;}( x) = \frac{1}{x^2 + 1}\]</span> And… that’s it! That’s a formula for the derivative of inverse tangent, of any random input <span class="math inline">\(x\)</span>!!! It’s what we wanted! <span class="math display">\[\boxed{\,\, \tan^{\text{inv}&#39;}( x) = \frac{1}{x^2 + 1} \,\,}\]</span> Does this look basically like what we sketched? Yeah! It’s just a rational function—perhaps one you even remmeber sketching. It has no roots (because <span class="math inline">\(1\neq 0\)</span>), it has no vertical asymptotes (because <span class="math inline">\(x^2+1 \neq 0\)</span>), it’s got a horizontal asymptote at <span class="math inline">\(y=0\)</span>—yeah, this is it!</p>
+<h2 id="problems">Problems</h2>
+<ol class='problems'>
+<li>
+We came up with this formula for the derivative inverse tangent by using <em>one</em> of the two equivalent equations defining it, <span class="math inline">\(\tan^\text{inv}\big( \tan\theta) = \theta\)</span>. But what if we used the other one? If we started with <span class="math inline">\(\tan\left( \tan^\text{inv} \right) = \theta\)</span>, can we still get the same result? (In the same way?) Work it out!
+<li>
+OK, this was fun, and there’s something even more fun: <em>none of the ideas in this derivation were specific to inverse tangent.</em> Well, OK, some of the ideas were: we used the Pythagorean identity. But we could make a very similar argument and come up with a formula for the derivative of <em>any inverse function</em>! A lot of payoff, for only a little extra work! Can you do it? Can you take what we did, and instead of making this argument about <span class="math inline">\(\tan(x)\)</span> and <span class="math inline">\(\tan^\text{inv}(x)\)</span>, make it about just <span class="math inline">\(f(x)\)</span> and <span class="math inline">\(f^\text{inv}(x)\)</span>?!? <span class="math display">\[f^{\text{inv}\,&#39;}\big(\, x \, \big) \quad = \quad ???\]</span>
+</li>
+<li>
+Having done that, can you verify that your formula works by testing it on some pairs of functions and inverse functions whose derivatives you already know? (<span class="math inline">\(x^3\)</span> and <span class="math inline">\(\sqrt[3]{x}\)</span>? <span class="math inline">\(e^x\)</span> and <span class="math inline">\(\ln(x)\)</span>??? Others???)
+</li>
+<li>
+What’s a function whose inverse’s derivative you <em>don’t</em> know? What does this formula tell you it should be??
+<li>
+What’s the… the <em>antiderivative</em> of <span class="math inline">\(\displaystyle\frac{1}{x^2+1}\)</span>???
+</ol>
 </main>
 </body>
 </html>
