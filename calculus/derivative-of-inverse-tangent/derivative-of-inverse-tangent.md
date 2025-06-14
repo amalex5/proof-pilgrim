@@ -14,17 +14,19 @@ OK, let's see if we can think about this visually. (Of course we should *always*
 
 Tangent looks like:
 
-PICTURE
+![](tangent.svg){width=75%}
 
 Visually, we can find/make inverses just by reflecting a function across the line $y=x$ (because that's the same as making the input the output, which is what it means to take an inverse). So inverse tangent looks like:
 
-PICTURE
+![](inverse-tangent.svg){width=75%}
+
 
 Look at that! It's not a function... it's a **multifunction**! Each input $x$-value has an infinite number of possible outputs! Of course, this isn't surprising; tangent is a trig function, so its inverse is a whole family of stuff, all shifted by $2\pi$. (Well, actually, just $1\pi$---tangent repeats faster than sine or cosine.) It's a bunch of geological strata!
 
 What about the derivative(s) of inverse tangent? What do those look like?
 
-PICTURE
+![](derivative-of-inverse-tangent.svg){width=75%}
+
 
 There's only one of them! This is cool: tangent has a single output for each input, inverse tangent has an infinite number of values, but then the derivative of inverse tangent collapses everything back down to just one output! Each layer of inverse tangent has the same slope---inverse tangent is a bunch of identical curves, all raised up and down by multiples of $1\pi$.
 
