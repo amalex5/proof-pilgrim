@@ -6,7 +6,6 @@ layout: post
 ---
 
 
-
 *Okay, everyone! We're about to start talking about ***rational functions***, which are like polynomials, but way cooler---but before we do, I want to do one last thing with parabolas. I'm generally not a huge fan of completing the square, but if we learn how to do it, there are two fun and useful proofs about parabolas that we'll be able to do. You know the results of both the proofs---one is the fact that the vertex of a parabola is halfway in between its roots; the other is the quadratic equation---but I want us to be able to really *feel *why these two things are true. In order to do that, we'll need to prove them, and in order to do that, we'll need to be able to complete the square---and likewise, to really *feel *why completing the square as a method works.*
 
 <br><br><br>
