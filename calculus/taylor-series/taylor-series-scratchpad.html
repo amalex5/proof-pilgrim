@@ -48,20 +48,43 @@
   <header>
   <span id="header-name"> <a href='/'>the natural history <span style="font-weight:normal;">of abstract objects</span></a></span> <span id="linkback"><a href=http://www.andrusia.com><img src="/andrew-logo.svg" id='header-logo' style='width: auto;'/></a></span>
 </header>
+<script>document.addEventListener('DOMContentLoaded', function(e) {
+  Scroller.init();
+})</script>
+<!-- <aside>
+<div class="tocLinks" >
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#taylor-series-as-approximations">taylor series as approximations</a></li>
+<li><a href="#taylor-series-as-generalizing-this-idea-of-tangent-line-approximations">taylor series as generalizing this idea of tangent line approximations</a></li>
+</ul>
+</nav>
+</div>
+</aside>
  -->
 <main>
 <div id="title-block">
 <h1 class="title">taylor series scratchpad</h1>
 </div>
 <p>growing polynomials approximating functions generalizing ideas of straightness safety</p>
-<p>The core assertion/paradox/weirdness/etc. behind calculus is:</p>
-<p><span class="math display">\[\begin{array}{l}
+<h2 id="taylor-series-as-approximations">taylor series as approximations</h2>
+<p>If we have a full, infinitely-long Taylor series, then that’s just another way of writing the function. But what if we have only <em>part</em> of a Taylor series? Like, what if we have only the first few terms? How does that relate to the original function? (Given that we’re finite beings—we can never <em>actually</em> write out an infinite Taylor series—every Taylor series is just a finite truncation of the actual infinite one!)</p>
+<p>We can think of a Taylor series with a finite number of terms as being an <em>approximation</em> of the original function. The more terms it has, the better the approximation becomes. We’re approximating the function increasingly better using increasingly complicated polynomials.</p>
+<p>So, for instance, we can approximate a function using just the first term of a Taylor series: <span class="math display">\[f(x) \approx f(c)\]</span> This is a bad approximation! Visually, it looks like a flat straight line, that intersects the function (at wherever we’re growing the Taylor series from).</p>
+<p>It’s not <em>totally horrible</em>—I mean, the function and the one-term Taylor series do have the same value, at <span class="math inline">\(x=c\)</span>. But it’s not great.</p>
+<p>So let’s add a second term, and make the approximation a bit better! We’ll have: <span class="math display">\[f(x) \quad\approx\quad f(c) + f&#39;(c)(x-c)\]</span> This is a straight line! If <span class="math inline">\(c=0\)</span> (if we’re growing the Taylor series around the origin), then it’s just a straight line with a <span class="math inline">\(y\)</span>-intercept of <span class="math inline">\(f(c)\)</span> and a slope of <span class="math inline">\(f&#39;(c)\)</span>. If <span class="math inline">\(c\)</span> is not <span class="math inline">\(0\)</span>, then we can do a bit more algebra to figure out the slope and <span class="math inline">\(y\)</span>-intercept. This is, note, exactly the same as <strong>tangent line approximation</strong> to a function at a point that you may have seen in 1VC!</p>
+<p>How about if we keep going? What if we approximate the function with a parabola (a second-order polynomial)? We’ll have: <span class="math display">\[f(x) \quad\approx\quad f(c) + f&#39;(c)(x-c) + \frac{f&#39;&#39;(c)}{2}(x-c)^2\]</span> Like in the linear/tangent line approximation, we could expand this and do some algebra if we wanted to see this in normal <span class="math inline">\(ax^2+bx+c\)</span> form. (Of course, if the <span class="math inline">\(c\)</span> in our original formula is <span class="math inline">\(0\)</span>, we already have this.)</p>
+<p>Note how here we’re starting to divide the higher-order terms. We have a <span class="math inline">\(2\)</span> in the denominator here. Each of the <span class="math inline">\(n\)</span>’th order terms has an <span class="math inline">\(n!\)</span> in the denominator; it’s just that <span class="math inline">\(0!\)</span> and <span class="math inline">\(1!\)</span> are both <span class="math inline">\(1\)</span>, so we didn’t show them explicitly.</p>
+<p>One way of thinking about these <span class="math inline">\(n!\)</span>’s in the denominator is that <em>the higher the power, the less and less it matters.</em> If we’re trying to approximate the function at <span class="math inline">\(x=c\)</span>, then the function’s value at <span class="math inline">\(x=c\)</span> matters A LOT. And the function’s slope at <span class="math inline">\(x=c\)</span> matters a lot, too. The slope of the slope matters somewhat less. And the slope of the slope of the slope even less. Once we’re out to the forty-seventh derivative, it’s just not going to make that big of a difference. So that’s one way of thinking about why there’s a <span class="math inline">\(n!\)</span> in the denominator of the <span class="math inline">\(n\)</span>’th term.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> It’s a way of making higher-order terms smaller. The higher-order the term, the less it matters.</p>
+<p>So, in summary, we can think of a Taylor series as being a way of approximating a function increasingly better using increasingly complicated polynomials: <span class="math display">\[f(x) \approx \underbrace{f(c)}_{\mathclap{\text{constant term}}} +\, \underbrace{f&#39;(c)(x-c)}_{\mathclap{\text{linear term}}} \,+\, \underbrace{\frac{f&#39;&#39;(c)}{2}(x-c)^2}_{\mathclap{\text{quadratic term}}} \,+\, \underbrace{\frac{f&#39;&#39;&#39;(c)}{6}(x-c)^3}_{\text{cubic term}} \,+ \cdots +\, \underbrace{\frac{f^{(n)}(c)}{n!}(x-c)^n}_{\text{$n$th-order term}} \,+ \cdots\]</span></p>
+<h2 id="taylor-series-as-generalizing-this-idea-of-tangent-line-approximations">taylor series as generalizing this idea of tangent line approximations</h2>
+<p>The core assertion/paradox/weirdness/etc. behind calculus is: <span class="math display">\[\begin{array}{l}
 \text{if we zoom in {\color{blue}infinitely far}, everything becomes {\color{blue}straight}}
 \end{array}\]</span> Or, put differently: <span class="math display">\[\begin{array}{l}
 \text{if we zoom in {\color{blue}far enough}, everything becomes {\color{blue}straight}}
 \end{array}\]</span> Or: <span class="math display">\[\begin{array}{l}
 \text{if we zoom in {\color{blue}far enough}, everything becomes {\color{blue}a first-degree polynomial}}
-\end{array}\]</span> In a sense, Taylor’s theorem generalizes this paradox/assertion/conclusion/observation. It generalizes it from just about lines to about arbitrary-degree polynomials. Taylor’s theorem says: <span class="math display">\[\begin{array}{l}
+\end{array}\]</span> Taylor’s theorem generalizes this paradox/assertion/conclusion/observation. It generalizes it from just about lines to about arbitrary-degree polynomials. Taylor’s theorem says: <span class="math display">\[\begin{array}{l}
 \text{\small if we zoom in far enough, everything becomes a zeroth-degree polynomial} \\
 \text{\small if we zoom in far enough, everything becomes a first-degree polynomial} \\
 \text{\small if we zoom in far enough, everything becomes a quadratic polynomial} \\
@@ -110,6 +133,12 @@
 <p>The big formula—<strong>Taylor’s Formula</strong> or <strong>Taylor’s Theorem</strong> if you want to look it up—for polynomializing a function by growing it outwards from <span class="math inline">\(x=a\)</span> would then look like:</p>
 <p><span class="math display">\[\sum_{n=0}^{n=\infty}\frac{\overbrace{\text{the slope of the slope of the slope of }\cdots}^{n\text{ times}} \text{ the function}\text{, at }x=a}{n!}\,\cdot\, (x-a)^n\]</span></p>
 <p>By the way, it’s not strictly true that we can turn <em>any</em> function into a polynomial; there are some caveats. But that’s the big idea! <em>Everything is a polynomial</em>.</p>
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>Note that this isn’t an explanation for why the denominator of the <span class="math inline">\(n\)</span>’th term is <span class="math inline">\(n!\)</span>, as opposed to just <span class="math inline">\(n\)</span>, or <span class="math inline">\(n^2\)</span>, or something else that increases with <span class="math inline">\(n\)</span>; it’s just an argument for why the denominator should get bigger.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
 </main>
 </body>
 </html>

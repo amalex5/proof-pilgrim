@@ -25,7 +25,7 @@ These are two different ways of thinking about parabolas. They both have pros an
 A parabola with roots/$x$-intercepts at $x=+r$ and $x=+s$:
 $$f(x) = (x-r)(x-s)$$
 
-PICTURE
+![](polynomial-in-root-form.svg)
 </div> </li>
 
 <li> If we think of parabolas as being parent functions transformed, then it's really easy to see where the vertex/minimum/maximum is:
@@ -35,7 +35,7 @@ PICTURE
 The parabola $f(x)=x^2$, but shifted right by $h$ and up by $k$:
 $$f(x) = (x-h)^2 + k$$
 
-PICTURE
+![](polynomial-in-vertex-form.svg)
 </div>
 
 We know that $f(x)=x^2$ has a minimum at $(0,0)$, so if we move it around---say right by $h$ and up by $k$---then its vertex will move, too!
@@ -43,7 +43,9 @@ We know that $f(x)=x^2$ has a minimum at $(0,0)$, so if we move it around---say 
 <div class='callout-box' style='width:75%'>
 An upwards-opening parabola, with a vertex at $(+h,+k)$:
 $$f(x) = (x-h)^2 + k$$
+![](polynomial-in-vertex-form.svg)
 </div>
+(Okay, uh, in that drawing I guess I've made $k$ negative... so moving the parabola "up" by $k$ actually moves it "up" a negative amount, i.e., down. Abstraction!)
 
 Likewise, if we were to flip it vertically over the $x$-axis, then its minimum would become a maximum.
 

@@ -23,29 +23,94 @@ Given some function $f(x)$ (of which we can take derivatives and such), and some
 $$f(x) = f(a) + f'(a)(x-a) + \frac{f''(a)}{2!}(x-a)^2 + \frac{f'''(a)}{3!}(x-a)^3 + \frac{f''''(a)}{4!}(x-a)^4 + \cdots$$
 or, written in $\Sigma$-form:
 $$f(x) = \sum_{k=0}^{\infty}\frac{f^{(k)}(a)}{k!}(x-a)^k$$
-This is called the **Taylor series** or **Taylor expansion** of $f(x)$. Sometimes it is also called the Taylor series/expansion **around $a$** or **in terms of $x-a$**. Taylor series where $a=0$ (which is a common choice for $a$, since it tends to make the algebra easier) are often called **Maclaurin series**. If we approximate a function using a Taylor series of finite length---i.e., if we have a function that should be an infinitely-long polynomial, but we approximate it with a finitely-long one---we call that the **Taylor approximation** of $f(x)$, or the **Taylor polynomial of order $n$**, where $n$ is the number of terms in the Taylor series we've written out. 
+This is called the **Taylor series** or **Taylor expansion** of $f(x)$. Sometimes it is also called the Taylor series/expansion **around $a$** or **in terms of $x-a$**. Taylor series where $a=0$ (which is a common choice for $a$, since it tends to make the algebra easier) are often called **Maclaurin series**. Sometimes people call stuff like this  **power series**, too. There are lots of fine distinctions between these words, but for our purposes, I use "Taylor series," "Maclaurin series," and "power series" interchangebly. 
+
+If we approximate a function using a Taylor series of finite length---i.e., if we have a function that should be an infinitely-long polynomial, but we approximate it with a finitely-long one---we call that the **Taylor approximation** of $f(x)$, or the **Taylor polynomial of order $n$**, where $n$ is the number of terms in the Taylor series we've written out. 
+
 
 (Note that in these notes, when I write something like $f^{(2)}(x)$ (or $f^{(n)}(x)$), I mean the second (or $n$th) derivative of $f(x)$.)
 
-Let's use this to try writing $\sin x$ as a polynomial. For $a$, let's choose $a=0$. (The choice of $a$ doesn't matter; it could be any number. I'm choosing $0$ because we'll have to plug $a$ into the various derivatives of $\sin x$---i.e., we'll have to plug $a$ into $\sin x $ and $\cos x$---and it's a lot easier to find $\sin(0)$ and $\cos(0)$ than it is to find, say, $\sin(43\pi/13.2)$ (were I to choose $a=43\pi/13.2$.) The formula is a tad messy, so to make things a bit clearer, let's build it term-by-term. We've got a lot of derivatives to take and plug things into and compile, so I'm going to show things step-by-step in a table. In this table, I've listed the term index (on the left-hand column), the relevant derivative, the derivative with $a$ plugged in, and finally, the term itself. 
+Let's use this to try writing $\sin x$ as a polynomial. For $a$, let's choose $a=0$. (The choice of $a$ doesn't matter; it could be any number. I'm choosing $0$ because we'll have to plug $a$ into the various derivatives of $\sin x$---i.e., we'll have to plug $a$ into $\sin x$ and $\cos x$---and it's a lot easier to find $\sin(0)$ and $\cos(0)$ than it is to find, say, $\sin(43\pi/13.2)$ (were I to choose $a=43\pi/13.2$.) The formula is a tad messy, so to make things a bit clearer, let's build it term-by-term. We've got a lot of derivatives to take and plug things into and compile, so I'm going to show things step-by-step in a table. In this table, I've listed the term index (on the left-hand column), the relevant derivative, the derivative with $a$ plugged in, and finally, the term itself. 
 
-\vspace{1pc}
-
-\begin{longtable}{l | l l l}
-$k$ & $f^{(k)}(x)$ & $f^{(k)}(a)$ & $\displaystyle \frac{f^{(k)}(a)}{k!}(x-a)^k$ \\ \\\hline\hline
-$0$ & $\sin(x)$ & $\sin(0) = 0$ & $\displaystyle \frac{0}{0!}(x-0)^0 = 0$ \\ \\
-$1$ & $\cos(x)$ & $\cos(0) = 1$ & $\displaystyle \frac{1}{1!}(x-0)^1 = x$ \\ \\
-$2$ & $-\sin(x)$ & $-\sin(0) = 0$ & $\displaystyle \frac{0}{2!}(x-0)^2 = 0$ \\ \\
-$3$ & $-\cos(x)$ & $-\cos(0) = -1$ & $\displaystyle \frac{-1}{3!}(x-0)^3 = -\frac{1}{3!}x^3$ \\ \\
-$4$ & $\sin(x)$ & $\sin(0) = 0$ & $\displaystyle \frac{0}{4!}(x-0)^4 = 0$ \\\\
-$5$ & $\cos(x)$ & $\cos(0) = 1$ & $\displaystyle \frac{1}{5!}(x-0)^5 = \frac{1}{5!}x^5$ \\\\
-$6$ & $-\sin(x)$ & $-\sin(0) = 0$ & $\displaystyle \frac{0}{6!}(x-0)^6 = 0$ \\\\
-$7$ & $-\cos(x)$ & $-\cos(0) = -1$ & $\displaystyle \frac{-1}{7!}(x-0)^7 = -\frac{1}{7!}x^7$ \\\\
-$8$ & $\sin(x)$ & $\sin(0) = 0$ & $\displaystyle \frac{0}{8!}(x-0)^8 = 0$ \\\\
-$9$ & $\cos(x)$ & $\cos(0) = 1$ & $\displaystyle \frac{1}{9!}(x-0)^9 = \frac{1}{9!}x^9$ \\\\
-$\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ 
-\end{longtable}
-So then, if I just add together all the terms in the rightmost column, I'll get the Taylor series for $\sin x$! I'll have:
+<table>
+        <thead>
+            <tr>
+                <th class="first-col">$k$</th>
+                <th>$f^{(k)}(x)$</th>
+                <th>$f^{(k)}(a)$</th>
+                <th>$\displaystyle \frac{f^{(k)}(a)}{k!}(x-a)^k$</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="first-col">$0$</td>
+                <td>$\sin(x)$</td>
+                <td>$\sin(0) = 0$</td>
+                <td>$\displaystyle \frac{0}{0!}(x-0)^0 = 0$</td>
+            </tr>
+            <tr>
+                <td class="first-col">$1$</td>
+                <td>$\cos(x)$</td>
+                <td>$\cos(0) = 1$</td>
+                <td>$\displaystyle \frac{1}{1!}(x-0)^1 = x$</td>
+            </tr>
+            <tr>
+                <td class="first-col">$2$</td>
+                <td>$-\sin(x)$</td>
+                <td>$-\sin(0) = 0$</td>
+                <td>$\displaystyle \frac{0}{2!}(x-0)^2 = 0$</td>
+            </tr>
+            <tr>
+                <td class="first-col">$3$</td>
+                <td>$-\cos(x)$</td>
+                <td>$-\cos(0) = -1$</td>
+                <td>$\displaystyle \frac{-1}{3!}(x-0)^3 = -\frac{1}{3!}x^3$</td>
+            </tr>
+            <tr>
+                <td class="first-col">$4$</td>
+                <td>$\sin(x)$</td>
+                <td>$\sin(0) = 0$</td>
+                <td>$\displaystyle \frac{0}{4!}(x-0)^4 = 0$</td>
+            </tr>
+            <tr>
+                <td class="first-col">$5$</td>
+                <td>$\cos(x)$</td>
+                <td>$\cos(0) = 1$</td>
+                <td>$\displaystyle \frac{1}{5!}(x-0)^5 = \frac{1}{5!}x^5$</td>
+            </tr>
+            <tr>
+                <td class="first-col">$6$</td>
+                <td>$-\sin(x)$</td>
+                <td>$-\sin(0) = 0$</td>
+                <td>$\displaystyle \frac{0}{6!}(x-0)^6 = 0$</td>
+            </tr>
+            <tr>
+                <td class="first-col">$7$</td>
+                <td>$-\cos(x)$</td>
+                <td>$-\cos(0) = -1$</td>
+                <td>$\displaystyle \frac{-1}{7!}(x-0)^7 = -\frac{1}{7!}x^7$</td>
+            </tr>
+            <tr>
+                <td class="first-col">$8$</td>
+                <td>$\sin(x)$</td>
+                <td>$\sin(0) = 0$</td>
+                <td>$\displaystyle \frac{0}{8!}(x-0)^8 = 0$</td>
+            </tr>
+            <tr>
+                <td class="first-col">$9$</td>
+                <td>$\cos(x)$</td>
+                <td>$\cos(0) = 1$</td>
+                <td>$\displaystyle \frac{1}{9!}(x-0)^9 = \frac{1}{9!}x^9$</td>
+            </tr>
+            <tr>
+                <td class="first-col">$\vdots$</td>
+                <td>$\vdots$</td>
+                <td>$\vdots$</td>
+                <td>$\vdots$</td>
+            </tr>
+        </tbody>
+    </table>
+So then, if we just add together all the terms in the rightmost column, we'll get the Taylor series for $\sin x$! We'll have:
 $$\sin(x) = 0 + x+0- \frac{1}{3!}x^3 +0 + \frac{1}{5!}x^5 + 0 -\frac{1}{7!}x^7 + 0 +\frac{1}{9!}x^9 - \cdots$$
 or just:
 $$\sin(x) = x- \frac{1}{3!}x^3 + \frac{1}{5!}x^5 -\frac{1}{7!}x^7 +\frac{1}{9!}x^9 - \cdots$$

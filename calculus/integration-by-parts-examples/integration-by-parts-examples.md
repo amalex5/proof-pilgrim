@@ -67,7 +67,7 @@ $$ \frac{3}{2}\int x^2 \,dx = \frac{1}{2}x^3 $$
 
 So if we divide:
 
-$$ \int x^2 \,dx = \frac{2}{3}\cdot \frac{1}{2}x^2 \cdot x $$
+$$ \int x^2 \,dx = \frac{2}{3}\cdot \frac{1}{2}x^3 $$
 
 I.e.:
 

@@ -121,7 +121,7 @@ And let's keep going!!! Why not CONTINUE integrating this by parts?!?
 \begin{align*}
     &= xp'(x) - \frac12x^2 p''(x) + \int \underbrace{\frac12x^2}_{f'(x)} \underbrace{p'''(x)}_{g(x)} \,dx \\ \\
     &= xp'(x) - \frac12x^2 p''(x) + \left( f(x)\cdot g(x) - \int f(x)g'(x) \,dx \right) \\ \\
-    &= xp'(x) - \frac12x^2 p''(x) + \left( \frac{1}{6}x^6\3p^{'''}(x) - \int \frac{1}{6}x^3p^{''''}(x) \,dx \right) \\ \\
+    &= xp'(x) - \frac12x^2 p''(x) + \left( \frac{1}{6}x^3p^{'''}(x) - \int \frac{1}{6}x^3p^{''''}(x) \,dx \right) \\ \\
     &= xp'(x) - \frac12x^2 p''(x) +  \frac{1}{6}x^3p^{'''}(x) - \int \frac{1}{6}x^3p^{''''}(x) \,dx 
     \end{align*}
 
