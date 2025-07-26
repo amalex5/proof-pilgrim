@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>power rule scenic route</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="/main.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <script src="../highlight-toc.js" type="text/javascript"></script>
+
+  <script> 
+      // disappearing header, from dynomight.net'
+      var prevScrollpos = window.pageYOffset;
+
+      window.onscroll = function() {
+        var currentScrollPos = Math.max(0,window.pageYOffset);
+
+        if (Math.abs(currentScrollPos - prevScrollpos) > 10){
+          if (prevScrollpos > currentScrollPos) {
+            document.querySelector('header').style.top = "0";
+            document.querySelector('header').style.opacity = "75%";
+          } else {
+            document.querySelector('header').style.top = "-60px";
+          }
+          prevScrollpos = currentScrollPos;
+        }
+        if(currentScrollPos==0){
+          document.querySelector('header').style.top = "0";
+          document.querySelector('header').style.opacity = "100%";
+        }
+      }
+    </script>
+
+</head>
+<body>
+  <header>
+  <span id="header-name"><a href="/">the natural history <span style="font-weight:normal;">of abstract objects</span></a></span> <span id="linkback"><a href=http://www.andrusia.com><img src="/andrew-logo.svg" id='header-logo' style='width: auto;'/></a></span>
+</header>
+ -->
+<main>
+<div id="title-block">
+<h1 class="title">power rule scenic route</h1>
+</div>
+<p>At 6:30 in the morning in a coffee shop in Jackson Hole, this delightful, absurd, using-a-backhoe-to-dig-a-garden derivation of the power rule ocurred to me.</p>
+<p>The product rule, in its normal form, is: <span class="math display">\[\Big(\,\, f(x)g(x) \,\,\Big)&#39; = f&#39;(x)g(x) + f(x)g&#39;(x)\]</span> But if we have not two functions but <em>a bunch</em> of functions, the product rule becomes: <span class="math display">\[\Big(\,\, f_1(x)f_2(x)\cdots f_n(x)\,\,\Big)&#39; \,\, = \,\,
+\begin{matrix}
+    {\color{red} f_1&#39;(x)}\cdot f_2(x)\cdot f_3(x)\cdot \cdots f_n(x)  \\
+   + \\
+   f_1(x)\cdot {\color{red} f_2&#39;(x)}\cdot f_3(x)\cdot \cdots f_n(x)  \\
+   + \\
+      f_1(x)\cdot f_2(x)\cdot {\color{red} f_3&#39;(x)}\cdots f_n(x)  \\
+   + \\
+\vdots \\
+  +\\
+f_1(x)\cdot f_2(x)\cdot f_3(x)\cdot \cdots{\color{red} f_n&#39;(x) }
+\end{matrix}\]</span> Maybe it’s clearer if we just drop all the ``of <span class="math inline">\(x\)</span>’’ <span class="math inline">\((x)\)</span>’s: <span class="math display">\[\Big(\,\, f_1f_2\cdots f_n\,\,\Big)&#39; \,\, = \,\,
+\begin{matrix}
+    {\color{red} f_1&#39;}\cdot f_2\cdot f_3\cdot \cdots f_n  \\
+   + \\
+   f_1\cdot {\color{red} f_2&#39;}\cdot f_3\cdot \cdots f_n  \\
+   + \\
+      f_1\cdot f_2\cdot {\color{red} f_3&#39;}\cdots f_n  \\
+   + \\
+\vdots \\
+  +\\
+f_1\cdot f_2\cdot f_3\cdot \cdots{\color{red} f_n&#39; }
+\end{matrix}\]</span> If we write it more compactly and intimidatingly with <span class="math inline">\(\prod\)</span> and <span class="math inline">\(\sum\)</span> notation, it’s: <span class="math display">\[\left(\,\, \prod_{i=1}^{i=n}f_i(x) \,\,\right)&#39; \,\,=\,\, \sum_{i=1}^{i=n} \left(\, f_j&#39;(x) \prod_{\substack{i=1 \\ i\neq j}}^{i=n}f_i(x) \,\right)\]</span> Or again sans <span class="math inline">\((x)\)</span>’s: <span class="math display">\[\left(\,\, \prod_{i=1}^{i=n}f_i \,\,\right)&#39; \,\,=\,\, \sum_{i=1}^{i=n} \left(\, f_j&#39; \prod_{\substack{i=1 \\ i\neq j}}^{i=n}f_i \,\right)\]</span></p>
+<p>Anyway, we can use this to prove the power rule!!! <span class="math display">\[\boxed{\Large \,\, \left(x^n\right)&#39; = nx^{n-1} \,\,}\]</span> After all, <span class="math inline">\(x^n\)</span> is just <span class="math inline">\(n\)</span> <span class="math inline">\(x\)</span>’s multiplied together! So we have: <span class="math display">\[\begin{align*}
+{\Large \left(x^n\right)&#39;} \quad&amp;=\quad \left(\,\underbrace{x \cdot x \cdot x \cdots}_{n \text{ times}} \right)&#39; \\ \\
+&amp;=\,\, \left.
+\begin{matrix}
+    {\color{red} x &#39;}\cdot x\cdot x\cdot \cdots x  \\
+   + \\
+   x\cdot {\color{red} x &#39;}\cdot x\cdot \cdots x  \\
+   + \\
+      x\cdot x\cdot {\color{red} x &#39;}\cdots x  \\
+   + \\
+\vdots \\
+  +\\
+  \underbrace{ x\cdot x\cdot x\cdot \cdots{\color{red} x &#39; }}_{\text{also $n$ times}}
+\end{matrix}
+\,\,\right\} \text{$n$ times} \\  \\
+&amp;=\,\, \left.
+\begin{matrix}
+    {\color{red} 1}\cdot x\cdot x\cdot \cdots x  \\
+   + \\
+   x\cdot {\color{red} 1}\cdot x\cdot \cdots x  \\
+   + \\
+      x\cdot x\cdot {\color{red} 1}\cdots x  \\
+   + \\
+\vdots \\
+  +\\
+  \underbrace{ x\cdot x\cdot x\cdot \cdots{\color{red} 1 }}_{\text{also $n$ times}}
+\end{matrix}
+\,\,\right\} \text{$n$ times} \\  \\
+&amp;=\,\, \left.
+\begin{matrix}
+    x\cdot x \cdots x  \\
+   + \\
+   x\cdot x \cdots x  \\
+   + \\
+      x\cdot x \cdots x  \\
+   + \\
+\vdots \\
+  +\\
+  \underbrace{ x\cdot x\cdot x\cdots}_{\substack{\text{now $n-1$ times}\\\text{&#39;cause we zonked off the $1$}}}
+\end{matrix}
+\,\, \right\} {\text{$n$ times} } \\  \\
+&amp;=\,\, \left.
+\begin{matrix}
+    x^{n-1}  \\
+   + \\
+    x^{n-1}  \\
+   + \\
+    x^{n-1}  \\
+   + \\
+\vdots \\
+  +\\
+    x^{n-1}  \\
+\end{matrix}
+\,\,\right\} \text{$n$ times} \\  \\
+&amp;=\,\, {\large nx^{n-1} }
+\end{align*}\]</span></p>
+<p>Written more compactly with <span class="math inline">\(\prod\)</span>- and <span class="math inline">\(\sum\)</span>-notation, here’s how I’d write this. We have: <span class="math display">\[\begin{align*}
+{\Large \left(\,x^n\,\right)&#39;} \,\, &amp;= \left(\,\underbrace{x \cdot x \cdot x \cdots}_{n \text{ times}} \right)&#39;
+\end{align*}\]</span> These <span class="math inline">\(x\)</span>’s are all identical but let’s label them individually anyway: <span class="math display">\[\begin{align*}
+&amp;= \left(\,\underbrace{x_1 \cdot x_2 \cdot x_3 \cdots}_{n \text{ times}} \right)&#39; \\ \\
+&amp;= \left(\,\prod_{k=1}^{k=n}x_k \right)&#39;
+\end{align*}\]</span> So then by the generalized product rule, we have: <span class="math display">\[\begin{align*}
+&amp;= \sum_{i=1}^{i=n} \left( x_i\right)&#39;\prod_{\substack{k=1 \\ k\neq i}}^{k=n}x_k \\ \\
+&amp;= \sum_{i=1}^{i=n} 1\cdot \prod_{\substack{k=1 \\ k\neq i}}^{k=n}x_k \\ \\
+&amp;= \sum_{i=1}^{i=n} 1\cdot \left(\,\underbrace{x \cdot x \cdot x \cdots}_{(n-1) \text{ times}} \right) \\ \\
+&amp;= \sum_{i=1}^{i=n} \left(\,\underbrace{x \cdot x \cdot x \cdots}_{(n-1) \text{ times}} \right) \\ \\
+&amp;= \sum_{i=1}^{i=n} x^{n-1} \\ \\
+&amp;= \underbrace{ x^{n-1} + x^{n-1} + x^{n-1} + \cdots}_{n \text{ times} } \\ \\
+&amp;= {\Large nx^{n-1}}
+\end{align*}\]</span></p>
+</main>
+</body>
+</html>

@@ -5,47 +5,15 @@ layout: post
 ---
 
 
-One of the things we occasionally do when we take derivatives is use the chain rule. The chain rule *explodes* things. So sometimes, when we take anti-derivatives, we need to *implode* things. We need to take the scattered pieces of something that's been exploded by the chain rule, and carefully, delicately, put them back together. 
-
-
-
-
-exploded remanents of the chain rule
-
-pieces lying on the floor
-
-
-
-
-
-undoing the chain rule
-
-
-
-
-$$\int 2x \, dx = x^2$$
-
-
-
-$$\left(x^2\right)' = 2x \quad\iff\quad \int\! 2x \, dx = x^2$$
-
-
-
-the chain rule explodes things
-how do we IMNPLODE things
-
-how do we put humpty-dumpty back together again
-
-
-
-(leaving out the $+C$; if you feel like being a stickler, you can say that we're just finding *an* antiderivative instead of *every* antiderivative)
-(derivatives backwards... mostly.)
-
-$$\int 4x^3 \, dx = x^4$$
+One of the things we occasionally do when we take derivatives is use the chain rule. The chain rule *explodes* things:
+$$ \sin\Big(x^7 - \ln(x)\, \Big) \,\,\xrightarrow[\text{it EXPLODES}]{\quad\text{differentiating}\quad}\,\, \cos\Big(x^7 - \ln(x)\, \Big)\cdot\left(7x^6 - \frac1x\right)$$
+So sometimes, when we take anti-derivatives, we need to *implode* things. We need to take the scattered pieces of something that's been exploded by the chain rule, and carefully, delicately, put them back together: 
+$$ \sin\Big(x^7 - \ln(x)\, \Big) \,\,\xleftarrow[\text{it IMPLODES}]{\quad\text{ANTIdifferentiating}\quad}\,\, \cos\Big(x^7 - \ln(x)\, \Big)\cdot\left(7x^6 - \frac1x\right)$$
+How do we take the exploded remnants of the chain rule---the pieces scattered lying on the floor---and reassemble them into what we had before the explosion? How do we *implode* antiderivatives back into the functions whence they came? With all the king's horses and all the king's men, *how do we put Humpty-Dumpty back together again?!?*
 
 ## example \#1
 
-Here's an integral:
+Here's an integral/antiderivative:
 
 $$\int \left(2x + 5\right)\cdot \cos\left( x^2 + 5x\right) \, dx = ???$$
 
@@ -71,7 +39,8 @@ We have:
 
 \begin{align*}
 \frac{d}{dx}\Big[\, \sin\left(x^2+5x\right) \, \Big] &= \cos\left( x^2 + 5x\right)\cdot \frac{d}{dx}\Big[ x^2+5x \Big] \\ \\
-&= \cos\left( x^2 + 5x\right)\left(2x + 5\right)
+&= \cos\left( x^2 + 5x\right)\left(2x + 5\right) \\ \\
+&{\huge \color{green} \checkmark}
 \end{align*}
 
 Yay! It works! So we have:
@@ -83,7 +52,7 @@ $$\boxed{\,\, \int \left(2x + 5\right)\cdot \cos\left( x^2 + 5x\right) \, dx \qu
 
 Here's another integral/antiderivative:
 
-$$\int 347\left(x^5-2x^3 + 7\right)^{346}\cdot\left(5x^4-6x^2\right) \, dx = ???$$
+$$\int 347\left(x^5-2x^3 + 7\right)^{346}\cdot\left(5x^4-6x^2\right) \, dx \,\,=\],\, ???$$
 
 So we need to find some function that, when we differentiate it, gives us $347\left(x^5-2x^3 + 7\right)^{346}\cdot\left(5x^4-6x^2\right)$:
 
@@ -101,12 +70,13 @@ Let's check:
 \begin{align*}
 \frac{d}{dx}\Big[\, \left(x^5-2x^3+7\right)^{347} \, \Big] &=  347\left(x^5-2x^3 + 7\right)^{346} \cdot \frac{d}{dx}\Big[ x^5-2x^3 + 7 \Big] \\ \\
 &= 347\left(x^5-2x^3 + 7\right)^{346}\cdot\left(5x^4-6x^2 + 0\right) \\ \\
-&= 347\left(x^5-2x^3 + 7\right)^{346}\left(5x^4-6x^2 \right)
+&= 347\left(x^5-2x^3 + 7\right)^{346}\left(5x^4-6x^2 \right) \\ \\
+&{\huge \color{green} \checkmark}
 \end{align*}
 
 Yay! It works! So we have:
 
-$$\boxed{\,\, \int 347\left(x^5-2x^3 + 7\right)^{348}\cdot\left(5x^4-6x^2\right) \, dx = \left(x^5-2x^3+7\right)^{347} \,\,}$$
+$$\boxed{\,\, \int 347\left(x^5-2x^3 + 7\right)^{348}\cdot\left(5x^4-6x^2\right) \, dx \,\,=\,\, \left(x^5-2x^3+7\right)^{347} \,\,}$$
 
 
 ## example \#3
@@ -121,7 +91,7 @@ $$\overbrace{\left(\underbrace{x^8 + 3x^4}_{\text{inside fxn}}\right)^6}^{\text{
 
 So is this just:
 
-$$\int \left(x^8 + 3x^4\right)^6\left(8x^7+12x^3\right) \, dx \quad \overset{???}{=}  \quad \left(x^8 + 3x^4\right)^7 \quad\quad ???$$
+$$\int \left(x^8 + 3x^4\right)^6\left(8x^7+12x^3\right) \, dx \quad \overset{???}{=}  \quad \left(x^8 + 3x^4\right)^7 \quad\quad$$
 
 Let's check:
 
@@ -129,7 +99,8 @@ Let's check:
 \frac{d}{dx}\Big[\, \left(x^8 + 3x^4\right)^7 \, \Big] &=  7\left(x^8 + 3x^4\right)^6 \cdot \frac{d}{dx}\Big[ x^8 + 3x^4 \Big] \\ \\
 &= 7\left(x^8 + 3x^4\right)^6 \cdot\left( 8x^7 + 12x^3\right) \\ \\
 &= 7\left(x^8 + 3x^4\right)^6 \left( 8x^7 + 12x^3\right) \\ \\
-&\neq \left(x^8 + 3x^4\right)^6 \left( 8x^7 + 12x^3\right)
+&\neq \left(x^8 + 3x^4\right)^6 \left( 8x^7 + 12x^3\right) \\ \\
+&{\huge \color{red} \times}
 \end{align*}
 
 Hmm. OK. It's *close*. But it's not exactly correct.
@@ -142,7 +113,8 @@ The problem is there's that extra $7$ out front. But we can deal with that! We c
 \frac{d}{dx}\left[\, \frac17\left(x^8 + 3x^4\right)^7 \, \right] &=  \frac17\cdot 7\left(x^8 + 3x^4\right)^6 \cdot \frac{d}{dx}\Big[ x^8 + 3x^4 \Big] \\ \\
 &= \frac17\cdot 7\left(x^8 + 3x^4\right)^6 \cdot\left( 8x^7 + 12x^3\right) \\ \\
 &= \frac{1}{\cancel{7}}\cdot \cancel{7}\left(x^8 + 3x^4\right)^6 \cdot\left( 8x^7 + 12x^3\right) \\ \\
-&= \left(x^8 + 3x^4\right)^6 \cdot\left( 8x^7 + 12x^3\right) \\ \\
+&= \left(x^8 + 3x^4\right)^6 \cdot\left( 8x^7 + 12x^3\right)  \\ \\
+&{\huge \color{green} \checkmark}
 \end{align*}
 
 Now it works! So we have:
@@ -151,12 +123,7 @@ $$\boxed{\,\, \int \left(x^8 + 3x^4\right)^6\left(8x^7+12x^3\right) \, dx \,\,=\
 
 ## general
 
-
-
-$$\frac{d}{dx}\Big[ f\Big(\,g(x)\,\Big) \Big] = f'\Big(\,g(x)\,\Big)\cdot g'(x) \quad\iff\quad \int\! f'\Big( \,g(x)\, \Big)  \cdot g'(x) \, dx = f\Big(\,g(x)\,\Big)$$
-
-
-The chain rule, phrased in the taking-the-derivative direction is this:
+What's the story here? The chain rule, phrased in the taking-the-derivative direction is this:
 
 $$\frac{d}{dx}\Bigg[ f\Big(\,g(x)\,\Big) \Bigg] \quad=\quad f'\Big(\,g(x)\,\Big)\cdot g'(x) $$
 
@@ -164,39 +131,12 @@ Phrased backwards, in the anti-taking-a-derivative/undoing-the-chain-rule direct
 
 $$\int\! f'\Big( \,g(x)\, \Big)  \cdot g'(x) \, dx \quad=\quad f\Big(\,g(x)\,\Big)$$
 
-So if we're trying to take an antiderivative, and if it looks like something that's been chain-ruled, we can
+So if we're trying to take an antiderivative, and if it looks like something that's been chain-ruled, we can try to collapse it back together, and potentially do some fiddling to try to figure out the constants! 
 
+There's a method some people like for doing this called **$u$-substitution**. I've never been a huge fan of it. When I first learned calculus, it seemed to make things more confusing. It gives a process and procedure---a formula, an algorithm---for how to reverse the chain rule, but, for me at least, it made things *more* confusing. The point of our tools should be to make things *less* confusing. So, if you look up $u$-substitution and decide you like it as a method, go ahead and use it. It actually foreshadows some deep ideas in multivariable calculus! 
 
-
-aha! it looks like something that's been chain-ruled
-
-collapse it back together
-
-and then fiddle to figure out the constants
+But in general, I think you should try to avoid a *formulaic* approach to taking antiderivatives. In other words, I think you shouldn't try to look up and apply $u$-substitution as a procedure; I think you shouldn't look at the general formulas I wrote just now and try to memorize them. Rather, we should try to *feel* our way through this stuff. If we're really good at taking derivatives---if we're really good at applying the chain rule---if we're really good at *one* direction of this stuff---then we should be able to figure out the reverse direction through experimentation and intuition.
 
 
 
 
-
-Integrals are just derivatives *backwards*. Every statement about a 
-
-
-
-Every integral is really just a derivative. Every integral is really just *something that's been differentiated*. If we can find what it is that's been differentiated, then we've won!
-
-$$(\text{blargh})' = \text{yargh} \quad\iff\quad \int\!\text{yargh} = \text{blargh}$$ 
-So, for instance, we've learned how to reverse the chain rule:
-$$\frac{d}{dx}\Big[ f\Big(\,g(x)\,\Big) \Big] = f'\Big(\,g(x)\,\Big)\cdot g'(x) \quad\iff\quad \int\! f'\Big( \,g(x)\, \Big)  \cdot g'(x) \, dx = f\Big(\,g(x)\,\Big)$$
-
-
-
-
-
-$u$-substitution
-
-
-get really good at differentiating things w chain ruile
-
-take a lot of derivatives
-
-There's a method some people like for doing this called **$u$-substitution**. I've never been a huge fan of it. When I first learned calculus, it seemed to make things more confusing. It gives a process and procedure---a formula, an algorithm---for how to reverse the chain rule, but, for me at least, it made things *more* confusing. The point of our tools should be to make things *less* confusing. So, if you look up $u$-substitution and decide you like it as a method, go ahead and use it. But 

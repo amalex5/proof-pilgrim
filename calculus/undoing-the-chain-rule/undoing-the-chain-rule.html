@@ -68,18 +68,9 @@
 <div id="title-block">
 <h1 class="title">putting humpty-dumpty back together</h1>
 </div>
-<p>One of the things we occasionally do when we take derivatives is use the chain rule. The chain rule <em>explodes</em> things. So sometimes, when we take anti-derivatives, we need to <em>implode</em> things. We need to take the scattered pieces of something that’s been exploded by the chain rule, and carefully, delicately, put them back together.</p>
-<p>exploded remanents of the chain rule</p>
-<p>pieces lying on the floor</p>
-<p>undoing the chain rule</p>
-<p><span class="math display">\[\int 2x \, dx = x^2\]</span></p>
-<p><span class="math display">\[\left(x^2\right)&#39; = 2x \quad\iff\quad \int\! 2x \, dx = x^2\]</span></p>
-<p>the chain rule explodes things how do we IMNPLODE things</p>
-<p>how do we put humpty-dumpty back together again</p>
-<p>(leaving out the <span class="math inline">\(+C\)</span>; if you feel like being a stickler, you can say that we’re just finding <em>an</em> antiderivative instead of <em>every</em> antiderivative) (derivatives backwards… mostly.)</p>
-<p><span class="math display">\[\int 4x^3 \, dx = x^4\]</span></p>
+<p>One of the things we occasionally do when we take derivatives is use the chain rule. The chain rule <em>explodes</em> things: <span class="math display">\[ \sin\Big(x^7 - \ln(x)\, \Big) \,\,\xrightarrow[\text{it EXPLODES}]{\quad\text{differentiating}\quad}\,\, \cos\Big(x^7 - \ln(x)\, \Big)\cdot\left(7x^6 - \frac1x\right)\]</span> So sometimes, when we take anti-derivatives, we need to <em>implode</em> things. We need to take the scattered pieces of something that’s been exploded by the chain rule, and carefully, delicately, put them back together: <span class="math display">\[ \sin\Big(x^7 - \ln(x)\, \Big) \,\,\xleftarrow[\text{it IMPLODES}]{\quad\text{ANTIdifferentiating}\quad}\,\, \cos\Big(x^7 - \ln(x)\, \Big)\cdot\left(7x^6 - \frac1x\right)\]</span> How do we take the exploded remnants of the chain rule—the pieces scattered lying on the floor—and reassemble them into what we had before the explosion? How do we <em>implode</em> antiderivatives back into the functions whence they came? With all the king’s horses and all the king’s men, <em>how do we put Humpty-Dumpty back together again?!?</em></p>
 <h2 id="example-1">example #1</h2>
-<p>Here’s an integral:</p>
+<p>Here’s an integral/antiderivative:</p>
 <p><span class="math display">\[\int \left(2x + 5\right)\cdot \cos\left( x^2 + 5x\right) \, dx = ???\]</span></p>
 <p>Can we antidifferentiate this? Can we find the function whose derivative is this???</p>
 <p><span class="math display">\[\frac{d}{dx}\Big[\, ??? \, \Big] \quad=\quad \left(2x + 5\right)\cdot \cos\left( x^2 + 5x\right)\]</span></p>
@@ -93,13 +84,14 @@
 <p>We have:</p>
 <p><span class="math display">\[\begin{align*}
 \frac{d}{dx}\Big[\, \sin\left(x^2+5x\right) \, \Big] &amp;= \cos\left( x^2 + 5x\right)\cdot \frac{d}{dx}\Big[ x^2+5x \Big] \\ \\
-&amp;= \cos\left( x^2 + 5x\right)\left(2x + 5\right)
+&amp;= \cos\left( x^2 + 5x\right)\left(2x + 5\right) \\ \\
+&amp;{\huge \color{green} \checkmark}
 \end{align*}\]</span></p>
 <p>Yay! It works! So we have:</p>
 <p><span class="math display">\[\boxed{\,\, \int \left(2x + 5\right)\cdot \cos\left( x^2 + 5x\right) \, dx \quad=\quad \sin\left(x^2+5x\right)\,\, } \]</span></p>
 <h2 id="example-2">example #2</h2>
 <p>Here’s another integral/antiderivative:</p>
-<p><span class="math display">\[\int 347\left(x^5-2x^3 + 7\right)^{346}\cdot\left(5x^4-6x^2\right) \, dx = ???\]</span></p>
+<p><span class="math display">\[\int 347\left(x^5-2x^3 + 7\right)^{346}\cdot\left(5x^4-6x^2\right) \, dx \,\,=\],\, ???\]</span></p>
 <p>So we need to find some function that, when we differentiate it, gives us <span class="math inline">\(347\left(x^5-2x^3 + 7\right)^{346}\cdot\left(5x^4-6x^2\right)\)</span>:</p>
 <p><span class="math display">\[\frac{d}{dx}\Big[\, ??? \, \Big] \quad=\quad 347\left(x^5-2x^3 + 7\right)^{346}\cdot\left(5x^4-6x^2\right)\]</span></p>
 <p>But that kind of looks like something that’s been chain-ruled!!! It kind looks like we took just <span class="math inline">\(\left(x^5-2x^3+7\right)^{347}\)</span> and took its derivative! After all, we have an “inside” function of <span class="math inline">\(x^5-2x^3+7\)</span>, an “outside” function of <span class="math inline">\((\text{stuff})^{347}\)</span>, and this extra derivative-of-the-inside factor of <span class="math inline">\(5x^4-6x^2\)</span>:</p>
@@ -108,23 +100,25 @@
 <p><span class="math display">\[\begin{align*}
 \frac{d}{dx}\Big[\, \left(x^5-2x^3+7\right)^{347} \, \Big] &amp;=  347\left(x^5-2x^3 + 7\right)^{346} \cdot \frac{d}{dx}\Big[ x^5-2x^3 + 7 \Big] \\ \\
 &amp;= 347\left(x^5-2x^3 + 7\right)^{346}\cdot\left(5x^4-6x^2 + 0\right) \\ \\
-&amp;= 347\left(x^5-2x^3 + 7\right)^{346}\left(5x^4-6x^2 \right)
+&amp;= 347\left(x^5-2x^3 + 7\right)^{346}\left(5x^4-6x^2 \right) \\ \\
+&amp;{\huge \color{green} \checkmark}
 \end{align*}\]</span></p>
 <p>Yay! It works! So we have:</p>
-<p><span class="math display">\[\boxed{\,\, \int 347\left(x^5-2x^3 + 7\right)^{348}\cdot\left(5x^4-6x^2\right) \, dx = \left(x^5-2x^3+7\right)^{347} \,\,}\]</span></p>
+<p><span class="math display">\[\boxed{\,\, \int 347\left(x^5-2x^3 + 7\right)^{348}\cdot\left(5x^4-6x^2\right) \, dx \,\,=\,\, \left(x^5-2x^3+7\right)^{347} \,\,}\]</span></p>
 <h2 id="example-3">example #3</h2>
 <p>Here’s another example:</p>
 <p><span class="math display">\[\int \left(x^8 + 3x^4\right)^6\left(8x^7+12x^3\right) \, dx = ???\]</span></p>
 <p>This also looks like it’s something that’s been chain-ruled! It looks kind of like the derivative of <span class="math inline">\(\left(x^8 + 3x^4\right)^7\)</span>! Is it???</p>
 <p><span class="math display">\[\overbrace{\left(\underbrace{x^8 + 3x^4}_{\text{inside fxn}}\right)^6}^{\text{outside function}}\underbrace{\left(8x^7+12x^3\right)}_{\text{derivative of inside?}}\]</span></p>
 <p>So is this just:</p>
-<p><span class="math display">\[\int \left(x^8 + 3x^4\right)^6\left(8x^7+12x^3\right) \, dx \quad \overset{???}{=}  \quad \left(x^8 + 3x^4\right)^7 \quad\quad ???\]</span></p>
+<p><span class="math display">\[\int \left(x^8 + 3x^4\right)^6\left(8x^7+12x^3\right) \, dx \quad \overset{???}{=}  \quad \left(x^8 + 3x^4\right)^7 \quad\quad\]</span></p>
 <p>Let’s check:</p>
 <p><span class="math display">\[\begin{align*}
 \frac{d}{dx}\Big[\, \left(x^8 + 3x^4\right)^7 \, \Big] &amp;=  7\left(x^8 + 3x^4\right)^6 \cdot \frac{d}{dx}\Big[ x^8 + 3x^4 \Big] \\ \\
 &amp;= 7\left(x^8 + 3x^4\right)^6 \cdot\left( 8x^7 + 12x^3\right) \\ \\
 &amp;= 7\left(x^8 + 3x^4\right)^6 \left( 8x^7 + 12x^3\right) \\ \\
-&amp;\neq \left(x^8 + 3x^4\right)^6 \left( 8x^7 + 12x^3\right)
+&amp;\neq \left(x^8 + 3x^4\right)^6 \left( 8x^7 + 12x^3\right) \\ \\
+&amp;{\huge \color{red} \times}
 \end{align*}\]</span></p>
 <p>Hmm. OK. It’s <em>close</em>. But it’s not exactly correct.</p>
 <p><span class="math display">\[\int \left(x^8 + 3x^4\right)^6\left(8x^7+12x^3\right) \, dx \quad\neq\quad \left(x^8 + 3x^4\right)^7\]</span></p>
@@ -133,27 +127,19 @@
 \frac{d}{dx}\left[\, \frac17\left(x^8 + 3x^4\right)^7 \, \right] &amp;=  \frac17\cdot 7\left(x^8 + 3x^4\right)^6 \cdot \frac{d}{dx}\Big[ x^8 + 3x^4 \Big] \\ \\
 &amp;= \frac17\cdot 7\left(x^8 + 3x^4\right)^6 \cdot\left( 8x^7 + 12x^3\right) \\ \\
 &amp;= \frac{1}{\cancel{7}}\cdot \cancel{7}\left(x^8 + 3x^4\right)^6 \cdot\left( 8x^7 + 12x^3\right) \\ \\
-&amp;= \left(x^8 + 3x^4\right)^6 \cdot\left( 8x^7 + 12x^3\right) \\ \\
+&amp;= \left(x^8 + 3x^4\right)^6 \cdot\left( 8x^7 + 12x^3\right)  \\ \\
+&amp;{\huge \color{green} \checkmark}
 \end{align*}\]</span></p>
 <p>Now it works! So we have:</p>
 <p><span class="math display">\[\boxed{\,\, \int \left(x^8 + 3x^4\right)^6\left(8x^7+12x^3\right) \, dx \,\,=\,\, \frac17\left(x^8 + 3x^4\right)^7 \,\,}\]</span></p>
 <h2 id="general">general</h2>
-<p><span class="math display">\[\frac{d}{dx}\Big[ f\Big(\,g(x)\,\Big) \Big] = f&#39;\Big(\,g(x)\,\Big)\cdot g&#39;(x) \quad\iff\quad \int\! f&#39;\Big( \,g(x)\, \Big)  \cdot g&#39;(x) \, dx = f\Big(\,g(x)\,\Big)\]</span></p>
-<p>The chain rule, phrased in the taking-the-derivative direction is this:</p>
+<p>What’s the story here? The chain rule, phrased in the taking-the-derivative direction is this:</p>
 <p><span class="math display">\[\frac{d}{dx}\Bigg[ f\Big(\,g(x)\,\Big) \Bigg] \quad=\quad f&#39;\Big(\,g(x)\,\Big)\cdot g&#39;(x) \]</span></p>
 <p>Phrased backwards, in the anti-taking-a-derivative/undoing-the-chain-rule direction, it’s:</p>
 <p><span class="math display">\[\int\! f&#39;\Big( \,g(x)\, \Big)  \cdot g&#39;(x) \, dx \quad=\quad f\Big(\,g(x)\,\Big)\]</span></p>
-<p>So if we’re trying to take an antiderivative, and if it looks like something that’s been chain-ruled, we can</p>
-<p>aha! it looks like something that’s been chain-ruled</p>
-<p>collapse it back together</p>
-<p>and then fiddle to figure out the constants</p>
-<p>Integrals are just derivatives <em>backwards</em>. Every statement about a</p>
-<p>Every integral is really just a derivative. Every integral is really just <em>something that’s been differentiated</em>. If we can find what it is that’s been differentiated, then we’ve won!</p>
-<p><span class="math display">\[(\text{blargh})&#39; = \text{yargh} \quad\iff\quad \int\!\text{yargh} = \text{blargh}\]</span> So, for instance, we’ve learned how to reverse the chain rule: <span class="math display">\[\frac{d}{dx}\Big[ f\Big(\,g(x)\,\Big) \Big] = f&#39;\Big(\,g(x)\,\Big)\cdot g&#39;(x) \quad\iff\quad \int\! f&#39;\Big( \,g(x)\, \Big)  \cdot g&#39;(x) \, dx = f\Big(\,g(x)\,\Big)\]</span></p>
-<p><span class="math inline">\(u\)</span>-substitution</p>
-<p>get really good at differentiating things w chain ruile</p>
-<p>take a lot of derivatives</p>
-<p>There’s a method some people like for doing this called <strong><span class="math inline">\(u\)</span>-substitution</strong>. I’ve never been a huge fan of it. When I first learned calculus, it seemed to make things more confusing. It gives a process and procedure—a formula, an algorithm—for how to reverse the chain rule, but, for me at least, it made things <em>more</em> confusing. The point of our tools should be to make things <em>less</em> confusing. So, if you look up <span class="math inline">\(u\)</span>-substitution and decide you like it as a method, go ahead and use it. But</p>
+<p>So if we’re trying to take an antiderivative, and if it looks like something that’s been chain-ruled, we can try to collapse it back together, and potentially do some fiddling to try to figure out the constants!</p>
+<p>There’s a method some people like for doing this called <strong><span class="math inline">\(u\)</span>-substitution</strong>. I’ve never been a huge fan of it. When I first learned calculus, it seemed to make things more confusing. It gives a process and procedure—a formula, an algorithm—for how to reverse the chain rule, but, for me at least, it made things <em>more</em> confusing. The point of our tools should be to make things <em>less</em> confusing. So, if you look up <span class="math inline">\(u\)</span>-substitution and decide you like it as a method, go ahead and use it. It actually foreshadows some deep ideas in multivariable calculus!</p>
+<p>But in general, I think you should try to avoid a <em>formulaic</em> approach to taking antiderivatives. In other words, I think you shouldn’t try to look up and apply <span class="math inline">\(u\)</span>-substitution as a procedure; I think you shouldn’t look at the general formulas I wrote just now and try to memorize them. Rather, we should try to <em>feel</em> our way through this stuff. If we’re really good at taking derivatives—if we’re really good at applying the chain rule—if we’re really good at <em>one</em> direction of this stuff—then we should be able to figure out the reverse direction through experimentation and intuition.</p>
 </main>
 </body>
 </html>

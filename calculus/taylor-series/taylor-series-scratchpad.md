@@ -45,7 +45,7 @@ $$f(x) \approx \underbrace{f(c)}_{\mathclap{\text{constant term}}} +\, \underbra
 
 
 
-## taylor series as generalizing this idea of tangent line approximations
+## taylor series as generalizing the idea of tangent line approximations
 
 The core assertion/paradox/weirdness/etc. behind calculus is:
 $$\begin{array}{l}

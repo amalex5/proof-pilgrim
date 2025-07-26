@@ -175,6 +175,7 @@ li {
     * [poster version](calculus/derivative-of-x^n/derivative-of-x^n-poster-draft.pdf)
 * [Dffrntn Shrtcts](calculus/differentiation/differentiation.html) (*differentiation laws*)
     * [some fun problems with the product rule](calculus/product-rule-problems/product-rule-problems.html)
+    * [the derivative of $x^n$ (scenic version)](calculus/product-rule-power-rule-proof/product-rule-power-rule-proof.html)
     * [fun theorem about polynomials, their derivatives, their zeroes, and their repeated and non-repeated roots](calculus/polynomial-and-its-derivative-roots/polynomial-and-its-derivative-roots.html)
 * [trig derivatives](calculus/trig-derivatives/trig-derivatives.html) (*statements, not proofs*)
 * Oh shoot, we need a more rigorous understanding of limits!
