@@ -5,7 +5,7 @@ layout: post
 ---
 
 
-<div style = ''>These are notes I originally wrote in 2009-2011 as part of my later-named <a href=http://www.andrusia.com/math>Adventures in Mathematics</a> curriculum while teaching in Phoenix. They were great for the time, but are distinctly earlier work, and haven't yet been rewritten in my current, deeper modes of mathematical storytelling. -Andrew</div>
+<div style = 'font-style: italic; border: 0.25pt solid black; margin: 1em; padding: 1em; background: whitesmoke;'>These are notes I originally wrote in 2009-2011 as part of my later-named <a href=http://www.andrusia.com/math>Adventures in Mathematics</a> curriculum while teaching in Phoenix. They were great for the time, but are distinctly earlier work, and haven't yet been rewritten in my current, deeper modes of mathematical storytelling.---Andrew</div>
 
 
 We know how to work with exponential functions. We know how to work with logarithms. But there are still two things we don't know:

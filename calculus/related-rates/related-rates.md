@@ -5,6 +5,7 @@ layout: post
 ---
 
 
+<div style = 'font-style: italic; border: 0.25pt solid black; margin: 1em; padding: 1em; background: whitesmoke;'>These are notes I originally wrote in 2009-2011 as part of my later-named <a href=http://www.andrusia.com/math>Adventures in Mathematics</a> curriculum while teaching in Phoenix. They were great for the time, but are distinctly earlier work, and haven't yet been rewritten in my current, deeper modes of mathematical storytelling.---Andrew</div>
 
 
 Imagine the following scenario: a tortoise and a hare decide to go on an Aesopian footrace, the prize of which will be eternal glory. Except rather than race down a straight path, or even race down the *same* path, a Darwinian glitch in the hare's navigational systems has caused it to hop off at an orthogonal angle^[the adult version of "right angle."] to the tortoise:

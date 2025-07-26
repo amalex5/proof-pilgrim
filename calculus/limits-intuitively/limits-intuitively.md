@@ -5,6 +5,7 @@ layout: post
 ---
 
 
+<div style = 'font-style: italic; border: 0.25pt solid black; margin: 1em; padding: 1em; background: whitesmoke;'>These are notes I originally wrote in 2009-2011 as part of my later-named <a href=http://www.andrusia.com/math>Adventures in Mathematics</a> curriculum while teaching in Phoenix. They were great for the time, but are distinctly earlier work, and haven't yet been rewritten in my current, deeper modes of mathematical storytelling.---Andrew</div>
 
 
 So far, we have been quite good at finding the derivatives of functions by plugging the functions into Fermat's difference quotient, rearranging, and then letting $h=0$. This is how we found the derivative of $x^2$ and $1/x$; in fact, our proof of the formula $\displaystyle \frac{d}{dx}x^n = nx^{n-1}$ told us that this general method works for any rational function\footnote{Or polynomial, since polynomials are just a type of rational function.}, insofar as we had to do nothing special about the $h$ in that proof.

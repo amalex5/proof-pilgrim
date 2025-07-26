@@ -55,7 +55,7 @@ Draw some pictures, too.
 If you're having trouble getting started, I can give you some more example problems to do with these mysterious integrals! I've got a whole bunch. But I'm trying to leave this intentionally open-meaned^["Open-meaned" being a word I just made up to distinguish between that and "open-ended," in the sense of ends versus means. This isn't open-ended; there's a specific question I want you to answer/thing I want you to figure out.]!</li>
     
 <li>Can you plot the value of the area underneath $x^p$ from $x=1$ to $x=\infty$ as $p$ changes? In other words, can you plot what the function  $\displaystyle f(p) = \int_1^\infty x^p\,dx$ looks like? What about what $\displaystyle g(p) = \int_0^1 x^p\,dx$ looks like? (I had the idea to make this graph when I was a 19-year-old learning calculus for the first time, and I thought it was one of the most remarkable things I'd ever seen.)
-<table style='text-align: center;'>
+<!-- <table style='text-align: center;'>
         <thead>
             <tr>
                 <th style='width:30%;'>$\displaystyle \int_0^1 \! x^p \, dx$</th>
@@ -160,7 +160,7 @@ If you're having trouble getting started, I can give you some more example probl
                 <td class="integral-col"></td>
             </tr>
         </tbody>
-</table>
+</table> -->
 
 </li>
 </ol>

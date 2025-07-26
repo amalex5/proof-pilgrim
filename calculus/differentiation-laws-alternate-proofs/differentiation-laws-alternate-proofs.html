@@ -65,6 +65,9 @@
 <div id="title-block">
 <h1 class="title">some alternate proofs of basic derivative rules</h1>
 </div>
+<div style="font-style: italic; border: 0.25pt solid black; margin: 1em; padding: 1em; background: whitesmoke;">
+These are notes I originally wrote in 2009-2011 as part of my later-named <a href=http://www.andrusia.com/math>Adventures in Mathematics</a> curriculum while teaching in Phoenix. They were great for the time, but are distinctly earlier work, and haven’t yet been rewritten in my current, deeper modes of mathematical storytelling.—Andrew
+</div>
 <p>Probably our most basic derivative rule is the additive rule—the theorem that says that <span class="math inline">\(\displaystyle \frac{d}{dx}\left[ f(x)+g(x)\right] = f&#39;(x)+g&#39;(x)\)</span>. Sensibly enough, we proved this by starting with Fermat’s difference quotient. The FDQ is our fundamental definition of a derivative, and it’s not too hard to plug <span class="math inline">\(f(x)+g(x)\)</span> into it, rearrange things a bit, and get <span class="math inline">\(f&#39;(x)+g&#39;(x)\)</span>. But—as we discovered during one 11th grade class—we can prove it entirely differently. We can prove it using <em>only</em> our knowledge of the derivatives of logs and exponentials, and the chain rule. The idea is that <span class="math inline">\(f(x)+g(x)\)</span> is equal to <span class="math inline">\(\ln\left(e^{f(x)+g(x)}\right)\)</span>, by basic properties of logs, so if I want to take the derivative of the former, I can just take the derivative of the latter: <span class="math display">\[\begin{align*}
 \frac{d}{dx}\left[ f(x)+g(x)\right] &amp;= \frac{d}{dx}\left[ \ln(e^{f(x)+g(x)})\right]
 \end{align*}\]</span> But we can use properties of exponents to rewrite this as: <span class="math display">\[\begin{align*}

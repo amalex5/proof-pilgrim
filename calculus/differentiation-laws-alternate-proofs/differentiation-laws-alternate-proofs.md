@@ -4,6 +4,8 @@ usemathjax: true
 layout: post
 ---
 
+<div style = 'font-style: italic; border: 0.25pt solid black; margin: 1em; padding: 1em; background: whitesmoke;'>These are notes I originally wrote in 2009-2011 as part of my later-named <a href=http://www.andrusia.com/math>Adventures in Mathematics</a> curriculum while teaching in Phoenix. They were great for the time, but are distinctly earlier work, and haven't yet been rewritten in my current, deeper modes of mathematical storytelling.---Andrew</div>
+
 
 Probably our most basic derivative rule is the additive rule---the theorem that says that $\displaystyle \frac{d}{dx}\left[ f(x)+g(x)\right] = f'(x)+g'(x)$. Sensibly enough, we proved this by starting with Fermat's difference quotient. The FDQ is our fundamental definition of a derivative, and it's not too hard to plug $f(x)+g(x)$ into it, rearrange things a bit, and get $f'(x)+g'(x)$. But---as we discovered during one 11th grade class---we can prove it entirely differently. We can prove it using *only* our knowledge of the derivatives of logs and exponentials, and the chain rule. The idea is that $f(x)+g(x)$ is equal to $\ln\left(e^{f(x)+g(x)}\right)$, by basic properties of logs, so if I want to take the derivative of the former, I can just take the derivative of the latter:
 \begin{align*}
