@@ -58,7 +58,6 @@
 <li><a href="#example-1">example #1</a></li>
 <li><a href="#example-2">example #2</a></li>
 <li><a href="#example-3">example #3</a></li>
-<li><a href="#harder-example">harder example</a></li>
 <li><a href="#general">general</a></li>
 </ul>
 </nav>
@@ -97,7 +96,7 @@
 &amp;= \cos\left( x^2 + 5x\right)\left(2x + 5\right)
 \end{align*}\]</span></p>
 <p>Yay! It works! So we have:</p>
-<p><span class="math display">\[\int \left(2x + 5\right)\cdot \cos\left( x^2 + 5x\right) \, dx \quad=\quad \sin\left(x^2+5x\right)\]</span></p>
+<p><span class="math display">\[\boxed{\,\, \int \left(2x + 5\right)\cdot \cos\left( x^2 + 5x\right) \, dx \quad=\quad \sin\left(x^2+5x\right)\,\, } \]</span></p>
 <h2 id="example-2">example #2</h2>
 <p>Here’s another integral/antiderivative:</p>
 <p><span class="math display">\[\int 347\left(x^5-2x^3 + 7\right)^{346}\cdot\left(5x^4-6x^2\right) \, dx = ???\]</span></p>
@@ -112,7 +111,7 @@
 &amp;= 347\left(x^5-2x^3 + 7\right)^{346}\left(5x^4-6x^2 \right)
 \end{align*}\]</span></p>
 <p>Yay! It works! So we have:</p>
-<p><span class="math display">\[\int 347\left(x^5-2x^3 + 7\right)^{348}\cdot\left(5x^4-6x^2\right) \, dx = \left(x^5-2x^3+7\right)^{347}\]</span></p>
+<p><span class="math display">\[\boxed{\,\, \int 347\left(x^5-2x^3 + 7\right)^{348}\cdot\left(5x^4-6x^2\right) \, dx = \left(x^5-2x^3+7\right)^{347} \,\,}\]</span></p>
 <h2 id="example-3">example #3</h2>
 <p>Here’s another example:</p>
 <p><span class="math display">\[\int \left(x^8 + 3x^4\right)^6\left(8x^7+12x^3\right) \, dx = ???\]</span></p>
@@ -137,15 +136,14 @@
 &amp;= \left(x^8 + 3x^4\right)^6 \cdot\left( 8x^7 + 12x^3\right) \\ \\
 \end{align*}\]</span></p>
 <p>Now it works! So we have:</p>
-<p><span class="math display">\[\int \left(x^8 + 3x^4\right)^6\left(8x^7+12x^3\right) \, dx \,\,=\,\, \frac17\left(x^8 + 3x^4\right)^7\]</span></p>
-<h2 id="harder-example">harder example</h2>
+<p><span class="math display">\[\boxed{\,\, \int \left(x^8 + 3x^4\right)^6\left(8x^7+12x^3\right) \, dx \,\,=\,\, \frac17\left(x^8 + 3x^4\right)^7 \,\,}\]</span></p>
 <h2 id="general">general</h2>
 <p><span class="math display">\[\frac{d}{dx}\Big[ f\Big(\,g(x)\,\Big) \Big] = f&#39;\Big(\,g(x)\,\Big)\cdot g&#39;(x) \quad\iff\quad \int\! f&#39;\Big( \,g(x)\, \Big)  \cdot g&#39;(x) \, dx = f\Big(\,g(x)\,\Big)\]</span></p>
 <p>The chain rule, phrased in the taking-the-derivative direction is this:</p>
 <p><span class="math display">\[\frac{d}{dx}\Bigg[ f\Big(\,g(x)\,\Big) \Bigg] \quad=\quad f&#39;\Big(\,g(x)\,\Big)\cdot g&#39;(x) \]</span></p>
 <p>Phrased backwards, in the anti-taking-a-derivative/undoing-the-chain-rule direction, it’s:</p>
 <p><span class="math display">\[\int\! f&#39;\Big( \,g(x)\, \Big)  \cdot g&#39;(x) \, dx \quad=\quad f\Big(\,g(x)\,\Big)\]</span></p>
-<p>So if we’re trying to take an antiderivative, and if it looks like something that’s been chain-ruled,</p>
+<p>So if we’re trying to take an antiderivative, and if it looks like something that’s been chain-ruled, we can</p>
 <p>aha! it looks like something that’s been chain-ruled</p>
 <p>collapse it back together</p>
 <p>and then fiddle to figure out the constants</p>
@@ -155,8 +153,7 @@
 <p><span class="math inline">\(u\)</span>-substitution</p>
 <p>get really good at differentiating things w chain ruile</p>
 <p>take a lot of derivatives</p>
-<p>There’s a method some people like for doing this called <strong><span class="math inline">\(u\)</span>-substitution</strong>. I’ve never been a huge fan of it. When I first learned calculus, it seemed to make things more confusing. It gives a process and procedure—a formula, an algorithm—for how to reverse the chain rule, but, for me at least, it made things <em>more</em> confusing. And the point of our tools should be to make things <em>less</em> confusing. So, if you look up <span class="math inline">\(u\)</span>-substitution and decided you like it as a method, go ahead and use it. But</p>
-<p>triple chain rule</p>
+<p>There’s a method some people like for doing this called <strong><span class="math inline">\(u\)</span>-substitution</strong>. I’ve never been a huge fan of it. When I first learned calculus, it seemed to make things more confusing. It gives a process and procedure—a formula, an algorithm—for how to reverse the chain rule, but, for me at least, it made things <em>more</em> confusing. The point of our tools should be to make things <em>less</em> confusing. So, if you look up <span class="math inline">\(u\)</span>-substitution and decide you like it as a method, go ahead and use it. But</p>
 </main>
 </body>
 </html>

@@ -9,6 +9,7 @@ One of the things we occasionally do when we take derivatives is use the chain r
 
 
 
+
 exploded remanents of the chain rule
 
 pieces lying on the floor
@@ -75,7 +76,7 @@ We have:
 
 Yay! It works! So we have:
 
-$$\int \left(2x + 5\right)\cdot \cos\left( x^2 + 5x\right) \, dx \quad=\quad \sin\left(x^2+5x\right)$$
+$$\boxed{\,\, \int \left(2x + 5\right)\cdot \cos\left( x^2 + 5x\right) \, dx \quad=\quad \sin\left(x^2+5x\right)\,\, } $$
 
 
 ## example \#2
@@ -105,7 +106,7 @@ Let's check:
 
 Yay! It works! So we have:
 
-$$\int 347\left(x^5-2x^3 + 7\right)^{348}\cdot\left(5x^4-6x^2\right) \, dx = \left(x^5-2x^3+7\right)^{347}$$
+$$\boxed{\,\, \int 347\left(x^5-2x^3 + 7\right)^{348}\cdot\left(5x^4-6x^2\right) \, dx = \left(x^5-2x^3+7\right)^{347} \,\,}$$
 
 
 ## example \#3
@@ -146,12 +147,7 @@ The problem is there's that extra $7$ out front. But we can deal with that! We c
 
 Now it works! So we have:
 
-$$\int \left(x^8 + 3x^4\right)^6\left(8x^7+12x^3\right) \, dx \,\,=\,\, \frac17\left(x^8 + 3x^4\right)^7$$
-
-## harder example
-
-
-
+$$\boxed{\,\, \int \left(x^8 + 3x^4\right)^6\left(8x^7+12x^3\right) \, dx \,\,=\,\, \frac17\left(x^8 + 3x^4\right)^7 \,\,}$$
 
 ## general
 
@@ -168,7 +164,8 @@ Phrased backwards, in the anti-taking-a-derivative/undoing-the-chain-rule direct
 
 $$\int\! f'\Big( \,g(x)\, \Big)  \cdot g'(x) \, dx \quad=\quad f\Big(\,g(x)\,\Big)$$
 
-So if we're trying to take an antiderivative, and if it looks like something that's been chain-ruled, 
+So if we're trying to take an antiderivative, and if it looks like something that's been chain-ruled, we can
+
 
 
 aha! it looks like something that's been chain-ruled
@@ -202,10 +199,4 @@ get really good at differentiating things w chain ruile
 
 take a lot of derivatives
 
-There's a method some people like for doing this called **$u$-substitution**. I've never been a huge fan of it. When I first learned calculus, it seemed to make things more confusing. It gives a process and procedure---a formula, an algorithm---for how to reverse the chain rule, but, for me at least, it made things *more* confusing. And the point of our tools should be to make things *less* confusing. So, if you look up $u$-substitution and decided you like it as a method, go ahead and use it. But 
-
-
-
-triple chain rule
-
-
+There's a method some people like for doing this called **$u$-substitution**. I've never been a huge fan of it. When I first learned calculus, it seemed to make things more confusing. It gives a process and procedure---a formula, an algorithm---for how to reverse the chain rule, but, for me at least, it made things *more* confusing. The point of our tools should be to make things *less* confusing. So, if you look up $u$-substitution and decide you like it as a method, go ahead and use it. But 

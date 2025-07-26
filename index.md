@@ -178,14 +178,14 @@ li {
     * [fun theorem about polynomials, their derivatives, their zeroes, and their repeated and non-repeated roots](calculus/polynomial-and-its-derivative-roots/polynomial-and-its-derivative-roots.html)
 * [trig derivatives](calculus/trig-derivatives/trig-derivatives.html) (*statements, not proofs*)
 * Oh shoot, we need a more rigorous understanding of limits!
-    * [limits, intuitively](calculus/limits-intuitively/limits-intuitively.html)
-    * [limits, more rigorously](calculus/limits-rigorously/limits-rigorously.html)
-* [okay, now we can actually prove that the derivative of sine is cosine!](calculus/derivative-of-sine/derivative-of-sine.html)
-* [differentiating logs and exponentials](calculus/derivatives-logs-exponentials/derivatives-logs-exponentials.html)
-    * [some alternate proofs of basic differentiation laws](calculus/differentiation-laws-alternate-proofs/differentiation-laws-alternate-proofs.html)
+    * [limits, intuitively](calculus/limits-intuitively/limits-intuitively.html) <span style='font-family: sans-serif; color:red; font-weight: bold; font-size: 75%;'>(old)</span>
+    * [limits, more rigorously](calculus/limits-rigorously/limits-rigorously.html) <span style='font-family: sans-serif; color:red; font-weight: bold; font-size: 75%;'>(old)</span>
+* [okay, now we can actually prove that the derivative of sine is cosine!](calculus/derivative-of-sine/derivative-of-sine.html) <span style='font-family: sans-serif; color:red; font-weight: bold; font-size: 75%;'>(old)</span>
+* [differentiating logs and exponentials](calculus/derivatives-logs-exponentials/derivatives-logs-exponentials.html) <span style='font-family: sans-serif; color:red; font-weight: bold; font-size: 75%;'>(old)</span>
+    * [some alternate proofs of basic differentiation laws](calculus/differentiation-laws-alternate-proofs/differentiation-laws-alternate-proofs.html) <span style='font-family: sans-serif; color:red; font-weight: bold; font-size: 75%;'>(old)</span>
 * [what's the derivative of inverse tangent?](calculus/derivative-of-inverse-tangent/derivative-of-inverse-tangent.html)
 * [(Implicit) Differentiation](calculus/implicit-differentiation/implicit-differentiation.html)
-* [Related rates](calculus/related-rates/related-rates.html)
+* [Related rates](calculus/related-rates/related-rates.html) <span style='font-family: sans-serif; color:red; font-weight: bold; font-size: 75%;'>(old)</span>
 * [Optimization](calculus/optimization/optimization.html)
 * [Integration](calculus/integrals-intro/integrals-intro.html)
     * [Some totally unremarkable problems with integrals](calculus/integrals-as-net-area-motivating-problems/integrals-as-net-area-motivating-problems.html) (*exploratory problems*)
@@ -196,7 +196,7 @@ li {
     * [Integration by parts: some fun examples](calculus/integration-by-parts-examples/integration-by-parts-examples.html)
     * [Integrating By Parts By Parts By Parts By Parts...](calculus/iterated-integration-by-parts/iterated-integration-by-parts.html) (*iterated integration by parts*)
 * [infinite integrals](calculus/infinite-integrals/infinite-integrals.html) (*people call these "improper integrals," which is silly*)
-* [taylor series intro!](calculus/taylor-series/taylor-series-intro/taylor-series-intro.html)
+* [taylor series intro!](calculus/taylor-series/taylor-series-intro/taylor-series-intro.html) <span style='font-family: sans-serif; color:red; font-weight: bold; font-size: 75%;'>(old)</span>
     * [taylor series derivation!](calculus/taylor-series/taylor-series-derivation/taylor-series-derivation.html)
     * [taylor series, more algorithmically](calculus/taylor-series/taylor-series-as-procedure/taylor-series-as-procedure.html)
     * but sometimes you can only polynomialize functions over finite ranges
