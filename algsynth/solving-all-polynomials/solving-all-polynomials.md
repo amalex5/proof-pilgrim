@@ -16,7 +16,7 @@ has a single root at an $x$-coordinate of:
 \text{root: } -\frac{b}{a}
 \end{align*}
 
-PICTURE
+![](linear-root.svg){ width=75% }
 
 
 Usually we wouldn't use all this fancy language! It's just a line! We probably wouldn't even think to come up with a formula for the root---i.e., the $x$-intercept---because it's so easy to do the two steps of algebra to get it, for any specific line. But that's OK!
@@ -33,7 +33,7 @@ has two roots at the $x$-coordinates of:
 
 
 
-PICTURE
+![](quadratic-roots.svg){ width=75% }
 
 Note that, like all of these pictures, these are just sketches of possibilities. Above, I've drawn what a possible quartic polynomial that has four real roots, and also a positive leading term (so it opens up) might look like. But we could have a quartic polynomial that opens down! Or that only has two real roots! Or one real root! (Three? Zero???) These are just doodles to demonstrate a rough idea. 
 
@@ -57,7 +57,7 @@ has three roots at the $x$-coordinates of:
 \end{align*}
 
 
-PICTURE
+![](cubic-roots.svg){ width=75% }
 
 
 ## The Quartic Formula
@@ -67,7 +67,8 @@ $$y = ax^4 + bx^3 + cx^2 + dx + e$$
 as four roots at $x$-coordinates... printed [on a separate PDF](https://proofpilgrim.com/algsynth/quartic-formula/quartic-formula.pdf), because as rendered by LaTeX, the formula is $72$ inches wide.
 
 
-PICTURE
+![](quartic-roots.svg){ width=75% }
+
 
 
 
