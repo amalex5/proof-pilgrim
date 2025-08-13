@@ -35,9 +35,6 @@ has two roots at the $x$-coordinates of:
 
 ![](quadratic-roots.svg){ width=75% }
 
-Note that, like all of these pictures, these are just sketches of possibilities. Above, I've drawn what a possible quartic polynomial that has four real roots, and also a positive leading term (so it opens up) might look like. But we could have a quartic polynomial that opens down! Or that only has two real roots! Or one real root! (Three? Zero???) These are just doodles to demonstrate a rough idea. 
-
-
 ## The Cubic Formula
 
 The cubic polynomial (a.k.a. the degree 3 polynomial):
@@ -69,6 +66,7 @@ as four roots at $x$-coordinates... printed [on a separate PDF](https://proofpil
 
 ![](quartic-roots.svg){ width=75% }
 
+Note that, like all of these pictures, these are just sketches of possibilities. Above, I've drawn what a possible quartic polynomial that has four real roots, and also a positive leading term (so it opens up) might look like. But we could have a quartic polynomial that opens down! Or that only has two real roots! Or one real root! (Three? Zero???) These are just doodles to demonstrate a rough idea. 
 
 
 
