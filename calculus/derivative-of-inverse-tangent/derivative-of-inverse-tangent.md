@@ -73,7 +73,7 @@ $$\tan^{\text{inv}'}\big( \tan\theta) = \frac{1}{\left(\tan\theta\right)^2 + 1}$
 $$\tan^{\text{inv}'}( x) = \frac{1}{x^2 + 1}$$
 And... that's it! That's a formula for the derivative of inverse tangent, of any random input $x$!!! It's what we wanted!
 $$\boxed{\,\, \tan^{\text{inv}'}( x) = \frac{1}{x^2 + 1} \,\,}$$
-Does this look basically like what we sketched? Yeah! It's just a rational function---perhaps one you even remmeber sketching. It has no roots (because $1\neq 0$), it has no vertical asymptotes (because $x^2+1 \neq 0$), it's got a horizontal asymptote at $y=0$---yeah, this is it!
+Does this look basically like what we sketched? Yeah! It's just a rational function---perhaps one you even remember sketching. It has no roots (because $1\neq 0$), it has no vertical asymptotes (because $x^2+1 \neq 0$), it's got a horizontal asymptote at $y=0$---yeah, this is it!
 
 
 

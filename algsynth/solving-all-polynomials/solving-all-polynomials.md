@@ -16,10 +16,10 @@ has a single root at an $x$-coordinate of:
 \text{root: } -\frac{b}{a}
 \end{align*}
 
-PIOCTURE
+PICTURE
 
 
-Usually we wouldn't even use all this fancy language! It's just a line! And we probably wouldn't even think to come up with a formula for the root---i.e., the $x$-intercept---because it's so easy to do the two steps of algebra to get it, for any specific line. But that's OK!
+Usually we wouldn't use all this fancy language! It's just a line! We probably wouldn't even think to come up with a formula for the root---i.e., the $x$-intercept---because it's so easy to do the two steps of algebra to get it, for any specific line. But that's OK!
 
 ## The Quadratic Formula 
 
@@ -27,13 +27,15 @@ The parabola, a.k.a. the degree $2$ polynomial:
 $$y= ax^2+bx+c$$
 has two roots at the $x$-coordinates of:
 \begin{align*}
-\text{root \#1: }  \frac{-b+\sqrt{b^2-4ac}}{2a} \\ \\
-\text{root \#2: } \frac{-b-\sqrt{b^2-4ac}}{2a}
+\text{root \#1: }  \quad \frac{-b+\sqrt{b^2-4ac}}{2a} \\ \\
+\text{root \#2: } \quad \frac{-b-\sqrt{b^2-4ac}}{2a}
 \end{align*}
 
 
 
 PICTURE
+
+Note that, like all of these pictures, these are just sketches of possibilities. Above, I've drawn what a possible quartic polynomial that has four real roots, and also a positive leading term (so it opens up) might look like. But we could have a quartic polynomial that opens down! Or that only has two real roots! Or one real root! (Three? Zero???) These are just doodles to demonstrate a rough idea. 
 
 
 ## The Cubic Formula
@@ -62,7 +64,7 @@ PICTURE
 
 The quartic polynomial (a.k.a. the degree 4 polynomial):
 $$y = ax^4 + bx^3 + cx^2 + dx + e$$
-as four roots at $x$-coordinates... printed on a separate PDF, because as rendered by LaTeX, the formula is $72$ inches wide.
+as four roots at $x$-coordinates... printed [on a separate PDF](https://proofpilgrim.com/algsynth/quartic-formula/quartic-formula.pdf), because as rendered by LaTeX, the formula is $72$ inches wide.
 
 
 PICTURE
@@ -78,3 +80,5 @@ has five roots at the $x$-coordinates of... well... somewhere. But THERE IS NO F
 This was proved in the early 1800s by a French kid named Evariste Galois. The set of ideas he came up with are now called "Galois theory," and are some of my favorite ideas in math. He developed these ideas when he was just a teenager.
 
 If you remember our geometric constructions unit in Math 1, we talked about how it's impossible to make a perfect $7$-gon using a compass and straight-edge. The reason you can't do that is basically the same as the reason you can't factor/solve a fifth-degree-or-higher polynomial: they're both because of Galois theory, and these very general ideas about symmetry. 
+
+(There are *some* quntic polynomials for which we can find the roots, note; it's just that we can't find the roots for *every* quintic polynomial.)
