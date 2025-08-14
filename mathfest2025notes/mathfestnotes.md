@@ -13,13 +13,41 @@ mathphil leecture
 and POWER and politics again
 
 
+
+Lipstick on a Pig
+
+
+
+
+There were lots of more math-oriented 
+
+
+
+
+
+
+
+
+
+tristan needhan
+
+
+As a newly minted DPhil student of Pen- rose, with no track record or reputation, I feared that the mathematical community would reject or even ridicule7 my Newtonian arguments.
+
+n1 "In my defence, such fears were not entirely groundless: When Princeton University Press sent out draft chapters of VDGF for review, one of the three anonymous reviewers bluntly declared, "This is not even mathematics!"
+
+VCA 25th ann ed xii - xiv
+
+
 Hi friends!
 
 I spent the last few days before school started not at the Giftedness Institute like many of you, not clinking drinks in Cabo (like others, based on your Instagrams), nor enjoying a final few days in the Sierra—but in Sacramento, at MathFest, the Mathematical Association of America’s annual conference. When I went to the JMM along with some of you in 2024, I wrote up some emails about the experience for those of you who couldn’t make it, and I’ve done the same here. It was a delightful four days of math, dry heat, and a not-that-surprising cameo from one of our former students.
 
 I’ll drip these out over the next week or two. (And I’ll try to keep them brief.)
 
-⁂
+<span class="asterism"></span>
+
+<h2 style='text-align: center;'>Showdown in Meeting Room 3</h2>
 
 Wednesday I took the train to Sacramento, biked to the convention center, and jumped straight in.
 
@@ -56,36 +84,40 @@ The panel abstract described the CCC guy just as representing “California Comm
 I left the panel entertained and discouraged. I saw a tweet a few months ago, as a response to a video of some typical thing Trump said: “He would be the funniest person in the world if he wasn’t also the most evil person in the world.” It’s all deck chairs being rearranged into kindling. I think of myself as a Burkean about most things, but about education, and especially math education, I’m full 1789. CalFire’s tankers and hotshots won’t be able to contain the wildfire sparked by LLMs. But it’s going to be a cleansing fire.
 
 
-⁂
+<span class="asterism"></span>
+
 
 Here’s something cool I saw in the exhibit hall. I literally squealed with excitement when I saw these.
 
 I’ve attempted to make similar 3D visualizations before, but these were not just computer renders but 3D prints, color-coded, of exactly that thing. I’m so excited about it I don’t even want to tell you what it is. (Spoken like a true math teacher!) Instead, I’ll show you pictures, and ask you what it is. (You can re-assess if you don’t get a 4. Please sign up for a tutorial spot on my Calendly to do so; there’s a link on Canvas.)
 
-Here’s the first object, axiometrically and TKTKTKT:
+Here’s the first object, two views:
 
+![](IMG_5244.JPG){ width=75%}
 
-TKTKTKT
+![](IMG_5245.JPG){ width=75%}
 
 
 The second:
 
 
-TKTKTKT
+![](IMG_5248.JPG){ width=75%}
 
 
 
 And the third:
 
 
-TKTKTKT
+![](IMG_5247.JPG){ width=75%}
 
 What is it, friends? WHAT IS IT?!?!
 
 You think I’m kidding? Nope, I’m not; here’s a Google Form link to submit your guesses. Credit here goes to [Nonscriptum](https://www.nonscriptum.com/), a group of ex-MIT 3D printing hackery types, who had a booth full of gadgets. 
 
 
-⁂
+<span class="asterism"></span>
+
+<h2 style='text-align: center;'>Calculus Radicalized</h2>
 
 
 LKINK AND TITLE AND NAMES TBTBTBTBTB
@@ -161,10 +193,11 @@ QUOTES I TOOK PICTURES OF TKTKTKTKTT
 
 
 
+complex-numbers/eulers-identity
 
 
 
-⁂
+<span class="asterism"></span>
 
 
 
@@ -189,7 +222,12 @@ The Math in the Mountains shoutout was a total surprise and exciting—I taught 
 
 
 
-⁂
+<span class="asterism"></span>
+
+<h2 style='text-align: center;'>Beth Malmskog's Quilting Circle</h2>
+
+
+
 
 Talk #3. “Chronological” is generally a bad organizational strategy, but so far, I think it works, because the narrative by this point of my time at MathFest is of INCREASING mathematics, INCREASING excitement, and DECREASING depressing BS. 
 
@@ -236,8 +274,11 @@ Oh, and the kicker? This quilting problem, which reduced to the still-open quest
 It was about socializing, after all.
 
 
-⁂
+<span class="asterism"></span>
 
+<h2 style='text-align: center;'>Terrified Tao</h2>
+
+![](DSC_0758_processed_email.jpg){ width=50% }
 
 Each of the 12.4 zillion profiles of Terry Tao written over the last 20 years has described him as “boyish.” 
 
@@ -272,12 +313,14 @@ Other thing I’ll say is that a lot of the talk was framed in a positive descri
 Fun relevant anecdote: he described a recent result in knot theory that ML algorithms discovered. Researchers fed a bunch of knots and their various invariants into a neural network, and found that the network could predict, with high accuracy, the signature of the knot from its hyperbolic invariants. But how?!?! Neural networks are impossible to understand. “Interpretability” is the word all the AI people use, though Tao didn’t use that word. They hit it with some interpretability techniques, etc., and found out that in fact the network could do a decent job predicting the signature with just three of the hyperbolic invariants. So they fiddled around some more, made some scatterplots (Tao showed one, which I didn’t understand), made a conjecture, turned out it was slightly wrong, refined it, etc., and proved it. And the actual published proof has no ML; it’s just a theorem and a human proof. But it was a conjecture that a neural network (effectively) came up with, not a human. 
 
 
-⁂
+<span class="asterism"></span>
 
 
 My math zines got accepted into the juried mathematical art exhibit at the conference. That’s the way it’ll be phrased on my CV. The more honest version is that someone on the art committee cold-reached-out to me this spring to say that they didn’t have enough submissions and even though the official deadline had passed, did I have anything I could possibly submit? 
 
 Most of you have seen [the zine I made in 2023 about complex exponentiation](https://andrusia.com/2023/01/15/complex-exponentiation-zine.html); for this, I made two more. Tragically, I couldn’t wrangle access to the underground print shop in that West Oakland warehouse that I used in 2023 (with the RISOGRAPH!), so I had to make the zines on the Nueva copiers. Oh well. Three zines: the complex exponentiation one, “Six Short Stories About the Binomial Theorem” (zine-ified version of notes I wrote for the Math 2s this spring summarizing a few days of our work), and “What’s the derivative of inverse tangent?” (less exciting, but it was the most recent thing I’d written and was just a single spread, so it was a last-minute freebie).
+
+![](DSC_0750_processed_email.jpg)
 
 Here’s the description I wrote for the plaque at the exhibit. (Note how I slip into—intentionally or unintentionally or ironically or sincerely, I’m not sure—pretentious artist statement diction):
 
@@ -291,16 +334,15 @@ I was thinking the episode of Arrested Development (sorry for the pop culture!) 
 
 But I didn’t need to, ‘cause according to Google Analytics, my personal website (cited in the colophon of the zines) saw a SIX HUNDRED PERCENT spike in traffic on the first day of the conference—a whopping TWENTY-ONE users:
 
-SCREEENSHOT TJKTKTKTKTKTKT
+![](googleanalyticsscreenshot.png){ width=75% }
+
+
+<span class="asterism"></span>
 
 
 
 
-
-⁂
-
-
-
+There was a philosophy of math track; there was a teaching-complex-analysis track; there were TWO mornings of teaching-differential-equations tracks
 
 
 
@@ -308,11 +350,11 @@ SCREEENSHOT TJKTKTKTKTKTKT
 * Mathematical Paradoxes and the Evolution of Philosophical Commitments
 * Algorithms and Neoplatonism in an Old Norse Algorismus
 * The Paradoxical Philosophy of American Mathematics Education, 1790–1840
-* An Ample Budget of Paradoxes [huh????]
-* Truth Standing On Its Head [what could this possibly be about?!?!]
+* An Ample Budget of Paradoxes \[*huh????*\]
+* Truth Standing On Its Head \[*what could this possibly be about?!?!*\]
 
 
-
+Meanwhile, check out the 
 
 * Exploring Excess Image Area Growth: From Holomorphic Functions to Toeplitz Operators
 * Student Guided Reinvention of the Hyperbolic Geometry of the Upper Half Plane
@@ -331,13 +373,19 @@ SCREEENSHOT TJKTKTKTKTKTKT
 
 
 
+And 
 
 
 
 
 
-⁂
 
+
+
+
+<span class="asterism"></span>
+
+<h2 style='text-align: center;'>Tadashi Tokeida on "Calculating Without Numbers"</h2>
 
 
 
@@ -375,7 +423,16 @@ Someone else asked—wait, I know that voice—wait, seriously?!?!—a question 
 
 Kaden was telling me how he was especially fascinated with Tokieda’s slides, as he’s been experimenting the last year with taking all of his math notes in Keynote (like, Apple’s slides program), and what a different medium it is from pen and paper (or even the tablet equivalent)—among other things, the discretization/pagination, and the 2D organization (versus the linear nature of taking notes by hand, and then infinite scroll of taking notes on a tablet. )
 
-⁂
+
+He also wanted a selfie by my zines:
+
+![](IMG_7483.HEIC){ width=75% }
+
+
+<span class="asterism"></span>
+
+<h2 style='text-align: center;'>Persi Diaconis on C.S. Peirce's Card Tricks</h2>
+
 
 
 There were cool-sounding talks all the way through dinner on Saturday, but I had run out of steam by 3, so I decided to end things on what I thought would be, and what was, a high note. “High” refers to the number of years Persi Diaconis has been alive—quite a bit more than 80!—but despite that (hopefully because of that?), his public talk on “The Magic of Charles Sanders Perice” was delightful.
@@ -388,7 +445,7 @@ Persi’s conclusion: yeah, he’s legit!!! I mean, not on a superficial level. 
 
 Persi told us the names he’s given to these four principles, and demonstrated one of them. I don’t know enough about cards (or can follow this sort of stuff fast enough), but the one he demonstrated (when he later explained the math) somehow explained creating two inverse permutations, basically. And something about how it worked out to just be the group of symmetries of a hypersphere. 
 
-But, as an example of the complete failure of the performative aspect of magic: you know, normally you do a card trick, it ends with some woweeee-zowee like pulling the same card that your performee picked initially, or coming up with four aces on top of your four piles, or something vividly, tangibly, viscerally exciting like that. This is not Peirce. As an example, Persi described one of Peirce’s card tricks. It ends with dealing the hearts and the spades into two rows. The “trick” is that the value of the card at position $i$ in the hearts pile tells the position of the card with value $i$ in the spades pile. I.e. (this is my pseudocode) hearts[i] = spades.find(i). (Cards are numbers, so its position can also be its value, type-clashingly.) Or, with the concrete example Persi had on his slide:
+But, as an example of the complete failure of the performative aspect of magic: you know, normally you do a card trick, it ends with some woweeee-zowee like pulling the same card that your performee picked initially, or coming up with four aces on top of your four piles, or something vividly, tangibly, viscerally exciting like that. This is not Peirce. As an example, Persi described one of Peirce’s card tricks. It ends with dealing the hearts and the spades into two rows. The “trick” is that the value of the card at position $i$ in the hearts pile tells the position of the card with value $i$ in the spades pile. I.e. (this is my pseudocode) ```hearts[i] = spades.find(i)```. (Cards are numbers, so its position can also be its value, type-clashingly.) Or, with the concrete example Persi had on his slide:
 
 hearts pile: 51324<br>
 spades pile: 24351
@@ -408,7 +465,9 @@ Oh, and speaking of recently dead people. (When did Martin Gardner die? A few ye
 Anyway, Gardner was also the inspiration for this talk, since Gardner wrote extensively about Peirce, and described Perice as his favorite philosopher. So he’s who inspired Persi to look into Peirce. The first homework problem that Persi assigns to his Mathematics and Magic course at Stanford, and that he announced he was assigning to us: go find one of Martin Gardner’s book, find the chapter about math and magic tricks (every one of his books has such a chapter), find a trick you like, perform it, and then explain how it works.
 
 
-⁂
+<span class="asterism"></span>
+
+<h2 style='text-align: center;'>Sacramental</h2>
 
 
 It’s not about math, but boy, I had a nice time in Sacramento!!! I SPLURGED (hope you’re not reading this Lauren) and stayed in an enormous old Victorian mansion right in the heart of downtown. Wood paneling everywhere, enormous fireplaces, baroque wallpaper, fifteen-foot ceilings... really quite lux. Technically I just had a single bed in a twelve-person dorm room in the mansion. Still the nicest hostel I’ve ever been to. And given that I spent the entire summer living out of the back of my car, it felt like a splurge! It felt like luxury! (Guys, there was RUNNING WATER! And showers!!!) Highly recommended.
@@ -421,13 +480,12 @@ Also this FANTASTIC bar—not like I go hang out at bars a lot, but I loved it s
 
 > This place is amazing!!! I was in Sacramento for a math conference (!), wandered past here my first night, and ended up spending almost all my down time from the conference hanging out here. It’s small but not cramped; it’s spacious but cozy; it’s always the same two bartenders (who I guess own the place?). The beers were delicious. The seating is all long communal tables, with wooden benches draped with fake cow and sheepskin blankets. My first night I came in during an open mic, which was actually *great*—not just music but also poetry. It felt like I was home in Oakland (in a good way). There’s a BEAUTIFUL DOG, a big gorgeous husky, who does security :). This is exactly, exactly, exactly, what I want in a bar (or coffee shop, or place like that) anywhere.
 
-The **Mattie Groves Brewery**. 17th and L. “Home in Oakland” is... let’s call that aspirational, or a vague muddle of “home in the Bay Area but in a part of the Bay Area I feel more comfortable in.”
+The **Mattie Groves Brewery**. 17th and L. “Home in Oakland” is... let’s call it aspirational, or a vague elision of “home in the Bay Area but in a part of the Bay Area I feel more comfortable in.”
 
 There’s a FANTASTIC huge **Saturday morning farmer’s market in Midtown** on Saturday (this is where I got my lunch that day). It’s of the scale of Palo Alto’s Cal Ave farmer’s market, but with people and booths that are way cooler (... ‘cause it’s not Palo Alto. My impression is that Sac:Oak:Phila:Brooklyn???). I even BOUGHT something—like, an object—which I basically NEVER do; I hate buying things—but I felt inspired. There was an artist selling prints, of mostly mountain and floral themes, and this 8x10 print caught my eye, of a pika sitting on a mushroom, amidst a field of mushrooms, looking up at the sky and sun hopefully and expectantly and optimistically:
 
 
-TKTKTKTKTK PHOTO
-
+![](IMG_1920.webp){ width=75% }
 
 (I had already decided to buy it before confirming with the artist that the critter is indeed a pika and not a mouse; she was excited that I recognized it as such.)
 

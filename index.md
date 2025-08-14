@@ -101,6 +101,7 @@ li {
     * [Finding the roots of all polynomials](algsynth/solving-all-polynomials/solving-all-polynomials.html) (*the linear, quadratic, and cubic formulas, and a soupçon of what's beyond!*)
     * [the QUARTIC formula!!!!](algsynth/quartic-formula/quartic-formula.pdf) (*formulas calculated by Sage and typeset by $\LaTeX$ in a tiniest-font 72-inch wide PDF*)
 * [Rational functions](algsynth/rationals/rationals.html) (*what if we could* divide *polynomials?*)
+    * rationals/polynomials/etc. containment diagram ([svg](algsynth/rationals/rationals-containment-diagram.svg), [pdf](algsynth/rationals/rationals-containment-diagram.pdf))
     * [Blowing up fractions!](algsynth/blowing-up-fractions/blowing-up-fractions.html) (*a fun algebraic technique, more blandly known as partial fraction decomposition*)
     * some fun rational function sketching problems
 
@@ -150,6 +151,7 @@ li {
 * [Polar Tetris](https://www.andrusia.com/polartetris.html) (*Andrew's circular version of Tetris*)
 * [Hilariously Hideous Complex Fractions](complex-numbers/hilariously-hideous-complex-fractions/hilariously-hideous-complex-fractions.html) (*fun small exploratory problem involving iterated complex fractions*)
 * [Exponential Improvements](complex-numbers/eulers-identity/eulers-identity.html) (*notes on the exponential form and Euler's Identity*)
+    * different definitions of trig functions containment diagram: [svg](complex-numbers/eulers-identity/trig-function-definitions-containment-diagram-exponential-form.svg), [pdf](complex-numbers/eulers-identity/trig-function-definitions-containment-diagram-exponential-form.pdf)
     * [notes on the complex nummies derivation of the sine/cosine sum-and-difference formulas](complex-numbers/eulers-identity/complex-proof-of-sum-and-difference/complex-proof-of-sum-and-difference.html)
 * [$\sqrt{\text{Complex!}}$](complex-numbers/complex-roots-motivation/complex-roots-motivation.html) (*exploratory problems to figure out complex roots*)
 * [Numbers, Spinning and Unspinning](complex-numbers/complex-roots/complex-roots.html) (*notes on complex roots*)
