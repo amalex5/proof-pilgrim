@@ -108,7 +108,7 @@ li {
 ## logarithms {#logs}
 
 * [The World Made From Modular Machines](inverse-functions/inverse-functions.html) (*notes on inverse functions, as a primer*)
-* exponent rules reference sheet [(svg)](logarithms/exponent-rules-reference/exponent-rules-reference.svg)
+* exponent rules reference sheet [(svg)](logarithms/exponent-rules-reference/exponent-rules-reference.svg), [(pdf)](logarithms/exponent-rules-reference/exponent-rules-reference.pdf)
 * [fun intro exploratory logs problems](logarithms/logs-intro-problems/logs-intro-problems.html)
 * [Logarithms!](logarithms/logarithms-intro/logarithms-intro.html) (*intro lengthy exposition and proofs of some basic properties*)
 * [Andrew's online visual logarithms calculator/pun](https://www.andrusia.com/logs.html)
@@ -192,7 +192,7 @@ li {
 * [Optimization](calculus/optimization/optimization.html)
 * [Integration](calculus/integrals-intro/integrals-intro.html)
     * [Some totally unremarkable problems with integrals](calculus/integrals-as-net-area-motivating-problems/integrals-as-net-area-motivating-problems.html) (*exploratory problems*)
-    * [Integrals as net area](calculus/integrals-as-net-area/integrals-as-net-area.html) 
+    * [Integrals as net area](calculus/integrals-as-net-area/integrals-as-net-area.html) <span style='font-family: sans-serif; color:red; font-weight: bold; font-size: 75%;'>(old)</span>
 * [Antiderivatives](calculus/antiderivatives/antiderivatives.html) (*just... several hundred antiderivative problems!*)
 * [Putting Humpty-Dumpty Back Together](calculus/undoing-the-chain-rule/undoing-the-chain-rule.html) (*undoing the chain rule*)
 * [Undoing the product rule](calculus/integration-by-parts/integration-by-parts.html) (*integration by parts *)
