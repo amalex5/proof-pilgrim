@@ -54,7 +54,7 @@ So then, plugging things into this formula, we get:
 &= x^2\cdot \cos x - \int x^2(-\sin x) \,dx \\
 &= x^2\cos x + \int x^2\sin x \, dx
 \end{align*}
-This... does not seem any easier. We don't know how to evaluate $\int x^2\sin x \, dx$, either. And actually, it seems *worse* in a sense, because now the exponent is bigger! $x$ was linear; now it's quadratic!
+This... does not seem any easier. We don't know how to evaluate $\int x^2\sin x \, dx$, either. And actually, it seems *worse* in a sense, because now the exponent is bigger! $x$ was linear; now $x^2$ is quadratic!
 
 Let's try the other way. Let's make the opposite choice of $f'(x)$ and $g(x)$. We have:
 $$\int \underbrace{2x}_{g(x)}\cdot\underbrace{ \cos(x)}_{f'(x)}\,dx$$

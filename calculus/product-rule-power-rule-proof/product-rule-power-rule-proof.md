@@ -5,9 +5,9 @@ layout: post
 ---
 
 
-At 6:30 in the morning in a coffee shop in Jackson Hole, this delightful, absurd, using-a-backhoe-to-dig-a-garden derivation of the power rule occurred to me. 
+6:30 am. Jackson Hole. I'm in a coffee shop sipping a cappuccino, waking up and killing time before meeting up with climbing partner/middle school math teacher S. Suddenly, a blinding insight occurs to me:  $x^n$ is just a product of $n$ $x$'s multiplied together... so why not derive the power rule by using the product rule? Or rather, using the product rule's bigger badder heavy-equipment off-road version? Digging a garden using a backhoe.
 
-The product rule, in its normal form, is:
+In its normal form, the product rule is:
 $$\Big(\,\, f(x)g(x) \,\,\Big)' = f'(x)g(x) + f(x)g'(x)$$
 But if we have not two functions but *a bunch* of functions, the product rule becomes:
 $$\Big(\,\, f_1(x)f_2(x)\cdots f_n(x)\,\,\Big)' \quad=\quad

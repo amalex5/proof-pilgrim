@@ -4,7 +4,21 @@ usemathjax: true
 layout: post
 ---
 
-
+<style>
+@media print {
+        p {
+      margin: 1em 0;
+      text-indent: 0em;
+    }
+    blockquote p {
+    margin: 0;
+  }
+      blockquote p:not(:first-child) {
+    margin: 0;
+    text-indent: 2em;
+  }
+}
+</style>
 
 TODO
 clc guys quotes
@@ -43,19 +57,30 @@ Hi friends!
 
 I spent the last few days before school started not at the Giftedness Institute like many of you, not clinking drinks in Cabo (like others, based on your Instagrams), nor enjoying a final few days in the Sierra—but in Sacramento, at MathFest, the Mathematical Association of America’s annual conference. When I went to the JMM along with some of you in 2024, I wrote up some emails about the experience for those of you who couldn’t make it, and I’ve done the same here. It was a delightful four days of math, dry heat, and a not-that-surprising cameo from one of our former students.
 
+
+
 I’ll drip these out over the next week or two. (And I’ll try to keep them brief.)
+
+
+
+Obvious point that will betray my inexperience and naiveté, but having now been to THREE math conferences in the last 18 months on Nueva’s dime (thank you, Lauren and Liza! thank you, tuition-paying parents! genuinely!), it’s fun to see the same people recur. The cool elderly emerita who’s a mathematician but really interested in philosophy of math who wears a mask and has her hair in a MULLET. The history-of-science guy who works on Euler and bears a stunning resemblance to my favorite-ever high school English teacher! I’m reminded of the years I spent going to punk shows in Phoenix in my 20s: it’s the guy who’s always trying to bum a cigarette! it’s the guy from whom it’s always possible to bum a cigarette! cute tattoo girl! so-and-so’s housemate’s friend’s partner!
+
+
+themes of power and systemization
+
+
+
+
 
 <span class="asterism"></span>
 
 <h2 style='text-align: center;'>Showdown in Meeting Room 3</h2>
 
-Wednesday I took the train to Sacramento, biked to the convention center, and jumped straight in.
+Wednesday I took the train to Sacramento, biked to the convention center, and jumped straight in. The first talk I heard was a panel discussion. Were not it about a subject that I care deeply about, a subject I’ve devoted my entire professional career to, it would have been hilarious. 
 
-The first talk I heard was a panel discussion. Were not it about a subject that I care deeply about, a subject I’ve devoted my entire professional career to, it would have been hilarious. 
+“That was like a Real Housewives episode!,” someone said as we were walking out. 
 
-“That was like a Real Housewives episode!,” I overheard someone say as we were walking out. 
-
-A few moments earlier, the moderator had said, “It’s 5:18 and I don’t think we can take another question in the remaining two minutes.” The audience laughed. 
+A few moments earlier, the moderator: “It’s 5:18 and I don’t think we can take another question in the remaining two minutes.” The audience laughed. 
 
 “So, uh, I’m going to stop us here and we can, uh, all take a deep breath, and—there’s a lot of passion—about calculus and success—and I’m excited—that *we’re* all excited—about doing what we can—that’s best for students.”
 
@@ -63,23 +88,23 @@ A showdown: one guy from the California Community Colleges (CCC) chancellor’s 
 
 The longer it went on, the more contentious it became, and the more and more I felt like an alien. The power dynamics being described were straight out of Robert Caro; the bureaucratia, David Foster Wallace. There was constant mention of placement testing and “throughput” and “assessment” and “validating courses” and “data” and some computer system (???) named “ALEX” (???) that I couldn’t figure what it was. Panelists kept mentioning “the December 10th memo from the Chancellor’s office.” It wasn’t clear to me what that was about, and given the contradictory ways it was described, it wasn’t clear to them, either.
 
-I found myself growing sympathetic to the Chancellor’s office guy. I was surprised. He’s some educational bureaucrat, of the type I’ve fought since I was literally a teenager (don’t Google me too closely), and because the actual issue that was being discussed (a law he supported) seemed like something that (on a gut level) I’d oppose. 
+I found myself growing sympathetic to the Chancellor’s office guy. I was surprised. He’s some educational bureaucrat, of the type I’ve fought since literally I was a teenager (don’t Google me too closely), and because the actual issue that was being discussed (a law he supported) seemed like something that (on a gut level) I’d oppose. 
 
-I wondered how much of that was because he was a good speaker. Not good in a way that stood out, not unless you were looking it. But good in subtle ways that, when I started looking for them, became apparent. The rest of the panel were perfectly fine speakers—especially by the standards of mathematicians—but if you mod’ded out the *content* of what everyone said, this guy was way better at speaking. I thought of how really great salespeople don’t make you think that they’re salespeople, and so the stereotype of what a salesperson is (the sleazy hard-seller) is a selection effect on *bad* salespeople. He was framing himself as an opponent of the educational status quo. That appeals to me! “Andrew, this guy is a literal late-middle-aged balding bureaucrat in a suit—how can you possibly like him?,” I kept thinking. But you don’t get to a job like his without being very good at accumulating power. Charisma can be subtle. His cadence and pitch varied in ways that felt pleasing; his hand gestures were consistent and coordinated. All of that was regardless of the actual content of what he was saying. (Fertig is the same in this respect.) So that’s the Robert Caro part. 
+I wondered how much of that was because he was a good speaker. Not good in a way that stood out, not unless you were looking for it. But good in subtle ways that, when I started looking, became apparent. The rest of the panel were perfectly fine speakers—especially by the standards of mathematicians—but if you mod’ded out the *content* of what everyone said, this guy was way better at speaking. I thought of how really great salespeople don’t make you think that they’re salespeople, and so the stereotype of what a salesperson is (the sleazy hard-seller) is a selection effect on *bad* salespeople. He was framing himself as an opponent of the educational status quo. That appeals to me! “Andrew, this guy is a literal late-middle-aged balding bureaucrat in a suit—how can you possibly like him?,” I kept thinking. But you don’t get to a job like his without being very good at accumulating power. Charisma can be subtle. His cadence and pitch varied in ways that felt pleasing; his hand gestures were consistent and coordinated. All of that was regardless of the actual content of what he was saying. (Fertig is the same in this respect. So is Barry Treseler, whom I adore.) That’s the Robert Caro part. 
 
 What was the actual dispute? There were lots of conflicting stories, but the short version is that the State Legislature passed a bill in 2022, AB1705, which requires community colleges to—well, exactly what it requires was part of the debate—but, as the abstract for the panel put it, requires community colleges “to place most STEM students directly into Calculus 1 by Fall 2025, regardless of their previous coursework.” Never having heard of it until that morning, my gut (mild) feeling was that it seemed like bad-but-typical-for-California state overreach. Having sat through the panel, I’m now quite certain I do not have an opinion on whether the law is good or bad. Just that—like basically everything in the math education world—it’s orthogonal to math education.
 
-It seems like the law was actually initiated by the Chancellor’s office. From glancing at the abstract I had assumed that it was one of these chaos-monkey legislature initiatives. But no. I guess the Chancellor’s office has very little actual power over community colleges, or at least not as much power as they’d like, so to make this “everyone gets into calculus” mandate they had to get an actual law. The law is an expansion of a previous, weaker law, which the chancellor’s office guy says that the colleges had just subverted/loophole’d their way out of. In his framing, the colleges were effectively preventing too many students from taking calculus by forcing them to take prerequisites they had already met. It’s an equity issue, he said. He even framed it, at one point, in terms of helping teachers: the placement testing the CCC did is so bogus that “we were just putting students into mathematics willy-nilly, and math faculty were frustrated with that.” Of course none of the real live actual community college math faculty in the room shared that view. In their view, the colleges had had flexibility to adapt to students and populations as they needed, etc., and this took that away from them. One of the panelists was explicit about how the Chancellor’s office was using the guise of “equity” to continue consolidating power and continue making community colleges more standardized and identical and lockstep. (I’ve heard K12 administrators make the same rhetorical move. Excellence guillotined in the guise of equity. Homogeneity as the greater goal.)
+It seems like the law was actually initiated by the Chancellor’s office. From glancing at the abstract I had assumed that it was one of these chaos-monkey legislature initiatives. But no. I guess the Chancellor’s office has very little actual power over community colleges, or at least not as much power as they’d like, so to make this “everyone gets into calculus” mandate they had to get an actual law. The law is an expansion of a previous, weaker law, which the chancellor’s office guy says that the colleges had just subverted/loophole’d their way out of. In his framing, the colleges were effectively preventing too many students from taking calculus by forcing them to retake prerequisites they had already met. It’s an equity issue, he said. He even framed it, at one point, in terms of helping teachers: the placement testing the CCC did is so bogus that “we were just putting students into mathematics willy-nilly, and math faculty were frustrated with that.” Of course none of the real live actual community college math faculty in the room shared that view. In their view, the colleges had had flexibility to adapt to students and populations as they needed, etc., and this law took that away from them. One of the panelists was explicit about how the Chancellor’s office was using the guise of “equity” to continue consolidating power and continue making community colleges more standardized and identical and lockstep. (I’ve heard K12 administrators make the same rhetorical move. Excellence guillotined in the guise of equity. Homogeneity as the greater goal.)
 
 The only thing everyone agreed on is that whatever system-wide math placement testing the CCCs used previously was terrible. In the florid words of the CCC guy: “The [placement] assessment is crap. That’s the technical term here.” The placement tests and the students’ subsequent CCC math performance “had zero correlation.” Later he made a derisive comment about “paying tens of millions of dollars to corporations” for these placement tests. (See how easy it is to love someone who speaks so stridently?? But fall too hard for that and you get populism, and you get Trump.) 
 
 Everyone also agreed that grade inflation was a giant problem. They each accused the other side of exacerbating it.
 
-One of the panelists was a math prof at Cal Poly—he was there to represent a different aspect of California secondary math education, but one that often dovetails in (or from, rather) the CCCs. He kept talking about how sophisticated and data-rich and predictive their internal placement testing was. They correlate it against students’ high school/CCC courses and GPAs: the correlation “isn’t great.” Actually, this was cool: he said they keep the precise internal placement test numbers confidential and then, when kids are right on the edge, they place them in the higher or lower course randomly. A regression discontinuity experiment!!!! Or maybe they just do regression discontinuity on their placement tests without doing the actual experiments? Unclear. 
+One of the panelists was a math prof at Cal Poly—he was there to represent a different aspect of California secondary math education, but one that often dovetails in (or from, rather) the CCCs. He kept talking about how sophisticated and data-rich and predictive their internal placement testing was. They correlate it against students’ high school/CCC courses and GPAs: the correlation “isn’t great.” Actually, this was cool: he said they keep the precise internal placement test numbers confidential and then, when kids are right on the edge, they place them in the higher or lower course randomly. A regression discontinuity experiment!!!! Or maybe they just do regression discontinuity on their placement tests without doing the actual experiments? Unclear. (Have we played around with this at all? I think of the very cool scatterplots that Kathy showed at the end of last year relating placement test and Algebra Techniques performance.)
 
-But it all feels like a shell game to me. I think [Seeing Like a State](https://slatestarcodex.com/2017/03/16/book-review-seeing-like-a-state/) is the other relevant book (or author) here. When we do things at scale, we have to do them in ways that are legible. That means numbers, and procedures, and rules, and algorithms. It means Data. The CCC system teaches two million students per year across 116 separate community colleges (facts which came up in passing). Maybe it’s a slur to talk about “cogs in the machine” but that really is the implicit conception of education that every single person on the panel, and everyone who asked a question during the open question period, seemed to have. We’re building a machine here! They were just arguing about *how* to build the machine. Even the professors who advocated “flexibility”—still everything they said was about *mechanics*. I think of Paul Lockhart’s comment about the artificiality of it all: “There is no such thing as an ‘Algebra II’ *idea*.” Maybe it’s unfair to have expected different. And what do I know about what it’s like to teach junior college in Bakersfield? Or even “Calc III” to engineering majors in SLO? It just seems to me like the fundamental humanity of education—even math education, so misunderstood as being about formulas and facts—gets crushed in the cogs and mangled into something quite different. 
+But it all feels like a shell game to me. *[Seeing Like a State](https://slatestarcodex.com/2017/03/16/book-review-seeing-like-a-state/)* is the other relevant book here (or James C. Scott the other relevant author). When we do things at scale, we have to do them in ways that are *legible*. That means numbers, and procedures, and rules, and algorithms. It means Data. The CCC system teaches two million students per year across 116 separate community colleges (facts which came up in passing). Maybe it’s a slur to talk about “cogs in the machine” but that really was the implicit conception of education that every single person on the panel, and everyone who asked a question during the open question period, seemed to have. We’re building a machine here! They were just arguing about *how* to build the machine. Even the professors who advocated “flexibility”—still everything they said was about *mechanics*. I think of Paul Lockhart’s comment about the artificiality of it all: “There is no such thing as an ‘Algebra II’ *idea*.” Maybe it’s unfair to have expected different. And what do I know about what it’s like to teach junior college in Bakersfield? Or even “Calc III” to engineering majors in SLO? It just seems to me like the fundamental humanity of education—even math education, so misunderstood as being about formulas and facts—gets crushed in the cogs and mangled into something quite different. 
 
-The panel abstract described the CCC guy just as representing “California Community Colleges Chancellor’s Office.” The internet says he is the Executive Vice Chancellor for Research, Analytics and Data, heading “the new Office of Innovation, Data, Evidence and Analytics” where he “helped to reimagine the role of data, research, and evidence, working to rebuild that capacity within the system office to better serve colleges and their 1.8 million students.” Clearly he believes in what he’s doing. The faculty members on the panel and in the audience who were so aggrieved were fighting a battle that seemed, to me, pointless either way. But what do I know (again) about all of their constraints? It’s not even that the constraints restrict how they can act. Constraints restrict our *vision*. Our dream of what’s possible, of what mathematics and teaching and education really can be, the true formation of souls, is clouded by cataracts. They’re congenital. So how can you know better? How can you have a different vision?
+The panel abstract described the CCC guy just as representing “California Community Colleges Chancellor’s Office.” The internet says he is the Executive Vice Chancellor for Research, Analytics and Data, heading “the new Office of Innovation, Data, Evidence and Analytics” where he has “helped to reimagine the role of data, research, and evidence, working to rebuild that capacity within the system office to better serve colleges and their 1.8 million students.” Clearly he believes in what he’s doing. The faculty members on the panel and in the audience who were so aggrieved were fighting a battle that seemed, to me, pointless either way. But what do I know (again) about all of their constraints? It’s not even that the constraints restrict how they can act. Constraints restrict our *vision*. Our dreams of what’s possible, of what mathematics and teaching and education *really can be*, the true formation of souls, is clouded by cataracts. Those cataracts are congenital. So how can you know better? How can you have a different vision?
 
 I left the panel entertained and discouraged. I saw a tweet a few months ago, as a response to a video of some typical thing Trump said: “He would be the funniest person in the world if he wasn’t also the most evil person in the world.” It’s all deck chairs being rearranged into kindling. I think of myself as a Burkean about most things, but about education, and especially math education, I’m full 1789. CalFire’s tankers and hotshots won’t be able to contain the wildfire sparked by LLMs. But it’s going to be a cleansing fire.
 
@@ -112,7 +137,7 @@ And the third:
 
 What is it, friends? WHAT IS IT?!?!
 
-You think I’m kidding? Nope, I’m not; here’s a Google Form link to submit your guesses. Credit here goes to [Nonscriptum](https://www.nonscriptum.com/), a group of ex-MIT 3D printing hackery types, who had a booth full of gadgets. 
+You think I’m kidding? Nope, I’m not; [here’s a Google Form link to submit your guesses](https://forms.gle/fyxzbXSis9j2uV2r8). Credit here goes to [Nonscriptum](https://www.nonscriptum.com/), a group of ex-MIT 3D printing hackery types, who had a booth full of gadgets. 
 
 
 <span class="asterism"></span>
@@ -284,7 +309,7 @@ Each of the 12.4 zillion profiles of Terry Tao written over the last 20 years ha
 
 Thursday at MathFest he didn’t look boyish. 
 
-His hair is now cut short. When I saw him at the JMM in SF in 2024, he was wearing a baggy sweatshirt. Thursday he was in a polo. Later on Thursday he sat down at a table next to mine in the hall, and I could see lines on his face and gray in his hair. According to Wikipedia, he just turned 50.
+His hair is now cut short. In 2024 when I saw him at the JMM in SF, he was wearing a baggy sweatshirt. Thursday he was in a polo. Later on Thursday he sat down at a table next to mine in the hall, and I could see lines on his face and gray in his hair. According to Wikipedia, he just turned 50.
 
 His talk about “Machine-Assisted Mathematics” was a grim, gloomy glimpse of the future.
 
@@ -407,13 +432,13 @@ But, wow, it was so engaging, and so real, and so... how to put it? It was engag
 
 (Tangent, but Borromean rings came up, and he referenced climbing: “This harbors a terrible terrible mortal danger between [sic] rock climbing,” he said. If you have three carabiners arranged in a Borromean ring, it seems like you want to link them up more—more links seem safer! But if you link two of the rings in a Borromean ring, the third falls out. Tragically I only had TWO carabiners on me so I couldn’t test it (this is true).)
 
-He had a thick, beautiful Japanese accent. It made me so nostalgic for my childhood biking along the rice paddies. (Approximately once a week I tell Chris Scott how much I love hearing his voice when he speaks Japanese and how much it tugs at my heartstrings.) He had a gorgeous, full head of hear, just slightly flecked with gray, like Junichiro Koizumi in his prime. Halfway through the talk I realized he (and he was otherwise pretty well-dressed) was shoeless. Up there on the stage, black pants, and white socks. 
+He had a thick, beautiful Japanese accent. It made me so nostalgic for my childhood biking along the rice paddies. (Approximately once a week I tell Chris Scott how much I love hearing his voice when he speaks Japanese and how much it tugs at my heartstrings.) He had a gorgeous, full head of hair, just slightly flecked with gray, like Junichiro Koizumi in his prime. Halfway through the talk I realized he (and he was otherwise pretty well-dressed) was shoeless. Up there on the stage, black pants, and white socks. 
 
 There was time for a few questions, and one of the questioners, looked like an undergrad, asked if this paper-paper clip-rubber band system formed a group. I had been wondering about that as well. That’s where I thought the talk was going: towards at least *some* algebraic structure; I wasn’t sure what. Tokieda’s refused to answer. “You have as much access to nature as I do,” he said. You can think about it and try it out yourself. “It’s not the kind of question I am the secret-keeper to and only I have access to. You can actually ask Mother Nature herself! You don’t have to ask me. And once you do it will be yours, not mine.”
 
 I LOVED this because (not comparing myself to him but) it’s SO similar to what I’m ALWAYS telling the kids (in the midst of not answering their questions). Here’s how I described it in notes I wrote to Ted last fall (which I rediscovered yesterday and was editing for future further distribution):
 
-> If we correct the kids when they’re wrong, we think we’re preventing them from error. But really, we’re teaching them to be cautious and to not say things unless they’re 100% certain they’re correct. We’re teaching them to avoid taking risks. We’re teaching them that *getting things wrong is worse* than *getting things right is good?. In the limiting case the optimal strategy is paralysis. If you don’t say anything, you can’t be wrong! If you don’t do anything, you can’t screw up! No risk, no reward! You’re safe. *Intellectual agoraphobia.* They’re already so terrified of failure and terrified of getting things wrong. *We exacerbate their terror.*
+> If we correct the kids when they’re wrong, we think we’re preventing them from error. But really, we’re teaching them to be cautious and to not say things unless they’re 100% certain they’re correct. We’re teaching them to avoid taking risks. We’re teaching them that *getting things wrong is worse* than *getting things right is good*. In the limiting case the optimal strategy is paralysis. If you don’t say anything, you can’t be wrong! If you don’t do anything, you can’t screw up! No risk, no reward! You’re safe. *Intellectual agoraphobia.* They’re already so terrified of failure and terrified of getting things wrong. *We exacerbate their terror.*
 >
 > If we correct them, we’re preventing them from learning how to correct themselves. We’re preventing them from having (let alone developing) any intellectual agency. We’re saying: learning how to test your hypotheses is not part of this class. Learning how to prove or disprove your own conjectures is not part of this class. You have an idea, you have a conjecture, you have a hypothesis: you ask me, and I prove it or disprove it. I’m the oracle. I’m the source of wisdom and truth in the class. Of course the reality is: neither of us are the ultimate source of truth in this class! The mathematics is! How do we learn to listen to the mathematics, itself, and not fall into either the false epistemology of authority (the teacher determines truth) or of solipsism (the students determine truth). The hyperbolic rant I sometimes go on in my classes: **”I’m not in charge of this class! It’s the mathematics that’s in charge! Don’t listen to me! Don’t trust me! I’m an unreliable narrator! You should only trust the mathematics!”**
 >
@@ -426,7 +451,7 @@ Kaden was telling me how he was especially fascinated with Tokieda’s slides, a
 
 He also wanted a selfie by my zines:
 
-![](IMG_7483.HEIC){ width=75% }
+![](IMG_7483.jpg){ width=75% }
 
 
 <span class="asterism"></span>
@@ -447,8 +472,8 @@ Persi told us the names he’s given to these four principles, and demonstrated 
 
 But, as an example of the complete failure of the performative aspect of magic: you know, normally you do a card trick, it ends with some woweeee-zowee like pulling the same card that your performee picked initially, or coming up with four aces on top of your four piles, or something vividly, tangibly, viscerally exciting like that. This is not Peirce. As an example, Persi described one of Peirce’s card tricks. It ends with dealing the hearts and the spades into two rows. The “trick” is that the value of the card at position $i$ in the hearts pile tells the position of the card with value $i$ in the spades pile. I.e. (this is my pseudocode) ```hearts[i] = spades.find(i)```. (Cards are numbers, so its position can also be its value, type-clashingly.) Or, with the concrete example Persi had on his slide:
 
-hearts pile: 51324<br>
-spades pile: 24351
+hearts pile: ```51324```<br>
+spades pile: ```24351```
 
 It took me a try or two to actually parse the algorithm correctly. Apparently Peirce even knew, on some level, that this was a boring trick: “Please deal the cards carefully for few would want to see [the trick] again” is part of the instructions. This is... cool, I guess, but, uh, yeah, there’s a Seinfeld episode where the running joke is about “showmanship,” and that’s definitely lacking here. Persi: “Just because you have something you can do with cards doesn’t make a good magic trick!”
 
@@ -470,17 +495,17 @@ Anyway, Gardner was also the inspiration for this talk, since Gardner wrote exte
 <h2 style='text-align: center;'>Sacramental</h2>
 
 
-It’s not about math, but boy, I had a nice time in Sacramento!!! I SPLURGED (hope you’re not reading this Lauren) and stayed in an enormous old Victorian mansion right in the heart of downtown. Wood paneling everywhere, enormous fireplaces, baroque wallpaper, fifteen-foot ceilings... really quite lux. Technically I just had a single bed in a twelve-person dorm room in the mansion. Still the nicest hostel I’ve ever been to. And given that I spent the entire summer living out of the back of my car, it felt like a splurge! It felt like luxury! (Guys, there was RUNNING WATER! And showers!!!) Highly recommended.
+It’s not about math, but boy, I had a nice time in Sacramento!!! I SPLURGED (hope you’re not (still?) reading this Lauren) and stayed in an enormous old Victorian mansion right in the heart of downtown. Wood paneling everywhere, enormous fireplaces, baroque wallpaper, fifteen-foot ceilings... really quite lux. Technically I just had a single bed in a twelve-person dorm room in the mansion. Still the nicest hostel I’ve ever been to. And given that I spent the entire summer living out of the back of my car, it felt like a splurge! It felt like luxury! (Guys, there was RUNNING WATER! And showers!!!) Highly recommended.
 
 Other stuff I did in the tiny amounts of time I had off the clock (and off Nueva’s tab). It was hot—and I can’t deal with heat—but I found that I really *enjoyed* the heat. But that’s perhaps because I spent the bulk of my time in an overly-air-conditioned conference center, and downtown Sac is sufficiently tree’d that there’s tons of shade (and grass). 
 
-**Sacramento recommendations**. I’ve been *through* Sac a million times but have never actually been *to* it. I got coffee in the morning from **Cafe Immortal**, which was lovely. I went to a yoga class on Friday evening at Solfire Yoga, which was fine. It was hot yoga, so they turned the A/C on. (Not really. But the forecast high for Friday was for 100, and the thermometer in the studio read 94!) There’s a great organic grocery store that J. made us stop at driving up to Tahoe once (literally my only other time off the highways in Sac), Sacramento Natural Foods Co-op.
+**Sacramento recommendations**. I’ve been *through* Sac a million times but have never actually been *to* it. I got coffee in the morning from **Cafe Immortal**, which was lovely. I went to a yoga class on Friday evening at Solfire Yoga, which was fine. It was hot yoga, so they turned the A/C on. (Not really. But the forecast high for Friday was for 100, and the thermometer in the studio read 94!) There’s a great organic grocery store that J. made us stop at driving up to Tahoe once (literally my only other time off the highways in Sac), **Sacramento Natural Foods Co-op**.
 
-Also this FANTASTIC bar—not like I go hang out at bars a lot, but I loved it so much I wrote a Yelp review, which I never do:
+Also this FANTASTIC bar. The **Mattie Groves Brewery**.  17th and L. It's not like I go hang out at bars a lot, but I loved it so much I wrote a Yelp review, which also isn't something I generally do:
 
 > This place is amazing!!! I was in Sacramento for a math conference (!), wandered past here my first night, and ended up spending almost all my down time from the conference hanging out here. It’s small but not cramped; it’s spacious but cozy; it’s always the same two bartenders (who I guess own the place?). The beers were delicious. The seating is all long communal tables, with wooden benches draped with fake cow and sheepskin blankets. My first night I came in during an open mic, which was actually *great*—not just music but also poetry. It felt like I was home in Oakland (in a good way). There’s a BEAUTIFUL DOG, a big gorgeous husky, who does security :). This is exactly, exactly, exactly, what I want in a bar (or coffee shop, or place like that) anywhere.
 
-The **Mattie Groves Brewery**. 17th and L. “Home in Oakland” is... let’s call it aspirational, or a vague elision of “home in the Bay Area but in a part of the Bay Area I feel more comfortable in.”
+“Home in Oakland” is... let’s call it aspirational, or a vague elision of “home in the Bay Area but in a part of the Bay Area I feel more comfortable in.”
 
 There’s a FANTASTIC huge **Saturday morning farmer’s market in Midtown** on Saturday (this is where I got my lunch that day). It’s of the scale of Palo Alto’s Cal Ave farmer’s market, but with people and booths that are way cooler (... ‘cause it’s not Palo Alto. My impression is that Sac:Oak:Phila:Brooklyn???). I even BOUGHT something—like, an object—which I basically NEVER do; I hate buying things—but I felt inspired. There was an artist selling prints, of mostly mountain and floral themes, and this 8x10 print caught my eye, of a pika sitting on a mushroom, amidst a field of mushrooms, looking up at the sky and sun hopefully and expectantly and optimistically:
 
@@ -495,7 +520,6 @@ There’s a FANTASTIC huge **Saturday morning farmer’s market in Midtown** on 
 
 
 
-Obvious point that will betray my inexperience and naiveté, but having now been to THREE math conferences in the last 18 months on Nueva’s dime (thank you, Lauren! thank you, tuition-paying parents! genuinely!), it’s fun to see the same people recur. The cool elderly emerita who’s a mathematician but really interested in philosophy of math who wears a mask and has her hair in a MULLET. The history-of-science guy who works on Euler and bears a stunning resemblance to my favorite-ever high school English teacher! I’m reminded of the years I spent going to punk shows in Phoenix in my 20s: it’s the guy who’s always trying to bum a cigarette! it’s the guy from whom it’s always possible to bum a cigarette! cute tattoo girl! so-and-so’s housemate’s friend’s partner!
 
 
 

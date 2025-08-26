@@ -22,7 +22,7 @@ I want to explain this proof in three ways, of increasing rigor. (Like doing thr
 2. Then, let's try to generalize to the derivative of $x^n$ in a hand-wavey sort of way.
 3. Finally, let's do the full formal rigorous proof, using the binomial theorem. 
 
-My hope is that this way we can *understand* what's going on. The big scary binomial theorem will then just be a formalization of our existing understanding and intuition. As always in math, our goal is *understanding*---not mindless symbol-manipulation.
+My hope is that this way we can *understand* what's going on. The big scary binomial theorem will then just be a formalization of our existing understanding and intuition. As always in math, our goal is *understanding*---not the mindless manipulation of symbols.
 
 
 ## Way \#1: A bunch of specific examples, color-coded

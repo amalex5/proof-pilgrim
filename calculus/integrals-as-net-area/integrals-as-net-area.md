@@ -4,6 +4,7 @@ usemathjax: true
 layout: post
 ---
 
+<div style = 'font-style: italic; border: 0.25pt solid black; margin: 1em; padding: 1em; background: whitesmoke;'>These are notes I originally wrote in 2009-2011 as part of my later-named <a href=http://www.andrusia.com/math>Adventures in Mathematics</a> curriculum while teaching in Phoenix. They were great for the time, but are distinctly earlier work, and haven't yet been rewritten in my current, deeper modes of mathematical storytelling.---Andrew</div>
 
 **There's a major caveat to integrals that we haven't mentioned yet**. Namely: in the way that we've constructed them, integrals measure not “area,” but rather something more like *net area*. Meaning: regions above the $x$-axis get counted as positive-area and regions below the $x$-axis get counted as negative area, like so:
 

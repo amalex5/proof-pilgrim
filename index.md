@@ -81,6 +81,10 @@ li {
 </ul>
 </div>
 
+<div style='height:2em;'></div>
+
+[\~\~\~mathematical autobiography\~\~\~](mathematical-biography.html)
+
 ## combinatorics {#combinatorics}
 
 * [it's time to party](combinatorics/its-time-to-party/its-time-to-party.html) (*intro motivational problems*)
