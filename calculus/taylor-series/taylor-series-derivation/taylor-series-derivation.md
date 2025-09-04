@@ -140,31 +140,69 @@ Okay, you see where this is going!
 
 When you learned how to integrate by parts, you may have learned a fun technique for doing crazy repeated integration by parts like this. We can make a little table of the antiderivatives of $f'$ and the derivatives of $g$, and put them together, being sure to alternate signs appropriately. (People call this **tabular integration**; it's just repeated/iterated integration by parts.) If we do something like that here, to make our work somewhat less messy, we'll get a nice little table like:
 
-\begin{center}\begin{tabular}{c c c | c}
-sign & $g$ and its derivatives & $f'$ and its antiderivatives  & corresponding term \\
-\hline& & &\\
-
-$+$ & $p'(x)$ & 1   & n/a\\
-& & &\\
-$-$ & $p''(x)$ & $x$ &  $+x\!\cdot\!p'(x)$\\
-& & &\\
-$+$ & $p'''(x)$ & $\displaystyle\frac12x^2$ & $\displaystyle-\frac12x^2p''(x)$ \\ 
-& & &\\
-$-$ & $p''''(x)$ & $\displaystyle\frac16x^3$ & $+\displaystyle\frac16x^3p'''(x)$ \\
-& & &\\
-$+$ & $p^{(5)}(x)$  & $\displaystyle \frac{1}{24}x^4$ & $-\displaystyle\frac{1}{24}x^4p^{(4)}(x)$ \\
-& & &\\
-\vdots & \vdots & \vdots  & \vdots \\
-& & &\\
-$(-1)^{k+1}$ & $\displaystyle p^{(k)}(x)$ & $\displaystyle\frac{1}{(k-1)!}x^{k-1}$ \\
-& & &\\
-$(-1)^{k}$ & $\displaystyle p^{(k+1)}(x)$ & $\displaystyle\frac{1}{k!}x^{k}$ & $\displaystyle(-1)^{k+1}\frac{1}{k!}x^kp^{(k)}(x)$
-\end{tabular}\end{center}
+<table>
+    <thead>
+        <th>sign</th>
+        <th>$g$ and its derivatives</th>
+        <th>$f'$ and its antiderivatives</th>
+        <th>corresponding term</th>
+    </thead>
+    <tr>
+        <td>$$+$$</td>
+        <td>$p'(x)$</td>
+        <td>$1$</td>
+        <td>n/a</td>
+    </tr>
+    <tr>
+        <td>$$-$$</td>
+        <td>$p''(x)$</td>
+        <td>$x$</td>
+        <td>$+x \cdot p'(x)$</td>
+    </tr>
+    <tr>
+        <td>$$+$$</td>
+        <td>$p'''(x)$</td>
+        <td>$\displaystyle\frac{1}{2}x^2$</td>
+        <td>$\displaystyle-\frac{1}{2}x^2p''(x)$</td>
+    </tr>
+    <tr>
+        <td>$$-$$</td>
+        <td>$p''''(x)$</td>
+        <td>$\displaystyle\frac{1}{6}x^3$</td>
+        <td>$\displaystyle+\frac{1}{6}x^3p'''(x)$</td>
+    </tr>
+    <tr>
+        <td>$$+$$</td>
+        <td>$p^{(5)}(x)$</td>
+        <td>$\displaystyle\frac{1}{24}x^4$</td>
+        <td>$\displaystyle-\frac{1}{24}x^4p^{(4)}(x)$</td>
+    </tr>
+    <tr>
+        <td>$$\vdots$$</td>
+        <td>$$\vdots$$</td>
+        <td>$$\vdots$$</td>
+        <td>$$\vdots$$</td>
+    </tr>
+    <tr>
+        <td>$$(-1)^{k+1}$$</td>
+        <td>$\displaystyle p^{(k)}(x)$</td>
+        <td>$\displaystyle\frac{1}{(k-1)!}x^{k-1}$</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>$$(-1)^{k}$$</td>
+        <td>$\displaystyle p^{(k+1)}(x)$</td>
+        <td>$\displaystyle\frac{1}{k!}x^{k}$</td>
+        <td>$\displaystyle(-1)^{k+1}\frac{1}{k!}x^kp^{(k)}(x)$</td>
+    </tr>
+</table>
 So, either way we calculate it, we have:
-\begin{align*}
-    p(x) &= xp'(x) - \frac12x^2 p''(x) +  \frac{1}{6}x^3p^{'''}(x) - \frac{1}{24}x^4p^{''''}(x) + \cdots \\ \\
-    &= \sum_{k=1}^{k=\infty} \frac{(-1)^{k+1}x^kp^{(k)}(x)}{k!}
-\end{align*}
+
+$$\begin{align}
+        p(x) &= xp'(x) - \frac{1}{2}x^2 p''(x) +  \frac{1}{6}x^3p^{'''}(x) - \frac{1}{24}x^4p^{''''}(x) + \cdots \\[10pt]
+        &= \sum_{k=1}^{\infty} \frac{(-1)^{k+1}x^kp^{(k)}(x)}{k!}
+        \end{align}$$
+
 This is ... almost the Taylor series formula we know and love. *But not quite.*
 
 There are a couple issues:

@@ -161,10 +161,139 @@ In Math 3, when we proved logarithm rules, we did the logs/exponents version of 
     &amp;= xp&#39;(x) - \frac12x^2 p&#39;&#39;(x) +  \frac{1}{6}x^3p^{&#39;&#39;&#39;}(x) - \frac{1}{24}x^4p^{&#39;&#39;&#39;&#39;}(x) + \int \frac{1}{24}x^4p^{(5)}(x)  \,dx 
 \end{align*}\]</span> Okay, you see where this is going!</p>
 <p>When you learned how to integrate by parts, you may have learned a fun technique for doing crazy repeated integration by parts like this. We can make a little table of the antiderivatives of <span class="math inline">\(f&#39;\)</span> and the derivatives of <span class="math inline">\(g\)</span>, and put them together, being sure to alternate signs appropriately. (People call this <strong>tabular integration</strong>; it’s just repeated/iterated integration by parts.) If we do something like that here, to make our work somewhat less messy, we’ll get a nice little table like:</p>
-<p>So, either way we calculate it, we have: <span class="math display">\[\begin{align*}
-    p(x) &amp;= xp&#39;(x) - \frac12x^2 p&#39;&#39;(x) +  \frac{1}{6}x^3p^{&#39;&#39;&#39;}(x) - \frac{1}{24}x^4p^{&#39;&#39;&#39;&#39;}(x) + \cdots \\ \\
-    &amp;= \sum_{k=1}^{k=\infty} \frac{(-1)^{k+1}x^kp^{(k)}(x)}{k!}
-\end{align*}\]</span> This is … almost the Taylor series formula we know and love. <em>But not quite.</em></p>
+<table>
+<thead>
+<th>
+sign
+</th>
+<th>
+<span class="math inline">\(g\)</span> and its derivatives
+</th>
+<th>
+<span class="math inline">\(f&#39;\)</span> and its antiderivatives
+</th>
+<th>
+corresponding term
+</th>
+</thead>
+<tr>
+<td>
+<span class="math display">\[+\]</span>
+</td>
+<td>
+<span class="math inline">\(p&#39;(x)\)</span>
+</td>
+<td>
+<span class="math inline">\(1\)</span>
+</td>
+<td>
+n/a
+</td>
+</tr>
+<tr>
+<td>
+<span class="math display">\[-\]</span>
+</td>
+<td>
+<span class="math inline">\(p&#39;&#39;(x)\)</span>
+</td>
+<td>
+<span class="math inline">\(x\)</span>
+</td>
+<td>
+<span class="math inline">\(+x \cdot p&#39;(x)\)</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math display">\[+\]</span>
+</td>
+<td>
+<span class="math inline">\(p&#39;&#39;&#39;(x)\)</span>
+</td>
+<td>
+<span class="math inline">\(\displaystyle\frac{1}{2}x^2\)</span>
+</td>
+<td>
+<span class="math inline">\(\displaystyle-\frac{1}{2}x^2p&#39;&#39;(x)\)</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math display">\[-\]</span>
+</td>
+<td>
+<span class="math inline">\(p&#39;&#39;&#39;&#39;(x)\)</span>
+</td>
+<td>
+<span class="math inline">\(\displaystyle\frac{1}{6}x^3\)</span>
+</td>
+<td>
+<span class="math inline">\(\displaystyle+\frac{1}{6}x^3p&#39;&#39;&#39;(x)\)</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math display">\[+\]</span>
+</td>
+<td>
+<span class="math inline">\(p^{(5)}(x)\)</span>
+</td>
+<td>
+<span class="math inline">\(\displaystyle\frac{1}{24}x^4\)</span>
+</td>
+<td>
+<span class="math inline">\(\displaystyle-\frac{1}{24}x^4p^{(4)}(x)\)</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math display">\[\vdots\]</span>
+</td>
+<td>
+<span class="math display">\[\vdots\]</span>
+</td>
+<td>
+<span class="math display">\[\vdots\]</span>
+</td>
+<td>
+<span class="math display">\[\vdots\]</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math display">\[(-1)^{k+1}\]</span>
+</td>
+<td>
+<span class="math inline">\(\displaystyle p^{(k)}(x)\)</span>
+</td>
+<td>
+<span class="math inline">\(\displaystyle\frac{1}{(k-1)!}x^{k-1}\)</span>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math display">\[(-1)^{k}\]</span>
+</td>
+<td>
+<span class="math inline">\(\displaystyle p^{(k+1)}(x)\)</span>
+</td>
+<td>
+<span class="math inline">\(\displaystyle\frac{1}{k!}x^{k}\)</span>
+</td>
+<td>
+<span class="math inline">\(\displaystyle(-1)^{k+1}\frac{1}{k!}x^kp^{(k)}(x)\)</span>
+</td>
+</tr>
+</table>
+<p>So, either way we calculate it, we have:</p>
+<p><span class="math display">\[\begin{align}
+        p(x) &amp;= xp&#39;(x) - \frac{1}{2}x^2 p&#39;&#39;(x) +  \frac{1}{6}x^3p^{&#39;&#39;&#39;}(x) - \frac{1}{24}x^4p^{&#39;&#39;&#39;&#39;}(x) + \cdots \\[10pt]
+        &amp;= \sum_{k=1}^{\infty} \frac{(-1)^{k+1}x^kp^{(k)}(x)}{k!}
+        \end{align}\]</span></p>
+<p>This is … almost the Taylor series formula we know and love. <em>But not quite.</em></p>
 There are a couple issues:
 <ol>
 <li>

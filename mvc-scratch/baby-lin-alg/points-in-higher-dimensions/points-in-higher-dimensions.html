@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Points in Higher Dimensions</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="/main.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <script src="../highlight-toc.js" type="text/javascript"></script>
+
+  <script> 
+      // disappearing header, from dynomight.net'
+      var prevScrollpos = window.pageYOffset;
+
+      window.onscroll = function() {
+        var currentScrollPos = Math.max(0,window.pageYOffset);
+
+        if (Math.abs(currentScrollPos - prevScrollpos) > 10){
+          if (prevScrollpos > currentScrollPos) {
+            document.querySelector('header').style.top = "0";
+            document.querySelector('header').style.opacity = "75%";
+          } else {
+            document.querySelector('header').style.top = "-60px";
+          }
+          prevScrollpos = currentScrollPos;
+        }
+        if(currentScrollPos==0){
+          document.querySelector('header').style.top = "0";
+          document.querySelector('header').style.opacity = "100%";
+        }
+      }
+    </script>
+
+</head>
+<body>
+  <header>
+  <span id="header-name"><a href="/">the natural history <span style="font-weight:normal;">of abstract objects</span></a></span> <span id="linkback"><a href=http://www.andrusia.com><img src="/andrew-logo.svg" id='header-logo' style='width: auto;'/></a></span>
+</header>
+ -->
+<main>
+<div id="title-block">
+<h1 class="title">Points in Higher Dimensions</h1>
+</div>
+<blockquote>
+<p>Let us go then, you and I<br> When the evening is laid out before the high-dimensional sky.<br> Like a matrix diagonalized around its basis.</p>
+</blockquote>
+<p>Here’s a point in one-dimensional space: <span class="math display">\[x=2\]</span> <img src="point-in-1d.svg" style="width:50.0%" /> One-dimensional space is just a line. This point is just a number on that line.</p>
+<p>Here’s a point in two-dimensional space: <span class="math display">\[x=2,\,\, y = 3; \text{ i.e. } (2,3)\]</span> <img src="point-in-2d.svg" style="width:50.0%" /> Two-dimensional space is just a plane. So this point is just a point on that plane. We’ve known how to graph such points for ages and ages.</p>
+<p>Here’s a point in three-dimensional space: <span class="math display">\[x=2,\,\, y = 3;\,\ z=7 \text{ i.e. } (2,3,7)\]</span> <img src="point-in-3d-1.svg" style="width:50.0%" /> Now we have not just an <span class="math inline">\(x\)</span>- and a <span class="math inline">\(y\)</span>-coordinate, but also a <span class="math inline">\(z\)</span>-coordinate! A vertical coordinate! So we go two in the <span class="math inline">\(+x\)</span>-direction, three in the <span class="math inline">\(+y\)</span>-direction, and seven in the <span class="math inline">\(+z\)</span>-direction, and there we are at our point!</p>
+<p>And, OK, it’s pretty tough to draw a three-dimensional picture on a two dimensional screen, especially when you have my drawing ability. I’ll draw in the components/projections on each of the three axes: <img src="point-in-3d-3.svg" style="width:50.0%" /> What about a point in four-dimensional space? This is harder! For one thing, we’ve run out of letters, so I’m just going to start labelling each dimension as <span class="math inline">\(x_1\)</span>, <span class="math inline">\(x_2\)</span>, <span class="math inline">\(x_3\)</span>, and <span class="math inline">\(x_4\)</span>. But more fundamentally, <em>we can’t see in four dimensions!!!</em></p>
+<p>Here’s some point in four-dimensional space: <span class="math display">\[\left(8, -\pi, 206, 43\right)\]</span> We could describe how to get to this point in words:</p>
+<ul>
+<li>We go <span class="math inline">\(8\)</span> units in the positive direction in dimension <span class="math inline">\(x_1\)</span></li>
+<li>We go <span class="math inline">\(\pi\)</span> units in the negative direction in dimension <span class="math inline">\(x_2\)</span></li>
+<li>We go <span class="math inline">\(206\)</span> units in the positive direction in dimension <span class="math inline">\(x_3\)</span></li>
+<li>We go <span class="math inline">\(43\)</span> units in the positive direction in dimension <span class="math inline">\(x_4\)</span></li>
+</ul>
+<p>Here’s a point in seven-dimensional space, which we definitely can’t visualize: <span class="math display">\[\left(  5,\, 8,\, 11,\, -3,\, 0,\, 1,\, 9  \right)\]</span> With all of these points, I’m describing them in <strong>rectangular/Cartesian coordinates</strong>. That’s not the only way of describing points. For example, in Math 3, we learned about how we can describe points in two-dimensional space either in rectangular coordinates, or in polar coordinates. There are many, many other possible coordinate systems we could use!</p>
+</main>
+</body>
+</html>

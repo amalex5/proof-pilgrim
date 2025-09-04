@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Asking for Directions</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="/main.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <script src="../highlight-toc.js" type="text/javascript"></script>
+
+  <script> 
+      // disappearing header, from dynomight.net'
+      var prevScrollpos = window.pageYOffset;
+
+      window.onscroll = function() {
+        var currentScrollPos = Math.max(0,window.pageYOffset);
+
+        if (Math.abs(currentScrollPos - prevScrollpos) > 10){
+          if (prevScrollpos > currentScrollPos) {
+            document.querySelector('header').style.top = "0";
+            document.querySelector('header').style.opacity = "75%";
+          } else {
+            document.querySelector('header').style.top = "-60px";
+          }
+          prevScrollpos = currentScrollPos;
+        }
+        if(currentScrollPos==0){
+          document.querySelector('header').style.top = "0";
+          document.querySelector('header').style.opacity = "100%";
+        }
+      }
+    </script>
+
+</head>
+<body>
+  <header>
+  <span id="header-name"><a href="/">the natural history <span style="font-weight:normal;">of abstract objects</span></a></span> <span id="linkback"><a href=http://www.andrusia.com><img src="/andrew-logo.svg" id='header-logo' style='width: auto;'/></a></span>
+</header>
+<script>document.addEventListener('DOMContentLoaded', function(e) {
+  Scroller.init();
+})</script>
+<!-- <aside>
+<div class="tocLinks" >
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#directions-in-2d">Directions in 2D</a></li>
+<li><a href="#directions-in-3d">Directions in 3D</a></li>
+<li><a href="#directions-in-nd">Directions in <span class="math inline">\(n\)</span>D</a></li>
+<li><a href="#rocketing-off-on-a-tangent">Rocketing off on a tangent</a></li>
+</ul>
+</nav>
+</div>
+</aside>
+ -->
+<main>
+<div id="title-block">
+<h1 class="title">Asking for Directions</h1>
+</div>
+<p>Before we can begin our exploration of multivariable calculus—multi<em>dimensional</em> calculus—we need to learn how to explore higher-dimensional reality.</p>
+<p>One-dimensional calculus only requires the ability to navigate one-dimensional reality. That’s easy. We only have two choices for where to go: left or right. Positive or negative.</p>
+<p>Higher-dimensional space is harder. In 1D calculus, we were finding our way around Manhattan. Now we’re finding our way around Tokyo. It’s way easier to get lost.</p>
+<p>We need a map. We need a compass. We need <em>a sense of direction.</em></p>
+<div style="height: 3em;">
+
+</div>
+<p><strong>What is a direction?</strong> Up, down, front, back, north, south—those are all <em>examples</em> of directions. But what <em>is</em> a direction, fundamentally?</p>
+<p>In one-dimensional space, this is easy. One-dimensional space just just a line. There are only two directions: left and right. Or “positive” and “negative,” if you want to sound a bit more mathy (though really, they’re just different words for the same thing). That makes things pretty easy!</p>
+<p><img src="one-dimensional-directions.svg" style="width:50.0%" /></p>
+<p>In two dimensions… things get harder. We could go left, or right, or forwards, or back, or anywhere in between. We can turn in any direction we want! If we’re standing on a two-dimensional plane, we can rotate and turn and spin in any direction we want! A full <span class="math inline">\(360^\circ\)</span>! A full <span class="math inline">\(2\pi\)</span>!</p>
+<p><img src="two-dimensional-directions.svg" style="width:50.0%" /></p>
+<p>We can turn at an angle that’s any number between <span class="math inline">\(0\)</span> and <span class="math inline">\(2\pi\)</span>—and there are an infinite number of such numbers.</p>
+<table style="text-align:center;">
+<thead>
+<th>
+number of dimensions
+</th>
+<th>
+number of directions
+</th>
+</thead>
+<tr>
+<td>
+<span class="math inline">\(1\)</span>
+</td>
+<td>
+<span class="math inline">\(2\)</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(2\)</span>
+</td>
+<td>
+<span class="math inline">\(\infty\)</span>
+</td>
+</tr>
+</table>
+<p>In one dimension, we only had two possible directions we could turn in; in two dimensions, we have <span class="math inline">\(\infty\)</span>! That’s a big jump.</p>
+If we were living in zero-dimensional space—i.e., just a point—then we could turn in zero possible directions. We can’t move anywhere, so we can’t look anywhere. Or maybe that means that there’s only one, fixed direction to look in. Hmm. I’m not sure. Anyway, here’s another line in this table:
+<table style='text-align:center;'>
+<thead>
+<th>
+number of dimensions
+</th>
+<th>
+number of directions
+</th>
+</thead>
+<tr>
+<td>
+<span class="math inline">\(0\)</span>
+</td>
+<td>
+<span class="math inline">\(0\)</span>?
+</td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(1\)</span>
+</td>
+<td>
+<span class="math inline">\(2\)</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(2\)</span>
+</td>
+<td>
+<span class="math inline">\(\infty\)</span>
+</td>
+</table>
+<p>What about three-dimensional space? Left, right, forward, back, and now <em>up</em> and <em>down</em>! It’s still infinite!</p>
+<table style='text-align:center;'>
+<thead>
+<th>
+number of dimensions
+</th>
+<th>
+number of directions
+</th>
+</thead>
+<tr>
+<td>
+<span class="math inline">\(0\)</span>
+</td>
+<td>
+<span class="math inline">\(0\)</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(1\)</span>
+</td>
+<td>
+<span class="math inline">\(2\)</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(2\)</span>
+</td>
+<td>
+<span class="math inline">\(\infty\)</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(3\)</span>
+</td>
+<td>
+<span class="math inline">\(\infty\)</span>
+</td>
+</table>
+<p>(For those of you who know about the beauties of <a href="https://en.wikipedia.org/wiki/Cardinality_of_the_continuum">transfinite cardinals</a>—a.k.a. “different sizes of infinity”—the infinitude of directions in three-dimensional space isn’t any bigger than the infinitude of directions in two-dimensional space.)</p>
+<p>Anyway, things don’t magically get simpler once we get into higher and higher dimensions. In three dimensions, there are already an infinite number of ways to get lost. As the number of dimensions increases, the situation remains bleak:</p>
+<table style="text-align:center;">
+<thead>
+<th>
+number of dimensions
+</th>
+<th>
+number of directions
+</th>
+</thead>
+<tr>
+<td>
+<span class="math inline">\(0\)</span>
+</td>
+<td>
+<span class="math inline">\(0\)</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(1\)</span>
+</td>
+<td>
+<span class="math inline">\(2\)</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(2\)</span>
+</td>
+<td>
+<span class="math inline">\(\infty\)</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(3\)</span>
+</td>
+<td>
+<span class="math inline">\(\infty\)</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math inline">\(\vdots\)</span>
+</td>
+<td>
+<span class="math inline">\(\infty\)</span>
+</td>
+</tr>
+</table>
+<p>Exploring higher dimensions, then, is like exploring a cave. There are many ways to get irretrievably, terminally lost.</p>
+<p>We will need to put on our helmets. We will need to bring snacks. We will need to make sure our lights have fresh batteries.</p>
+<h2 id="directions-in-2d">Directions in 2D</h2>
+<p>How do we describe directions in 2D? Not just ask ``how many directions are there in 2D?,’’ but how do we talk about them? What words do we use?</p>
+<p>In one-dimensional space, there are only two directions. So describing them is easy: just use one of two words. Go left; go right. Go in the positive direction; go in the negative direction.</p>
+<p>In two-dimensional space… well, now we have an infinite number of directions. English doesn’t have an infinite number of words. But mathematics, thankfully, has an infinite number of numbers. So we can use those. And actually, we’re already pretty adept at describing directions in two dimensions, given that that’s the world we live in (live <em>on</em>). Birds and fish live in a three-dimensional world; we bipeds live in 2D, until we learn to lucid-dream or get a pilot’s license.</p>
+<p>Suppose we have a single specific direction in two dimensions. Here are four different ways to describe that one direction:</p>
+<ul>
+<li>
+We could describe it using one of our lovely English-language compass words, like “northeast.”
+</li>
+<li>
+We could describe it by giving an angle, like <span class="math inline">\(45^\circ\)</span>.
+</li>
+<li>
+We could describe it by giving the slope of a line going in that direction, like <span class="math inline">\(1\)</span>.
+</li>
+<li>
+We could describe it by giving a point on the unit circle in that direction, like <span class="math inline">\(\left( \frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}} \right)\)</span>.
+</li>
+</ul>
+<p><img src="northeast-direction.svg" style="width:50.0%" /></p>
+<p>These are all equivalent ways of describing the same direction! Of course, each different method has its pros and cons:</p>
+<ul>
+<li>Using an English word like ``northeast’’ is cool, except we have a finite number of English words, and an infinite number of directions, so that’s going to be a problem. (If you check out <a href="https://en.wikipedia.org/wiki/Points_of_the_compass">the Wikipedia page for “points of the compass,”</a> you can see some of the very very specific words old-timey navigators and cartographers came up with!)</li>
+<li>Using an angle like <span class="math inline">\(45^\circ\)</span> seems very natural. It’s just one number, and it’s a unit of measurement we’ve used for a long time and are very comfortable with. Sadly, while it works great in two dimensions, it’s hard to generalize to larger number of dimensions!</li>
+<li>Using the slope of a line, like <span class="math inline">\(1\)</span>, seems very calculus-y!</li>
+<li>Using a point on the unit circle in that direction, like <span class="math inline">\(\left( \frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}} \right)\)</span> seems redundant, since we need <em>two</em> pieces of information. And it is. Nevertheless, it’s the main way we’re going to use in MVC, as it generalizes to huge numbers of dimensions really well.</li>
+</ul>
+<h2 id="directions-in-3d">Directions in 3D</h2>
+<p>How do we describe directions in three dimensions? This is harder. Because we’re not birds, we’re not used to being able to freely move in any three-dimensional direction. So we lack the language.</p>
+<p>Can we use an angle? In 2D, angles are pretty nice. How do we make an angle in three-dimensional space? I guess one way to do it would be to use <em>two</em> angles. So, for example, we could describe a direction as being “northeast” on the <span class="math inline">\(xy\)</span> plane, and also “up at a <span class="math inline">\(60^\circ\)</span> angle” in the vertical dimension. Or, because “northeast” isn’t really an angle, we could describe it as “at a <span class="math inline">\(45^\circ\)</span> angle on the <span class="math inline">\(xy\)</span>-plane, and up at a <span class="math inline">\(60^\circ\)</span> angle in the vertical direction.” <img src="three-dimensional-angles-1.svg" style="width:50.0%" /> Using a second angle makes things a little messy. Mathematicians and physicists often do it a little differently. The way it usually gets done in math (which isn’t the way I just did it in the previous paragraph) is to make two angles, <span class="math inline">\(\theta\)</span> and <span class="math inline">\(\phi\)</span>, in this way:</p>
+<ul>
+<li><span class="math inline">\(\theta\)</span>: the angle on the <span class="math inline">\(xy\)</span>-plane, like in polar coordinates, the way we’ve always done it</li>
+<li><span class="math inline">\(\phi\)</span>: the <em>vertical</em> angle, i.e., the angle <em>between</em> the vertical axis (<span class="math inline">\(z\)</span>) and the <span class="math inline">\(xy\)</span>-plane.</li>
+</ul>
+<p>Here’s a picture of what this looks like:</p>
+<p><img src="three-dimensional-angles-2.svg" style="width:50.0%" /></p>
+<p>Generally (and this is what we’ll do in this class), <span class="math inline">\(\phi\)</span> is defined so that straight up is an angle of <span class="math inline">\(0\)</span>, and the angle increases as you go down. So, rather than thinking about it as the angle <em>up</em> off the flat horizontal <span class="math inline">\(xy\)</span>-plane, think about it as the angle <em>down</em> from the <span class="math inline">\(z\)</span>-axis.</p>
+<p>Note that <span class="math inline">\(\phi\)</span> doesn’t need to get any bigger than <span class="math inline">\(\pi\)</span>. If <span class="math inline">\(\phi\)</span> is bigger than <span class="math inline">\(\pi\)</span>, then that’s the same as using a different angle for <span class="math inline">\(\theta\)</span>.</p>
+<p>So, the direction I was initially describing we could describe with these angles: <span class="math display">\[\theta=\frac{\pi}{4},\quad \phi = \frac{\pi}{6}\]</span> <img src="three-dimensional-angles-3.svg" style="width:50.0%" /> The direction is going up <span class="math inline">\(60^\circ=\frac{\pi}{3}\)</span> from the horizontal <span class="math inline">\(xy\)</span>-plane, which means that it’s going down from the vertical <span class="math inline">\(z\)</span>-axis by <span class="math inline">\(30^\circ=\frac{\pi}{6}\)</span>, so that’s what <span class="math inline">\(\phi\)</span> is, in this setup.</p>
+<p>But all this stuff with angles gets messy, especially as we move into higher and higher dimensions. Where do the angles start from? How do we define them? Which ones can range between <span class="math inline">\(0\)</span> and <span class="math inline">\(2\pi\)</span>, and which ones can only range between <span class="math inline">\(0\)</span> and <span class="math inline">\(1\pi\)</span>?</p>
+<p>Angles were nice when there was just one of them. But they’re not an ideal way to deal with higher-dimensional space. (Or rather, they’re not an ideal way to deal with <em>directions</em> in higher-dimensional space.)</p>
+<p>So let’s do something different! Just like how we can describe directions in 2D space by giving points on the unit circle, let’s describe directions in 3D space by giving points on the unit sphere! (By unit sphere, I mean a sphere of radius <span class="math inline">\(1\)</span>, centered at the origin—the higher-dimensional version of a unit circle.)</p>
+<p>So, back to our example direction, with <span class="math inline">\(\theta=\frac{\pi}{4}\)</span> and <span class="math inline">\(\phi=\frac{\pi}{6}\)</span>. Where is it on the unit sphere? In other words, can we find its <span class="math inline">\((x,y,z)\)</span>-coordinates? You bet! By doing a little geometry and a little trig—I won’t show the details, but you can try to work it out yourself—we get that this direction, when considered as a point on the unit sphere, is: <span class="math display">\[\left(\frac{1}{2\sqrt{2}},\,\,  \frac{1}{2\sqrt{2}},\,\, \frac{\sqrt3}{2}  \right)\]</span> <img src="three-dimensional-angles-4.svg" style="width:50.0%" /> Don’t worry too much about how I worked that out. We’re not going to spend much time going from angles in 3D to rectangular/Cartesian coordinates in 3D (at least, not for quite a while). But doing so just takes the straightforward geometry and trig you know (though in 3D it can get a little tricky to keep all the pieces organized). You can Google <strong><a href="https://en.wikipedia.org/wiki/Spherical_coordinate_system">spherical coordinates</a></strong> if you want to learn more. (All this stuff about thinking of “directions” as angles is just spherical coordinates with a radius of <span class="math inline">\(1\)</span>.)</p>
+<p>Also note that I didn’t draw the unit sphere on that diagram! Drawing in three dimensions is really taxing my artistic abilities. So imagine, if you will, a sphere of radius one, centered at the origin, and passing through that labelled point!</p>
+<p>The point is this: <strong>the way we’re going to describe directions in three-dimensional space is as points on the unit sphere</strong>.</p>
+<p>That’s not a perfect way to do it. It’s redundant. In theory, we could describe the direction with only two numbers (two angles); using a point on the unit sphere takes <em>three</em> numbers (one for each coordinate). Sad! The reason we’re doing it this way is because it generalizes really nicely to arbitrary numbers of dimensions.</p>
+<h2 id="directions-in-nd">Directions in <span class="math inline">\(n\)</span>D</h2>
+<p>What if we want to describe a direction in <em>four</em>-dimensional space?!? We don’t even know what four-dimensional space looks like! We’re completely blind!</p>
+<p>If you like angles, you can do it by adding a third angle. Google “generalized spherical coordinates” or “hyperspherical coordinates” if you want a taste of what that might look like. But that’s not how we’re going to do it.</p>
+<p>Instead, we’re going to continue this idea of a “direction” as being a point on the unit circle or unit sphere. Except, now we’re in four dimensions, so we need a hypersphere! I don’t know what that looks like. I don’t know what <em>anything</em> in four dimensions looks like. But whatever it looks like, we can describe a direction in four-dimensional space as being some point on the unit hypersphere.</p>
+<p>How does the math for a four-dimensional hypersphere work? Well, in two dimensions, we can have a “<span class="math inline">\(1\)</span>-sphere,” i.e., a circle, the points on which obey this equation: <span class="math display">\[x^2+y^2 = r^2\]</span> So this is the set of all points that are exactly <span class="math inline">\(r\)</span> units away from the origin in two-dimensional space. And note that we call a circle a “<span class="math inline">\(1\)</span>-sphere.” Circles are not two-dimensional objects. They’re one-dimensional objects. It’s just that they’re one-dimensional objects <strong>embedded</strong> (that’s the mathy word) in two-dimensional space. (Or in even higher-dimensional space!)</p>
+<p>In three-dimensional space, we can have a “<span class="math inline">\(2\)</span>-sphere” (i.e., a sphere), the points on which obey this equation: <span class="math display">\[x^2+y^2+z^2=r^2\]</span> So this is the set of all points which are exactly <span class="math inline">\(r\)</span> units away from the origin, in three-dimensional space. And again, we can think of a sphere as being a fundamentally two-dimensional object. (And again, by “sphere” I mean the <em>surface</em> of a sphere.) There are important differences between a sphere and the normal two-dimensional flat plane. The normal 2D flat plane extends infinitely in every direction. But the two-dimensional surface of a sphere is finite.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p>What about in four dimensions? Well, we can embed a “<span class="math inline">\(3\)</span>-sphere” in four-dimensional space. The surface of a <span class="math inline">\(3\)</span>-sphere is a three-dimensional space. But unlike our normal three-dimensional space, the surface of a <span class="math inline">\(3\)</span>-sphere is finite. (Finite and <strong>bounded</strong>, to use another mathy word.)</p>
+<p>We’ve run out of letters for the dimensions, so to describe a <span class="math inline">\(3\)</span>-sphere, I’m going to call the dimensions <span class="math inline">\(x_1\)</span>, <span class="math inline">\(x_2\)</span>, <span class="math inline">\(x_3\)</span>, and so forth. Then the points on the surface of a <span class="math inline">\(3\)</span>-sphere with radius <span class="math inline">\(r\)</span> obey this equation: <span class="math display">\[\left(x_1\right)^2 + \left(x_2\right)^2 + \left(x_3\right)^2 + \left(x_4\right)^2 = r^2\]</span> And the points on the surface of the unit <span class="math inline">\(3\)</span>-sphere obey the equation: <span class="math display">\[\left(x_1\right)^2 + \left(x_2\right)^2 + \left(x_3\right)^2 + \left(x_4\right)^2 = 1\]</span> So, to get back to directions. A direction in four-dimensional space is a point on the “unit <span class="math inline">\(3\)</span>-sphere.” And, more generally (this is the definition that we’ve been building to):</p>
+<div class="callout-box" style="font-weight: bold;">
+A direction in <span class="math inline">\(n\)</span>-dimensional space<br> is<br> a point on the <span class="math inline">\((n-1)\)</span>-dimensional unit sphere.
+</div>
+<p>So:</p>
+<ul>
+<li>In one-dimensional space, a direction is a point on the “unit <span class="math inline">\(0\)</span>-sphere” (i.e., it’s either <span class="math inline">\(-1\)</span> or <span class="math inline">\(+1\)</span>, i.e., positive or negative).</li>
+<li>In two-dimensional space, a direction is a point on the unit <span class="math inline">\(1\)</span>-sphere, better known as the unit circle.</li>
+<li>In three-dimensional space, a direction is a point on the unit <span class="math inline">\(2\)</span>-sphere, i.e., the surface of a three-dimensional sphere with radius <span class="math inline">\(1\)</span>, centered at the origin.</li>
+<li>In four-dimensional space, a direction is a point on the unit <span class="math inline">\(3\)</span>-sphere, i.e., the surface of a four-dimensional sphere with radius <span class="math inline">\(1\)</span>, centered at the origin… whatever that looks like.</li>
+<li>In five-dimensional space, a direction is a point on the unit <span class="math inline">\(4\)</span>-sphere, i.e., the surface of a five-dimensional sphere with radius <span class="math inline">\(1\)</span>, centered at the origin.</li>
+<li>And so forth.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></li>
+</ul>
+<p>In other words, to describe a direction in <span class="math inline">\(n\)</span>-dimensional space, we need <span class="math inline">\(n-1\)</span> numbers<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>. We haven’t done that here: we described points on the unit circle with two numbers (rather than one), and points on the unit sphere with three numbers (rather than two). But in principle, we could use the Pythagorean theorem to describe all the points on the unit <span class="math inline">\(n\)</span>-sphere with just <span class="math inline">\(n-1\)</span> numbers. (Think of how we normally describe points on the surface of the earth: we only use two numbers, a latitude and a longitude.) For instance, if we have some point <span class="math inline">\((a,b,c)\)</span> on the unit sphere, we know it must obey the equation: <span class="math display">\[\begin{align*}
+    a^2+b^2+c^2 &amp;= 1^2 \\
+&amp;= 1
+\end{align*}\]</span> But then we can solve this for one of <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span>, or <span class="math inline">\(c\)</span> in terms of the other two, e.g.: <span class="math display">\[\begin{align*}
+c^2 &amp;= 1 - a^2 - b^2 \\
+c &amp;= \sqrt{1 - a^2 - b^2}
+\end{align*}\]</span> So then we just need two numbers to describe this point, <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>: <span class="math display">\[\left(a,\, b,\, \underbrace{\sqrt{1 - a^2 - b^2}}_{=c}\right)\]</span></p>
+<h2 id="rocketing-off-on-a-tangent">Rocketing off on a tangent</h2>
+<p>So we can describe directions in <span class="math inline">\(n\)</span>-dimensional space using <span class="math inline">\(n-1\)</span> numbers (even if, in practice, we usually are redundant and use <span class="math inline">\(n\)</span> numbers). If you’re living in <span class="math inline">\(n\)</span>-dimensional space, and you want to fly your rocketship out from the origin to some distant point, all you need to know are:</p>
+<ul>
+<li>what direction to point your rocketship in (<span class="math inline">\(n-1\)</span> numbers)</li>
+<li>how far to travel (a distance—i.e., one number)</li>
+</ul>
+<p>In other words, we can describe every point in <span class="math inline">\(n\)</span>-dimensional space with:</p>
+<ul>
+<li>a direction (<span class="math inline">\(n-1\)</span> numbers)</li>
+<li>a distance (one number)</li>
+</ul>
+<p>This isn’t the normal way (up until now) that we’ve described points in high-dimensional space. Rather, we’ve just described them using our old-fashioned rectangular coordinate system:</p>
+<ul>
+<li>Go blah blah units in the <span class="math inline">\(x\)</span>-direction</li>
+<li>Then turn <span class="math inline">\(90^\circ\)</span> and go blah blah units in the <span class="math inline">\(y\)</span>-direction</li>
+<li>Then turn <span class="math inline">\(90^\circ\)</span> and go blah blah units in the <span class="math inline">\(z\)</span>-direction</li>
+</ul>
+<p>This way of describing points using a direction and a distance is different! It’s like a higher-dimensional generalization of polar coordinates. In polar coordinates, we have an angle and a distance; here, we have a more general <em>direction</em> and a distance.</p>
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>If the surface of Earth were infinite, <a href="https://en.wikipedia.org/wiki/Henry_George">Henry George</a> would have written a very different book on the economics of land value.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p>I’m being casual with language here. Mathematicians often distinguish between a <strong><a href="https://en.wikipedia.org/wiki/Ball_(mathematics)">ball</a> which is a solid shape (a filled-in circle, a filled-in sphere) and a </strong><a href="https://en.wikipedia.org/wiki/Hypersphere">sphere</a>, which is just the points on the surface. (A ring and a balloon, versus a frisbee and a bowling ball). For our purposes, none of these distinctions are that crucial; context is sufficient. But if you enjoy geometric and topological taxonomy, go read about them!<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3" role="doc-endnote"><p>I guess this isn’t really true for <span class="math inline">\(1\)</span>-dimensional space, because we need more than <span class="math inline">\(0\)</span> real numbers to describe a direction in 1D (but fewer than all the real numbers)<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+</main>
+</body>
+</html>
