@@ -124,3 +124,7 @@ $$\begin{align*}
 &= {\Large nx^{n-1}}
 \end{align*}$$
 Of course if you aren't already deeply comfortable with the generalized product rule, this is absurd and intimidating! This is a *description* of why the power rule is true, using these tools, but if you're not already very comfortable with the tools, it's a description that might confuse more than clarify. In this case that's deliberate irony---hence the title "scenic route"---but often math textbooks are written by people who struggle with that distinction. *Describing things you already know* can be very different than *helping others come to that same understanding*.
+
+##  Problem 
+
+This proof, delightful and absurd as it is, has the same problem that our binomial theorem-based proof had: it's only true for $n$ being a positive integer. Can you improve it? Can you use these ideas to prove a stronger version of the theorem (one that's true for $n$ also being a negative integer? or a rational? or any real number???)

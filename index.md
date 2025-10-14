@@ -100,10 +100,10 @@ li {
     * some fun factoring problems, as review
     * [Persuading Parabolas into Vertex Form](algsynth/persuading-parabolas/persuading-parabolas.html) (*completing the square as a path to enlightenment*)
     * [Perfecting our Perception of Parabolas](algsynth/perfecting-parabola-perception/perfecting-parabola-perception.html) (*writing assignment to derive some cool parabola theorems*) and related: [Andrew's favorite mathematical writing tip](andrews-favorite-math-writing-tip/andrews-favorite-math-writing-tip.html)
-    * calculus-free cubic optimization!
     * [Taylor's Theorem (Math 3 version)](algsynth/taylor-series-math-3/taylor-series-math-3.html) (*what if we had infinitely-long polynomials?!?*)
     * [Finding the roots of all polynomials](algsynth/solving-all-polynomials/solving-all-polynomials.html) (*the linear, quadratic, and cubic formulas, and a soupçon of what's beyond!*)
     * [the QUARTIC formula!!!!](algsynth/quartic-formula/quartic-formula.pdf) (*formulas calculated by Sage and typeset by $\LaTeX$ in a tiniest-font 72-inch wide PDF*)
+    * [finding the extrema of cubics without using calculus!!!](algsynth/optimizing-cubics-calc-free/optimizing-cubics-calc-free.html) (*whatta grindfest!*)
 * [Rational functions](algsynth/rationals/rationals.html) (*what if we could* divide *polynomials?*)
     * rationals/polynomials/etc. containment diagram ([svg](algsynth/rationals/rationals-containment-diagram.svg), [pdf](algsynth/rationals/rationals-containment-diagram.pdf))
     * [Blowing up fractions!](algsynth/blowing-up-fractions/blowing-up-fractions.html) (*a fun algebraic technique, more blandly known as partial fraction decomposition*)
@@ -190,6 +190,7 @@ li {
 * [okay, now we can actually prove that the derivative of sine is cosine!](calculus/derivative-of-sine/derivative-of-sine.html) <span style='font-family: sans-serif; color:red; font-weight: bold; font-size: 75%;'>(old)</span>
 * [differentiating logs and exponentials](calculus/derivatives-logs-exponentials/derivatives-logs-exponentials.html) <span style='font-family: sans-serif; color:red; font-weight: bold; font-size: 75%;'>(old)</span>
     * [some alternate proofs of basic differentiation laws](calculus/differentiation-laws-alternate-proofs/differentiation-laws-alternate-proofs.html) <span style='font-family: sans-serif; color:red; font-weight: bold; font-size: 75%;'>(old)</span>
+    * [the derivative of $x^n$, take three](calculus/power-rule-exponentials-proof/power-rule-exponentials-proof.html)
 * [what's the derivative of inverse tangent?](calculus/derivative-of-inverse-tangent/derivative-of-inverse-tangent.html)
 * [(Implicit) Differentiation](calculus/implicit-differentiation/implicit-differentiation.html)
 * [Related rates](calculus/related-rates/related-rates.html) <span style='font-family: sans-serif; color:red; font-weight: bold; font-size: 75%;'>(old)</span>

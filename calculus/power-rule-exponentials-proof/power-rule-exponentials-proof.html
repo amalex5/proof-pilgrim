@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>the derivative of x^n is nx^{n-1} (take three)</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="/main.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <script src="../highlight-toc.js" type="text/javascript"></script>
+
+  <script> 
+      // disappearing header, from dynomight.net'
+      var prevScrollpos = window.pageYOffset;
+
+      window.onscroll = function() {
+        var currentScrollPos = Math.max(0,window.pageYOffset);
+
+        if (Math.abs(currentScrollPos - prevScrollpos) > 10){
+          if (prevScrollpos > currentScrollPos) {
+            document.querySelector('header').style.top = "0";
+            document.querySelector('header').style.opacity = "75%";
+          } else {
+            document.querySelector('header').style.top = "-60px";
+          }
+          prevScrollpos = currentScrollPos;
+        }
+        if(currentScrollPos==0){
+          document.querySelector('header').style.top = "0";
+          document.querySelector('header').style.opacity = "100%";
+        }
+      }
+    </script>
+
+</head>
+<body>
+  <header>
+  <span id="header-name"><a href="/">the natural history <span style="font-weight:normal;">of abstract objects</span></a></span> <span id="linkback"><a href=http://www.andrusia.com><img src="/andrew-logo.svg" id='header-logo' style='width: auto;'/></a></span>
+</header>
+<script>document.addEventListener('DOMContentLoaded', function(e) {
+  Scroller.init();
+})</script>
+<!-- <aside>
+<div class="tocLinks" >
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#problem">Problem</a></li>
+</ul>
+</nav>
+</div>
+</aside>
+ -->
+<main>
+<div id="title-block">
+<h1 class="title">the derivative of <span class="math inline">\(x^n\)</span> is <span class="math inline">\(nx^{n-1}\)</span> (take three)</h1>
+</div>
+<p>Time and again we’ve proven that the derivative of <span class="math inline">\(x^n\)</span> is equal to <span class="math inline">\(nx^{n-1}\)</span>: <span class="math display">\[\Large \left(x^n\right)&#39; = nx^{n-1}\]</span> Well, we’ve proven it twice. But both times, our arguments have assumed that <span class="math inline">\(n\)</span> is a positive integer. Yet this theorem is, in fact, true for <span class="math inline">\(n\)</span> being <em>any real number</em>. Our previous proofs, tedious and complicated as they’ve been, haven’t proven that fact.</p>
+<p>So let’s get real. No more beating around the bush. No more absurd arguments using overcomplicated tools. No more giant sigmas and pi’s and generalizations of simpler theorems, all just to prove a <em>weak</em> version of the power rule (we’ve only proved it for positive integers <span class="math inline">\(n\)</span>!). Now we mean business. James Bond doesn’t carry a blunderbuss. We’re not re-enacting the Revolutionary War. It’s time to get serious. Here’s a proof that’s simple, comprehensive, and deadly.</p>
+<p>We’ve learned how to take derivatives of exponentials and logarithms: <span class="math display">\[\left(e^x\right)&#39; = e^x \quad\text{and} \quad \left(\,\ln x \,\right)&#39; = \frac{1}{x}\]</span> This is our secret weapon. Know the fun algebra trick of “doing something by doing nothing”? Like those steps in arguments where we “add zero” or “multiply by one,” but in a special way that makes things look usefully different? There’s a version of that we can do here with exponents and logs. An exponential and its logarithm are inverses, so if we take the logarithm of something exponentiated, it’s as if we’ve done nothing, and vice versa: <span class="math display">\[e^{\ln(\text{blah})} = \text{blah} \quad \text{and} \quad \ln\left(e^{\text{blah}}\right) = \text{blah}\]</span> So here, we have: <span class="math display">\[x^n = e^{\ln\left( x^n \right) } \quad\text{and}\quad x^n = \ln\left(e^{\left(x^n\right)}\right)\]</span> So then if we try to take the derivative of <span class="math inline">\(x^n\)</span>, we can just rewrite it as an exponential and use our exponential derivative wisdom: <span class="math display">\[\begin{align*}
+\,\, {\Large \left(\,x^n\,\right)&#39; } \,\, &amp;= \left(\, e^{\ln\left(x^n\right)} \right)&#39;
+\end{align*}\]</span> Because we can pull exponents out in front of logs, this is: <span class="math display">\[\begin{align*}
+&amp;= \left(\, e^{n\cdot \ln\left(x\right)} \right)&#39;
+\end{align*}\]</span> Then if we take the derivative (and use the chain rule), we get: <span class="math display">\[\begin{align*}
+&amp;= \, e^{n\cdot \ln\left(x\right)}\cdot \big( n\cdot \ln\left(x\right)  \big)&#39; \\
+&amp;= \, e^{n\cdot \ln\left(x\right)}\cdot n \cdot \big( \ln x  \big)&#39; \\
+&amp;= \, e^{n\cdot \ln\left(x\right)}\cdot n \cdot \frac{1}{x}
+\end{align*}\]</span> OK, this formula looks great, but it’s definitely not <span class="math inline">\(nx^{n-1}\)</span>… <em>yet.</em> Did we do something wrong? Hmm. Let’s try REVERSING all this algebra. First, let’s take <span class="math inline">\(n\ln(x)\)</span> and run that exponents-in-front-of-logs rule in reverse to turn it into <span class="math inline">\(\ln\left(x^n\right)\)</span>: <span class="math display">\[\begin{align*}
+&amp;= \,e^{\ln\left(x^n\right)}\cdot n \cdot \frac{1}{x}
+\end{align*}\]</span> And now we’re back with <span class="math inline">\(e^{\ln\left(x^n\right)}\)</span>, which is just a more complicated version of <span class="math inline">\(x^n\)</span>, so let’s rewrite it back to that: <span class="math display">\[\begin{align*}
+&amp;= \, x^n\cdot n \cdot \frac{1}{x} \\ \\
+&amp;= \, \frac{nx^n}{x}\\ \\
+&amp;=\,\, {\Large nx^{n-1}}
+\end{align*}\]</span> In my Math 3 class, we tediously derive the cubic and quartic roots of <span class="math inline">\(i\)</span> in rectangular form—pages and pages of algebra, quadratic equations inside quadratic equations, Keystone Cops-style sign chasing—before realizing how much easier it is to understand complex numbers if we think about them in terms of their angle and radius. Calculating the cubic and quartic roots of <span class="math inline">\(i\)</span> in polar, then, takes just a couple lines. To my surprise, David Freifeld—this was years ago—remarked that he actually preferred the rectangular derivation. “I felt so much more <em>emotionally invested</em>.” Perhaps that’s our situation here.</p>
+<h2 id="problem">Problem</h2>
+<p>We did this proof by rewriting <span class="math inline">\(x^n\)</span> in this absurd way, putting it inside a log inside an exponential: <span class="math display">\[x^n = e^{\ln\left( x^n \right)}\]</span> But we could have rewritten <span class="math inline">\(x^n\)</span> in the opposite way, putting it inside an exponential inside a log: <span class="math display">\[x^n = \ln\left(e^{\left(x^n\right)}\right)\]</span> If we start with that, can we still do this proof? How is it different? Similar?</p>
+</main>
+</body>
+</html>
