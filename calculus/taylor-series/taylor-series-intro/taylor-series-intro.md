@@ -136,7 +136,7 @@ x^{20}\sin(x) &=x^{20}\cdot \left(x - \frac{1}{3!}x^3 + \frac{1}{5!}x^5 - \frac{
 &= \sum_{k=0}^{\infty} \frac{(-1)^{n+1}}{(2n+1)!}x^{2n+21} 
 \end{align*}
 
-Likewise, what if you want to find the Taylor series of $\sin(5x)$? Again, you {\em could} brute-force it---you could plug this into Taylor's formula. And, actually, it'd be a lot easier than in the previous example---you'd just get a bunch of $5$'s piling up as a result of the chain rule. But still. Here's my idea: you already know the Taylor series of $\sin(x)$. So why not just replace $x$ with $5x$? We'd have: 
+Likewise, what if you want to find the Taylor series of $\sin(5x)$? Again, you *could* brute-force it---you could plug this into Taylor's formula. And, actually, it'd be a lot easier than in the previous example---you'd just get a bunch of $5$'s piling up as a result of the chain rule. But still. Here's my idea: you already know the Taylor series of $\sin(x)$. So why not just replace $x$ with $5x$? We'd have: 
 \begin{align*}
 \sin(5x) &= 5x - \frac{1}{3!}(5x)^3 + \frac{1}{5!}(5x)^5 - \frac{1}{7!}(5x)^7 + \frac{1}{9!}(5x)^9 + \cdots \\
 &= 5x - \frac{5^3}{3!}x^3 + \frac{5^5}{5!}x^5 - \frac{5^7}{7!}x^7 + \frac{5^9}{9!}x^9 + \cdots \\  
@@ -147,8 +147,8 @@ Likewise, what if you want to find the Taylor series of $\sin(5x)$? Again, you {
 
 ## Antidifferentiation Awesomeness
 
-Here's a cool application of Taylor series. So, antiderivatives are a pain, right? And sometimes they're not just hard; they're {\em impossible}. Like, literally, you can prove that it's impossible to antidifferentiate some functions. Classic examples: $$\int \! \frac{\sin x}{x} \,dx \quad\text{ and }\quad \int \!  \sqrt{1+x^4}\,dx$$
-But really... these are only impossible to antidifferentiate {\em if you think finitely}. Here's what I mean: We know we can write sine using a Taylor series:
+Here's a cool application of Taylor series. So, antiderivatives are a pain, right? And sometimes they're not just hard; they're *impossible*. Like, literally, you can prove that it's impossible to antidifferentiate some functions. Classic examples: $$\int \! \frac{\sin x}{x} \,dx \quad\text{ and }\quad \int \!  \sqrt{1+x^4}\,dx$$
+But really... these are only impossible to antidifferentiate *if you think finitely*. Here's what I mean: We know we can write sine using a Taylor series:
 $$\sin(x) = x - \frac{1}{3!}x^3 + \frac{1}{5!}x^5 - \frac{1}{7!}x^7 + \frac{1}{9!}x^9 + \cdots$$
 So then we should be able to write $\sin(x)/x$ like this:
 \begin{align*}
@@ -158,7 +158,7 @@ So then we should be able to write $\sin(x)/x$ like this:
  &= 1 - \frac{1}{3!}x^2 + \frac{1}{5!}x^4 - \frac{1}{7!}x^6 + \frac{1}{9!}x^8 + \cdots \\
 &= \sum_{k=0}^{\infty} \frac{(-1)^{n+1}}{(2n+1)!}x^{2n} 
 \end{align*}
-But wait... this is just a polynomial. We can antidifferentiate polynomails. That's {\em easy}. We must just have:
+But wait... this is just a polynomial. We can antidifferentiate polynomails. That's *easy*. We must just have:
 \begin{align*}
 \int \! \frac{\sin x}{x}\,dx &= \int \! 1 - \frac{1}{3!}x^2 + \frac{1}{5!}x^4 - \frac{1}{7!}x^6 + \frac{1}{9!}x^8 +\cdots \,dx \\
 &= x - \frac{1}{3!\cdot 3}x^3 + \frac{1}{5!\cdot5}x^5 - \frac{1}{7!\cdot 7}x^7 + \frac{1}{9!\cdot 9}x^9 +\cdots + C \\
@@ -170,7 +170,7 @@ WOW!!!!! We can take an antiderivative of this supposedly-impossible-to-antidiff
 
 ## Whence Taylor Series: The Proof 
 
-We should probably understand why Taylor series exist before we go much further. The basic idea is that a Taylor series is really just a tricked-out version of integration by parts. When we were doing integration by parts, we discussed how to quickly do multiple integrations-by-parts (in the case of, e.g., $\int x^5\sin(x)dx$), and I probably made some analogy to the effect of, ``If integration by parts is a machine gun, using a table is an {\em anti-aircraft gun}!!!'' Taylor series continues this analogy: it makes integrating by parts or using a table seem like small-arms fire. Taylor series, by comparison, is an {\em aircraft carrier}. 
+We should probably understand why Taylor series exist before we go much further. The basic idea is that a Taylor series is really just a tricked-out version of integration by parts. When we were doing integration by parts, we discussed how to quickly do multiple integrations-by-parts (in the case of, e.g., $\int x^5\sin(x)dx$), and I probably made some analogy to the effect of, "If integration by parts is a machine gun, using a table is an *anti-aircraft gun*!!!" Taylor series continues this analogy: it makes integrating by parts or using a table seem like small-arms fire. Taylor series, by comparison, is an *aircraft carrier*. 
 
 Imagine we have some function $h(x)$ and some point $a$. Then, as we've discussed, we can write it as:
 $$h(x)= h(a) + (x-a)h'(a)  + \frac{1}{2!}(x-a)^2h''(a) + \frac{1}{3!}(x-a)^3h'''(a)  +\frac{1}{4!}(x-a)^4h''''(a) + \cdots$$
@@ -182,7 +182,7 @@ Of course, I can rearrange this so that it just looks like:
 $$h(x) = h(a) + \int_a^x \! h'(t) \, dt$$
 And we're on our way! We've already started creating a Taylor polynomial---$h(a)$ is the first term.  Now I want to start hitting up $\int h'(t)dt$ with integration by parts. Remember that the integration by parts formula looks like this:
 $$\int\! f(x)g'(x)\,dx = f(x)g(x) - \int\! f'(x)g(x)\,dx$$
-Of course, in our Taylor formula so far, we have an integral that only has one part. It only has $h'(t)$. But really it has {\em two} parts---because it's $h'(t)$ multiplied by $1$:
+Of course, in our Taylor formula so far, we have an integral that only has one part. It only has $h'(t)$. But really it has *two* parts---because it's $h'(t)$ multiplied by $1$:
 $$h(x) = h(a) + \int_a^x \! 1\cdot h'(t) \, dt$$
 So let's choose $1$ to be our $g'(x)$ (or, well, $g'(t)$), and $h'(t)$ to be our $f(t)$:
 $$h(x) = h(a) + \int_a^x \! \underbrace{1}_{\mathclap{g'(t)}}\cdot \underbrace{h'(t)}_{f(t)} \, dt$$
@@ -197,7 +197,7 @@ $g'(t) = 1$ &	\hspace{.3cm} $f'(t) = h''(t)$  \\
 
 The $f$ and $f'$ should make sense---$f$ is $h'$, so $f'$ is $h''$. But what you should be immediately suspicious of is my choice of $g(t)$. $g'(t)$ was $1$, so shouldn't $g(t)$---which is just the antiderivative of $g'(t)$---be $t$? 
 
-Yes and no. Allow me, first, to prove to you that, in fact, $-(x-t)$ {\em is} an antiderivative of $1$. The key step here is realizing that we're taking the derivative/antiderivative {\em in terms of $t$}, and that $x$ is {\em constant} with respect to $t$. If I take the derivative of $-(x-t)$, I get:
+Yes and no. Allow me, first, to prove to you that, in fact, $-(x-t)$ *is* an antiderivative of $1$. The key step here is realizing that we're taking the derivative/antiderivative *in terms of $t$*, and that $x$ is *constant* with respect to $t$. If I take the derivative of $-(x-t)$, I get:
 \begin{align*}
 \frac{d}{dt}\left[ -(x-t)\right] &= \frac{d}{dt}\left[ -x + t \right] \\
 & = \frac{d}{dt}\left[ -x \right]  + \frac{d}{dt}\left[t \right] \\
@@ -238,7 +238,7 @@ $\displaystyle g'(t) = \frac{1}{2}(x-t)^2$ &	\hspace{.3cm} $f'(t) = h''''(t)$  \
 $$h(x)= h(a) + (x-a)h'(a)  + \frac{1}{2}(x-a)^2h''(a) +\left[ -\frac{1}{2\cdot3}(x-t)^3h'''(t) -  \int \! -\frac{1}{2\cdot3}(x-t)^3f'(t) = h''''(t) \right]_a^x $$
 I'm sort of running out of space on the page, but you get the idea: I plug in $x$ and $a$, I get an $(x-x)$ term that goes away, I blast through a bunch of negatives, and end up with something like:
 $$h(x)= h(a) + (x-a)h'(a)  + \frac{1}{2}(x-a)^2h''(a) + \frac{1}{2\cdot3}(x-a)^3h'''(a) -  \int_a^x \! -\frac{1}{2\cdot3}(x-t)^3h''''(t)\,dt $$
-So, as you can see, a Taylor polynomial is forming! We are growing a Taylor series, bit by bit. Instead of giving it sun and water, we are giving it integration by parts. All we do is integrate by parts forever, and we get a Taylor series! So this shows you where the formula comes from, which as far as I am concerned is sufficient proof\footnote{One note: strictly speaking, we haven't proven that this pattern actually continues---I mean, obviously it does, but saying ``obviously it does!'' isn't a {\em proof}. If we were to prove that this pattern {\em does} continue indefinitely/infinitely, we'd have to use a technique known as {\em induction} (or {\em mathematical induction}). Look it up on the internet or in a book if you're curious.}. \includegraphics[scale=.25]{andrewproof.png} 
+So, as you can see, a Taylor polynomial is forming! We are growing a Taylor series, bit by bit. Instead of giving it sun and water, we are giving it integration by parts. All we do is integrate by parts forever, and we get a Taylor series! So this shows you where the formula comes from, which as far as I am concerned is sufficient proof^[One note: strictly speaking, we haven't proven that this pattern actually continues---I mean, obviously it does, but saying "obviously it does!" isn't a *proof*. If we were to prove that this pattern *does* continue indefinitely/infinitely, we'd have to use a technique known as *induction* (or *mathematical induction*). Look it up on the internet or in a book if you're curious.]. \includegraphics[scale=.25]{andrewproof.png} 
 
 
 <div class='callout-box'>
@@ -317,13 +317,13 @@ Find the Taylor series of each of the following rational functions:
 In 1974, the philosopher Thomas Nagel published a seminal essay on the philosophy of mind entitled "What is it like to be a bat?^[Google it! Read it!] His thesis, simply put, was that we cannot know what it is like to be a bat, because if we did, we would either be a strange bat-human hybrid (and thus not really a bat) or a bat (and thus we wouldn't be ourselves). In the following problems, I would like you to ask yourselves: "What is it like to be a calculator?" 
 
 <ol class='problems'>
-<li>Come up with an approximation (to, say, three decimal places) of $\sin(\pi/60)$. (Suggestion: you know how to write $\sin(x)$... what if $x$ is a specific number and not just ``$x$''? Use a calculator to do the arithmetic.)</li>
+<li>Come up with an approximation (to, say, three decimal places) of $\sin(\pi/60)$. (Suggestion: you know how to write $\sin(x)$... what if $x$ is a specific number and not just "$x$"? Use a calculator to do the arithmetic.)</li>
 
 <li> Similarly, use a Taylor series to approximate $\cos(62\degree)$. (Note that this is just $\cos(\pi/3 + \pi/90)$, so do you think that you would get a better approximation using $\cos(x)$ expanded around $0$ or around $\pi/3$?)</li>
 
 <li> Estimate $\sin(35\degree)$ </li>
 
-<li> Here's a similar question: what's $e$? As in, what is its decimal approximation? Rather than just punching ``$e$'' into your calculator and having it tell you, estimate it yourself! Use a Taylor series to approximate it; write it out to at least a half-dozen terms and then find the decimal. </li>
+<li> Here's a similar question: what's $e$? As in, what is its decimal approximation? Rather than just punching "$e$" into your calculator and having it tell you, estimate it yourself! Use a Taylor series to approximate it; write it out to at least a half-dozen terms and then find the decimal. </li>
 
 <li> Can you approximate $e^2$ (to, say, three significant figures)? </li>
 
@@ -359,7 +359,7 @@ Even more fun with Taylor series! Below are two limits which you can't do just b
 <div style='height:3em;'></div>
 
 <ol class='problems'>
-<li> A few weeks ago, when we were talking about series, I told you that it was far harder to figure out what a series converges to than to figure out whether it converges. Like with antiderivatives, all we have are a smattering of {\em ad hoc}, particular formulas---there is no general method. So in this problem, I'm going to give you another equation for what a certain series converges to, and you're going to prove why it's true. Here's the formula:
+<li> A few weeks ago, when we were talking about series, I told you that it was far harder to figure out what a series converges to than to figure out whether it converges. Like with antiderivatives, all we have are a smattering of *ad hoc*, particular formulas---there is no general method. So in this problem, I'm going to give you another equation for what a certain series converges to, and you're going to prove why it's true. Here's the formula:
 $$\sum_{n=1}^\infty \frac{n}{(n+1)!} = 1$$
 It takes a little bit of work to do this. My suggestion is to find the Taylor series of $\displaystyle f(x) = \frac{e^x-1}{x}$, take a derivative, and play with it a bit. Keep in mind that you have three ways to write this function---you can write it as $(e^x-1)/x$, you can write it as a written-out polynomial, and you can write it in $\Sigma$-form. This is a cool proof, but don't give up if you can't do it in thirty seconds. Muse about it! (Also, don't let it escape your notice that the formula starts with $n=1$, whereas our Taylor series usually start with $n=0$.)</li>
 <li> Here's another weird, unexpected, and counterintuitive series formula: 

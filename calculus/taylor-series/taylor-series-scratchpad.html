@@ -70,7 +70,7 @@
 </div>
 <p>growing polynomials approximating functions generalizing ideas of straightness safety</p>
 <h2 id="trouble-free-taylor-series">trouble-free taylor series</h2>
-<p>What if we want to write the Taylor series of, say, <span class="math inline">\(x^{20}\sin(x)\)</span>? <span class="math display">\[\text{let&#39;s polynomialize this: }\,\, x^{20}\sin(x)\]</span> The obvious way to do it would be to plug it into Taylor’s formula. But that will get real nasty real fast. We’ll have to use the product rule (to find the first derivative), and then to find the second derivative we’ll have to do the product rule twice (because we get two terms), and then for the third derivative we’ll have to do the product rule not even three but <em>four</em> times, then eight times for the fourth derivative and so on. Once we’re past the 20th derivative the <span class="math inline">\(x^{20}\)</span> remnants will start to go away and we’ll be fine, but until then, it’ll be a huge mess.</p>
+<p>What if we want to write the Taylor series of, say, <span class="math inline">\(x^{20}\sin(x)\)</span>? <span class="math display">\[\text{let&#39;s polynomialize this: }\,\, x^{20}\sin(x)\]</span> The obvious way to do it would be to plug it into Taylor’s formula. But that will get real nasty real fast. We’ll have to use the product rule (to find the first derivative), and then to find the second derivative we’ll have to do the product rule twice (because we get two terms), and then for the third derivative we’ll have to do the product rule not even three but <em>four</em> times, then eight times for the fourth derivative and so on. Once we’re past the 20th derivative the <span class="math inline">\(x^{20}\)</span> remnants will start to go away and we’ll be fine, but until then, it’ll be a huge mess:</p>
 <table>
 <thead>
 <td colspan="2" style="text-align:center;">
@@ -173,7 +173,7 @@ x^{20}\sin(x) &amp;=x^{20}\cdot \Big(\, \sin x,\text{ but written as a Taylor se
  &amp;= \left(\frac{1}{x}\right)\cdot\left(x - \frac{1}{3!}x^3 + \frac{1}{5!}x^5 - \frac{1}{7!}x^7 + \frac{1}{9!}x^9 + \cdots \right) \\ \\
  &amp;= 1 - \frac{1}{3!}x^2 + \frac{1}{5!}x^4 - \frac{1}{7!}x^6 + \frac{1}{9!}x^8 + \cdots \\ \\
 &amp;= \sum_{k=0}^{\infty} \frac{(-1)^{n+1}}{(2n+1)!}x^{2n} 
-\end{align*}\]</span> But wait… this is just a polynomial. We can antidifferentiate polynomails. That’s <em>easy</em>. We must just have: <span class="math display">\[\begin{align*}
+\end{align*}\]</span> But wait… this is just a polynomial. We can antidifferentiate polynomials. That’s <em>easy</em>. We must just have: <span class="math display">\[\begin{align*}
 \int \! \frac{\sin x}{x}\,dx &amp;= \int \! 1 - \frac{1}{3!}x^2 + \frac{1}{5!}x^4 - \frac{1}{7!}x^6 + \frac{1}{9!}x^8 +\cdots \,dx \\ \\
 &amp;= x - \frac{1}{3!\cdot 3}x^3 + \frac{1}{5!\cdot5}x^5 - \frac{1}{7!\cdot 7}x^7 + \frac{1}{9!\cdot 9}x^9 +\cdots + C \\ \\
 &amp;= \sum_{k=0}^{\infty} \frac{(-1)^{n+1}}{(2n+1)!\cdot(2n+1)}x^{2n+1} 
