@@ -15,6 +15,55 @@ generalizing ideas of straightness
 safety
 
 
+
+
+## trouble-free taylor series
+
+What if we want to write the Taylor series of, say, $x^{20}\sin(x)$?
+$$\text{let's polynomialize this: }\,\, x^{20}\sin(x)$$
+The obvious way to do it would be to plug it into Taylor's formula. But that will get real nasty real fast. We'll have to use the product rule (to find the first derivative), and then to find the second derivative we'll have to do the product rule twice (because we get two terms), and then for the third derivative we'll have to do the product rule not even three but *four* times, then eight times for the fourth derivative and so on. Once we're past the 20th derivative the $x^{20}$ remnants will start to go away and we'll be fine, but until then, it'll be a huge mess:
+
+
+<table>
+<thead><td colspan=2 style='text-align:center;'> derivatives of $x^{20}\sin(x)$</td></thead>
+  <tr>
+    <td>$0$</td>
+    <td>$x^{20}\sin(x)$</td>
+  </tr>
+  <tr>
+    <td>$1$</td>
+    <td>$20x^{19}\sin(x) \,\,+\,\, x^{20}\cos(x)$</td>
+  </tr>
+  <tr>
+    <td>$2$</td>
+    <td>$20 \cdot 19x^{18}\sin(x) \,\,+\,\, 20x^{19}\cos(x) \,\,+\,\, 20x^{19}\cos(x) \,\,+\,\, x^{20}(-\sin x)$</td>
+  </tr>
+  <tr>
+    <td>$3$</td>
+    <td>etc.</td>
+  </tr>
+</table>
+
+Why go to all that work? We know how to write $\sin(x)$ as a Taylor series---why don't we just multiply the whole thing by $x^{20}$???
+
+\begin{align*}
+x^{20}\sin(x) &=x^{20}\cdot \Big(\, \sin x,\text{ but written as a Taylor series} \Big) \\ \\
+ &=x^{20}\cdot \left(x - \frac{1}{3!}x^3 + \frac{1}{5!}x^5 - \frac{1}{7!}x^7 + \frac{1}{9!}x^9 + \cdots \right) \\ \\
+ &= x^{21} - \frac{1}{3!}x^{23} + \frac{1}{5!}x^{25} - \frac{1}{7!}x^{27} + \frac{1}{9!}x^{29} + \cdots \\ \\
+&= \sum_{k=0}^{\infty} \frac{(-1)^{n+1}}{(2n+1)!}x^{2n+21} 
+\end{align*}
+
+Likewise, what if we want to find the Taylor series of $\sin(5x)$? 
+$$\text{let's polynomialize this: }\,\, \sin(5x)$$
+Again, you *could* brute-force it---you could plug this into Taylor's formula. And, actually, it'd be a lot easier than in the previous example---you'd just get a bunch of $5$'s piling up as a result of the chain rule. But still. Here's my idea: you already know the Taylor series of $\sin(x)$. So why not just replace $x$ with $5x$? We'd have: 
+\begin{align*}
+\sin(5x) &= \Big(\, \text{the Taylor series of $\sin x$, but with $5x$ plugged in for $x$} \,\Big)  \\ \\
+&= 5x - \frac{1}{3!}(5x)^3 + \frac{1}{5!}(5x)^5 - \frac{1}{7!}(5x)^7 + \frac{1}{9!}(5x)^9 + \cdots \\ \\
+&= 5x - \frac{5^3}{3!}x^3 + \frac{5^5}{5!}x^5 - \frac{5^7}{7!}x^7 + \frac{5^9}{9!}x^9 + \cdots \\  \\
+&= \sum_{k=0}^{\infty} \frac{(-1)^{n+1}5^{2n+1}}{(2n+1)!}x^{2n+1} 
+\end{align*}
+
+
 ## taylor series as approximations
 
 If we have a full, infinitely-long Taylor series, then that's just another way of writing the function. But what if we have only *part* of a Taylor series? Like, what if we have only the first few terms? How does that relate to the original function? (Given that we're finite beings---we can never *actually* write out an infinite Taylor series---every Taylor series is just a finite truncation of the actual infinite one!)
@@ -90,6 +139,35 @@ $$\begin{array}{l}
 \text{if we zoom in {\color{blue}far enough}, everything becomes {\color{blue}an $n$th-degree polynomial}} \\
 \hfill \text{(for any/all $n$)} \hfill
 \end{array}$$
+
+
+
+
+
+## antidifferentiation awesomeness
+
+Here's a cool application of Taylor series. Antiderivatives are a pain, right? Sometimes they're not just hard; they're *impossible*. Like, literally, you can prove that it's impossible to antidifferentiate some functions. Classic examples: $$\int \! \frac{\sin x}{x} \,dx \quad\text{ and }\quad \int \!  \sqrt{1+x^4}\,dx$$
+But really... these are only impossible to antidifferentiate *if you think finitely*. 
+
+Here's what I mean: We know we can write sine using a Taylor series:
+$$\sin(x) = x - \frac{1}{3!}x^3 + \frac{1}{5!}x^5 - \frac{1}{7!}x^7 + \frac{1}{9!}x^9 + \cdots$$
+So then we should be able to write $\sin(x)/x$ like this:
+\begin{align*}
+\frac{\sin(x)}{x} &= \left(\frac{1}{x}\right)\sin(x) \\ \\
+ &= \left(\frac{1}{x}\right)\cdot\left(x - \frac{1}{3!}x^3 + \frac{1}{5!}x^5 - \frac{1}{7!}x^7 + \frac{1}{9!}x^9 + \cdots \right) \\ \\
+ &= 1 - \frac{1}{3!}x^2 + \frac{1}{5!}x^4 - \frac{1}{7!}x^6 + \frac{1}{9!}x^8 + \cdots \\ \\
+&= \sum_{k=0}^{\infty} \frac{(-1)^{n+1}}{(2n+1)!}x^{2n} 
+\end{align*}
+But wait... this is just a polynomial. We can antidifferentiate polynomials. That's *easy*. We must just have:
+\begin{align*}
+\int \! \frac{\sin x}{x}\,dx &= \int \! 1 - \frac{1}{3!}x^2 + \frac{1}{5!}x^4 - \frac{1}{7!}x^6 + \frac{1}{9!}x^8 +\cdots \,dx \\ \\
+&= x - \frac{1}{3!\cdot 3}x^3 + \frac{1}{5!\cdot5}x^5 - \frac{1}{7!\cdot 7}x^7 + \frac{1}{9!\cdot 9}x^9 +\cdots + C \\ \\
+&= \sum_{k=0}^{\infty} \frac{(-1)^{n+1}}{(2n+1)!\cdot(2n+1)}x^{2n+1} 
+\end{align*}
+WOW!!!!! We can take an antiderivative of this supposedly-impossible-to-antidifferentiate function. Maybe we can't do it *finitely*, but an infinite polynomial is better than nothing. That's really, really cool.
+
+
+
 
 
 

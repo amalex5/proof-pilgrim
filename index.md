@@ -33,6 +33,8 @@ h2 {
     padding: 0;
 }
 
+ul li ul { font-size: 90%; }
+
 ul{
     margin-top: 0em;
 }
@@ -113,7 +115,8 @@ li {
 
 * [The World Made From Modular Machines](inverse-functions/inverse-functions.html) (*notes on inverse functions, as a primer*)
 * exponent rules reference sheet [(svg)](logarithms/exponent-rules-reference/exponent-rules-reference.svg), [(pdf)](logarithms/exponent-rules-reference/exponent-rules-reference.pdf)
-* [fun intro exploratory logs problems](logarithms/logs-intro-problems/logs-intro-problems.html)
+* [fun intro exploratory logs problems](logarithms/logs-intro-problems/logs-intro-problems.html) 
+    * [slightly harder more redacted version (PDF)](logarithms/logs-intro-problems/logarithmagic-redacted.pdf)
 * [Logarithms!](logarithms/logarithms-intro/logarithms-intro.html) (*intro lengthy exposition and proofs of some basic properties*)
 * [Andrew's online visual logarithms calculator/pun](https://www.andrusia.com/logs.html)
 * [LOGPOCALYPSE](logarithms/logpocalypse/logpocalypse.html)

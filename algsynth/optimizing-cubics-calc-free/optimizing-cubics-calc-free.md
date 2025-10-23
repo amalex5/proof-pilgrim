@@ -271,7 +271,7 @@ Yay!!!! That wasn't so bad????
 
 So this set of solutions to this system is:
 $$\Big\{\,\, h=+1,\quad k=-8, \quad r=+3 \,\,\Big\}$$
-But what this means, VISUALLY (which is what we care about) is that if we take our original cubic, and shift it right $1$ and up $-8$ ("up"), then we get a new cubic with a double root at the origin. Or, put somewhat more clearly, if we take our original cubic, and shift it right $1$ and *down* $8$, then we get a new cubic with a double root at the origin:
+What this means, VISUALLY (which is what we care about) is that if we take our original cubic, and shift it right $1$ and up $-8$ ("up"), then we get a new cubic with a double root at the origin. Or, put somewhat more clearly, if we take our original cubic, and shift it right $1$ and *down* $8$, then we get a new cubic with a double root at the origin:
 ![](pos-one-shift-2.svg){ width=75% }
 So then our original cubic must have an extremum $1$ to the *left* of the origin (backwards direction!), and $8$ *up* from the origin. In other words, the original cubic has an extremum at $(-1,+8)$:  
 ![](pos-one-shift-3.svg){ width=75% }
