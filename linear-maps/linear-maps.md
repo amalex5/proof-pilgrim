@@ -68,7 +68,7 @@ g\left(\vec{0}\right) &= g(0,0,0) \\
 &= (0,0) \\
 &= \vec{0}
 \end{align*}
-Note that I'm using ``$\vec{0}$'' there to represent the zero vector in $\mathbb{R}^3$ as well as the zero vector in $\mathbb{R}^2$, even though those are two different objects! We pay a price for having compact notation. But we pay a price for not having notation, too:
+Note that I'm using "$\vec{0}$" there to represent the zero vector in $\mathbb{R}^3$ as well as the zero vector in $\mathbb{R}^2$, even though those are two different objects! We pay a price for having compact notation. But we pay a price for not having notation, too:
 \begin{align*}
 g\left(\substack{\text{the zero vector}\\\text{in $\mathbb{R}^3$}}\right) &= g\big(\, (0,0,0) \,\big) \\ \\
 &= (0,0) \\ \\
