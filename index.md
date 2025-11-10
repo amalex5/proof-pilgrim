@@ -198,6 +198,7 @@ li {
 * [(Implicit) Differentiation](calculus/implicit-differentiation/implicit-differentiation.html)
 * [Related rates](calculus/related-rates/related-rates.html) <span style='font-family: sans-serif; color:red; font-weight: bold; font-size: 75%;'>(old)</span>
 * [Optimization](calculus/optimization/optimization.html)
+    * covid-era soda can optimization project
 * [Integration](calculus/integrals-intro/integrals-intro.html)
     * [Some totally unremarkable problems with integrals](calculus/integrals-as-net-area-motivating-problems/integrals-as-net-area-motivating-problems.html) (*exploratory problems*)
     * [Integrals as net area](calculus/integrals-as-net-area/integrals-as-net-area.html) <span style='font-family: sans-serif; color:red; font-weight: bold; font-size: 75%;'>(old)</span>
@@ -213,6 +214,8 @@ li {
     * but sometimes you can only polynomialize functions over finite ranges
     * can we think about the error term?
 * [how long are curvy lines?](calculus/length-of-curvy-lines/length-of-curvy-lines.html)
+* [slopes on 2D surfaces](calculus/slopes-on-surfaces/slopes-on-surfaces.html) <span style='font-family: sans-serif; color:red; font-weight: bold; font-size: 75%;'>(draft)</span>
+    * poster version: [pdf](calculus/slopes-on-surfaces/slope-as-fxn-of-angle-summary.pdf), [svg](calculus/slopes-on-surfaces/slope-as-fxn-of-angle-summary.svg)
 * [higher integrals](calculus/higher-integrals/higher-integrals.html)
 
 

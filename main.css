@@ -421,7 +421,7 @@ p{
 
 /* but there's a lot of stuff that we DON'T want indented */
 
-  header + p, h1 + p, h2 + p, p:has(img) + p , p:has(br) + p, li + p, li > p, ol + p, ul + p, blockquote + p, .callout-box + p {
+  header + p, h1 + p, h2 + p, h3 + p, p:has(img) + p , p:has(br) + p, li + p, li > p, ol + p, ul + p, blockquote + p, .callout-box + p {
     text-indent: 0em;
   }
 /* FIX: need to not indent if it's the first graf after math.display */
