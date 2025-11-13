@@ -736,9 +736,14 @@ Two subsidiary questions:
 <li> First, how many terms of the infinite polynomial do you need to get a good approximation? In other words, does adding up just the first five terms of the polynomial give you a good approximation, or do you need to add, like, 100 terms, before you get something that's decent? One good way to check this/think about this is to use this formula to compute a log that *does* work out to something nice and exact (e.g., the $\log_2 8$). Another way to think about this might be to plot the value of the approximation as you add more and more terms---like, make a plot where "number of terms" is on the horizontal axis, and "value of the approximation" is on the vertical axis. Then you could see how fast it converges! (That'd be the fancy math way to phrase it---"how fast such-and-such converges.") </li>
 
 <li> Second, as you try to use this infinite polynomial to estimate these logs, there'll be an added complication that comes up (relating to some of the "fine print" of infinite polynomials). Don't give up!</li>
+</ul>
+<li>**Hard problem that Elyse found online:** Solve this system of equations:
+$$\begin{cases}4^{\frac{x}{y}+\frac{y}{x}} = 32 \\
+\log_3(x-y)+\log_3(y+x) = 1 \end{cases}$$</li>
 
 </ol>
 
+<div style='height:3em'></div>
 
 Here are some word problems involving exponential growth and decay. Do them.
 

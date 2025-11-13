@@ -5,6 +5,14 @@ layout: post
 ---
 
 
+Here, at the beginnings of our exploration of higher-dimensional calculus, we've figured out a few things. We've figured out that, unlike in single-variable calculus, slopes in higher dimensions are dependent not just on the functions themselves, but also on the *direction* we're facing. In particular, if we're on some $n$-dimensional surface (or scalar function, as most people call it), then the slope is just the dot product of the vector of partial derivatives (the gradient vector, or the derivative vector, or whatever you want to call it) with the direction/unit vector of the direction we're facing:
+\begin{align*}
+   \substack{\text{the slope}\\\text{in some direction}\\\text{at some point}}  \quad &= \left(\text{gradient/derivative vector}\right) \cdot \left(\text{unit/direction vector}\right) \\ \\
+   &= \begin{bmatrix}\frac{\partial f}{\partial x_1} \\ \frac{\partial f}{\partial x_2}  \\ \frac{\partial f}{\partial x_3}  \\ \vdots \end{bmatrix} \cdot \begin{bmatrix} \substack{\text{the unit/direction vector}\\\text{in the $x_1$-direction}} \\ \substack{\text{the unit/direction vector}\\\text{in the $x_2$-direction}} \\ \substack{\text{the unit/direction vector}\\\text{in the $x_3$-direction}} \\ \vdots  \end{bmatrix} \\ \\
+   &= \frac{\partial f}{\partial x_1}\left(  \substack{\text{the unit/direction vector}\\\text{in the $x_1$-direction}} \right) \,+\, \frac{\partial f}{\partial x_2}\left(  \substack{\text{the unit/direction vector}\\\text{in the $x_2$-direction}} \right) \,+\, \cdots 
+\end{align*}
+This is nice because it's a formula that generalizes to any number of dimensions! (It also magically encompasses our knowledge of single-variable slopes: in that case, there's only one "partial" derivative, and only two choices for what the direction vector can be, $\langle +1\rangle$ or $\langle -1\rangle$.) 
+
 
 
 
@@ -13,79 +21,70 @@ NOTES ON 2D SRUFACE DERIVATIVES ETC ETC ETC
 
 
 
-in 2VC-world things are a little simpler than the more general MVC-world. For one thing, we can *draw pictures*. A nice two-dimensional surface needs two inputs and one output; three dimensions, total; that's something we can easily visualize! If we have a surface/scalar function that takes three inputs (and gives one output), or four inputs, or $n$ inputs, life is much trickier. 
+in 2VC-world things are a little simpler than the more general MVC-world. For one thing, we can *draw pictures*. A two-dimensional surface needs two inputs and one output; three dimensions, total; that's something we can easily visualize! If we have a surface/scalar function that takes three inputs (and gives one output), or four inputs, or $n$ inputs, pictures get much trickier. 
 
-Plus, in 2VC, we can easily think of direction vectors as just a friendly sine-and-cosine pair. In general, a direction vector is a vector in $n$ dimensions whose components all Pythagorean-add to $1$ (by Pythagorean-add I mean the square-root-of-all-of-them-squared-added-up). In two dimensions, that works out to just being $\cos\theta$ for the $x$ and $\sin\theta$ for the $y$, if we want to use an angle $\theta$ in the usual way on the $xy$-plane.
+Plus, in 2VC, we can easily think of direction vectors as just a friendly sine-and-cosine pair. In $n$ dimensions, a direction vector is a vector whose components all Pythagorean-add^[by Pythagorean-add I mean the square-root-of-all-of-them-squared-added-up] to $1$. In two dimensions, that works out to just being $\cos\theta$ for the $x$ and $\sin\theta$ for the $y$, if we want to use an angle $\theta$ in the usual way on the $xy$-plane.
 
-
-
-
-
+In this way two-dimensional surfaces make a great metaphor for $n$-dimensional surfaces:
+they have complexity that one-dimensional surfaces don't have, but they're still easy to visualize, and they're possible to deal with "manually" (using marginally-more-annoying trig rather than the full fancy formalism of our higher-dimensional tools)
 
 
 
-we zoom in really far, and everything becomes a---not a straight *line*, but a straight *plane*. "straight" might not be the best word here; i don't mean "straight" in the "paralell to the ground" sense; i mean "straight" in the "not curvy" sense. (or you can just say **linear** if you want to sound fancy)
-
-that has ramifications
+## the ritual sacrifice
 
 
 
 
 
-Perhaps we should understand planes better!
 
-in 1VC, every straight line is just:
+aria gao
+
+
+In 1VC, the core idea/paradox/contention/assertion at the heart of calculus is this:
+$$\text{if we zoom in really far, everything becomes a straight {\color{red}line} }$$
+The $n$-dimensional analogue of this, in $n$-dimensional calculus, is:
+$$\text{if we zoom in really far, everything becomes a straight {\color{red}$\,\substack{\text{$n$-dimensional}\\\text{hyperplane}}$}}$$
+That's weird. The two-dimensional/2VC case is easier to imagine:
+$$\text{if we zoom in really far, everything becomes a straight {\color{red} plane}}$$
+In 2VC, we zoom in really far, and everything becomes a---not a straight *line*, but a straight *plane*. "Straight" might not be the best word here; I don't mean "straight" in the "flat" or "parallel to the ground" sense; I mean "straight" in the "not curvy" sense. (Or you can just say **linear** if you want to sound fancy)
+
+That has ramifications!!! In 1VC, if we want to understand curvy lines, that means that we need to understand *straight* lines. And every straight line is just::
 
 * a slope
 * an offset (or a ``$y$-intercept,'' as we might call it)
+
+In other words, every straight line is just:
 $$y = \text{(slope)}x + \text{(offset)}$$
 
-in 2VC, every straight plane is just:
+In 2VC, every straight plane is just:
 
 * a slope in the $x$-direction
 * a slope in the $y$-direction
 * an offset (or a ``$z$-intercept,'' you might call it)
-$$y = \text{(slope \#1)}x + \text{(slope \#2)}y  +\text{(offset)}$$
+$$z = \left(\substack{\text{slope in the}\\\text{$x$-direction}}\right)x + \left(\substack{\text{slope in the}\\\text{$y$-direction}}\right)y  +\text{(offset)}$$
 
 
 
 
-
-if we're standing at some point
-then there's a direction we can turn to make our perspective the steepest:
-
-PICTURE, with gradient vector labelled
-
-there's also a direction we can turn to point in the steepest DOWNHILL direction:
-
-PICTURE, with second neg gradient vector labelled
-
-that direction is also 180 away from steepest uphill!
-
-PICTURE, with angle labelled
-
-meanwhile, there's also a direction we can turn in that will be FLAT!:
-
-PICTURE, with one contour direction labelled
-
-actually, there are TWO such directions:
-
-PICTURE, with other labelled
-
-which, by the way, are both halfway (90 degrees) between the two steepest directions:
-
-PICTURE, with those other angles labelled
-
-maybe picture with contours
+Suppose we have a flat plane in 3D space:
+![](slope-on-flat-plane-1.svg){width=75%}
+And we're standing at some point on it:
+![](slope-on-flat-plane-2.svg){width=75%}
+Then there's a direction we can turn to make our perspective the steepest (i.e., the most-uphill direction):
+![](slope-on-flat-plane-3.svg){width=75%}
+There's also a direction we can turn to point in the steepest DOWNHILL direction:
+![](slope-on-flat-plane-4.svg){width=75%}
+That direction is also 180 away from steepest uphill!
+![](slope-on-flat-plane-5.svg){width=75%}
+Meanwhile, there's also a direction we can turn in that will be FLAT!:
+![](slope-on-flat-plane-6.svg){width=75%}
+Actually, there are TWO such directions! (It's a contour *line*, not a contour *ray*!)
+![](slope-on-flat-plane-7.svg){width=75%}
+And both of those flat directions are halfway (90 degrees) between the two steepest directions:
+![](slope-on-flat-plane-8.svg){width=75%}
+So that's how the steepness-geometry of flat planes works. 
 
 
-slope(angle) = blah
-
-y = acos\theta + b\sin\theta
-
-
-
-PIC with labels
 
 
 
@@ -111,7 +110,7 @@ And any direction/unit vector we can write as just a cosine/sine pair of that an
 $$\substack{\text{a direction in $\mathbb{R}^2$}\\\text{as a unit vector}} : \left\langle \cos\theta, \sin\theta \right\rangle$$
 So the slope on a 2D surface, when you're facing the direction $\theta$, will be:
 \begin{align*}
-   \substack{\text{the slope}\\\text{in some direction}\\\text{at some point}}  &= \left(\text{gradient/derivative vector}\right) \cdot \left(\text{unit/direction vector}\right) \\
+   \substack{\text{the slope}\\\text{in some direction}\\\text{at some point}}  &= \left(\text{gradient/derivative vector}\right) \cdot \left(\text{unit/direction vector}\right) \\ \\
    &= \begin{bmatrix}\frac{\partial f}{\partial x} \\ \frac{\partial f}{\partial y} \end{bmatrix} \cdot \begin{bmatrix} \substack{\text{the unit/direction vector}\\\text{in the $x$-direction}} \\ \substack{\text{the unit/direction vector}\\\text{in the $y$-direction}} \end{bmatrix} \\ \\
     &= \begin{bmatrix} \frac{\partial f}{\partial x} \\ \frac{\partial f}{\partial y}\end{bmatrix} \cdot \begin{bmatrix} \cos\theta \\ \sin\theta \end{bmatrix} \\ \\
     &= \frac{\partial f}{\partial x}\cos\theta  \,\,+\,\, \frac{\partial f}{\partial y}\sin\theta
@@ -196,7 +195,7 @@ These are both $180^\circ$, i.e. $\pi$ apart:
 And again, maybe it's more clear to represent the partials as $f_x$ and $f_y$:
 ![](slope-as-fxn-of-angle-9.svg)
 In summary:
-![](slope-as-fxn-of-angle-summary.svg){ style="border-width:0.25pt solid black;" }
+![](slope-as-fxn-of-angle-summary.svg){ style="border:0.25pt solid black; padding: 1em;" }
 
 
 

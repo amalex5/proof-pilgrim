@@ -1,5 +1,13 @@
 regexes
 
+
+ALSO WEBSITE BLOG TOC TO COPY:
+https://www.atvbt.com/best-investments-for-everyone/
+https://www.atvbt.com/assets/built/sidebars.css?v=b181c11b65
+view-source:https://www.atvbt.com/hyperbolic/
+
+
+
 images
 
 \\begin{center}\\includesvg\[.+\]{(.+\.svg)}\\end{center}
