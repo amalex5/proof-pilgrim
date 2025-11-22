@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>A Weekend in Arizona</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="/main.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <script src="../highlight-toc.js" type="text/javascript"></script>
+
+  <script> 
+      // disappearing header, from dynomight.net'
+      var prevScrollpos = window.pageYOffset;
+
+      window.onscroll = function() {
+        var currentScrollPos = Math.max(0,window.pageYOffset);
+
+        if (Math.abs(currentScrollPos - prevScrollpos) > 10){
+          if (prevScrollpos > currentScrollPos) {
+            document.querySelector('header').style.top = "0";
+            document.querySelector('header').style.opacity = "75%";
+          } else {
+            document.querySelector('header').style.top = "-60px";
+          }
+          prevScrollpos = currentScrollPos;
+        }
+        if(currentScrollPos==0){
+          document.querySelector('header').style.top = "0";
+          document.querySelector('header').style.opacity = "100%";
+        }
+      }
+    </script>
+
+</head>
+<body>
+  <header>
+  <span id="header-name"><a href="/">the natural history <span style="font-weight:normal;">of abstract objects</span></a></span> <span id="linkback"><a href=http://www.andrusia.com><img src="/andrew-logo.svg" id='header-logo' style='width: auto;'/></a></span>
+</header>
+ -->
+<main>
+<div id="title-block">
+<h1 class="title">A Weekend in Arizona</h1>
+</div>
+<p>You are trying to drive the 15 miles to Veritas from your house in Tempe, but the traffic on the 202 is awful—it is total stop-and-go—and so your speed fluctuates sinusoidally between 24 mph and 0 mph. Put a bit more formally, your speed (or velocity) as a function of time is <span class="math inline">\(v(t) = 12\sin(20\pi \cdot t) + 12\)</span> mph (where <span class="math inline">\(t\)</span> is in hours). <strong>(1)</strong> Find the total amount of distance you cover in 10 minutes. <strong>(2)</strong> Find the total amount of distance you cover in <span class="math inline">\(t\)</span> minutes. <strong>(3)</strong> How long does it take you to get to school? (You might have to estimate using a calculator.)</p>
+<div style="height:3em;">
+
+</div>
+<p>Later, over the weekend, you drive to Prescott in order to show off your proper pronunciation of the name to the townies. But on one of the flat stretches of I-17 near Agua Fria, you run out of gas, and your car slowly rolls to a stop. At the moment you run out of gas, you are driving 90 mph, and without gas, the speed of your car decreases autoproportionally, such that after one minute <em>sin petrol</em> you are driving only 45 mph. <strong>(4)</strong> Find an equation for your speed (after you run out of gas) as a function of time. (You can do this without calculus, but I want you to do it with calculus.) <strong>(5)</strong> How fast will you be going after 2 minutes? 3 minutes? what about after 6.4 minutes? <strong>(6)</strong> When will you be going only 1 mph? (Note that we’re ignoring friction in this problem, and assuming the road is perfectly flat.) <strong>(7)</strong> Find how much distance you cover in 10 minutes of coasting.</p>
+<div style="height:3em;">
+
+</div>
+<p>Once you get to Prescott, you go to a local coffee shop and down, in quick succession, five shots of espresso. One shot (= 30mL) of espresso contains approximately 100mg of caffeine (molecular formula <span class="math inline">\(C_8H_{10}N_4O_2\)</span>). Imagine that the concentration of caffeine in the body follows the following differential equation<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>: <span class="math display">\[\frac{dy}{dt} = y\left(\frac{1}{t} - k\right)\]</span> where <span class="math inline">\(y\)</span> represents the concentration of the caffeine in the blood, and <span class="math inline">\(k\)</span> is some positive constant, which for caffeine equals about <span class="math inline">\(.01 \, L/mg/min\)</span>. <strong>(8)</strong> Come up with an equation for the concentration of caffeine in your bloodstream as a function of time. (Be sure to solve for the constant—which is hard. It might help to contemplate the fact that the maximum concentration of caffeine will be <span class="math inline">\(500mg/5L\)</span>, where <span class="math inline">\(5L\)</span> is roughly the amount of blood in an adult human.) <strong>(9)</strong> How many caffeine molecules do you ingest? <strong>(10)</strong> Based on this model, when will your veins be fully expunged of caffeine? (This is hard, too—in fact, it’s mathematically impossible. But that doesn’t mean it’s impossible—you can use your calculator in a creative way to estimate it.)</p>
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>I’ll admit that I basically made this math up all by myself, but only after an evening of doing heavy background research—I needed math that would challenge you in a very specific way, but also wanted it to be grounded in reality. It’s really interesting stuff—you should Google (or Google Scholar) “caffeine,” “drug clearance,” and “pharmacokinetics.” I learned a whole lot.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+</main>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>A Hiking Trip Gone Terribly, Terribly Wrong</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="/main.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <script src="../highlight-toc.js" type="text/javascript"></script>
+
+  <script> 
+      // disappearing header, from dynomight.net'
+      var prevScrollpos = window.pageYOffset;
+
+      window.onscroll = function() {
+        var currentScrollPos = Math.max(0,window.pageYOffset);
+
+        if (Math.abs(currentScrollPos - prevScrollpos) > 10){
+          if (prevScrollpos > currentScrollPos) {
+            document.querySelector('header').style.top = "0";
+            document.querySelector('header').style.opacity = "75%";
+          } else {
+            document.querySelector('header').style.top = "-60px";
+          }
+          prevScrollpos = currentScrollPos;
+        }
+        if(currentScrollPos==0){
+          document.querySelector('header').style.top = "0";
+          document.querySelector('header').style.opacity = "100%";
+        }
+      }
+    </script>
+
+</head>
+<body>
+  <header>
+  <span id="header-name"><a href="/">the natural history <span style="font-weight:normal;">of abstract objects</span></a></span> <span id="linkback"><a href=http://www.andrusia.com><img src="/andrew-logo.svg" id='header-logo' style='width: auto;'/></a></span>
+</header>
+ -->
+<main>
+<div id="title-block">
+<h1 class="title">A Hiking Trip Gone Terribly, Terribly Wrong</h1>
+</div>
+<p>You die while hiking in the northern Cascades one rainy November. Assume the temperature in the mountains is a constant <span class="math inline">\(40\degree\)</span> F. <strong>(1)</strong> How long does it take your body to cool down to <span class="math inline">\(85\degree\)</span> F?</p>
+<p>This is perhaps not the most realistic use of this differential equation, as you are not just a homogenous chunk of molecules but a dynamic system of chemical reactions producing heat, and those chemical reactions will dwindle down after your death, rather than immediately stop. But it is a good first estimate.</p>
+<p>The other difficulty here is that the temperature outside is probably not a constant <span class="math inline">\(40\degree\)</span>—it’s fluctuating with the time of day, etc. It takes a small enough amount of time for your body to cool to <span class="math inline">\(85\degree\)</span> that the assumption of constant temperature is probably fine, but what if we consider how your body will cool over a longer time? We’d need to complicate this equation, and have <span class="math inline">\(T_\text{ext}\)</span> be not a constant but itself a function of <span class="math inline">\(t\)</span>: <span class="math display">\[\frac{dT_\text{body}}{dt} = k(T_\text{body} -T_\text{ext}(t))\]</span> <strong>(2)</strong> Can you solve this? (Answer: yes, you can, though you’ll end up with an integral you can’t simplify in your solution.)</p>
+<p>So let’s refine this a bit. Imagine you die while hiking in the Cascades, and that the temperature (as a function of the hour of day <span class="math inline">\(t\)</span>) is <span class="math display">\[T_\text{ext}(t) = -15\cos\left(\frac{\pi}{12} t\right) + 45 \,\,\,\,\,\degree\text{F}\]</span>(Obviously, this assumes that every day has the same temperature fluctuations as the next; again, not a perfect assumption, but if you’re considering short periods of time (i.e., a week, rather than six months), it’s not unreasonable.) <strong>(3)</strong> First of all, sketch <span class="math inline">\(T_\text{ext}(t)\)</span>, just to convince yourself that it’s a reasonable approximation of the temperature in the Cascades in late November. <strong>(4)</strong> When during the day is it hottest, and how hot is it? <strong>(5)</strong> when during the day is it coldest, and how cold is it?</p>
+<p><strong>(6)</strong> Now, using this equation for <span class="math inline">\(T_\text{ext}(t)\)</span>, come up with a function for the temperature of your body as a function of time. <strong>(7)</strong> Then, on the same set of axes, sketch the temperature of your body alongside the temperatue of the environment over the course of a few days.</p>
+<p>We could continue refining this. For example, what if you wanted to come up with a function for the temperature in the mountains as a function of the time of year? You’d need to account for both a) daily fluctuations (it’s cold at night and warm during the day), and b) seasonal fluctuations (it’s cold during January, and warm in July). <strong>(8)</strong> Try doing this. Imagine the temperature in the Cascades peaks at 80 degrees on July 1st at noon, that it is coldest at midnight on January 1st (right after the New Year)(and that it’s 0 degrees then), and that the temperature fluctuates by about 30 degrees during the day.</p>
+<p>Of course, this function is a total mess, and in any case, we’ve just made it up—we haven’t used real data or anything, and we haven’t even begun to consider the <em>variation</em> in temperature—how much the <em>actual</em> temperature varies from the <em>average</em> temperature. Plus, if we were to use this new function for <span class="math inline">\(T_\text{ext}(t)\)</span> to solve for <span class="math inline">\(T_\text{body}(t)\)</span>, it’d be kind of strange, because after a short time (i.e., a day or two) your body would have cooled enough that it would be irrelvant that it once was <span class="math inline">\(98.5\degree\)</span> F, and the fluctuations in environmental temperature would affect your body far more. So the real question then would be, how quickly does your body respond to changes in environmental temperature? Something like a rock can retain temperature for a long time (try feeling your hearth the next morning after you’ve made a big fire in the fireplace); something like air can’t. So we’d need to account for the specific heat of your body, etc. which this equation doesn’t, and everything would get very complicated and it’s not clear to what end we’d be doing this because, among other things, we’d be dead.</p>
+<p>So the moral of the story is this: when we set out to model the physical world—i.e., when we do SCIENCE—there is a very real trade-off between simplicity and explanatory power. We can make a very complicated equation that accounts for <span class="math inline">\(99\%\)</span> of our experimental data; we can make a very simple equation that accounts for <span class="math inline">\(90\%\)</span>. Which is better? The answer is not obvious. Newtonian physics (not just his law of cooling but, more crucially, his kinematics) can account extremely well for a wide range of physical phenomena using just a few simple and beautiful equations. But there are many things that those simple and beautiful equations cannot explain (e.g., the way wind swirls around the wing of a plane).</p>
+<p>This is the dual goal of physicists working at the edges of matter: they want equations that can explain things, but that can also explain things with great beauty and simplicity. Their Platonic dream is not to reduce the physical universe down to a stunningly complicated set of awful equations, but to distill it down to just a few simple rules.</p>
+<p>Here’s Brian Greene:</p>
+<blockquote>
+<p>Late one night many years ago, I was in my office at Cornell University putting together the freshman physics final exam that would be given the following morning. Since this was the honors class, I wanted to enliven things a little by giving them one somewhat more challenging problem. But it was late and I was hungry, so rather than carefully working through various possibilities, I quickly modified a standard problem that most of them had already encountered, wrote it into the exam, and headed home. (The details hardly matter, but the problem had to do with predicting the motion of a ladder, leaning against a wall, as it loses its footing and falls. I modified the standard problem by haaving the density of the ladder vary along its length.) During the exam the next morning, I sat down to write the solutions, only to find that my seemingly modest modification to the problem had made it exceedingly difficult. The original problem took perhaps half a page to complete. This one took me six pages. I write big, but you get the point.</p>
+<p>This little episode represents the rule rather than the exception. Textbook problems are very special, being carefully designed so that they’re completely solvable with reasonable effort. But modify textbook problems just a bit, changing this assumption or dropping that simplification, and they can quickly become intricate or intractable. That is, they can quickly become as difficult as analyzing typical real-world situations.</p>
+<p>The fact is, the vast majority of phenomena, from the motion of the planets to the interactions of particles, are just too complex to be described mathematically with complete precision. Instead, the task of theoretical physics is to figure out which complications in a given context can be discarded, yielding a manageable mathematical formulation that still captures essential details. In predicting the course of the earth you’d better include the effects of the sun’s gravity; if you include the moon’s too, all the better, but the mathematical complexity rises significantly. (In the nineteenth century, the French mathematician Charles-Eugene Delaunay published two 900-page volumes related to the intricacies of the sun-earth-moon gravitational dance.) If you try to go further and account fully for the influence of all the other planets, the analysis becomes overwhelming. Luckily, for many applications, you can safely disregard all but the sun’s influence, since the effect of other bodies in the solar system on earth’s motion is nominal. Such approximations illustrate my earlier assertion that the art of physics lies in deciding what to ignore.</p>
+<p>But as practicing physicists know well, approximation is not just a potent means for progress; on occasion it also brings peril. Complications of minimal importance for answering one question can sometimes have a surprisingly significant impact in answering another. A single drop of rain will hardly affect the weight of a boulder. But if the boulder is teetering high on a cliff’s edge, that drop of rain could very well coax it to fall, initiating an avalanche. An approximation that disregards the raindrop would miss a crucial detail.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+</blockquote>
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>Brian Greene, <em>The Hidden Reality: Parallel Universes and The Deep Laws of the Cosmos</em> (Knopf, 2011), pp104-5<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+</main>
+</body>
+</html>

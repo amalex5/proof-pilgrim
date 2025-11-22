@@ -198,6 +198,7 @@ li {
 * [(Implicit) Differentiation](calculus/implicit-differentiation/implicit-differentiation.html)
 * [Related rates](calculus/related-rates/related-rates.html) <span style='font-family: sans-serif; color:red; font-weight: bold; font-size: 75%;'>(old)</span>
 * [Optimization](calculus/optimization/optimization.html)
+    * [two phun physics problems](calculus/optimization/physics-light-optimization/physics-light-optimization.html)
     * covid-era soda can optimization project
 * [Integration](calculus/integrals-intro/integrals-intro.html)
     * [Some totally unremarkable problems with integrals](calculus/integrals-as-net-area-motivating-problems/integrals-as-net-area-motivating-problems.html) (*exploratory problems*)
@@ -213,6 +214,12 @@ li {
     * [taylor series, more algorithmically](calculus/taylor-series/taylor-series-as-procedure/taylor-series-as-procedure.html)
     * but sometimes you can only polynomialize functions over finite ranges
     * can we think about the error term?
+    * [... scratchpad!](calculus/taylor-series/taylor-series-scratchpad.html)
+* [baby differential equations](calculus/baby-diff-eqs/baby-diff-eqs.html) <span style='font-family: sans-serif; color:red; font-weight: bold; font-size: 75%;'>(old)</span>
+    * [A Weekend In Arizona](calculus/baby-diff-eqs/a-weekend-in-az.html)
+    * [A Hiking Trip Gone Terribly, Terribly Wrong](calculus/baby-diff-eqs/a-hiking-trip.html)
+    * [Gas Laws: Balloon Animals and a Birthday Party](calculus/baby-diff-eqs/gas-laws.html)
+    * [Parts of Darkness](calculus/baby-diff-eqs/parts-of-darkness.html)
 * [how long are curvy lines?](calculus/length-of-curvy-lines/length-of-curvy-lines.html)
 * [slopes on 2D surfaces](calculus/slopes-on-surfaces/slopes-on-surfaces.html) <span style='font-family: sans-serif; color:red; font-weight: bold; font-size: 75%;'>(draft)</span>
     * poster version: [pdf](calculus/slopes-on-surfaces/slope-as-fxn-of-angle-summary.pdf), [svg](calculus/slopes-on-surfaces/slope-as-fxn-of-angle-summary.svg)

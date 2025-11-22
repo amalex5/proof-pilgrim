@@ -40,6 +40,12 @@ they have complexity that one-dimensional surfaces don't have, but they're still
 aria gao
 
 
+As Aria Gao '24 put it in the Instagram auto-caption, ``The steepness is relative to what direction you're facing!''
+
+![](aria-gao-the-steepness-is-relative-captioned.jpg){ width=50% }
+
+
+
 In 1VC, the core idea/paradox/contention/assertion at the heart of calculus is this:
 $$\text{if we zoom in really far, everything becomes a straight {\color{red}line} }$$
 The $n$-dimensional analogue of this, in $n$-dimensional calculus, is:
@@ -48,7 +54,7 @@ That's weird. The two-dimensional/2VC case is easier to imagine:
 $$\text{if we zoom in really far, everything becomes a straight {\color{red} plane}}$$
 In 2VC, we zoom in really far, and everything becomes a---not a straight *line*, but a straight *plane*. "Straight" might not be the best word here; I don't mean "straight" in the "flat" or "parallel to the ground" sense; I mean "straight" in the "not curvy" sense. (Or you can just say **linear** if you want to sound fancy)
 
-That has ramifications!!! In 1VC, if we want to understand curvy lines, that means that we need to understand *straight* lines. And every straight line is just::
+That has ramifications!!! In 1VC, if we want to understand curvy lines, that means that we need to understand *straight* lines. Every straight line is just::
 
 * a slope
 * an offset (or a ``$y$-intercept,'' as we might call it)
@@ -62,6 +68,9 @@ In 2VC, every straight plane is just:
 * a slope in the $y$-direction
 * an offset (or a ``$z$-intercept,'' you might call it)
 $$z = \left(\substack{\text{slope in the}\\\text{$x$-direction}}\right)x + \left(\substack{\text{slope in the}\\\text{$y$-direction}}\right)y  +\text{(offset)}$$
+
+
+
 
 
 

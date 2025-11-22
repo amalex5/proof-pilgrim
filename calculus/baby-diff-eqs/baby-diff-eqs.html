@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>baby diff eqs</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="/main.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <script src="../highlight-toc.js" type="text/javascript"></script>
+
+  <script> 
+      // disappearing header, from dynomight.net'
+      var prevScrollpos = window.pageYOffset;
+
+      window.onscroll = function() {
+        var currentScrollPos = Math.max(0,window.pageYOffset);
+
+        if (Math.abs(currentScrollPos - prevScrollpos) > 10){
+          if (prevScrollpos > currentScrollPos) {
+            document.querySelector('header').style.top = "0";
+            document.querySelector('header').style.opacity = "75%";
+          } else {
+            document.querySelector('header').style.top = "-60px";
+          }
+          prevScrollpos = currentScrollPos;
+        }
+        if(currentScrollPos==0){
+          document.querySelector('header').style.top = "0";
+          document.querySelector('header').style.opacity = "100%";
+        }
+      }
+    </script>
+
+</head>
+<body>
+  <header>
+  <span id="header-name"><a href="/">the natural history <span style="font-weight:normal;">of abstract objects</span></a></span> <span id="linkback"><a href=http://www.andrusia.com><img src="/andrew-logo.svg" id='header-logo' style='width: auto;'/></a></span>
+</header>
+<script>document.addEventListener('DOMContentLoaded', function(e) {
+  Scroller.init();
+})</script>
+<!-- <aside>
+<div class="tocLinks" >
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#problems">Problems</a></li>
+</ul>
+</nav>
+</div>
+</aside>
+ -->
+<main>
+<div id="title-block">
+<h1 class="title">baby diff eqs</h1>
+</div>
+<div style="font-style: italic; border: 0.25pt solid black; margin: 1em; padding: 1em; background: whitesmoke;">
+These are notes I originally wrote in 2009-2011 as part of my later-named <a href=http://www.andrusia.com/math>Adventures in Mathematics</a> curriculum while teaching in Phoenix. They were great for the time, but are distinctly earlier work, and haven’t yet been rewritten in my current, deeper modes of mathematical storytelling.—Andrew
+</div>
+<p>Here’s David Foster Wallace on differential equations:</p>
+<blockquote>
+<p>…the #1 math tool for solving problems in physics, engineering, telemetry, automation, and all manner of hard science. You usually just start flirting with D.E.’s at the end of freshman math; it’s in Calc III that you find out how ubiquitous and difficult they really are.</p>
+<p>In a broad sense, <em>differential equations</em> involve relationships between an independent <span class="math inline">\(x\)</span>, a dependent <span class="math inline">\(y\)</span>, and some derivative(s) of <span class="math inline">\(y\)</span> with respect to <span class="math inline">\(x\)</span>. D.E.’s can be thought of either as integral calc on some sort of Class IV hallucinogen or (better) as “metafunctions,” meaning one level of abstraction up from regular functions—meaning in turn that if an ordinary function is a sort of machine where you plug certain numbers in and get other numbers out, a differential equation is one where you plug certain functions in and get other functions out. The solution of a particular differential equation, then, is always some function, specifically one that can be substituted for the D.E.’s dependent variable to create what’s known as an “identity,” which is basically a mathematical tautology.</p>
+<p>That may not have been too helpful. In more concrete terms, a simple differential equation like <span class="math inline">\(\displaystyle \frac{dy}{dx} = 3x^2 -1\)</span> has as its solution that function for which <span class="math inline">\(3x^2 - 1\)</span> is the derivative. This means what’s now required is integration, i.e. finding just the function(s) that satisfies <span class="math inline">\(\int (3x^2 - 1)dx\)</span>. If you’ve retained some freshman math, you’ll probably see that <span class="math inline">\(\int(3x^2-1)dx\)</span> equals <span class="math inline">\(f(x) = x^3 - x + C\)</span> (with <span class="math inline">\(C\)</span> being the infamous Constant of Integration), which equation is the same as <span class="math inline">\(y = x^4 - x + C\)</span>, which latter just so happens to be the <em>general solution</em> of the differential equation <span class="math inline">\(\displaystyle \frac{dy}{dx} = 3x^2 -1\)</span>. This D.E.’s <em>particular solutions</em> will be those functions in which <span class="math inline">\(C\)</span> takes on some specific value, as in like <span class="math inline">\(y = x^3 - x + 2\)</span> and so on.</p>
+<p>Graphwise, because of <span class="math inline">\(C\)</span> and the general/particular thing, differential equations tend to yield `families of curves’ as solutions…<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+</blockquote>
+<p><strong>Suppose you’re a mathematical archaeologist</strong>. You run across the petrified derivative of a function, <span class="math inline">\(\displaystyle \frac{dy}{dx} = 2x\)</span>, and you want to reconstruct the original function whence this derivative came (as an entertaining exhibit to museum-goers).</p>
+<p>Well, obviously, you just take an antiderivative, and you get <span class="math inline">\(y = x^2 + C\)</span>. You don’t really know which function the derivative came from—it could have been <span class="math inline">\(y = x^2\)</span>, or <span class="math inline">\(y = x^2 - 8\)</span>, or <span class="math inline">\(y = x^2 - 300,456\)</span>—so you instead just write <span class="math inline">\(y = x^2 + C\)</span>, where <span class="math inline">\(C\)</span> can be any real number. So really, you get not a single function, but a whole collection of related functions. If you wanted to, you could graph a bunch of them. Below, I’ve graphed a bunch of them (in the cases that <span class="math inline">\(C\)</span> is an integer):</p>
+<p><img src="solutioncurves1.png" style="width:50.0%" /></p>
+<p>But what if we know a bit more about this ancient function? Sometimes when archaeologists dig up ancient beasts, they find other things in their stomachs. Like, they dig up a t-rex, and find the tiny chewed-up boney remains of a baby triceratops in its stomach. And they conclude: t-reges must have eaten baby triceretopes! So they can make the diorama in the museum more accurate, by showing a t-rex not just wandering through the wild but pursuing a baby tricerotops.</p>
+<p>We can do the same thing with functions. What if we know not only that we have a function whose derivative is <span class="math inline">\(2x\)</span>, but that that function passed through the point <span class="math inline">\((1,4)\)</span>? Then we can take our original set of possible functions, and reduce them to just a single function! We can, essentially, pin our possibilities down to a single function:</p>
+<p><img src="solutioncurves2.png" style="width:50.0%" /></p>
+<p>There is only one function that <em>both</em> has a derivative of <span class="math inline">\(2x\)</span> <em>and</em> passes through <span class="math inline">\((3,12)\)</span>! We have pinned it down! “And when I am formulated, sprawling on a pin / When I am pinned and wriggling on the graph…” We can find the function algebraically simply by plugging in <span class="math inline">\(12\)</span> for <span class="math inline">\(y\)</span> and <span class="math inline">\(3\)</span> for <span class="math inline">\(x\)</span>:</p>
+<p><span class="math display">\[y = x^2 + C\]</span> (we take an antiderivative) \ <span class="math display">\[12 = (3)^2 + C\]</span> (plug in the point we know) \ <span class="math display">\[12 = 9 + C\]</span> (solve for C) \ <span class="math display">\[C = 3\]</span> <span class="math display">\[y =x^2 + 3\]</span> (and then plug C back in to our original eq’n)</p>
+<p>There we go! So we can put the function <span class="math inline">\(y = x^2 + 3\)</span> on display in our museum of functions.</p>
+<p>By the way, when we’re doing stuff with differential equations, it’s usually easier to use Leibniz notation for derivatives (i.e., <span class="math inline">\(\frac{df}{dx}\)</span>) rather than prime/Lagrange notation (<span class="math inline">\(f&#39;(x)\)</span>). You’ll see why in a bit. Also, the “point” that we plug into the general solution to find the particular solution goes by a couple different names: often it’s called the <strong>initial condition</strong> or <strong>boundary condition,</strong> or sometimes the <strong>constraint.</strong> And it’s given in a variety of different ways:</p>
+<ul>
+<li>passes through <span class="math inline">\((3,12)\)</span></li>
+<li><span class="math inline">\(y=12\)</span> when <span class="math inline">\(x=3\)</span></li>
+<li><span class="math inline">\(f(3) = 12\)</span></li>
+<li><span class="math inline">\(y_0 = 12\)</span>, <span class="math inline">\(x_0 = 3\)</span> (The subscript zeroes here imply a sort of “initiality,” I guess.)</li>
+</ul>
+<p>These all mean the same thing. Sometimes you might need (and might be given) multiple conditions and multiple points to plug in.</p>
+<p>Anyway. If you’re just taking an antiderivative, solving a differential equation is basically straightforward (at least as far as antidifferentiation is straightforward). But what if you have a mathematical fossil that’s a little more complicated? For example, you’re digging out in Inner Mongolia, and you stumble across what appears to be a previously-unknown species of dinosaur: <span class="math inline">\(\frac{dy}{dx} = y\)</span>. Here we have some function (<span class="math inline">\(y\)</span>) that’s equal to its own derivative (<span class="math inline">\(dy/dx\)</span>). What function could that be? What’s a function that is its own derivative? How about <span class="math inline">\(y = e^x\)</span>?</p>
+<p>You continue your dig, and keep finding stranger and stranger critters. What about <span class="math inline">\(\frac{dy}{dx} = 2y\)</span>? A function that’s twice its derivative? What would make that work? <span class="math inline">\(y = e^{0.5x}\)</span>? That works. <span class="math inline">\(\frac{dy}{dx}\)</span> in that case will be <span class="math inline">\(0.5e^{0.5x}\)</span>, which is half of the original function.</p>
+<p>Is there a more systematic way of doing this? Or are we fated to forever guess-and-check, imprisoned by the luck (or unluck) of our intuition? Thankfully, for some simple differential equations, we can come up with a procedure for doing this. We can treat the <span class="math inline">\(dy\)</span> and <span class="math inline">\(dx\)</span> in a derivative like algebraic objects—like numbers and variables and such—and move them around and add and subtract and multiply and divide them just like we can with numbers and variables! And then we can integrate them. And then we can solve for <span class="math inline">\(y\)</span>, and get a function!</p>
+<p>Imagine we have something really simple like: <span class="math display">\[\displaystyle \frac{dy}{dx} = 2x\]</span> We can rewrite this as just: <span class="math display">\[dy = 2x \, dx\]</span> and then we can integrate! <span class="math display">\[\int dy = \int 2x \, dx\]</span> which is the same as: <span class="math display">\[\int 1 dy = \int 2x \, dx\]</span> <span class="math display">\[y + C = x^2 + C\]</span> but really, each integration constant is different, so we should treat them differently. We’ll label the one on the left as <span class="math inline">\(C_1\)</span> and the one on the right as <span class="math inline">\(C_2\)</span> <span class="math display">\[y + C_1 = x^2 + C_2\]</span> so then we have <span class="math display">\[y = x^2 + C_2 - C_1\]</span> or just <span class="math display">\[y = x^2 + (C_2 - C_1)\]</span> But since our constants of integration are arbitrary to begin with, subtracting them doesn’t make a difference. One arbitrary real number minus another arbitrary real number is just some other, equally-arbitrary real number. So we may as well just write this as <span class="math display">\[y = x^2 + C\]</span> Now, obviously, you can do this without having to go through this method (formally known as “separation of variables”). But what if you had something like what we just talked about—like <span class="math inline">\(\frac{dy}{dx} = y\)</span>? Maybe if you’re lucky, you could stare at it for a while and figure out the answer. But if you want an actual <em>procedure</em> for figuring it out, then this method is very helpful. Let me illustrate it:</p>
+<p><span class="math display">\[\displaystyle \frac{dy}{dx} = y\]</span> Separating: <span class="math display">\[\displaystyle dy = y\cdot dx\]</span> Putting all <span class="math inline">\(y\)</span>’s on one side and all <span class="math inline">\(x\)</span>’s on one side: <span class="math display">\[\displaystyle \frac{dy}{y} = dx\]</span> Rewriting: <span class="math display">\[\displaystyle \frac{1}{y}dy = 1\cdot dx\]</span> Integrating: <span class="math display">\[\displaystyle \int \frac{1}{y}dy = \int 1 \,dx\]</span> Only need to have a constant on one side, since it can account for both constants: <span class="math display">\[\ln(y)= x + C\]</span></p>
+<p>So now we have an equation relating <span class="math inline">\(y\)</span> and <span class="math inline">\(x\)</span> without any derivatives! This is a partial success. We have <span class="math inline">\(y\)</span> defined <em>implicitly</em> in terms of <span class="math inline">\(x\)</span>. But what we really want is an <em>explicit</em> equation for <span class="math inline">\(y\)</span>, meaning, an equation with just a naked <span class="math inline">\(y\)</span> on one side. The best way to do this here is just to exponentiate both sides by <span class="math inline">\(e\)</span>: <span class="math display">\[e^{\ln y} = e^{x + C}\]</span> Because then the <span class="math inline">\(e^{\text{stuff}}\)</span> and <span class="math inline">\(\ln(\text{stuff})\)</span> will cancel out on the left side, and we’ll just have: <span class="math display">\[y = e^{x + C}\]</span> Which is great! We’ve got a function for <span class="math inline">\(y\)</span> in terms of <span class="math inline">\(x\)</span>! By convention, though, most people rewrite <span class="math inline">\(e^{x+C}\)</span> in the following way: they split it up using properties of exponents: <span class="math display">\[y = e^xe^C\]</span> and then, since <span class="math inline">\(C\)</span> is a constant, then <span class="math inline">\(e^C\)</span> is also a constant, and we may as well write it with a single letter… let’s call <span class="math inline">\(e^C\)</span> <span class="math inline">\(A\)</span>. Then we’ll have: <span class="math display">\[y = Ae^x\]</span> Yay! We’re done! So we’ve shown, then, that any function that is its own derivative (<span class="math inline">\(dy/dx = y\)</span>) must just be <span class="math inline">\(e^x\)</span> (possibly times some constant <span class="math inline">\(A\)</span>)! Note that this doesn’t give us a single function—it gives us a whole collection of functions, depending on what <span class="math inline">\(A\)</span> is. If we had a specific point, we could plug that in, and find a specific function.</p>
+<p>Let’s do another example. This example will be somewhat more complicated, and we’ll be given a point the function passes through, and so we’ll be able to solve for a single function. There are, in fact, two different ways of going from the general solution (e.g., <span class="math inline">\(y = Ae^x\)</span>) to the particular solution (e.g., <span class="math inline">\(y = 5e^x\)</span>), and so I’ll explain both ways. Imagine we have: <span class="math display">\[\frac{dy}{dx} = 2xy + 5y \,\,\,\, \text{and the point}\,\,\,(0,7)\]</span> Then we can solve for <span class="math inline">\(y\)</span>! Rewriting: <span class="math display">\[\frac{dy}{dx} = y(2x + 5)\]</span> Separating: <span class="math display">\[dy = y(2x + 5)dx\]</span> Putting all <span class="math inline">\(y\)</span>’s on one side and all <span class="math inline">\(x\)</span>’s on one side: <span class="math inline">\(\frac{dy}{y} = (2x + 5)dx\)</span>$ Integrating: <span class="math display">\[ \int \frac{dy}{y} = \int (2x + 5)dx\]</span> Working out the integral: <span class="math display">\[\ln(y) =x^2 + 5x + C\]</span> Solving for <span class="math inline">\(y\)</span>: <span class="math display">\[e^{\ln(y)} =e^{x^2 + 5x + C}\]</span> Etc.: <span class="math display">\[y =e^{x^2 + 5x + C}\]</span> Let’s make it nicer on the right: <span class="math display">\[y =e^{x^2 + 5x}e^C\]</span> Etc.: <span class="math display">\[y =Ae^{x^2 + 5x}\]</span> Etc.: <span class="math display">\[y =Ae^{x(x+5)}\]</span></p>
+<p>So now we have the general solution, <span class="math inline">\(y = Ae^{x(x+5)}\)</span>. This gives us a collection of related curves, curves which all look the same except for this vertical expansion/compression by a factor of <span class="math inline">\(A\)</span>. But we know one more thing about this function: we know that it passes through the point <span class="math inline">\((0,7)\)</span>. So we can use that extra bit of information to pin the particular solution down. There are two ways we can do this. We can either use our traditional method:</p>
+<p>Plug in 0 for x and 7 for y:</p>
+<p><span class="math display">\[7 = Ae^{0(0+5)}\]</span></p>
+<p>Simplify:</p>
+<p><span class="math display">\[7 = Ae^0\]</span></p>
+<p>Now we’ve found A:</p>
+<p><span class="math display">\[7 = A\]</span></p>
+<p>So we can plug it back into the general sol’n and find the particular sol’n:</p>
+<p><span class="math display">\[y = 7e^{x(x+5)}\]</span> Alternatively, we could have done it in this way. Back when we integrated, we could have done a definite integral—i.e., not just taken an antiderivative, but taken an integral from one point to another point. We could have done it in this way: ⋮</p>
+<p>Putting all y’s on one side and all x’s on one side:</p>
+<p><span class="math display">\[\frac{dy}{y} = (2x + 5)dx\]</span></p>
+<p>Integrating from y=7 to y, and from x=0 to x:</p>
+<p><span class="math display">\[\int_7^y \frac{dy}{y} = \int_0^x (2x + 5)dx\]</span></p>
+<p>Working out integral. Look, ma, no constant!</p>
+<p><span class="math display">\[\ln(y) - \ln(7) = (x^2 + 5x) - (0^2 + 5\cdot0)\]</span></p>
+<p>Cleaning up:</p>
+<p><span class="math display">\[\ln(y) - \ln(7) = x^2 + 5x\]</span></p>
+<p>Properties of logs:</p>
+<p><span class="math display">\[\ln\left(\frac{y}{7}\right) = x^2 + 5x\]</span></p>
+<p>Solving for y:</p>
+<p><span class="math display">\[e^{\ln(y/7)} = e^{x^2 + 5x}\]</span></p>
+<p>Solving for y:</p>
+<p><span class="math display">\[\frac{y}{7} = e^{x^2 + 5x}\]</span></p>
+<p>Etc.:</p>
+<p><span class="math display">\[y = 7e^{x^2 + 5x}\]</span> See? Same answer! Of course, we should have been a bit less sloppy with our notation, and we really shouldn’t have had a <span class="math inline">\(y\)</span> and an <span class="math inline">\(x\)</span> in the bounds of the integrals that also had a <span class="math inline">\(y\)</span> and an <span class="math inline">\(x\)</span> in them. Remember how, in the proof of the FTC, we wanted to take an integral from <span class="math inline">\(0\)</span> to <span class="math inline">\(x\)</span>, and so we changed the function from <span class="math inline">\(f(x)\)</span> to <span class="math inline">\(f(t)\)</span> just to avoid ambiguity? We probably should have done the same thing here: <span class="math display">\[ \int_7^y \frac{dt}{t}  = \int_0^x (2t + 5)dt\]</span> And so forth. Of course, we would have gotten the same answer.</p>
+<div style="height:5em;">
+
+</div>
+<p>Let’s speak a bit more generally about this procedure we’ve been discussing. Formally, a differential equation is <strong>separable</strong> if it can be written in the form: <span class="math display">\[\frac{dy}{dx} = f(x)\cdot g(y)\]</span>where <span class="math inline">\(f(x)\)</span> is any function of <span class="math inline">\(x\)</span> and <span class="math inline">\(g(y)\)</span> is any function of <span class="math inline">\(y\)</span>. Then, we can always solve it simply by rearranging:<span class="math display">\[\frac{1}{g(y)}\cdot dy = f(x)\cdot dx\]</span>and integrating:<span class="math display">\[\int \frac{1}{g(y)}\cdot dy = \int f(x)\cdot dx\]</span>Of course, this requires that we be able to find an antiderivative (which we might not be able to do) and then algebraically solve for <span class="math inline">\(y\)</span> (which we might not be able to do), and in any case, not every differential equation is separable. For example, consider <span class="math inline">\(\displaystyle \frac{dy}{dx} = y + x\)</span>. Try writing this so that the <span class="math inline">\(dx\)</span> and all the <span class="math inline">\(x\)</span>’s are on one side, and the <span class="math inline">\(dy\)</span> and all the <span class="math inline">\(y\)</span>’s are on the other side. Try it. I dare you.</p>
+<p>No luck? Yeah, it’s impossible<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. Basically, with differential equations we get all the difficulties of taking integrals, but even more so. Think our methods for finding antiderivatives are haphazard and ad hoc? Methods for solving differential equations are even worse. If you take a differential equations course in college (please don’t—save yourself and take algebraic topology or something instead), you’ll learn a whole bunch of random, ad hoc formulas for solving certain types of differential equations, but you won’t learn a general method (no such method exists), and then you’ll go out into the real world (meaning, other classes) and find out that the differential equations you need to solve you don’t actually know how to solve, because the diff. eqs. that you really really want to solve <em>can’t</em> be solved.</p>
+<p>Perhaps the most famous example is the <strong>three-body problem</strong>. Here’s the question: if you have two objects, and some force between them, you can predict the positions of both objects. For example, if you have a sun and a single planet rotating around it (mutually attracted by gravity), and you know the right initial conditions (mass, initial momentum, etc.), you can set up a fairly simple differential equation to predict their position, and solve it. Newton did it. (It takes a little bit of work, otherwise I’d show it here, but you can look it up. All you really need is Newton’s second law (force <span class="math inline">\(=\)</span> mass <span class="math inline">\(\cdot\)</span> acceleration). Acceleration is a derivative, a second derivative (<span class="math inline">\(a = \frac{d^2x}{dt^2}\)</span>), and so that’s where the differential equation comes from.)</p>
+<p>Another example, at the opposite extreme of size, comes from quantum mechanics. A hydrogen atom consists of just a proton and an electron orbiting each other, with quantum-mechanical forces in between them. We can “solve” the hydrogen atom exactly, and find out quite a bit about its properties.</p>
+<p>But what if we have three objects? What if we have a sun and two planets? Or a nucleus with two electrons (like a helium atom)? As it turns out, we can’t solve a three-body equation exactly. Unlike the two-body case, we can never come up with an equation that predicts the motion of three objects, when there are forces between all three of them! We can estimate their motion using a computer, of course, but we can’t actually come up with a nice, beautiful, algebraic solution. And the interesting thing that happens when you simulate the solution with a computer is that… well, so, when you have two bodies orbiting each other, their motion is very nice and predictable. They both follow simple ellipses. But when you have three bodies orbiting each other… their motion is somewhat unpredictable. They don’t always return to the same positions. They don’t behave totally randomly, but they don’t behave predictably, either. Their behavior is <em>chaotic</em>! And in fact, with differential equations and <span class="math inline">\(n\)</span>-body problems is where the mathematical study and description of chaos theory begins.</p>
+<p>But that’s for another day. Back to separable diff. eqs. They may encompass only a small number of all the possible differential equations, but they’re a good starting point. There are some problems in the back that will give you practice.</p>
+<div style="height:5em;">
+
+</div>
+<p>Here’s a somewhat harder type of differential equation: what if you have, like<span class="math display">\[\frac{dy}{dx} + 2y = 3\]</span>Your first temptation is probably to try to separate this. But you won’t be able to. Crap. So here’s another way of thinking about this: is there anything we could multiply both sides of this equation by that would suddenly make it possible to take an integral of both sides? What I mean is this: Imagine we multiply both sides by <span class="math inline">\(e^{2x}\)</span>. Since we’re multiplying both sides by the same thing, it won’t actually change the equation. But it will make it easier to solve! We’ll have this: <span class="math display">\[\begin{align*}
+e^{2x}\cdot \left(\frac{dy}{dx} + 2y\right) &amp;= \left(3\right)\cdot e^{2x}\\
+e^{2x}\cdot \!\frac{dy}{dx} \,\,+\,\, 2e^{2x}\cdot \!y &amp;= 3e^{2x}
+\end{align*}\]</span>And then, if you look very closely at this, you might notice something interesting about the left side: IT LOOKS LIKE SOMETHING THAT’S BEEN PRODUCT-RULED!!! It looks like:<span class="math display">\[\frac{d}{dx}\left( ye^{2x} \right) = 3e^{2x}\]</span>You might not be able to see this immediately; stare at those last two equations for a few moments until you can see it. But what’s cool is that now we can integrate it! We know how to find the antiderivative of the left side—the antiderivative of a derivative is just the original function—and we certainly can find the antiderivative of <span class="math inline">\(3e^{2x}\)</span>. So we’ll have:</p>
+<p>Integrating both sides w/r/t x:</p>
+<p><span class="math display">\[\int \frac{d}{dx}\left( ye^{2x} \right) \, dx = \int 3e^{2x} \, dx\]</span></p>
+<p>Integration &amp; differentiation are inverse fxns and will cancel on left—antiderivative of a derivative:</p>
+<p><span class="math display">\[ye^{2x} = \int 3e^{2x} \, dx\]</span></p>
+<p>Integrating on right side:</p>
+<p><span class="math display">\[ye^{2x} = \frac{3}{2}e^{2x} + C\]</span></p>
+<p>Solving for y:</p>
+<p><span class="math display">\[y = \frac{1}{e^{2x}}\left(\frac{3}{2}e^{2x} + C \right)\]</span></p>
+<p>Rearranging:</p>
+<p><span class="math display">\[y = \frac{3}{2} + Ce^{-2x}\]</span></p>
+<p>Yay! Now we’ve solved this otherwise-nasty differential equation! (If we knew a point that the function passed through, we could plug it in and solve for <span class="math inline">\(C\)</span>; otherwise, we’re left with this general class of solutions.) If we wanted to check to make sure that this is indeed a solution, we could just take a derivative and then plug it back into our original equation: We know:</p>
+<p><span class="math display">\[y = \frac{3}{2} + Ce^{-2x}\]</span></p>
+<p>So then:</p>
+<p><span class="math display">\[\frac{dy}{dx} = -2Ce^{-2x}\]</span></p>
+<p>Our original diff. eq. was:</p>
+<p><span class="math display">\[\frac{dy}{dx} + 2y = 3\]</span></p>
+<p>So if we plug dy/dx in:</p>
+<p><span class="math display">\[(-2Ce^{-2x}) + 2y = 3\]</span></p>
+<p>And if we also plug y in:</p>
+<p><span class="math display">\[(-2Ce^{-2x}) + 2\left(\frac{3}{2} + Ce^{-2x}\right) = 3\]</span></p>
+<p>So if we simplify the left side:</p>
+<p><span class="math display">\[(-2Ce^{-2x}) + 3 + 2Ce^{-2x} = 3\]</span></p>
+<p><span class="math display">\[-2Ce^{-2x} + 3 + 2Ce^{-2x} = 3\]</span></p>
+<p><span class="math display">\[3 = 3\]</span></p>
+<p>Yay! It works!</p>
+<p>The point is that this is an example of a more general type of differential equation, known as <strong>linear first-order equations</strong><a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>. Defined formally, they are differential equations of the form (written in both notations): <span class="math display">\[\frac{dy}{dx} + p(x)y = q(x) \hspace{1cm}\text{or}\hspace{1cm} y&#39; + p(x)y = q(x)\]</span> (Where <span class="math inline">\(p\)</span> and <span class="math inline">\(q\)</span> are both functions of <span class="math inline">\(x\)</span>.) We can’t separate these equations. They can be kind of nasty to solve. But what we can do instead is to try to find something to multiply both sides of the equation by that makes both sides something we can integrate. In the last example, we multiplied both sides by <span class="math inline">\(e^{2x}\)</span>. Let’s do another example. This one is much harder. Imagine we have: <span class="math display">\[(1+t^2)\frac{dy}{dt} + 3ty - 6t = 0\]</span> We want, ultimately, to solve this for <span class="math inline">\(y\)</span>; we want to find a function for <span class="math inline">\(y\)</span> in terms of <span class="math inline">\(t\)</span> such that this differential equation is true. Let’s start by making this look a little more like our first example. Let’s divide everything by <span class="math inline">\(1+t^2\)</span> so that we have the <span class="math inline">\(\frac{dy}{dt}\)</span> part by itself: <span class="math display">\[\frac{dy}{dt} + \frac{3ty}{1+t^2} - \frac{6t}{1+t^2} = 0\]</span> And now let’s move the part with only the <span class="math inline">\(t\)</span> in it to the other side: <span class="math display">\[\frac{dy}{dt} + \frac{3ty}{1+t^2} = \frac{6t}{1+t^2}\]</span> And make the <span class="math inline">\(y\)</span> in the second term a little more explicit: <span class="math display">\[\frac{dy}{dt} + \frac{3t}{1+t^2}y = \frac{6t}{1+t^2}\]</span> OK? Now it looks like the general form of this type of DE. So <em>now</em> let’s think about what we can multiply both sides by to make both sides integrable. What if I try—and you’ll have no idea how I came up with this, which will probably make you angry (and justifiably so)—but what if I try multiplying both sides by <span class="math inline">\((1+t^2)^{3/2}\)</span>? <span class="math display">\[\begin{align*}
+(1+t^2)^{3/2} \cdot \left(\frac{dy}{dt} + \frac{3t}{1+t^2}y \right) &amp;= (1+t^2)^{3/2} \cdot \left( \frac{6t}{1+t^2}\right) \\
+\frac{dy}{dt}\cdot(1+t^2)^{3/2} \, + \,y \cdot(1+t^2)^{3/2} \frac{3t}{1+t^2} &amp;= (1+t^2)^{3/2} \frac{6t}{1+t^2} \\
+\end{align*}\]</span> I’ll discuss how I came up with <span class="math inline">\((1+t^2)^{3/2}\)</span> in a minute. But for now, take a careful look at the left side. Does it look like the product rule rubble? There’s a <span class="math inline">\(y\)</span> and a <span class="math inline">\(y&#39;\)</span>, so those could be parts of the product rule. But what about the rest of it? First, note that we can simplify this a bit—we can combine the <span class="math inline">\((1+t^2)\)</span>’s: <span class="math display">\[\begin{align*}
+\frac{dy}{dt}\cdot(1+t^2)^{3/2} \, &amp;+ \,y \cdot(1+t^2)^{3/2} \frac{3t}{(1+t^2)^1} &amp;=&amp; \,\,(1+t^2)^{3/2} \frac{6t}{1+t^2}\\
+\frac{dy}{dt}\cdot(1+t^2)^{3/2} \, &amp;+ \,y \cdot3t(1+t^2)^{1/2} &amp;=&amp; \,\,(1+t^2)^{3/2} \frac{6t}{1+t^2} \\
+\frac{dy}{dt}\cdot(1+t^2)^{3/2} \, &amp;+ \,y \cdot3t(1+t^2)^{1/2} &amp;=&amp; \,\,6t(1+t^2)^{1/2} \\
+y&#39;\cdot(1+t^2)^{3/2} \, &amp;+ \,y \cdot3t(1+t^2)^{1/2} &amp;=&amp; \,\,6t(1+t^2)^{1/2} \\
+\end{align*}\]</span> Does that help? Now, remember that we want to make the left side of the equation look like something that’s been product ruled. If you observe that the derivative of <span class="math inline">\((1+t^2)^{3/2}\)</span> is… <span class="math display">\[\frac{d}{dt}\left[(1+t^2)^{3/2}  \right] = \frac{3}{2}(1+t^2)^{1/2}\cdot2t = 3t(1+t^2)^{1/2}\]</span> So NOW the left side of our equation looks like something that’s been product-ruled! It looks like: <span class="math display">\[\underbrace{y&#39;}_{f&#39;(t)}\cdot\underbrace{(1+t^2)^{3/2}}_{g(t)} \,\, + \,\, \underbrace{y}_{f(t)} \cdot\underbrace{3t(1+t^2)^{1/2}}_{g&#39;(t)} = \,\,6t(1+t^2)^{1/2}\]</span> I can rewrite the entire equation like this: <span class="math display">\[\frac{d}{dt}\left(y\cdot (1+t^2)^{3/2} \right) =  6t(1+t^2)^{1/2}\]</span> Again, you probably can’t see that immediately. So take a few moments and convince yourself that that is true. And then, at last—at long last—we can integrate and solve for <span class="math inline">\(y\)</span> as a function of <span class="math inline">\(t\)</span>:</p>
+<p>Integrating:</p>
+<p><span class="math display">\[\int \frac{d}{dt}\left(y\cdot (1+t^2)^{3/2} \right)\, dt = \int 6t(1+t^2)^{1/2}\,dt\]</span></p>
+<p>Antiderivative of a derivative:</p>
+<p><span class="math display">\[y\cdot (1+t^2)^{3/2} = \int 6t(1+t^2)^{1/2}\,dt\]</span></p>
+<p>Integrating on the right side:</p>
+<p><span class="math display">\[y\cdot (1+t^2)^{3/2} = 2(1+t^2)^{3/2} + C\]</span></p>
+<p>Solving for y:</p>
+<p><span class="math display">\[y = \frac{1}{(1+t^2)^{3/2}}\cdot\left(2(1+t^2)^{3/2} + C\right)\]</span></p>
+<p>Simplifying:</p>
+<p><span class="math display">\[y = 2 + \frac{C}{(1+t^2)^{3/2}}\]</span></p>
+<p>Etc.:</p>
+<p><span class="math display">\[y = 2 + C(1+t^2)^{-3/2}\]</span></p>
+<p>That was tough. But now we’re done! We’ve found an equation for <span class="math inline">\(y\)</span> as a function of <span class="math inline">\(t\)</span> (up to a constant)! But you should still be angry about one thing: how did I come up with that <span class="math inline">\((1+t^2)^{3/2}\)</span>, anyway?</p>
+<p>Here’s what I did: we started with the equation that looked (with all the extraneous stuff stripped away) like this: <span class="math display">\[y&#39; + y\!\cdot\!(\text{some stuff})= \text{other stuff}\]</span> But another way to think about that is: <span class="math display">\[y&#39; + y\!\cdot\!(\text{stuff})&#39;= \text{other stuff}\]</span> Put differently: the coefficient on the <span class="math inline">\(y\)</span> can be thought of not as just some function, but as the <em>derivative</em> of some function. (Again, none of this is particularly easy, so this should take some effort to read.) This is not an obvious way to think about it, but it is perfectly reasonable. <span class="math display">\[\begin{align*}
+\text{For instance, in our example, that term was:}\,\,\, &amp;\frac{3t}{1+t^2}y \\
+\text{and so we had:}\,\,\, (\text{stuff})&#39; =&amp; \frac{3t}{1+t^2}\\
+\text{meaning that the undifferentiated stuff was:}\,\,\,(\text{stuff}) =&amp; \frac{3}{2}\ln(1+t^2)
+\end{align*}\]</span> Anyway, let’s go back to this general equation. What if a magical <span class="math inline">\(e^\text{stuff}\)</span> were to show up? <span class="math display">\[y&#39;\cdot e^\text{stuff} + y\cdot (\text{stuff})&#39;e^\text{stuff} = (\text{other stuff})e^\text{stuff}\]</span> Then the left side would look like a product rule!!! <span class="math display">\[y&#39;\!\cdot\!\!\!\!\underbrace{e^\text{stuff}}_\text{a function} \,\,+ \,\,y\cdot\underbrace{(\text{stuff})&#39;e^\text{stuff}}_\text{its derivative} = \text{other stuff}\cdot e^\text{stuff}\]</span> <span class="math display">\[\frac{d}{dt}\left[ y\cdot e^\text{stuff} \right] = \text{other stuff}\cdot e^\text{stuff}\]</span> !!!!!! This <span class="math inline">\(e^\text{stuff}\)</span> was the magic <strong>integrating factor</strong> we needed to multiply everything by in order to a) make the left side look like the product rule, and b) hopefully keep the right side still integrable. And we did that by taking the thing in front of the <span class="math inline">\(y\)</span> on the left side, taking its antiderivative, and exponentiating it by <span class="math inline">\(e\)</span>, so that when we multiplied we had: <span class="math inline">\((\text{stuff})&#39;e^\text{stuff} = (e^\text{stuff})&#39;\)</span>. So if we continue trying to solve this… <span class="math display">\[\begin{align*}
+\frac{d}{dt}\left[ y\cdot e^\text{stuff} \right] &amp;= \text{other stuff}\cdot e^\text{stuff}\\
+\int \frac{d}{dt}\left[ y\cdot e^\text{stuff} \right] \, dt &amp;= \!\!\!\!\!\!\!\! \underbrace{\int \! \text{other stuff}\cdot e^\text{stuff} \, dt}_\text{hopefully we can still integrate this} \\
+y\cdot e^\text{stuff} &amp;= \int \!\text{other stuff} \cdot e^\text{stuff}\, dt\\
+y  &amp;= \frac{1}{e^\text{stuff}} \cdot \int \! \text{other stuff}\cdot e^\text{stuff} \, dt\\
+\end{align*}\]</span> Woo! So, assuming we can find an integrating factor, and assuming we can integrate <span class="math inline">\(\int \text{other stuff} dt\)</span>, we can solve differential equations of this type, using this procedure! Okey-dokey?</p>
+<p>Let’s summarize what we’ve done over the course of the last dozen pages. We start with some scary differential equation, and we try to solve it. To do so, we can:</p>
+<ol type="1">
+<li>See if we can simply take an antiderivative, but if that doesn’t work, we can</li>
+<li>Try separating the variables and then integrating, but we can’t always do that, so we might have to try</li>
+<li>Considering it as one of these magic-almost-product-rule things (formally, as a “<strong>linear first-order homogeneous differential equation</strong>”), multiplying it by the appropriate integrating factor, and then integrating and solving. But even this method doesn’t always work for every diff. eq., so we might have to</li>
+<li>Come up with some clever new technique!</li>
+</ol>
+<h2 id="problems">Problems</h2>
+<p>What you’ve seen in the notes is that coming up for the solutions of differential equations is a rather obnoxious process requiring lots of <em>ad hoc</em> techniques. That said, if you have a solution, it’s easy to show that it is, in fact, a solution—you just take some derivatives and plug things in. (Thus putting differential equations into this very strange category of problems that are very hard to solve but whose solutions are very easy to check, like factoring.) For each of the following differential equations, show that the given solution (or solutions) are, in fact, solutions.</p>
+<p>Solve the following differential equations as far as you can. Your goal should be to come up with an equation for <span class="math inline">\(y\)</span> (or whatever the dependent variable is). If you know a point (or two) plug it in and find the constant (or constants); if you can solve the equation explicitly as a function for <span class="math inline">\(y\)</span>, do so. You might not be able to do that. For some of these problems, you may have to antidifferentiate multiple times.</p>
+<p>%separable ones</p>
+<p>%first order linear</p>
+<p>general case</p>
+<p>specific case for earth and for skydiver If you go to the Exploratorium in San Francisco, there is a very cool exhibit that is a 3D diorama of the greater Bay Area. Onto the bay itself (and the ocean) is projected the</p>
+<p>it starts snowing at a heavy but constant rate. at 4 AM, A snowplow sets out. In the first hour, it travels two mikles. In the second hour, it travels 1 mile. What time did it start snowing? (You can assume that the speed of the snowplow is inversely proportional to the depth of the snow on the road, i.e., that <span class="math inline">\(v_\text{plow} = k\cdot\frac{1}{\text{snow depth}}\)</span>. This is, of course, not completely true—if there were no snow, this would mean that the plow would go infinitely fast—but as long as there is some finite amount of snow, it is a reasonably good approximation.)</p>
+<p><span class="math inline">\(\displaystyle m\frac{dv}{dt} mg - kv\)</span></p>
+<p>where <span class="math inline">\(m\)</span>,<span class="math inline">\(g\)</span>, and <span class="math inline">\(k\)</span> are all constants. Find a function for <span class="math inline">\(v(t)\)</span>, given that <span class="math inline">\(v=0\)</span> when <span class="math inline">\(t=0\)</span>. (Does this equation seem familiar?) Also, what happens to <span class="math inline">\(v(t)\)</span> as <span class="math inline">\(t \rightarrow \infty\)</span>?</p>
+<p>EXP GROWTH AND DECAY POP GROWTH RADIOACTIVE DECAY INTEREST</p>
+<p>terminal velocity</p>
+<p>mixtures</p>
+<p>snowplow population steadty state (needs partial fractions)</p>
+<p>NEWTON’S LAW OF COOLING</p>
+<p>Here are some word problems involving exponential growth and decay. Do them.</p>
+<p>terminal velocity</p>
+<p>mixtures</p>
+<p>snowplow population steadty state (needs partial fractions)</p>
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p><em>Everything and More: A Compact History of <span class="math inline">\(\infty\)</span></em>, by David Foster Wallace (W.W. Norton, 2003), pp.151-2. (Footnotes removed. Seriously, there were four footnotes in 2.5 paragraphs…)<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p>It’s impossible to separate the variables and solve it using this method, but that doesn’t mean it’s impossible to solve. You can use more advanced methods to solve it, and get as a solution <span class="math inline">\(y = Ae^x - (x + 1)\)</span>. It’s quite easy to check/prove that that’s a solution (just take a derivative); coming up with that solution is harder.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3" role="doc-endnote"><p>I mean, not that the name really matters, but I guess if you want to look them up in your book or on the internet, it might be helpful.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+</main>
+</body>
+</html>

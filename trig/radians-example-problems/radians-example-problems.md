@@ -21,7 +21,7 @@ $$\large  2\pi,\quad \frac{11\pi}{6},\quad \frac{\pi}{3},\quad \frac{5\pi}{2},\q
 
 $2\pi$! That's a whole circle! $360^\circ$!!! Yay! (Note here how I'm NOT just plugging things into the formula---I could, but I'm not---I'm trying to really FEEL how many degrees $2\pi$ radians is!)
 
-$$\boxed{ 2\pi \text{ radians } = 360^\circ \text{ degrees} }$$
+$$\boxed{ \,\, \large2\pi \text{ radians } = 360^\circ \text{ degrees} \,\, }$$
 
 ## $11\pi/6$
 
@@ -34,14 +34,14 @@ $11\pi/6$! That's like ALMOST $12\pi/6$, which would be $2\pi$, which would be $
     &= 330^\circ
 \end{align*}
 
-$$\boxed{ 11\pi/6 \text{ radians } = 330^\circ \text{ degrees} }$$
+$$\boxed{ \,\, \large11\pi/6 \text{ radians } = 330^\circ \text{ degrees} \,\, }$$
 
 
 ## $\pi/3$
 
 Okay, we know that $\pi$ radians is half of $2\pi$ radians, which is $360^\circ$, so $\pi$ radians is $180^\circ$. And $180/3=60$. So this is $60^\circ$!
 
-$$\boxed{ \pi/3 \text{ radians } = 60^\circ \text{ degrees} }$$
+$$\boxed{ \,\, \large\pi/3 \text{ radians } = 60^\circ \text{ degrees} \,\, }$$
 
 
 ##  $5\pi/2$
@@ -54,14 +54,14 @@ OK, this is basically $\pi/2$, i.e. $90^\circ$, but plus another full revolution
     &= 450^\circ
 \end{align*}
 
-$$\boxed{ 5\pi/2 \text{ radians } =  450^\circ \text{ degrees} }$$
+$$\boxed{ \,\, \large5\pi/2 \text{ radians } =  450^\circ \text{ degrees} \,\, }$$
 
 
 ##  $60^\circ$
 
 Oooh, we already figured this out (in the reverse direction)! It's $\pi/3$.
 
-$$\boxed{ \pi/3 \text{ radians } = 60^\circ \text{ degrees} }$$
+$$\boxed{ \,\, \large\pi/3 \text{ radians } = 60^\circ \text{ degrees} \,\, }$$
 
 
 ## $135^\circ$
@@ -75,7 +75,7 @@ Hmm, what's this? We could use the formula... but we want to really FEEL this, s
 \end{align*}
 So we have:
 
-$$\boxed{ 135^\circ \text{ degrees} = \frac{3\pi}{4} \text{ radians} }$$
+$$\boxed{ \,\, \large135^\circ \text{ degrees} = \frac{3\pi}{4} \text{ radians} \,\, }$$
 
 
 ##  $179^\circ$
@@ -92,5 +92,5 @@ Hahahahaha okay, this is a gross number of degrees. It's ALMOST $2\pi$ radians..
 \end{align*}
 This should make sense---$180^\circ$ is $\pi$ radians; $179^\circ$ is a little bit less than $180^\circ$; and $3.1241$ is a little bit less than $\pi$ (a little bit less than $3.1415$).
 
-$$\boxed{ 179^\circ \text{ degrees} = \frac{179}{180} \text{ radians} \approx 3.1241 \text{ radians} }$$
+$$\boxed{ \,\, \large179^\circ \text{ degrees} = \frac{179}{180} \text{ radians} \approx 3.1241 \text{ radians} \,\, }$$
 

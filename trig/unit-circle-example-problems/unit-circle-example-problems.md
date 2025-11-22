@@ -24,7 +24,7 @@ Not much to draw. Meanwhile, we know that the $x$ and $y$-coordinates of the poi
 ![](unit-circle-1-2.svg){width=75%}
 Sine is the $y$-coordinate... and here the $y$-coordinate is obviously zero. Nothing fancy required! (Also, we get the cosine for free: the $x$-coordinate of this point is $1$, so then $\cos(0)$ is $1$!
 ![](unit-circle-1-3.svg){width=75%}
-$$\boxed{ \sin(0) =0 }$$
+$$\boxed{ \,\, \large \sin(0) =0  \,\,}$$
 
 
 ## $\cos\left(\frac{5\pi}{6}\right) = \,\,???$
@@ -48,7 +48,7 @@ And so then we know:
 $$\cos(5\pi/6) = -\frac{\sqrt{3}}{2}$$
 $$\sin(5\pi/6) = +\frac{1}{2}$$
 Yay!
-$$\boxed{ \cos(5\pi/6) = -\frac{\sqrt{3}}{2} }$$
+$$\boxed{ \,\, \large \cos(5\pi/6) = -\frac{\sqrt{3}}{2} \,\,  }$$
 
 
 ## $\sin\left(\frac{7\pi}{4}\right) = \,\,???$
@@ -66,7 +66,7 @@ We know all its side lengths! So if we slide it in here (I guess we have to flip
 OK! So the $x$-coordinate of this point is $1/\sqrt2$ away from the origin, in the positive direction, so it's $+1/\sqrt2$. And the $y$-coordinate is also $1/\sqrt2$ away from the origin, but in the negative direction, so it's $-1/\sqrt2$:
 ![](unit-circle-49-5.svg){width=75%}
 Yay! So then the sine of $7\pi/4$ is $-1/\sqrt2$.
-$$\boxed{ \sin(7\pi/4) = -\frac{1}{\sqrt{2}}} $$
+$$\boxed{ \,\, \large \sin(7\pi/4) = -\frac{1}{\sqrt{2}} \,\,} $$
 
 
 ## $\cos\left(\frac{5\pi}{3}\right) = \,\,???$
@@ -82,5 +82,5 @@ Let's do that:
 OK! So now we can find the coordinates of the point!
 ![](unit-circle-68-5.svg){width=75%}
 And thus:
-$$\boxed{ \cos(5\pi/3) = +\frac{1}{2} } $$
+$$\boxed{\,\, \large \cos(5\pi/3) = +\frac{1}{2} \,\, } $$
 
