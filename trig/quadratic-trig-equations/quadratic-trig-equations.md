@@ -42,28 +42,28 @@ $$\theta  = \sin^\text{inv}\left(+\frac{1}{2}\right) \quad\quad\quad \theta   = 
 Remember, inverse sine is a function that takes a $y$-coordinate on the unit circle, and sends it to an angle! (Sine takes an angle, and sends it to a $y$-coordinate on the unit circle.)
 ![](sin-function-and-inverse-unit-circle.svg){width=50%}
 So, in other words, we need to find ALL THE ANGLES that give us a $y$-coordinate of $\pm\frac12$ on the unit circle. We'll get FOUR possible points on the unit circle:
-![](trig-quadratic-problem-1-1.svg)
+![](trig-quadratic-problem-1-1.svg){ width=75% }
 To find those points, without using a calculator, we can squeeze in one of our special right triangles!!! In particular, we can squeeze in a $\pi/6-\pi/3-\pi/2$ special right triangle. Let's think about how we can do this to find the angle that gives us the point at the top right:
-![](trig-quadratic-problem-1-2.svg)
+![](trig-quadratic-problem-1-2.svg){ width=75% }
 We need some triangle that has a hypotenuse of length $1$, and a side length of $1/2$:
-![](trig-quadratic-problem-1-3.svg)
+![](trig-quadratic-problem-1-3.svg){ width=75% }
 What could work? What about our $\pi/6-\pi/3-\pi/2$ special right triangle!
-![](trig-quadratic-problem-1-4.svg)
+![](trig-quadratic-problem-1-4.svg){ width=50% }
 So if we slide it into place:
-![](trig-quadratic-problem-1-5.svg)
+![](trig-quadratic-problem-1-5.svg){ width=75% }
 It fits!!!! And then we know that the angle is $\pi/6$. So $\theta$ could be $\pi/6$! Actually, it could be more than just $\pi/6$. If we go around the circle another $2\pi$, clockwise or counterclockwise, we'll end up in the same place. So actually. $\theta$ could be $\pi/6$ plus or minus any multiple of $2\pi$. Or, put differently, $\theta$ could be $\pi/6 + 2k\pi$, where $k$ is any integer (positive or negative):
 $$\theta = \frac{\pi}{6} + 2k\pi, \quad k\in\mathbb{Z}$$ 
 These aren't the only possibilities for $\theta$, though. There are three other points on the unit circle with a $y$-coordinate of $\pm\frac12$! So there are three more families of possible solutions!!!
 
 Let's think about the solution in the upper-left quadrant. We need to figure out what angle makes it:
-![](trig-quadratic-problem-1-6.svg)
+![](trig-quadratic-problem-1-6.svg){ width=75% }
 Again, we can use our  $\pi/6-\pi/3-\pi/2$ special right triangle!!! We'll flip it around and slide it in like this:
-![](trig-quadratic-problem-1-7.svg)
+![](trig-quadratic-problem-1-7.svg){ width=75% }
 So, how do we find the big green angle??? We can see, geometrically, that the green angle and $\pi/6$ must add up to $\cancel{180^\circ}$ $\pi$:
 $$\frac{\pi}{6} + \text{green angle} = \pi$$
 So:
 $$\text{green angle} = 5\pi/6$$
-![](trig-quadratic-problem-1-8.svg)
+![](trig-quadratic-problem-1-8.svg){ width=75% }
 So that's the next possible solution for $\theta$! Theta could be $5\pi/6$, plus or minus any multiple of $2\pi$:
 $$\theta = \frac{5\pi}{6} + 2k\pi, \quad k\in\mathbb{Z}$$ 
 We can continue this procedure, and use the unit circle and the special right triangle to get the other two families of angles, the ones in the $-y$-quadrants. It's the same idea, so I won't show it. Ultimately, for $\theta$, we'll end up with:
@@ -121,21 +121,21 @@ $$\underbrace{\left( \sin(\theta) - \frac{1}{\sqrt{2}}\right)}_{\substack{\sin(\
 Great! So now we have a simpler equation to solve. We want to solve:
 $$\theta = \sin^\text{inv}\left(  \frac{1}{\sqrt{2}} \right) $$
 So we need to find all the angles that give us a $y$-coordinate on the unit circle of  $+\frac{1}{\sqrt{2}}$:
-![](trig-quadratic-problem-2-1.svg)
+![](trig-quadratic-problem-2-1.svg){ width=75% }
 Here's one possible angle:
-![](trig-quadratic-problem-2-2.svg)
+![](trig-quadratic-problem-2-2.svg){ width=75% }
 How do we actually calculate what angle that is? Hmmmm. Can we find a right triangle with a hypotenuse of $1$, and a side opposite $\theta$ of length $1/\sqrt2$? Yeah! A $\pi/4-\pi/4-\pi/2$ special right triangle!!! 
-![](trig-quadratic-problem-2-3.svg)
+![](trig-quadratic-problem-2-3.svg){ width=50% }
 So let's squeeze that in:
-![](trig-quadratic-problem-2-4.svg)
+![](trig-quadratic-problem-2-4.svg){ width=75% }
 It works! So one possible solution to this equation is $\pi/4$. Of course, we could go around a full $2\pi$ from that, so really, $\pi/4 + 2k\pi$ for any integer (positive or negative) $k$ works. 
 
 What about the other possibility? We could have a larger angle, that intersects the unit circle at $y=1/\sqrt2$ on the left side:
-![](trig-quadratic-problem-2-5.svg)
+![](trig-quadratic-problem-2-5.svg){ width=75% }
 To figure out that angle, we can again squeeze in a  $\pi/4-\pi/4-\pi/2$ special right triangle:
-![](trig-quadratic-problem-2-6.svg)
+![](trig-quadratic-problem-2-6.svg){ width=75% }
 The green angle and the $\pi/4$ angle must add up to be $\pi$, so then the green angle---the one we care about---must be $3\pi/4$!!!
-![](trig-quadratic-problem-2-7.svg)
+![](trig-quadratic-problem-2-7.svg){ width=75% }
 So $3\pi/4$ is another possible solution to this equation!!! Or, again, it could be $3\pi/4$ plus or minus any multiple of $2\pi$. 
 
 So, then, from this factor, we get two families of solutions:
@@ -194,7 +194,7 @@ $$\left(2\sin\theta  + 1  \right)\cdot\left(\sin\theta -1  \right) = 0$$
 So, again, we get two equations! The left factor gives us:
 $$\underbrace{\left(2\sin\theta  + 1  \right)}_{\substack{2\sin\theta  + 1 = 0 \\ \\ 2\sin\theta  = -1 \\\\ \sin\theta  = -\frac12 \\ \\ \theta = \sin^\text{inv}\left(-\frac12\right)   }}\cdot\left(\sin\theta -1  \right) = 0$$
 So, we need to find all the angles that give us a $y$-coordinate on the unit circle of $-\frac12$:
-![](trig-quadratic-problem-3-1.svg)
+![](trig-quadratic-problem-3-1.svg){ width=75% }
 Conveniently, we already found these, in the previous problem! They are:
 \begin{align*}
 \theta &=\sin^\text{inv}\left(- \frac{1}{2}\right) \\
@@ -203,7 +203,7 @@ Conveniently, we already found these, in the previous problem! They are:
 What about the other factor? Solving it for $\theta$, we get:
 $$\left(2\sin\theta  + 1  \right)\cdot\underbrace{\left(\sin\theta -1  \right)}_{\substack{\sin\theta -1 = 0 \\ \\\sin\theta = +1 \\\\ \theta = \sin^\text{inv}\left(+1\right)   }} = 0$$
 So we need to find all the angles that give us a $y$-coordinate of $+1$ on the unit circle:
-![](trig-quadratic-problem-3-3.svg)
+![](trig-quadratic-problem-3-3.svg){ width=75% }
 That's easy! It's just $\pi/2$, plus or minus all the possible multiples of $2\pi$!
 \begin{align*}
 \sin\theta - 1 &= 0 \\

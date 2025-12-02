@@ -49,7 +49,7 @@ As Aria Gao '24 put it in the Instagram auto-caption, ``The steepness is relativ
 In 1VC, the core idea/paradox/contention/assertion at the heart of calculus is this:
 $$\text{if we zoom in really far, everything becomes a straight {\color{red}line} }$$
 The $n$-dimensional analogue of this, in $n$-dimensional calculus, is:
-$$\text{if we zoom in really far, everything becomes a straight {\color{red}$\,\substack{\text{$n$-dimensional}\\\text{hyperplane}}$}}$$
+$$\text{if we zoom in really far, everything becomes a straight {\color{red}$\,\substack{\text{$n$-dimensional}\\\text{hypersurface}}$}}$$
 That's weird. The two-dimensional/2VC case is easier to imagine:
 $$\text{if we zoom in really far, everything becomes a straight {\color{red} plane}}$$
 In 2VC, we zoom in really far, and everything becomes a---not a straight *line*, but a straight *plane*. "Straight" might not be the best word here; I don't mean "straight" in the "flat" or "parallel to the ground" sense; I mean "straight" in the "not curvy" sense. (Or you can just say **linear** if you want to sound fancy)

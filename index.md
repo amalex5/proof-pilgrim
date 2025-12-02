@@ -164,7 +164,7 @@ li {
 * [Numbers, Spinning and Unspinning](complex-numbers/complex-roots/complex-roots.html) (*notes on complex roots*)
 * [Complex<sup>Complex<sup>Complex<sup>...</sup></sup></sup>](complex-numbers/complex-exponentiation/complex-exponentiation.html) (*notes on complex exponentiation*) (*[also available in zine form](https://andrusia.com/2023/01/15/complex-exponentiation-zine.html)*)
 * [Cole's Conjecture and Maya's Musing (solution notes)](complex-numbers/coles-conjecture-mayas-musing/coles-conjecture-mayas-musing.html)
-* [Prime numbers aren't prime](complex-numbers/gaussian-integers/gaussian-integers.html) (*exploratory problems on Gaussian integers*)
+* [Prime numbers aren't prime](complex-numbers/gaussian-integers/gaussian-integers.html) (*exploratory problems on Gaussian integers*) <span style='font-family: sans-serif; color:red; font-weight: bold; font-size: 75%;'>(draft)</span>
 
 
 ## sequences and serieseses {#series}
@@ -186,6 +186,7 @@ li {
     * [some fun problems with the product rule](calculus/product-rule-problems/product-rule-problems.html)
     * [the derivative of $x^n$ (scenic version)](calculus/product-rule-power-rule-proof/product-rule-power-rule-proof.html)
     * [fun theorem about polynomials, their derivatives, their zeroes, and their repeated and non-repeated roots](calculus/polynomial-and-its-derivative-roots/polynomial-and-its-derivative-roots.html)
+    * [differentiation emergency reference]() (whoops, was too lazy to actually fill this out 😀)
 * [trig derivatives](calculus/trig-derivatives/trig-derivatives.html) (*statements, not proofs*)
 * Oh shoot, we need a more rigorous understanding of limits!
     * [limits, intuitively](calculus/limits-intuitively/limits-intuitively.html) <span style='font-family: sans-serif; color:red; font-weight: bold; font-size: 75%;'>(old)</span>
