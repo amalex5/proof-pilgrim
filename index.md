@@ -186,7 +186,7 @@ li {
     * [some fun problems with the product rule](calculus/product-rule-problems/product-rule-problems.html)
     * [the derivative of $x^n$ (scenic version)](calculus/product-rule-power-rule-proof/product-rule-power-rule-proof.html)
     * [fun theorem about polynomials, their derivatives, their zeroes, and their repeated and non-repeated roots](calculus/polynomial-and-its-derivative-roots/polynomial-and-its-derivative-roots.html)
-    * [differentiation emergency reference]() (whoops, was too lazy to actually fill this out 😀)
+    * [differentiation emergency reference](calculus/differentiation-integration-quick-reference.pdf) (whoops, was too lazy to actually fill this out 😀)
 * [trig derivatives](calculus/trig-derivatives/trig-derivatives.html) (*statements, not proofs*)
 * Oh shoot, we need a more rigorous understanding of limits!
     * [limits, intuitively](calculus/limits-intuitively/limits-intuitively.html) <span style='font-family: sans-serif; color:red; font-weight: bold; font-size: 75%;'>(old)</span>

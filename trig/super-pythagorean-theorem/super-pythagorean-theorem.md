@@ -90,9 +90,22 @@ What about the side lengths? We know it has a hypotenuse of legnth $c$. We know 
 ![](super-pythagorean-theorem-derivation-11.svg){width=75%}
 Now we know everything about both of the two right triangles that make up our original big non-right triangle!!!
 
-Let's go back to the right triangle on the right and think about it for a moment. It's a right triangle, so it has to follow the Pythagorean Theorem (the normal one). So then we must have:
+Of course, if these are both right triangles, then the classic Pythagorean Theorem has to apply. So, for each of these triangles, we must have:
 $$(\text{hypotenuse})^2 = (\text{leg 1})^2 + (\text{leg 2})^2$$
-Or:
+So, for example, for the right triangle on the left, we have a hypotenuse of $a$, and legs of length $a\cos\gamma$ and $a\sin\gamma$. So we must have:
+$$a^2 = (a\sin\gamma)^2 + (a\cos\gamma)^2$$
+Let's noodle around/algebra around with this to see if we can manipulate it into anything interesting?? We have:
+\begin{align*}
+a^2 &= (a\sin\gamma)^2 + (a\cos\gamma)^2 \\
+&= a^2\sin^2\gamma + a^2\cos^2\gamma \\
+&= a^2\left( \sin^2\gamma + \cos^2\gamma \right) \quad\text{(factoring out the $a^2$)} \\
+&= a^2\underbrace{\left( \sin^2\gamma + \cos^2\gamma \right)}_{=1}  \quad\text{(Pythagorean identity!)} \\
+&= a^2 \cdot 1 \\
+&= a^2
+\end{align*}
+So... $a^2 = a^2$. This is true. It is also not useful. And we also knew it long before we drew any triangles. Hmm. Well, sometimes that's what happens! You do stuff, and it doesn't work out. That's ALSO an important lesson! (I thank Rye O.<!--Olcott '29 --> for suggesting this helpful red herring.)
+
+What about the right triangle on the right? I wonder what happens if we play with that. If we apply the classic Pythagorean Theorem to it, we get:
 $$c^2 = (a\sin\gamma)^2 + (b-a\cos\gamma)^2$$
 In a sense, this is it!!! We've found a Super Pythagorean Theorem! We have an equation now that relates the three sides of this original non-right triangle---$a$, $b$, and $c$---and there's some extra information we need in there, too, in the form of this angle $\gamma$. 
 
@@ -117,7 +130,7 @@ It's kind of like we have the Pythagorean Theorem Classic, and now we have the P
 \end{align*}
 So it's like the $-2ab\cos\gamma$ is the expansion pack that brings us to the XL version! 
 
-Sometimes people call this the **law of cosines**, but that's such a dull name for a concept that's so much deeper and more exciting. Shouldn't we name things in ways that are evocative? This is just a broader version of the Pythagorean Theorem---so shouldn't its name reflect that? (Plus, there's only one cosine. So why "law of cosine**s**" plural?)
+Sometimes people call this the **law of cosines**, but that's such a dull name for a concept that's so much deeper and more exciting. Shouldn't we name things in ways that are evocative? This is just a broader version of the Pythagorean Theorem---so shouldn't its name reflect that? (Plus, there's only one cosine. So why "law of cosine<span style='font-weight: bold; text-decoration: underline;'>s</span>" plural?)
 
 Kelly Z<!--hao '27--> points out how spookily similar the $-2ab\cos\gamma$ correction term is to the cross-terms in our expansion of the binomial $(a+b)^2$:
 \begin{align*}
