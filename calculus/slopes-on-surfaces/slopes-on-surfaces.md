@@ -19,30 +19,43 @@ This is nice because it's a formula that generalizes to any number of dimensions
 
 NOTES ON 2D SRUFACE DERIVATIVES ETC ETC ETC 
 
-
+## From 1VC to MVC back down to 2VC
 
 in 2VC-world things are a little simpler than the more general MVC-world. For one thing, we can *draw pictures*. A two-dimensional surface needs two inputs and one output; three dimensions, total; that's something we can easily visualize! If we have a surface/scalar function that takes three inputs (and gives one output), or four inputs, or $n$ inputs, pictures get much trickier. 
 
 Plus, in 2VC, we can easily think of direction vectors as just a friendly sine-and-cosine pair. In $n$ dimensions, a direction vector is a vector whose components all Pythagorean-add^[by Pythagorean-add I mean the square-root-of-all-of-them-squared-added-up] to $1$. In two dimensions, that works out to just being $\cos\theta$ for the $x$ and $\sin\theta$ for the $y$, if we want to use an angle $\theta$ in the usual way on the $xy$-plane.
 
 In this way two-dimensional surfaces make a great metaphor for $n$-dimensional surfaces:
-they have complexity that one-dimensional surfaces don't have, but they're still easy to visualize, and they're possible to deal with "manually" (using marginally-more-annoying trig rather than the full fancy formalism of our higher-dimensional tools)
+they have complexity that one-dimensional surfaces don't have, but they're still easy to visualize, and they're possible to deal with "manually" (using marginally-more-annoying trig rather than the full fancy formalism of our higher-dimensional tools). So we can use them as an environment in which to get comfortable with higher-dimensional differentiation. Slopes in 2D are both interesting in and of themselves (after all, we simians live on a 2D surface), but also a great 
 
 
 
 ## the ritual sacrifice
 
+We started our investigation of slopes in higher dimensions by doing what Kelly Poon '24 called a "ritual sacrifice." We marched outside, found a piece of plywood propped up on the wall outside the i-Lab, and made Jaxon Jacobs '24 stand on it. Standing on the plywood, in the center, facing the wall, it's pretty steep!!! 
 
+![](plywood-jaxon-steepest.jpg){ width=50% }
 
+But... when Jaxon turned $90$ degrees, the plywood---at least, in the direction he was facing, thinking of himself as walking on a one-dimensional path on this two-dimensional surface---the slope of the plywood became flat!!! He was facing a contour!
 
+![](plywood-jaxon-flat-2.jpg){ width=50% }
 
+Then Jaxon turned another $90$ degrees. Now it's steep again, but it's steep *down*!!!
 
-aria gao
+![](plywood-jaxon-steepest-down.jpg){ width=50% }
 
+Another $90$ degrees. Now it's back to being flat!!!
 
-As Aria Gao '24 put it in the Instagram auto-caption, ``The steepness is relative to what direction you're facing!''
+![](plywood-jaxon-flat-1.jpg){ width=50% }
+
+What's the lesson here?  As Aria Gao '24 put it in the auto-caption, ``The steepness is relative to what direction you're facing!''
 
 ![](aria-gao-the-steepness-is-relative-captioned.jpg){ width=50% }
+
+So that motivated our broader 
+
+
+
 
 
 

@@ -740,6 +740,8 @@ Two subsidiary questions:
 <li>**Hard problem that Elyse found online:** Solve this system of equations:
 $$\begin{cases}4^{\frac{x}{y}+\frac{y}{x}} = 32 \\
 \log_3(x-y)+\log_3(y+x) = 1 \end{cases}$$</li>
+<li> **Another hard problem that Elyse found** (from a friend's RSM class or something?) Simplify:
+$$\frac{\log_9\left(7\sqrt{7}\right)}{\log_{\sqrt3}\left(\sqrt[3]{49}\right)}$$
 
 </ol>
 

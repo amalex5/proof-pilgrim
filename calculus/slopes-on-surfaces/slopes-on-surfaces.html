@@ -55,12 +55,14 @@
 <div class="tocLinks" >
 <nav id="TOC" role="doc-toc">
 <ul>
+<li><a href="#from-1vc-to-mvc-back-down-to-2vc">From 1VC to MVC back down to 2VC</a></li>
 <li><a href="#the-ritual-sacrifice">the ritual sacrifice</a></li>
 </ul>
 </nav>
 </div>
 </aside>
- -->
+-->
+ 
 <main>
 <div id="title-block">
 <h1 class="title">slopes on surfaces</h1>
@@ -71,13 +73,22 @@
    &amp;= \frac{\partial f}{\partial x_1}\left(  \substack{\text{the unit/direction vector}\\\text{in the $x_1$-direction}} \right) \,+\, \frac{\partial f}{\partial x_2}\left(  \substack{\text{the unit/direction vector}\\\text{in the $x_2$-direction}} \right) \,+\, \cdots 
 \end{align*}\]</span> This is nice because it’s a formula that generalizes to any number of dimensions! (It also magically encompasses our knowledge of single-variable slopes: in that case, there’s only one “partial” derivative, and only two choices for what the direction vector can be, <span class="math inline">\(\langle +1\rangle\)</span> or <span class="math inline">\(\langle -1\rangle\)</span>.)</p>
 <p>NOTES ON 2D SRUFACE DERIVATIVES ETC ETC ETC</p>
+<h2 id="from-1vc-to-mvc-back-down-to-2vc">From 1VC to MVC back down to 2VC</h2>
 <p>in 2VC-world things are a little simpler than the more general MVC-world. For one thing, we can <em>draw pictures</em>. A two-dimensional surface needs two inputs and one output; three dimensions, total; that’s something we can easily visualize! If we have a surface/scalar function that takes three inputs (and gives one output), or four inputs, or <span class="math inline">\(n\)</span> inputs, pictures get much trickier.</p>
 <p>Plus, in 2VC, we can easily think of direction vectors as just a friendly sine-and-cosine pair. In <span class="math inline">\(n\)</span> dimensions, a direction vector is a vector whose components all Pythagorean-add<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> to <span class="math inline">\(1\)</span>. In two dimensions, that works out to just being <span class="math inline">\(\cos\theta\)</span> for the <span class="math inline">\(x\)</span> and <span class="math inline">\(\sin\theta\)</span> for the <span class="math inline">\(y\)</span>, if we want to use an angle <span class="math inline">\(\theta\)</span> in the usual way on the <span class="math inline">\(xy\)</span>-plane.</p>
-<p>In this way two-dimensional surfaces make a great metaphor for <span class="math inline">\(n\)</span>-dimensional surfaces: they have complexity that one-dimensional surfaces don’t have, but they’re still easy to visualize, and they’re possible to deal with “manually” (using marginally-more-annoying trig rather than the full fancy formalism of our higher-dimensional tools)</p>
+<p>In this way two-dimensional surfaces make a great metaphor for <span class="math inline">\(n\)</span>-dimensional surfaces: they have complexity that one-dimensional surfaces don’t have, but they’re still easy to visualize, and they’re possible to deal with “manually” (using marginally-more-annoying trig rather than the full fancy formalism of our higher-dimensional tools). So we can use them as an environment in which to get comfortable with higher-dimensional differentiation. Slopes in 2D are both interesting in and of themselves (after all, we simians live on a 2D surface), but also a great</p>
 <h2 id="the-ritual-sacrifice">the ritual sacrifice</h2>
-<p>aria gao</p>
-<p>As Aria Gao ‘24 put it in the Instagram auto-caption, ``The steepness is relative to what direction you’re facing!’’</p>
+<p>We started our investigation of slopes in higher dimensions by doing what Kelly Poon ’24 called a “ritual sacrifice.” We marched outside, found a piece of plywood propped up on the wall outside the i-Lab, and made Jaxon Jacobs ’24 stand on it. Standing on the plywood, in the center, facing the wall, it’s pretty steep!!!</p>
+<p><img src="plywood-jaxon-steepest.jpg" style="width:50.0%" /></p>
+<p>But… when Jaxon turned <span class="math inline">\(90\)</span> degrees, the plywood—at least, in the direction he was facing, thinking of himself as walking on a one-dimensional path on this two-dimensional surface—the slope of the plywood became flat!!! He was facing a contour!</p>
+<p><img src="plywood-jaxon-flat-2.jpg" style="width:50.0%" /></p>
+<p>Then Jaxon turned another <span class="math inline">\(90\)</span> degrees. Now it’s steep again, but it’s steep <em>down</em>!!!</p>
+<p><img src="plywood-jaxon-steepest-down.jpg" style="width:50.0%" /></p>
+<p>Another <span class="math inline">\(90\)</span> degrees. Now it’s back to being flat!!!</p>
+<p><img src="plywood-jaxon-flat-1.jpg" style="width:50.0%" /></p>
+<p>What’s the lesson here? As Aria Gao ‘24 put it in the auto-caption, ``The steepness is relative to what direction you’re facing!’’</p>
 <p><img src="aria-gao-the-steepness-is-relative-captioned.jpg" style="width:50.0%" /></p>
+<p>So that motivated our broader</p>
 <p>In 1VC, the core idea/paradox/contention/assertion at the heart of calculus is this: <span class="math display">\[\text{if we zoom in really far, everything becomes a straight {\color{red}line} }\]</span> The <span class="math inline">\(n\)</span>-dimensional analogue of this, in <span class="math inline">\(n\)</span>-dimensional calculus, is: <span class="math display">\[\text{if we zoom in really far, everything becomes a straight {\color{red}$\,\substack{\text{$n$-dimensional}\\\text{hypersurface}}$}}\]</span> That’s weird. The two-dimensional/2VC case is easier to imagine: <span class="math display">\[\text{if we zoom in really far, everything becomes a straight {\color{red} plane}}\]</span> In 2VC, we zoom in really far, and everything becomes a—not a straight <em>line</em>, but a straight <em>plane</em>. “Straight” might not be the best word here; I don’t mean “straight” in the “flat” or “parallel to the ground” sense; I mean “straight” in the “not curvy” sense. (Or you can just say <strong>linear</strong> if you want to sound fancy)</p>
 <p>That has ramifications!!! In 1VC, if we want to understand curvy lines, that means that we need to understand <em>straight</em> lines. Every straight line is just::</p>
 <ul>

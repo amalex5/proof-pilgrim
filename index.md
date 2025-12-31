@@ -224,6 +224,7 @@ li {
 * [how long are curvy lines?](calculus/length-of-curvy-lines/length-of-curvy-lines.html)
 * [slopes on 2D surfaces](calculus/slopes-on-surfaces/slopes-on-surfaces.html) <span style='font-family: sans-serif; color:red; font-weight: bold; font-size: 75%;'>(draft)</span>
     * poster version: [pdf](calculus/slopes-on-surfaces/slope-as-fxn-of-angle-summary.pdf), [svg](calculus/slopes-on-surfaces/slope-as-fxn-of-angle-summary.svg)
+* [the 2D second derivative test](calculus/2vc-second-derivative-test/2d-second-derivative-test.html)
 * [higher integrals](calculus/higher-integrals/higher-integrals.html)
 
 
