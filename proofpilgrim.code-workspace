@@ -5,6 +5,7 @@
 		}
 	],
 	"settings": {
-		"livePreview.autoRefreshPreview": "On Changes to Saved Files"
+		"livePreview.autoRefreshPreview": "On Changes to Saved Files",
+		"makefile.configureOnOpen": false
 	}
 }
