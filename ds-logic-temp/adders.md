@@ -448,7 +448,7 @@ Let's summarize:
 </table>
 So we've figured out how to build a machine that takes in two numbers from $0$ to $1$ and adds them together, using only our logical connectives/truth functions! We just need one logical variable for the output, and then these two different functions, $\land$ and $\lor$, give us the two output truth values!
 
-It's not exactly what we need for our add-any-number-however-big algorith,. For that, we need some magic addition machine that takes *three* inputs. This one only takes two. I guess it's just a *partial* magic addition machine:
+It's not exactly what we need for our add-any-number-however-big algorithm. For that, we need some magic addition machine that takes *three* inputs. This one only takes two. I guess it's just a *partial* magic addition machine:
 
 ![](partial-magic-addition-machine.svg){ width=50% }
 
@@ -762,7 +762,7 @@ But we don't care about the second digit/bit/carry, so we can just delete that, 
 So that's our full magic addition machine!!!!
 ![](full-magic-addition-machine-construction-8.svg){ width=100% }
 
-
+<!-- 
 ## an excuse to verify
 
 From PS\#9:
@@ -784,4 +784,38 @@ $$\sim d_1 \land \sim c$$
 
 $$\sim(p\land q) \land \sim (r\land (p\oplus q) )$$
 
-$$(\sim p\\lor \sim q)  \land (\sim r \lor \sim(p\oplus q) )$$ -->
+$$(\sim p\lor \sim q)  \land (\sim r \lor \sim(p\oplus q) )$$ 
+For ease of manipulation, I'm going to expand $(p\oplus q)$ into $(p\lor q)\and \sim(p\land q)$. 
+$$(\sim p\lor \sim q)  \land (\sim r \lor (p\lor q)\and \sim(p\land q) )$$ 
+
+$$(\sim p\lor \sim q)  \land (\sim r \lor (p\lor q)\and  \sim r  \lor \sim(p\land q) )$$ 
+
+
+
+
+## let's *really* add
+
+Also on PS\#9: 
+
+<blockquote>
+As the main followup to building a full adder: suppose you want to add together the numbers $a_3a_2 a_1 a_0$ (where each of the $a_i$ is one of the digits; we're concatenating them not multiplying them) and  $b_3 b_2 b_1 b_0$. Can you do it using a bunch of full adders?!?!
+$$\begin{array}{r}
+a_3a_2a_1a_0 \\
++ \quad b_3b_2b_1b_0 \\
+\hline\\
+\end{array}$$
+(Note I start the indexing/subscripts at $0$, to match the corresponding powers of $2$.) A few specific sub-problems. **First**, can you come up with formulas for each of the resulting digits? As we sort of saw, they get more and more complicated the further out you get. In other words, here's our addition
+$$\begin{array}{r}
+a_3a_2 a_1 a_0 \\
++ \quad b_3 b_2 b_1 b_0 \\
+\hline
+s_4s_3s_2s_1s_0
+\end{array}$$
+Can you come up with formulas for $s_0$, $s_1$, $s_2$, and so forth? Here, I'll even be generous and give you the first answer: $s_0 = a_0 \oplus b_0$! You're welcome.
+
+**Second**, can you actually *draw out* this network of adders? I am envisioning something like what Brendan (bless him) drew on the board at the end of class, but more clear. Brendan's diagram was beautiful but its disadvantage was that it didn't make it clear (at least to me) what the original numbers he was adding were. But I think this fixes that! What I want you to do is draw out the *full* network, down to just the AND and XOR gates ("gates" is the name people in electronics usually give to logical functions), but also showing the half-adders and the full-adders as well. (For notational consistency, and so it's easier for us to cross-check, perhaps outline all the half-adders in blue, and the full adders in red?) You could start by writing out a big network of full adders and then expanding; you could try bottom-up and start with just AND and XOR gates (which it seems is what Brendan did?)
+
+(If any of you in the analog electronics class have the components to build simple logic gates, feel free to do so as well!)
+</blockquote> 
+
+-->
