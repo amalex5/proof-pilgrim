@@ -115,7 +115,7 @@ And finally:
 ![](addition-as-magic-black-box-6.svg){ width=100% }
 So if we have this magic addition machine that can take in three single-digit numbers, and spit out two single-digit numbers (or, equivalently, one two-digit number), then we can copy and paste that machine over and over again (... like I did in Adobe Illustrator to make that image) to add together numbers as big as we want! How exactly that magic addition machine works is a different story. Perhaps it memorizes addition tables, or something like that? Regardless, *if* we can add together small numbers, we can use that to add together arbitrarily big numbers.
 
-# Addition, revisited, *but in binary*
+## Addition, revisited, *but in binary*
 
 
 Same deal with numbers in binary! It's the same algorithm---the only thing that's different is how the digits are working. For example, let's add $345$ and $82$!
@@ -208,7 +208,7 @@ So what is this magic black box at the center of this recursive algorithm?!?!? I
 ... which brings us to the quiz problem. 
 
 
-#  Adding numbers using logic!
+##  Adding numbers using logic!
 
 Here's one of the problems we had on the quiz:
 <blockquote>
