@@ -6,15 +6,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>the 2d second derivative test</title>
   <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
   </style>
   <link rel="stylesheet" href="/main.css" />
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
   <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
@@ -55,11 +68,18 @@
 <div class="tocLinks" >
 <nav id="TOC" role="doc-toc">
 <ul>
-<li><a href="#vc">1vc</a></li>
-<li><a href="#into-2vc">Into 2VC</a></li>
-<li><a href="#okay-but-how-do-we-figure-out-if-parabaloids-open-up-or-down">Okay, but how do we figure out if parabaloids open up or down?</a></li>
-<li><a href="#the-one-dimensional-second-derivative-test-for-extrema">The One-Dimensional Second Derivative Test for Extrema</a></li>
-<li><a href="#the-two-dimensional-second-derivative-test-for-extrema">The Two-Dimensional Second Derivative Test For Extrema</a></li>
+<li><a href="#vc" id="toc-vc">1vc</a></li>
+<li><a href="#into-2vc" id="toc-into-2vc">Into 2VC</a></li>
+<li><a
+href="#okay-but-how-do-we-figure-out-if-parabaloids-open-up-or-down"
+id="toc-okay-but-how-do-we-figure-out-if-parabaloids-open-up-or-down">Okay,
+but how do we figure out if parabaloids open up or down?</a></li>
+<li><a href="#the-one-dimensional-second-derivative-test-for-extrema"
+id="toc-the-one-dimensional-second-derivative-test-for-extrema">The
+One-Dimensional Second Derivative Test for Extrema</a></li>
+<li><a href="#the-two-dimensional-second-derivative-test-for-extrema"
+id="toc-the-two-dimensional-second-derivative-test-for-extrema">The
+Two-Dimensional Second Derivative Test For Extrema</a></li>
 </ul>
 </nav>
 </div>
@@ -70,10 +90,16 @@
 <div id="title-block">
 <h1 class="title">the 2d second derivative test</h1>
 </div>
-So in 1VC, we have a simple way to figure out whether a <strong>critical point</strong> (a point where the derivative is zero) is a maximum or a minimum: look at the second derivative! If the second derivative is positive, it’s a minimum; if the second derivative is negative, it’s a maximum:
-<div style="text-align:left; width: 75%; font-size: 80%; border: 0.25pt solid black; padding: 1em;">
+So in 1VC, we have a simple way to figure out whether a <strong>critical
+point</strong> (a point where the derivative is zero) is a maximum or a
+minimum: look at the second derivative! If the second derivative is
+positive, it’s a minimum; if the second derivative is negative, it’s a
+maximum:
+<div
+style="display: flex; gap: 3rem; align-items: center; justify-content: center; width: fit-content; margin: 0 auto; border: 0.25pt solid black; padding: 1em;">
 <div style="text-align:center; width: 25em; font-size: 80%">
-<div style="font-size: 100%; font-weight:bold; border-bottom:.25pt solid black; margin-bottom:0.25em">
+<div
+style="font-size: 100%; font-weight:bold; border-bottom:.25pt solid black; margin-bottom:0.25em">
 The 1VC second derivative test for extrema
 </div>
 <div style="font-weight: bold;">
@@ -97,39 +123,75 @@ that point is a minimum!!!!
 </div>
 </div>
 </div>
-<p>The 2VC equivalent of this is… more elaborate. I’ll try to explain some of the reasoning in a bit, but first, I’ll just describe the test/criteria themselves:</p>
-<div style="text-align:left; width: 75%; font-size: 80%; border: 0.25pt solid black; padding: 1em;">
-<div style="font-size: 100%; font-weight:bold; border-bottom:.25pt solid black; margin-bottom:0.25em; text-align: center;">
+<p>The 2VC equivalent of this is… more elaborate. I’ll try to explain
+some of the reasoning in a bit, but first, I’ll just describe the
+test/criteria themselves:</p>
+<div
+style="text-align:left; width: 75%; font-size: 80%; border: 0.25pt solid black; padding: 1em; margin: 0 auto">
+<div
+style="font-size: 100%; font-weight:bold; border-bottom:.25pt solid black; margin-bottom:0.25em; text-align: center;">
 The 2VC second derivative test for extrema
 </div>
 <div>
 <p>Suppose we have a function:</p>
-<p><span class="math display">\[f(x,y) :: \mathbb{R}^2 \rightarrow \mathbb{R}^1\]</span></p>
-<p>And some point on <span class="math inline">\(f\)</span> given by the <span class="math inline">\(x\)</span>-coordinate <span class="math inline">\(c\)</span> and <span class="math inline">\(y\)</span>-coordinate <span class="math inline">\(d\)</span>; i.e., the point <span class="math inline">\((c,d)\)</span>, or, including the <span class="math inline">\(z\)</span>-coordinate:</p>
+<p><span class="math display">\[f(x,y) :: \mathbb{R}^2 \rightarrow
+\mathbb{R}^1\]</span></p>
+<p>And some point on <span class="math inline">\(f\)</span> given by the
+<span class="math inline">\(x\)</span>-coordinate <span
+class="math inline">\(c\)</span> and <span
+class="math inline">\(y\)</span>-coordinate <span
+class="math inline">\(d\)</span>; i.e., the point <span
+class="math inline">\((c,d)\)</span>, or, including the <span
+class="math inline">\(z\)</span>-coordinate:</p>
 <p><span class="math display">\[\big(c,\, d,\, f(c,d)\big)\]</span></p>
-<p>Such that both the partial derivatives, evaluated at <span class="math inline">\(x=c\)</span> and <span class="math inline">\(y=d\)</span>, are zero:</p>
-<p><span class="math display">\[\frac{\partial f}{\partial x} \text{ at } (x=c,y=d) \quad = 0\]</span> <span class="math display">\[\frac{\partial f}{\partial y} \text{ at } (x=c,y=d) \quad = 0\]</span></p>
-<p>Then whether or not the point that point is a minimum, a maximum, or neither, is given by calculating the following quantity involving the second partial derivatives, all evaluated at that point:</p>
-<p><span class="math display">\[H = \frac{\partial^2 f}{\partial x^2}\cdot\frac{\partial^2 f}{\partial y^2} - \left( \frac{\partial^2 f}{\partial x\partial y} \right)^2 \]</span></p>
+<p>Such that both the partial derivatives, evaluated at <span
+class="math inline">\(x=c\)</span> and <span
+class="math inline">\(y=d\)</span>, are zero:</p>
+<p><span class="math display">\[\frac{\partial f}{\partial x} \text{ at
+} (x=c,y=d) \quad = 0\]</span> <span
+class="math display">\[\frac{\partial f}{\partial y} \text{ at }
+(x=c,y=d) \quad = 0\]</span></p>
+<p>Then whether or not the point that point is a minimum, a maximum, or
+neither, is given by calculating the following quantity involving the
+second partial derivatives, all evaluated at that point:</p>
+<p><span class="math display">\[H = \frac{\partial^2 f}{\partial
+x^2}\cdot\frac{\partial^2 f}{\partial y^2} - \left( \frac{\partial^2
+f}{\partial x\partial y} \right)^2 \]</span></p>
 <p>Then:</p>
 <ul>
-<li><p>If <span class="math inline">\(H&lt;0\)</span>, then <span class="math inline">\((c,d)\)</span> is a <strong>saddle point</strong> (like a mountain pass, or the point in the middle of a Pringle)</p></li>
+<li><p>If <span class="math inline">\(H&lt;0\)</span>, then <span
+class="math inline">\((c,d)\)</span> is a <strong>saddle point</strong>
+(like a mountain pass, or the point in the middle of a Pringle)</p></li>
 <li><p>If <span class="math inline">\(H&gt;0\)</span>, then:</p>
 <ul>
-<li><p>If <span class="math inline">\(\frac{\partial^2 f}{\partial x^2}\)</span> (evaluated at <span class="math inline">\((c,d)\)</span>) is less than <span class="math inline">\(0\)</span>, then <span class="math inline">\((c,d)\)</span> is a <strong>maximum</strong>.</p></li>
-<li><p>If <span class="math inline">\(\frac{\partial^2 f}{\partial x^2}\)</span> (evaluated at <span class="math inline">\((c,d)\)</span>) is greater than <span class="math inline">\(0\)</span>, then <span class="math inline">\((c,d)\)</span> is a <strong>minimum</strong>.</p></li>
+<li><p>If <span class="math inline">\(\frac{\partial^2 f}{\partial
+x^2}\)</span> (evaluated at <span class="math inline">\((c,d)\)</span>)
+is less than <span class="math inline">\(0\)</span>, then <span
+class="math inline">\((c,d)\)</span> is a
+<strong>maximum</strong>.</p></li>
+<li><p>If <span class="math inline">\(\frac{\partial^2 f}{\partial
+x^2}\)</span> (evaluated at <span class="math inline">\((c,d)\)</span>)
+is greater than <span class="math inline">\(0\)</span>, then <span
+class="math inline">\((c,d)\)</span> is a
+<strong>minimum</strong>.</p></li>
 </ul></li>
-<li><p>If <span class="math inline">\(H=0\)</span>, then who knows!</p></li>
+<li><p>If <span class="math inline">\(H=0\)</span>, then who
+knows!</p></li>
 </ul>
 </div>
 </div>
 <p>Yikes.</p>
-<p>OK, we’ll try to get <em>some</em> intuition for where this comes from, but first, let’s think about the classic 1VC test for extrema, in a little more detail.</p>
+<p>OK, we’ll try to get <em>some</em> intuition for where this comes
+from, but first, let’s think about the classic 1VC test for extrema, in
+a little more detail.</p>
 <h2 id="vc">1vc</h2>
-<p>The classic 1VC test to figure out whether a point is a minimum or a maximum is:</p>
-<div style="text-align:center; display:flex;gap: 3rem; align-items: center;">
+The classic 1VC test to figure out whether a point is a minimum or a
+maximum is:
+<div
+style="display: flex; align-items: center; justify-content: center; width: fit-content; margin: 0 auto; padding: 1em;">
 <div style="text-align:center; width: 25em; font-size: 80%">
-<div style="font-size: 100%; font-weight:bold; border-bottom:.25pt solid black; margin-bottom:0.25em">
+<div
+style="font-size: 100%; font-weight:bold; border-bottom:.25pt solid black; margin-bottom:0.25em">
 The 1VC second derivative test for extrema
 </div>
 <div style="font-weight: bold;">
@@ -153,22 +215,33 @@ that point is a minimum!!!!
 </div>
 </div>
 </div>
-I’ve written some pretty detailed notes about why all this is true, which you can read elsewhere, but since I’m trying to motivate the <em>two</em>-dimensional second derivative test here, I’m not going to elaborate on why this is true, but instead propose a much more convoluted, much more elaborate, way of putting it. (Bear with me for a moment—it’s about making this analogy to the 2VC case.) So, put more elaborately, this 1VC second derivative test for extrema is:
+I’ve written some pretty detailed notes about why all this is true,
+which you can read elsewhere, but since I’m trying to motivate the
+<em>two</em>-dimensional second derivative test here, I’m not going to
+elaborate on why this is true, but instead propose a much more
+convoluted, much more elaborate, way of putting it. (Bear with me for a
+moment—it’s about making this analogy to the 2VC case.) So, put more
+elaborately, this 1VC second derivative test for extrema is:
+<div
+style="display: flex; align-items: center; justify-content: center; width: fit-content; margin: 0 auto; padding: 1em;">
 <div style="text-align:center; width: 25em; font-size: 80%">
-<div style="font-size: 100%; font-weight:bold; border-bottom:.25pt solid black; margin-bottom:0.25em">
+<div
+style="font-size: 100%; font-weight:bold; border-bottom:.25pt solid black; margin-bottom:0.25em">
 The 1VC second derivative test for extrema<br>(complicated phrasing)
 </div>
 <div style="font-weight: bold;">
 if
 </div>
 <div>
-the first-order Taylor series/polynomial approximation is a flat straight line
+the first-order Taylor series/polynomial approximation is a flat
+straight line
 </div>
 <div style="font-weight: bold;">
 and
 </div>
 <div>
-the quadratic Taylor series/polynomial approximation is an upwards-opening parabola
+the quadratic Taylor series/polynomial approximation is an
+upwards-opening parabola
 </div>
 <div style="font-weight:bold;font-style:italic;;margin-top:0.25em;">
 then
@@ -178,20 +251,88 @@ that point is a minimum!!!!
 </div>
 </div>
 </div>
-<p>This seems like a much more convoluted way of saying exactly the same thing! And it is. Give me a moment to justify it. Suppose we have some function, with a minimum at <span class="math inline">\(x=c\)</span> and <span class="math inline">\(y=f(c)\)</span>: <img src="1vc-second-derivative-test-1.svg" /> Saying that “the first-order Taylor series/polynomial approximation is a flat straight line” is just a more complicated way of saying “the first derivative is zero.” Algebraically, the Taylor series of a function (around <span class="math inline">\(x=c\)</span>) is: <span class="math display">\[f(x) \approx f(c) + f&#39;(x)\!\cdot\! (x-c) \,\, + \frac{f&#39;&#39;(c)}{2}(x-c)^2 + \frac{f&#39;&#39;&#39;(c)}{3}(x-c)^3 + \cdots\]</span> so the first-order Taylor series/polynomial approximation/linear approximation/tangent line approximation (different names for the same thing) is just: <span class="math display">\[f(x) \approx \underbrace{f(c) + f&#39;(c)\!\cdot\! (x-c)}_{\text{linear approx}} \quad {\color{lightgray}+ \frac{f&#39;&#39;(c)}{2}(x-c)^2 + \frac{f&#39;&#39;&#39;(c)}{3}(x-c)^3 + \cdots}\]</span> so the first derivative being zero at that point means it’s just a flat straight line: <span class="math display">\[\begin{align*}
-f(x) &amp;\approx \underbrace{f(c) + 0\!\cdot\! (x-c)}_{\text{linear approx}} \quad {\color{lightgray}+ \frac{f&#39;&#39;(c)}{2}(x-c)^2 + \frac{f&#39;&#39;&#39;(c)}{3}(x-c)^3 + \cdots} \\
+</div>
+<p>This seems like a much more convoluted way of saying exactly the same
+thing! And it is. Give me a moment to justify it. Suppose we have some
+function, with a minimum at <span class="math inline">\(x=c\)</span> and
+<span class="math inline">\(y=f(c)\)</span>: <img
+src="1vc-second-derivative-test-1.svg" /> Saying that “the first-order
+Taylor series/polynomial approximation is a flat straight line” is just
+a more complicated way of saying “the first derivative is zero.”
+Algebraically, the Taylor series of a function (around <span
+class="math inline">\(x=c\)</span>) is: <span
+class="math display">\[f(x) \approx f(c) + f&#39;(x)\!\cdot\! (x-c) \,\,
++ \frac{f&#39;&#39;(c)}{2}(x-c)^2 + \frac{f&#39;&#39;&#39;(c)}{3}(x-c)^3
++ \cdots\]</span> so the first-order Taylor series/polynomial
+approximation/linear approximation/tangent line approximation (different
+names for the same thing) is just: <span class="math display">\[f(x)
+\approx \underbrace{f(c) + f&#39;(c)\!\cdot\! (x-c)}_{\text{linear
+approx}} \quad {\color{lightgray}+ \frac{f&#39;&#39;(c)}{2}(x-c)^2 +
+\frac{f&#39;&#39;&#39;(c)}{3}(x-c)^3 + \cdots}\]</span> so the first
+derivative being zero at that point means it’s just a flat straight
+line: <span class="math display">\[\begin{align*}
+f(x) &amp;\approx \underbrace{f(c) + 0\!\cdot\! (x-c)}_{\text{linear
+approx}} \quad {\color{lightgray}+ \frac{f&#39;&#39;(c)}{2}(x-c)^2 +
+\frac{f&#39;&#39;&#39;(c)}{3}(x-c)^3 + \cdots} \\
 &amp;\approx f(c) + 0x \\
 &amp;\approx f(c)
-\end{align*}\]</span> Visually, here’s what that looks like. Here’s the first-order Taylor series/polynomial approximation (which last year in 1VC you probably just called the <strong>tangent line approximation</strong>) to the function, at that point: <img src="1vc-second-derivative-test-2.svg" /> See? It’s flat! It’s just a flat line at <span class="math inline">\(y=f(c)\)</span>!!!</p>
-<p>Meanwhile, “the quadratic Taylor series/polynomial approximation is an upwards-opening parabola” is the same as saying “the second derivative is positive” is a complicated way of saying “the <span class="math inline">\(x^2\)</span> term is negative.” Why? Imagine we have a random quadratic, like: <span class="math display">\[5x^2+4x+3\]</span> Does it open up or down? Up! How do we know? Because the coefficient on the <span class="math inline">\(x^2\)</span> is positive! What about this one: <span class="math display">\[-5x^2+4x+3\]</span> Now it opens downwards! Why? Because the coefficient on the <span class="math inline">\(x^2\)</span> is negative!</p>
-<p>So suppose we have our quadratic approximation: <span class="math display">\[f(x) \approx \underbrace{f(c) + f&#39;(c)\!\cdot\! (x-c)+ \frac{f&#39;&#39;(c)}{2}(x-c)^2}_{\text{quadratic approx}}  \quad {\color{lightgray} + \frac{f&#39;&#39;&#39;(c)}{3}(x-c)^3 + \cdots}\]</span> It’s a parabola! Here’s what it looks like: <img src="1vc-second-derivative-test-3.svg" /> What determines whether it’s an upwards- or downwards-opening parabola is the coefficient on the <span class="math inline">\(x^2\)</span> term: <span class="math display">\[f(x)\quad \approx\quad f(c) \quad+\quad f&#39;(c)(x-c) \quad+\quad \underbrace{\frac{f&#39;&#39;(c)}{2}}_{\mathclap{\substack{\text{determines whether it}\\\text{opens up or down}}}}(x-c)^2 \]</span> There’s a dividing-by-two in there, too, but that doesn’t make a difference; what matters is whether the second derivative at that point—<span class="math inline">\(f&#39;&#39;(c)\)</span>—is positive or negative. In our example here, it’s positive, so we have a minimum: <img src="1vc-second-derivative-test-4.svg" /> Actually, the Taylor series formula is an even simpler parabola: we already know the linear term is zero: <span class="math display">\[\begin{align*}
-f(x) &amp;\approx f(c) + \underbrace{f&#39;(c)\!\cdot\! (x-c)}_{=0} + \frac{f&#39;&#39;(c)}{2}(x-c)^2 \\ \\
+\end{align*}\]</span> Visually, here’s what that looks like. Here’s the
+first-order Taylor series/polynomial approximation (which last year in
+1VC you probably just called the <strong>tangent line
+approximation</strong>) to the function, at that point: <img
+src="1vc-second-derivative-test-2.svg" /> See? It’s flat! It’s just a
+flat line at <span class="math inline">\(y=f(c)\)</span>!!!</p>
+<p>Meanwhile, “the quadratic Taylor series/polynomial approximation is
+an upwards-opening parabola” is the same as saying “the second
+derivative is positive” is a complicated way of saying “the <span
+class="math inline">\(x^2\)</span> term is negative.” Why? Imagine we
+have a random quadratic, like: <span
+class="math display">\[5x^2+4x+3\]</span> Does it open up or down? Up!
+How do we know? Because the coefficient on the <span
+class="math inline">\(x^2\)</span> is positive! What about this one:
+<span class="math display">\[-5x^2+4x+3\]</span> Now it opens downwards!
+Why? Because the coefficient on the <span
+class="math inline">\(x^2\)</span> is negative!</p>
+<p>So suppose we have our quadratic approximation: <span
+class="math display">\[f(x) \approx \underbrace{f(c) +
+f&#39;(c)\!\cdot\! (x-c)+
+\frac{f&#39;&#39;(c)}{2}(x-c)^2}_{\text{quadratic approx}}  \quad
+{\color{lightgray} + \frac{f&#39;&#39;&#39;(c)}{3}(x-c)^3 +
+\cdots}\]</span> It’s a parabola! Here’s what it looks like: <img
+src="1vc-second-derivative-test-3.svg" /> What determines whether it’s
+an upwards- or downwards-opening parabola is the coefficient on the
+<span class="math inline">\(x^2\)</span> term: <span
+class="math display">\[f(x)\quad \approx\quad f(c) \quad+\quad
+f&#39;(c)(x-c) \quad+\quad
+\underbrace{\frac{f&#39;&#39;(c)}{2}}_{\mathclap{\substack{\text{determines
+whether it}\\\text{opens up or down}}}}(x-c)^2 \]</span> There’s a
+dividing-by-two in there, too, but that doesn’t make a difference; what
+matters is whether the second derivative at that point—<span
+class="math inline">\(f&#39;&#39;(c)\)</span>—is positive or negative.
+In our example here, it’s positive, so we have a minimum: <img
+src="1vc-second-derivative-test-4.svg" /> Actually, the Taylor series
+formula is an even simpler parabola: we already know the linear term is
+zero: <span class="math display">\[\begin{align*}
+f(x) &amp;\approx f(c) + \underbrace{f&#39;(c)\!\cdot\! (x-c)}_{=0} +
+\frac{f&#39;&#39;(c)}{2}(x-c)^2 \\ \\
 &amp;\approx f(c) + \frac{f&#39;&#39;(c)}{2}(x-c)^2 \\ \\
 \end{align*}\]</span></p>
-<p>So that’s our logic: if the second derivative is positive, that’s the same as saying that the quadratic term in the Taylor series is positive, which is the same as saying that the quadratic Taylor series is an upwards-opening parabola: <span class="math display">\[\substack{\text{the quadratic/second order}\\\text{Taylor series/polynomial approximation}\\\text{is an upwards-opening parabola}} \iff \substack{\text{the $x^2$ term}\\\text{is positive}} \iff \substack{\text{the second derivative}\\\text{is positive}}\]</span> So then, we have this very simple way of phrasing the 1VC second derivative test for extrema, and this more-elaborate-for-unclear-reasons way of phrasing it:</p>
-<div style="text-align:center; display:flex;gap: 3rem; align-items: center; margin: 0 auto;">
+<p>So that’s our logic: if the second derivative is positive, that’s the
+same as saying that the quadratic term in the Taylor series is positive,
+which is the same as saying that the quadratic Taylor series is an
+upwards-opening parabola: <span
+class="math display">\[\substack{\text{the quadratic/second
+order}\\\text{Taylor series/polynomial approximation}\\\text{is an
+upwards-opening parabola}} \iff \substack{\text{the $x^2$
+term}\\\text{is positive}} \iff \substack{\text{the second
+derivative}\\\text{is positive}}\]</span> So then, we have this very
+simple way of phrasing the 1VC second derivative test for extrema, and
+this more-elaborate-for-unclear-reasons way of phrasing it:</p>
+<div
+style="text-align:center; display:flex;gap: 2rem; align-items: flex-start; margin: 0 auto;">
 <div style="text-align:center; width: 25em; font-size: 80%">
-<div style="font-size: 100%; font-weight:bold; border-bottom:.25pt solid black; margin-bottom:0.25em">
+<div
+style="font-size: 100%; font-weight:bold; border-bottom:.25pt solid black; margin-bottom:0.25em">
 The 1VC second derivative test for extrema<br>(simple phrasing)
 </div>
 <div style="font-weight: bold;">
@@ -213,24 +354,24 @@ then
 that point is a minimum!!!!
 </div>
 </div>
-<div style="width:3em;">
-
-</div>
 <div style="text-align:center; width: 25em; font-size: 80%">
-<div style="font-size: 100%; font-weight:bold; border-bottom:.25pt solid black; margin-bottom:0.25em">
+<div
+style="font-size: 100%; font-weight:bold; border-bottom:.25pt solid black; margin-bottom:0.25em">
 The 1VC second derivative test for extrema<br>(complicated phrasing)
 </div>
 <div style="font-weight: bold;">
 if
 </div>
 <div>
-the zeroth-order Taylor series/polynomial approximation is a flat straight line
+the zeroth-order Taylor series/polynomial approximation is a flat
+straight line
 </div>
 <div style="font-weight: bold;">
 and
 </div>
 <div>
-the quadratic Taylor series/polynomial approximation is an upwards-opening parabola
+the quadratic Taylor series/polynomial approximation is an
+upwards-opening parabola
 </div>
 <div style="font-weight:bold;font-style:italic;;margin-top:0.25em;">
 then
@@ -241,23 +382,36 @@ that point is a minimum!!!!
 </div>
 </div>
 <h2 id="into-2vc">Into 2VC</h2>
-<p>OK, but making things complicated for the sake of making things complicated is dumb. We should try to make things as <em>simple</em> as possible—rather than, as all too often happens in math teaching, make simple things complicated.</p>
-Here, though, there’s some payoff (I think) for making the 1VC second derivative test a little more complicated, because it makes the very complicated 2VC test more simple. Here’s the analgous, much simpler 2VC second derivative test:
+<p>OK, but making things complicated for the sake of making things
+complicated is dumb. We should try to make things as <em>simple</em> as
+possible—rather than, as all too often happens in math teaching, make
+simple things complicated.</p>
+Here, though, there’s some payoff (I think) for making the 1VC second
+derivative test a little more complicated, because it makes the very
+complicated 2VC test more simple. Here’s the analgous, much simpler 2VC
+second derivative test:
+<div
+style="display: flex; align-items: center; justify-content: center; width: fit-content; margin: 0 auto; padding: 1em;">
 <div style="text-align:center; width: 25em; font-size: 80%">
-<div style="font-size: 100%; font-weight:bold; border-bottom:.25pt solid black; margin-bottom:0.25em">
+<div
+style="font-size: 100%; font-weight:bold; border-bottom:.25pt solid black; margin-bottom:0.25em">
 The 2VC second derivative test for extrema<br> (simple phrasing)
 </div>
 <div style="font-weight: bold;">
 if
 </div>
 <div>
-the zeroth-order Taylor series/polynomial approximation is a flat straight <span style="font-style:italic; text-decoration:underline;">plane</span>
+the zeroth-order Taylor series/polynomial approximation is a flat
+straight <span
+style="font-style:italic; text-decoration:underline;">plane</span>
 </div>
 <div style="font-weight: bold;">
 and
 </div>
 <div>
-the quadratic Taylor series/polynomial approximation is a downwards-opening parabo<span style="font-style:italic; text-decoration:underline;">loid</span>
+the quadratic Taylor series/polynomial approximation is a
+downwards-opening parabo<span
+style="font-style:italic; text-decoration:underline;">loid</span>
 </div>
 <div style="font-weight:bold;font-style:italic;;margin-top:0.25em;">
 then
@@ -266,14 +420,92 @@ then
 that point is a maximum!!!!
 </div>
 </div>
-<p>Let’s do the visual version. Here’s a two-dimensional surface, with a minimum: <img src="2vc-second-derivative-test-1.svg" /> Please forgive me for my bad hand-drawn wireframes. Anyway, imagine we have the first-order Taylor series/polynomial approximation/tangent plane: <img src="2vc-second-derivative-test-2.svg" /> Look! It’s flat! That corresponds to both the first partials being zero! And then suppose we have the second-order/quadratic Taylor series/polynomial approximation/tangent parabaloid: <img src="2vc-second-derivative-test-3.svg" /> Look! It’s opening up!!!</p>
-<p>The algebra behind all this gets nasty. But this really is the core idea:</p>
+</div>
+<p>Let’s do the visual version. Here’s a two-dimensional surface, with a
+minimum: <img src="2vc-second-derivative-test-1.svg" /> Please forgive
+me for my bad hand-drawn wireframes. Anyway, imagine we have the
+first-order Taylor series/polynomial approximation/tangent plane: <img
+src="2vc-second-derivative-test-2.svg" /> Look! It’s flat! That
+corresponds to both the first partials being zero! And then suppose we
+have the second-order/quadratic Taylor series/polynomial
+approximation/tangent parabaloid: <img
+src="2vc-second-derivative-test-3.svg" /> Look! It’s opening up!!!</p>
+<p>The algebra behind all this gets nasty. But this really is the core
+idea:</p>
 <ul>
-<li><strong>in 1VC</strong>: a flat tangent line; an upwards-opening tangent parabola</li>
-<li><strong>in 2VC</strong>: a flat tangent plane; an upwards-opening tangent parabaloid</li>
+<li><strong>in 1VC</strong>: a flat tangent line; an upwards-opening
+tangent parabola</li>
+<li><strong>in 2VC</strong>: a flat tangent <span
+style="font-style:italic; text-decoration:underline;">plane</span>; an
+upwards-opening tangent parabo<span
+style="font-style:italic; text-decoration:underline;">loid</span></li>
 </ul>
-<h2 id="okay-but-how-do-we-figure-out-if-parabaloids-open-up-or-down">Okay, but how do we figure out if parabaloids open up or down?</h2>
-<p>So the intuition here is straightforward: we just need to figure out whether the quadratic Taylor approximation is an upwards-pointing parabaloid or a downward-pointing parabaloid. And that’s where we get into all these details.</p>
+<p>So we can see how, regardless of whether we’re operating in 1VC or
+2VC, the ideas are analgous:</p>
+<div
+style="text-align:center; display:flex;gap: 3rem; align-items: flex-start; margin: 0 auto;">
+<div style="text-align:center; width: 25em; font-size: 80%">
+<div
+style="font-size: 100%; font-weight:bold; border-bottom:.25pt solid black; margin-bottom:0.25em">
+The 1VC second derivative test for extrema
+</div>
+<div style="font-weight: bold;">
+if
+</div>
+<div>
+the zeroth-order Taylor series/polynomial approximation is a flat
+straight line
+</div>
+<div style="font-weight: bold;">
+and
+</div>
+<div>
+the quadratic Taylor series/polynomial approximation is an
+upwards-opening parabola
+</div>
+<div style="font-weight:bold;font-style:italic;;margin-top:0.25em;">
+then
+</div>
+<div>
+that point is a minimum!!!!
+</div>
+</div>
+<div style="text-align:center; width: 25em; font-size: 80%">
+<div
+style="font-size: 100%; font-weight:bold; border-bottom:.25pt solid black; margin-bottom:0.25em">
+The 2VC second derivative test for extrema
+</div>
+<div style="font-weight: bold;">
+if
+</div>
+<div>
+the zeroth-order Taylor series/polynomial approximation is a flat
+straight <span
+style="font-style:italic; text-decoration:underline;">plane</span>
+</div>
+<div style="font-weight: bold;">
+and
+</div>
+<div>
+the quadratic Taylor series/polynomial approximation is a
+downwards-opening parabo<span
+style="font-style:italic; text-decoration:underline;">loid</span>
+</div>
+<div style="font-weight:bold;font-style:italic;;margin-top:0.25em;">
+then
+</div>
+<div>
+that point is a maximum!!!!
+</div>
+</div>
+</div>
+<h2
+id="okay-but-how-do-we-figure-out-if-parabaloids-open-up-or-down">Okay,
+but how do we figure out if parabaloids open up or down?</h2>
+<p>So the intuition here is straightforward: we just need to figure out
+whether the quadratic Taylor approximation is an upwards-pointing
+parabaloid or a downward-pointing parabaloid. And that’s where we get
+into all these details.</p>
 <p>In 1VC, polynomials have:</p>
 <ul>
 <li>one constant term</li>
@@ -293,14 +525,21 @@ that point is a maximum!!!!
 <p>In 2VC, polynomials have:</p>
 <ul>
 <li>one constant term</li>
-<li>two linear terms (<span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>)</li>
-<li>three quadratic terms (<span class="math inline">\(x^2\)</span>, <span class="math inline">\(y^2\)</span>, and <span class="math inline">\(xy\)</span>)</li>
-<li>four cubic terms (<span class="math inline">\(x^3\)</span>, <span class="math inline">\(x^2y\)</span>, <span class="math inline">\(xy^2\)</span>, and <span class="math inline">\(y^3\)</span>)</li>
+<li>two linear terms (<span class="math inline">\(x\)</span> and <span
+class="math inline">\(y\)</span>)</li>
+<li>three quadratic terms (<span class="math inline">\(x^2\)</span>,
+<span class="math inline">\(y^2\)</span>, and <span
+class="math inline">\(xy\)</span>)</li>
+<li>four cubic terms (<span class="math inline">\(x^3\)</span>, <span
+class="math inline">\(x^2y\)</span>, <span
+class="math inline">\(xy^2\)</span>, and <span
+class="math inline">\(y^3\)</span>)</li>
 <li>etc.</li>
 </ul>
 <p>The 1VC test for extrema:</p>
 <p>if we have a point at which</p>
-<p>the first derivative is zero and the second derivative is negative then that point is a maximum!!!!</p>
+<p>the first derivative is zero and the second derivative is negative
+then that point is a maximum!!!!</p>
 <div style="text-align:center; width: 25em; font-size: 80%">
 <div>
 the first derivative is zero
@@ -318,17 +557,20 @@ then
 that point is a maximum!!!!
 </div>
 </div>
-<p>Here’s a much more convoluted, much more elaborate, way of putting that same statement or, put somewhat more elaborately</p>
+<p>Here’s a much more convoluted, much more elaborate, way of putting
+that same statement or, put somewhat more elaborately</p>
 <p>if we have a point at which</p>
 <div style="text-align:center; width: 25em; font-size: 80%">
 <div>
-the zeroth-order Taylor series/polynomial approximation is a flat straight line
+the zeroth-order Taylor series/polynomial approximation is a flat
+straight line
 </div>
 <div style="font-weight: bold;">
 and
 </div>
 <div>
-the quadratic Taylor series/polynomial approximation is a downwards-opening parabola
+the quadratic Taylor series/polynomial approximation is a
+downwards-opening parabola
 </div>
 <div style="font-weight:bold;font-style:italic;;margin-top:0.25em;">
 then
@@ -337,10 +579,25 @@ then
 that point is a maximum!!!!
 </div>
 </div>
-<p>This takes a simple statement and makes it way more complicated, but bear with me!</p>
-<p>“the zeroth-order Taylor series/polynomial approximation is a flat straight line” is just a convoluted way of saying “the first derivative is zero”. like, a taylor series, around <span class="math inline">\(x=c\)</span> is:</p>
-<p><span class="math display">\[f(x) \approx f(c) + f&#39;(x)\!\cdot\! (x-c) \,\, + \frac{f&#39;&#39;(c)}{2}(x-c)^2 + \frac{f&#39;&#39;&#39;(c)}{3}(x-c)^3 + \cdots\]</span> so the zeroth-order Taylor series/polynomial approximation is just: <span class="math display">\[f(x) \approx \underbrace{f(c) + f&#39;(c)\!\cdot\! (x-c)}_{\text{linear approx}} \quad {\color{lightgray}+ \frac{f&#39;&#39;(c)}{2}(x-c)^2 + \frac{f&#39;&#39;&#39;(c)}{3}(x-c)^3 + \cdots}\]</span> so the first derivative being zero at that point means it’s just a flat straight line: <span class="math display">\[\begin{align*}
-f(x) &amp;\approx \underbrace{f(c) + 0\!\cdot\! (x-c)}_{\text{linear approx}} \quad {\color{lightgray}+ \frac{f&#39;&#39;(c)}{2}(x-c)^2 + \frac{f&#39;&#39;&#39;(c)}{3}(x-c)^3 + \cdots} \\
+<p>This takes a simple statement and makes it way more complicated, but
+bear with me!</p>
+<p>“the zeroth-order Taylor series/polynomial approximation is a flat
+straight line” is just a convoluted way of saying “the first derivative
+is zero”. like, a taylor series, around <span
+class="math inline">\(x=c\)</span> is:</p>
+<p><span class="math display">\[f(x) \approx f(c) + f&#39;(x)\!\cdot\!
+(x-c) \,\, + \frac{f&#39;&#39;(c)}{2}(x-c)^2 +
+\frac{f&#39;&#39;&#39;(c)}{3}(x-c)^3 + \cdots\]</span> so the
+zeroth-order Taylor series/polynomial approximation is just: <span
+class="math display">\[f(x) \approx \underbrace{f(c) +
+f&#39;(c)\!\cdot\! (x-c)}_{\text{linear approx}} \quad
+{\color{lightgray}+ \frac{f&#39;&#39;(c)}{2}(x-c)^2 +
+\frac{f&#39;&#39;&#39;(c)}{3}(x-c)^3 + \cdots}\]</span> so the first
+derivative being zero at that point means it’s just a flat straight
+line: <span class="math display">\[\begin{align*}
+f(x) &amp;\approx \underbrace{f(c) + 0\!\cdot\! (x-c)}_{\text{linear
+approx}} \quad {\color{lightgray}+ \frac{f&#39;&#39;(c)}{2}(x-c)^2 +
+\frac{f&#39;&#39;&#39;(c)}{3}(x-c)^3 + \cdots} \\
 &amp;\approx f(c) + 0x \\
 &amp;\approx f(c)
 \end{align*}\]</span></p>
@@ -348,13 +605,15 @@ f(x) &amp;\approx \underbrace{f(c) + 0\!\cdot\! (x-c)}_{\text{linear approx}} \q
 <p>thus, the 2VC test for extrema:</p>
 <div style="text-align:center; width: 25em; font-size: 80%">
 <div>
-the zeroth-order Taylor series/polynomial approximation is a flat straight plane
+the zeroth-order Taylor series/polynomial approximation is a flat
+straight plane
 </div>
 <div style="font-weight: bold;">
 and
 </div>
 <div>
-the quadratic Taylor series/polynomial approximation is a downwards-opening paraboloid
+the quadratic Taylor series/polynomial approximation is a
+downwards-opening paraboloid
 </div>
 <div style="font-weight:bold;font-style:italic;;margin-top:0.25em;">
 then
@@ -363,22 +622,26 @@ then
 that point is a maximum!!!!
 </div>
 </div>
-<div style="text-align:center; display:flex;gap: 3rem; align-items: center;">
+<div
+style="text-align:center; display:flex;gap: 3rem; align-items: center;">
 <div style="text-align:center; width: 25em; font-size: 80%">
-<div style="font-size: 100%; font-weight:bold; border-bottom:.25pt solid black; margin-bottom:0.25em">
+<div
+style="font-size: 100%; font-weight:bold; border-bottom:.25pt solid black; margin-bottom:0.25em">
 The 1VC second derivative test for extrema
 </div>
 <div style="font-weight: bold;">
 if
 </div>
 <div>
-the zeroth-order Taylor series/polynomial approximation is a flat straight <em>line</em>
+the zeroth-order Taylor series/polynomial approximation is a flat
+straight <em>line</em>
 </div>
 <div style="font-weight: bold;">
 and
 </div>
 <div>
-the quadratic Taylor series/polynomial approximation is a downwards-opening parabola
+the quadratic Taylor series/polynomial approximation is a
+downwards-opening parabola
 </div>
 <div style="font-weight:bold;font-style:italic;;margin-top:0.25em;">
 then
@@ -391,20 +654,23 @@ that point is a maximum!!!!
 
 </div>
 <div style="text-align:center; width: 25em; font-size: 80%">
-<div style="font-size: 100%; font-weight:bold; border-bottom:.25pt solid black; margin-bottom:0.25em">
+<div
+style="font-size: 100%; font-weight:bold; border-bottom:.25pt solid black; margin-bottom:0.25em">
 The 2VC second derivative test for extrema
 </div>
 <div style="font-weight: bold;">
 if
 </div>
 <div>
-the zeroth-order Taylor series/polynomial approximation is a flat straight <em>plane</em>
+the zeroth-order Taylor series/polynomial approximation is a flat
+straight <em>plane</em>
 </div>
 <div style="font-weight: bold;">
 and
 </div>
 <div>
-the quadratic Taylor series/polynomial approximation is a downwards-opening parabo<em>loid</em>
+the quadratic Taylor series/polynomial approximation is a
+downwards-opening parabo<em>loid</em>
 </div>
 <div style="font-weight:bold;font-style:italic;;margin-top:0.25em;">
 then
@@ -415,57 +681,119 @@ that point is a maximum!!!!
 </div>
 </div>
 <p>in 2vc, parabolas</p>
-<p><span class="math display">\[f(x,y) = 1 + 2x + 3y + 4x^2 + 5y^2 + 6xy\]</span></p>
+<p><span class="math display">\[f(x,y) = 1 + 2x + 3y + 4x^2 + 5y^2 +
+6xy\]</span></p>
 <p>there are THREE quadratic terms:</p>
 <ul>
 <li>the <span class="math inline">\(x^2\)</span> term</li>
 <li>the <span class="math inline">\(y^2\)</span> term</li>
 <li>the <span class="math inline">\(xy\)</span> term</li>
 </ul>
-<p>whether a parabaloid is upwards-openign or downwards-opening depends on the balance of all three of those terms!!!! like, if they’re all positive, then it’ll be upwards-opoening; if they’re all negative, then it’ll be downwards opening. but if they’re a mix… thigns get nasty.</p>
+<p>whether a parabaloid is upwards-openign or downwards-opening depends
+on the balance of all three of those terms!!!! like, if they’re all
+positive, then it’ll be upwards-opoening; if they’re all negative, then
+it’ll be downwards opening. but if they’re a mix… thigns get nasty.</p>
 <p>positive definite</p>
 <p>https://en.wikipedia.org/wiki/Definite_quadratic_form</p>
-<p><span class="math display">\[\begin{bmatrix} \frac{\partial^2 f}{\partial x^2} &amp;  \frac{\partial^2 f}{\partial x\partial y} \\
-\frac{\partial^2 f}{\partial y\partial x} &amp;  \frac{\partial^2 f}{\partial y^2} 
+<p><span class="math display">\[\begin{bmatrix} \frac{\partial^2
+f}{\partial x^2} &amp;  \frac{\partial^2 f}{\partial x\partial y} \\
+\frac{\partial^2 f}{\partial y\partial x} &amp;  \frac{\partial^2
+f}{\partial y^2}
 \end{bmatrix}\]</span></p>
-<p><span class="math display">\[\begin{bmatrix} f_{xx} &amp; f_{xy} \\ f_{yx} &amp; f_{yy}
+<p><span class="math display">\[\begin{bmatrix} f_{xx} &amp; f_{xy} \\
+f_{yx} &amp; f_{yy}
 \end{bmatrix}\]</span></p>
-<p><span class="math display">\[f(x,y) \approx f(c,d) + f&#39;( \]</span></p>
-<h2 id="the-one-dimensional-second-derivative-test-for-extrema">The One-Dimensional Second Derivative Test for Extrema</h2>
+<p><span class="math display">\[f(x,y) \approx f(c,d) + f&#39;(
+\]</span></p>
+<h2 id="the-one-dimensional-second-derivative-test-for-extrema">The
+One-Dimensional Second Derivative Test for Extrema</h2>
 <p>Suppose we have a function:</p>
-<p><span class="math display">\[f(x) :: \mathbb{R}^1 \rightarrow \mathbb{R}^1\]</span></p>
-<p>And some point on <span class="math inline">\(f\)</span> given by the <span class="math inline">\(x\)</span>-coordinate <span class="math inline">\(c\)</span>, i.e., including the <span class="math inline">\(y\)</span>-coordinate:</p>
+<p><span class="math display">\[f(x) :: \mathbb{R}^1 \rightarrow
+\mathbb{R}^1\]</span></p>
+<p>And some point on <span class="math inline">\(f\)</span> given by the
+<span class="math inline">\(x\)</span>-coordinate <span
+class="math inline">\(c\)</span>, i.e., including the <span
+class="math inline">\(y\)</span>-coordinate:</p>
 <p><span class="math display">\[\big(c,\, f(c)\big)\]</span></p>
-<p>Such that the partial derivative, evaluated at <span class="math inline">\(x=c\)</span>, is zero:</p>
+<p>Such that the partial derivative, evaluated at <span
+class="math inline">\(x=c\)</span>, is zero:</p>
 <p><span class="math display">\[f&#39;(c) = 0\]</span></p>
 <p>or, in the other notation:</p>
-<p><span class="math display">\[\frac{df}{dx} \text{ at } (x=c) \quad = 0\]</span></p>
-<p>Then whether or not the point that point is a minimum, a maximum, or neither, can be (somewhat) determined by considering the value of the second derivative at that point:</p>
+<p><span class="math display">\[\frac{df}{dx} \text{ at } (x=c) \quad =
+0\]</span></p>
+<p>Then whether or not the point that point is a minimum, a maximum, or
+neither, can be (somewhat) determined by considering the value of the
+second derivative at that point:</p>
 <ul>
-<li>If <span class="math inline">\(f&#39;&#39;(c) &gt; 0\)</span>, then <span class="math inline">\(\big(c,\, f(c)\big)\)</span> is a minimum of <span class="math inline">\(f(x)\)</span></li>
-<li>If <span class="math inline">\(f&#39;&#39;(c) &lt; 0\)</span>, then <span class="math inline">\(\big(c,\, f(c)\big)\)</span> is a maximum of <span class="math inline">\(f(x)\)</span></li>
-<li>If <span class="math inline">\(f&#39;&#39;(c) = 0\)</span>, then <span class="math inline">\(\big(c,\, f(c)\big)\)</span> is… uhhh, unclear. It could be a min, it could be a max, or it could be neither!</li>
+<li>If <span class="math inline">\(f&#39;&#39;(c) &gt; 0\)</span>, then
+<span class="math inline">\(\big(c,\, f(c)\big)\)</span> is a minimum of
+<span class="math inline">\(f(x)\)</span></li>
+<li>If <span class="math inline">\(f&#39;&#39;(c) &lt; 0\)</span>, then
+<span class="math inline">\(\big(c,\, f(c)\big)\)</span> is a maximum of
+<span class="math inline">\(f(x)\)</span></li>
+<li>If <span class="math inline">\(f&#39;&#39;(c) = 0\)</span>, then
+<span class="math inline">\(\big(c,\, f(c)\big)\)</span> is… uhhh,
+unclear. It could be a min, it could be a max, or it could be
+neither!</li>
 </ul>
-<h2 id="the-two-dimensional-second-derivative-test-for-extrema">The Two-Dimensional Second Derivative Test For Extrema</h2>
+<h2 id="the-two-dimensional-second-derivative-test-for-extrema">The
+Two-Dimensional Second Derivative Test For Extrema</h2>
 <p>Suppose we have a function:</p>
-<p><span class="math display">\[f(x,y) :: \mathbb{R}^2 \rightarrow \mathbb{R}^1\]</span></p>
-<p>And some point on <span class="math inline">\(f\)</span> given by the <span class="math inline">\(x\)</span>-coordinate <span class="math inline">\(c\)</span> and <span class="math inline">\(y\)</span>-coordinate <span class="math inline">\(d\)</span>; i.e., the point <span class="math inline">\((c,d)\)</span>, or, including the <span class="math inline">\(z\)</span>-coordinate:</p>
+<p><span class="math display">\[f(x,y) :: \mathbb{R}^2 \rightarrow
+\mathbb{R}^1\]</span></p>
+<p>And some point on <span class="math inline">\(f\)</span> given by the
+<span class="math inline">\(x\)</span>-coordinate <span
+class="math inline">\(c\)</span> and <span
+class="math inline">\(y\)</span>-coordinate <span
+class="math inline">\(d\)</span>; i.e., the point <span
+class="math inline">\((c,d)\)</span>, or, including the <span
+class="math inline">\(z\)</span>-coordinate:</p>
 <p><span class="math display">\[\big(c,\, d,\, f(c,d)\big)\]</span></p>
-<p>Such that both the partial derivatives, evaluated at <span class="math inline">\(x=c\)</span> and <span class="math inline">\(y=d\)</span>, are zero:</p>
-<p><span class="math display">\[\frac{\partial f}{\partial x} \text{ at } (x=c,y=d) \quad = 0\]</span> <span class="math display">\[\frac{\partial f}{\partial y} \text{ at } (x=c,y=d) \quad = 0\]</span></p>
-<p>Then whether or not the point that point is a minimum, a maximum, or neither, is given by calculating the following quantity involving the second partial derivatives, all evaluated at that point:</p>
-<p><span class="math display">\[H = \frac{\partial^2 f}{\partial x^2}\cdot\frac{\partial^2 f}{\partial y^2} - \left( \frac{\partial^2 f}{\partial x\partial y} \right)^2 \]</span></p>
+<p>Such that both the partial derivatives, evaluated at <span
+class="math inline">\(x=c\)</span> and <span
+class="math inline">\(y=d\)</span>, are zero:</p>
+<p><span class="math display">\[\frac{\partial f}{\partial x} \text{ at
+} (x=c,y=d) \quad = 0\]</span> <span
+class="math display">\[\frac{\partial f}{\partial y} \text{ at }
+(x=c,y=d) \quad = 0\]</span></p>
+<p>Then whether or not the point that point is a minimum, a maximum, or
+neither, is given by calculating the following quantity involving the
+second partial derivatives, all evaluated at that point:</p>
+<p><span class="math display">\[H = \frac{\partial^2 f}{\partial
+x^2}\cdot\frac{\partial^2 f}{\partial y^2} - \left( \frac{\partial^2
+f}{\partial x\partial y} \right)^2 \]</span></p>
 <p>Then:</p>
 <ul>
-<li><p>If <span class="math inline">\(H&lt;0\)</span>, then <span class="math inline">\((c,d)\)</span> is a <strong>saddle point</strong> (like a mountain pass, or the point in the middle of a Pringle)</p></li>
+<li><p>If <span class="math inline">\(H&lt;0\)</span>, then <span
+class="math inline">\((c,d)\)</span> is a <strong>saddle point</strong>
+(like a mountain pass, or the point in the middle of a Pringle)</p></li>
 <li><p>If <span class="math inline">\(H&gt;0\)</span>, then:</p>
 <ul>
-<li><p>If <span class="math inline">\(\frac{\partial^2 f}{\partial x^2}\)</span> (evaluated at <span class="math inline">\((c,d)\)</span>) is less than <span class="math inline">\(0\)</span>, then <span class="math inline">\((c,d)\)</span> is a <strong>maximum</strong>.</p></li>
-<li><p>If <span class="math inline">\(\frac{\partial^2 f}{\partial x^2}\)</span> (evaluated at <span class="math inline">\((c,d)\)</span>) is greater than <span class="math inline">\(0\)</span>, then <span class="math inline">\((c,d)\)</span> is a <strong>minimum</strong>.</p></li>
+<li><p>If <span class="math inline">\(\frac{\partial^2 f}{\partial
+x^2}\)</span> (evaluated at <span class="math inline">\((c,d)\)</span>)
+is less than <span class="math inline">\(0\)</span>, then <span
+class="math inline">\((c,d)\)</span> is a
+<strong>maximum</strong>.</p></li>
+<li><p>If <span class="math inline">\(\frac{\partial^2 f}{\partial
+x^2}\)</span> (evaluated at <span class="math inline">\((c,d)\)</span>)
+is greater than <span class="math inline">\(0\)</span>, then <span
+class="math inline">\((c,d)\)</span> is a
+<strong>minimum</strong>.</p></li>
 </ul></li>
-<li><p>If <span class="math inline">\(H=0\)</span>, then who knows!</p></li>
+<li><p>If <span class="math inline">\(H=0\)</span>, then who
+knows!</p></li>
 </ul>
-<p>Don’t memorize this! This is gross and long—we’re only seeing it as an <em>example</em> of how hideously complicated optimization gets in higher dimensions, as opposed to a formula we care about for its own sake. The formula comes from taking a second-order quadratic Taylor series around <span class="math inline">\((c,d)\)</span>, and seeing whether it looks like an upwards-facing parabola or downwards facing parabola (or neither). The details get quite messy, but that’s the core idea. <a href="https://www.khanacademy.org/math/multivariable-calculus/applications-of-multivariable-derivatives/optimizing-multivariable-functions/a/optimizing-multivariable-functions/a/reasoning-behind-the-second-partial-derivative-test">Here’s a suprisingly good Khan Academy article that goes into more depth.</a></p>
+<p>Don’t memorize this! This is gross and long—we’re only seeing it as
+an <em>example</em> of how hideously complicated optimization gets in
+higher dimensions, as opposed to a formula we care about for its own
+sake. The formula comes from taking a second-order quadratic Taylor
+series around <span class="math inline">\((c,d)\)</span>, and seeing
+whether it looks like an upwards-facing parabola or downwards facing
+parabola (or neither). The details get quite messy, but that’s the core
+idea. <a
+href="https://www.khanacademy.org/math/multivariable-calculus/applications-of-multivariable-derivatives/optimizing-multivariable-functions/a/optimizing-multivariable-functions/a/reasoning-behind-the-second-partial-derivative-test">Here’s
+a suprisingly good Khan Academy article that goes into more
+depth.</a></p>
 </main>
 </body>
 </html>

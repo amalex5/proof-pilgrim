@@ -5,8 +5,9 @@ layout: post
 ---
 
 
+
 So in 1VC, we have a simple way to figure out whether a **critical point** (a point where the derivative is zero) is a maximum or a minimum: look at the second derivative! If the second derivative is positive, it's a minimum; if the second derivative is negative, it's a maximum:
-<div style='text-align:center; display:flex;gap: 3rem; align-items: center; '>
+<div style='display: flex; gap: 3rem; align-items: center; justify-content: center; width: fit-content; margin: 0 auto; border: 0.25pt solid black; padding: 1em;'>
 <div style='text-align:center; width: 25em; font-size: 80%'>
 <div style='font-size: 100%; font-weight:bold; border-bottom:.25pt solid black; margin-bottom:0.25em'>The 1VC second derivative test for extrema</div>
 <div style='font-weight: bold;'>if</div>
@@ -19,7 +20,10 @@ So in 1VC, we have a simple way to figure out whether a **critical point** (a po
 </div>
 The 2VC equivalent of this is... more elaborate. I'll try to explain some of the reasoning in a bit, but first, I'll just describe the test/criteria themselves:
 
-<div style='text-align:left; width: 75%; font-size: 80%; border: 0.25pt solid black; padding: 1em;'>
+
+
+
+<div style='text-align:left; width: 75%; font-size: 80%; border: 0.25pt solid black; padding: 1em; margin: 0 auto'>
 <div style='font-size: 100%; font-weight:bold; border-bottom:.25pt solid black; margin-bottom:0.25em; text-align: center;'>The 2VC second derivative test for extrema</div>
 
 <div>Suppose we have a function:
@@ -59,8 +63,7 @@ OK, we'll try to get *some* intuition for where this comes from, but first, let'
 ## 1vc
 
 The classic 1VC test to figure out whether a point is a minimum or a maximum is: 
-
-<div style='text-align:center; display:flex;gap: 3rem; align-items: center;'>
+<div style='display: flex; align-items: center; justify-content: center; width: fit-content; margin: 0 auto; padding: 1em;'>
 <div style='text-align:center; width: 25em; font-size: 80%'>
 <div style='font-size: 100%; font-weight:bold; border-bottom:.25pt solid black; margin-bottom:0.25em'>The 1VC second derivative test for extrema</div>
 <div style='font-weight: bold;'>if</div>
@@ -73,6 +76,7 @@ The classic 1VC test to figure out whether a point is a minimum or a maximum is:
 </div>
 
 I've written some pretty detailed notes about why all this is true, which you can read elsewhere, but since I'm trying to motivate the *two*-dimensional second derivative test here, I'm not going to elaborate on why this is true, but instead propose a much more convoluted, much more elaborate, way of putting it. (Bear with me for a moment---it's about making this analogy to the 2VC case.) So, put more elaborately, this 1VC second derivative test for extrema is:
+<div style='display: flex; align-items: center; justify-content: center; width: fit-content; margin: 0 auto; padding: 1em;'>
 <div style='text-align:center; width: 25em; font-size: 80%'>
 <div style='font-size: 100%; font-weight:bold; border-bottom:.25pt solid black; margin-bottom:0.25em'>The 1VC second derivative test for extrema<br>(complicated phrasing)</div>
 <div style='font-weight: bold;'>if</div>
@@ -81,6 +85,7 @@ I've written some pretty detailed notes about why all this is true, which you ca
 <div>the quadratic Taylor series/polynomial approximation is an upwards-opening parabola</div>
 <div style='font-weight:bold;font-style:italic;;margin-top:0.25em;'>then</div>
 <div>that point is a minimum!!!!</div>
+</div>
 </div>
 </div>
 This seems like a much more convoluted way of saying exactly the same thing! And it is. Give me a moment to justify it. Suppose we have some function, with a minimum at $x=c$ and $y=f(c)$:
@@ -98,8 +103,6 @@ f(x) &\approx \underbrace{f(c) + 0\!\cdot\! (x-c)}_{\text{linear approx}} \quad 
 Visually, here's what that looks like. Here's the first-order Taylor series/polynomial approximation (which last year in 1VC you probably just called the **tangent line approximation**) to the function, at that point:
 ![](1vc-second-derivative-test-2.svg)
 See? It's flat! It's just a flat line at $y=f(c)$!!!
-
-
 
 
 Meanwhile, "the quadratic Taylor series/polynomial approximation is an upwards-opening parabola" is the same as saying "the second derivative is positive" is a complicated way of saying "the $x^2$ term is negative." Why? Imagine we have a random quadratic, like:
@@ -127,8 +130,7 @@ So that's our logic: if the second derivative is positive, that's the same as sa
 $$\substack{\text{the quadratic/second order}\\\text{Taylor series/polynomial approximation}\\\text{is an upwards-opening parabola}} \iff \substack{\text{the $x^2$ term}\\\text{is positive}} \iff \substack{\text{the second derivative}\\\text{is positive}}$$
 So then, we have this very simple way of phrasing the 1VC second derivative test for extrema, and this more-elaborate-for-unclear-reasons way of phrasing it:
 
-
-<div style='text-align:center; display:flex;gap: 3rem; align-items: center; margin: 0 auto;'>
+<div style='text-align:center; display:flex;gap: 2rem; align-items: flex-start; margin: 0 auto;'>
 <div style='text-align:center; width: 25em; font-size: 80%'>
 <div style='font-size: 100%; font-weight:bold; border-bottom:.25pt solid black; margin-bottom:0.25em'>The 1VC second derivative test for extrema<br>(simple phrasing)</div>
 <div style='font-weight: bold;'>if</div>
@@ -138,7 +140,6 @@ So then, we have this very simple way of phrasing the 1VC second derivative test
 <div>that point is a minimum!!!!</div>
 </div>
 
-<div style='width:3em;'> </div>
     
 <div style='text-align:center; width: 25em; font-size: 80%'>
 <div style='font-size: 100%; font-weight:bold; border-bottom:.25pt solid black; margin-bottom:0.25em'>The 1VC second derivative test for extrema<br>(complicated phrasing)</div>
@@ -158,6 +159,7 @@ So then, we have this very simple way of phrasing the 1VC second derivative test
 OK, but making things complicated for the sake of making things complicated is dumb. We should try to make things as *simple* as possible---rather than, as all too often happens in math teaching, make simple things complicated.
 
 Here, though, there's some payoff (I think) for making the 1VC second derivative test a little more complicated, because it makes the very complicated 2VC test more simple. Here's the analgous, much simpler 2VC second derivative test:
+<div style='display: flex; align-items: center; justify-content: center; width: fit-content; margin: 0 auto; padding: 1em;'>
 <div style='text-align:center; width: 25em; font-size: 80%'>
 <div style='font-size: 100%; font-weight:bold; border-bottom:.25pt solid black; margin-bottom:0.25em'>The 2VC second derivative test for extrema<br> (simple phrasing)</div>
 <div style='font-weight: bold;'>if</div>
@@ -166,7 +168,7 @@ Here, though, there's some payoff (I think) for making the 1VC second derivative
 <div>the quadratic Taylor series/polynomial approximation is a downwards-opening parabo<span style='font-style:italic; text-decoration:underline;'>loid</span></div>
 <div style='font-weight:bold;font-style:italic;;margin-top:0.25em;'>then</div>
 <div>that point is a maximum!!!!</div>
-</div>
+</div></div>
 Let's do the visual version. Here's a two-dimensional surface, with a minimum:
 ![](2vc-second-derivative-test-1.svg)
 Please forgive me for my bad hand-drawn wireframes. Anyway, imagine we have the first-order Taylor series/polynomial approximation/tangent plane:
@@ -178,7 +180,35 @@ Look! It's opening up!!!
 The algebra behind all this gets nasty. But this really is the core idea:
 
 * **in 1VC**: a flat tangent line; an upwards-opening tangent parabola
-* **in 2VC**: a flat tangent plane; an upwards-opening tangent parabaloid
+* **in 2VC**: a flat tangent <span style='font-style:italic; text-decoration:underline;'>plane</span>; an upwards-opening tangent parabo<span style='font-style:italic; text-decoration:underline;'>loid</span>
+
+So we can see how, regardless of whether we're operating in 1VC or 2VC, the ideas are analgous:
+
+<div style='text-align:center; display:flex;gap: 3rem; align-items: flex-start; margin: 0 auto;'>
+    
+<div style='text-align:center; width: 25em; font-size: 80%'>
+<div style='font-size: 100%; font-weight:bold; border-bottom:.25pt solid black; margin-bottom:0.25em'>The 1VC second derivative test for extrema</div>
+<div style='font-weight: bold;'>if</div>
+<div>the zeroth-order Taylor series/polynomial approximation is a flat straight line</div>
+<div style='font-weight: bold;'>and</div>
+<div>the quadratic Taylor series/polynomial approximation is an upwards-opening parabola</div>
+<div style='font-weight:bold;font-style:italic;;margin-top:0.25em;'>then</div>
+<div>that point is a minimum!!!!</div>
+</div>
+
+
+<div style='text-align:center; width: 25em; font-size: 80%'>
+<div style='font-size: 100%; font-weight:bold; border-bottom:.25pt solid black; margin-bottom:0.25em'>The 2VC second derivative test for extrema</div>
+<div style='font-weight: bold;'>if</div>
+<div>the zeroth-order Taylor series/polynomial approximation is a flat straight <span style='font-style:italic; text-decoration:underline;'>plane</span></div>
+<div style='font-weight: bold;'>and</div>
+<div>the quadratic Taylor series/polynomial approximation is a downwards-opening parabo<span style='font-style:italic; text-decoration:underline;'>loid</span></div>
+<div style='font-weight:bold;font-style:italic;;margin-top:0.25em;'>then</div>
+<div>that point is a maximum!!!!</div>
+</div>
+
+</div>
+
 
 
 ## Okay, but how do we figure out if parabaloids open up or down?
