@@ -16,7 +16,14 @@ layout: post
 .truth-table .shaded {
   background-color: whitesmoke;
 }
+
+.right-align {
+  margin-left: auto;
+  margin-right: 0;
+}
 </style>
+
+Logic! We thought it was about *math* and *philosophy* and *searching for truth*---but no, my Silicon Valley bait-and-switch is that it's in fact about *building computers*^[Inspirational credit here goes to Wes Chao, who, when I was teaching baby logic to ninth-graders during covid, suggested we play [Nandgame](https://nandgame.com/), an interactive online game based on the classic text/course [Nand2Tetris](https://www.nand2tetris.org/), which walks the students through building a working game of Tetris (and computer) starting from nothing but basic logic gates.]. 
 
 ## Addition, revisited
 
@@ -29,7 +36,7 @@ $$\begin{array}{r}
 \hline\\
 \end{array}$$
 </blockquote>
-Back in high school, perhaps you were used to adding together two- and three-digit numbers, but now we're in *college*---now it's time to add together SIX-DIGIT NUMBERS!
+In high school, you added together two- and three-digit numbers. Now we're in *college*. Now it's time to add together SIX-DIGIT NUMBERS!
 
 In particular, suppose we want to add these numbers:
 $$\begin{array}{r}
@@ -102,17 +109,17 @@ Or, in more detail, a procedure that:
     * and one "tens" digit that we carry/overflow into the next step
 
 We can think of adding big numbers like this together as just stringing together a bunch of identically-operating magic addition machines! Visually, here's how that might look. First we input $8$ and $5$. The magic addition machine gives us $13$ as the sum, so we put down a $3$, and carry a $1$:
-![](addition-as-magic-black-box-1.svg){ width=25% }
+![](addition-as-magic-black-box-1.svg){ width=25% .right-align }
 Then, in the next step, we have three numbers to add together: the carried $1$, and then the $4$ and the $0$. The magic addition machine tells us their sum is $5$, so we put that down, and "carry" a zero:
-![](addition-as-magic-black-box-2.svg){ width=40% }
+![](addition-as-magic-black-box-2.svg){ width=40% .right-align}
 Then we add the next three numbers together. Zero plus six plus nine is $15$, so we put down a $5$ and carry a $1$:
-![](addition-as-magic-black-box-3.svg){ width=55% }
+![](addition-as-magic-black-box-3.svg){ width=55% .right-align}
 Et cetera:
-![](addition-as-magic-black-box-4.svg){ width=70% }
+![](addition-as-magic-black-box-4.svg){ width=70% .right-align}
 Et cetera:
-![](addition-as-magic-black-box-5.svg){ width=85% }
+![](addition-as-magic-black-box-5.svg){ width=85% .right-align}
 And finally:
-![](addition-as-magic-black-box-6.svg){ width=100% }
+![](addition-as-magic-black-box-6.svg){ width=100% .right-align}
 So if we have this magic addition machine that can take in three single-digit numbers, and spit out two single-digit numbers (or, equivalently, one two-digit number), then we can copy and paste that machine over and over again (... like I did in Adobe Illustrator to make that image) to add together numbers as big as we want! How exactly that magic addition machine works is a different story. Perhaps it memorizes addition tables, or something like that? Regardless, *if* we can add together small numbers, we can use that to add together arbitrarily big numbers.
 
 ## Addition, revisited, *but in binary*
@@ -283,8 +290,8 @@ We can fill this in, since we know how to add $0$ and $1$, so this is:
       <th></th>
       <th>$P$</th>
       <th>$Q$</th>
-      <th>second output digit<br>(i.e., $2^1$ coefficient)</th>
-      <th>first output digit<br>(i.e., $2^0$ coefficient)</th>
+      <th style='font-size:85%;'>second output digit<br>(i.e., $2^1$ coefficient)</th>
+      <th style='font-size:85%;'>first output digit<br>(i.e., $2^0$ coefficient)</th>
     </tr>
   </thead>
   <tbody>
@@ -332,7 +339,7 @@ Let's look closely. I'll copy down just $P$, $Q$, and the result we want for the
     <tr>
       <th>$P$</th>
       <th>$Q$</th>
-      <th>first output digit<br>(i.e., $2^0$ coefficient)</th>
+      <th style='font-size:85%;'>first output digit<br>(i.e., $2^0$ coefficient)</th>
     </tr>
   </thead>
   <tbody>
@@ -369,7 +376,7 @@ Great. What about the $2^1$ digit? The truth table, if we strip all the extraneo
     <tr>
       <th>$P$</th>
       <th>$Q$</th>
-      <th>second output digit<br>(i.e., $2^1$ coefficient)<br>(aka "carry digit")</th>
+      <th style='font-size:85%;'>second output digit<br>(i.e., $2^1$ coefficient)<br>(aka "carry digit")</th>
     </tr>
   </thead>
   <tbody>
@@ -404,8 +411,8 @@ Let's summarize:
       <th></th>
       <th>$P$</th>
       <th>$Q$</th>
-      <th>second output digit<br>(i.e., $2^1$ coefficient)<br>(aka "carry digit")<br>$P \land Q$</th>
-      <th>first output digit<br>(i.e., $2^0$ coefficient)<br>$P \oplus Q$</th>
+      <th style='font-size:85%;'>second output digit<br>(i.e., $2^1$ coefficient)<br>(aka "carry digit")<br>$P \land Q$</th>
+      <th style='font-size:85%;'>first output digit<br>(i.e., $2^0$ coefficient)<br>$P \oplus Q$</th>
     </tr>
   </thead>
   <tbody>
@@ -445,7 +452,7 @@ It's not exactly what we need for our add-any-number-however-big algorith,. For 
 
 ![](partial-magic-addition-machine.svg){ width=50% }
 
-(In class I used the name **half-adder** for it, which is indeed the name most people use; I think that name gives too much away about how to make a **full adder**, i.e. the full magic addition machine that takes three inputs. So I'm going to call it a **partial magic addition machine** instead.)
+(In class I used the name **half-adder** for it, which is indeed the name most people use. But I think that name gives away too much about how to make a **full adder**, i.e. the full magic addition machine that takes three inputs. So I'm going to call it a **partial magic addition machine** instead.)
 
 If we write it as a circuit diagram, exploding the innards, we have something like:
 
@@ -474,8 +481,8 @@ How, exactly, do we build this magic addition machine? We know what we want it t
       <th>$P$</th>
       <th>$Q$</th>
       <th>$R$</th>
-      <th>second output digit<br>(i.e., $2^1$ coefficient)<br>(aka "carry digit")</th>
-      <th>first output digit<br>(i.e., $2^0$ coefficient)</th>
+      <th style='font-size:85%;'>second output digit<br>(i.e., $2^1$ coefficient)<br>(aka "carry digit")</th>
+      <th style='font-size:85%;'>first output digit<br>(i.e., $2^0$ coefficient)</th>
     </tr>
   </thead>
   <tbody>
@@ -762,3 +769,19 @@ From PS\#9:
 
 <blockquote>
 In class I showed how I built the full adder by wiring together three half-adders, and then we simplified the last half-adder to just an XOR gate (XOR'ing the carries from the two half-adders). Brendan said that he had just used an OR gate for that purpose; Luca pointed out that it'll be equivalent, because even though XOR and OR are different functions, they're only different when their inputs are both true/both $1$, and that will never happen (the carries will never both be $1$). Can you prove this symbolically??? I don't mean "argue linguistically why the carries can never both be $1$" (as we did in class, and as I do in the notes); I mean, using the formulas for these two carries, prove, symbolically, that they can never both be $1$!!! You could do a Quine-style analysis, you could do a truth table... just do it symbolically, with no reference to the external meaning of what we're trying to do in building this adder! Actually I think this is a good moment to try to implement some of Quine's techniques...</blockquote>
+
+<!-- 
+$$d_1 = p\land q$$
+$$c = r \land d_0 = r\land (p\oplus q)$$
+
+these can't be both $1$
+
+$\sim d_1 \land \sim c$ must be a tautology (or, in quine's word, valid); it must always be true
+
+(equivelantly, $\sim d_1 \land \sim c$ must always be false, a contradiction
+
+$$\sim d_1 \land \sim c$$
+
+$$\sim(p\land q) \land \sim (r\land (p\oplus q) )$$
+
+$$(\sim p\\lor \sim q)  \land (\sim r \lor \sim(p\oplus q) )$$ -->
