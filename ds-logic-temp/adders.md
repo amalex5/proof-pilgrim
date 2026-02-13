@@ -11,7 +11,7 @@ layout: post
   text-align: center;
 }
 .truth-table th {
-  border-bottom: 1px solid black;
+  border-top: none;
 }
 .truth-table .shaded {
   background-color: whitesmoke;
