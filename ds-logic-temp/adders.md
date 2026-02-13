@@ -246,8 +246,8 @@ So we can think of this as being already a truth table: we have these two inputs
       <th></th>
       <th>$P$</th>
       <th>$Q$</th>
-      <th>second output digit<br>(i.e., $2^1$ coefficient)</th>
-      <th>first output digit<br>(i.e., $2^0$ coefficient)</th>
+      <th  style='font-size:85%;'>second output digit<br>(i.e., $2^1$ coefficient)</th>
+      <th  style='font-size:85%;'>first output digit<br>(i.e., $2^0$ coefficient)</th>
     </tr>
   </thead>
   <tbody>
