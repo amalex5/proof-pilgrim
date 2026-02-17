@@ -106,6 +106,10 @@ magic addition machine?</a></li>
   margin-right: 0;
 }
 </style>
+<div
+style="text-align: right; font-style: italic; font-size: 120%; margin-bottom:2em;">
+<p>Introduction to Logic<br> Deep Springs College<br> February 2026</p>
+</div>
 <p>Logic! We thought it was about <em>math</em> and <em>philosophy</em>
 and <em>searching for truth</em>—but no, my Silicon Valley
 bait-and-switch is that it’s in fact about <em>building computers</em><a
@@ -266,12 +270,12 @@ Regardless, <em>if</em> we can add together small numbers, we can use
 that to add together arbitrarily big numbers.</p>
 <h2 id="addition-revisited-but-in-binary">Addition, revisited, <em>but
 in binary</em></h2>
-<p>Same deal with numbers in binary! It’s the same algorithm—the only
-thing that’s different is how the digits are working. For example, let’s
-add <span class="math inline">\(345\)</span> and <span
-class="math inline">\(82\)</span>!</p>
-<p>I guess we have to convert them to binary first. We have: <span
-class="math display">\[\begin{align*}
+<p>If we’re trying to add numbers in binary, the deal is exactly the
+same! It’s the same algorithm—the only thing that’s different is how the
+digits work.</p>
+<p>For example, let’s add <span class="math inline">\(345\)</span> and
+<span class="math inline">\(82\)</span>. I guess we have to convert them
+to binary first. We have: <span class="math display">\[\begin{align*}
 345 &amp; = 256 + 64 + 16 + 8 + 1 \\
 &amp;= 2^8 + 2^6 + 2^4 + 2^3 + 2^0 \\
 &amp;= 1\!\cdot\! 2^8 + 0\!\cdot\! 2^7 + 1\!\cdot\! 2^6 + 0\!\cdot\! 2^5
@@ -1312,9 +1316,9 @@ class="math inline">\(\mathtt{10}\)</span></li>
 class="math inline">\(r\)</span> were both <span
 class="math inline">\(\mathtt{1}\)</span></li>
 <li>but if <span class="math inline">\(d_0\)</span> was <span
-class="math inline">\(1\)</span>, then <span
+class="math inline">\(\mathtt{1}\)</span>, then <span
 class="math inline">\(d_1\)</span> has to be <span
-class="math inline">\(0\)</span>. (<span
+class="math inline">\(\mathtt{0}\)</span>. (<span
 class="math inline">\(d_1d_0\)</span> can’t be equal to <span
 class="math inline">\(\mathtt{11}\)</span>; the biggest it can be is
 <span class="math inline">\(\mathtt{11}\)</span>.)</li>

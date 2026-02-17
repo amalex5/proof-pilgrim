@@ -23,6 +23,12 @@ layout: post
 }
 </style>
 
+<div style='text-align: right; font-style: italic; font-size: 120%; margin-bottom:2em;'>
+Introduction to Logic<br>
+Deep Springs College<br>
+February 2026
+</div>
+
 Logic! We thought it was about *math* and *philosophy* and *searching for truth*---but no, my Silicon Valley bait-and-switch is that it's in fact about *building computers*^[Inspirational credit here goes to Wes Chao, who, when I was teaching baby logic to ninth-graders during covid, suggested we play [Nandgame](https://nandgame.com/), an interactive online game based on the classic text/course [Nand2Tetris](https://www.nand2tetris.org/), which walks the students through building a working game of Tetris (and computer) starting from nothing but basic logic gates.]. 
 
 ## Addition, revisited
@@ -125,9 +131,9 @@ So if we have this magic addition machine that can take in three single-digit nu
 ## Addition, revisited, *but in binary*
 
 
-Same deal with numbers in binary! It's the same algorithm---the only thing that's different is how the digits are working. For example, let's add $345$ and $82$!
+If we're trying to add numbers in binary, the deal is exactly the same! It's the same algorithm---the only thing that's different is how the digits work. 
 
-I guess we have to convert them to binary first. We have:
+For example, let's add $345$ and $82$. I guess we have to convert them to binary first. We have:
 \begin{align*}
 345 & = 256 + 64 + 16 + 8 + 1 \\
 &= 2^8 + 2^6 + 2^4 + 2^3 + 2^0 \\
@@ -689,7 +695,7 @@ Why must the carry be $0$?
 
 * If we're carrying something, that means the answer from the previous, $d_0+r$ step, was $\mathtt{10}$
 * i.e. $d_0$ and $r$ were both $\mathtt{1}$
-* but if $d_0$ was $1$, then $d_1$ has to be $0$. ($d_1d_0$ can't be equal to $\mathtt{11}$; the biggest it can be is $\mathtt{11}$.)
+* but if $d_0$ was $\mathtt{1}$, then $d_1$ has to be $\mathtt{0}$. ($d_1d_0$ can't be equal to $\mathtt{11}$; the biggest it can be is $\mathtt{11}$.)
 * so if $d_1$ is $\mathtt{0}$, then regardless of what $c$ is, the biggest $d_1+c$ can be is $\mathtt{01}$. 
 
 (HW problem: prove this symbolically!)

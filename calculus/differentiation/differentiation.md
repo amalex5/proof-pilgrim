@@ -500,7 +500,7 @@ Find a formula for the $n$th derivative:
 <li> $\displaystyle f(x) = \frac{1}{x}$ </li>
 <li> $\displaystyle f(x) = \frac{1}{1-x}$ </li>
 <li> $\displaystyle f(x) = \frac{x}{1+x}$ </li>
-<li> $\displaystyle f(x) = \frac{1}{bx+c}$, with $a,b,c$ constant </li>
+<li> $\displaystyle f(x) = \frac{a}{bx+c}$, with $a,b,c$ constant </li>
 </ol>
 </div>
 
