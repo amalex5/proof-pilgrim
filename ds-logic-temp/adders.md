@@ -768,6 +768,135 @@ But we don't care about the second digit/bit/carry, so we can just delete that, 
 So that's our full magic addition machine!!!!
 ![](full-magic-addition-machine-construction-8.svg){ width=100% }
 
+
+## adding two big numbers together!
+
+From PS#9:
+<blockquote>As the main followup to building a full adder: suppose you want to add together the numbers $a_3a_2 a_1 a_0$ (where each of the $a_i$ is one of the digits; we're concatenating them not multiplying them) and  $b_3 b_2 b_1 b_0$. Can you do it using a bunch of full adders?!?!
+$$\begin{array}{r}
+a_3a_2a_1a_0 \\
++ \quad b_3b_2b_1b_0 \\
+\hline\\
+\end{array}$$
+(Note I start the indexing/subscripts at $0$, to match the corresponding powers of $2$.) A few specific sub-problems. First, can you come up with formulas for each of the resulting digits? As we sort of saw, they get more and more complicated the further out you get. In other words, if the addition is:
+$$\begin{array}{r}
+a_3a_2 a_1 a_0 \\
++ \quad b_3 b_2 b_1 b_0 \\
+\hline
+s_4s_3s_2s_1s_0
+\end{array}$$
+Can you come up with formulas for $s_0$, $s_1$, $s_2$, and so forth? Here, I'll even be generous and give you the first answer: $s_0 = a_0 \oplus b_0$! You're welcome.
+
+Second, can you actually *draw out* this network of adders? I am envisioning something like what Brendan (bless him) drew on the board at the end of class, but more clear. Brendan's diagram was beautiful but its disadvantage was that it didn't make it clear (at least to me) what the original numbers he was adding were. But I think this fixes that! What I want you to do is draw out the *full* network, down to just the AND and XOR gates ("gates" is the name people in electronics usually give to logical functions), but also showing the half-adders and the full-adders as well. (For notational consistency, and so it's easier for us to cross-check, perhaps outline all the half-adders in blue, and the full adders in red?) You could start by writing out a big network of full adders and then expanding; you could try bottom-up and start with just AND and XOR gates (which it seems is what Brendan did?)
+
+(If any of you in electronics have the components to build simple logic gates, feel free to do so as well!)</blockquote>
+
+
+$$\begin{array}{r}
+a_3a_2a_1a_0 \\
++\quad b_3b_2b_1b_0 \\
+\hline \\
+\end{array}$$
+
+
+
+
+$$\begin{array}{r}
+{\color{gray} c_4c_3c_2c_1\,\phantom{a_0}} \\
+a_3a_2a_1a_0 \\
++\quad b_3b_2b_1b_0 \\
+\hline
+s_4s_3s_2s_1s_0
+\end{array}$$
+
+
+multi-bit adder
+
+magic addition MONSTER
+
+
+
+
+
+## adding four numbers together!
+
+From PS#10:
+
+>  Brendan calls up your adding-machine company. He demands a magic addition machine that takes in *four* one-digit numbers and outputs their sum. However, you only have the usual addition machines in stock: the partial magic addition machine (which takes in two one-digit numbers) and the full magic addition machine (which takes in three). Can you still build him what he wants? Do you have to go all the way back to the drawing board? In a sense this is a repeat of problem \#4 on PS\#7... but now we're better equipped!
+
+Brendan and Tahm had this question after class; it was, I realized after I worked it out, the perfect followup question. It's not *too* hard, but nor is it totally trivial; building Brendan's device requires a lot of the same thought processes (modularity! splitting up big tasks into smaller tasks!)
+
+Here's the computation we want to do:
+$$\begin{array}{r}
+p \\
+q \\
+r \\
++\,\,\quad s\\
+\hline \\
+\end{array}$$
+We have four one-digit/one-bit numbers, so they're all either $\mathtt{1}$ or $\mathtt{0}$ (either in binary or in decimal!), so when we add them up, their sum must be between $\mathtt{0}$ and $\mathtt{100}$ (i.e., in decimal between $0$ and $4$). So that means we'll need three one-digit/one-bit values to store the sum. So the computation, at the end, will look like:
+$$\begin{array}{r}
+p \\
+q \\
+r \\
++\quad s\\
+\hline 
+s_2s_1s_0
+\end{array}$$
+Maybe it's bad to re-use the letter $s$; oh well, I mean no connection between the $s$ that's one of the numbers we're adding up and the $s_i$ that are the digits of the sum. Oh well!
+
+But how do we do this computation? We've figured out how to add together two four-digit numbers---but here we want to add together four one-digit numbers. That's different, because all of these numbers/digits have the same place value. So we can't just wire together the same ~~multi-bit adder~~ magic addition monster we built to add $a_3a_2a_1a_0$ and $b_3b_2b_1b_0$. But we can use some of the same principles!
+
+What do we have to work with? We have our ~~full adder~~ full magic addition machine, which adds together three one-digit numbers. So let's use a full magic addition machine to add three of our four numbers, take the result, and then add that together with the fourth number. 
+
+OK, let's start. Let's add together three of the four numbers. We'll add $p$, $q$, and $r$, like so:
+$$\begin{array}{r}
+p \\
+q \\
++\quad r \\
+\hline \\
+\end{array}$$
+We have three digits/numbers to add, so we can do this using a full adder/a full magic addition machine! We'll get some resulting sum in the $2^0$ place, which we'll call $d_0$, and then carry over some overflow $d_1$ into the $2^1$ place. Our computation will look like:
+$$\begin{array}{r}
+{\color{gray} d_1}\phantom{p} \\
+p \\
+q \\
++\quad r \\
+\hline
+d_1d_0
+\end{array}$$
+Schematically, this will look like:
+![](four-digit-adder-1.svg){ width=50% }
+Now we need to somehow add $s$ to this. We have three digits, $d_1$, $d_0$, and $s$, but we can't just add them all together with another full adder---they have different place values! $d_0$ and $s$ are both in the $2^0$ place, but $d_1$ is in the $2^1$ place. In other words, the numbers we need to add right now are:
+$$\begin{array}{r}
+d_1d_0 \\
++\quad s \\
+\hline \\
+\end{array}$$
+So really, we just want to add $s$ and $d_0$ together... and then figure out what to do with $d_1$. So first we just want to do this computation:
+$$\begin{array}{r}
+d_0 \\
++\quad s \\
+\hline \\
+\end{array}$$
+We might have a carry from this? Let's call the carry $e_1$ (we've already used the letter $d$ for the carries from the first adder). Also, whatever value we get from adding $d_0$ and $s$ will be our final answer for the $2^0$ digit for the full sum! We just have to propogate (or "ripple") the carries through. So $s_0$ will be the sum digit in the $2^0$ place:
+$$\begin{array}{r}
+{\color{gray} e_1} \phantom{d_0} \\
+d_0 \\
++\quad s \\
+\hline
+s_0
+\end{array}$$
+OK, so we can do all this with a half-adder/partial magic addition machine! If we add that to our schematic, we have:
+![](four-digit-adder-2.svg){ width=100% }
+Yay! So we still have these two seperate carries to deal with, $d_1$ and $e_1$. But that's just another computation we can do with a half-adder/partial magic addition machine! We'll have two inputs, and then we'll get two outputs---the first will become $s_1$, and the second/the carry will become $s_2$! So we have something that looks like:
+![](four-digit-adder-3.svg){ width=100% }
+If you want the formulas for the outputs, plus the intermediate steps, they work out to be:
+![](four-digit-adder-4.svg){ width=100% }
+
+
+
+
 <!-- 
 ## an excuse to verify
 
