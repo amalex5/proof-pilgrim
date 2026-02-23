@@ -791,16 +791,48 @@ Second, can you actually *draw out* this network of adders? I am envisioning som
 
 (If any of you in electronics have the components to build simple logic gates, feel free to do so as well!)</blockquote>
 
+Here's what I showed us in class (and which is now tacked up on the wall of the visiting faculty office): my attempt to sketch out this circuit, in three different levels of granularity. The top schematic is just a system of four full adders/full magic addition machines strong together; the middle is the same thing, but with each of those full adders x-rayed into its constituent two half-adders and XOR; finally, the bottom is the full expansion into just XOR and AND gates:
 
-$$\begin{array}{r}
-a_3a_2a_1a_0 \\
-+\quad b_3b_2b_1b_0 \\
-\hline \\
-\end{array}$$
+![](DSC_0855_processed.jpg)
 
+Perhaps, to continue this whimsical naming scheme, we should call this a **magic addition *monster***. (But most people would call this a **multi-bit adder**, or perhaps a **four-bit adder**). 
 
+With infinite space and patience, I'd sketch out the formulas for each output and each input. But, lacking that, I just came up with the formulas for the final digits. To do so, I first wrote out the formulas for what'll come out of the $n$th adder in a sequence. So I'm imagining a full adder with inputs $a_n$ and $b_n$, as well as an incoming carry $c_n$, and outputs $s_n$ (the digit we put down) and $c_{n+1}$ (the next carry). By tracking the internal details of what happens (not shown), we get these formulas:
 
+![](nth-adder.jpg){ width=75% }
 
+So then we can recursively figure out the formulas for each of the digits.
+
+Coming out of the first full adder, we have the first digit we put down $s_0$, and the first carry/overflow digit, $c_1$:
+\begin{align*}
+s_0 &= a_0 \oplus  b_0 \\
+c_1 &= a_0 \land b_0
+\end{align*}
+
+Then, the output of the second full adder is:
+\begin{align*}
+s_1 &= \left( a_1 \oplus b_1\right) \oplus c_1 \\
+&= \left( a_1 \oplus b_1\right) \oplus \left( a_0 \land b_0\right) \\ \\
+c_2 &= \left( a_1 \land b_1 \right) \oplus \left( \left( a_1 \oplus b_1\right) \land c_1 \right) \\
+&=  \left( a_1 \land b_1 \right) \oplus \left( \left( a_1 \oplus b_1\right) \land \left( a_0 \land b_0\right) \right) 
+\end{align*}
+
+Plugging that into the next full adder, we get, as the output of our third full adder:
+the output of the third full adder:
+\begin{align*}
+s_2 &= \left( a_2 \oplus b_2\right) \oplus c_2 \\
+&= \left( a_1 \oplus b_1\right) \oplus \left(  \left( a_1 \land b_1 \right) \land \left( a_1 \oplus b_1\right) \land \left( a_0 \land b_0 \right) \right)  \\ \\
+c_3 &= \left( a_2 \land b_2 \right) \oplus \left( \left( a_2 \oplus b_2\right) \land c_2 \right) \\
+&=  \left( a_2 \land b_2 \right) \oplus \left( \left( a_2 \oplus b_2\right) \land \left(  \left( a_1 \land b_1 \right) \oplus \left( \left( a_1 \oplus b_1\right) \land\left( a_0 \land b_0\right) \right)  \right) \right) \\
+\end{align*}
+Finally, we plug things into the last full adder, and get:
+\begin{align*}
+s_3 &= \left( a_3 \oplus b_3 \right) \oplus c_3\\
+&= \left( a_3 \oplus b_3 \right) \oplus  \left( a_2 \land b_2 \right) \oplus \left( \left( a_2 \oplus b_2\right) \land \left(  \left( a_1 \land b_1 \right) \oplus \left( \left( a_1 \oplus b_1\right) \land\left( a_0 \land b_0\right) \right)  \right) \right)  \\ \\
+c_4  = s_4 &= \left( a_3 \land b_3\right) \oplus \left( \left(a_3 \oplus b_3 \right) \land c_3 \right) \\
+&= \left( a_3 \land b_3\right) \oplus \left( \left(a_3 \oplus b_3 \right) \land  \left( a_2 \land b_2 \right) \oplus \left( \left( a_2 \oplus b_2\right) \land \left(  \left( a_1 \land b_1 \right) \oplus \left( \left( a_1 \oplus b_1\right) \land\left( a_0 \land b_0\right) \right)  \right) \right)  \right) \\
+\end{align*}
+Monster indeed! What a fright! Note how, even though we need all these carry digits for the intermediate steps:
 $$\begin{array}{r}
 {\color{gray} c_4c_3c_2c_1\,\phantom{a_0}} \\
 a_3a_2a_1a_0 \\
@@ -808,14 +840,7 @@ a_3a_2a_1a_0 \\
 \hline
 s_4s_3s_2s_1s_0
 \end{array}$$
-
-
-multi-bit adder
-
-magic addition MONSTER
-
-
-
+they're all gone from our final answer! This makes sense---our final answer should only be a function of the $a_i$ and $b_i$ digits---but it's still cool to see.
 
 
 ## adding four numbers together!
