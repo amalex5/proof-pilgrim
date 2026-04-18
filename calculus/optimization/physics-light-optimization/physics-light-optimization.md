@@ -7,7 +7,7 @@ layout: post
 
 Let's do some physics! If you've already learned this stuff in your physics class, now you get to prove it! If you haven't (or if you haven't taken physics at all), now you get to learn it! Here are two facts about light:
 
-* We usually say that light travels at ``the speed of light.'' That's about $670$ million miles per hour.  But actually, it only travels that fast in a vacuum. In air, it travels somewhat slower, because there are all the air molecules (i.e., oxygen and nitrogen) in the way. In water, it travels even slower, because there's even more stuff in the way (water is denser than air).
+* We usually say that light travels at "the speed of light." That's about $670$ million miles per hour.  But actually, it only travels that fast in a vacuum. In air, it travels somewhat slower, because there are all the air molecules (i.e., oxygen and nitrogen) in the way. In water, it travels even slower, because there's even more stuff in the way (water is denser than air).
 * Light travels in a straight line, right? Wrong! Light travels along the path that takes it the *least amount of time* to get from one place to another. That's not necessarily a straight line. Light calculates the Google Maps driving directions from one place to another, and chooses the fastest route. It doesn't choose the route which has the least distance^[Or so it seems to us; maybe we shouldn't, uh, be so confident we know how to measure distances, or understand what distance *is*.]---it chooses the route that takes the least amount of time. In other words, light is a *minimizer*. Light *knows calculus*. 
 
 Here are two consequent theorems for us to prove:

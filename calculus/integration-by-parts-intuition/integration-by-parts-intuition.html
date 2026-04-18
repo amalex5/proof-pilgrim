@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>integration by parts, intuition and SCRATCHPAD</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="/main.css" />
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <script src="../highlight-toc.js" type="text/javascript"></script>
+
+  <script> 
+      // disappearing header, from dynomight.net'
+      var prevScrollpos = window.pageYOffset;
+
+      window.onscroll = function() {
+        var currentScrollPos = Math.max(0,window.pageYOffset);
+
+        if (Math.abs(currentScrollPos - prevScrollpos) > 10){
+          if (prevScrollpos > currentScrollPos) {
+            document.querySelector('header').style.top = "0";
+            document.querySelector('header').style.opacity = "75%";
+          } else {
+            document.querySelector('header').style.top = "-60px";
+          }
+          prevScrollpos = currentScrollPos;
+        }
+        if(currentScrollPos==0){
+          document.querySelector('header').style.top = "0";
+          document.querySelector('header').style.opacity = "100%";
+        }
+      }
+    </script>
+
+</head>
+<body>
+  <header>
+  <span id="header-name"><a href="/">the natural history <span style="font-weight:normal;">of abstract objects</span></a></span> <span id="linkback"><a href=http://www.andrusia.com><img src="/andrew-logo.svg" id='header-logo' style='width: auto;'/></a></span>
+</header>
+ 
+<main>
+<div id="title-block">
+<h1 class="title">integration by parts, intuition and SCRATCHPAD</h1>
+</div>
+<style>
+    table      { border: none; margin: 1em auto; }
+    td         { background: whitesmoke; border:.5em solid white; text-align: center;
+                 padding: 1 em; font-size: 15px; min-width: 5em; }
+    td.pivot   { background: #2c2c2a; color: #f1efe8; border-color: #444441; }
+    td.meta    { background: transparent; border: none; font-size: 11px; color: #aaa; padding: 2px 0; }
+    td.col-hdr { background: transparent; border: none; font-size: 13px; color: #888; padding-bottom: 2px; }
+    td.vdots   { background: transparent; border: none; font-size: 20px; color: #aaa; padding: 2px 0; }
+  </style>
+<table>
+<thead>
+<tr>
+<td class="col-hdr">
+powers of <span class="math display">\[x\]</span>
+</td>
+<td class="col-hdr">
+trig
+</td>
+</tr>
+<tr>
+<td class="meta">
+↑ antiderivatives
+</td>
+<td class="meta">
+↑ antiderivatives
+</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="vdots">
+<span class="math display">\[\vdots\]</span>
+</td>
+<td class="vdots">
+<span class="math display">\[\vdots\]</span>
+</td>
+</tr>
+<!-- antiderivatives -->
+<tr>
+<td>
+<span class="math display">\[\dfrac{x^{11}}{332640}\]</span>
+</td>
+<td>
+<span class="math display">\[-\sin x\]</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math display">\[\dfrac{x^{10}}{30240}\]</span>
+</td>
+<td>
+<span class="math display">\[\cos x\]</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math display">\[\dfrac{x^9}{3024}\]</span>
+</td>
+<td>
+<span class="math display">\[\sin x\]</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math display">\[\dfrac{x^8}{336}\]</span>
+</td>
+<td>
+<span class="math display">\[-\cos x\]</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math display">\[\dfrac{x^7}{42}\]</span>
+</td>
+<td>
+<span class="math display">\[-\sin x\]</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math display">\[\dfrac{x^6}{6}\]</span>
+</td>
+<td>
+<span class="math display">\[-\cos x\]</span>
+</td>
+</tr>
+<!-- pivot -->
+<tr>
+<td class="pivot">
+<span class="math display">\[x^5\]</span>
+</td>
+<td class="pivot">
+<span class="math display">\[\sin x\]</span>
+</td>
+</tr>
+<!-- derivatives -->
+<tr>
+<td>
+<span class="math display">\[5x^4\]</span>
+</td>
+<td>
+<span class="math display">\[\cos x\]</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math display">\[20x^3\]</span>
+</td>
+<td>
+<span class="math display">\[-\sin x\]</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math display">\[60x^2\]</span>
+</td>
+<td>
+<span class="math display">\[-\cos x\]</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math display">\[120x\]</span>
+</td>
+<td>
+<span class="math display">\[\sin x\]</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math display">\[120\]</span>
+</td>
+<td>
+<span class="math display">\[\cos x\]</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math display">\[0\]</span>
+</td>
+<td>
+<span class="math display">\[-\sin x\]</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math display">\[0\]</span>
+</td>
+<td>
+<span class="math display">\[-\cos x\]</span>
+</td>
+</tr>
+<tr>
+<td class="meta">
+↓ derivatives
+</td>
+<td class="meta">
+↓ derivatives
+</td>
+</tr>
+</tbody>
+</table>
+<p><span class="math display">\[\int 2x\cos(x)\,dx\]</span> <span
+class="math display">\[\int xe^x \,dx\]</span> <span
+class="math display">\[\int x^2 e^x \, dx\]</span></p>
+<p><span class="math display">\[\int x^3 e^x \, dx\]</span> <span
+class="math display">\[\int x^2\cos(x) \, dx\]</span></p>
+<p><span class="math display">\[\int xf(x)\, dx\]</span></p>
+<p>so. recap. the kids have been working through my giant list of 200+
+antiderivatives. and the last section is basically stuff that’s
+integration by parts. and in class last time, we talked about:</p>
+<p><span class="math display">\[\int 2x\cos(x) \, dx\]</span></p>
+<p>if it were <span class="math inline">\(\int 2x\cos\left(x^2\right)\,
+dx\)</span>, it wouldn’t be so bad. it’d look like something that’d been
+chain-ruled. it’d be like:</p>
+<p><span class="math display">\[\int 2x\cos\left(x^2\right)\, dx =
+sin\left(x^2\right)\]</span></p>
+<p>but it’s not that. it’s <span class="math inline">\(2x\cos
+x\)</span>. how do we deal with that???</p>
+<p>is it just <span class="math inline">\(2x\sin(x)\)</span>? we can
+check by taking a derivative:</p>
+<p><span class="math display">\[\big(\, 2x\sin x \,\big)&#39;
+\quad=\quad 2\sin(x) + 2x\cos(x)\]</span></p>
+<p>nope. so:</p>
+<p><span class="math display">\[ \int 2x\cos(x) \, dx \quad\neq\quad
+2\sin(x) + 2x\cos(x)\]</span></p>
+<p>but… it’s almost that. if we could just… subtract off the <span
+class="math inline">\(2\sin(x)\)</span> part, it’d work. and we can do
+that? like what if we do:</p>
+<p><span class="math display">\[\begin{align*}
+\big(\, 2x\sin x  - 2\sin x \,\big)&#39; &amp;= 2\sin(x) + 2x\cos(x) -
+2\cos(x) \\
+&amp;= \cancel{2\sin(x)} + 2x\cos(x) - \cancel{2\cos(x)} \\
+&amp;= 2x\sin x
+\end{align*}\]</span></p>
+<p>yay! it works! so we have:</p>
+<p><span class="math display">\[ \int 2x\cos(x) \, dx \quad=\quad 2x\sin
+x  - 2\sin x\]</span></p>
+<p>grace and victoria figured this out.</p>
+<p>similarly, what about:</p>
+<p><span class="math display">\[\int xe^x \,dx \quad=\quad
+???\]</span></p>
+<p>like before, this <em>almost</em> looks like something that’s been
+chain-ruled. if ONLY the thing <span class="math inline">\(e\)</span> is
+raised to were <span class="math inline">\(x^2\)</span> rather than
+<span class="math inline">\(x\)</span>, we could work this out:</p>
+<p><span class="math display">\[\int xe^{x^2} \,dx \quad=\quad
+\frac{1}{2}e^{x^2}\]</span></p>
+<p>but it’s not. so… same idea. what if we just see if just <span
+class="math inline">\(xe^x\)</span> is the antiderivative? we can take a
+derivative to check:</p>
+<p><span class="math display">\[\begin{align*}
+\big(\, xe^x \,\big)&#39;  &amp;= 1\!\cdot\!e^x + xe^x \\
+&amp;= e^x + xe^x \\
+&amp;\neq xe^x
+\end{align*}\]</span></p>
+<p>nope. again, it doesn’t quite work. so:</p>
+<p><span class="math display">\[\int xe^x \,dx \quad\neq\quad xe^x
+\]</span></p>
+<p>but… sort of like with the earlier examples, it <em>almost</em>
+works. we just get that extra <span class="math inline">\(e^x\)</span>!
+can we somehow subtract that off? if we include a <span
+class="math inline">\(-e^x\)</span> term in the antiderivative, will
+that do it??? let’s see:</p>
+<p><span class="math display">\[\begin{align*}
+\big(\, xe^x  - e^ x \,\big)&#39;  &amp;= 1\!\cdot\!e^x + xe^x  - e^x\\
+&amp;= e^x + xe^x  - e^x\\
+&amp;= \cancel{e^x} + xe^x  - \cancel{e^x}\\
+&amp;= xe^x
+\end{align*}\]</span></p>
+<p>yes!! it works! wowww.</p>
+<p><span class="math display">\[\int xe^x \,dx \quad=\quad xe^x  - e^
+x\]</span></p>
+<p>kids managed to figure this out, too, in class.</p>
+<p>okay. slightly harder problem now. what about:</p>
+<p><span class="math display">\[\int x^2e^x \,dx \quad=\quad
+???\]</span></p>
+<p>hmm. now we’ve raised the power on the <span
+class="math inline">\(x\)</span> by one. what if we try taking a
+derivative of <span class="math inline">\(x^2e^x\)</span>, to just get a
+feeling?</p>
+<p><span class="math display">\[\begin{align*}
+\big(\, x^2e^x  - e^ x \,\big)&#39;  &amp;= 2xe^x + x^2e^x
+\end{align*}\]</span></p>
+<p>okay. we have this <span class="math inline">\(x^2e^x\)</span> in the
+answer. can we somehow subtract off the <span
+class="math inline">\(2xe^x\)</span> so we can get just that?</p>
+<p>i mean… we basically just figured out what gives us a derivative of
+<span class="math inline">\(2xe^x\)</span>, in the previous problem. (or
+rather, multiplied by two.) so what if we try:</p>
+<p><span class="math display">\[\begin{align*}
+\Big(\, x^2e^x  -\,\, \substack{\text{the thing
+that}\\\text{differentiates to $xe^x$}} \,\Big)&#39;  &amp;= \Big(\,
+x^2e^x \Big)&#39; - \Big( \substack{\text{the thing
+that}\\\text{differentiates to $xe^x$}} \Big) \\  \\
+&amp;= 2xe^x + x^2e^x - xe^x \\
+&amp;= 1xe^x + x^2e^x
+\end{align*}\]</span> Oh… right, we actually need to subtract
+<em>twice</em> times the thing that differentiates to <span
+class="math inline">\(xe^x\)</span>. So we should have: <span
+class="math display">\[\begin{align*}
+\Big(\, x^2e^x  -\,\, 2\substack{\text{the thing
+that}\\\text{differentiates to $xe^x$}} \,\Big)&#39;  &amp;= \Big(\,
+x^2e^x \Big)&#39; - 2\Big( \substack{\text{the thing
+that}\\\text{differentiates to $xe^x$}} \Big) \\  \\
+&amp;= 2xe^x + x^2e^x - 2xe^x \\
+&amp;= \cancel{2xe^x} + x^2e^x - \cancel{2xe^x} \\
+&amp;= x^2e^x
+\end{align*}\]</span> Yay! It works!!! So what we have is: <span
+class="math display">\[\begin{align*}
+\Big(\, x^2e^x  -\,\, 2\left(x^2e^x  - e^ x \right)\,\Big)&#39;  &amp;=
+\Big(\, x^2e^x  -2x^2e^x  +2e^ x \,\Big)&#39;\\
+&amp;= \Big(\, x^2e^x \Big)&#39; - 2\Big( \substack{\text{the thing
+that}\\\text{differentiates to $xe^x$}} \Big) \\  \\
+&amp;= 2xe^x + x^2e^x - 2xe^x \\
+&amp;= \cancel{2xe^x} + x^2e^x - \cancel{2xe^x} \\
+&amp;= x^2e^x
+\end{align*}\]</span></p>
+<p><span class="math display">\[\begin{align*}
+\Big(\,  x^2 \sin x + 2x\cos x - 2\sin x \,\Big)&#39; &amp;= 2x\sin x
+\,+\, x^2\cos x\\
+&amp;\quad +2\cos x \,-\, 2x\sin x \\
+&amp;\quad -2\cos x \\ \\
+&amp;= \cancel{2x\sin x} \,+\, x^2\cos x\\
+&amp;\quad +2\cos x \,-\, \cancel{2x\sin x} \\
+&amp;\quad -2\cos x \\ \\
+&amp;= \cancel{2x\sin x} \,+\, x^2\cos x\\
+&amp;\quad +\cancel{2\cos x }\,-\, \cancel{2x\sin x} \\
+&amp;\quad \cancel{-2\cos x} \\ \\
+&amp;= x^2\cos x
+\end{align*}\]</span></p>
+<p>Grace’s formula: <span class="math display">\[\int f(x)g(x)
+\quad=\quad f(x)\int g(x) \,\,-\,\, f&#39;(x)\int\!\!\int g(x) \,\,+\,\,
+f&#39;&#39;(x)\int\!\!\int\!\!\int g(x) \,\,-\,\,
+\text{etc.}\]</span></p>
+<p><span class="math display">\[\begin{align*}
+\int 2x\cos(x)\, dx \quad&amp;\overset{\text{one way}}{=}\quad 2x\sin
+x  - 2\sin x \\
+\quad&amp;\overset{\text{other way}}{=}\quad  x^2\cos x + \frac13
+x^3\sin x + \frac{1}{12}\cos x + \,\,\, \text{etc.} \\
+
+\end{align*}\]</span></p>
+<script>
+(function () {
+  const toc = document.querySelector('#TOC');
+  const headings = Array.from(
+    document.querySelectorAll('h1[id], h2[id], h3[id], h4[id]')
+  );
+
+  if (!headings.length || !toc) return;
+
+  // Map heading ids to their TOC anchor elements
+  const tocLinks = {};
+  headings.forEach(h => {
+    const link = document.querySelector(`#TOC a[href="#${h.id}"]`);
+    if (link) tocLinks[h.id] = link;
+  });
+
+  let currentActive = null;
+
+  function setActive(id) {
+    if (id === currentActive) return;
+    if (currentActive && tocLinks[currentActive]) {
+      tocLinks[currentActive].classList.remove('toc-active');
+    }
+    if (id && tocLinks[id]) {
+      tocLinks[id].classList.add('toc-active');
+    }
+    currentActive = id;
+  }
+
+  // Use #toc-start if present, otherwise fall back to #title-block.
+  // TOC becomes visible once that element scrolls above the fold.
+  const trigger = document.querySelector('#toc-start') || document.querySelector('#title-block');
+  if (trigger) {
+    function updateTocVisibility() {
+      const rect = trigger.getBoundingClientRect();
+      if (rect.bottom < 0) {
+        toc.classList.add('toc-visible');
+      } else {
+        toc.classList.remove('toc-visible');
+      }
+    }
+    updateTocVisibility();
+    window.addEventListener('scroll', updateTocVisibility, { passive: true });
+  }
+
+  // Track active section
+  const activeObserver = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setActive(entry.target.id);
+        }
+      });
+
+      // Fallback: long section with no heading visible —
+      // find the last heading that has scrolled above the fold.
+      const anyVisible = headings.some(h => tocLinks[h.id]?.classList.contains('toc-active'));
+      if (!anyVisible) {
+        const scrollY = window.scrollY;
+        let best = null;
+        for (const h of headings) {
+          if (h.offsetTop <= scrollY + window.innerHeight * 0.25) {
+            best = h.id;
+          }
+        }
+        if (best) setActive(best);
+      }
+    },
+    {
+      rootMargin: '0px 0px -75% 0px',
+      threshold: 0,
+    }
+  );
+
+  headings.forEach(h => activeObserver.observe(h));
+})();
+</script>
+</main>
+</body>
+</html>

@@ -134,7 +134,7 @@ So, to recap.  We know:
 Maybe we should also include the chain rule in these theorems---i.e., what if we want to raise a constant not just to $x$ but to some more complicated function of $x$? Then these two formulas follow directly from the chain rule:
 
 \begin{align*}
-frac{d}{dx}\left[a^{g(x)}\right] &= a^{g(x)} \cdot \lim_{h \to 0} \frac{a^h - 1}{h}\cdot g'(x)  \\ \\
+\frac{d}{dx}\left[a^{g(x)}\right] &= a^{g(x)} \cdot \lim_{h \to 0} \frac{a^h - 1}{h}\cdot g'(x)  \\ \\
 \frac{d}{dx}\left[e^{g(x)}\right] &= e^{g(x)}\cdot g'(x)
 \end{align*}
 
@@ -195,11 +195,11 @@ $$\frac{d}{dx}(a^{g(x)}) = \ln(a)\cdot a^{g(x)} \cdot g'(x)$$ (where $g(x)$ is a
 
 ### Another note
 
-From before, we know $\frac{d}{dx}(a^x) = \lim_{h \to 0} \frac{a^h - 1}{h} \cdot a^x$
+From before, we know $\frac{d}{dx}(a^x) = \displaystyle\lim_{h \to 0} \frac{a^h - 1}{h} \cdot a^x$
 
-And now, we know & $\frac{d}{dx}(a^x) = \ln(a) \cdot a^x$ 
+And now, we know $\frac{d}{dx}(a^x) = \ln(a) \cdot a^x$ 
 
-Then... these are just two different ways of writing the same derivative, so they must be equal. But then $\lim_{h \to 0} \frac{a^h - 1}{h}$ and $\ln(a)$ must be equal! Or:
+Then... these are just two different ways of writing the same derivative, so they must be equal. But then $\displaystyle\lim_{h \to 0} \frac{a^h - 1}{h}$ and $\ln(a)$ must be equal! Or:
 $$ \lim_{h \to 0} \frac{a^h - 1}{h} = \ln(a) $$
 Which is totally crazy and counterintuitive and doesn't at all make visceral sense. Just by thinking about how limits work, or by thinking about how logarithms work, you would not at all expect these two things to be equal. But they are. We've proved it. This is, in a sense, one of the real powers of math---we are not constrained simply to what we *feel* is true, or think *should* be true. We can use logic to discover new truths, or even truths that contradict our innate, not-neccesarily-rational beliefs.
 

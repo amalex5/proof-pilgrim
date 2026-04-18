@@ -3,7 +3,7 @@
   html {
       line-height: 1.4;
       font-family: 'Spectral', Charter, Georgia, serif;
-      font-size: 16 px;
+      font-size: 16px;
       color: #1a1a1a;
       background-color: #fdfdfd;
     }
@@ -55,45 +55,6 @@
 
 
 
-.tocLinks{
-  position: absolute;
-  left: 55px;
-}
-
-  .toc-title {
-    font-weight: bold;
-  }
-  .tocLinks, .tocLinks a, .tocLinks a:visited {
-      color: gray;
-    }
-    .tocLinks a:hover {
-      color: black;
-    }
-
-    .tocLinks li {
-       overflow-wrap: break-word; 
-       font-size: .75rem;
-      line-height: 1rem; 
-      margin-top: 0;
-      margin-bottom: 0;
-    }
-    .text-active {
-      color: #1a1a1a !important;
-    }
-
-#TOC ul {
-  padding-left: 0;
-  margin: 0;
-}
-      #TOC li {
-    list-style: none;
-  }
-
-  #TOC a:not(:hover) {
-    text-decoration: none;
-  }
-
-  
 .asterism {
   text-align: center;
   display:block;
@@ -105,31 +66,79 @@
   content: '\2042'; /* asterism unicode */
 }
 
+/* ============================================================
+   TABLE OF CONTENTS
+   ============================================================ */
 
-
-@media (min-width: 60em){
-
-  #TOC {
-    position: sticky;
-    top: 50%;
-    transform: translate(-10em, -50%);
-    width: 10em;
-/*    position:fixed; 
-    top: 50%;
-    transform: translate(0, -50%);
-    float:left; width: 10em;*/
-    font-family: sans-serif; 
-    text-align: left;
-  }
-
+#TOC {
+    display: none; /* hidden by default; shown at wide viewports below */
 }
 
-@media (max-width: 60em){
+@media (min-width: 60em) {
+    #TOC {
+        display: block;
+        position: fixed;
+        top: 50%;
+        transform: translateY(-50%);
+        left: min(1em, calc(50% - 22em)); /* hugs left edge, never overlaps text */
+        width: 10em;
+        font-family: sans-serif;
+        font-size: 0.75rem;
+        line-height: 1.35;
+        text-align: left;
+        /* hidden until #toc-start scrolls past */
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.4s ease;
+    }
 
-  #TOC {
-    display: none;
-  }
+    #TOC.toc-visible {
+        opacity: 1;
+        pointer-events: auto;
+    }
+}
 
+#TOC ul {
+    padding-left: 0;
+    margin: 0;
+    list-style: none;
+}
+
+#TOC li {
+    list-style: none;
+    margin-top: 0.35em;
+    margin-bottom: 0.35em;
+    overflow-wrap: break-word;
+}
+
+/* nested TOC levels get a small indent */
+#TOC ul ul {
+    padding-left: 0.75em;
+    margin-top: 0.25em;
+}
+
+#TOC .toc-title {
+    font-weight: bold;
+    color: #1a1a1a;
+    margin-bottom: 0.5em;
+}
+
+/* All TOC links: gray by default, smooth fade */
+#TOC a,
+#TOC a:visited {
+    color: #aaa;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: block;
+}
+
+#TOC a:hover {
+    color: #555;
+}
+
+/* Active section link: black */
+#TOC a.toc-active {
+    color: #1a1a1a;
 }
 
 a {

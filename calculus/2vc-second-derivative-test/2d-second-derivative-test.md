@@ -210,7 +210,6 @@ So we can see how, regardless of whether we're operating in 1VC or 2VC, the idea
 </div>
 
 
-
 ## Okay, but how do we figure out if parabaloids open up or down?
 
 So the intuition here is straightforward: we just need to figure out whether the quadratic Taylor approximation is an upwards-pointing parabaloid or a downward-pointing parabaloid. And that's where we get into all these details. 

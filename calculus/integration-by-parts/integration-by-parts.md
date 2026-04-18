@@ -82,7 +82,8 @@ Just to make sure we haven't made any errors, let's check it. We'll take a deriv
 \begin{align*}
     \Big( 2x\sin(x) + 2\cos(x) \Big)' &= 2\cdot \sin x + 2x\cdot\cos(x) - 2\sin(x) \\
     &= \cancel{2\sin x} + 2x\cos(x) - \cancel{2\sin(x)} \\
-    &= 2x\cos(x)
+    &= 2x\cos(x) \\
+    &{\huge \color{green} \checkmark}
 \end{align*}
 Yup! That's what we wanted! This works!!!
 

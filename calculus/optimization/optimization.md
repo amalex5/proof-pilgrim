@@ -386,7 +386,7 @@ The following are derivatives of functions. Sketch both the derivatives and the 
 <ol class='problems'>
 <li> Imagine you have the function $f(x) = ax^2 + bx + c$. Where does $f(x)$ have an extremum? When (i.e., under what conditions of $a$, $b$, and $c$) is this extremum a maximum? when is it a minimum? </li>
 <li> Imagine you have $f(x) = ax^3 + bx^2 + cx + d$. When will $f(x)$ have two extrema? one extrema? no extrema? where are they? (Give $(x,y)$-coordinates.) </li>
-<li> Consider the function $\displaystyle f(x) = x^2 + \frac{a}{x}$. What value of $a$ makes it have  \begin{enumerate}\item a minimum at $x=2$ \item an inflection point at $x=1$?\end{enumerate} </li>
+<li> Consider the function $\displaystyle f(x) = x^2 + \frac{a}{x}$. What value of $a$ makes it have  (a) a minimum at $x=2$ (b) an inflection point at $x=1$?? </li>
 <li> Where does $\displaystyle f(x) = x^2 + \frac{a}{x}$ have a maximum? </li>
 <li> What values of $a$ and $b$ make $f(x) = x^3 + ax^2 + bx$ have 
 	<ol>
@@ -469,9 +469,9 @@ Assuming you want your cat to be comfortable, and thus to not spill out from the
 <li>As the deputy director for operations of the Central Arizona Project, you are trying to design a new canal from Tempe to Tucson. The canal will be above ground, for some reason, and built using prefabricated sheets of an advanced polymer composite imported from Norway. The polymer sheets are ten feet wide, and come in sections 39 feet long (to fit in standard shipping containers). Sensibly enough, you'll assemble them into a quasi-U shape, with one section as the bottom of the canal, and two sections as sides. Since you want to maximize the volume of delicious, life-providing water that this canal carries, what should the angle between the two side pieces and the bottom piece be? (At some point in the answer, trig identities may be helpful.)
 
 
-\centerline{\includegraphics[scale=.3]{canal1.png}}
+![](canal1.png)
 
-\centerline{\includegraphics[scale=.3]{canal2.png}}
+![](canal2.png)
 
 </li>
 

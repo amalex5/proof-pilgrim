@@ -7,7 +7,7 @@ layout: post
 
 One of the things we occasionally do when we take derivatives is use the chain rule. The chain rule *explodes* things:
 $$ \sin\Big(x^7 - \ln(x)\, \Big) \,\,\xrightarrow[\text{it EXPLODES}]{\quad\text{differentiating}\quad}\,\, \cos\Big(x^7 - \ln(x)\, \Big)\cdot\left(7x^6 - \frac1x\right)$$
-So sometimes, when we take anti-derivatives, we need to *implode* things. We need to take the scattered pieces of something that's been exploded by the chain rule, and carefully, delicately, put them back together: 
+So sometimes, when we take anti-derivatives, we need to *implode* things. We need to take the scattered shards of something blown up by the chain rule, and carefully, delicately, piece them back together: 
 $$ \sin\Big(x^7 - \ln(x)\, \Big) \,\,\xleftarrow[\text{it IMPLODES}]{\quad\text{ANTIdifferentiating}\quad}\,\, \cos\Big(x^7 - \ln(x)\, \Big)\cdot\left(7x^6 - \frac1x\right)$$
 How do we take the exploded remnants of the chain rule---the pieces scattered lying on the floor---and reassemble them into what we had before the explosion? How do we *implode* antiderivatives back into the functions whence they came? With all the king's horses and all the king's men, *how do we put Humpty-Dumpty back together again?!?*
 
@@ -15,7 +15,7 @@ How do we take the exploded remnants of the chain rule---the pieces scattered ly
 
 Here's an integral/antiderivative:
 
-$$\int \left(2x + 5\right)\cdot \cos\left( x^2 + 5x\right) \, dx = ???$$
+$$\int \left(2x + 5\right)\cdot \cos\left( x^2 + 5x\right) \, dx \,\,=\,\, ???$$
 
 Can we antidifferentiate this? Can we find the function whose derivative is this???
 
@@ -52,7 +52,7 @@ $$\boxed{\,\, \int \left(2x + 5\right)\cdot \cos\left( x^2 + 5x\right) \, dx \qu
 
 Here's another integral/antiderivative:
 
-$$\int 347\left(x^5-2x^3 + 7\right)^{346}\cdot\left(5x^4-6x^2\right) \, dx \,\,=\],\, ???$$
+$$\int 347\left(x^5-2x^3 + 7\right)^{346}\cdot\left(5x^4-6x^2\right) \, dx \,\,=\,\, ???$$
 
 So we need to find some function that, when we differentiate it, gives us $347\left(x^5-2x^3 + 7\right)^{346}\cdot\left(5x^4-6x^2\right)$:
 
@@ -83,7 +83,7 @@ $$\boxed{\,\, \int 347\left(x^5-2x^3 + 7\right)^{348}\cdot\left(5x^4-6x^2\right)
 
 Here's another example:
 
-$$\int \left(x^8 + 3x^4\right)^6\left(8x^7+12x^3\right) \, dx = ???$$
+$$\int \left(x^8 + 3x^4\right)^6\left(8x^7+12x^3\right) \, dx \,\,=\,\, ???$$
 
 This also looks like it's something that's been chain-ruled! It looks kind of like the derivative of $\left(x^8 + 3x^4\right)^7$! Is it???
 

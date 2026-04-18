@@ -127,9 +127,7 @@ Here are some more questions:
 If we don't have any shortcuts, our life would be totally miserable, because we'd have to work out:
 $$\lim_{h\rightarrow 0} \left[  \frac{ \,\,\frac{5(x+h)^7 - (x+h)^2\sin(x+h) + e^{x+h} - \tan(x+h)}{\log_7(x+h) + ((x+h)^2 + 3(x+h))^{34} - \cos\left((x+h)^8\right)}  -   \frac{5x^7 - x^2\sin(x) + e^x - \tan(x)}{\log_7(x) + \left(x^2 + 3x\right)^{34} - \cos\left(x^8\right)} \,\,}{h} \right]$$
 
-
 We're going to need more shortcuts.
-
 
 ## The derivative of two functions multiplied together
 

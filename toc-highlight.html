@@ -1,0 +1,77 @@
+<script>
+(function () {
+  const toc = document.querySelector('#TOC');
+  const headings = Array.from(
+    document.querySelectorAll('h1[id], h2[id], h3[id], h4[id]')
+  );
+
+  if (!headings.length || !toc) return;
+
+  // Map heading ids to their TOC anchor elements
+  const tocLinks = {};
+  headings.forEach(h => {
+    const link = document.querySelector(`#TOC a[href="#${h.id}"]`);
+    if (link) tocLinks[h.id] = link;
+  });
+
+  let currentActive = null;
+
+  function setActive(id) {
+    if (id === currentActive) return;
+    if (currentActive && tocLinks[currentActive]) {
+      tocLinks[currentActive].classList.remove('toc-active');
+    }
+    if (id && tocLinks[id]) {
+      tocLinks[id].classList.add('toc-active');
+    }
+    currentActive = id;
+  }
+
+  // Use #toc-start if present, otherwise fall back to #title-block.
+  // TOC becomes visible once that element scrolls above the fold.
+  const trigger = document.querySelector('#toc-start') || document.querySelector('#title-block');
+  if (trigger) {
+    function updateTocVisibility() {
+      const rect = trigger.getBoundingClientRect();
+      if (rect.bottom < 0) {
+        toc.classList.add('toc-visible');
+      } else {
+        toc.classList.remove('toc-visible');
+      }
+    }
+    updateTocVisibility();
+    window.addEventListener('scroll', updateTocVisibility, { passive: true });
+  }
+
+  // Track active section
+  const activeObserver = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setActive(entry.target.id);
+        }
+      });
+
+      // Fallback: long section with no heading visible —
+      // find the last heading that has scrolled above the fold.
+      const anyVisible = headings.some(h => tocLinks[h.id]?.classList.contains('toc-active'));
+      if (!anyVisible) {
+        const scrollY = window.scrollY;
+        let best = null;
+        for (const h of headings) {
+          if (h.offsetTop <= scrollY + window.innerHeight * 0.25) {
+            best = h.id;
+          }
+        }
+        if (best) setActive(best);
+      }
+    },
+    {
+      rootMargin: '0px 0px -75% 0px',
+      threshold: 0,
+    }
+  );
+
+  headings.forEach(h => activeObserver.observe(h));
+})();
+</script>

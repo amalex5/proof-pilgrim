@@ -8,7 +8,7 @@ layout: post
 
 We know the integral of $x^2$:
 
-$$\int x^2 \, dx = \frac{1}{3}x^3 $$
+$$\int x^2 \, dx = \frac{1}{3}x^3$$
 
 But... what if we didn't??? Or, put differently, *what if we tried to integrate this by parts*?!? After all, this is really:
 
@@ -38,7 +38,7 @@ f'(x) &= x \quad\quad& g'(x) &= 1
 So we get:
 
 \begin{align*}
-\int x^2 \, dx = \int  \underbrace{x}_{g(x)}\cdot\underbrace{ x}_{f'(x)} \,dx &= f(x)\cdot g(x) - \int f(x)g'(x) \,dx \\ \
+\int x^2 \, dx = \int  \underbrace{x}_{g(x)}\cdot\underbrace{ x}_{f'(x)} \,dx &= f(x)\cdot g(x) - \int f(x)g'(x) \,dx \\ \\
 &= \frac{1}{2}x^2 \cdot x - \int \frac{1}{2}x^2 \cdot 1 \,dx \\ \\
 &= \frac{1}{2}x^2 \cdot x - \frac{1}{6}x^3 \ \\ \\
 &= \frac{1}{2}x^3 - \frac{1}{6}x^3 \\ \\
@@ -47,31 +47,30 @@ So we get:
 \end{align*}
 
 Yay! That's exactly what we expect to get!!! Except, actually, we were cheating. In those last few steps there we assumed we knew how to integrate $\int x^2 \, dx$. But we can't do that, since figuring that out was the whole point. So let's *redo* this, without making that assumption. We had:
-
 \begin{align*}
-\int x^2 \, dx = \int  \underbrace{x}_{g(x)}\cdot\underbrace{ x}_{f'(x)} \,dx &= f(x)\cdot g(x) - \int f(x)g'(x) \,dx \\ \
+\int x^2 \, dx = \int  \underbrace{x}_{g(x)}\cdot\underbrace{ x}_{f'(x)} \,dx &= f(x)\cdot g(x) - \int f(x)g'(x) \,dx \\ \\
 &= \frac{1}{2}x^2 \cdot x - \int \frac{1}{2}x^2 \cdot 1 \,dx \\ \\
-&= \frac{1}{2}x^3 - \frac{1}{2}\int x^2 \,dx \\ \\
+&= \frac{1}{2}x^3 - \frac{1}{2}\int x^2 \,dx
 \end{align*}
 OK. We have an answer, but it's in terms of *another* $\int x^2$, and that won't do. So, writing it out as a single equation (both sides), we have:
 
-$$ \int x^2 \, dx = \frac{1}{2}x^3 - \frac{1}{2}\int x^2 \,dx$$
+$$\int x^2 \, dx = \frac{1}{2}x^3 - \frac{1}{2}\int x^2 \,dx$$
 
 But actually, we can do something with this!!! Let's move the $\frac{1}{2}\int x^2 \,dx$ on the right over to the left:
 
-$$ \int x^2 \, dx + \frac{1}{2}\int x^2 \,dx = \frac{1}{2}x^3 $$
+$$\int x^2 \, dx + \frac{1}{2}\int x^2 \,dx = \frac{1}{2}x^3$$
 
 I.e.:
 
-$$ \frac{3}{2}\int x^2 \,dx = \frac{1}{2}x^3 $$
+$$\frac{3}{2}\int x^2 \,dx = \frac{1}{2}x^3$$
 
 So if we divide:
 
-$$ \int x^2 \,dx = \frac{2}{3}\cdot \frac{1}{2}x^3 $$
+$$\int x^2 \,dx = \frac{2}{3}\cdot \frac{1}{2}x^3$$
 
 I.e.:
 
-$$ \int x^2 \,dx = \frac{1}{3}x^3 $$
+$$\int x^2 \,dx = \frac{1}{3}x^3$$
 
 So we have it!!! That's it! We've computed the antiderivative of $x^2$!!!! Of course, we knew it already, but we were able to calculate it, blindly, *ab initio*, using integration by parts!!!!
 
@@ -93,7 +92,6 @@ $$\int e^x\cos(x)\, dx$$
 
 We can try to integrate this by parts, but here's my concern: both of these "parts" (the $e^x$ and the $\cos x$) have derivatives/antiderivatives that go on forever. They never zero out, like $x^n$ will. So if we integrate this by parts, maybe we'll just get some perpetual series.
 
-
 But let's try anyway!!! Here's one way we could choose $f'$ and $g$:
 
 $$\int \underbrace{e^x}_{g(x)}\cdot\underbrace{ \cos(x)}_{f'(x)}\,dx$$
@@ -112,11 +110,10 @@ f'(x) &= \cos(x) \quad\quad& g'(x) &= e^x
 So, running the computation, we get:
 
 \begin{align*}
-\int  \underbrace{e^x}_{g(x)}\cdot\underbrace{ \cos(x)}_{f'(x)} \,dx &= f(x)\cdot g(x) - \int f(x)g'(x) \,dx \\ \
+\int  \underbrace{e^x}_{g(x)}\cdot\underbrace{\cos(x)}_{f'(x)} \,dx &= f(x)\cdot g(x) - \int f(x)g'(x) \,dx \\ \\
 &= \sin(x) \cdot e^x  - \int \sin(x) \cdot e^x\,dx \\ \\
-&= e^x\sin(x)  - \int e^x\sin(x) \,dx \\ \\
+&= e^x\sin(x)  - \int e^x\sin(x) \,dx 
 \end{align*}
-
 Yeah, this does not seem all that promising. But let's continue anyway! Let's try to integrate $\int e^x \sin(x)\, dx$ by parts now. We'll make the analogous choice, and have $e^x$ be the $g(x)$, and $\sin(x)$ be the $f'(x)$. So we have:
 
 \begin{align*}
@@ -124,26 +121,26 @@ Yeah, this does not seem all that promising. But let's continue anyway! Let's tr
 &= e^x\sin(x)  - \Big(  f(x)g(x) \,-\, \int\! f(x)g'(x) \,dx  \Big) \\ \\
 &= e^x\sin(x)  - \Big(  -\cos(x)\cdot e^x \,-\, \int\! -\cos(x)\cdot e^x \,dx  \Big) \\ \\
 &= e^x\sin(x)  + \cos(x)\cdot e^x + \int\! - \cos(x)\cdot e^x \,dx  \\ \\
-&= e^x\sin(x)  + e^x\cos(x) - \int\! e^x\cos(x) \,dx \\ \\
+&= e^x\sin(x)  + e^x\cos(x) - \int\! e^x\cos(x) \,dx 
 \end{align*}
 
 Hey... wait a minute. I think I notice something. Let's actually write out this whole equation now, with the original left side, just to show where we're at:
 
-$$\underbrace{\int e^x\cos(x)\, dx}_{\text{what we're trying to calculate}} = \underbrace{x\sin(x)  + e^x\cos(x)- \int\! e^x\cos(x) \,dx}_{\text{what we've gotten so far}} $$
+$$\underbrace{\int e^x\cos(x)\, dx}_{\text{what we're trying to calculate}} = \underbrace{e^x\sin(x)  + e^x\cos(x)- \int\! e^x\cos(x) \,dx}_{\text{what we've gotten so far}} $$
 
 We were trying to calculate $\int e^x\cos(x)\, dx$, but our answer now includes another $\int e^x\cos(x)\, dx$. Darn! It must be impossibly recursive and self-referential and gross.
 
 Except... wait. The integral is negative on one side; it's positive on the other. What if we... just move it around? Like, what if we move both integrals to the same side, like so:
 
-$$ \int e^x\cos(x)\, dx  + \int\! e^x\cos(x) \,dx =x\sin(x)  + e^x\cos(x)$$
+$$ \int e^x\cos(x)\, dx  + \int\! e^x\cos(x) \,dx = e^x\sin(x)  + e^x\cos(x)$$
 
 It's just two of the same thing, so we have:
 
-$$ 2\int e^x\cos(x)\, dx  =x\sin(x)  + e^x\cos(x) $$
+$$ 2\int e^x\cos(x)\, dx  = e^x\sin(x)  + e^x\cos(x) $$
 
 But wait!!! We have it! Now we just divide by two, and we've found an expression for the original integral!!!
 
-$$ \int e^x\cos(x)\, dx  = \frac{x\sin(x)  + e^x\cos(x)}{2} $$
+$$ \int e^x\cos(x)\, dx  = \frac{e^x\sin(x)  + e^x\cos(x)}{2} $$
 
 Wow!!!! Rather than getting some boring repeating infinite series, the cyclic nature of the trig derivatives let us beautifully cancel out and simplify things. And this is totally not an integral we could have seen otherwise! (At least I never would have been able to see it otherwise.)
 
@@ -193,7 +190,7 @@ f'(x) &= \ln(x) \quad\quad& g'(x) &= x
 Uhh... this does not seem promising. We need to work out the antiderivative of $\ln(x)$ to use our formula, but... working out the antiderivative of $\ln(x)$ was kinda the whole point. Um, just plugging things into the formula anyway, we get:
 
 \begin{align*}
-\int  \underbrace{1}_{g(x)}\cdot\underbrace{ \ln(x)}_{f'(x)} \,dx &= f(x)\cdot g(x) - \int f(x)g'(x) \,dx \\ \
+\int  \underbrace{1}_{g(x)}\cdot\underbrace{ \ln(x)}_{f'(x)} \,dx &= f(x)\cdot g(x) - \int f(x)g'(x) \,dx \\ \\
 &= 1\cdot \int\!\ln(x)\,dx  - \int \left(\int\!\ln(x)\,dx \right) \cdot x \,dx \\ \\
 &= \int\!\ln(x)\,dx  - \int \left(\int\!\ln(x)\,dx \right) \cdot x \,dx \\ \\
 &= \text{?!?!?!?!?!?!}
@@ -233,5 +230,6 @@ Let's check that it works, just so we can really *see* and *feel* how this wacky
 &= 1\!\cdot\! \ln(x) + x\!\cdot\!\frac{1}{x} \,\,-\,\, 1 \\ \\
 &= \ln(x) + \frac{x}{x} - 1 \\ \\
 &= \ln(x) + 1 - 1 \\ \\
-&= \ln(x)
+&= \ln(x) \\ \\
+&{\huge \color{green} \checkmark}
 \end{align*}

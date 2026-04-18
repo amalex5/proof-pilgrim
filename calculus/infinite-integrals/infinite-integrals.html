@@ -6,15 +6,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>integrals, finite and infinite</title>
   <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
   </style>
   <link rel="stylesheet" href="/main.css" />
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
   <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
@@ -48,43 +61,129 @@
   <header>
   <span id="header-name"><a href="/">the natural history <span style="font-weight:normal;">of abstract objects</span></a></span> <span id="linkback"><a href=http://www.andrusia.com><img src="/andrew-logo.svg" id='header-logo' style='width: auto;'/></a></span>
 </header>
- -->
+ 
 <main>
 <div id="title-block">
 <h1 class="title">integrals, finite and infinite</h1>
 </div>
 <ol class="problems">
 <li>
-<p>Consider the parabola <span class="math inline">\(y=x^2\)</span>. What’s the area underneath it, from, say, <span class="math inline">\(x=5\)</span> out to <span class="math inline">\(\infty\)</span>? <img src="x-squared-integral-1.svg" style="width:50.0%" /> Obviously it’s infinite! It’s an infinitely-wide area, and it’s getting infinitely tall, so obviously the area is infinite.</p>
-<p>Buuuuuut just to be EXTRA THOROUGH, let’s take an integral. We’ll show our pedantic, persnickety, detail-obsessed auditors that we’ve done the work! Besides, it should be pretty straightforward to do an integral and get <span class="math inline">\(\infty\)</span>. Think of how, when we started talking about integrals at the very end of Math 3, we used them (a couple times) to find the area of rectangles and triangles and trapezoids. We didn’t <em>need</em> integrals to find those areas—but in general, if we have a complicated procedure, we should verify that it works by testing it against simple problems we know the answer to. (Philosophers call this <strong><a href="https://plato.stanford.edu/entries/abduction/">abduction</a></strong>.)</p>
-Anyway, to find the area of this infinitely-large shape, I guess we set up an integral: <span class="math display">\[\text{this area } = \int_5^\infty x^2 \, dx\]</span> So now we can just find an antiderivative and plug things in. Except we can’t <em>really</em> plug infinity in, since it’s not a number. But we can do the next-best thing: just phrase this as a limit, and take the limit to infinity. So, for example, we can try to find the area underneath <span class="math inline">\(x^2\)</span> from <span class="math inline">\(x=5\)</span> to <span class="math inline">\(x=b\)</span>: <img src="x-squared-integral-2.svg" style="width:50.0%" /> And then we can take the limit of that as <span class="math inline">\(b\)</span> goes to <span class="math inline">\(+\infty\)</span>: <img src="x-squared-integral-3.svg" style="width:50.0%" /> So we get: <span class="math display">\[\begin{align*}
+<p>Consider the parabola <span class="math inline">\(y=x^2\)</span>.
+What’s the area underneath it, from, say, <span
+class="math inline">\(x=5\)</span> out to <span
+class="math inline">\(\infty\)</span>? <img
+src="x-squared-integral-1.svg" style="width:50.0%" /> Obviously it’s
+infinite! It’s an infinitely-wide area, and it’s getting infinitely
+tall, so obviously the area is infinite.</p>
+<p>Buuuuuut just to be EXTRA THOROUGH, let’s take an integral. We’ll
+show our pedantic, persnickety, detail-obsessed auditors that we’ve done
+the work! Besides, it should be pretty straightforward to do an integral
+and get <span class="math inline">\(\infty\)</span>. Think of how, when
+we started talking about integrals at the very end of Math 3, we used
+them (a couple times) to find the area of rectangles and triangles and
+trapezoids. We didn’t <em>need</em> integrals to find those areas—but in
+general, if we have a complicated procedure, we should verify that it
+works by testing it against simple problems we know the answer to.
+(Philosophers call this <strong><a
+href="https://plato.stanford.edu/entries/abduction/">abduction</a></strong>.)</p>
+Anyway, to find the area of this infinitely-large shape, I guess we set
+up an integral: <span class="math display">\[\text{this area } =
+\int_5^\infty x^2 \, dx\]</span> So now we can just find an
+antiderivative and plug things in. Except we can’t <em>really</em> plug
+infinity in, since it’s not a number. But we can do the next-best thing:
+just phrase this as a limit, and take the limit to infinity. So, for
+example, we can try to find the area underneath <span
+class="math inline">\(x^2\)</span> from <span
+class="math inline">\(x=5\)</span> to <span
+class="math inline">\(x=b\)</span>: <img src="x-squared-integral-2.svg"
+style="width:50.0%" /> And then we can take the limit of that as <span
+class="math inline">\(b\)</span> goes to <span
+class="math inline">\(+\infty\)</span>: <img
+src="x-squared-integral-3.svg" style="width:50.0%" /> So we get: <span
+class="math display">\[\begin{align*}
         \text{this area } &amp;= \int_5^\infty x^2 \, dx \\
         &amp;= \lim_{b\rightarrow \infty} \int_5^b x^2 \, dx \\
-        &amp;= \lim_{b\rightarrow \infty} \left[  \frac13x^3\right|_5^b \\
-        &amp;= \lim_{b\rightarrow \infty} \left[  \frac13b^3 - \frac135^3 \right] \\
+        &amp;= \lim_{b\rightarrow \infty} \left[  \frac13x^3\right|_5^b
+\\
+        &amp;= \lim_{b\rightarrow \infty} \left[  \frac13b^3 -
+\frac135^3 \right] \\
         &amp;= \infty
-    \end{align*}\]</span> Okay. That all makes sense. We can do an integral, and indeed, the integral of this infinitely-tall, infinitely-wide arrea is indeed infinity.
+    \end{align*}\]</span> Okay. That all makes sense. We can do an
+integral, and indeed, the integral of this infinitely-tall,
+infinitely-wide area is indeed infinity.
 </li>
 <li>
-Consider the function: <span class="math display">\[f(x) = \frac{1}{x}\]</span> Draw a picture of it. What’s the area under this function, from <span class="math inline">\(x=1\)</span> all the way out to <span class="math inline">\(x=+\infty\)</span>? What’s the area under this function, from <span class="math inline">\(x=0\)</span> to <span class="math inline">\(x=1\)</span>? How about the area from <span class="math inline">\(x=0\)</span> to <span class="math inline">\(x=5\)</span>? How about the area from <span class="math inline">\(x=2\)</span> to <span class="math inline">\(x=+\infty\)</span>? Shade in all these areas on the picture, too.
+Consider the function: <span class="math display">\[f(x) =
+\frac{1}{x}\]</span> Draw a picture of it. What’s the area under this
+function, from <span class="math inline">\(x=1\)</span> all the way out
+to <span class="math inline">\(x=+\infty\)</span>? What’s the area under
+this function, from <span class="math inline">\(x=0\)</span> to <span
+class="math inline">\(x=1\)</span>? How about the area from <span
+class="math inline">\(x=0\)</span> to <span
+class="math inline">\(x=5\)</span>? How about the area from <span
+class="math inline">\(x=2\)</span> to <span
+class="math inline">\(x=+\infty\)</span>? Shade in all these areas on
+the picture, too.
 </li>
 <li>
-Consider the function: <span class="math display">\[f(x) = \frac{1}{x^2}\]</span> Draw a picture of it. What’s the area under this function, from <span class="math inline">\(x=1\)</span> all the way out to <span class="math inline">\(x=+\infty\)</span>? What’s the area under this function, from <span class="math inline">\(x=0\)</span> to <span class="math inline">\(x=1\)</span>? How about the area from <span class="math inline">\(x=0\)</span> to <span class="math inline">\(x=5\)</span>? How about the area from <span class="math inline">\(x=2\)</span> to <span class="math inline">\(x=+\infty\)</span>? Label and shade in all these areas on the picture, too.
+Consider the function: <span class="math display">\[f(x) =
+\frac{1}{x^2}\]</span> Draw a picture of it. What’s the area under this
+function, from <span class="math inline">\(x=1\)</span> all the way out
+to <span class="math inline">\(x=+\infty\)</span>? What’s the area under
+this function, from <span class="math inline">\(x=0\)</span> to <span
+class="math inline">\(x=1\)</span>? How about the area from <span
+class="math inline">\(x=0\)</span> to <span
+class="math inline">\(x=5\)</span>? How about the area from <span
+class="math inline">\(x=2\)</span> to <span
+class="math inline">\(x=+\infty\)</span>? Label and shade in all these
+areas on the picture, too.
 </li>
 <li>
-Consider the function: <span class="math display">\[f(x) = \frac{1}{\sqrt x}\]</span> Same deal. Draw a picture of it, find the area under it from <span class="math inline">\(x=1\)</span> to <span class="math inline">\(x=+\infty\)</span>, from <span class="math inline">\(x=0\)</span> to <span class="math inline">\(x=1\)</span>, from <span class="math inline">\(x=0\)</span> to <span class="math inline">\(x=5\)</span>, and from <span class="math inline">\(x=2\)</span> to <span class="math inline">\(x=+\infty\)</span>.
+Consider the function: <span class="math display">\[f(x) =
+\frac{1}{\sqrt x}\]</span> Same deal. Draw a picture of it, find the
+area under it from <span class="math inline">\(x=1\)</span> to <span
+class="math inline">\(x=+\infty\)</span>, from <span
+class="math inline">\(x=0\)</span> to <span
+class="math inline">\(x=1\)</span>, from <span
+class="math inline">\(x=0\)</span> to <span
+class="math inline">\(x=5\)</span>, and from <span
+class="math inline">\(x=2\)</span> to <span
+class="math inline">\(x=+\infty\)</span>.
 </li>
 <li>
-<p>Consider the function: <span class="math display">\[f(x) = x^p\]</span></p>
+<p>Consider the function: <span class="math display">\[f(x) =
+x^p\]</span></p>
 <ul>
-<li>When is the area underneath <span class="math inline">\(x^p\)</span> from <span class="math inline">\(x=0\)</span> to <span class="math inline">\(x=1\)</span>? infinite? When is it finite? What is that area, when it’s finite? (Note that by “when” here I mean “for what values of <span class="math inline">\(p\)</span>.”)</li>
-<li>When is the area underneath <span class="math inline">\(x^p\)</span> from <span class="math inline">\(x=1\)</span> to <span class="math inline">\(x=+\infty\)</span> infinite? When is it finite? What is that area, when it’s finite?</li>
+<li>When is the area underneath <span class="math inline">\(x^p\)</span>
+from <span class="math inline">\(x=0\)</span> to <span
+class="math inline">\(x=1\)</span>? infinite? When is it finite? What is
+that area, when it’s finite? (Note that by “when” here I mean “for what
+values of <span class="math inline">\(p\)</span>.”)</li>
+<li>When is the area underneath <span class="math inline">\(x^p\)</span>
+from <span class="math inline">\(x=1\)</span> to <span
+class="math inline">\(x=+\infty\)</span> infinite? When is it finite?
+What is that area, when it’s finite?</li>
 </ul>
 <p>Draw some pictures, too.</p>
-If you’re having trouble getting started, I can give you some more example problems to do with these mysterious integrals! I’ve got a whole bunch. But I’m trying to leave this intentionally open-meaned<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>!
+If you’re having trouble getting started, I can give you some more
+example problems to do with these mysterious integrals! I’ve got a whole
+bunch. But I’m trying to leave this intentionally open-meaned<a
+href="#fn1" class="footnote-ref" id="fnref1"
+role="doc-noteref"><sup>1</sup></a>!
 </li>
 <li>
-<p>Can you plot the value of the area underneath <span class="math inline">\(x^p\)</span> from <span class="math inline">\(x=1\)</span> to <span class="math inline">\(x=\infty\)</span> as <span class="math inline">\(p\)</span> changes? In other words, can you plot what the function <span class="math inline">\(\displaystyle f(p) = \int_1^\infty x^p\,dx\)</span> looks like? What about what <span class="math inline">\(\displaystyle g(p) = \int_0^1 x^p\,dx\)</span> looks like? (I had the idea to make this graph when I was a 19-year-old learning calculus for the first time, and I thought it was one of the most remarkable things I’d ever seen.) <!-- <table style='text-align: center;'>
+<p>Can you plot the value of the area underneath <span
+class="math inline">\(x^p\)</span> from <span
+class="math inline">\(x=1\)</span> to <span
+class="math inline">\(x=\infty\)</span> as <span
+class="math inline">\(p\)</span> changes? In other words, can you plot
+what the function <span class="math inline">\(\displaystyle f(p) =
+\int_1^\infty x^p\,dx\)</span> looks like? What about what <span
+class="math inline">\(\displaystyle g(p) = \int_0^1 x^p\,dx\)</span>
+looks like? (I had the idea to make this graph when I was a 19-year-old
+learning calculus for the first time, and I thought it was one of the
+most remarkable things I’d ever seen.)
+<!-- <table style='text-align: center;'>
         <thead>
             <tr>
                 <th style='width:30%;'>$\displaystyle \int_0^1 \! x^p \, dx$</th>
@@ -192,12 +291,94 @@ If you’re having trouble getting started, I can give you some more example pro
 </table> --></p>
 </li>
 </ol>
-<section class="footnotes" role="doc-endnotes">
+<section id="footnotes" class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
 <hr />
 <ol>
-<li id="fn1" role="doc-endnote"><p>“Open-meaned” being a word I just made up to distinguish between that and “open-ended,” in the sense of ends versus means. This isn’t open-ended; there’s a specific question I want you to answer/thing I want you to figure out.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>“Open-meaned” being a word I just made up to distinguish
+between that and “open-ended,” in the sense of ends versus means. This
+isn’t open-ended; there’s a specific question I want you to answer/thing
+I want you to figure out.<a href="#fnref1" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
+<script>
+(function () {
+  const toc = document.querySelector('#TOC');
+  const headings = Array.from(
+    document.querySelectorAll('h1[id], h2[id], h3[id], h4[id]')
+  );
+
+  if (!headings.length || !toc) return;
+
+  // Map heading ids to their TOC anchor elements
+  const tocLinks = {};
+  headings.forEach(h => {
+    const link = document.querySelector(`#TOC a[href="#${h.id}"]`);
+    if (link) tocLinks[h.id] = link;
+  });
+
+  let currentActive = null;
+
+  function setActive(id) {
+    if (id === currentActive) return;
+    if (currentActive && tocLinks[currentActive]) {
+      tocLinks[currentActive].classList.remove('toc-active');
+    }
+    if (id && tocLinks[id]) {
+      tocLinks[id].classList.add('toc-active');
+    }
+    currentActive = id;
+  }
+
+  // Use #toc-start if present, otherwise fall back to #title-block.
+  // TOC becomes visible once that element scrolls above the fold.
+  const trigger = document.querySelector('#toc-start') || document.querySelector('#title-block');
+  if (trigger) {
+    function updateTocVisibility() {
+      const rect = trigger.getBoundingClientRect();
+      if (rect.bottom < 0) {
+        toc.classList.add('toc-visible');
+      } else {
+        toc.classList.remove('toc-visible');
+      }
+    }
+    updateTocVisibility();
+    window.addEventListener('scroll', updateTocVisibility, { passive: true });
+  }
+
+  // Track active section
+  const activeObserver = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setActive(entry.target.id);
+        }
+      });
+
+      // Fallback: long section with no heading visible —
+      // find the last heading that has scrolled above the fold.
+      const anyVisible = headings.some(h => tocLinks[h.id]?.classList.contains('toc-active'));
+      if (!anyVisible) {
+        const scrollY = window.scrollY;
+        let best = null;
+        for (const h of headings) {
+          if (h.offsetTop <= scrollY + window.innerHeight * 0.25) {
+            best = h.id;
+          }
+        }
+        if (best) setActive(best);
+      }
+    },
+    {
+      rootMargin: '0px 0px -75% 0px',
+      threshold: 0,
+    }
+  );
+
+  headings.forEach(h => activeObserver.observe(h));
+})();
+</script>
 </main>
 </body>
 </html>

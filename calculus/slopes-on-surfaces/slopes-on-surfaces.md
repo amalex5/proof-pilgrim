@@ -15,8 +15,6 @@ This is nice because it's a formula that generalizes to any number of dimensions
 
 
 
-
-
 NOTES ON 2D SRUFACE DERIVATIVES ETC ETC ETC 
 
 ## From 1VC to MVC back down to 2VC

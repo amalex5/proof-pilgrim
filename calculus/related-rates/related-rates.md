@@ -18,8 +18,7 @@ Uh, anyway, as a third complication, a practical jokester (perhaps an otter?) ha
 
 A couple of questions: first of all, when will they run out of string? that is to say, when will the tortoise and the hare feel a sudden jerk back towards each other, and realize that they're tied together? And, secondly: the amount of internal injuries they suffer will be directly proportional to the force exerted by the string at the moment that it stops them from running independently, which in turn will be proportional to the rate at which the distance between them is changing---i.e., the speed at which the string is coming of the spool. So at the instant they run out of string, how fast is the distance between the tortoise and the hare changing?
 
-(If they were both running in the same direction, we'd just subtract their speeds; if they were both running in opposite directions, we'd add their speeds. You did this in physics last year---you discussed relative motion.) (Note how I've used the word "speed" rather than "velocity,
-" since velocity includes information about direction.))
+(If they were both running in the same direction, we'd just subtract their speeds; if they were both running in opposite directions, we'd add their speeds. You did this in physics last year---you discussed relative motion.) (Note how I've used the word "speed" rather than "velocity," since velocity includes information about direction.))
 
 
 Let's assume that the tortoise can run ("run") $5m/h$ (where "m" means 
@@ -55,7 +54,9 @@ If we plug these into our Pythagorean thing, we get:
 \begin{align*}
 (5t)^2 + (200t))^2 &= 1000^2 \\
 25t^2 + 200^2t^2 &= 1000^2
-\intertext{I haven't bothered squaring $1000$ and $25$, because that's too much writing---and I can always let the calculator take care of it. Now, if I solve for $t$:}
+\end{align*}
+I haven't bothered squaring $1000$ and $25$, because that's too much writing---and I can always let the calculator take care of it. Now, if I solve for $t$:
+\begin{align*}
 t^2(25+200^2) &= 1000^2\\
 t^2 &= 1000^2/(25+200^2)\\
 t &= \sqrt{1000^2/(25+200^2)}\\
@@ -83,19 +84,25 @@ S'(t) &= \frac{T(t) T'(t) + H(t) H'(t)}{S(t)}
 Alternatively, if I first solve for $S(t)$ and then differentiate:
 \begin{align*}
 (T(t))^2 + (H(t))^2 &= (S(t))^2
-\intertext{so then}
-S(t) &= \sqrt{(T(t))^2 + (H(t))^2}\\
-\intertext{differentiating...}
+\end{align*}
+So then:
+\begin{align*}
+S(t) &= \sqrt{(T(t))^2 + (H(t))^2}
+\end{align*}
+Differentiating...
+\begin{align*}
 \frac{d}{dt}\left[ S(t) \right] &= \frac{d}{dt}\left[\sqrt{(T(t))^2 + (H(t))^2}\right] \\\\
 S'(t) &= \frac{1}{2\sqrt{(T(t))^2 + (H(t))^2}}\cdot \left(2T(t) T'(t) + 2H(t) H'(t) \right) \\\\
 &= \frac{2T(t) T'(t) + 2H(t) H'(t)}{2\sqrt{(T(t))^2 + (H(t))^2}} \\\\
 &= \frac{T(t) T'(t) + H(t) H'(t)}{\sqrt{(T(t))^2 + (H(t))^2}} \\\\
-\intertext{but since we know that $S(t) = \sqrt{(T(t))^2 + (H(t))^2}$, we can simplify this to:}
+\end{align*}
+But since we know that $S(t) = \sqrt{(T(t))^2 + (H(t))^2}$, we can simplify this to:
+\begin{align*}
 S'(t) &= \frac{T(t) T'(t) + H(t) H'(t)}{S(t)}
 \end{align*}
 So, either way I get the same thing! We get that:
 $$S'(t) = \frac{T(t) T'(t) + H(t) H'(t)}{S(t)}$$
-(I'm sorry if these two derivations were hard to read; I think all the "$(t)$"s made it needlessly messy, but I wanted to put them in there just so you wouldn't forget that $S$, $T$, and $H$ are all functions of $t$... I dunno. If you find them confusing, try writing them out without the ``$(t)$''s, and see if it's clearer.)
+(I'm sorry if these two derivations were hard to read; I think all the "$(t)$"s made it needlessly messy, but I wanted to put them in there just so you wouldn't forget that $S$, $T$, and $H$ are all functions of $t$... I dunno. If you find them confusing, try writing them out without the "$(t)$"'s, and see if it's clearer.)
 
 So this tells us the rate (the speed) at which the distance between the tortoise and the hare is changing as a function of time. Or rather, as a function of the distance the tortoise and the hare have each travelled, as well as their speeds and the distance between them. We can simplify it a bit. First of all, we know the speeds of the tortoise and the hare (we know $T'(t) = 5$ and $H'(t) = 200$), so we can plug those in:
 $$S'(t) = \frac{T(t)\cdot 5+ H(t)\cdot 200}{S(t)}$$
@@ -104,8 +111,10 @@ $$S'(t) = \frac{T(t)\cdot 5+ H(t)\cdot 200}{\sqrt{(T(t))^2 + (H(t))^2}}$$
 And since we know that $H(t) = 200t$ and $T(t) = 5t$, we have:
 \begin{align*}
 S'(t) &= \frac{5t\cdot 5+ 200t\cdot 200}{\sqrt{((5t)^2 + (200t)^2}}
-\intertext{or:}
- &= \frac{25t+ 200^2t}{\sqrt{25t^2 + 200^2t^2}} \\
+\end{align*}
+or:
+\begin{aign*}
+&= \frac{25t+ 200^2t}{\sqrt{25t^2 + 200^2t^2}} \\
 &= \frac{t(25+ 200^2)}{\sqrt{(t^2)(25 + 200^2)}} \\
 &= \frac{t(25+ 200^2)}{\sqrt{t^2}\sqrt{25 + 200^2}} \\
 &= \frac{t(25+ 200^2)}{t\sqrt{25 + 200^2}} \\
@@ -121,7 +130,7 @@ So that means that the distance between the tortoise and the hare is increasing 
 
 
 
-
+<!-- 
 
 
 
@@ -136,29 +145,28 @@ other physics examples
 
 usuaally by ``rate'' we mean change in X per change in time
 though, of course, we could measure change relative to somethijng othter than time. for instance, i could 
-\
+\ -->
 
 
 
-\vspace{3pc}
-\noindent{\bf \large Another Example}
+## Another Example
 
 
 Here's another good example. You're in Arizona. You're trying to get to Tombstone, but your party was massacred by Indians/bandits/wild animals somewhere north of Nogales. You're the only survivor. So you've been walking for days, with no sign of anything living. And then you see it: train tracks. They extend to the horizon like a pencil line in two-point perspective, and just before the vanishing point rises an object that you remember from your boyhood days studying Euclid: a cone. Are you hallucinating? Are you so close to death that time is melting? Are you in the desert or in Mr. Dick's class? Are you entering the Platonic world of shapes?
 
 The cone, though, isn't quite a cone: it's an inverted cone, raised up above the ground and supported on an iron lattice. It's a water tower. You straggle forth. The water tower must be miles away but in what seems like minutes you're underneath it, lapping up the drip-drip-dripping coming from the leak at the very vertex of the cone. The water tastes like rust, but it also tastes like water, which is delicious and revivifying. So you lie down directly underneath the leak and open your mouth. You don't have a cup or anything to catch the water with. All you have is your mouth. But that's OK, because you could lie there and drink water all day. 
 
-Unfortunately, that won't be possible. There's only a finite amount of water in the tank. Moreover: the rate at which the water is dripping out of the tank is {\em decreasing} over time. The rate at which the water drips will be proportional to the amount of water in the tank---the more water there is in the tank, the greater the water pressure at the vetex will be, and the faster it'll drip---and so the more water that drips out, the less water there is, and the less the pressure there is, and the slower it drips. 
+Unfortunately, that won't be possible. There's only a finite amount of water in the tank. Moreover: the rate at which the water is dripping out of the tank is *decreasing* over time. The rate at which the water drips will be proportional to the amount of water in the tank---the more water there is in the tank, the greater the water pressure at the vetex will be, and the faster it'll drip---and so the more water that drips out, the less water there is, and the less the pressure there is, and the slower it drips. 
 
 Let's imagine you don't actually care about the amount of water in the tank. Let's imagine, instead, that the water is sort of like an IV for you---that you need to drink a certain amount of water per unit time, lest you lapse back into unconsciousness. You do not want to return to your dessicated desert delerium. You need to be drinking at least $10$ cubic centimeters of water per minute to remain conscious. 
 
 Uh. Crud. I just realized that this problem, the way I'm setting it up, is a bit beyond your level. This always happens when I write word problems---I get way too involved and write stuff that's too complicated and elaborate. Look, let's just do a dumb problem involving a stupid cone and water dripping.
 
-OK, so imagine you have a cone or a funnel or something and water is dripping out of it. Let's imagine that cone is 10 feet in diameter at the opening and 15 feet tall, and that the water is dripping at a constant rate of one cubic foot per hour. That's a stupid assumption to make---the water {\em won't} drip at a consant rate---but all of the textbooks love making that assumption. So, anyway, water drips out, the water leve in the cone changes, and the surface area of the water in the cone changes, too. Let's say that the height of the water at any given time $t$ is $h_\text{water}(t)$. Then I have a situation like this:
+OK, so imagine you have a cone or a funnel or something and water is dripping out of it. Let's imagine that cone is 10 feet in diameter at the opening and 15 feet tall, and that the water is dripping at a constant rate of one cubic foot per hour. That's a stupid assumption to make---the water *won't* drip at a consant rate---but all of the textbooks love making that assumption. So, anyway, water drips out, the water leve in the cone changes, and the surface area of the water in the cone changes, too. Let's say that the height of the water at any given time $t$ is $h_\text{water}(t)$. Then I have a situation like this:
 
-\centerline{\includegraphics[scale=.7]{cone1.png} }
+![](cone1.png)
 
-I've labelled the radius of the water level in the cone as $r_\text{water}(t)$. So, the typical textbook question to ask now---not like you'd really care, were you dying of thirst in the Sonoran desert---the typical question to ask is ``at what rate is the water level falling?''
+I've labelled the radius of the water level in the cone as $r_\text{water}(t)$. So, the typical textbook question to ask now---not like you'd really care, were you dying of thirst in the Sonoran desert---the typical question to ask is "at what rate is the water level falling?"
 
 So really we are asking, at what rate is the height of the water changing? Or: what is $dh_\text{water}/dt$ a/k/a $h_\text{water}'(t)$? I guess we'll need to find an equation with $h(t)$ in it that we can differentiate.  
 
@@ -171,7 +179,7 @@ $$V_\text{water} = \frac{1}{3}\pi r_\text{water}^2h_\text{water}$$
 Or if I write it to remind myself that these things are all functions of time:
 $$V_\text{water}(t) = \frac{1}{3}\pi (r_\text{water}(t))^2h_\text{water}(t)$$
 
-Our question is ``at what rate is the water level falling?''? So really we are asking, at what rate is the height of the water changing? Or: what is $dh_\text{water}/dt$ a/k/a $h_\text{water}'(t)$? We want to find this. We could do this a couple ways: we could solve this equation for $h_\text{water}$ and take a derivative, or we could differentiate what we have implicitly and then solve for $h_\text{water}'(t)$.
+Our question is "at what rate is the water level falling?"? So really we are asking, at what rate is the height of the water changing? Or: what is $dh_\text{water}/dt$ a/k/a $h_\text{water}'(t)$? We want to find this. We could do this a couple ways: we could solve this equation for $h_\text{water}$ and take a derivative, or we could differentiate what we have implicitly and then solve for $h_\text{water}'(t)$.
 
 But let's simplify it a bit before we do either. We have three functions here---the volume, the height, and the radius. We can simplify this. We can reduce $h(t)$ and $r(t)$ to just one function. We know that the radius of the container cone is $10ft$ and the height of the container cone is $15ft$, and we know that any cone inside of this one will have the same proportions (because of similar triangles or something):
 \centerline{\includegraphics[scale=.7]{cone2.png} }
@@ -220,7 +228,8 @@ In the following problems: an object is moving along a line such that its positi
 <li> $x(t) = (t^2-3t)(t^2+3t)$, when $t=2$ </li>
 </ol>
 
-\vspace{1pc}
+
+<div style='height:2em;'></div>
 
 <ol class="problems">
 <li> Imagine that the radius of a circle is changing over time. Can you come up with a function for the area of the circle as a function of time? Can you come up with a function for the rate at which the area of the circle changes (possibly in terms of the radius and the rate at which the radius is changing)? </li>
@@ -236,7 +245,7 @@ In the following problems: an object is moving along a line such that its positi
 <li> If both the current and the resistance change over time, how does the power through the circuit change? </li>
 <li> If neither the current nor the resistance change, how does the power through the circuit change? </li>
 </ol>
-Note that in none of these questions do you know {\em how} this stuff changes with time. You simply know, for example, that $i$ is *somehow* a function of time---that if $t$ changes, $i$ changes, too. (The usual abbreviation for this would be "$i=i(t)$.") You don't know, for example, that it changes at three amps per second. You know that it *doesn't* change at zero units per second (it's not constant), but that's all you know.
+Note that in none of these questions do you know *how* this stuff changes with time. You simply know, for example, that $i$ is *somehow* a function of time---that if $t$ changes, $i$ changes, too. (The usual abbreviation for this would be "$i=i(t)$.") You don't know, for example, that it changes at three amps per second. You know that it *doesn't* change at zero units per second (it's not constant), but that's all you know.
 </li>
 
 <li>The volume of a cylinder with radius $r$ and height $h$ is $V= \pi r^2 h$

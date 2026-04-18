@@ -20,7 +20,6 @@ Many of you have observed, thus, that integrals have a clean, simple, easy gener
 
 This is a fine way to *start* thinking about integrals in higher dimensions. But it's not a great way to *continue* thinking about integrals in higher dimensions. That's what we've now seen, having tried to do integrals using polar coordinates, and having gotten disastrous results.
 
-
 ## What happened?!?
 
 Let's recap our pernicious paradox. We had, as a model organism for these problems, a pipe-organ-style shape, consisting of a sawed-off cylinder:

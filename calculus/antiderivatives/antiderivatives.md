@@ -36,7 +36,7 @@ where $C$ can be any real number (i.e., is some constant). That way we can captu
 
 $$\displaystyle \int f'(x) \, dx = f(x) + C$$
 
-Additionally, unless otherwise specified, I represent constant quantities in these problems with single letters (e.g. $a$, $b$, $n$) and functions with function-notation (e.g. $a(x)$, $b(t)$, $f(x)$, $r(\theta)$). Some of your answers may have to include arbitrary constants or functions---that's OK. You are welcome to ask me if you have additional questions of this sort, but if you have questions on how to actually do the problems, I will probably be quite reticient. 
+Additionally, unless otherwise specified, I represent constant quantities in these problems with single letters (e.g. $a$, $b$, $n$) and functions with function-notation (e.g. $a(x)$, $b(t)$, $f(x)$, $r(\theta)$). Some of your answers may have to include arbitrary constants or functions---that's OK. You are welcome to ask me if you have additional questions of this sort, but if you have questions on how to actually do the problems, I will probably be quite reticent. 
 
 <style>
   hr.integral-hr {

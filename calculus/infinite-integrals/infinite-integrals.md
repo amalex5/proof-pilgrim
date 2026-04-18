@@ -29,7 +29,7 @@ So we get:
         &= \lim_{b\rightarrow \infty} \left[  \frac13b^3 - \frac135^3 \right] \\
         &= \infty
     \end{align*}
-Okay. That all makes sense. We can do an integral, and indeed, the integral of this infinitely-tall, infinitely-wide arrea is indeed infinity.</li>
+Okay. That all makes sense. We can do an integral, and indeed, the integral of this infinitely-tall, infinitely-wide area is indeed infinity.</li>
 
 <li>Consider the function:
     $$f(x) = \frac{1}{x}$$

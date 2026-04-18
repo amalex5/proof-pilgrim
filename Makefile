@@ -14,11 +14,13 @@ all : $(MARKDOWN_HTML)
 
 #all : $(MARKDOWN_CONV)
 
+TOC_SCRIPT := $(dir $(lastword $(MAKEFILE_LIST)))toc-highlight.html
+
 %.html : %.md
 	@if [ "$<" = "index.md" ]; then \
-		pandoc $< -o $@ -s --mathjax --css /main.css --template index-template.html --toc; \
+		pandoc $< -o $@ -s --mathjax --css /main.css --template index-template.html --toc --include-after-body=$(TOC_SCRIPT); \
 	else \
-		pandoc $< -o $@ -s --mathjax --css /main.css --template template.html --toc; \
+		pandoc $< -o $@ -s --mathjax --css /main.css --template template.html --toc --include-after-body=$(TOC_SCRIPT); \
 	fi
 
 
@@ -155,4 +157,3 @@ rebuild : clean all
 # all: gen transpile compile redux
 # .DEFAULT_GOAL := compile
 # .PHONY: gen transpile compile clean
-

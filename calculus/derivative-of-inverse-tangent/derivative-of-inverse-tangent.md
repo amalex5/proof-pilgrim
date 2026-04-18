@@ -5,7 +5,6 @@ layout: post
 ---
 
 
-
 What's the derivative of inverse tangent? Who knows?!?
 
 ## visually

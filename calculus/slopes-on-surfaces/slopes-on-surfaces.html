@@ -6,20 +6,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>slopes on surfaces</title>
   <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
   </style>
   <link rel="stylesheet" href="/main.css" />
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
   <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
-  <script src="../highlight-toc.js" type="text/javascript"></script>
-
   <script> 
       // disappearing header, from dynomight.net'
       var prevScrollpos = window.pageYOffset;
@@ -48,88 +59,462 @@
   <header>
   <span id="header-name"><a href="/">the natural history <span style="font-weight:normal;">of abstract objects</span></a></span> <span id="linkback"><a href=http://www.andrusia.com><img src="/andrew-logo.svg" id='header-logo' style='width: auto;'/></a></span>
 </header>
-<script>document.addEventListener('DOMContentLoaded', function(e) {
-  Scroller.init();
-})</script>
-<!-- <aside>
-<div class="tocLinks" >
 <nav id="TOC" role="doc-toc">
 <ul>
-<li><a href="#from-1vc-to-mvc-back-down-to-2vc">From 1VC to MVC back down to 2VC</a></li>
-<li><a href="#the-ritual-sacrifice">the ritual sacrifice</a></li>
+<li><a href="#from-1vc-to-mvc-back-down-to-2vc"
+id="toc-from-1vc-to-mvc-back-down-to-2vc">From 1VC to MVC back down to
+2VC</a></li>
+<li><a href="#the-ritual-sacrifice" id="toc-the-ritual-sacrifice">the
+ritual sacrifice</a></li>
 </ul>
 </nav>
-</div>
-</aside>
--->
- 
 <main>
 <div id="title-block">
 <h1 class="title">slopes on surfaces</h1>
 </div>
-<p>Here, at the beginnings of our exploration of higher-dimensional calculus, we’ve figured out a few things. We’ve figured out that, unlike in single-variable calculus, slopes in higher dimensions are dependent not just on the functions themselves, but also on the <em>direction</em> we’re facing. In particular, if we’re on some <span class="math inline">\(n\)</span>-dimensional surface (or scalar function, as most people call it), then the slope is just the dot product of the vector of partial derivatives (the gradient vector, or the derivative vector, or whatever you want to call it) with the direction/unit vector of the direction we’re facing: <span class="math display">\[\begin{align*}
-   \substack{\text{the slope}\\\text{in some direction}\\\text{at some point}}  \quad &amp;= \left(\text{gradient/derivative vector}\right) \cdot \left(\text{unit/direction vector}\right) \\ \\
-   &amp;= \begin{bmatrix}\frac{\partial f}{\partial x_1} \\ \frac{\partial f}{\partial x_2}  \\ \frac{\partial f}{\partial x_3}  \\ \vdots \end{bmatrix} \cdot \begin{bmatrix} \substack{\text{the unit/direction vector}\\\text{in the $x_1$-direction}} \\ \substack{\text{the unit/direction vector}\\\text{in the $x_2$-direction}} \\ \substack{\text{the unit/direction vector}\\\text{in the $x_3$-direction}} \\ \vdots  \end{bmatrix} \\ \\
-   &amp;= \frac{\partial f}{\partial x_1}\left(  \substack{\text{the unit/direction vector}\\\text{in the $x_1$-direction}} \right) \,+\, \frac{\partial f}{\partial x_2}\left(  \substack{\text{the unit/direction vector}\\\text{in the $x_2$-direction}} \right) \,+\, \cdots 
-\end{align*}\]</span> This is nice because it’s a formula that generalizes to any number of dimensions! (It also magically encompasses our knowledge of single-variable slopes: in that case, there’s only one “partial” derivative, and only two choices for what the direction vector can be, <span class="math inline">\(\langle +1\rangle\)</span> or <span class="math inline">\(\langle -1\rangle\)</span>.)</p>
+<p>Here, at the beginnings of our exploration of higher-dimensional
+calculus, we’ve figured out a few things. We’ve figured out that, unlike
+in single-variable calculus, slopes in higher dimensions are dependent
+not just on the functions themselves, but also on the <em>direction</em>
+we’re facing. In particular, if we’re on some <span
+class="math inline">\(n\)</span>-dimensional surface (or scalar
+function, as most people call it), then the slope is just the dot
+product of the vector of partial derivatives (the gradient vector, or
+the derivative vector, or whatever you want to call it) with the
+direction/unit vector of the direction we’re facing: <span
+class="math display">\[\begin{align*}
+   \substack{\text{the slope}\\\text{in some direction}\\\text{at some
+point}}  \quad &amp;= \left(\text{gradient/derivative vector}\right)
+\cdot \left(\text{unit/direction vector}\right) \\ \\
+   &amp;= \begin{bmatrix}\frac{\partial f}{\partial x_1} \\
+\frac{\partial f}{\partial x_2}  \\ \frac{\partial f}{\partial x_3}  \\
+\vdots \end{bmatrix} \cdot \begin{bmatrix} \substack{\text{the
+unit/direction vector}\\\text{in the $x_1$-direction}} \\
+\substack{\text{the unit/direction vector}\\\text{in the
+$x_2$-direction}} \\ \substack{\text{the unit/direction
+vector}\\\text{in the $x_3$-direction}} \\ \vdots  \end{bmatrix} \\ \\
+   &amp;= \frac{\partial f}{\partial x_1}\left(  \substack{\text{the
+unit/direction vector}\\\text{in the $x_1$-direction}} \right) \,+\,
+\frac{\partial f}{\partial x_2}\left(  \substack{\text{the
+unit/direction vector}\\\text{in the $x_2$-direction}} \right) \,+\,
+\cdots
+\end{align*}\]</span> This is nice because it’s a formula that
+generalizes to any number of dimensions! (It also magically encompasses
+our knowledge of single-variable slopes: in that case, there’s only one
+“partial” derivative, and only two choices for what the direction vector
+can be, <span class="math inline">\(\langle +1\rangle\)</span> or <span
+class="math inline">\(\langle -1\rangle\)</span>.)</p>
 <p>NOTES ON 2D SRUFACE DERIVATIVES ETC ETC ETC</p>
-<h2 id="from-1vc-to-mvc-back-down-to-2vc">From 1VC to MVC back down to 2VC</h2>
-<p>in 2VC-world things are a little simpler than the more general MVC-world. For one thing, we can <em>draw pictures</em>. A two-dimensional surface needs two inputs and one output; three dimensions, total; that’s something we can easily visualize! If we have a surface/scalar function that takes three inputs (and gives one output), or four inputs, or <span class="math inline">\(n\)</span> inputs, pictures get much trickier.</p>
-<p>Plus, in 2VC, we can easily think of direction vectors as just a friendly sine-and-cosine pair. In <span class="math inline">\(n\)</span> dimensions, a direction vector is a vector whose components all Pythagorean-add<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> to <span class="math inline">\(1\)</span>. In two dimensions, that works out to just being <span class="math inline">\(\cos\theta\)</span> for the <span class="math inline">\(x\)</span> and <span class="math inline">\(\sin\theta\)</span> for the <span class="math inline">\(y\)</span>, if we want to use an angle <span class="math inline">\(\theta\)</span> in the usual way on the <span class="math inline">\(xy\)</span>-plane.</p>
-<p>In this way two-dimensional surfaces make a great metaphor for <span class="math inline">\(n\)</span>-dimensional surfaces: they have complexity that one-dimensional surfaces don’t have, but they’re still easy to visualize, and they’re possible to deal with “manually” (using marginally-more-annoying trig rather than the full fancy formalism of our higher-dimensional tools). So we can use them as an environment in which to get comfortable with higher-dimensional differentiation. Slopes in 2D are both interesting in and of themselves (after all, we simians live on a 2D surface), but also a great</p>
+<h2 id="from-1vc-to-mvc-back-down-to-2vc">From 1VC to MVC back down to
+2VC</h2>
+<p>in 2VC-world things are a little simpler than the more general
+MVC-world. For one thing, we can <em>draw pictures</em>. A
+two-dimensional surface needs two inputs and one output; three
+dimensions, total; that’s something we can easily visualize! If we have
+a surface/scalar function that takes three inputs (and gives one
+output), or four inputs, or <span class="math inline">\(n\)</span>
+inputs, pictures get much trickier.</p>
+<p>Plus, in 2VC, we can easily think of direction vectors as just a
+friendly sine-and-cosine pair. In <span class="math inline">\(n\)</span>
+dimensions, a direction vector is a vector whose components all
+Pythagorean-add<a href="#fn1" class="footnote-ref" id="fnref1"
+role="doc-noteref"><sup>1</sup></a> to <span
+class="math inline">\(1\)</span>. In two dimensions, that works out to
+just being <span class="math inline">\(\cos\theta\)</span> for the <span
+class="math inline">\(x\)</span> and <span
+class="math inline">\(\sin\theta\)</span> for the <span
+class="math inline">\(y\)</span>, if we want to use an angle <span
+class="math inline">\(\theta\)</span> in the usual way on the <span
+class="math inline">\(xy\)</span>-plane.</p>
+<p>In this way two-dimensional surfaces make a great metaphor for <span
+class="math inline">\(n\)</span>-dimensional surfaces: they have
+complexity that one-dimensional surfaces don’t have, but they’re still
+easy to visualize, and they’re possible to deal with “manually” (using
+marginally-more-annoying trig rather than the full fancy formalism of
+our higher-dimensional tools). So we can use them as an environment in
+which to get comfortable with higher-dimensional differentiation. Slopes
+in 2D are both interesting in and of themselves (after all, we simians
+live on a 2D surface), but also a great</p>
 <h2 id="the-ritual-sacrifice">the ritual sacrifice</h2>
-<p>We started our investigation of slopes in higher dimensions by doing what Kelly Poon ’24 called a “ritual sacrifice.” We marched outside, found a piece of plywood propped up on the wall outside the i-Lab, and made Jaxon Jacobs ’24 stand on it. Standing on the plywood, in the center, facing the wall, it’s pretty steep!!!</p>
+<p>We started our investigation of slopes in higher dimensions by doing
+what Kelly Poon ’24 called a “ritual sacrifice.” We marched outside,
+found a piece of plywood propped up on the wall outside the i-Lab, and
+made Jaxon Jacobs ’24 stand on it. Standing on the plywood, in the
+center, facing the wall, it’s pretty steep!!!</p>
 <p><img src="plywood-jaxon-steepest.jpg" style="width:50.0%" /></p>
-<p>But… when Jaxon turned <span class="math inline">\(90\)</span> degrees, the plywood—at least, in the direction he was facing, thinking of himself as walking on a one-dimensional path on this two-dimensional surface—the slope of the plywood became flat!!! He was facing a contour!</p>
+<p>But… when Jaxon turned <span class="math inline">\(90\)</span>
+degrees, the plywood—at least, in the direction he was facing, thinking
+of himself as walking on a one-dimensional path on this two-dimensional
+surface—the slope of the plywood became flat!!! He was facing a
+contour!</p>
 <p><img src="plywood-jaxon-flat-2.jpg" style="width:50.0%" /></p>
-<p>Then Jaxon turned another <span class="math inline">\(90\)</span> degrees. Now it’s steep again, but it’s steep <em>down</em>!!!</p>
+<p>Then Jaxon turned another <span class="math inline">\(90\)</span>
+degrees. Now it’s steep again, but it’s steep <em>down</em>!!!</p>
 <p><img src="plywood-jaxon-steepest-down.jpg" style="width:50.0%" /></p>
-<p>Another <span class="math inline">\(90\)</span> degrees. Now it’s back to being flat!!!</p>
+<p>Another <span class="math inline">\(90\)</span> degrees. Now it’s
+back to being flat!!!</p>
 <p><img src="plywood-jaxon-flat-1.jpg" style="width:50.0%" /></p>
-<p>What’s the lesson here? As Aria Gao ‘24 put it in the auto-caption, ``The steepness is relative to what direction you’re facing!’’</p>
-<p><img src="aria-gao-the-steepness-is-relative-captioned.jpg" style="width:50.0%" /></p>
+<p>What’s the lesson here? As Aria Gao ‘24 put it in the auto-caption,
+``The steepness is relative to what direction you’re facing!’’</p>
+<p><img src="aria-gao-the-steepness-is-relative-captioned.jpg"
+style="width:50.0%" /></p>
 <p>So that motivated our broader</p>
-<p>In 1VC, the core idea/paradox/contention/assertion at the heart of calculus is this: <span class="math display">\[\text{if we zoom in really far, everything becomes a straight {\color{red}line} }\]</span> The <span class="math inline">\(n\)</span>-dimensional analogue of this, in <span class="math inline">\(n\)</span>-dimensional calculus, is: <span class="math display">\[\text{if we zoom in really far, everything becomes a straight {\color{red}$\,\substack{\text{$n$-dimensional}\\\text{hypersurface}}$}}\]</span> That’s weird. The two-dimensional/2VC case is easier to imagine: <span class="math display">\[\text{if we zoom in really far, everything becomes a straight {\color{red} plane}}\]</span> In 2VC, we zoom in really far, and everything becomes a—not a straight <em>line</em>, but a straight <em>plane</em>. “Straight” might not be the best word here; I don’t mean “straight” in the “flat” or “parallel to the ground” sense; I mean “straight” in the “not curvy” sense. (Or you can just say <strong>linear</strong> if you want to sound fancy)</p>
-<p>That has ramifications!!! In 1VC, if we want to understand curvy lines, that means that we need to understand <em>straight</em> lines. Every straight line is just::</p>
+<p>In 1VC, the core idea/paradox/contention/assertion at the heart of
+calculus is this: <span class="math display">\[\text{if we zoom in
+really far, everything becomes a straight {\color{red}line} }\]</span>
+The <span class="math inline">\(n\)</span>-dimensional analogue of this,
+in <span class="math inline">\(n\)</span>-dimensional calculus, is:
+<span class="math display">\[\text{if we zoom in really far, everything
+becomes a straight
+{\color{red}$\,\substack{\text{$n$-dimensional}\\\text{hypersurface}}$}}\]</span>
+That’s weird. The two-dimensional/2VC case is easier to imagine: <span
+class="math display">\[\text{if we zoom in really far, everything
+becomes a straight {\color{red} plane}}\]</span> In 2VC, we zoom in
+really far, and everything becomes a—not a straight <em>line</em>, but a
+straight <em>plane</em>. “Straight” might not be the best word here; I
+don’t mean “straight” in the “flat” or “parallel to the ground” sense; I
+mean “straight” in the “not curvy” sense. (Or you can just say
+<strong>linear</strong> if you want to sound fancy)</p>
+<p>That has ramifications!!! In 1VC, if we want to understand curvy
+lines, that means that we need to understand <em>straight</em> lines.
+Every straight line is just::</p>
 <ul>
 <li>a slope</li>
-<li>an offset (or a ``<span class="math inline">\(y\)</span>-intercept,’’ as we might call it)</li>
+<li>an offset (or a ``<span
+class="math inline">\(y\)</span>-intercept,’’ as we might call it)</li>
 </ul>
-<p>In other words, every straight line is just: <span class="math display">\[y = \text{(slope)}x + \text{(offset)}\]</span></p>
+<p>In other words, every straight line is just: <span
+class="math display">\[y = \text{(slope)}x +
+\text{(offset)}\]</span></p>
 <p>In 2VC, every straight plane is just:</p>
 <ul>
 <li>a slope in the <span class="math inline">\(x\)</span>-direction</li>
 <li>a slope in the <span class="math inline">\(y\)</span>-direction</li>
-<li>an offset (or a ``<span class="math inline">\(z\)</span>-intercept,’’ you might call it) <span class="math display">\[z = \left(\substack{\text{slope in the}\\\text{$x$-direction}}\right)x + \left(\substack{\text{slope in the}\\\text{$y$-direction}}\right)y  +\text{(offset)}\]</span></li>
+<li>an offset (or a ``<span
+class="math inline">\(z\)</span>-intercept,’’ you might call it) <span
+class="math display">\[z = \left(\substack{\text{slope in
+the}\\\text{$x$-direction}}\right)x + \left(\substack{\text{slope in
+the}\\\text{$y$-direction}}\right)y  +\text{(offset)}\]</span></li>
 </ul>
-<p>Suppose we have a flat plane in 3D space: <img src="slope-on-flat-plane-1.svg" style="width:75.0%" /> And we’re standing at some point on it: <img src="slope-on-flat-plane-2.svg" style="width:75.0%" /> Then there’s a direction we can turn to make our perspective the steepest (i.e., the most-uphill direction): <img src="slope-on-flat-plane-3.svg" style="width:75.0%" /> There’s also a direction we can turn to point in the steepest DOWNHILL direction: <img src="slope-on-flat-plane-4.svg" style="width:75.0%" /> That direction is also 180 away from steepest uphill! <img src="slope-on-flat-plane-5.svg" style="width:75.0%" /> Meanwhile, there’s also a direction we can turn in that will be FLAT!: <img src="slope-on-flat-plane-6.svg" style="width:75.0%" /> Actually, there are TWO such directions! (It’s a contour <em>line</em>, not a contour <em>ray</em>!) <img src="slope-on-flat-plane-7.svg" style="width:75.0%" /> And both of those flat directions are halfway (90 degrees) between the two steepest directions: <img src="slope-on-flat-plane-8.svg" style="width:75.0%" /> So that’s how the steepness-geometry of flat planes works.</p>
-<p>kayla lin: “this is such an iconic pod! it’s like the avengers in here”</p>
+<p>Suppose we have a flat plane in 3D space: <img
+src="slope-on-flat-plane-1.svg" style="width:75.0%" /> And we’re
+standing at some point on it: <img src="slope-on-flat-plane-2.svg"
+style="width:75.0%" /> Then there’s a direction we can turn to make our
+perspective the steepest (i.e., the most-uphill direction): <img
+src="slope-on-flat-plane-3.svg" style="width:75.0%" /> There’s also a
+direction we can turn to point in the steepest DOWNHILL direction: <img
+src="slope-on-flat-plane-4.svg" style="width:75.0%" /> That direction is
+also 180 away from steepest uphill! <img src="slope-on-flat-plane-5.svg"
+style="width:75.0%" /> Meanwhile, there’s also a direction we can turn
+in that will be FLAT!: <img src="slope-on-flat-plane-6.svg"
+style="width:75.0%" /> Actually, there are TWO such directions! (It’s a
+contour <em>line</em>, not a contour <em>ray</em>!) <img
+src="slope-on-flat-plane-7.svg" style="width:75.0%" /> And both of those
+flat directions are halfway (90 degrees) between the two steepest
+directions: <img src="slope-on-flat-plane-8.svg" style="width:75.0%" />
+So that’s how the steepness-geometry of flat planes works.</p>
+<p>kayla lin: “this is such an iconic pod! it’s like the avengers in
+here”</p>
 <p>Suppose we have some function:</p>
-<p>Here’s one of the key steps: now we can think of the slope of <span class="math inline">\(f\)</span>, at the point <span class="math inline">\((x,y)\)</span>, in the direction of <span class="math inline">\(\theta\)</span>, as being a function of <span class="math inline">\(\theta\)</span>: <span class="math display">\[\substack{\text{slope of $f$}\\\text{at $(x,y)$}\\\text{in the direction of $\theta$}}(\theta) = \frac{\partial f}{\partial x}\cos\theta + \frac{\partial f}{\partial y}\sin\theta\]</span></p>
+<p>Here’s one of the key steps: now we can think of the slope of <span
+class="math inline">\(f\)</span>, at the point <span
+class="math inline">\((x,y)\)</span>, in the direction of <span
+class="math inline">\(\theta\)</span>, as being a function of <span
+class="math inline">\(\theta\)</span>: <span
+class="math display">\[\substack{\text{slope of $f$}\\\text{at
+$(x,y)$}\\\text{in the direction of $\theta$}}(\theta) = \frac{\partial
+f}{\partial x}\cos\theta + \frac{\partial f}{\partial
+y}\sin\theta\]</span></p>
 <p>TKTKTKKTT</p>
-<p>We’ve figured out that if we’re on a surface/scalar function—meaning a function that takes in some number of inputs and returns only one output—and we’re facing in some direction, then to find the slope (``directional derivative’’), we can just dot-product the derivative vector with the unit/direction vector: <span class="math display">\[\substack{\text{the slope}\\\text{in some direction}\\\text{at some point}} = (\text{the gradient/derivative vector})\cdot (\text{the direction vector})\]</span> If we’re in a 2D situation, it gets slightly simpler. The gradient/derivative vector just consists of the two partial derivatives (the one in the <span class="math inline">\(x\)</span> and the one in the <span class="math inline">\(y\)</span>): <span class="math display">\[\substack{\text{the slope}\\\text{in some direction}\\\text{at some point}} = \begin{bmatrix}\frac{\partial f}{\partial x} \\ \\ \frac{\partial f}{\partial y} \end{bmatrix} \cdot (\text{the direction vector})\]</span> Likewise, in 2D, it’s easier to talk about the direction. In addition to representing it as a unit/direction vector, we can also represent it as just a single number, an angle: <span class="math display">\[\substack{\text{a direction in $\mathbb{R}^2$}\\\text{as an angle}} : \theta\]</span> And any direction/unit vector we can write as just a cosine/sine pair of that angle: <span class="math display">\[\substack{\text{a direction in $\mathbb{R}^2$}\\\text{as a unit vector}} : \left\langle \cos\theta, \sin\theta \right\rangle\]</span> So the slope on a 2D surface, when you’re facing the direction <span class="math inline">\(\theta\)</span>, will be: <span class="math display">\[\begin{align*}
-   \substack{\text{the slope}\\\text{in some direction}\\\text{at some point}}  &amp;= \left(\text{gradient/derivative vector}\right) \cdot \left(\text{unit/direction vector}\right) \\ \\
-   &amp;= \begin{bmatrix}\frac{\partial f}{\partial x} \\ \frac{\partial f}{\partial y} \end{bmatrix} \cdot \begin{bmatrix} \substack{\text{the unit/direction vector}\\\text{in the $x$-direction}} \\ \substack{\text{the unit/direction vector}\\\text{in the $y$-direction}} \end{bmatrix} \\ \\
-    &amp;= \begin{bmatrix} \frac{\partial f}{\partial x} \\ \frac{\partial f}{\partial y}\end{bmatrix} \cdot \begin{bmatrix} \cos\theta \\ \sin\theta \end{bmatrix} \\ \\
-    &amp;= \frac{\partial f}{\partial x}\cos\theta  \,\,+\,\, \frac{\partial f}{\partial y}\sin\theta
-\end{align*}\]</span> The two partial derivatives are just constants, note: <span class="math display">\[ \underbrace{\frac{\partial f}{\partial x}}_{\mathclap{\substack{\text{just some}\\\text{number}}}}\cos\theta  \quad+\quad \underbrace{\frac{\partial f}{\partial y}}_{\mathclap{\substack{\text{just some}\\\text{number}}}}\sin\theta\]</span> Once we plug in the specific values for <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>, i.e. the specific values of the partials at that point, then the partials are just numbers. It’s like we basically have: <span class="math display">\[\text{slope} = a\cos\theta + b\sin\theta\]</span> Or, with more detail: <span class="math display">\[\text{slope}(\theta) = \frac{\partial f}{\partial x}\cos\theta  + \frac{\partial f}{\partial y}\sin\theta\]</span> So we have just a simple equation, which is a function of only one variable, <span class="math inline">\(\theta\)</span>!!! That means that if we want, we can do all of our one-dimensional algebra and calculus on that function! We can even draw it!! It’ll look like: <img src="slope-as-fxn-of-angle-1.svg" /> Exactly where the intercepts and extrema are will depend on the values of <span class="math inline">\(\frac{\partial f}{\partial x}\)</span> and <span class="math inline">\(\frac{\partial f}{\partial x}\)</span>. But basically it looks just like this! Just like a standard trig function! It’s just a cosine and a sine, with different coefficients (but the same angles), added together! Any sum of a cosine and sine will look like this!</p>
-<p>So, what we’re looking at is the angle you’re facing on the horizontal axis, and the resulting slope in the direction you’re facing on the vertical axis. So, for example, there’s a place where this graph has a maximum—and that corresponds to the direction on the original surface in which the surface is steepest! <img src="slope-as-fxn-of-angle-steepest.svg" /> Likewise, this graph has a minimum—which corresponds to the direction on the original surface in which the surface is steepest <em>downwards</em>: <img src="slope-as-fxn-of-angle-steepest-down.svg" /> And the graph has two places where it’s zero (at least between zero and <span class="math inline">\(2\pi\)</span>), which correspond to the two directions you can turn in on the surface to make it flat (the contour directions): <img src="slope-as-fxn-of-angle-flat.svg" /> So, where do all these things actually happen?? For example, these two places where the original surface is flat (and the graph is zero). Can we compute what angle makes that happen?</p>
-<p>(Note that the slope-graph ITSELF isn’t flat at those points—in other words, the slope of the slope isn’t zero. This is a graph whose <em>output</em> is the slope of the original surface.)</p>
-<p>If we want to calculate the angle we have to turn at to make the surface flat, then that’s the same as just finding what angle makes the slope <span class="math inline">\(0\)</span>, so we need to find the <span class="math inline">\(\theta\)</span> that makes this slope-function zero: <span class="math display">\[\text{slope}\left(\theta_\text{flat}\right) = 0\]</span> I.e.: <span class="math display">\[\frac{\partial f}{\partial x}\cos\theta_\text{flat} + \frac{\partial f}{\partial y}\sin\theta_\text{flat}= 0 \]</span> So, if we move around the sine: <span class="math display">\[ - \frac{\partial f}{\partial y}\sin\theta_\text{flat} = \frac{\partial f}{\partial x}\cos\theta_\text{flat} \]</span> And divide by the cosine: <span class="math display">\[ \frac{- \frac{\partial f}{\partial y}\sin\theta_\text{flat}}{\cos\theta_\text{flat}} = \frac{\partial f}{\partial x} \]</span> And now divide off one of the partials: <span class="math display">\[ \frac{\sin\theta_\text{flat}}{\cos\theta_\text{flat}} = - \frac{\,\,\frac{\partial f}{\partial x}\,\,}{\frac{\partial f}{\partial y} } \]</span> This is sine over cosine, so it’s a tangent: <span class="math display">\[ \tan\theta_\text{flat} = -\frac{\,\,\frac{\partial f}{\partial x}\,\,}{\frac{\partial f}{\partial y} } \]</span> And then to find the angle we just take the inverse tangent: <span class="math display">\[ \theta_\text{flat} = \tan^\text{inv}\left(- \frac{\,\,\frac{\partial f}{\partial x}\,\,}{\frac{\partial f}{\partial y} } \right)\]</span> You might or might not remember that negatives can float in and out of tangents<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>: <span class="math display">\[\text{fun fact: }\quad \tan(-\theta)=-\tan\theta\]</span> So if you want to float the negative out here, this becomes: <span class="math display">\[ \theta_\text{flat} = -\tan^\text{inv}\left(\frac{\,\, \frac{\partial f}{\partial x}\,\,}{\frac{\partial f}{\partial y} } \right)\]</span> Yay!!!! So we have: <img src="slope-as-fxn-of-angle-3.svg" /> Note that tangent repeats every <span class="math inline">\(\pi\)</span> (every <span class="math inline">\(180^{\circ}\)</span>), so in a full <span class="math inline">\(2\pi\)</span> revolution (a full <span class="math inline">\(360^{\circ}\)</span>), there are TWO values that work here—i.e., two directions we can point in to make the surface flat/the slope zero! <span class="math display">\[ \theta_\text{flat} = -\tan^\text{inv}\left(\frac{\,\, \frac{\partial f}{\partial x}\,\,}{\frac{\partial f}{\partial y} } \right)\quad\substack{\text{two solutions}\\\text{between $0$ and $2\pi$!}}\]</span> <img src="slope-as-fxn-of-angle-4.svg" /> We’ve already seen that intuitively—every point has a contour line in both directions; there are two directions you can turn in to make the surface flat. This is the math behind that!</p>
-<p>And if you prefer using the <span class="math inline">\(f_x\)</span> and <span class="math inline">\(f_y\)</span> notation for partial derivatives, which avoids the aesthetic ugliness of these fractions of fractions, you can write this as: <span class="math display">\[ \theta_\text{flat} = -\tan^\text{inv}\left(\frac{f_x}{f_y} \right)\]</span> <img src="slope-as-fxn-of-angle-5.svg" /> Yay!</p>
-<p>How about the angle that makes the slope the biggest? Can we find that?? <img src="slope-as-fxn-of-angle-6.svg" /> We can just use 1VC!!! We have a function for the slope—so we can just take its derivative, set the derivative equal to zero, and solve for the angle!!! To take the derivative, we have: <span class="math display">\[\begin{align*}
-\text{slope}&#39;\left(\theta\right) &amp;= \left(\, \frac{\partial f}{\partial x}\cos\theta + \frac{\partial f}{\partial y}\sin\theta \right)&#39; \\ \\
-&amp;= -\frac{\partial f}{\partial x}\sin\theta + \frac{\partial f}{\partial y}\cos\theta
-\end{align*}\]</span> So then we need to find what angle makes this derivative zero: <span class="math display">\[\text{slope}&#39;\left(\theta_\text{steepest}\right) = 0\]</span> Which will be: <span class="math display">\[ -\frac{\partial f}{\partial x}\sin\theta_\text{steepest} + \frac{\partial f}{\partial y}\cos\theta_\text{steepest}  = 0 \]</span> Of course, note that setting the derivative equal to zero won’t necessarily give us the <em>biggest</em> slope; it’ll also give us the <em>smallest</em> slope. Derivatives being zero give us maxima AND minima (also potentially cubicky indecisive points). But that’s fine; we can deal with that later. So, solving this for theta, we can first move things around: <span class="math display">\[ \frac{\partial f}{\partial y}\cos\theta_\text{steepest} = \frac{\partial f}{\partial x}\sin\theta_\text{steepest} \]</span> And then put the partials on one side and the triggies on the other side: <span class="math display">\[ \frac{\,\, \frac{\partial f}{\partial y}\,\,}{\frac{\partial f}{\partial x}} = \frac{\sin\theta_\text{steepest}}{\cos\theta_\text{steepest}} \]</span> That’s just a tangent: <span class="math display">\[ \frac{\,\, \frac{\partial f}{\partial y}\,\,}{\frac{\partial f}{\partial x}} = \tan\theta_\text{steepest} \]</span> Which we can invert: <span class="math display">\[ \tan^\text{inv}\left( \frac{\,\, \frac{\partial f}{\partial y}\,\,}{\frac{\partial f}{\partial x}} \right)= \theta_\text{steepest} \]</span> Or: <span class="math display">\[\theta_\text{steepest}  = \tan^\text{inv}\left( \frac{\,\, \frac{\partial f}{\partial y}\,\,}{\frac{\partial f}{\partial x}} \right)\]</span> Yay!!! And like before, tangent repeats every <span class="math inline">\(\pi\)</span> (every <span class="math inline">\(180^\circ\)</span>), so there are two solutions here in a full <span class="math inline">\(2\pi\)</span> a.k.a <span class="math inline">\(360^\circ\)</span> revolution of the circle. In other words, there are two points where the ``slope’’ graph is flat—one of which corresponds to the maximum slope and one of which corresponds to the minimum slope. (A derivative being zero doesn’t distinguish between the max and the min.) <span class="math display">\[ \theta_\text{steepest} = \tan^\text{inv}\left(\frac{\,\, \frac{\partial f}{\partial y}\,\,}{\frac{\partial f}{\partial x} } \right)\quad\substack{\text{two solutions}\\\text{between $0$ and $2\pi$!}}\]</span> So we have: <img src="slope-as-fxn-of-angle-7.svg" /> These are both <span class="math inline">\(180^\circ\)</span>, i.e. <span class="math inline">\(\pi\)</span> apart: <img src="slope-as-fxn-of-angle-8.svg" /> And again, maybe it’s more clear to represent the partials as <span class="math inline">\(f_x\)</span> and <span class="math inline">\(f_y\)</span>: <img src="slope-as-fxn-of-angle-9.svg" /> In summary: <img src="slope-as-fxn-of-angle-summary.svg" style="border:0.25pt solid black; padding: 1em;" /></p>
-<p>so in a full <span class="math inline">\(2\pi\)</span> revolution (a full <span class="math inline">\(360^\circ\)</span>), there are TWO values that work here—i.e., two directions we can point in to make the surface flat/the slope zero!</p>
-<p>we could also do all of this in terms of direction/unit vectors instead of angles. that’ll generalize better to higher dimensions!</p>
-<section class="footnotes" role="doc-endnotes">
+<p>We’ve figured out that if we’re on a surface/scalar function—meaning
+a function that takes in some number of inputs and returns only one
+output—and we’re facing in some direction, then to find the slope
+(``directional derivative’’), we can just dot-product the derivative
+vector with the unit/direction vector: <span
+class="math display">\[\substack{\text{the slope}\\\text{in some
+direction}\\\text{at some point}} = (\text{the gradient/derivative
+vector})\cdot (\text{the direction vector})\]</span> If we’re in a 2D
+situation, it gets slightly simpler. The gradient/derivative vector just
+consists of the two partial derivatives (the one in the <span
+class="math inline">\(x\)</span> and the one in the <span
+class="math inline">\(y\)</span>): <span
+class="math display">\[\substack{\text{the slope}\\\text{in some
+direction}\\\text{at some point}} = \begin{bmatrix}\frac{\partial
+f}{\partial x} \\ \\ \frac{\partial f}{\partial y} \end{bmatrix} \cdot
+(\text{the direction vector})\]</span> Likewise, in 2D, it’s easier to
+talk about the direction. In addition to representing it as a
+unit/direction vector, we can also represent it as just a single number,
+an angle: <span class="math display">\[\substack{\text{a direction in
+$\mathbb{R}^2$}\\\text{as an angle}} : \theta\]</span> And any
+direction/unit vector we can write as just a cosine/sine pair of that
+angle: <span class="math display">\[\substack{\text{a direction in
+$\mathbb{R}^2$}\\\text{as a unit vector}} : \left\langle \cos\theta,
+\sin\theta \right\rangle\]</span> So the slope on a 2D surface, when
+you’re facing the direction <span class="math inline">\(\theta\)</span>,
+will be: <span class="math display">\[\begin{align*}
+   \substack{\text{the slope}\\\text{in some direction}\\\text{at some
+point}}  &amp;= \left(\text{gradient/derivative vector}\right) \cdot
+\left(\text{unit/direction vector}\right) \\ \\
+   &amp;= \begin{bmatrix}\frac{\partial f}{\partial x} \\ \frac{\partial
+f}{\partial y} \end{bmatrix} \cdot \begin{bmatrix} \substack{\text{the
+unit/direction vector}\\\text{in the $x$-direction}} \\
+\substack{\text{the unit/direction vector}\\\text{in the $y$-direction}}
+\end{bmatrix} \\ \\
+    &amp;= \begin{bmatrix} \frac{\partial f}{\partial x} \\
+\frac{\partial f}{\partial y}\end{bmatrix} \cdot \begin{bmatrix}
+\cos\theta \\ \sin\theta \end{bmatrix} \\ \\
+    &amp;= \frac{\partial f}{\partial x}\cos\theta  \,\,+\,\,
+\frac{\partial f}{\partial y}\sin\theta
+\end{align*}\]</span> The two partial derivatives are just constants,
+note: <span class="math display">\[ \underbrace{\frac{\partial
+f}{\partial x}}_{\mathclap{\substack{\text{just
+some}\\\text{number}}}}\cos\theta  \quad+\quad
+\underbrace{\frac{\partial f}{\partial
+y}}_{\mathclap{\substack{\text{just
+some}\\\text{number}}}}\sin\theta\]</span> Once we plug in the specific
+values for <span class="math inline">\(x\)</span> and <span
+class="math inline">\(y\)</span>, i.e. the specific values of the
+partials at that point, then the partials are just numbers. It’s like we
+basically have: <span class="math display">\[\text{slope} = a\cos\theta
++ b\sin\theta\]</span> Or, with more detail: <span
+class="math display">\[\text{slope}(\theta) = \frac{\partial f}{\partial
+x}\cos\theta  + \frac{\partial f}{\partial y}\sin\theta\]</span> So we
+have just a simple equation, which is a function of only one variable,
+<span class="math inline">\(\theta\)</span>!!! That means that if we
+want, we can do all of our one-dimensional algebra and calculus on that
+function! We can even draw it!! It’ll look like: <img
+src="slope-as-fxn-of-angle-1.svg" /> Exactly where the intercepts and
+extrema are will depend on the values of <span
+class="math inline">\(\frac{\partial f}{\partial x}\)</span> and <span
+class="math inline">\(\frac{\partial f}{\partial x}\)</span>. But
+basically it looks just like this! Just like a standard trig function!
+It’s just a cosine and a sine, with different coefficients (but the same
+angles), added together! Any sum of a cosine and sine will look like
+this!</p>
+<p>So, what we’re looking at is the angle you’re facing on the
+horizontal axis, and the resulting slope in the direction you’re facing
+on the vertical axis. So, for example, there’s a place where this graph
+has a maximum—and that corresponds to the direction on the original
+surface in which the surface is steepest! <img
+src="slope-as-fxn-of-angle-steepest.svg" /> Likewise, this graph has a
+minimum—which corresponds to the direction on the original surface in
+which the surface is steepest <em>downwards</em>: <img
+src="slope-as-fxn-of-angle-steepest-down.svg" /> And the graph has two
+places where it’s zero (at least between zero and <span
+class="math inline">\(2\pi\)</span>), which correspond to the two
+directions you can turn in on the surface to make it flat (the contour
+directions): <img src="slope-as-fxn-of-angle-flat.svg" /> So, where do
+all these things actually happen?? For example, these two places where
+the original surface is flat (and the graph is zero). Can we compute
+what angle makes that happen?</p>
+<p>(Note that the slope-graph ITSELF isn’t flat at those points—in other
+words, the slope of the slope isn’t zero. This is a graph whose
+<em>output</em> is the slope of the original surface.)</p>
+<p>If we want to calculate the angle we have to turn at to make the
+surface flat, then that’s the same as just finding what angle makes the
+slope <span class="math inline">\(0\)</span>, so we need to find the
+<span class="math inline">\(\theta\)</span> that makes this
+slope-function zero: <span
+class="math display">\[\text{slope}\left(\theta_\text{flat}\right) =
+0\]</span> I.e.: <span class="math display">\[\frac{\partial f}{\partial
+x}\cos\theta_\text{flat} + \frac{\partial f}{\partial
+y}\sin\theta_\text{flat}= 0 \]</span> So, if we move around the sine:
+<span class="math display">\[ - \frac{\partial f}{\partial
+y}\sin\theta_\text{flat} = \frac{\partial f}{\partial
+x}\cos\theta_\text{flat} \]</span> And divide by the cosine: <span
+class="math display">\[ \frac{- \frac{\partial f}{\partial
+y}\sin\theta_\text{flat}}{\cos\theta_\text{flat}} = \frac{\partial
+f}{\partial x} \]</span> And now divide off one of the partials: <span
+class="math display">\[
+\frac{\sin\theta_\text{flat}}{\cos\theta_\text{flat}} = -
+\frac{\,\,\frac{\partial f}{\partial x}\,\,}{\frac{\partial f}{\partial
+y} } \]</span> This is sine over cosine, so it’s a tangent: <span
+class="math display">\[ \tan\theta_\text{flat} =
+-\frac{\,\,\frac{\partial f}{\partial x}\,\,}{\frac{\partial f}{\partial
+y} } \]</span> And then to find the angle we just take the inverse
+tangent: <span class="math display">\[ \theta_\text{flat} =
+\tan^\text{inv}\left(- \frac{\,\,\frac{\partial f}{\partial
+x}\,\,}{\frac{\partial f}{\partial y} } \right)\]</span> You might or
+might not remember that negatives can float in and out of tangents<a
+href="#fn2" class="footnote-ref" id="fnref2"
+role="doc-noteref"><sup>2</sup></a>: <span
+class="math display">\[\text{fun fact: }\quad
+\tan(-\theta)=-\tan\theta\]</span> So if you want to float the negative
+out here, this becomes: <span class="math display">\[ \theta_\text{flat}
+= -\tan^\text{inv}\left(\frac{\,\, \frac{\partial f}{\partial
+x}\,\,}{\frac{\partial f}{\partial y} } \right)\]</span> Yay!!!! So we
+have: <img src="slope-as-fxn-of-angle-3.svg" /> Note that tangent
+repeats every <span class="math inline">\(\pi\)</span> (every <span
+class="math inline">\(180^{\circ}\)</span>), so in a full <span
+class="math inline">\(2\pi\)</span> revolution (a full <span
+class="math inline">\(360^{\circ}\)</span>), there are TWO values that
+work here—i.e., two directions we can point in to make the surface
+flat/the slope zero! <span class="math display">\[ \theta_\text{flat} =
+-\tan^\text{inv}\left(\frac{\,\, \frac{\partial f}{\partial
+x}\,\,}{\frac{\partial f}{\partial y} } \right)\quad\substack{\text{two
+solutions}\\\text{between $0$ and $2\pi$!}}\]</span> <img
+src="slope-as-fxn-of-angle-4.svg" /> We’ve already seen that
+intuitively—every point has a contour line in both directions; there are
+two directions you can turn in to make the surface flat. This is the
+math behind that!</p>
+<p>And if you prefer using the <span class="math inline">\(f_x\)</span>
+and <span class="math inline">\(f_y\)</span> notation for partial
+derivatives, which avoids the aesthetic ugliness of these fractions of
+fractions, you can write this as: <span class="math display">\[
+\theta_\text{flat} = -\tan^\text{inv}\left(\frac{f_x}{f_y}
+\right)\]</span> <img src="slope-as-fxn-of-angle-5.svg" /> Yay!</p>
+<p>How about the angle that makes the slope the biggest? Can we find
+that?? <img src="slope-as-fxn-of-angle-6.svg" /> We can just use 1VC!!!
+We have a function for the slope—so we can just take its derivative, set
+the derivative equal to zero, and solve for the angle!!! To take the
+derivative, we have: <span class="math display">\[\begin{align*}
+\text{slope}&#39;\left(\theta\right) &amp;= \left(\, \frac{\partial
+f}{\partial x}\cos\theta + \frac{\partial f}{\partial y}\sin\theta
+\right)&#39; \\ \\
+&amp;= -\frac{\partial f}{\partial x}\sin\theta + \frac{\partial
+f}{\partial y}\cos\theta
+\end{align*}\]</span> So then we need to find what angle makes this
+derivative zero: <span
+class="math display">\[\text{slope}&#39;\left(\theta_\text{steepest}\right)
+= 0\]</span> Which will be: <span class="math display">\[
+-\frac{\partial f}{\partial x}\sin\theta_\text{steepest} +
+\frac{\partial f}{\partial y}\cos\theta_\text{steepest}  = 0 \]</span>
+Of course, note that setting the derivative equal to zero won’t
+necessarily give us the <em>biggest</em> slope; it’ll also give us the
+<em>smallest</em> slope. Derivatives being zero give us maxima AND
+minima (also potentially cubicky indecisive points). But that’s fine; we
+can deal with that later. So, solving this for theta, we can first move
+things around: <span class="math display">\[ \frac{\partial f}{\partial
+y}\cos\theta_\text{steepest} = \frac{\partial f}{\partial
+x}\sin\theta_\text{steepest} \]</span> And then put the partials on one
+side and the triggies on the other side: <span class="math display">\[
+\frac{\,\, \frac{\partial f}{\partial y}\,\,}{\frac{\partial f}{\partial
+x}} = \frac{\sin\theta_\text{steepest}}{\cos\theta_\text{steepest}}
+\]</span> That’s just a tangent: <span class="math display">\[
+\frac{\,\, \frac{\partial f}{\partial y}\,\,}{\frac{\partial f}{\partial
+x}} = \tan\theta_\text{steepest} \]</span> Which we can invert: <span
+class="math display">\[ \tan^\text{inv}\left( \frac{\,\, \frac{\partial
+f}{\partial y}\,\,}{\frac{\partial f}{\partial x}} \right)=
+\theta_\text{steepest} \]</span> Or: <span
+class="math display">\[\theta_\text{steepest}  = \tan^\text{inv}\left(
+\frac{\,\, \frac{\partial f}{\partial y}\,\,}{\frac{\partial f}{\partial
+x}} \right)\]</span> Yay!!! And like before, tangent repeats every <span
+class="math inline">\(\pi\)</span> (every <span
+class="math inline">\(180^\circ\)</span>), so there are two solutions
+here in a full <span class="math inline">\(2\pi\)</span> a.k.a <span
+class="math inline">\(360^\circ\)</span> revolution of the circle. In
+other words, there are two points where the ``slope’’ graph is flat—one
+of which corresponds to the maximum slope and one of which corresponds
+to the minimum slope. (A derivative being zero doesn’t distinguish
+between the max and the min.) <span class="math display">\[
+\theta_\text{steepest} = \tan^\text{inv}\left(\frac{\,\, \frac{\partial
+f}{\partial y}\,\,}{\frac{\partial f}{\partial x} }
+\right)\quad\substack{\text{two solutions}\\\text{between $0$ and
+$2\pi$!}}\]</span> So we have: <img src="slope-as-fxn-of-angle-7.svg" />
+These are both <span class="math inline">\(180^\circ\)</span>,
+i.e. <span class="math inline">\(\pi\)</span> apart: <img
+src="slope-as-fxn-of-angle-8.svg" /> And again, maybe it’s more clear to
+represent the partials as <span class="math inline">\(f_x\)</span> and
+<span class="math inline">\(f_y\)</span>: <img
+src="slope-as-fxn-of-angle-9.svg" /> In summary: <img
+src="slope-as-fxn-of-angle-summary.svg"
+style="border:0.25pt solid black; padding: 1em;" /></p>
+<p>so in a full <span class="math inline">\(2\pi\)</span> revolution (a
+full <span class="math inline">\(360^\circ\)</span>), there are TWO
+values that work here—i.e., two directions we can point in to make the
+surface flat/the slope zero!</p>
+<p>we could also do all of this in terms of direction/unit vectors
+instead of angles. that’ll generalize better to higher dimensions!</p>
+<section id="footnotes" class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
 <hr />
 <ol>
-<li id="fn1" role="doc-endnote"><p>by Pythagorean-add I mean the square-root-of-all-of-them-squared-added-up<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2" role="doc-endnote"><p>Just like they can with cubic functions—they’re an <strong>odd function</strong>, if you insist on using the fancy name for that phenomenon)(<span class="math inline">\(f(-x) = -f(x)\)</span>).<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>by Pythagorean-add I mean the
+square-root-of-all-of-them-squared-added-up<a href="#fnref1"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Just like they can with cubic functions—they’re an
+<strong>odd function</strong>, if you insist on using the fancy name for
+that phenomenon)(<span class="math inline">\(f(-x) = -f(x)\)</span>).<a
+href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
+<script>
+(function () {
+  const toc = document.querySelector('#TOC');
+  const headings = Array.from(
+    document.querySelectorAll('h1[id], h2[id], h3[id], h4[id]')
+  );
+
+  if (!headings.length || !toc) return;
+
+  // Map heading ids to their TOC anchor elements
+  const tocLinks = {};
+  headings.forEach(h => {
+    const link = document.querySelector(`#TOC a[href="#${h.id}"]`);
+    if (link) tocLinks[h.id] = link;
+  });
+
+  let currentActive = null;
+
+  function setActive(id) {
+    if (id === currentActive) return;
+    if (currentActive && tocLinks[currentActive]) {
+      tocLinks[currentActive].classList.remove('toc-active');
+    }
+    if (id && tocLinks[id]) {
+      tocLinks[id].classList.add('toc-active');
+    }
+    currentActive = id;
+  }
+
+  // Use #toc-start if present, otherwise fall back to #title-block.
+  // TOC becomes visible once that element scrolls above the fold.
+  const trigger = document.querySelector('#toc-start') || document.querySelector('#title-block');
+  if (trigger) {
+    function updateTocVisibility() {
+      const rect = trigger.getBoundingClientRect();
+      if (rect.bottom < 0) {
+        toc.classList.add('toc-visible');
+      } else {
+        toc.classList.remove('toc-visible');
+      }
+    }
+    updateTocVisibility();
+    window.addEventListener('scroll', updateTocVisibility, { passive: true });
+  }
+
+  // Track active section
+  const activeObserver = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setActive(entry.target.id);
+        }
+      });
+
+      // Fallback: long section with no heading visible —
+      // find the last heading that has scrolled above the fold.
+      const anyVisible = headings.some(h => tocLinks[h.id]?.classList.contains('toc-active'));
+      if (!anyVisible) {
+        const scrollY = window.scrollY;
+        let best = null;
+        for (const h of headings) {
+          if (h.offsetTop <= scrollY + window.innerHeight * 0.25) {
+            best = h.id;
+          }
+        }
+        if (best) setActive(best);
+      }
+    },
+    {
+      rootMargin: '0px 0px -75% 0px',
+      threshold: 0,
+    }
+  );
+
+  headings.forEach(h => activeObserver.observe(h));
+})();
+</script>
 </main>
 </body>
 </html>

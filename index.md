@@ -207,9 +207,11 @@ li {
 * [Integration](calculus/integrals-intro/integrals-intro.html)
     * [Some totally unremarkable problems with integrals](calculus/integrals-as-net-area-motivating-problems/integrals-as-net-area-motivating-problems.html) (*exploratory problems*)
     * [Integrals as net area](calculus/integrals-as-net-area/integrals-as-net-area.html) <span style='font-family: sans-serif; color:red; font-weight: bold; font-size: 75%;'>(old)</span>
+    * [notes on some miscellanous area problems with integrals!](calculus/integrals-misc-area-problems/integrals-misc-area-problems.html)
 * [Antiderivatives](calculus/antiderivatives/antiderivatives.html) (*just... several hundred antiderivative problems!*)
 * [Putting Humpty-Dumpty Back Together](calculus/undoing-the-chain-rule/undoing-the-chain-rule.html) (*undoing the chain rule*)
 * [Undoing the product rule](calculus/integration-by-parts/integration-by-parts.html) (*integration by parts *)
+   <!-- * [intuitive, exploratory problems and buildup](calculus/integration-by-parts-intuition/integration-by-parts-intuition.html) -->
     * [Integration by parts: some fun examples](calculus/integration-by-parts-examples/integration-by-parts-examples.html)
     * [Integrating By Parts By Parts By Parts By Parts...](calculus/iterated-integration-by-parts/iterated-integration-by-parts.html) (*iterated integration by parts*)
 * [infinite integrals](calculus/infinite-integrals/infinite-integrals.html) (*people call these "improper integrals," which is silly*)

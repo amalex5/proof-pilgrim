@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>miscellaneous area problems with integrals!!!</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="/main.css" />
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <script src="../highlight-toc.js" type="text/javascript"></script>
+
+  <script> 
+      // disappearing header, from dynomight.net'
+      var prevScrollpos = window.pageYOffset;
+
+      window.onscroll = function() {
+        var currentScrollPos = Math.max(0,window.pageYOffset);
+
+        if (Math.abs(currentScrollPos - prevScrollpos) > 10){
+          if (prevScrollpos > currentScrollPos) {
+            document.querySelector('header').style.top = "0";
+            document.querySelector('header').style.opacity = "75%";
+          } else {
+            document.querySelector('header').style.top = "-60px";
+          }
+          prevScrollpos = currentScrollPos;
+        }
+        if(currentScrollPos==0){
+          document.querySelector('header').style.top = "0";
+          document.querySelector('header').style.opacity = "100%";
+        }
+      }
+    </script>
+
+</head>
+<body>
+  <header>
+  <span id="header-name"><a href="/">the natural history <span style="font-weight:normal;">of abstract objects</span></a></span> <span id="linkback"><a href=http://www.andrusia.com><img src="/andrew-logo.svg" id='header-logo' style='width: auto;'/></a></span>
+</header>
+<script>document.addEventListener('DOMContentLoaded', function(e) {
+  Scroller.init();
+})</script>
+<!-- <aside>
+<div class="tocLinks" >
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#problem-one" id="toc-problem-one">problem one!</a></li>
+<li><a href="#problem-two" id="toc-problem-two">problem two!</a></li>
+<li><a href="#problem-three" id="toc-problem-three">problem
+three!</a></li>
+</ul>
+</nav>
+</div>
+</aside>
+-->
+ 
+<main>
+<div id="title-block">
+<h1 class="title">miscellaneous area problems with integrals!!!</h1>
+</div>
+<h2 id="problem-one">problem one!</h2>
+<blockquote>
+<p>Sketch the polynomial <span class="math inline">\(f(x) = x^5 +
+3\)</span>, and find the area bounded on the top by the polynomial, on
+the left by the <span class="math inline">\(y\)</span>-axis/the line
+<span class="math inline">\(x=0\)</span>; on the right by the line <span
+class="math inline">\(x=7\)</span>, and on the bottom by the <span
+class="math inline">\(x\)</span>-axis/the line <span
+class="math inline">\(y=0\)</span>.</p>
+</blockquote>
+<p>Let’s start by drawing this! This looks like <span
+class="math inline">\(x^5\)</span> (which looks basically like <span
+class="math inline">\(x^3\)</span>), but shifted up by three:</p>
+<p><img src="integrals-area-problems-1-1.svg" style="width:75.0%" /></p>
+<p>Meanwhile, the line <span class="math inline">\(x=7\)</span> is just
+a vertical line at <span class="math inline">\(x=7\)</span>. So the area
+we want to find is this blue shape:</p>
+<p><img src="integrals-area-problems-1-2.svg" style="width:75.0%" /></p>
+<p>To calculate it, we can just take an integral: <span
+class="math display">\[\begin{align*}
+\text{total area} &amp;= (\text{the integral}) \\ \\
+&amp;= \left( \int_{0}^{7} x^3 + 5 \, dx \right) \\ \\
+&amp;= \Bigg[ \frac{1}{4}x^4 + 5x  \Bigg|_{0}^{7} \\ \\
+&amp;= \Bigg(\, \frac{1}{4}7^4 + 5\!\cdot\!7 \,\Bigg) - \Bigg(\,
+\frac{1}{4}0^4 + 5\!\cdot\!0 \,\Bigg) \\ \\
+&amp;= \Bigg(\, \frac{2401}{4} + 35 \,\Bigg) - \Bigg(\, 0 \,\Bigg) \\ \\
+&amp;= \frac{2541}{4} \\ \\
+&amp;= 635.25
+\end{align*}\]</span> Yay!</p>
+<p>Note how this shape is like a rectangle on the base (with width <span
+class="math inline">\(7\)</span> and height <span
+class="math inline">\(7\)</span>) and then the curvy part on top—and how
+we see that come out in the algebra! The rectangular block gives us the
+<span class="math inline">\(5\cdot7=35\)</span> in the integral; the
+curvy parts give us the rest.</p>
+<h2 id="problem-two">problem two!</h2>
+<blockquote>
+<p>Consider the polynomial <span
+class="math inline">\(f(x)=x^{3}+5x^{2}-4x-20\)</span>. Sketch it!
+What’s the total area (the total <em>area</em>, note, as distinct from
+the <em>integral</em>) between it and the horizontal/<span
+class="math inline">\(y\)</span>-axis, between <span
+class="math inline">\(x=-5\)</span> and <span
+class="math inline">\(x=0\)</span>?</p>
+</blockquote>
+<p>Let’s draw this, too! But first we need to factor it. We can factor
+it by grouping. We have: <span class="math display">\[\begin{align*}
+f(x) &amp;= x^3 + 5x^2 - 4x - 20 \\
+&amp;= x^2(x+5) - 4(x+5) \\
+&amp;= \left(x^2-4\right)(x+5) \\
+&amp;= (x+2)(x-2)(x+5)
+\end{align*}\]</span> Great! So then this is a cubic polynomial with a
+<span class="math inline">\(y\)</span>-intercept at <span
+class="math inline">\(y=-20\)</span>, and roots at <span
+class="math inline">\(x=-2\)</span>, <span
+class="math inline">\(x=+2\)</span>, and <span
+class="math inline">\(x=-5\)</span>. So it looks like:</p>
+<p><img src="integrals-area-problems-2-1.svg" style="width:75.0%" /></p>
+<p>And the area we want to find is green shape:</p>
+<p><img src="integrals-area-problems-2-2.svg" style="width:75.0%" /></p>
+<p>But note the complication! Part of this area is above the <span
+class="math inline">\(x\)</span>-axis; part of it is below the <span
+class="math inline">\(x\)</span>-axis. If we just take an integral from
+<span class="math inline">\(x=-5\)</span> to <span
+class="math inline">\(x=0\)</span>, then that chunk below the <span
+class="math inline">\(x\)</span>-axis will count as <em>negative</em>.
+We’ll find the <em>net area</em> of this shape, but not its absolute
+area:</p>
+<p><span class="math display">\[\begin{align*}
+\substack{\text{the area}\\\text{of this shape}} \quad\neq\quad
+\substack{\text{the NET area}\\\text{of this shape}} \quad &amp;=
+\text{(the integral from $x=-5$ to $x=0$)} \\
+&amp;=  \int_{-5}^{0} x^3 + 5x^2 - 4x - 20  \, dx \\ \\
+&amp;= \Bigg[  \frac{1}{4}x^4 + \frac{5}{3}x^3 - 2x^2 -
+20x      \Bigg|_{-5}^{0} \\ \\
+&amp;= \left(  \frac{1}{4}(0)^4 + \frac{5}{3}(0)^3 - 2(0)^2 -
+20(0)  \right) - \left(  \frac{1}{4}(-5)^4 + \frac{5}{3}(-5)^3 - 2(-5)^2
+- 20(-5)  \right) \\ \\
+&amp;= \frac{25}{12}
+\end{align*}\]</span></p>
+<p>So <span class="math inline">\(25/12\)</span> (or about <span
+class="math inline">\(2.08\)</span>) is the <em>net</em> area of this
+shape—the area of the shape above the <span
+class="math inline">\(x\)</span>-axis, minus the area beneath the <span
+class="math inline">\(x\)</span>-axis.</p>
+<p>But that’s not what we want! We want the total area. So to find that,
+we can just split this up into TWO regions. We’ll find the area of the
+shape from <span class="math inline">\(x=-5\)</span> using one integral,
+and then find the area of the shape from <span
+class="math inline">\(x=-2\)</span> to <span
+class="math inline">\(x=0\)</span> using a second integral. But that
+second integral will be negative. So to find the actual area of that
+second part, we’ll just absolute-value (or negate, or erase the existing
+negative) what we get!</p>
+<p>Let’s split it up visually:</p>
+<p><img src="integrals-area-problems-2-3.svg" style="width:75.0%" /></p>
+<p>In other words, we’ll have a calculation like: <span
+class="math display">\[\begin{align*}
+\substack{\text{the area}\\\text{of this shape}} &amp;=
+{\color{purple}  (\text{area of left purple chunk})} + {\color{blue}
+(\text{area of right blue chunk})}  \\ \\
+&amp;= {\color{purple} (\text{integral of left purple chunk})} +
+{\color{blue} (\text{NEGATIVE integral of right blue chunk})} \\ \\
+&amp;= {\color{purple}  \left( \int_{-5}^{-2} x^3 + 5x^2 - 4x - 20  \,
+dx \right) }+ \, {\color{blue} -\left(\int_{-2}^{0} x^3 + 5x^2 - 4x -
+20  \, dx \right)} \\ \\
+&amp;= {\color{purple}  \Bigg[  \frac{1}{4}x^4 + \frac{5}{3}x^3 - 2x^2 -
+20x      \Bigg|_{-5}^{-2}} + \, {\color{blue} -\Bigg[  \frac{1}{4}x^4 +
+\frac{5}{3}x^3 - 2x^2 - 20x  \Bigg|_{-2}^0 } \\ \\
+&amp;= {\color{purple}  \left(  \frac{1}{4}(-2)^4 + \frac{5}{3}(-2)^3 -
+2(-2)^2 - 20(-2)  \right) - \left(  \frac{1}{4}(-5)^4 +
+\frac{5}{3}(-5)^3 - 2(-5)^2 - 20(-5)  \right)} + \\
+&amp;\quad\quad {\color{blue} - \Bigg(\,\, \left( \frac{1}{4}(0)^4 +
+\frac{5}{3}(0)^3 - 2(0)^2 - 20(0)  \right) - \left( \frac{1}{4}(-2)^4 +
+\frac{5}{3}(-2)^3 - 2(-2)^2 - 20(-2)  \right) \,\Bigg)}  \\ \\
+&amp; \text{...perhaps consider whether doing all that arithmetic by
+hand is the best use of your finite time ...} \\ \\
+&amp;= {\color{purple} \frac{99}{4}} \quad+\quad {\color{blue} -
+\left(\frac{-68}{3}\right)} \\ \\
+&amp;= \frac{569}{12} \\ \\
+&amp;= 41.41\overline{6}
+\end{align*}\]</span></p>
+<p>Yay!</p>
+<h2 id="problem-three">problem three!</h2>
+<blockquote>
+<p>Find the area between <span class="math inline">\(y=x\sqrt{x^2 +
+1}\)</span>, <span class="math inline">\(y= e^{-0.5x}\)</span>, <span
+class="math inline">\(x=-3\)</span>, and the <span
+class="math inline">\(y\)</span>-axis.</p>
+</blockquote>
+<p>Another fun area problem! Let’s draw this.</p>
+<p><img src="integrals-area-problems-3-1.svg" style="width:75.0%" /></p>
+<p>This is weird, because the area we want to calculate lies
+simultaneously above and below the <span
+class="math inline">\(x\)</span>-axis! But we can just split it up into
+two shapes, like so:</p>
+<p><img src="integrals-area-problems-3-2.svg" style="width:75.0%" /></p>
+<p>And then, similar as to the last problem, calculate two seperate
+integrals. We’ll do an integral from <span
+class="math inline">\(-3\)</span> to <span
+class="math inline">\(0\)</span> of <span
+class="math inline">\(e^{-0.5x}\)</span> to find the green area. Then
+we’ll do an integral from <span class="math inline">\(-3\)</span> to
+<span class="math inline">\(0\)</span> of <span
+class="math inline">\(x\sqrt{x^2+1}\)</span> to find the purple
+area—except that integral will turn out to be negative, so to find the
+actual purple <em>area</em>, we can just negate (or absolute-value) it.
+Then we’ll add them together!</p>
+<!-- from sage.symbolic.integration.integral import definite_integral
+    
+n(definite_integral( e^(-0.5*x) ,x,-3,0) - definite_integral( x*sqrt(x^2+1) ,x,-3,0)) -->
+<p><span class="math display">\[\begin{align*}
+\text{total area} &amp;= {\color{green} (\text{area of top green chunk})
+}\,\,+\,\, {\color{purple}  (\text{area of bottom purple chunk}) } \\
+&amp;= {\color{green}(\text{integral of top green chunk})} \,\,+\,\,
+{\color{purple} (\text{NEGATIVE integral of bottom purple chunk})} \\ \\
+&amp;= {\color{green}\left( \int_{-3}^0 e^{-\frac12 x}dx \right)} +
+\,{\color{purple}  -\left(\int_{-3}^{0} x\sqrt{x^2+1}\, dx \right) } \\
+\\
+&amp;= {\color{green}\Bigg[ -2e^{-\frac12 x}  \Bigg|_{-3}^0 }\,\,+\, \,
+{\color{purple} -\Bigg[  \frac{1}{6}\left(x^2 + 1\right)^{3/2}
+\Bigg|_{-3}^0  } \\ \\
+&amp;= {\color{green}\Bigg(\, \left(-2e^{-\frac12 0} \right)
+-  \left(-2e^{-\frac12 (-3)} \right)} \Bigg) \\
+&amp;\quad\quad + {\color{purple} - \Bigg(\, \left( \frac{1}{6}\left(0^2
++ 1\right)^{3/2}  \right) - \left( \frac{1}{6}\left((-3)^2 +
+1\right)^{3/2}  \right) \Bigg) } \\ \\
+&amp;= {\color{green} -2 + 2e^{-3/2}  } + {\color{purple} -
+\left(\frac16 - \frac16\sqrt10^{3/2}\right)  } \\
+&amp;\approx {\color{green} 6.963  } + {\color{purple}- -10.21 } \\
+&amp;\approx 17.171
+\end{align*}\]</span></p>
+<p>Note that we actually could have done this in a single integral! In
+our conception of integrals, ignoring the nuances of ``net area,’’ we’ve
+seen that the relationship between integrals and areas is: <span
+class="math display">\[\substack{\text{area between $f(x)$}\\\text{and
+the $y$-axis}} \quad=\quad \int f(x)\, dx \]</span> Of course, the <span
+class="math inline">\(y\)</span>-axis is really just the line <span
+class="math inline">\(y=0\)</span>, so this is: <span
+class="math display">\[\substack{\text{area between $f(x)$}\\\text{and
+the line $y=0$}} \quad=\quad \int f(x)\, dx \]</span> And… what’s
+actually been going on is that we’ve actually been <em>subtracting</em>
+these two lines/curves! We’ve been taking the line/curve on the top,
+<span class="math inline">\(f(x)\)</span>, and subtracting the
+line/curve on the bottom, <span class="math inline">\(y=0\)</span>:
+<span class="math display">\[\substack{\text{area between
+$f(x)$}\\\text{and the line $y=0$}} \quad=\quad \int f(x) - 0\, dx
+\]</span> But we could also have a bottom side of the shape that isn’t
+just the <span class="math inline">\(y\)</span>-axis/the line <span
+class="math inline">\(y=0\)</span>! It cound be any random function!!!
+So if we have some shape with <span class="math inline">\(f(x)\)</span>
+on the top and <span class="math inline">\(g(x)\)</span> on the bottom,
+the area between these two curves is: <span
+class="math display">\[\substack{\text{area between $f(x)$}\\\text{and
+$g(x)$}} \quad=\quad \int f(x) - g(x)\, dx \]</span> Or: <span
+class="math display">\[\substack{\text{area between some top
+function}\\\text{and some bottom function}} \quad=\quad \int (\text{top
+function}) - (\text{bottom function})\, dx \]</span> So the calculation
+we just did would have looked like: <span
+class="math display">\[\begin{align*}
+\substack{\text{area between $e^{-0.5x}$}\\\text{and the line
+$x\sqrt{x^2+1}$}} \quad&amp;= \int_{-3}^0 \left( e^{-0.5x} \right)
+\,\,-\,\, \left( x\sqrt{x^2+1} \right) \,\,dx \\ \\
+&amp;\text{etc.}
+\end{align*}\]</span> Integrals split up along addition and subtraction,
+so this would have resulted in all the same calculations (and the same
+answer). But we would have set it up with just a single integral, which
+feels cleaner!</p>
+<script>
+(function () {
+  const toc = document.querySelector('#TOC');
+  const headings = Array.from(
+    document.querySelectorAll('h1[id], h2[id], h3[id], h4[id]')
+  );
+
+  if (!headings.length || !toc) return;
+
+  // Map heading ids to their TOC anchor elements
+  const tocLinks = {};
+  headings.forEach(h => {
+    const link = document.querySelector(`#TOC a[href="#${h.id}"]`);
+    if (link) tocLinks[h.id] = link;
+  });
+
+  let currentActive = null;
+
+  function setActive(id) {
+    if (id === currentActive) return;
+    if (currentActive && tocLinks[currentActive]) {
+      tocLinks[currentActive].classList.remove('toc-active');
+    }
+    if (id && tocLinks[id]) {
+      tocLinks[id].classList.add('toc-active');
+    }
+    currentActive = id;
+  }
+
+  // Use #toc-start if present, otherwise fall back to #title-block.
+  // TOC becomes visible once that element scrolls above the fold.
+  const trigger = document.querySelector('#toc-start') || document.querySelector('#title-block');
+  if (trigger) {
+    function updateTocVisibility() {
+      const rect = trigger.getBoundingClientRect();
+      if (rect.bottom < 0) {
+        toc.classList.add('toc-visible');
+      } else {
+        toc.classList.remove('toc-visible');
+      }
+    }
+    updateTocVisibility();
+    window.addEventListener('scroll', updateTocVisibility, { passive: true });
+  }
+
+  // Track active section
+  const activeObserver = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setActive(entry.target.id);
+        }
+      });
+
+      // Fallback: long section with no heading visible —
+      // find the last heading that has scrolled above the fold.
+      const anyVisible = headings.some(h => tocLinks[h.id]?.classList.contains('toc-active'));
+      if (!anyVisible) {
+        const scrollY = window.scrollY;
+        let best = null;
+        for (const h of headings) {
+          if (h.offsetTop <= scrollY + window.innerHeight * 0.25) {
+            best = h.id;
+          }
+        }
+        if (best) setActive(best);
+      }
+    },
+    {
+      rootMargin: '0px 0px -75% 0px',
+      threshold: 0,
+    }
+  );
+
+  headings.forEach(h => activeObserver.observe(h));
+})();
+</script>
+</main>
+</body>
+</html>
