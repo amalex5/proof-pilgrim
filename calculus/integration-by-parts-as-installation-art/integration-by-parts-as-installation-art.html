@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>psychedelic zippers: integration by parts as installation art</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="/main.css" />
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <script src="../highlight-toc.js" type="text/javascript"></script>
+
+  <script> 
+      // disappearing header, from dynomight.net'
+      var prevScrollpos = window.pageYOffset;
+
+      window.onscroll = function() {
+        var currentScrollPos = Math.max(0,window.pageYOffset);
+
+        if (Math.abs(currentScrollPos - prevScrollpos) > 10){
+          if (prevScrollpos > currentScrollPos) {
+            document.querySelector('header').style.top = "0";
+            document.querySelector('header').style.opacity = "75%";
+          } else {
+            document.querySelector('header').style.top = "-60px";
+          }
+          prevScrollpos = currentScrollPos;
+        }
+        if(currentScrollPos==0){
+          document.querySelector('header').style.top = "0";
+          document.querySelector('header').style.opacity = "100%";
+        }
+      }
+    </script>
+
+</head>
+<body>
+  <header>
+  <span id="header-name"><a href="/">the natural history <span style="font-weight:normal;">of abstract objects</span></a></span> <span id="linkback"><a href=http://www.andrusia.com><img src="/andrew-logo.svg" id='header-logo' style='width: auto;'/></a></span>
+</header>
+ 
+<main>
+<div id="title-block">
+<h1 class="title">psychedelic zippers: integration by parts as
+installation art</h1>
+</div>
+<p><strong>Integration by parts: it’s a psychedelic two-way
+zipper</strong>. This was the point of my short-lived installation piece
+in the Main Room of Deep Springs College during a calculus class I
+taught in Spring 2026. <img src="DSC_0645_processed_email.jpg" /></p>
+<p>The piece demonstrates two different ways to integrate-by-parts the
+integral: <span class="math display">\[\int\! x^5 \sin(x)\,dx\]</span>
+One way—the “obvious” way; the supposedly “better” way—is to multiply
+together <span class="math inline">\(x^5\)</span> and its derivatives
+with the antiderivatives of sine, summing the result with alternating
+plus-or-minusses.</p>
+To visualize that, here’s a table with <span
+class="math inline">\(x^5\)</span> and its derivatives, together with
+<span class="math inline">\(\sin x\)</span> and its antiderivatives,
+displayed such that differentiation proceeds in the downward direction:
+<style> table { border: none; margin: 1em auto; } tbody { border: none;
+} td { background: whitesmoke; border:.5em solid white; text-align:
+center; padding: 1 em; font-size: 15px; min-width: 5em; } td.pivot {
+background: lightslategrey; color: white; border-color none; } td.meta {
+background: transparent; border: none; font-size: 11px; color: #aaa;
+padding: 2px 0; } td.col-hdr { background: transparent; border: none;
+font-size: 13px; color: #888; padding-bottom: 2px; } td.vdots {
+background: transparent; border: none; font-size: 20px; color: #aaa;
+padding: 2px 0; } td.blank { background: transparent; padding: 2px 0;
+border: none;} </style>
+<table>
+<tbody>
+<tr>
+<td class="blank">
+</td>
+<td class="vdots">
+<span class="math display">\[\vdots\]</span>
+</td>
+</tr>
+<!-- antiderivatives -->
+<tr>
+<td class="blank">
+</td>
+<td>
+<span class="math display">\[-\sin x\]</span>
+</td>
+</tr>
+<tr>
+<td class="blank">
+</td>
+<td>
+<span class="math display">\[-\cos x\]</span>
+</td>
+</tr>
+<tr>
+<td class="blank">
+</td>
+<td>
+<span class="math display">\[\sin x\]</span>
+</td>
+</tr>
+<tr>
+<td class="blank">
+</td>
+<td>
+<span class="math display">\[\cos x\]</span>
+</td>
+</tr>
+<tr>
+<td class="blank">
+</td>
+<td>
+<span class="math display">\[-\sin x\]</span>
+</td>
+</tr>
+<tr>
+<td class="blank">
+</td>
+<td>
+<span class="math display">\[-\cos x\]</span>
+</td>
+</tr>
+<!-- pivot -->
+<tr>
+<td class="pivot">
+<span class="math display">\[{\Large x^5}\]</span>
+</td>
+<td class="pivot">
+<span class="math display">\[{\Large \sin x}\]</span>
+</td>
+</tr>
+<!-- derivatives -->
+<tr>
+<td>
+<span class="math display">\[5x^4\]</span>
+</td>
+<td class="blank">
+</td>
+</tr>
+<tr>
+<td>
+<span class="math display">\[20x^3\]</span>
+</td>
+<td class="blank">
+</td>
+</tr>
+<tr>
+<td>
+<span class="math display">\[60x^2\]</span>
+</td>
+<td class="blank">
+</td>
+</tr>
+<tr>
+<td>
+<span class="math display">\[120x\]</span>
+</td>
+<td class="blank">
+</td>
+</tr>
+<tr>
+<td>
+<span class="math display">\[120\]</span>
+</td>
+<td class="blank">
+</td>
+</tr>
+<tr>
+<td>
+<span class="math display">\[0\]</span>
+</td>
+<td class="blank">
+</td>
+</tr>
+<tr>
+<td>
+<span class="math display">\[0\]</span>
+</td>
+<td class="blank">
+</td>
+</tr>
+<tr>
+<td class="vdots">
+<span class="math display">\[\vdots\]</span>
+</td>
+<td class="blank">
+</td>
+</tr>
+</tbody>
+</table>
+You can imagine picking up these two strands of functions and “folding”
+them togther to create the answer: attaching <span
+class="math inline">\(x^5\)</span> with <span
+class="math inline">\(-\cos x\)</span>, attaching <span
+class="math inline">\(5x^4\)</span> with <span
+class="math inline">\(-\sin x\)</span>, and so forth. We get: <span
+class="math display">\[\begin{align*}
+\int\! x^5 \sin(x)\,dx \quad=\quad &amp;+x^5(- \cos x) \\
+&amp;-5x^4(-\sin x) \\
+&amp;+20x^3\cos x \\
+&amp;-60x^2  \sin x \\
+&amp;+120x(-\cos x) \\
+&amp;-120(-\sin x) \\
+&amp;+ 0\cdot \cos x \\
+&amp;- 0\cdot \sin x \\
+&amp;\quad \vdots
+\end{align*}\]</span> Simplifying the sign (<em>s-i-g-n</em>) stuff, we
+get: <span class="math display">\[\begin{align*}
+\int\! x^5 \sin(x)\,dx \quad=\quad &amp;-x^5\cos x \\
+&amp;+5x^4\sin x \\
+&amp;+20x^3\cos x  \\
+&amp;-60x^2  \sin x \\
+&amp;-120x \cos x \\
+&amp;+120\sin x.
+\end{align*}\]</span> Alternatively, we can make the opposite choice.
+Rather than fold/pair up the derivatives of <span
+class="math inline">\(x^5\)</span> with the antiderivatives of sine, we
+can pair up the derivatives of sine with <em>anti</em>derivatives of
+<span class="math inline">\(x^5\)</span>. The corresponding table then
+looks like:
+<table>
+<tbody>
+<tr>
+<td class="vdots">
+<span class="math display">\[\vdots\]</span>
+</td>
+<td class="blank">
+</td>
+</tr>
+<!-- antiderivatives -->
+<tr>
+<td>
+<span class="math display">\[\dfrac{x^{11}}{332640}\]</span>
+</td>
+<td class="blank">
+</td>
+</tr>
+<tr>
+<td>
+<span class="math display">\[\dfrac{x^{10}}{30240}\]</span>
+</td>
+<td class="blank">
+</td>
+</tr>
+<tr>
+<td>
+<span class="math display">\[\dfrac{x^9}{3024}\]</span>
+</td>
+<td class="blank">
+</td>
+</tr>
+<tr>
+<td>
+<span class="math display">\[\dfrac{x^8}{336}\]</span>
+</td>
+<td class="blank">
+</td>
+</tr>
+<tr>
+<td>
+<span class="math display">\[\dfrac{x^7}{42}\]</span>
+</td>
+<td class="blank">
+</td>
+</tr>
+<tr>
+<td>
+<span class="math display">\[\dfrac{x^6}{6}\]</span>
+</td>
+<td class="blank">
+</td>
+</tr>
+<!-- pivot -->
+<tr>
+<td class="pivot">
+<span class="math display">\[{\Large x^5}\]</span>
+</td>
+<td class="pivot">
+<span class="math display">\[{\Large \sin x}\]</span>
+</td>
+</tr>
+<!-- derivatives -->
+<tr>
+<td class="blank">
+</td>
+<td>
+<span class="math display">\[\cos x\]</span>
+</td>
+</tr>
+<tr>
+<td class="blank">
+</td>
+<td>
+<span class="math display">\[-\sin x\]</span>
+</td>
+</tr>
+<tr>
+<td class="blank">
+</td>
+<td>
+<span class="math display">\[-\cos x\]</span>
+</td>
+</tr>
+<tr>
+<td class="blank">
+</td>
+<td>
+<span class="math display">\[\sin x\]</span>
+</td>
+</tr>
+<tr>
+<td class="blank">
+</td>
+<td>
+<span class="math display">\[\cos x\]</span>
+</td>
+</tr>
+<tr>
+<td class="blank">
+</td>
+<td>
+<span class="math display">\[-\sin x\]</span>
+</td>
+</tr>
+<tr>
+<td class="blank">
+</td>
+<td>
+<span class="math display">\[-\cos x\]</span>
+</td>
+</tr>
+<tr>
+<td class="blank">
+</td>
+<td class="vdots">
+<span class="math display">\[\vdots\]</span>
+</td>
+</tr>
+</tbody>
+</table>
+<p>This gives us: <span class="math display">\[\begin{align*}
+\int\! x^5 \sin(x)\,dx \quad=\quad &amp;+\frac{x^6}{6}\sin x \\ \\
+&amp;-\frac{x^7}{42}\cos x\\ \\
+&amp;+\frac{x^8}{336}(-\sin x) \\ \\
+&amp;-\frac{x^9}{3024}(-\cos x) \\ \\
+&amp;+\frac{x^{10}}{30240} \sin x \\ \\
+&amp;-\frac{x^{11}}{332640} \cos x  \\ \\
+&amp;\quad\vdots
+\end{align*}\]</span> It’s an infinite series!!! In the first way of
+computing this integral, the derivatives of <span
+class="math inline">\(x^5\)</span> eventually zero out, meaning that our
+series terminates. But in this way, we’re using the
+<em>anti</em>derivatives of <span class="math inline">\(x^5\)</span>,
+which never become <span class="math inline">\(0\)</span>, and so the
+series never terminates. We get an infinite series. Spiritually it
+relates closely to Taylor series (a marginally more sophisticated way of
+constructing an infinite series using integration by parts).</p>
+Here’s the full table, with all the derivatives and antiderivatives of
+both functions:
+<table>
+<tbody>
+<tr>
+<td class="vdots">
+<span class="math display">\[\vdots\]</span>
+</td>
+<td class="vdots">
+<span class="math display">\[\vdots\]</span>
+</td>
+</tr>
+<!-- antiderivatives -->
+<tr>
+<td>
+<span class="math display">\[\dfrac{x^{11}}{332640}\]</span>
+</td>
+<td>
+<span class="math display">\[-\sin x\]</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math display">\[\dfrac{x^{10}}{30240}\]</span>
+</td>
+<td>
+<span class="math display">\[-\cos x\]</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math display">\[\dfrac{x^9}{3024}\]</span>
+</td>
+<td>
+<span class="math display">\[\sin x\]</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math display">\[\dfrac{x^8}{336}\]</span>
+</td>
+<td>
+<span class="math display">\[\cos x\]</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math display">\[\dfrac{x^7}{42}\]</span>
+</td>
+<td>
+<span class="math display">\[-\sin x\]</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math display">\[\dfrac{x^6}{6}\]</span>
+</td>
+<td>
+<span class="math display">\[-\cos x\]</span>
+</td>
+</tr>
+<!-- pivot -->
+<tr>
+<td class="pivot">
+<span class="math display">\[{\Large x^5}\]</span>
+</td>
+<td class="pivot">
+<span class="math display">\[{\Large \sin x}\]</span>
+</td>
+</tr>
+<!-- derivatives -->
+<tr>
+<td>
+<span class="math display">\[5x^4\]</span>
+</td>
+<td>
+<span class="math display">\[\cos x\]</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math display">\[20x^3\]</span>
+</td>
+<td>
+<span class="math display">\[-\sin x\]</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math display">\[60x^2\]</span>
+</td>
+<td>
+<span class="math display">\[-\cos x\]</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math display">\[120x\]</span>
+</td>
+<td>
+<span class="math display">\[\sin x\]</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math display">\[120\]</span>
+</td>
+<td>
+<span class="math display">\[\cos x\]</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math display">\[0\]</span>
+</td>
+<td>
+<span class="math display">\[-\sin x\]</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="math display">\[0\]</span>
+</td>
+<td>
+<span class="math display">\[-\cos x\]</span>
+</td>
+</tr>
+<tr>
+<td class="vdots">
+<span class="math display">\[\vdots\]</span>
+</td>
+<td class="vdots">
+<span class="math display">\[\vdots\]</span>
+</td>
+</tr>
+</tbody>
+</table>
+<p>For the demo, I wrote out a half-dozen of each of the
+anti/derivatives on sheets of 8.5x11 paper, and taped them together,
+with a few inches of tape between each sheet so they could dangle.</p>
+<p><img src="DSC_0652_processed_email.jpg" /></p>
+<p>We then taped the top of each column to the ceiling, and taped the
+matching derivative/antiderivative pairs together to create the two
+equivalent answers:</p>
+<p><img src="DSC_0644_processed_email.jpg" /></p>
+<p>It’s like you have a giant <code>X</code>—two strands, connected at
+the middle, a diploid chromosome—and you fold up the two pairs of
+opposite legs together.</p>
+<script>
+(function () {
+  const toc = document.querySelector('#TOC');
+  const headings = Array.from(
+    document.querySelectorAll('h1[id], h2[id], h3[id], h4[id]')
+  );
+
+  if (!headings.length || !toc) return;
+
+  // Map heading ids to their TOC anchor elements
+  const tocLinks = {};
+  headings.forEach(h => {
+    const link = document.querySelector(`#TOC a[href="#${h.id}"]`);
+    if (link) tocLinks[h.id] = link;
+  });
+
+  let currentActive = null;
+
+  function setActive(id) {
+    if (id === currentActive) return;
+    if (currentActive && tocLinks[currentActive]) {
+      tocLinks[currentActive].classList.remove('toc-active');
+    }
+    if (id && tocLinks[id]) {
+      tocLinks[id].classList.add('toc-active');
+    }
+    currentActive = id;
+  }
+
+  // Use #toc-start if present, otherwise fall back to #title-block.
+  // TOC becomes visible once that element scrolls above the fold.
+  const trigger = document.querySelector('#toc-start') || document.querySelector('#title-block');
+  if (trigger) {
+    function updateTocVisibility() {
+      const rect = trigger.getBoundingClientRect();
+      if (rect.bottom < 0) {
+        toc.classList.add('toc-visible');
+      } else {
+        toc.classList.remove('toc-visible');
+      }
+    }
+    updateTocVisibility();
+    window.addEventListener('scroll', updateTocVisibility, { passive: true });
+  }
+
+  // Track active section
+  const activeObserver = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setActive(entry.target.id);
+        }
+      });
+
+      // Fallback: long section with no heading visible —
+      // find the last heading that has scrolled above the fold.
+      const anyVisible = headings.some(h => tocLinks[h.id]?.classList.contains('toc-active'));
+      if (!anyVisible) {
+        const scrollY = window.scrollY;
+        let best = null;
+        for (const h of headings) {
+          if (h.offsetTop <= scrollY + window.innerHeight * 0.25) {
+            best = h.id;
+          }
+        }
+        if (best) setActive(best);
+      }
+    },
+    {
+      rootMargin: '0px 0px -75% 0px',
+      threshold: 0,
+    }
+  );
+
+  headings.forEach(h => activeObserver.observe(h));
+})();
+</script>
+</main>
+</body>
+</html>

@@ -31,6 +31,8 @@
   <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
+  <script src="../highlight-toc.js" type="text/javascript"></script>
+
   <script> 
       // disappearing header, from dynomight.net'
       var prevScrollpos = window.pageYOffset;
@@ -59,18 +61,28 @@
   <header>
   <span id="header-name"><a href="/">the natural history <span style="font-weight:normal;">of abstract objects</span></a></span> <span id="linkback"><a href=http://www.andrusia.com><img src="/andrew-logo.svg" id='header-logo' style='width: auto;'/></a></span>
 </header>
+<script>document.addEventListener('DOMContentLoaded', function(e) {
+  Scroller.init();
+})</script>
+<aside>
+<div class="tocLinks" >
 <nav id="TOC" role="doc-toc">
 <ul>
+<li><a href="#intro" id="toc-intro">intro</a></li>
 <li><a href="#visually" id="toc-visually">visually</a></li>
 <li><a href="#algebraically"
 id="toc-algebraically">algebraically</a></li>
 <li><a href="#problems" id="toc-problems">Problems</a></li>
 </ul>
 </nav>
+</div>
+</aside>
+ 
 <main>
 <div id="title-block">
 <h1 class="title">what’s the derivative of inverse tangent?</h1>
 </div>
+<h2 style="display:none;" id="intro">intro</h2>
 <p>What’s the derivative of inverse tangent? Who knows?!?</p>
 <h2 id="visually">visually</h2>
 <p>OK, let’s see if we can think about this visually. (Of course we

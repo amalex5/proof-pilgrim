@@ -2,7 +2,10 @@
 title: Fraction Fission/Blowing Up Quotients
 usemathjax: true
 layout: post
+toc: true
 ---
+
+## intro {style='display:none;'}
 
 Here's how Richard Rhodes starts *The Making of the Atomic Bomb*:
 

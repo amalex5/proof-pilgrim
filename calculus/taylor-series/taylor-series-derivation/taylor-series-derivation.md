@@ -2,8 +2,10 @@
 title: whence taylor series
 usemathjax: true
 layout: post
+toc: true
 ---
 
+## intro {style='display:none;'}
 
 
 > I'm writing these notes for you MVC'ers intended as your *second* exposure to Taylor series. I'm going to spend most of them talking about how to derive Taylor series, and not so much time motivating it. I'm guessing that in the excitement of Zoom learning last year, the actual proof/derivation/argument behind Taylor series didn't quite get the appreciation it deserves.

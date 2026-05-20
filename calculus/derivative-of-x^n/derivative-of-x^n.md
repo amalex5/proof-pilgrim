@@ -2,8 +2,10 @@
 title: the derivative of $x^n$ is $nx^{n-1}$
 usemathjax: true
 layout: post
+toc: true
 ---
 
+## intro {style='display:none;'}
 
 
 We've taken lots of derivatives. We've started to notice a pattern. Visually, we've seen that the slope of a polynomial appears to be one degree less than the polynomial itself. Algebraically, we've done tedious calculations with Fermat's Difference Quotient, and have figured out:

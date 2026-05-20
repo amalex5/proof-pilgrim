@@ -2,8 +2,10 @@
 title: systems integration
 usemathjax: true
 layout: post
+toc: true
 ---
 
+## for all the formulas and formalism {style='display:none;'}
 
 
 **For all the formulas and the formalism**, despite the rigors of the difference quotient and the difficulties of the quotient rule, calculus is about just two ideas: slopes and areas. These are two ideas that seem to have nothing in common with each other. And yet---as Newton and Leibniz discovered---these two operations are not only related, *they are the same operation*. Or, rather, they are inverses of each other: if we have a function, and we take its derivative, we get its slope. If we have a function and we take an antiderivative, we get its area. It makes sense that “slope” and “derivative” should be equivalent, since that was our very purpose in coming up with the formal idea of the derivative, but Newton and Leibniz's remarkable realization was that *area is just an antiderivative*.

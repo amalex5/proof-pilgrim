@@ -2,7 +2,10 @@
 title: Melting Down Matryoshka Dolls
 usemathjax: true
 layout: post
+toc: true
 ---
+
+## intro {style='display:none;'}
 
 
 Here's Ivan, arguing with Alyosha, in the *Brothers Karamazov*:

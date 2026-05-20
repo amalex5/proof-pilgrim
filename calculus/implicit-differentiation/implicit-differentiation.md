@@ -2,6 +2,7 @@
 title: (implicit) differentiation
 usemathjax: true
 layout: post
+toc: true
 ---
 
 

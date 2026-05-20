@@ -2,6 +2,7 @@
 title: slopes on surfaces
 usemathjax: true
 layout: post
+toc: true
 ---
 
 

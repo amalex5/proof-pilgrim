@@ -2,8 +2,10 @@
 title: Numbers, Complicated.
 usemathjax: true
 layout: post
+toc: true
 ---
 
+## intro {style='display:none;'}
 
 **You cannot take the square root of a negative number.** Imagine you want to find the square root of $-25$:
 

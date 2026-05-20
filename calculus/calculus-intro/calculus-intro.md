@@ -2,8 +2,10 @@
 title:  "Calculus: In The Beginning Was The Derivative"
 usemathjax: true
 layout: post
+toc: true
 ---
 
+## intro {style='display:none;'}
 
 **In 1665, the bubonic plague swept across England.** Twenty-five percent of the population died. King Charles II and his court escaped London for the relative safety of the countryside. Oxford and Cambridge Universities both shut down, sending all the students home. Forced to return to his hometown of Woolsthorpe-by-Colsterworth and continue his mathematical explorations by himself was one young student named Isaac Newton. It was then and there that he discovered calculus.
 

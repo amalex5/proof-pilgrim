@@ -2,8 +2,10 @@
 title: Painting Perfect Polynomials
 usemathjax: true
 layout: post
+toc: true
 ---
 
+## What's a polynomial? {style='display:none;'}
 
 **Polynomials! They're great!** You've known about them for years! Algebraically, they're expressions that look like:
 

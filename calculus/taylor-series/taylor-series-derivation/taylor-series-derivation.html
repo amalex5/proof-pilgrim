@@ -31,6 +31,8 @@
   <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
+  <script src="../highlight-toc.js" type="text/javascript"></script>
+
   <script> 
       // disappearing header, from dynomight.net'
       var prevScrollpos = window.pageYOffset;
@@ -59,8 +61,14 @@
   <header>
   <span id="header-name"><a href="/">the natural history <span style="font-weight:normal;">of abstract objects</span></a></span> <span id="linkback"><a href=http://www.andrusia.com><img src="/andrew-logo.svg" id='header-logo' style='width: auto;'/></a></span>
 </header>
+<script>document.addEventListener('DOMContentLoaded', function(e) {
+  Scroller.init();
+})</script>
+<aside>
+<div class="tocLinks" >
 <nav id="TOC" role="doc-toc">
 <ul>
+<li><a href="#intro" id="toc-intro">intro</a></li>
 <li><a href="#whence-taylor-series-try-1"
 id="toc-whence-taylor-series-try-1">Whence Taylor Series, Try
 #1</a></li>
@@ -69,10 +77,14 @@ id="toc-whence-taylor-series-try-2">Whence Taylor Series, Try
 #2</a></li>
 </ul>
 </nav>
+</div>
+</aside>
+ 
 <main>
 <div id="title-block">
 <h1 class="title">whence taylor series</h1>
 </div>
+<h2 style="display:none;" id="intro">intro</h2>
 <blockquote>
 <p>I’m writing these notes for you MVC’ers intended as your
 <em>second</em> exposure to Taylor series. I’m going to spend most of

@@ -2,7 +2,10 @@
 title: Dffrntn Shrtcts
 usemathjax: true
 layout: post
+toc: true
 ---
+
+## intro {style='display:none;'}
 
 
 **We've been calculating slopes**. Or, to use a fancier word, we've been taking derivatives. What do we know about how these creatures behave?

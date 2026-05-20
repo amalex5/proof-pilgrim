@@ -2,8 +2,10 @@
 title: The Dream of Rational Functions
 usemathjax: true
 layout: post
+toc: true
 ---
 
+## intro {style='display:none;'}
 
 **In the beginning** were the natural numbers:
 

@@ -2,6 +2,7 @@
 title: Optimization
 usemathjax: true
 layout: post
+toc: true
 ---
 
 
@@ -11,6 +12,7 @@ layout: post
 > <span style='text-align:right;'>---T.S. Eliot, *East Coker*, 192-4</span>
 
 <div style='height:5em'></div>
+## intro {style='display:none;'}
 
 
 Our entire exploration of calculus began back in December with a single question:

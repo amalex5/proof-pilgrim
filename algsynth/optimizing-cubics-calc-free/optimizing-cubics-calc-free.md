@@ -2,12 +2,15 @@
 title: CALC-FREE CUBIC OPTIMIZATION GRINDFEST
 usemathjax: true
 layout: post
+toc: true
 ---
 
 
 <div style='margin-left:2em; margin-right: 2em; margin-bottom: 4em; font-style: italic; font-size: 90%;'>Hi everyone! This is Andrew, Tuesday, 10/14/2025. As promised, here are my notes on our fun cubic optimization technique. They're hot off the presses, so they probably contain typos and infelicities---read them carefully and skeptically! Take pleasure in pointing out my errors!
 
 I hope it was a good challenge for you to work out cubic optima on the last few problem sets *without* having the safety blanket of my notes. Instead you had rely entirely on your own in-class notes and our discussions. That's different than the way we've been doing things for most of the semester---where you've always had my notes to rely on as you do your problem sets---and I think that mildly different, mildly spicier and scarier mode, is worthwhile as a different way to play in mathematics!</div>
+
+## Mo Beck and John Carter {style='display:none;'}
 
 One of my favorite professional rock climbers is Mo Beck. She's an impressive elite climber for any number of reasons... but who's even more impressive when you learn that she has only one hand. She's a one-and-a-half-armed climber who still climbs 5.13.
 
@@ -42,7 +45,7 @@ So, comparing it to the other way of writing a cubic with a double root at the o
 $$a(x-h)^3 + b(x-h)^2 + c(x-h) + d \quad+k \quad=\quad x^2(x-\text{blah})$$
 This seems hard. 5.13 for sure. And this is all very abstract, so:
 
-### Let's dive into a concrete example!!!
+## Let's dive into a concrete example!!!
 
 Abstraction is tough. Let's deal with the SPECIFIC and the CONCRETE, as Aristotle always reminds us! When problems are too hard: just do an easier problem! 
 

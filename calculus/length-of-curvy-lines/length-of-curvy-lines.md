@@ -2,9 +2,12 @@
 title: How long are curvy lines??
 usemathjax: true
 layout: post
+toc: true
 ---
 
 > *This is a bit of a digression. We're actually going to start the year by doing a lot of* not*-calculus. In order to do calculus in higher dimensions, we first need to learn how to live in the higher-dimensional world. That's what we're going to spend the first few months of this class doing---learning a hacky, quick-and-dirty version of **linear algebra**, as the fundamental tool we use to do higher-dimensional calculus with. But, because this* is *a calculus class, I wanted to start us off with some calculus! This is a fun derivation in one-dimensional calculus that you probably haven't seen before, and a lot of the ideas that come up foreshadow some big themes in MVC.*
+
+## intro {style='display:none;'}
 
 
 How long are curvy lines? We know how to find the slopes of curvy lines. We know how to find the areas beneath curvy lines. But how do we find the *lengths* of curvy lines???

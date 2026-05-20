@@ -2,7 +2,10 @@
 title: what's the derivative of inverse tangent?
 usemathjax: true
 layout: post
+toc: true
 ---
+
+## intro {style='display:none;'}
 
 
 What's the derivative of inverse tangent? Who knows?!?
